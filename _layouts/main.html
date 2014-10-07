@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>{{ page.title }}</title>
+
+  <meta name="author" content="{{ site.author.name }}" />
+  <meta name="description" content="{{ site.description }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!--  <link rel="alternate" type="application/rss+xml" --
+  --  href="/atom.xml" /> -->
+
+  <link href="/css/up.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'
+  rel='stylesheet' type='text/css'>
+
+  <!--[if lt IE 9]>
+  <link href="/css/font-awesome-ie7.css" rel="stylesheet">
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link rel="apple-touch-icon" href="/apple-touch-icon.jpg" />
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">{{ site.title }}</a>
+	<ul class="nav">
+          <li><a href="/doxygen/news.html">News</a></li>
+        </ul>
+        <ul class="nav">
+          <li><a href="/download.html">Download</a></li>
+        </ul>
+        <ul class="nav">
+          <li><a href="/documentation.html">Documentation</a></li>
+        </ul>
+        <ul class="nav">
+          <li><a href="/examples.html">Examples</a></li>
+        </ul>
+	<ul class="nav">
+          <li><a href="/publications.html">Publications</a></li>
+        </ul>
+        <ul class="nav">
+          <li><a href="/support.html">Support</a></li>
+        </ul>
+        <!-- <ul class="nav pull-right"> -->
+        <!--   <li> -->
+        <!--     <a href="/atom.xml" title="Atom Feed"> -->
+        <!--       <i class="icon-rss icon-large"></i> -->
+        <!--     </a> -->
+        <!--   </li> -->
+        <!-- </ul> -->
+      </div>
+    </div>
+  </div>
+
+  <a href="https://github.com/mtex-toolbox/mtex">
+    <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 1050"
+         src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"
+         alt="Fork me on GitHub"/>
+  </a>
+
+  <div class="container">
+    {{ content }}
+  </div>
+
+  <div id="footer">
+    <section class="meta">
+      <div class="container">
+        <div class="row">
+          <div class="span3"></div>
+          <div class="span2"></div>
+          <div class="span3"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
