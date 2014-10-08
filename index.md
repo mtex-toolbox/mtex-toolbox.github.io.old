@@ -13,8 +13,8 @@ textures by means of EBSD or pole figure data.
 
 #### Requirements and Licensing
 
-MTEX runs in standard Matlab with no toolboxes required. You will be up and
-running in seconds.
+MTEX is free and runs in standard Matlab with no toolboxes required. You will
+be up and running in seconds.
 
 
 #### Troubleshooting, Bugs, Contact and Mailing List
