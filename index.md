@@ -37,10 +37,10 @@ be up and running in seconds.
 	<th><a href="files/doc/CrystalGeometry.html">Tensors</a></th>
   </tr>
   <tr>
-	<td align="center"><img src="files/pic/cubic.jpg" align="center" alt=""  border="0"/></td>
-	<td align="center"><img src="files/pic/pf.jpg"     alt=""  border="0" ></td>
-	<td align="center"><img src="files/pic/odf.jpg"    alt=""  border="0" ></td>
-	<td align="center"><img src="files/pic/tensor.jpg" alt=""  border="0" ></td>
+	<td align="center"><img src="files/pic/cubic.jpg" width = "230" align="center" alt=""  border="0"/></td>
+	<td align="center"><img src="files/pic/pf.jpg"    width = "230" alt=""  border="0" ></td>
+	<td align="center"><img src="files/pic/odf.jpg"  width = "230"  alt=""  border="0" ></td>
+	<td align="center"><img src="files/pic/tensor.jpg" width = "230" alt=""  border="0" ></td>
   </tr>
   <tr>
   	<th><a href="files/doc/EBSDAnalysis.html">EBSD</a></th>
@@ -49,9 +49,9 @@ be up and running in seconds.
 	<th><a href="files/doc/Plotting.html">Plotting</a></th>
   </tr>
   <tr>
-	<td align="center"><img src="files/pic/ebsdDoc.jpg" align="center" alt=""  border="0"/></td>
-	<td align="center"><img src="files/pic/grains.jpg"     alt=""  border="0" ></td>
-	<td align="center"><img src="files/pic/boundary.jpg"    alt=""  border="0" ></td>
-	<td align="center"><img src="files/pic/plotting.jpg" alt=""  border="0" ></td>
+	<td align="center"><img src="files/pic/ebsdDoc.jpg" width = "230" align="center" alt=""  border="0"/></td>
+	<td align="center"><img src="files/pic/grains.jpg"  width = "230" alt=""  border="0" ></td>
+	<td align="center"><img src="files/pic/boundary.jpg" width = "230" alt=""  border="0" ></td>
+	<td align="center"><img src="files/pic/plotting.jpg" width = "230" alt=""  border="0" ></td>
   </tr>
 </table>
