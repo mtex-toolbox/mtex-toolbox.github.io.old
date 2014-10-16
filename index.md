@@ -29,7 +29,8 @@ be up and running in seconds.
 
 ### Users Guide ###
 
-<table border='0' cellpadding='5' style="width:100%"><tr>
+<table border='0' cellpadding='5' width = "940px" style="width:100%" >
+  <tr>
 	<th><a href="files/doc/CrystalGeometry.html">Crystal Geometry</a></th>
 	<th><a href="files/doc/CrystalGeometry.html">Pole Figures</a></th>
 	<th><a href="files/doc/CrystalGeometry.html">ODFs</a></th>
@@ -47,11 +48,10 @@ be up and running in seconds.
 	<th><a href="files/doc/CrystalGeometry.html">Grain Boundaries</a></th>
 	<th><a href="files/doc/Plotting.html">Plotting</a></th>
   </tr>
-    <tr>
+  <tr>
 	<td align="center"><img src="files/pic/ebsdDoc.jpg" align="center" alt=""  border="0"/></td>
 	<td align="center"><img src="files/pic/grains.jpg"     alt=""  border="0" ></td>
 	<td align="center"><img src="files/pic/boundary.jpg"    alt=""  border="0" ></td>
 	<td align="center"><img src="files/pic/plotting.jpg" alt=""  border="0" ></td>
   </tr>
-
 </table>
