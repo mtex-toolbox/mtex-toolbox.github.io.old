@@ -3,9 +3,19 @@ title: Download
 layout: main
 ---
 
+### Installation ###
 
+1. download and extract the zip file to an arbitrary folder
+2. start Matlab
+3. change the current folder in Matlab to the folder where MTEX is installed
+4. type `startup_mtex` into the command window
 
-File Name  | Release Date | Comments | Downloads
-:-----------|:--------------|:----------|----------:
-**mtex-4.0.0** | October 2014  | MTEX 4.0 introduces a lot of new features and syntax| 0
-**mtex-3.5.0** | December 2013  |          | 0
+In case you experience any problems have a look at our [trouble shooting page]()
+
+### Downloads ###
+
+File Name  |||  Release Notes||| Comments ||| Downloads
+:-|-|-|:-|-|-|:-|-|-|-
+[**mtex-4.0.0.zip**]() ||| October 2014    ||| major release with many new features and syntax changes, [changelog]() ||| 0
+[**mtex-3.5.0.zip**]() ||| December 2013   ||| minor release, [changelog]()||| 0
+[**mtex-3.4.0.zip**]() ||| June 2013       ||| minor release, [changelog]()||| 0
