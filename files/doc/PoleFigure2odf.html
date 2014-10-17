@@ -1,0 +1,223 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>ODF Estimation from Pole Figure Data (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: PoleFigure2odf -->
+      <!-- HEADSTUFF: PoleFigure2odf -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:PoleFigure2odf">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/files/doc/index.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>ODF Estimation from Pole Figure Data</h1>
+         <div class="subheading">
+            <p>This page describes how to use MTEX to estimate an ODF from pole figure data.</p>
+         </div>
+         <div>
+            <table class="content">
+               <tr>
+                  <td class="header">On this page ...</td>
+               </tr>
+               <tr>
+                  <td><a href="#5">ODF Estimation</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#8">Error analyis</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#11">Discretization</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#13">Zero Range Method</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#14">Ghost Corrections</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#15">Theory</a></td>
+               </tr>
+            </table>
+         </div>
+         <p>Starting point of any ODF reconstruction is a <a href="PoleFigure_index.html">PoleFigure</a> object which can be created e.g. by
+         </p><pre class="codeinput">mtexdata <span class="string">dubna</span></pre><p>See <a href="ImportPoleFigureData.html">interfaces</a> for more infomations how to import pole figure data and to create a pole figure object.
+         </p><pre class="codeinput"><span class="comment">% plot pole figures</span>
+plot(pf)</pre><img src="PoleFigure2odf_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>ODF Estimation<a name="5"> </a></h2>
+         <p>ODF estimation from a pole figure object is done by the function <a href="PoleFigure.calcODF.html">calcODF</a>. The most simplest syntax is
+         </p><pre class="codeinput">odf = calcODF(pf)</pre><pre class="codeoutput">------ MTEX -- PDF to ODF inversion ------------------
+Call c-routine
+initialize solver
+start iteration
+error: 7.7539E-01 5.7317E-01 3.5061E-01 2.0710E-01 1.7558E-01 1.6249E-01 1.5329E-01 1.4843E-01 1.4458E-01 1.4200E-01 1.3991E-01 
+Finished PDF-ODF inversion.
+error: 1.3991E-01
+alpha: 7.7654E+01 7.1704E+00 1.0018E+02 9.7173E+01 4.9029E+01 6.5072E+01 1.4453E+02 
+required time: 12s
+ 
+odf = ODF  
+  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
+  specimen symmetry: 1
+ 
+  Radially symmetric portion:
+    kernel: de la Vallee Poussin, halfwidth 5&deg;
+    center: 19848 orientations, resolution: 5&deg;
+    weight: 1
+ 
+</pre><p>There are a lot of options to the function <a href="PoleFigure.calcODF.html">calcODF</a>. You can specify the discretization, the functional to minimize, the number of iteration or regularization to be applied.
+            Furthermore you can specify ghost correction or the zero range method to be applied. These options are discussed below.
+         </p>
+         <p>You may want to verify that the pole figures are reproduced. Here is a plot of the computed pole figures.</p><pre class="codeinput">plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>,<span class="string">'superposition'</span>,c)</pre><img src="PoleFigure2odf_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Error analyis<a name="8"> </a></h2>
+         <p>For a more quantitative description of the reconstruction quality one can use the function <a href="PoleFigure.calcError.html">calcError</a> to compute the fit between the reconstructed ODF and the measured pole figure intensities. The following measured are available:
+         </p>
+         <div>
+            <ul type="square">
+               <li>RP - error</li>
+               <li>L1 - error</li>
+               <li>L2 - error</li>
+            </ul>
+         </div><pre class="codeinput">calcError(pf,odf,<span class="string">'RP'</span>,1)</pre><pre class="codeoutput">ans =
+    0.6847    0.7962    0.2231    0.2387    0.5833    0.6133    0.4652
+</pre><p>In order to recognize bad pole figure intensities it is often usfull to plot difference pole figures between the normalized
+            measured intensities and the recalculated ODF. This can be done by the command <a href="PoleFigure.plotDiff.html">PlotDiff</a>.
+         </p><pre class="codeinput">plotDiff(pf,odf)</pre><img src="PoleFigure2odf_03.png"> <p>Assuming you have drived two ODFs from different pole figure measurements or by ODF modelling. Then one can ask for the difference
+            between both. This difference is computet by the command <a href="ODF.calcError.html">calcError</a>.
+         </p><pre class="codeinput"><span class="comment">% define a unimodal ODF with the same modal orientation</span>
+odf_model = unimodalODF(calcModes(odf),<span class="string">'halfwidth'</span>,15*degree)
+
+<span class="comment">% plot the pole figures</span>
+plotPDF(odf_model,h,<span class="string">'antipodal'</span>,<span class="string">'superposition'</span>,c)
+
+<span class="comment">% compute the difference</span>
+calcError(odf_model,odf)</pre><pre class="codeoutput"> 
+odf_model = ODF  
+  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
+  specimen symmetry: 1
+ 
+  Radially symmetric portion:
+    kernel: de la Vallee Poussin, halfwidth 15&deg;
+    center: (136&deg;,36&deg;,203&deg;)
+    weight: 1
+ 
+ans =
+    0.4672
+</pre><img src="PoleFigure2odf_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Discretization<a name="11"> </a></h2>
+         <p>In MTEX the ODF is approximated by a superposition of up to 10,000,000 unimodal components. By exact number and position of
+            these  components, as well as its shape can be specified by the user. By default the positions are chosen equispaced in the
+            orientation space with 1.5 times the resolution of the pole figures and the components are de la Vallee Poussin shaped with
+            the same halfwidth as the resoltion of the positions.
+         </p>
+         <p>Next an example how to change the default resolution:</p><pre class="codeinput">odf = calcODF(pf,<span class="string">'resolution'</span>,15*degree)
+plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>,<span class="string">'superposition'</span>,c)</pre><pre class="codeoutput">------ MTEX -- PDF to ODF inversion ------------------
+Call c-routine
+initialize solver
+start iteration
+error: 7.7540E-01 6.2888E-01 5.0182E-01 4.1174E-01 3.5202E-01 3.1694E-01 3.0000E-01 2.9144E-01 2.8643E-01 2.8344E-01 2.8156E-01 
+Finished PDF-ODF inversion.
+error: 2.8156E-01
+alpha: 7.9038E+01 7.1459E+00 9.7637E+01 1.0892E+02 4.9603E+01 6.4625E+01 1.3932E+02 
+required time: 1s
+ 
+odf = ODF  
+  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
+  specimen symmetry: 1
+ 
+  Radially symmetric portion:
+    kernel: de la Vallee Poussin, halfwidth 15&deg;
+    center: 736 orientations, resolution: 15&deg;
+    weight: 1
+ 
+</pre><img src="PoleFigure2odf_05.png"> <p>Beside the resolution you can use the following options to change the default discretization:</p>
+         <div>
+            <ul type="square">
+               <li><b>kernel</b> to specify a specific kernel function
+               </li>
+               <li><b>halfwidth</b> to take the default kernel with a specific halfwidth
+               </li>
+            </ul>
+         </div>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Zero Range Method<a name="13"> </a></h2>
+         <p>If the flag <b>zero_range</b> is set the ODF is forced to be zero at all orientation where there is a corresponding zero in the pole figure. This technique
+            is especially usfull for sharp ODF with large areas in the pole figure beeing zero. In this case the calculation time is greatly
+            improved and much higher resolution of the ODF can be achived.
+         </p>
+         <p>In the following example the zero range method is applied with a the treshhold 100. For more options to control the zero range
+            method see the documentation of <a href="PoleFigure.zero_range.html">zero_range</a> or <a href="PoleFigure.plot_zero_range.html">plot_zero_range</a>.
+         </p><pre class="codeinput">odf = calcODF(pf,<span class="string">'zero_range'</span>)
+plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>,<span class="string">'superposition'</span>,c)</pre><pre class="codeoutput">------ MTEX -- PDF to ODF inversion ------------------
+applying zero range method to (02-21)...... - reduction: 4594 / 19848
+applying zero range method to (10-10)...... - reduction: 2595 / 19848
+applying zero range method to (01-11)(10-11)...... - reduction: 2595 / 19848
+applying zero range method to (10-12)...... - reduction: 2305 / 19848
+applying zero range method to (11-20)...... - reduction: 2215 / 19848
+applying zero range method to (11-21)...... - reduction: 2109 / 19848
+applying zero range method to (11-22)...... - reduction: 2027 / 19848
+Call c-routine
+initialize solver
+start iteration
+error: 4.4290E-01 2.2148E-01 1.6514E-01 1.5403E-01 1.4907E-01 1.4629E-01 1.4418E-01 1.4270E-01 1.4139E-01 1.4032E-01 1.3928E-01 
+Finished PDF-ODF inversion.
+error: 1.3928E-01
+alpha: 7.8423E+01 7.3800E+00 9.9737E+01 9.5158E+01 5.0474E+01 6.6577E+01 1.4213E+02 
+required time: 5s
+ 
+odf = ODF  
+  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
+  specimen symmetry: 1
+ 
+  Radially symmetric portion:
+    kernel: de la Vallee Poussin, halfwidth 5&deg;
+    center: 2027 orientations, resolution: 5&deg;
+    weight: 1
+ 
+</pre><img src="PoleFigure2odf_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Ghost Corrections<a name="14"> </a></h2>
+         <p><i>Ghost correction</i> is a technique first introduced by Matthies that increases the uniform portion of the estimated ODF to reduce the so called
+            <i>ghost error</i>. It applies especially useful in the case of week ODFs. The classical example is the <a href="SantaFe_demo.html">SantaFe model ODF</a>. An analysis of the approximation error under ghost correction can be found <a href="PoleFigureSimulation_demo.html">here</a></p>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Theory<a name="15"> </a></h2>
+         <p>ODF estimation in MTEX is based upon the modified least squares estimator. The functional that is minimized is</p>
+         <p><img src="PoleFigure2odf_eq17823198619542376006.png"> </p>
+         <p>A precise description of the estimator and the algorithm can be foun in the paper <i>Pole Figure Inversion - The MTEX Algorithm</i>.
+         </p>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

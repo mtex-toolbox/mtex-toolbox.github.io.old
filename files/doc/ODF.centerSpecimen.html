@@ -1,0 +1,211 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>centerSpecimen (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: ODF.centerSpecimen -->
+      <!-- HEADSTUFF: ODF.centerSpecimen -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:ODF.centerSpecimen">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Homepage</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/files/doc/index.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>centerSpecimen</h1>
+         <div class="subheading">
+            <p>(method of <a href="ODF_index.html">ODF</a>)
+            </p>
+         </div>
+         <p>rotatates an odf with specime symmetry into its symmetry axes</p>
+         <p>centerSpecimen(odf,center) trys to find the normal vectors of orthorhombic symmetry for the x mirror and y mirror plane and
+            calculates an rotation needed to rotate the odf back into these mirror planes. the routine starts with an lookaround grid
+            for a given center (default xvector) to find a starting value for newton iteration.
+         </p>
+         <h2>Syntax<a name="3"> </a></h2>
+         <p>
+            <div class="syntax" width="100%">
+            <div>
+            <tt>[odf,r,v1,v2] = centerSpecimen(odf,center,'param1',val1,'param2',val2)</tt>
+            </div>
+            </div>
+            
+         </p>
+         <h2>Input<a name="4"> </a></h2>
+         <p>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>odf</tt>
+            </td>
+            <td>
+            <p><a href="ODF_index.html">ODF</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>center</tt>
+            </td>
+            <td>
+            <p>look arround center for a suiteable start value (default xvector)</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>param,val</tt>
+            </td>
+            <td>Parameters and values that control centerSpecimen<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
+            <tr>
+            <td class="header" width="100px">Parameter</td>
+            <td class="header">Description</td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'delta'</tt>
+            </td>
+            <td>
+            <p>stepsize for evaluating the gradient</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'itermax'</tt>
+            </td>
+            <td>
+            <p>maximum number of newton iterations (default 5)</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'SO3Grid'</tt>
+            </td>
+            <td>
+            <p>a <a href="SO3Grid_index.html">SO3Grid</a> the <a href="ODF_index.html">ODF</a> is evaluatete on</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'maxpolar'</tt>
+            </td>
+            <td>
+            <p>specifies the opening angle for the initial search grid around input center</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'resolution'</tt>
+            </td>
+            <td>
+            <p>specifies the resolution for the initial search grid</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'silent'</tt>
+            </td>
+            <td>
+            <p>dont verbose number of initial axes and the newton iteration</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'plot'</tt>
+            </td>
+            <td>
+            <p>plot objective function around center as axis distribution</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'fourier'</tt>
+            </td>
+            <td>
+            <p>use fourier coefficents as objective function</p>
+            <p>mples rting with an synthetic odf with orthorhombic symmetry</p>
+            <pre>  CS = crystalSymmetry('cubic')
+            SS = specimenSymmetry('orthorhombic')
+            h = [Miller(0,0,1),Miller(0,1,1),Miller(1,1,1)];
+            r = [ rotation('euler', 90*degree,35*degree,30*degree) ...
+            rotation('euler', 90*degree,35*degree,0*degree)]</pre>
+            <pre>  sr = SS*r;
+            odf = unimodalODF(sr,CS);</pre>
+            <p>define a rotational displacement</p>
+            <pre>  r2 = rotation('euler', 6*degree,4*degree,0*degree)
+            odf = rotate(odf,r2);</pre>
+            <pre>  plotPDF(odf,h,'antipodal');</pre>
+            <pre>now retrive the rotation back</pre>
+            <pre>  [odr,r,v1,v2] = centerSpecimen(odf);
+            plotPDF(odr,h,'antipodal')</pre>
+            </td>
+            </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+            
+         </p>
+         <h2>Output<a name="5"> </a></h2>
+         <p>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>odf</tt>
+            </td>
+            <td>
+            <p>rotated <a href="ODF_index.html">ODF</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>r</tt>
+            </td>
+            <td>
+            <p>its rotation rotate(odf_out,r) = odf_in</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>v1,v2</tt>
+            </td>
+            <td>
+            <p>normal vector of the mirrorplans</p>
+            </td>
+            </tr>
+            </table>
+            
+         </p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

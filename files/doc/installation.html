@@ -1,0 +1,141 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>Installation Guide (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: installation -->
+      <!-- HEADSTUFF: installation -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:installation">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Homepage</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/files/doc/index.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>Installation Guide</h1>
+         <div class="subheading">
+            <p>Explains how to instal MTEX on you computer.</p>
+         </div>
+         <h2>Download<a name="1"> </a></h2>
+         <p>The MTEX toolbox is available for Windows, Linux and MAC-OSX at: <a href="http://code.google.com/p/mtex/">http://code.google.com/p/mtex/</a></p>
+         <h2>MATLAB<a name="2"> </a></h2>
+         <p>Since MTEX is a MATLAB toolbox, <a href="http://www.mathworks.com">MATLAB</a> has to be installed in order to use MTEX. So far the MTEX toolbox has been tested with MATLAB versions 7.1 and higher. No
+            additional addons or packages are necessary.
+         </p>
+         <h2>Installation<a name="3"> </a></h2>
+         <p>In order to install MTEX proceed as follows</p>
+         <div>
+            <ul type="square">
+               <li>extract MTEX to an arbitrary folder</li>
+               <li>start MATLAB</li>
+               <li>navigate to the MTEX folder</li>
+               <li>type 'startup_mtex'</li>
+            </ul>
+         </div>
+         <h2>Installation for All Users<a name="4"> </a></h2>
+         <p>If you are a system administrator and want to install MTEX such that it is available to all users of the computer, then</p>
+         <div>
+            <ul type="square">
+               <li>copy the MTEX directory to MATLAB_directoty/toolbox/mtex</li>
+               <li>rename mtex/startup_root.m to mtex/startup.m overwritting the old file mtex/startup.m</li>
+               <li>move mtex/startup.m to MATLAB_directoty/toolbox/local</li>
+               <li>start MATLAB</li>
+            </ul>
+         </div>
+         <h2>Checking Your Installation<a name="5"> </a></h2>
+         <p>After the next start of MATLAB you should see either the message</p><pre class="codeinput"><span class="string">'MTEX toolbox loaded'</span></pre><pre class="codeoutput">ans =
+MTEX toolbox loaded
+</pre><p>or in the case of a All User Installation</p><pre class="codeinput"><span class="string">'in order to start the MTEX toolbox type: startup_mtex'</span></pre><pre class="codeoutput">ans =
+in order to start the MTEX toolbox type: startup_mtex
+</pre><p>After the MTEX toolbox is loaded you can check your installation by typing</p><pre class="codeinput">check_mtex</pre><pre class="codeoutput">checking MTEX installation
+this might take some time
+ 
+simulating pole figures
+ 
+pf = PoleFigure  
+  crystal symmetry : m-3m
+  specimen symmetry: 222
+ 
+  h = (100), r = 1 x 206 points
+  h = (110), r = 1 x 206 points
+  h = (111), r = 1 x 206 points
+  h = (211), r = 1 x 206 points
+ 
+------ MTEX -- PDF to ODF inversion ------------------
+Call c-routine
+initialize solver
+start iteration
+error: 8.2110E-02 2.2828E-02 1.1396E-02 7.4612E-03 5.8534E-03 4.7929E-03 4.0929E-03 3.4589E-03 2.9928E-03 2.5734E-03 2.2540E-03 
+Finished PDF-ODF inversion.
+error: 2.2540E-03
+alpha: 9.9983E-01 9.9975E-01 9.9964E-01 9.9982E-01 
+required time: 2s
+ghost correction
+calculate with fixed background 0.73
+initialize solver
+start iteration
+error: 5.0183E-01 2.9200E-01 1.9060E-01 1.3656E-01 9.7762E-02 6.7339E-02 4.4499E-02 2.9627E-02 2.0949E-02 1.6363E-02 1.4021E-02 1.2828E-02 
+Finished PDF-ODF inversion.
+error: 1.2828E-02
+alpha: 1.0010E+00 9.9999E-01 9.9996E-01 9.9979E-01 
+ 
+rec = ODF  
+  crystal symmetry : m-3m
+  specimen symmetry: 222
+ 
+  Uniform portion:
+    weight: 0.73013
+ 
+  Radially symmetric portion:
+    kernel: de la Vallee Poussin, halfwidth 10&deg;
+    center: 150 orientations, resolution: 10&deg;
+    weight: 0.26987
+ 
+ 
+check reconstruction error: 
+everythink seems to be ok!
+Elapsed time is 4.928870 seconds.
+</pre><h2>Configuration and Troubleshooting<a name="8"> </a></h2>
+         <p>You can configure your MTEX installation by editting the file <a href="matlab:edit mtex_settings.m">mtex_settings.m</a>. See <a href="configuration.html">Configuration</a> for more details! This page contains also some workarounds for known problems.
+         </p>
+         <p>Don't hesitate to contact the <a href="mtex_about.html">authors</a> of MTEX if you have any problems.
+         </p>
+         <h2>Compile MTEX Your Self<a name="9"> </a></h2>
+         <p>Compiling MTEX is only neccesary if the provided binaries does not run on your system (e.g. if you have a 64 bit system) or
+            if you want to optimize them to you specific system. Compiling intstructions can be found <a href="compilation.html">here</a>.
+         </p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,176 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>plot (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: grainBoundary.plot -->
+      <!-- HEADSTUFF: grainBoundary.plot -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:grainBoundary.plot">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Homepage</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/files/doc/index.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>plot</h1>
+         <div class="subheading">
+            <p>(method of <a href="grainBoundary_index.html">grainBoundary</a>)
+            </p>
+         </div>
+         <p>plot grain boundaries</p>
+         <p>The function plots grain boundaries where the boundary is determined by the function <a href="GrainSet.specialBoundary.html">specialBoundary</a></p>
+         <h2>Syntax<a name="3"> </a></h2>
+         <p>
+            <div class="syntax" width="100%">
+            <div>
+            <tt>h = plot(gB,'param1',val1,'param2',val2)</tt>
+            </div>
+            </div>
+            
+         </p>
+         <h2>Input<a name="4"> </a></h2>
+         <p>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>grains</tt>
+            </td>
+            <td>
+            <p><a href="grainBoundary_index.html">grainBoundary</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>param,val</tt>
+            </td>
+            <td>Parameters and values that control plot<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
+            <tr>
+            <td class="header" width="100px">Parameter</td>
+            <td class="header">Description</td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'property'</tt>
+            </td>
+            <td>
+            <p>colorize a special grain boundary property, variants are:</p>
+            <ul>
+            <li>
+            <tt>'phase'</tt> - boundaries between different phases</li>
+            </ul>
+            <ul>
+            <li>
+            <tt>'phaseTransition'</tt>  - colorize boundaries according to phase change                (same phase, different phase).</li>
+            <li>
+            <tt>'angle'</tt> - misorientation angle between two neighboured ebsd         measurements on the boundary.</li>
+            <li>
+            <tt>'misorientation'</tt> - calculate the misorientation on the grain boundary         between two ebsd measurements and <a href="orientation2color.html">colorize</a>         it after a choosen colorcoding, i.e.</li>
+            </ul>
+            <pre>       plot(grains,'property','misorientation',...
+            'colorcoding','ipdfHSV')</pre>
+            <ul>
+            <li><a href="quaternion_index.html">quaternion</a> | <a href="rotation_index.html">rotation</a> | <a href="orientation_index.html">orientation</a> - plot grain boundaries with         a specified misorientation</li>
+            </ul>
+            <pre>       plot(grains,'property',...
+            rotation('axis',zvector,'angle',60*degree))</pre>
+            <ul>
+            <li><a href="Miller_index.html">Miller</a> | <a href="vector3d_index.html">vector3d</a> - plot grain boundaries such as specified         crystallographic face are parallel. use with option 'delta'</li>
+            </ul>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'delta'</tt>
+            </td>
+            <td>
+            <p>specify a searching radius for special grain boundary         (default 5 degrees), if a orientation or crystallographic
+            face         is specified.</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'linecolor', 'edgecolor', 'facecolor'</tt>
+            </td>
+            <td>
+            <p>color of the boundary</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'linewidth'</tt>
+            </td>
+            <td>
+            <p>width of the line</p>
+            </td>
+            </tr>
+            </table>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>param</tt>
+            </td>
+            <td>Options that control the plot behavior<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
+            <tr>
+            <td class="header" width="100px">Parameter</td>
+            <td class="header">Description</td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'internal'</tt>
+            </td>
+            <td>
+            <p>only plot boundaries within a grain which do not match the grain boundary      criterion</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'external'</tt>
+            </td>
+            <td>
+            <p>only plot grain-boundaries to other grains.</p>
+            </td>
+            </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+            
+         </p>
+         <h3 class="seealso">See also</h3>
+         <p><a href="GrainSet.specialBoundary.html">GrainSet/specialBoundary</a></p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

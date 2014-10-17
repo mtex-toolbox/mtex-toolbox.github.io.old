@@ -1,0 +1,117 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>MTEX - Analysis of EBSD Data with gradual and subtle boundaries (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: EBSD_FMC_demo -->
+      <!-- HEADSTUFF: EBSD_FMC_demo -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:EBSD_FMC_demo">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/files/doc/index.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>MTEX - Analysis of EBSD Data with gradual and subtle boundaries</h1>
+         <div class="subheading">
+            <p>Overview of the fast multiscale clustering method for subgrain microstructure detection. The method constructs clusters in
+               a hierarchical manner from single pixels using fuzzy logic to account for local, as well as global information.
+            </p>
+         </div>
+         <h2>Import EBSD data<a name="2"> </a></h2><pre class="codeinput"><span class="comment">% load some data</span>
+mtexdata <span class="string">single</span>
+plotx2east
+
+<span class="comment">% prepare sharp colorcoding</span>
+oM = ipdfHSVOrientationMapping(ebsd);
+oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
+oM.colorStretching = 3
+
+figure(<span class="string">'position'</span>,[100 100 350 350])
+plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><pre class="codeoutput"> loading data ...
+ saving data to /home/hielscher/svn/mtex/data/single.mat
+ 
+  Hint: You might want to use the point group
+  "432" for colorcoding!
+ 
+oM = 
+  ipdfHSVOrientationMapping with properties:
+
+    inversePoleFigureDirection: [1x1 vector3d]
+                           CS1: [24x2 crystalSymmetry]
+                           CS2: [1x1 specimenSymmetry]
+             colorPostRotation: [1x1 rotation]
+               colorStretching: 3
+                   whiteCenter: [1x1 vector3d]
+                            sR: [1x1 sphericalRegion]
+</pre><img src="EBSD_FMC_demo_01.png"> <h2>Segment with thresholding<a name="3"> </a></h2>
+         <p>No pixel-to-pixel threshold value captures important boundaries without including many irrelevant or false regions.</p><pre class="codeinput">grains_high = calcGrains(ebsd,<span class="string">'angle'</span>,1*degree);
+grains_low  = calcGrains(ebsd,<span class="string">'angle'</span>,0.5*degree);
+
+hold <span class="string">on</span>
+plot(grains_low.boundary,<span class="string">'linecolor'</span>,0.7*[1 1 1])
+plot(grains_high.boundary,<span class="string">'linecolor'</span>,<span class="string">'k'</span>)
+hold <span class="string">off</span></pre><img src="EBSD_FMC_demo_02.png"> <h2>Segment with FMC<a name="4"> </a></h2>
+         <p>Analogous with the threshold angle, a  single parameter, C_Maha controls the sensitivity of the segmentation. A C_Maha value
+            of 3.5 properly identifies the  subgrain features. A C_Maha value of 3 captures more general features, while a value of 4
+            identifies finer features but is slightly oversegmented.
+         </p><pre class="codeinput">grains_FMC = calcGrains(ebsd,<span class="string">'FMC'</span>,3.5)</pre><pre class="codeoutput"> 
+grains_FMC = grain2d  
+ 
+ Phase  Grains  Mineral  Symmetry  Crystal reference frame  Phase
+     1      13       Al      m-3m                                
+ 
+        GOS   meanRotation
+  0.0084358        153.098
+  0.0060217        153.427
+    0.01229        153.367
+   0.016496        67.4424
+ 0.00481028        165.006
+  0.0141737        165.398
+ 0.00276888        165.437
+   0.012498        124.393
+  0.0215271        167.311
+  0.0196901         164.93
+  0.0190118        130.205
+   0.019412        131.038
+  0.0124594        166.019
+ 
+</pre><p>plot the grains</p><pre class="codeinput">figure(<span class="string">'position'</span>,[100 100 350 350])
+plot(ebsd,oM.orientation2color(ebsd.orientations))
+hold <span class="string">on</span>
+plot(grains_FMC.boundary,<span class="string">'linewidth'</span>,1.5)
+hold <span class="string">off</span></pre><img src="EBSD_FMC_demo_03.png"> <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

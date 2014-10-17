@@ -1,0 +1,146 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>TSP (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: vector3d.TSP -->
+      <!-- HEADSTUFF: vector3d.TSP -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:vector3d.TSP">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Homepage</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/files/doc/index.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>TSP</h1>
+         <div class="subheading">
+            <p>(method of <a href="vector3d_index.html">vector3d</a>)
+            </p>
+         </div>
+         <p>traveling salesman problem on the 2 dimensional unit-sphere</p>
+         <h2>Syntax<a name="3"> </a></h2><pre>TSP(S2,'metric','goniometer','chispeed',[1/2.55 4.5],'phispeed',[1/9.45 4.5]) - applies  goniometer metric
+TSP(S2,'method','christophides2opt') - is the default method
+TSP(S2,'method','christophides2opt',[4 3 3 2]) - sets the breadth of the
+  2opt search tree for the lin kerninghan heuristics.</pre><h2>Input<a name="4"> </a></h2>
+         <p>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>S2</tt>
+            </td>
+            <td>
+            <p><a href="S2Grid_index.html">S2Grid</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>param,val</tt>
+            </td>
+            <td>Parameters and values that control TSP<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
+            <tr>
+            <td class="header" width="100px">Parameter</td>
+            <td class="header">Description</td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'Method'</tt>
+            </td>
+            <td>
+            <p>Selects a heuristics or external solver</p>
+            <ul>
+            <li>
+            <tt>'direct'</tt> -</li>
+            <li>
+            <tt>'2opt'</tt> - two opt heuristics</li>
+            <li>
+            <tt>'dmst'</tt> - double minimum spanning tree heuristics</li>
+            <li>
+            <tt>'dmst2opt'</tt> - double minimum spanning tree heuristics + 2opt improvement</li>
+            <li>
+            <tt>'dmstdouble'</tt> - invokes the 2opt improvement before and after the short cut</li>
+            <li>
+            <tt>'christophides'</tt>,|'chris'| - christophides heuristics</li>
+            <li>
+            <tt>'christophides2opt'</tt>, <tt>'chris2opt'</tt> - christophides heuristics + 2opt improvement</li>
+            <li>
+            <tt>'chrisdoubleopt'</tt> - invokes the 2opt improvement before and after the short cut</li>
+            <li>
+            <tt>'insertion'</tt> - insertion heuristics.</li>
+            <li>
+            <tt>'insertion2opt'</tt> - insertion heuristics + 2opt improvement</li>
+            <li>
+            <tt>'linkern'</tt> - invoke external solver</li>
+            <li>
+            <tt>'concorde'</tt> - invoke external solver</li>
+            <li>
+            <tt>'lkh'</tt> - invoke external solver</li>
+            </ul>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'Metric'</tt>
+            </td>
+            <td>
+            <p>sets the spherical metric</p>
+            <ul>
+            <li>
+            <tt>'manhatten'</tt> - manhatten distance on sphere.</li>
+            <li>
+            <tt>'goniometer'</tt> - maximum polar angle, requires <tt>'PhiSpeed'</tt> and                     <tt>'ChiSpeed'</tt>.</li>
+            <li>
+            <tt>'angle'</tt>  - normal spherical distance.</li>
+            </ul>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'MaxTime'</tt>
+            </td>
+            <td>
+            <p>aborts 2- or n-opt after given seconds if specified.</p>
+            </td>
+            </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+            
+         </p>
+         <h2>Remarks<a name="5"> </a></h2>
+         <p>Option xxx2opt invokes lin-kerninghan heuristics. If no further breadth is specified it uses the default breadth of [1].</p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

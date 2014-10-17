@@ -1,0 +1,357 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>Crystal Geometry (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: CrystalGeometry -->
+      <!-- HEADSTUFF: CrystalGeometry -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:CrystalGeometry">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Homepage</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/files/doc/index.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>Crystal Geometry</h1>
+         <div class="subheading">
+            <p>Introduces key concepts about the MTEX representation of specimen directions, crystal directions, crystal symmetries, rotations
+               and orientations.
+            </p>
+         </div>
+         <p>
+            <table class="ref" width="90%">
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('SpecimenDirections_block','SpecimenDirections_expandable_text');" valign="top"
+            width="15">
+            <img id="SpecimenDirections_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="SpecimenDirections.html">Specimen Directions<td valign="top" width="75%">Explains how to define and calculate with
+            specimen directions.</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="SpecimenDirections_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="SpecimenDirections.html#4">Defining Specimen Directions</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="SpecimenDirections.html#7">Calculating with Specimen Directions</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="SpecimenDirections.html#11">Plotting three dimensional vectors</a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('Rotations_block','Rotations_expandable_text');" valign="top" width="15">
+            <img id="Rotations_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="Rotations.html">Rotations<td valign="top" width="75%">Explains how to define rotations and how to switch between
+            different Euler angle conventions.</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="Rotations_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="Rotations.html#4">Euler Angle Conventions</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="Rotations.html#8">Other Ways of Defining a Rotation</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="Rotations.html#15">Calculating with Rotations</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="Rotations.html#23">Conversion into Euler Angles and Rodrigues Parametrisation</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="Rotations.html#24">Plotting Rotations</a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('CrystalSymmetries_block','CrystalSymmetries_expandable_text');" valign="top" width="15">
+            <img id="CrystalSymmetries_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="CrystalSymmetries.html">Crystal Symmetries<td valign="top" width="75%">Explains how to define crystal symmetries.</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="CrystalSymmetries_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="CrystalSymmetries.html#4">Defining a Crystal Symmetry by the Name of its Laue Group</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalSymmetries.html#6">Defining a Crystal Symmetry by the Name of its Point Group or its Space Group</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalSymmetries.html#7">Defining a Crystal Symmetry by a CIF File</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalSymmetries.html#8">The Crystal Coordinate System</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalSymmetries.html#9">A and B Configurations</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalSymmetries.html#11">Calculations</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalSymmetries.html#12">Plotting symmetries</a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('CrystalDirections_block','CrystalDirections_expandable_text');" valign="top" width="15">
+            <img id="CrystalDirections_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="CrystalDirections.html">Crystal Directions<td valign="top" width="75%">Explains how to define crystal directions
+            by Miller indices and how to compute crystallographic equivalent directions.</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="CrystalDirections_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="CrystalDirections.html#4">Definition</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalDirections.html#8">Plotting Miller indices</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalDirections.html#10">Symmetrically Equivalent Crystal Directions</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalDirections.html#14">Angles</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalDirections.html#16">Conversions</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalDirections.html#18">Calculations</a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('CrystalOrientations_block','CrystalOrientations_expandable_text');" valign="top"
+            width="15">
+            <img id="CrystalOrientations_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="CrystalOrientations.html">Crystal Orientations<td valign="top" width="75%">Explains how to define crystal orientations,
+            how to switch between different convention and how to compute crystallographic equivalent orientations.</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="CrystalOrientations_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="CrystalOrientations.html#5">Defining a Crystal Orientation</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalOrientations.html#13">Rotating Crystal Directions onto Specimen Directions</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalOrientations.html#17">Concatenating Rotations</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalOrientations.html#21">Calculating Misorientations</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalOrientations.html#23">Calculating with Orientations and Rotations</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalOrientations.html#25">Conversion into Euler Angles and Rodrigues Parametrisation</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="CrystalOrientations.html#26">Plotting Orientations</a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('AxialDirectional_block','AxialDirectional_expandable_text');" valign="top" width="15">
+            <img id="AxialDirectional_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="AxialDirectional.html">Antipodal Symmetry<td valign="top" width="75%">Explains the MTEX option antipodal and the
+            impact of antipodal symmetry to pole figure plots and EBSD colorcoding.</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="AxialDirectional_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="AxialDirectional.html#3">Directions vs. Axes</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="AxialDirectional.html#7">The Angle between Directions and Axes</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="AxialDirectional.html#9">Antipodal Symmetry in Experimental Pole Figures</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="AxialDirectional.html#11">Antipodal Symmetry in Recalculated Pole Figures</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="AxialDirectional.html#13">Antipodal Symmetry in Inverse Pole Figures</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="AxialDirectional.html#17">EBSD Colocoding</a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
+            </table>
+            
+         </p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

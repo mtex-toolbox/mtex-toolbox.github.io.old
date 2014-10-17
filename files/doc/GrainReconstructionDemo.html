@@ -1,0 +1,125 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title> (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: GrainReconstructionDemo -->
+      <!-- HEADSTUFF: GrainReconstructionDemo -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:GrainReconstructionDemo">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Homepage</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/files/doc/index.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1></h1>
+         <div class="subheading"></div>
+         <h2>Import some EBSD data<a name="1"> </a></h2><pre class="codeinput">mtexdata <span class="string">forsterite</span>
+plotx2east
+
+plot(ebsd)</pre><img src="GrainReconstructionDemo_01.png"> <h2>First attempt on grain reconstruction<a name="2"> </a></h2><pre class="codeinput">[grains,ebsd.grainId] = calcGrains(ebsd,<span class="string">'angle'</span>,5*degree);
+
+plot(grains)</pre><img src="GrainReconstructionDemo_02.png"> <p>The resulting grains contain a lot of holes and one pixel grains due to misindexing. A good measure for regions where indexing
+            went wrong is the band contrast
+         </p><pre class="codeinput">plot(ebsd,ebsd.bc)</pre><img src="GrainReconstructionDemo_03.png"> <p>We see its quite low at the grain boundaries and, e.g., in the top left rectangle. Lets set the phase of measurements with
+            bandcontrast smaller then a certain threshold to notIndexed
+         </p><pre class="codeinput">condition = ebsd.bc &lt; 80;
+
+<span class="comment">% setting the phase to zero means notIndexed</span>
+ebsd(condition).phase = 0
+plot(ebsd)</pre><pre class="codeoutput"> 
+ebsd = EBSD  
+ 
+ Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
+     0   71022 (29%)  notIndexed                                                
+     1  142934 (58%)  Forsterite   light blue       mmm                         
+     2  23678 (9.6%)   Enstatite  light green       mmm                         
+     3   8318 (3.4%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+ 
+ Properties: bands, bc, bs, error, mad, x, y, grainId
+ Scan unit : um
+ 
+</pre><img src="GrainReconstructionDemo_04.png"> <pre class="codeinput">[grains,ebsd.grainId] = calcGrains(ebsd,<span class="string">'angle'</span>,5*degree);
+
+plot(grains)</pre><img src="GrainReconstructionDemo_05.png"> <pre class="codeinput">plot(grains,log(grains.grainSize ./ grains.boundarySize))
+colorbar</pre><pre class="codeoutput">Warning: Plot empty. 
+</pre><img src="GrainReconstructionDemo_06.png"> <p>remove</p><pre class="codeinput">ind = ~grains.isIndexed &amp; log(grains.grainSize ./ grains.boundarySize) &lt; -0.4;
+
+plot(ebsd)
+hold <span class="string">on</span>
+plot(grains(ind),<span class="string">'faceColor'</span>,[0 0 0],<span class="string">'DisplayName'</span>,<span class="string">'fill this'</span>)
+hold <span class="string">off</span>
+
+<span class="comment">% remove marked measurements</span>
+ebsd(grains(ind)) = []</pre><pre class="codeoutput"> 
+ebsd = EBSD  
+ 
+ Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
+     0   28344 (14%)  notIndexed                                                
+     1  142934 (70%)  Forsterite   light blue       mmm                         
+     2   23678 (12%)   Enstatite  light green       mmm                         
+     3   8318 (4.1%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+ 
+ Properties: bands, bc, bs, error, mad, x, y, grainId
+ Scan unit : um
+ 
+</pre><img src="GrainReconstructionDemo_07.png"> <pre class="codeinput">[grains,ebsd.grainId] = calcGrains(ebsd,<span class="string">'angle'</span>,5*degree);
+
+plot(grains)</pre><img src="GrainReconstructionDemo_08.png"> <p>fill grains that are to small</p><pre class="codeinput">ind = grains.grainSize &lt; 5;
+
+hold <span class="string">on</span>
+plot(grains(ind),<span class="string">'faceColor'</span>,[0 0 0],<span class="string">'DisplayName'</span>,<span class="string">'fill this'</span>)
+hold <span class="string">off</span>
+
+<span class="comment">% remove marked measurements</span>
+ebsd(grains(ind)) = []</pre><pre class="codeoutput"> 
+ebsd = EBSD  
+ 
+ Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
+     0   28344 (14%)  notIndexed                                                
+     1  140802 (71%)  Forsterite   light blue       mmm                         
+     2   22606 (11%)   Enstatite  light green       mmm                         
+     3   6708 (3.4%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+ 
+ Properties: bands, bc, bs, error, mad, x, y, grainId
+ Scan unit : um
+ 
+</pre><img src="GrainReconstructionDemo_09.png"> <pre class="codeinput">[grains,ebsd.grainId] = calcGrains(ebsd,<span class="string">'angle'</span>,5*degree);
+
+plot(grains)</pre><img src="GrainReconstructionDemo_10.png"> <h2>Smooth grains<a name="11"> </a></h2><pre class="codeinput">grains = smooth(grains,2);
+
+plot(grains)</pre><img src="GrainReconstructionDemo_11.png"> <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

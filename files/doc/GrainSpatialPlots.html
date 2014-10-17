@@ -1,0 +1,139 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>Plotting grains (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: GrainSpatialPlots -->
+      <!-- HEADSTUFF: GrainSpatialPlots -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:GrainSpatialPlots">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/files/doc/index.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>Plotting grains</h1>
+         <div class="subheading">
+            <p>Overview about colorizing grains and (special) grain boundaries</p>
+         </div>
+         <div>
+            <table class="content">
+               <tr>
+                  <td class="header">On this page ...</td>
+               </tr>
+               <tr>
+                  <td><a href="#4">Plotting grains and combined plots</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#11">Visualizing grain boundaries</a></td>
+               </tr>
+            </table>
+         </div>
+         <p>One of the central issues analizing grains is the visualization by spatial maps. Therefor, let us first reconstruct some grains</p><pre class="codeinput">mtexdata <span class="string">forsterite</span>
+plotx2east
+
+<span class="comment">% consider only indexed data for grain segmentation</span>
+ebsd = ebsd(<span class="string">'indexed'</span>);
+<span class="comment">% perform grain segmentation</span>
+[grains,ebsd.grainId] = calcGrains(ebsd)</pre><pre class="codeoutput"> 
+grains = grain2d  
+ 
+ Phase  Grains     Mineral  Symmetry  Crystal reference frame  Phase
+     1    1080  Forsterite       mmm                                
+     2     515   Enstatite       mmm                                
+     3    1496    Diopside     12/m1        X||a*, Y||b, Z||c       
+ 
+ Properties: GOS, meanRotation
+ 
+ 
+ebsd = EBSD  
+ 
+ Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
+     1  152345 (81%)  Forsterite   light blue       mmm                         
+     2   26058 (14%)   Enstatite  light green       mmm                         
+     3   9064 (4.8%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+ 
+ Properties: bands, bc, bs, error, mad, x, y, grainId
+ Scan unit : um
+ 
+</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Plotting grains and combined plots<a name="4"> </a></h2>
+         <p>When plotting the grains directly the associated color is defined by the mean orientation within each grain.</p><pre class="codeinput">close <span class="string">all</span>
+plot(grains)</pre><img src="GrainSpatialPlots_01.png"> <p>Nevertheless, the plot command accepts options as already known from the ebsd plot spatial command.</p><pre class="codeinput">close <span class="string">all</span>
+plot(grains)</pre><img src="GrainSpatialPlots_02.png"> <p>Particularly one can apply the color coding of orientations, i.e. spatially locate the grains with certain orientation. TODO:</p><pre class="codeinput"><span class="comment">%close all</span>
+<span class="comment">%plot(grains,'colorcoding','ipdfCenter',{Miller(1,1,1),[0 0 1]},...</span>
+<span class="comment">%  'r',zvector)</span></pre><p>With the <b>hold on</b> command, one can combine several plots, e.g. let us take a look at the band contrast and the phase at the same time. We can
+            control transparency with the option <b>facealpha</b>.
+         </p><pre class="codeinput">close <span class="string">all</span>
+plot(ebsd,ebsd.bc)
+mtexColorMap <span class="string">black2white</span>
+
+hold <span class="string">on</span>
+plot(ebsd,<span class="string">'facealpha'</span>,0.5)
+hold <span class="string">off</span></pre><img src="GrainSpatialPlots_03.png"> <p>Please note, that the opengl renderer has to be activated to plot grains transparent.</p>
+         <p>The reconstructed grains contain the EBSD data, they were reconstructed from, thus we select grains of a GrainSet and plot
+            its corresponding EBSD
+         </p><pre class="codeinput">close <span class="string">all</span>
+ebsd_grain = ebsd(grains(grains.grainSize&gt;15))
+plot(ebsd_grain,ebsd_grain.bc)
+mtexColorMap <span class="string">black2white</span></pre><pre class="codeoutput"> 
+ebsd_grain = EBSD  
+ 
+ Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
+     1  151009 (82%)  Forsterite   light blue       mmm                         
+     2   25270 (14%)   Enstatite  light green       mmm                         
+     3   6816 (3.7%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+ 
+ Properties: bands, bc, bs, error, mad, x, y, grainId
+ Scan unit : um
+ 
+</pre><img src="GrainSpatialPlots_04.png"> <p>Also, a property to plot can be given as a Nx1 vector, where N is the number of grains.</p><pre class="codeinput">close <span class="string">all</span>
+plot(grains,shapeFactor(grains))</pre><pre class="codeoutput">Warning: Plot empty. 
+</pre><img src="GrainSpatialPlots_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Visualizing grain boundaries<a name="11"> </a></h2>
+         <p>Plotting grain boundaries may be a usefull task, e.g. marking special grain boundaries, generally this is done by the <a href="GrainSet.plotBoundary.html">plotBoundary</a> command.
+         </p><pre class="codeinput">close <span class="string">all</span>
+plot(grains.boundary)</pre><pre class="codeoutput">Warning: Plot empty. 
+</pre><img src="GrainSpatialPlots_06.png"> <p>A grain boundaries plot can be easily combined with further plots by *hold on command, so we can plot various information
+            together
+         </p><pre class="codeinput">hold <span class="string">on</span>
+plot(ebsd,ebsd.bc)
+mtexColorMap <span class="string">white2black</span></pre><img src="GrainSpatialPlots_07.png"> <p>e.g. we want also to see all one pixel grains</p><pre class="codeinput">grains_selection = grains( grains.grainSize == 1) ;
+
+hold <span class="string">on</span>
+plot(grains_selection.boundary,<span class="string">'linecolor'</span>,<span class="string">'r'</span>,<span class="string">'linewidth'</span>,2)</pre><img src="GrainSpatialPlots_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

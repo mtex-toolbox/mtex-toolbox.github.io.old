@@ -1,0 +1,281 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>Grain Boundaries (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: BoundaryPlots -->
+      <!-- HEADSTUFF: BoundaryPlots -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:BoundaryPlots">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/files/doc/index.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>Grain Boundaries</h1>
+         <div class="subheading">
+            <p>Overview about colorizing grain boundaries</p>
+         </div>
+         <div>
+            <table class="content">
+               <tr>
+                  <td class="header">On this page ...</td>
+               </tr>
+               <tr>
+                  <td><a href="#4">The grain boundary</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#7">Visualizing special grain boundaries</a></td>
+               </tr>
+               <tr>
+                  <td><span class="subsection"><a href="#8"> Phase boundaries</a></span></td>
+               </tr>
+               <tr>
+                  <td><span class="subsection"><a href="#9"> Subboundaries</a></span></td>
+               </tr>
+               <tr>
+                  <td><span class="subsection"><a href="#10"> Misorientation</a></span></td>
+               </tr>
+               <tr>
+                  <td><span class="subsection"><a href="#12"> Classifing special boundaries</a></span></td>
+               </tr>
+            </table>
+         </div>
+         <p>Lets import some EBSD data and compute the grains.</p><pre class="codeinput">close <span class="string">all</span>
+mtexdata <span class="string">forsterite</span>
+plotx2east
+
+ebsd = ebsd(<span class="string">'indexed'</span>);
+[grains,ebsd.grainId] = calcGrains(ebsd)</pre><pre class="codeoutput"> 
+grains = grain2d  
+ 
+ Phase  Grains     Mineral  Symmetry  Crystal reference frame  Phase
+     1    1080  Forsterite       mmm                                
+     2     515   Enstatite       mmm                                
+     3    1496    Diopside     12/m1        X||a*, Y||b, Z||c       
+ 
+ Properties: GOS, meanRotation
+ 
+ 
+ebsd = EBSD  
+ 
+ Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
+     1  152345 (81%)  Forsterite   light blue       mmm                         
+     2   26058 (14%)   Enstatite  light green       mmm                         
+     3   9064 (4.8%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+ 
+ Properties: bands, bc, bs, error, mad, x, y, grainId
+ Scan unit : um
+ 
+</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>The grain boundary<a name="4"> </a></h2>
+         <p>The grain boundary of a list of grains can be extracted by</p><pre class="codeinput">gB = grains.boundary
+
+plot(gB)</pre><pre class="codeoutput"> 
+gB = grainBoundary  
+ 
+ Segments   mineral 1   mineral 2
+     1363  notIndexed  Forsterite
+      205  notIndexed   Enstatite
+       68  notIndexed    Diopside
+    15974  Forsterite  Forsterite
+    11814  Forsterite   Enstatite
+     8185  Forsterite    Diopside
+      663   Enstatite   Enstatite
+     4235   Enstatite    Diopside
+     1405    Diopside    Diopside
+</pre><img src="BoundaryPlots_01.png"> <p>Accordingly we can access the grain boundary of a specific grain by</p><pre class="codeinput">grains(931).boundary
+
+plot(grains(931).boundary)</pre><pre class="codeoutput"> 
+ans = grainBoundary  
+ 
+ Segments   mineral 1   mineral 2
+      331  Forsterite  Forsterite
+      147  Forsterite   Enstatite
+      241  Forsterite    Diopside
+        1   Enstatite    Diopside
+</pre><img src="BoundaryPlots_02.png"> <p>lets combine it with the orientation measurements inside</p><pre class="codeinput">oM = ipdfHSVOrientationMapping(grains(931));
+oM.inversePoleFigureDirection = grains(931).meanOrientation * oM.whiteCenter;
+oM.colorStretching = 50;
+
+hold <span class="string">on</span>
+plot(ebsd(grains(931)),oM.orientation2color(ebsd(grains(931)).orientations))
+hold <span class="string">off</span></pre><pre class="codeoutput"> 
+  Hint: You might want to use the point group
+  "222" for colorcoding!
+ 
+</pre><img src="BoundaryPlots_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Visualizing special grain boundaries<a name="7"> </a></h2>
+         <p>Most interesting is a closer look at special grain boundaries.</p>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h3> Phase boundaries<a name="8"> </a></h3>
+         <p>For multi-phase system, the location of specific phase transboundaries may be of interest. The following plot highlights all
+            Forsterite to Enstatite phase transitions
+         </p><pre class="codeinput">close <span class="string">all</span>
+plot(grains,<span class="string">'faceAlpha'</span>,.3)
+hold <span class="string">on</span>
+plot(grains.boundary(<span class="string">'Fo'</span>,<span class="string">'En'</span>),<span class="string">'linecolor'</span>,<span class="string">'r'</span>,<span class="string">'linewidth'</span>,1.5)
+hold <span class="string">off</span></pre><img src="BoundaryPlots_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h3> Subboundaries<a name="9"> </a></h3>
+         <p>Another special type of boundaries, are boundaries that are located within a grain, nevertheless this happens, if two adjacent
+            measurements are somehow conneted by a lattice rotation within a grain. TODO:
+         </p><pre class="codeinput"><span class="comment">%close all</span>
+<span class="comment">%plot(grains.boundary,'external')</span>
+<span class="comment">%hold on</span>
+<span class="comment">%plot(grains.boundary,'internal','linecolor','r','linewidth',2)</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h3> Misorientation<a name="10"> </a></h3>
+         <p>Basicly there are two ways to visualize misorientations along grain boundary. The most simplest way is to colorize the grain
+            boundaries with respect to the misorientation angle.
+         </p><pre class="codeinput">close <span class="string">all</span>
+gB_Fo = grains.boundary(<span class="string">'Fo'</span>,<span class="string">'Fo'</span>);
+plot(grains,<span class="string">'translucent'</span>,.3)
+legend <span class="string">off</span>
+hold <span class="string">on</span>
+plot(gB_Fo,gB_Fo.misorientation.angle./degree,<span class="string">'linewidth'</span>,1.5)
+hold <span class="string">off</span>
+colorbar</pre><img src="BoundaryPlots_05.png"> <p>The more sophisticated way is to colorize the misorientation space and apply the color to the respectibe grain boundaries.
+            TODO: apply here patala colorcoding!!!
+         </p><pre class="codeinput">close <span class="string">all</span>
+plot(grains,<span class="string">'translucent'</span>,.3)
+legend <span class="string">off</span>
+hold <span class="string">on</span>
+
+oM = axisAngleOrientationMapping(gB_Fo);
+oM.maxAngle = 180*degree;
+
+plot(grains.boundary)
+hold <span class="string">on</span>
+
+plot(gB_Fo,oM.orientation2color(gB_Fo.misorientation),<span class="string">'linewidth'</span>,1.5)
+
+hold <span class="string">off</span>
+
+<span class="comment">% plot the colorcoding</span>
+<span class="comment">% plot(oM)</span></pre><pre class="codeoutput"> 
+  Hint: You might want to use the point group
+  "222" for colorcoding!
+ 
+</pre><img src="BoundaryPlots_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h3> Classifing special boundaries<a name="12"> </a></h3>
+         <p>Actually, it might be more informative, if we classify the grain boundaries after some special property. This is done by the
+            command <a href="GrainSet.specialBoundary.html">specialBoundary</a>, which will be invoked by the plotting routine.
+         </p>
+         <p>We can mark grain boundaries after its misorientation angle is in a certain range</p><pre class="codeinput">close <span class="string">all</span>
+
+mAngle = gB_Fo.misorientation.angle./ degree;</pre><pre class="codeinput">hist(mAngle)
+
+[~,id] = histc(mAngle,0:30:120);</pre><img src="BoundaryPlots_07.png"> <pre class="codeinput">plot(gB,<span class="string">'linecolor'</span>,<span class="string">'k'</span>)
+
+hold <span class="string">on</span>
+plot(gB_Fo(id==1),<span class="string">'linecolor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2)
+plot(gB_Fo(id==2),<span class="string">'linecolor'</span>,<span class="string">'g'</span>,<span class="string">'linewidth'</span>,2)
+plot(gB_Fo(id==3),<span class="string">'linecolor'</span>,<span class="string">'r'</span>,<span class="string">'linewidth'</span>,2)
+plot(gB_Fo(id==4),<span class="string">'linecolor'</span>,<span class="string">'r'</span>,<span class="string">'linewidth'</span>,2)
+
+legend(<span class="string">'&gt;40^\circ'</span>,<span class="keyword">...</span>
+  <span class="string">'20^\circ-40^\circ'</span>,<span class="keyword">...</span>
+  <span class="string">'10^\circ-20^\circ'</span>,<span class="keyword">...</span>
+  <span class="string">'&lt; 10^\circ'</span>)
+
+hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Plot empty. 
+Warning: Plot empty. 
+Warning: Plot empty. 
+Warning: Plot empty. 
+Warning: Plot empty. 
+Warning: Plot empty. 
+</pre><img src="BoundaryPlots_08.png"> <p>Or we mark the rotation axis of the misorientation.</p><pre class="codeinput">close <span class="string">all</span>
+plot(gB)
+hold <span class="string">on</span>
+
+ind = angle(gB_Fo.misorientation.axis,xvector)&lt;5*degree;
+
+plot(gB_Fo(ind),<span class="string">'linecolor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2)
+
+legend(<span class="string">'&gt;5^\circ'</span>,<span class="string">'[100]'</span>)</pre><pre class="codeoutput">Warning: Plot empty. 
+Warning: Plot empty. 
+Warning: Plot empty. 
+</pre><img src="BoundaryPlots_09.png"> <p>Or we mark a special rotation between neighboured grains. If a linecolor is not specified, then the boundary is colorcoded
+            after its angular difference to the given rotation.
+         </p><pre class="codeinput">rot = rotation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,60*degree);
+ind = angle(gB_Fo.misorientation,rot)&lt;10*degree;
+
+close <span class="string">all</span>
+plot(gB)
+hold <span class="string">on</span>
+plot(gB_Fo(ind),<span class="string">'linewidth'</span>,1.5,<span class="string">'linecolor'</span>,<span class="string">'r'</span>)
+
+legend(<span class="string">'&gt;2^\circ'</span>,<span class="string">'60^\circ/[001]'</span>)</pre><pre class="codeoutput">Warning: Plot empty. 
+Warning: Plot empty. 
+Warning: Plot empty. 
+</pre><img src="BoundaryPlots_10.png"> <p>In the same manner, we can classify after predefined special rotations, e.g. coincident site lattice (CSL) for cubic crystalls.
+            Additionaly we specify a searching radius with the option <tt>'delta'</tt>, in this way, we control how far the misorientation of the boundary segment is actuall away from the specified rotation.
+            TODO
+         </p><pre class="codeinput"><span class="comment">% close all</span>
+<span class="comment">% plot(gB)</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">% hold on</span>
+<span class="comment">% plot(gB_Fo(angle(gB_Fo.misorientation,CSL(3))&lt;2*degree),...</span>
+<span class="comment">%   'linecolor','b','linewidth',2)</span>
+<span class="comment">% plot(gB_Fo(angle(gB_Fo.misorientation,CSL(5))&lt;4*degree),...</span>
+<span class="comment">%   'linecolor','m','linewidth',2)</span>
+<span class="comment">% plot(gB_Fo(angle(gB_Fo.misorientation,CSL(7))&lt;4*degree),...</span>
+<span class="comment">%   'linecolor','g','linewidth',2)</span>
+<span class="comment">% plot(gB_Fo(angle(gB_Fo.misorientation,CSL(11))&lt;4*degree),...</span>
+<span class="comment">%   'linecolor','r','linewidth',2)</span>
+<span class="comment">%</span>
+<span class="comment">% legend('&gt;2^\circ',...</span>
+<span class="comment">%   '\Sigma 3',...</span>
+<span class="comment">%   '\Sigma 5',...</span>
+<span class="comment">%   '\Sigma 7',...</span>
+<span class="comment">%   '\Sigma 11')</span></pre><p>Another kind of special boundaries are tilt and twist boundaries. We can find a tilt boundary by specifing the crystal form,
+            which is tilted, i.e. the misorientation maps a lattice plane <img src="BoundaryPlots_eq08062630503172331818.png">   of on grain onto the others grain lattice plane.
+         </p>
+         <p><img src="BoundaryPlots_eq17903004170913562749.png"> </p>
+         <p>where <img src="BoundaryPlots_eq10731856829891111860.png">  are neighbored orientations. TODO
+         </p><pre class="codeinput"><span class="comment">%close all</span>
+<span class="comment">%plot(grains.boundary)</span>
+<span class="comment">%hold on</span>
+<span class="comment">%plot(grains.boundary,'property',Miller(1,1,1),'delta',2*degree,...</span>
+<span class="comment">%  'linecolor','r','linewidth',1.5)</span>
+<span class="comment">%plot(grains.boundary,'property',Miller(0,0,1),'delta',2*degree,...</span>
+<span class="comment">%  'linecolor','b','linewidth',1.5)</span>
+<span class="comment">%</span>
+<span class="comment">%legend('&gt;2^\circ',...</span>
+<span class="comment">%  '\{111\}',...</span>
+<span class="comment">%  '\{001\}')</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

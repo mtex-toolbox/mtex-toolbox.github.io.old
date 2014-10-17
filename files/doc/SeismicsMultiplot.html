@@ -1,0 +1,374 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title> (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: SeismicsMultiplot -->
+      <!-- HEADSTUFF: SeismicsMultiplot -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:SeismicsMultiplot">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Homepage</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/files/doc/index.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container"><pre class="codeinput"><span class="comment">% Calculalating and plotting elastic velocities (km/s) from elasticity stiffness</span>
+<span class="comment">% Cijkl tensor (GPa) and density (g/cm3)</span>
+<span class="comment">%</span>
+<span class="comment">% By David Mainprice</span>
+<span class="comment">%</span></pre><h2>Crystal Symmetry<a name="2"> </a></h2>
+         <p>crystal symmetry - Orthorhombic mmm Olivine structure (4.7646 10.2296 5.9942 90.00 90.00 90.00) - Orthorhombic</p><pre class="codeinput">cs_tensor = crystalSymmetry(<span class="string">'mmm'</span>,[4.7646,10.2296,5.9942],<span class="keyword">...</span>
+    [90.00,90.00,90.00]*degree,<span class="string">'x||a'</span>,<span class="string">'z||c'</span>,<span class="string">'mineral'</span>,<span class="string">'Olivine'</span>);</pre><h2>Import 4th rank tensor as 6 by 6 matrix<a name="3"> </a></h2>
+         <p>Olivine elastic stiffness (Cij) Tensor in GPa Abramson E.H., Brown J.M., Slutsky L.J., and Zaug J.(1997) The elastic constants
+            of San Carlos olivine to 17 GPa. Journal of Geophysical Research 102: 12253-12263.
+         </p>
+         <p>Enter tensor as 6 by 6 matrix,M line by line.</p><pre class="codeinput">M = [[320.5  68.15  71.6     0     0     0];<span class="keyword">...</span>
+    [ 68.15  196.5  76.8     0     0     0];<span class="keyword">...</span>
+    [  71.6   76.8 233.5     0     0     0];<span class="keyword">...</span>
+    [   0      0      0     64     0     0];<span class="keyword">...</span>
+    [   0      0      0      0    77     0];<span class="keyword">...</span>
+    [   0      0      0      0     0  78.7]];
+
+
+<span class="comment">% Define density (g/cm3)</span>
+rho=3.355;
+
+<span class="comment">% Define tenor object in MTEX</span>
+<span class="comment">% Cij -&gt; Cijkl - elastic stiffness tensor</span>
+C = tensor(M,cs_tensor,<span class="string">'name'</span>,<span class="string">'elastic stiffness'</span>,<span class="string">'unit'</span>,<span class="string">'GPa'</span>,<span class="string">'density'</span>,rho)</pre><pre class="codeoutput"> 
+C = elastic stiffness tensor  
+  unit   : GPa              
+  density: 3.355            
+  rank   : 4 (3 x 3 x 3 x 3)
+  mineral: Olivine (mmm)    
+ 
+  tensor in Voigt matrix representation:
+ 320.5  68.2  71.6     0     0     0
+  68.2 196.5  76.8     0     0     0
+  71.6  76.8 233.5     0     0     0
+     0     0     0    64     0     0
+     0     0     0     0    77     0
+     0     0     0     0     0  78.7
+</pre><h2>compute maximum and minimum velocities<a name="4"> </a></h2><pre class="codeinput"><span class="comment">% Generate velocities and polarizations on a fine pole figure S2Grid</span>
+XY_grid = equispacedS2Grid(<span class="string">'HEMISPHERE'</span>,<span class="string">'upper'</span>, <span class="string">'resolution'</span>,1*degree);
+
+[vp,vs1,vs2,pp,ps1,ps2] = velocity(C,XY_grid);
+
+<span class="comment">%**************************************************************************</span>
+<span class="comment">% P-wave velocity (km/s)</span>
+<span class="comment">% Maximum and Minimum values and thier directions</span>
+<span class="comment">%**************************************************************************</span>
+<span class="comment">%</span>
+Vp_max_value = max(vp);
+Vp_min_value = min(vp);
+
+<span class="comment">% Anisotropy percent</span>
+AVp=200*(Vp_max_value-Vp_min_value)/(Vp_max_value+Vp_min_value);
+
+<span class="comment">% index values on S2Grid</span>
+[~,index_max] = max(vp);
+[~,index_min] = min(vp);
+<span class="comment">% vector in S2Grid</span>
+Vp_max_vector = XY_grid(index_max);
+Vp_min_vector = XY_grid(index_min);
+
+<span class="comment">%**************************************************************************</span>
+<span class="comment">% S-wave anisotropy percentage</span>
+<span class="comment">% defined as AVs = 200*(Vs1-Vs2)/(Vs1+Vs2)</span>
+<span class="comment">% Maximum and Minimum values and thier directions</span>
+<span class="comment">%**************************************************************************</span>
+<span class="comment">% new array AVs %</span>
+avs = 200*(vs1-vs2)./(vs1+vs2);
+AVs_max_value = max(avs);
+AVs_min_value = min(avs);
+<span class="comment">% index values on S2Grid</span>
+[~,index_max] = max(avs);
+[~,index_min] = min(avs);
+<span class="comment">% vector in S2Grid</span>
+AVs_max_vector = XY_grid(index_max);
+AVs_min_vector = XY_grid(index_min);
+
+<span class="comment">%**************************************************************************</span>
+<span class="comment">% dVs = Vs1-Vs2 (km/s)</span>
+<span class="comment">% Maximum and Minimum values and thier directions</span>
+<span class="comment">%**************************************************************************</span>
+<span class="comment">% new array AVs %</span>
+dVs = vs1-vs2;
+dVs_max_value = max(dVs);
+dVs_min_value = min(dVs);
+<span class="comment">% index values on S2Grid</span>
+[~,index_max] = max(dVs);
+[~,index_min] = min(dVs);
+<span class="comment">% vector in S2Grid</span>
+dVs_max_vector = XY_grid(index_max);
+dVs_min_vector = XY_grid(index_min);
+
+<span class="comment">%**************************************************************************</span>
+<span class="comment">% S1-wave velocity (km/s)</span>
+<span class="comment">% Maximum and Minimum values and thier directions</span>
+<span class="comment">%**************************************************************************</span>
+Vs1_max_value = max(vs1);
+Vs1_min_value = min(vs1);
+<span class="comment">% Anisotropy percent</span>
+AVs1=200*(Vs1_max_value-Vs1_min_value)/(Vs1_max_value+Vs1_min_value);
+<span class="comment">% index values on S2Grid</span>
+[~,index_max] = max(vs1);
+[~,index_min] = min(vs1);
+<span class="comment">% vector in S2Grid</span>
+Vs1_max_vector = XY_grid(index_max);
+Vs1_min_vector = XY_grid(index_min);
+
+<span class="comment">%**************************************************************************</span>
+<span class="comment">% S2-wave velocity (km/s)</span>
+<span class="comment">% Maximum and Minimum values and thier directions</span>
+<span class="comment">%**************************************************************************</span>
+Vs2_max_value = max(vs2);
+Vs2_min_value = min(vs2);
+<span class="comment">% Anisotropy percent</span>
+AVs2=200*(Vs2_max_value-Vs2_min_value)/(Vs2_max_value+Vs2_min_value);
+<span class="comment">% index values on S2Grid</span>
+[~,index_max] = max(vs2);
+[~,index_min] = min(vs2);
+<span class="comment">% vector in S2Grid</span>
+Vs2_max_vector = XY_grid(index_max);
+Vs2_min_vector = XY_grid(index_min);
+<span class="comment">%**************************************************************************</span>
+<span class="comment">% Vp/Vs1 (no units)</span>
+<span class="comment">% Maximum and Minimum values and thier directions</span>
+<span class="comment">%**************************************************************************</span>
+<span class="comment">% new array vpvs1</span>
+vpvs1 = vp./vs1;
+VpVs1_max_value = max(vpvs1);
+VpVs1_min_value = min(vpvs1);
+<span class="comment">% Anisotropy percent</span>
+AVpVs1=200*(VpVs1_max_value-VpVs1_min_value)/(VpVs1_max_value+VpVs1_min_value);
+<span class="comment">% index values on S2Grid</span>
+[~,index_max] = max(vpvs1);
+[~,index_min] = min(vpvs1);
+<span class="comment">% vector in S2Grid</span>
+VpVs1_max_vector = XY_grid(index_max);
+VpVs1_min_vector = XY_grid(index_min);
+<span class="comment">%**************************************************************************</span>
+<span class="comment">% Vp/Vs2 (no units)</span>
+<span class="comment">% Maximum and Minimum values and thier directions</span>
+<span class="comment">%**************************************************************************</span>
+<span class="comment">% new array vpvs2</span>
+vpvs2 = vp./vs2;
+VpVs2_max_value = max(vpvs2);
+VpVs2_min_value = min(vpvs2);
+<span class="comment">% Anisotropy percent</span>
+AVpVs2=200*(VpVs2_max_value-VpVs2_min_value)/(VpVs2_max_value+VpVs2_min_value);
+<span class="comment">% index values on S2Grid</span>
+[~,index_max] = max(vpvs2);
+[~,index_min] = min(vpvs2);
+<span class="comment">% vector in S2Grid</span>
+VpVs2_max_vector = XY_grid(index_max);
+VpVs2_min_vector = XY_grid(index_min);</pre><h2>Plotting section<a name="5"> </a></h2><pre class="codeinput"><span class="comment">% plotting convention - plot X-axis to north</span>
+plotx2north;
+
+<span class="comment">% close all open graphics</span>
+close <span class="string">all</span>
+
+<span class="comment">% set colour map to seismic color map : blue2redColorMap</span>
+setMTEXpref(<span class="string">'defaultColorMap'</span>,blue2redColorMap)
+
+<span class="comment">% some options</span>
+blackMarker = {<span class="string">'Marker'</span>,<span class="string">'s'</span>,<span class="string">'MarkerSize'</span>,10,<span class="keyword">...</span>
+  <span class="string">'MarkerEdgeColor'</span>,<span class="string">'white'</span>,<span class="string">'MarkerFaceColor'</span>,<span class="string">'black'</span>};
+whiteMarker = {<span class="string">'Marker'</span>,<span class="string">'o'</span>,<span class="string">'MarkerSize'</span>,10,<span class="keyword">...</span>
+  <span class="string">'MarkerEdgeColor'</span>,<span class="string">'black'</span>,<span class="string">'MarkerFaceColor'</span>,<span class="string">'white'</span>};
+
+<span class="comment">% some global options for the titles</span>
+<span class="comment">%titleOpt = {'FontSize',getMTEXpref('FontSize'),'visible','on'}; %{'FontSize',15};</span>
+titleOpt = {};
+
+<span class="comment">% Setup multiplot</span>
+<span class="comment">% define plot size [origin X,Y,Width,Height]</span>
+mtexFig = mtexFigure(<span class="string">'position'</span>,[0 0 1000 1000]);
+
+<span class="comment">% set up spacing between subplots default is 10 pixel</span>
+<span class="comment">%mtexFig.innerPlotSpacing = 20;</span>
+
+<span class="comment">% Standard Seismic plot with 8 subplots in 3 by 3 matrix</span>
+<span class="comment">%</span>
+<span class="comment">% Plot matrix layout</span>
+<span class="comment">%        1 Vp        2 AVs      3 S1 polarizations</span>
+<span class="comment">%        4 Vs1       5 Vs2      6 dVs</span>
+<span class="comment">%        7 Vp/Vs1    8 Vp/Vs2</span>
+<span class="comment">%</span></pre><img src="SeismicsMultiplot_01.png"> <pre class="codeinput"><span class="comment">%**************************************************************************</span>
+<span class="comment">% Vp : Plot P-wave velocity (km/s)</span>
+<span class="comment">%**************************************************************************</span>
+
+<span class="comment">% Plot P-wave velocity (km/s)</span>
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vp'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca)
+
+mtexTitle(<span class="string">'Vp (km/s)'</span>,titleOpt{:})
+<span class="comment">% percentage anisotropy</span>
+AVpS = [<span class="string">'Vp Anisotropy = '</span>,num2str(AVp,<span class="string">'%6.1f'</span>)];
+<span class="comment">% N.B. x and y reversed in subplot</span>
+ylabel(AVpS,titleOpt{:})
+
+<span class="comment">% mark maximum with black square and minimum with white circle</span>
+hold <span class="string">on</span>
+plot(Vp_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(Vp_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_02.png"> <h2>AVS : Plot S-wave anisotropy percentage for each proppagation direction<a name="7"> </a></h2>
+         <p>defined as AVs = 200*(Vs1-Vs2)/(Vs1+Vs2)</p><pre class="codeinput"><span class="comment">% create a new axis</span>
+mtexFig.nextAxis
+
+<span class="comment">% Plot S-wave anisotropy (percent)</span>
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'200*(vs1-vs2)./(vs1+vs2)'</span>,<span class="keyword">...</span>
+  <span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+mtexTitle(<span class="string">'S-wave anisotropy (%)'</span>,titleOpt{:})
+
+<span class="comment">% Max percentage anisotropy</span>
+AVsS = [<span class="string">'Max Vs Anisotropy = '</span>,num2str(AVs_max_value,<span class="string">'%6.1f'</span>)];
+ylabel(AVsS,titleOpt{:})
+
+<span class="comment">% mark crystal axes</span>
+hold <span class="string">on</span>
+text([xvector,yvector,zvector],{<span class="string">'[100] '</span>,<span class="string">'[010] '</span>,<span class="string">'[001]'</span>},<span class="keyword">...</span>
+  <span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+
+<span class="comment">% mark maximum with black square and minimum with white circle</span>
+hold <span class="string">on</span>
+plot(AVs_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(AVs_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_03.png"> <h2>S1 Polarization: Plot fastest S-wave (Vs1) polarization directions<a name="8"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
+mtexFig.nextAxis
+
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'200*(vs1-vs2)./(vs1+vs2)'</span>,<span class="string">'complete'</span>,<span class="keyword">...</span>
+  <span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+mtexTitle(<span class="string">'Vs1 polarization'</span>,titleOpt{:})
+
+hold <span class="string">on</span>
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'ps1'</span>,<span class="keyword">...</span>
+<span class="string">'complete'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'color'</span>,<span class="string">'black'</span>,<span class="string">'parent'</span>,mtexFig.gca)
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_04.png"> <h2>Vs1 : Plot Vs1 velocities (km/s)<a name="9"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
+mtexFig.nextAxis
+
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vs1'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+mtexTitle(<span class="string">'Vs1 (km/s)'</span>,titleOpt{:})
+
+<span class="comment">% Percentage anisotropy</span>
+AVs1S = [<span class="string">'Vs1 Anisotropy = '</span>,num2str(AVs1,<span class="string">'%6.1f'</span>)];
+ylabel(AVs1S,titleOpt{:})
+
+hold <span class="string">on</span>
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'ps1'</span>,<span class="keyword">...</span>
+<span class="string">'complete'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'color'</span>,<span class="string">'black'</span>,<span class="string">'parent'</span>,mtexFig.gca)
+
+<span class="comment">% mark maximum with black square and minimum with white circle</span>
+hold <span class="string">on</span>
+plot(Vs1_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(Vs1_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_05.png"> <h2>Vs2 : Plot Vs2 velocities (km/s)<a name="10"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
+mtexFig.nextAxis
+
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vs2'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+mtexTitle(<span class="string">'Vs2 (km/s)'</span>,titleOpt{:})
+
+<span class="comment">% Percentage anisotropy</span>
+AVs2S = [<span class="string">'Vs2 Anisotropy = '</span>,num2str(AVs2,<span class="string">'%6.1f'</span>)];
+ylabel(AVs2S,titleOpt{:})
+hold <span class="string">on</span>
+
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'ps2'</span>,<span class="keyword">...</span>
+  <span class="string">'complete'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'color'</span>,<span class="string">'black'</span>,<span class="string">'parent'</span>,mtexFig.gca)
+
+<span class="comment">% mark maximum with black square and minimum with white circle</span>
+hold <span class="string">on</span>
+plot(Vs2_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(Vs2_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_06.png"> <h2>dVs : Plot Velocity difference Vs1-Vs2 (km/s) plus Vs1 polarizations<a name="11"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
+mtexFig.nextAxis
+
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vs1-vs2'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+mtexTitle(<span class="string">'dVs=Vs1-Vs2 (km/s)'</span>,titleOpt{:})
+
+<span class="comment">% Max percentage anisotropy</span>
+AdVsS = [<span class="string">'Max dVs (km/s) = '</span>,num2str(dVs_max_value,<span class="string">'%6.2f'</span>)];
+ylabel(AdVsS,titleOpt{:})
+
+<span class="comment">% mark maximum with black square and minimum with white circle</span>
+hold <span class="string">on</span>
+plot(dVs_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(dVs_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_07.png"> <h2>Vp/Vs1 : Plot Vp/Vs1 ratio (no units)<a name="12"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
+mtexFig.nextAxis
+
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vp./vs1'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+mtexTitle(<span class="string">'Vp/Vs1'</span>,titleOpt{:})
+
+<span class="comment">% Percentage anisotropy</span>
+AVpVs1S = [<span class="string">'Vp/Vs1 Anisotropy = '</span>,num2str(AVpVs1,<span class="string">'%6.1f'</span>)];
+ylabel(AVpVs1S,titleOpt{:})
+
+<span class="comment">% mark maximum with black square and minimum with white circle</span>
+hold <span class="string">on</span>
+plot(VpVs1_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(VpVs1_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_08.png"> <h2>Vp/Vs2 : Plot Vp/Vs2 ratio (no units)<a name="13"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
+mtexFig.nextAxis
+
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vp./vs2'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+mtexTitle(<span class="string">'Vp/Vs2'</span>,titleOpt{:})
+
+<span class="comment">% Percentage anisotropy</span>
+AVpVs2S = [<span class="string">'Vp/Vs2 Anisotropy = '</span>,num2str(AVpVs2,<span class="string">'%6.1f'</span>)];
+ylabel(AVpVs2S,titleOpt{:})
+
+<span class="comment">% mark maximum with black square and minimum with white circle</span>
+hold <span class="string">on</span>
+plot(VpVs2_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(VpVs2_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_09.png"> <pre class="codeinput"><span class="comment">% add colorbars to all plots</span>
+colorbar
+drawNow(gcm,<span class="string">'figSize'</span>,<span class="string">'large'</span>)</pre><img src="SeismicsMultiplot_10.png"> <p>save plot as *.pdf file</p><pre class="codeinput"><span class="comment">%savefigure('Plot_Olivine_Single_Crystal_seismic_analysis.pdf');</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">% reset colour map to default for MTEX</span>
+setMTEXpref(<span class="string">'defaultColorMap'</span>,WhiteJetColorMap);
+<span class="comment">%</span>
+disp(<span class="string">' '</span>)
+disp(<span class="string">' Script has successfully terminated'</span>)
+disp(<span class="string">' '</span>)
+<span class="comment">%</span>
+<span class="comment">% End of script</span>
+<span class="comment">%</span></pre><pre class="codeoutput"> 
+ Script has successfully terminated
+ 
+</pre><p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

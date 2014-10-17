@@ -1,0 +1,181 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>Analyzing Individual Grains (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: GrainSingleAnalysis -->
+      <!-- HEADSTUFF: GrainSingleAnalysis -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:GrainSingleAnalysis">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/files/doc/index.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>Analyzing Individual Grains</h1>
+         <div class="subheading">
+            <p>Explanation how to extract and work with single grains from EBSD data</p>
+         </div>
+         <div>
+            <table class="content">
+               <tr>
+                  <td class="header">On this page ...</td>
+               </tr>
+               <tr>
+                  <td><a href="#3">Connection between grains and EBSD data</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#8">Visualize the misorientation within a grain</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#9">Testing on Bingham distribution for a single grain</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#12">Profiles through a single grain</a></td>
+               </tr>
+            </table>
+         </div>
+         <h2>Connection between grains and EBSD data<a name="3"> </a></h2>
+         <p>As usual, let us first import some EBSD data construct some grains</p><pre class="codeinput">close <span class="string">all</span>
+mtexdata <span class="string">forsterite</span>
+plotx2east
+
+<span class="comment">% consider only indexed data for grain segmentation</span>
+ebsd = ebsd(<span class="string">'indexed'</span>);
+<span class="comment">% perform grain segmentation</span>
+[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd);</pre><p>The <a href="GrainSet_index.html">GrainSet</a> contains the EBSD data it was reconstructed from. We can access these data by
+         </p><pre class="codeinput">grain_selected = grains( grains.grainSize &gt;=  1160)
+ebsd_selected = ebsd(grain_selected)</pre><pre class="codeoutput"> 
+grain_selected = grain2d  
+ 
+ Phase  Grains     Mineral  Symmetry  Crystal reference frame  Phase
+     1      32  Forsterite       mmm                                
+ 
+ Properties: GOS, meanRotation
+ 
+ 
+ebsd_selected = EBSD  
+ 
+ Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
+     1  62262 (100%)  Forsterite  light blue       mmm                         
+ 
+ Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
+ Scan unit : um
+ 
+</pre><p>A more convinient way to select grains in daily practice, is by spatial coordinates. Note, that the plotting conventions have
+            fairly to be adjusted to match the spatial coordinates, present in the EBSD or GrainSet.
+         </p><pre class="codeinput">grain_selected = grains(12000,3000)</pre><pre class="codeoutput"> 
+grain_selected = grain2d  
+ 
+ Phase  Grains     Mineral  Symmetry  Crystal reference frame  Phase
+     1       1  Forsterite       mmm                                
+ 
+        GOS   meanRotation
+ 0.00808162         73.521
+ 
+</pre><p>you can get the id of this grain by</p><pre class="codeinput">grain_selected.id</pre><pre class="codeoutput">ans =
+   640
+</pre><pre class="codeinput">plot(grain_selected.boundary,<span class="string">'linewidth'</span>,2)
+hold <span class="string">on</span>
+plot(ebsd(grain_selected))
+hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Plot empty. 
+</pre><img src="GrainSingleAnalysis_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Visualize the misorientation within a grain<a name="8"> </a></h2><pre class="codeinput">close
+plot(grain_selected.boundary,<span class="string">'linewidth'</span>,2)
+hold <span class="string">on</span>
+plot(ebsd(grain_selected),ebsd(grain_selected).mis2mean.angle./degree)
+hold <span class="string">off</span>
+colorbar</pre><pre class="codeoutput">Warning: Plot empty. 
+</pre><img src="GrainSingleAnalysis_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Testing on Bingham distribution for a single grain<a name="9"> </a></h2>
+         <p>Although the orientations of an individual grain are highly concentrated, they may vary in the shape. In particular, if the
+            grain was deformed by some process, we are interessed in quantifications.
+         </p><pre class="codeinput">cs = ebsd(grain_selected).CS;
+plotPDF(ebsd(grain_selected).orientations,<span class="keyword">...</span>
+  [Miller(0,0,1,cs),Miller(0,1,1,cs),Miller(1,1,1,cs)],<span class="string">'antipodal'</span>)</pre><img src="GrainSingleAnalysis_03.png"> <p>Testing on the distribution shows a gentle prolatness, nevertheless we would reject the hypothesis for some level of significance,
+            since the distribution is highly concentrated and the numerical results vague.
+         </p><pre class="codeinput">[qm,lambda,U,kappa] = mean(ebsd(grain_selected).orientations,<span class="string">'approximated'</span>);
+num2str(kappa')</pre><pre class="codeoutput">ans =
+0      66211.52132      107211.6626      152633.8635
+</pre><pre class="codeinput">ori = ebsd(grain_selected).orientations;
+T_spherical = bingham_test(ori,<span class="string">'spherical'</span>,<span class="string">'approximated'</span>);
+T_prolate   = bingham_test(ori,<span class="string">'prolate'</span>,  <span class="string">'approximated'</span>);
+T_oblate    = bingham_test(ori,<span class="string">'oblate'</span>,   <span class="string">'approximated'</span>);
+
+[T_spherical T_prolate T_oblate]</pre><pre class="codeoutput">ans =
+    0.0048    0.0407    0.0521
+</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Profiles through a single grain<a name="12"> </a></h2>
+         <p>Sometimes, grains show large orientation difference when beeing deformed and then its of interest, to characterize the lattice
+            rotation. One way is to order orientations along certain line segment and look at the profile.
+         </p>
+         <p>We proceed by specifiing such a line segment</p><pre class="codeinput">close,   plot(grain_selected.boundary,<span class="string">'linewidth'</span>,2)
+hold <span class="string">on</span>, plot(ebsd(grain_selected),ebsd(grain_selected).orientations.angle)
+
+<span class="comment">% line segment</span>
+x =  [11000   2500; <span class="keyword">...</span>
+      13500  5000];
+
+line(x(:,1),x(:,2),<span class="string">'linewidth'</span>,2)</pre><pre class="codeoutput">Warning: Plot empty. 
+</pre><img src="GrainSingleAnalysis_04.png"> <p>The command <a href="EBSD.spatialProfile.html">spatialProfile</a> extracts orientations along a line segment
+         </p><pre class="codeinput">[o,dist] = spatialProfile(ebsd(grain_selected),x);</pre><p>where the first output argument is a set of orientations ordered along the line segment, and the second is the distance from
+            the starting point.
+         </p>
+         <p>So, we compute misorientation angle and plot as a profile</p><pre class="codeinput">m = o(1) \ o
+
+close, plot(dist,angle(m)/degree)
+
+m = o(1:end-1) .\ o(2:end)
+
+hold <span class="string">on</span>, plot(dist(1:end-1)+diff(dist)./2,<span class="keyword">...</span><span class="comment"> % shift</span>
+  angle(m)/degree,<span class="string">'color'</span>,<span class="string">'r'</span>)
+xlabel(<span class="string">'distance'</span>); ylabel(<span class="string">'orientation difference in degree'</span>)
+
+legend(<span class="string">'to reference orientation'</span>,<span class="string">'to neighbour'</span>)</pre><pre class="codeoutput"> 
+m = misorientation  
+  size: 1 x 76
+  crystal symmetry : Forsterite (mmm)
+  crystal symmetry : Forsterite (mmm)
+ 
+ 
+m = misorientation  
+  size: 75 x 1
+  crystal symmetry : Forsterite (mmm)
+  crystal symmetry : Forsterite (mmm)
+ 
+</pre><img src="GrainSingleAnalysis_05.png"> <p>We can also observe the rotation axis, here we colorize after the distance</p><pre class="codeinput">close, plot(axis(o),dist,<span class="string">'markersize'</span>,3,<span class="string">'antipodal'</span>)</pre><img src="GrainSingleAnalysis_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>
