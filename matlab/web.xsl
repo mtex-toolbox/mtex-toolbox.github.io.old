@@ -188,7 +188,7 @@ Use the XSLT command to perform the conversion.
             <li><a href="/download.html">Downloads</a></li>
           </ul>
           <ul class="nav">
-            <li><a href="/files/doc/index.html">Documentation</a></li>
+            <li><a href="/documentation.html">Documentation</a></li>
           </ul>
           <ul class="nav">
             <li><a href="/team.html">People</a></li>
