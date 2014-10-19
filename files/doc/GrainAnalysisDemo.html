@@ -47,9 +47,7 @@
          <h2>Data import<a name="2"> </a></h2>
          <p>plotting convention</p><pre class="codeinput">mtexdata <span class="string">mylonite</span>
 
-plotx2east</pre><pre class="codeoutput"> loading data ...
- saving data to /home/hielscher/svn/mtex/data/mylonite.mat
-</pre><h2>Phase map<a name="3"> </a></h2>
+plotx2east</pre><h2>Phase map<a name="3"> </a></h2>
          <p>Phase map of multi-phase rock specimen with Andesina (blue), Quartz (red), Biotite (green) and Orthoclase (yellow)</p><pre class="codeinput">figure(<span class="string">'position'</span>,[100 100  750 300]);
 plot(ebsd)</pre><img src="GrainAnalysisDemo_01.png"> <h2>Restrict to the region of interest (RoI)<a name="4"> </a></h2>
          <p>the box is given by [xmin ymin xmax-xmin ymax-ymin] and indicates a region of interest (RoI).</p><pre class="codeinput">region = [19000 1500 4000 1500];

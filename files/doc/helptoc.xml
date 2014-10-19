@@ -422,6 +422,7 @@
             </tocitem>
             <tocitem target="Miller_index.html">Crystal Directions (The Class @Miller)<tocitem target="Miller_index.html#3">Class Description</tocitem>
                <tocitem target="Miller.Miller.html"/>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.cat.html">cat</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.char.html">char</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.checkFundamentalRegion.html">checkFundamentalRegion</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.display.html">display</tocitem>
@@ -942,7 +943,7 @@
             <tocitem target="SantaFe_demo.html#9">Plot Fourier Coefficients</tocitem>
          </tocitem>
       </tocitem>
-      <tocitem image="$toolbox/matlab/icons/pagesicon.gif" target="ReleaseNotes.html">Release Notes<tocitem target="changelog.html">MTEX Changelog<tocitem target="changelog.html#1">MTEX 4.0.0 - 08/2014</tocitem>
+      <tocitem image="$toolbox/matlab/icons/pagesicon.gif" target="ReleaseNotes.html">Release Notes<tocitem target="changelog.html">MTEX Changelog<tocitem target="changelog.html#1">MTEX 4.0.0 - 10/2014</tocitem>
             <tocitem target="changelog.html#2">MTEX 3.5.0 - 12/2013</tocitem>
             <tocitem target="changelog.html#3">MTEX 3.4.2 - 06/2013</tocitem>
             <tocitem target="changelog.html#4">MTEX 3.4.1 - 04/2013</tocitem>

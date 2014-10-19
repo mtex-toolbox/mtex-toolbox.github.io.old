@@ -110,13 +110,15 @@ annotate(mod1,<span class="keyword">...</span>
 
 annotate(mod2,<span class="keyword">...</span>
     <span class="string">'marker'</span>,<span class="string">'s'</span>,<span class="string">'MarkerSize'</span>,6,<span class="string">'MarkerFaceColor'</span>,<span class="string">'g'</span>,<span class="keyword">...</span>
-    <span class="string">'label'</span>,<span class="string">'B'</span>)</pre><img src="Annotations_demo_06.png"> <p>as well as in ODF plots</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,18,<span class="string">'sigma'</span>)
+    <span class="string">'label'</span>,<span class="string">'B'</span>)
+
+drawNow(gcm,<span class="string">'figSize'</span>,<span class="string">'normal'</span>)</pre><img src="Annotations_demo_06.png"> <p>as well as in ODF plots</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,18,<span class="string">'sigma'</span>)
 mtexColorMap <span class="string">white2black</span>
 annotate(mod1,<span class="keyword">...</span>
     <span class="string">'MarkerSize'</span>,15,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'r'</span>,<span class="string">'MarkerFaceColor'</span>,<span class="string">'none'</span>)
 
 annotate(mod2,<span class="keyword">...</span>
-  <span class="string">'MarkerSize'</span>,15,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'g'</span>,<span class="string">'MarkerFaceColor'</span>,<span class="string">'none'</span>)</pre><pre class="codeoutput">
+  <span class="string">'MarkerSize'</span>,15,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'b'</span>,<span class="string">'MarkerFaceColor'</span>,<span class="string">'none'</span>)</pre><pre class="codeoutput">
 Plotting ODF as sigma sections, range: 0&deg; - 113&deg;
 </pre><img src="Annotations_demo_07.png"> <p>or orientation scatter plots</p><pre class="codeinput">ori = calcOrientations(odf,200);
 scatter(ori,<span class="string">'center'</span>,mod1);
