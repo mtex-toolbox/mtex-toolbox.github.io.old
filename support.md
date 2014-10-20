@@ -9,14 +9,14 @@ We're eager to hear what you think about MTEX. Contact us at
 [ralf.hielscher@mathematik.tu-chemnitz.de](mailto:ralf.hielscher@mathematik.tu-chemnitz.de)
 with comments, compliments, or interesting uses you have found for MTEX.
 
-### Forum ###
+### [Forum](https://groups.google.com/forum/#!forum/mtexmail) ###
 
 All questions, comments, suggestions, requests that might be interesting also
 for other MTEX users we are happy to discuss in the
-[MTEX forum](https://groups.google.com/forum/#!forum/mtex/join). After
-registration the
-[MTEX forum](https://groups.google.com/forum/#!forum/mtex/join) keeps you
-track about major releases, workshops, and other MTEX-related activities.
+[MTEX forum](https://groups.google.com/forum/#!forum/mtexmail). After
+[registration](https://groups.google.com/forum/#!forum/mtexmail/join) the
+forum keeps you track about major releases, workshops, and other MTEX-related
+activities.
 
 ### Bug reports ###
 
