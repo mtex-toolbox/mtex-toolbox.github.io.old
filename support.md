@@ -7,10 +7,16 @@ layout: main
 
 We're eager to hear what you think about MTEX. Contact us at
 [ralf.hielscher@mathematik.tu-chemnitz.de](mailto:ralf.hielscher@mathematik.tu-chemnitz.de)
-with questions, bugs, comments, suggestions, requests, compliments, or
-interesting uses you have found for MTEX. You can keep track of news about
-major releases, events, and other MTEX-related activity by subscribing to
-our [mailing list](https://groups.google.com/forum/#!forum/mtex/join).
+with comments, compliments, or interesting uses you have found for MTEX.
+
+### Forum ###
+
+All questions, comments, suggestions, requests that might be interesting also
+for other MTEX users we are happy to discuss in the
+[MTEX forum](https://groups.google.com/forum/#!forum/mtex/join). After
+registration the
+[MTEX forum](https://groups.google.com/forum/#!forum/mtex/join) keeps you
+track about major releases, workshops, and other MTEX-related activities.
 
 ### Bug reports ###
 
@@ -21,12 +27,10 @@ email us as above.
 
 ### Interfaces ###
 
-Feel free to contact me if you need support for additional interfaces. Here
-you find also interfaces that are not yet part of the stable version of
-MTEX. Simply download the corresponding file an save it to mtex/qta/interfaces
+Feel free to contact us if you need support for additional file formats for
+EBSD, pole figure, orientation or tensor data. Below you find lists of
+supported formats.
 
 [List of supported EBSD formats](EBSDInterfaces.html)
 
 [List of supported pole figure formats](PoleFigureInterfaces.html)
-
-[List of supported ]()
