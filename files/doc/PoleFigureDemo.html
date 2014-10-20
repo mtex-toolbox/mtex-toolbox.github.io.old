@@ -23,7 +23,7 @@
                   <li><a href="/download.html">Downloads</a></li>
                </ul>
                <ul class="nav">
-                  <li><a href="/files/doc/index.html">Documentation</a></li>
+                  <li><a href="/documentation.html">Documentation</a></li>
                </ul>
                <ul class="nav">
                   <li><a href="/team.html">People</a></li>
@@ -63,7 +63,6 @@ c = {1,[0.52 ,1.23],1};
 <span class="comment">% import data</span>
 pf = loadPoleFigure(fname,h,CS,SS,<span class="string">'interface'</span>,<span class="string">'dubna'</span>,<span class="string">'superposition'</span>,c);
 
-close;figure(<span class="string">'position'</span>,[100 100 900 300])
 plot(pf)
 colorbar</pre><img src="PoleFigureDemo_01.png"> <h2>Extract information from imported pole figure data<a name="3"> </a></h2>
          <p><b>get raw data</b> Data stored in a <a href="PoleFigure_index.html">PoleFigure</a> variable can be extracted by
@@ -201,7 +200,7 @@ calcError(pf_SantaFe,rec_ng)</pre><pre class="codeoutput">ans =
     0.0252    0.0346    0.0323
 ans =
     0.0306    0.0421    0.0353
-</pre><p><b>Difference plot</b></p><pre class="codeinput">plotDiff(pf_SantaFe,rec,<span class="string">'position'</span>,[100 100 900 300])</pre><img src="PoleFigureDemo_07.png"> <p><b>ODF error</b></p><pre class="codeinput">calcError(SantaFe,rec)
+</pre><p><b>Difference plot</b></p><pre class="codeinput">plotDiff(pf_SantaFe,rec)</pre><img src="PoleFigureDemo_07.png"> <p><b>ODF error</b></p><pre class="codeinput">calcError(SantaFe,rec)
 calcError(SantaFe,rec_ng)</pre><pre class="codeoutput">ans =
     0.0416
 ans =

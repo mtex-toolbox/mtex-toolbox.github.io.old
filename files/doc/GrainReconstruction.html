@@ -23,7 +23,7 @@
                   <li><a href="/download.html">Downloads</a></li>
                </ul>
                <ul class="nav">
-                  <li><a href="/files/doc/index.html">Documentation</a></li>
+                  <li><a href="/documentation.html">Documentation</a></li>
                </ul>
                <ul class="nav">
                   <li><a href="/team.html">People</a></li>
@@ -387,13 +387,13 @@ plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><pre class="codeoutput">
          </p><pre class="codeinput">grains_high = calcGrains(ebsd,<span class="string">'angle'</span>,1*degree);
 grains_low  = calcGrains(ebsd,<span class="string">'angle'</span>,0.5*degree);
 
-figure(<span class="string">'position'</span>,[100 100 800 350])
+figure
 plot(ebsd,oM.orientation2color(ebsd.orientations))
 hold <span class="string">on</span>
 plot(grains_high.boundary)
 hold <span class="string">off</span>
 
-figure(<span class="string">'position'</span>,[500 100 800 350])
+figure
 plot(ebsd,oM.orientation2color(ebsd.orientations))
 hold <span class="string">on</span>
 plot(grains_low.boundary)

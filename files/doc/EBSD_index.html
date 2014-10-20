@@ -19,11 +19,11 @@
       <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
    <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
          <div class="navbar-inner">
-            <div class="container"><a class="brand" href="/">MTEX Homepage</a><ul class="nav">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
                   <li><a href="/download.html">Downloads</a></li>
                </ul>
                <ul class="nav">
-                  <li><a href="/files/doc/index.html">Documentation</a></li>
+                  <li><a href="/documentation.html">Documentation</a></li>
                </ul>
                <ul class="nav">
                   <li><a href="/team.html">People</a></li>
@@ -106,8 +106,7 @@ ebsd = EBSD
          <h3> Plotting EBSD Data<a name="5"> </a></h3>
          <p>EBSD data are plotted using the command <a href="EBSD.plot.html,plot">EBSD.plot.html,plot</a>. It assigns a color to each orientation and plots a map of these colors. There are several options to specify the way the
             colors are assigned.
-         </p><pre class="codeinput">figure(<span class="string">'position'</span>,[100 100 600 300])
-oM = ipdfHSVOrientationMapping(ebsd);
+         </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd);
 plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><pre class="codeoutput"> 
   Hint: You might want to use the point group
   "432" for colorcoding!

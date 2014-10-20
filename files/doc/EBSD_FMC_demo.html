@@ -23,7 +23,7 @@
                   <li><a href="/download.html">Downloads</a></li>
                </ul>
                <ul class="nav">
-                  <li><a href="/files/doc/index.html">Documentation</a></li>
+                  <li><a href="/documentation.html">Documentation</a></li>
                </ul>
                <ul class="nav">
                   <li><a href="/team.html">People</a></li>
@@ -53,7 +53,6 @@ oM = ipdfHSVOrientationMapping(ebsd);
 oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
 oM.colorStretching = 3
 
-figure(<span class="string">'position'</span>,[100 100 350 350])
 plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><pre class="codeoutput"> 
   Hint: You might want to use the point group
   "432" for colorcoding!
@@ -100,8 +99,7 @@ grains_FMC = grain2d
    0.019412        131.038
   0.0124594        166.019
  
-</pre><p>plot the grains</p><pre class="codeinput">figure(<span class="string">'position'</span>,[100 100 350 350])
-plot(ebsd,oM.orientation2color(ebsd.orientations))
+</pre><p>plot the grains</p><pre class="codeinput">plot(ebsd,oM.orientation2color(ebsd.orientations))
 hold <span class="string">on</span>
 plot(grains_FMC.boundary,<span class="string">'linewidth'</span>,1.5)
 hold <span class="string">off</span></pre><img src="EBSD_FMC_demo_03.png"> <p style="font-size:1px;"></p>

@@ -19,11 +19,11 @@
       <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
    <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
          <div class="navbar-inner">
-            <div class="container"><a class="brand" href="/">MTEX Homepage</a><ul class="nav">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
                   <li><a href="/download.html">Downloads</a></li>
                </ul>
                <ul class="nav">
-                  <li><a href="/files/doc/index.html">Documentation</a></li>
+                  <li><a href="/documentation.html">Documentation</a></li>
                </ul>
                <ul class="nav">
                   <li><a href="/team.html">People</a></li>
@@ -118,7 +118,7 @@ pf = PoleFigure
          <p>Pole figures are plotted using the <a href="PoleFigure.plot.html">plot</a> command. It plottes a singe colored dot for any data point contained in the pole figure. There are many options to specify
             the way pole figures are plotted in MTEX. Have a look at the <a href="Plotting.html">plotting section</a> for more informations.
          </p><pre class="codeinput">figure
-plot(pf,<span class="string">'position'</span>,[100 100 600 300])</pre><img src="PoleFigure_index_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+plot(pf)</pre><img src="PoleFigure_index_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Manipulate pole digure data<a name="7"> </a></h3>
          <p>MTEX offers a large collection of operations to analyze and manipulate pole figure data, e.g.</p>
          <div>
@@ -135,8 +135,7 @@ plot(pf,<span class="string">'position'</span>,[100 100 600 300])</pre><img src=
 plot(pf)</pre><img src="PoleFigure_index_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Calculate an ODF from pole digure data<a name="8"> </a></h3>
          <p>Calculating an ODF from pole figure data can be done using the command <a href="PoleFigure.calcODF.html">calcODF</a>. A precise decription of the underlying algortihm as well as of the options can be found <a href="PoleFigure2odf.html">here</a></p><pre class="codeinput">odf = calcODF(pf,<span class="string">'zero_range'</span>,<span class="string">'silent'</span>)
-plotPDF(odf,h,<span class="string">'superposition'</span>,c,<span class="keyword">...</span>
-  <span class="string">'antipodal'</span>,<span class="string">'position'</span>,[100 100 800 300])</pre><pre class="codeoutput">applying zero range method to (10-10)............ - reduction: 4298 / 19848
+plotPDF(odf,h,<span class="string">'superposition'</span>,c,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">applying zero range method to (10-10)............ - reduction: 4298 / 19848
 applying zero range method to (01-11)(10-11)............ - reduction: 4298 / 19848
 applying zero range method to (11-22)............ - reduction: 3338 / 19848
  

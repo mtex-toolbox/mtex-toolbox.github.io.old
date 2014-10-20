@@ -23,7 +23,7 @@
                   <li><a href="/download.html">Downloads</a></li>
                </ul>
                <ul class="nav">
-                  <li><a href="/files/doc/index.html">Documentation</a></li>
+                  <li><a href="/documentation.html">Documentation</a></li>
                </ul>
                <ul class="nav">
                   <li><a href="/team.html">People</a></li>
@@ -53,7 +53,7 @@ ebsd = loadEBSD(fname,<span class="string">'CS'</span>,CS,<span class="string">'
   <span class="string">'ColumnNames'</span>, { <span class="string">'Phase'</span> <span class="string">'x'</span> <span class="string">'y'</span> <span class="string">'Euler 1'</span> <span class="string">'Euler 2'</span> <span class="string">'Euler 3'</span> <span class="string">'Mad'</span> <span class="string">'BC'</span>},<span class="keyword">...</span>
   <span class="string">'Columns'</span>, [2 3 4 5 6 7 8 9],<span class="keyword">...</span>
   <span class="string">'ignorePhase'</span>, 0, <span class="string">'Bunge'</span>);</pre><h2>Plot Spatial Data<a name="4"> </a></h2><pre class="codeinput">plot(ebsd)</pre><img src="ebsd_demo_01.png"> <h2>Plot Pole Figures as Scatter Plots<a name="5"> </a></h2><pre class="codeinput">h = [Miller(1,0,0,CS{2}),Miller(1,1,0,CS{2}),Miller(1,1,1,CS{2})];
-close; figure(<span class="string">'position'</span>,[100,100,600,300])
+
 plotPDF(ebsd(<span class="string">'Fe'</span>).orientations,h,<span class="string">'points'</span>,500,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">  I'm plotting 500 random orientations out of 48184 given orientations
   You can specify the the number points by the option "points".
   The option "all" ensures that all data are plotted
@@ -82,11 +82,9 @@ odf2 = ODF
     center: 1921 orientations, resolution: 2.5&deg;
     weight: 1
  
-</pre><h2>Plot pole figures<a name="7"> </a></h2><pre class="codeinput">close <span class="string">all</span>;figure(<span class="string">'position'</span>,[160   389   632   216])
-plotPDF(odf1,h,<span class="string">'antipodal'</span>)
-figure(<span class="string">'position'</span>,[160   389   632   216])
-plotPDF(odf2,h,<span class="string">'antipodal'</span>)</pre><img src="ebsd_demo_03.png"> <img src="ebsd_demo_04.png"> <h2>Plot ODF<a name="8"> </a></h2><pre class="codeinput">close;figure(<span class="string">'position'</span>,[46   300   702   300]);
-plotODF(odf2,<span class="string">'sections'</span>,9,<span class="string">'resolution'</span>,2*degree,<span class="keyword">...</span>
+</pre><h2>Plot pole figures<a name="7"> </a></h2><pre class="codeinput">plotPDF(odf1,h,<span class="string">'antipodal'</span>)
+figure
+plotPDF(odf2,h,<span class="string">'antipodal'</span>)</pre><img src="ebsd_demo_03.png"> <img src="ebsd_demo_04.png"> <h2>Plot ODF<a name="8"> </a></h2><pre class="codeinput">plotODF(odf2,<span class="string">'sections'</span>,9,<span class="string">'resolution'</span>,2*degree,<span class="keyword">...</span>
   <span class="string">'FontSize'</span>,10,<span class="string">'silent'</span>)</pre><pre class="codeoutput">
 Plotting ODF as phi2 sections, range: 0&deg; - 80&deg;
 </pre><img src="ebsd_demo_05.png"> <h2>Estimation of Fourier Coefficients<a name="9"> </a></h2>
@@ -126,7 +124,7 @@ odf = ODF
 </pre><p>plot the estimated ODF</p><pre class="codeinput">plotODF(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><pre class="codeoutput">
 Plotting ODF as phi2 sections, range: 0&deg; - 100&deg;
 </pre><img src="ebsd_demo_10.png"> <p>calculate estimation error</p><pre class="codeinput">calcError(odf,fibre_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">ans =
-    0.1017
+    0.1025
 </pre><p>For a more exhausive example see the <a href="EBSDSimulation_demo.html">EBSD Simulation demo</a>!
          </p>
          <h2>Exercises<a name="17"> </a></h2>

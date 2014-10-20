@@ -23,7 +23,7 @@
                   <li><a href="/download.html">Downloads</a></li>
                </ul>
                <ul class="nav">
-                  <li><a href="/files/doc/index.html">Documentation</a></li>
+                  <li><a href="/documentation.html">Documentation</a></li>
                </ul>
                <ul class="nav">
                   <li><a href="/team.html">People</a></li>
@@ -67,8 +67,7 @@ pf = PoleFigure
   h = (10-10), r = 72 x 19 points
   h = (01-11)(10-11), r = 72 x 19 points
   h = (11-22), r = 72 x 19 points
-</pre><h2>plot pole figures<a name="3"> </a></h2><pre class="codeinput">figure(<span class="string">'position'</span>,[359 450 749 249])
-plot(pf)</pre><img src="dubna_demo_01.png"> <h2>Correct pole figures<a name="4"> </a></h2><pre class="codeinput">pf_corrected = pf(pf.r.theta &lt; 70*degree | pf.r.theta &gt; 75*degree);
+</pre><h2>plot pole figures<a name="3"> </a></h2><pre class="codeinput">plot(pf)</pre><img src="dubna_demo_01.png"> <h2>Correct pole figures<a name="4"> </a></h2><pre class="codeinput">pf_corrected = pf(pf.r.theta &lt; 70*degree | pf.r.theta &gt; 75*degree);
 
 plot(pf_corrected)</pre><img src="dubna_demo_02.png"> <h2>Rotate pole figures<a name="5"> </a></h2><pre class="codeinput">pf_rotated = rotate(pf_corrected,axis2quat(xvector,45*degree));
 plot(pf_rotated,<span class="string">'antipodal'</span>)</pre><img src="dubna_demo_03.png"> <h2>Recalculate ODF<a name="6"> </a></h2>
@@ -103,8 +102,7 @@ calcError(pf_corrected,odf,<span class="string">'RP'</span>,1)
 <span class="comment">% difference plot</span>
 plotDiff(pf,odf)</pre><pre class="codeoutput">ans =
     0.3153    0.1471    0.2710
-</pre><img src="dubna_demo_04.png"> <h2>Recalculate c-axis pole figures<a name="8"> </a></h2><pre class="codeinput">plotPDF(odf,Miller(0,0,1,cs),<span class="string">'antipodal'</span>)</pre><img src="dubna_demo_05.png"> <h2>Plot inverse pole figure<a name="9"> </a></h2><pre class="codeinput">plotIPDF(odf,vector3d(1,1,2))</pre><img src="dubna_demo_06.png"> <h2>plot recalculated ODF<a name="10"> </a></h2><pre class="codeinput">close <span class="string">all</span>;figure(<span class="string">'position'</span>,[15 111 920 508])
-plot(odf,<span class="string">'sections'</span>,18,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput">
+</pre><img src="dubna_demo_04.png"> <h2>Recalculate c-axis pole figures<a name="8"> </a></h2><pre class="codeinput">plotPDF(odf,Miller(0,0,1,cs),<span class="string">'antipodal'</span>)</pre><img src="dubna_demo_05.png"> <h2>Plot inverse pole figure<a name="9"> </a></h2><pre class="codeinput">plotIPDF(odf,vector3d(1,1,2))</pre><img src="dubna_demo_06.png"> <h2>plot recalculated ODF<a name="10"> </a></h2><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,18,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput">
 Plotting ODF as sigma sections, range: 0&deg; - 113&deg;
 </pre><img src="dubna_demo_07.png"> <h2>rotate ODF back<a name="11"> </a></h2><pre class="codeinput">odfrotated = rotate(odf,axis2quat(xvector,45*degree));
 plot(odfrotated,<span class="string">'sections'</span>,8,<span class="string">'sigma'</span>);

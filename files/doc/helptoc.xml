@@ -75,9 +75,9 @@
             <tocitem target="AxialDirectional.html">Antipodal Symmetry<tocitem target="AxialDirectional.html#3">Directions vs. Axes</tocitem>
                <tocitem target="AxialDirectional.html#7">The Angle between Directions and Axes</tocitem>
                <tocitem target="AxialDirectional.html#9">Antipodal Symmetry in Experimental Pole Figures</tocitem>
-               <tocitem target="AxialDirectional.html#11">Antipodal Symmetry in Recalculated Pole Figures</tocitem>
-               <tocitem target="AxialDirectional.html#13">Antipodal Symmetry in Inverse Pole Figures</tocitem>
-               <tocitem target="AxialDirectional.html#17">EBSD Colocoding</tocitem>
+               <tocitem target="AxialDirectional.html#10">Antipodal Symmetry in Recalculated Pole Figures</tocitem>
+               <tocitem target="AxialDirectional.html#12">Antipodal Symmetry in Inverse Pole Figures</tocitem>
+               <tocitem target="AxialDirectional.html#16">EBSD Colocoding</tocitem>
             </tocitem>
          </tocitem>
          <tocitem image="$toolbox/matlab/icons/pagesicon.gif" target="ODFAnalysis.html">ODF Analysis<tocitem target="ModelODFs.html">Model ODFs<tocitem target="ModelODFs.html#3">Introduction</tocitem>

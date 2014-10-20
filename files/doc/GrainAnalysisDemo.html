@@ -23,7 +23,7 @@
                   <li><a href="/download.html">Downloads</a></li>
                </ul>
                <ul class="nav">
-                  <li><a href="/files/doc/index.html">Documentation</a></li>
+                  <li><a href="/documentation.html">Documentation</a></li>
                </ul>
                <ul class="nav">
                   <li><a href="/team.html">People</a></li>
@@ -48,8 +48,7 @@
          <p>plotting convention</p><pre class="codeinput">mtexdata <span class="string">mylonite</span>
 
 plotx2east</pre><h2>Phase map<a name="3"> </a></h2>
-         <p>Phase map of multi-phase rock specimen with Andesina (blue), Quartz (red), Biotite (green) and Orthoclase (yellow)</p><pre class="codeinput">figure(<span class="string">'position'</span>,[100 100  750 300]);
-plot(ebsd)</pre><img src="GrainAnalysisDemo_01.png"> <h2>Restrict to the region of interest (RoI)<a name="4"> </a></h2>
+         <p>Phase map of multi-phase rock specimen with Andesina (blue), Quartz (red), Biotite (green) and Orthoclase (yellow)</p><pre class="codeinput">plot(ebsd)</pre><img src="GrainAnalysisDemo_01.png"> <h2>Restrict to the region of interest (RoI)<a name="4"> </a></h2>
          <p>the box is given by [xmin ymin xmax-xmin ymax-ymin] and indicates a region of interest (RoI).</p><pre class="codeinput">region = [19000 1500 4000 1500];
 rectangle(<span class="string">'position'</span>,region,<span class="string">'edgecolor'</span>,<span class="string">'r'</span>,<span class="string">'linewidth'</span>,2)</pre><img src="GrainAnalysisDemo_02.png"> <p>to which we restrict the data</p><pre class="codeinput">ebsd_region = ebsd(inpolygon(ebsd,region))</pre><pre class="codeoutput"> 
 ebsd_region = EBSD  
@@ -76,14 +75,12 @@ grains = grain2d
  Properties: GOS, meanRotation
  
 </pre><h2>Plot grain boundaries and phase<a name="7"> </a></h2>
-         <p>(RoI) Detailed phase map with measurement locations and reconstructed grain boundaries.</p><pre class="codeinput">figure(<span class="string">'position'</span>,[100 100  750 300]);
-hold <span class="string">on</span>
+         <p>(RoI) Detailed phase map with measurement locations and reconstructed grain boundaries.</p><pre class="codeinput">hold <span class="string">on</span>
 plot(ebsd_region)
 hold <span class="string">on</span>
 plot(grains.boundary,<span class="string">'color'</span>,<span class="string">'k'</span>)
 hold <span class="string">off</span>
-<span class="comment">% set(gcf,'renderer','zbuffer')</span></pre><img src="GrainAnalysisDemo_03.png"> <p>(RoI) Individual orientation measurements of quartz together with the grain boundaries.</p><pre class="codeinput">figure(<span class="string">'position'</span>,[100 100 750 300]);
-plot(grains({<span class="string">'Andesina'</span>,<span class="string">'Biotite'</span>,<span class="string">'Orthoclase'</span>}),<span class="string">'FaceAlpha'</span>,0.2)
+<span class="comment">% set(gcf,'renderer','zbuffer')</span></pre><img src="GrainAnalysisDemo_03.png"> <p>(RoI) Individual orientation measurements of quartz together with the grain boundaries.</p><pre class="codeinput">plot(grains({<span class="string">'Andesina'</span>,<span class="string">'Biotite'</span>,<span class="string">'Orthoclase'</span>}),<span class="string">'FaceAlpha'</span>,0.2)
 hold <span class="string">on</span>
 plot(grains.boundary,<span class="string">'color'</span>,<span class="string">'black'</span>);
 hold <span class="string">on</span>
@@ -97,8 +94,7 @@ plot(oM,<span class="string">'Position'</span>,[825 100 300 300])</pre><pre clas
  
 </pre><img src="GrainAnalysisDemo_05.png"> <p>(RoI) The reconstructed grains. The quartz grains are colored according to their mean orientation while the remaining grains
             are colored according to there phase.
-         </p><pre class="codeinput">figure(<span class="string">'position'</span>,[100 100  750 300]);
-plot(grains({<span class="string">'Andesina'</span>,<span class="string">'Biotite'</span>,<span class="string">'Orthoclase'</span>}),<span class="string">'FaceAlpha'</span>,0.2)
+         </p><pre class="codeinput">plot(grains({<span class="string">'Andesina'</span>,<span class="string">'Biotite'</span>,<span class="string">'Orthoclase'</span>}),<span class="string">'FaceAlpha'</span>,0.2)
 hold <span class="string">on</span>
 plot(grains(<span class="string">'Quartz'</span>))
 legend <span class="string">off</span></pre><img src="GrainAnalysisDemo_06.png"> <h2>Highlight specific boundaries<a name="11"> </a></h2>
@@ -108,8 +104,7 @@ legend <span class="string">off</span></pre><img src="GrainAnalysisDemo_06.png">
 AOboundary = grains.boundary(<span class="string">'Andesina'</span>,<span class="string">'Orthoclase'</span>);
 angle = AOboundary.misorientation.angle;
 
-hist(angle./degree)</pre><img src="GrainAnalysisDemo_07.png"> <pre class="codeinput">figure(<span class="string">'position'</span>,[100 100  750 300]);
-plot(grains,<span class="string">'FaceAlpha'</span>,0.4)
+hist(angle./degree)</pre><img src="GrainAnalysisDemo_07.png"> <pre class="codeinput">plot(grains,<span class="string">'FaceAlpha'</span>,0.4)
 hold <span class="string">on</span>
 
 plot(AOboundary(angle&gt;160*degree),<span class="string">'linewidth'</span>,2,<span class="string">'linecolor'</span>,<span class="string">'red'</span>)

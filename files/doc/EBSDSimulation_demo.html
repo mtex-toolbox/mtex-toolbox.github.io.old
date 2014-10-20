@@ -23,7 +23,7 @@
                   <li><a href="/download.html">Downloads</a></li>
                </ul>
                <ul class="nav">
-                  <li><a href="/files/doc/index.html">Documentation</a></li>
+                  <li><a href="/documentation.html">Documentation</a></li>
                </ul>
                <ul class="nav">
                   <li><a href="/team.html">People</a></li>
@@ -87,13 +87,13 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5.7&deg;
-    center: 7246 orientations, resolution: 2.9&deg;
+    center: 7196 orientations, resolution: 2.9&deg;
     weight: 1
  
 </pre><p>which can be plotted,</p><pre class="codeinput">plotODF(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><pre class="codeoutput">
 Plotting ODF as phi2 sections, range: 0&deg; - 100&deg;
 </pre><img src="EBSDSimulation_demo_02.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,fibre_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">ans =
-    0.0948
+    0.0970
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Exploration of the relationship between estimation error and number of single orientations<a name="11"> </a></h2>
          <p>For a more systematic analysis of the estimation error we simulate 10, 100, ..., 1000000 single orientations of the model
@@ -114,8 +114,8 @@ Plotting ODF as phi2 sections, range: 0&deg; - 100&deg;
   disp([<span class="string">'Rule of thumb: '</span> int2str(psi2.halfwidth/degree) mtexdegchar <span class="keyword">...</span>
     <span class="string">'Kullback Leibler cross validation: '</span> int2str(psi1.halfwidth/degree) mtexdegchar]);
 
-<span class="keyword">end</span></pre><pre class="codeoutput"> eRule of thumb: 65&deg;Kullback Leibler cross validation: 24&deg;
- eRule of thumb: 38&deg;Kullback Leibler cross validation: 15&deg;
+<span class="keyword">end</span></pre><pre class="codeoutput"> eRule of thumb: 82&deg;Kullback Leibler cross validation: 24&deg;
+ eRule of thumb: 35&deg;Kullback Leibler cross validation: 15&deg;
  eRule of thumb: 18&deg;Kullback Leibler cross validation: 9&deg;
  eRule of thumb: 10&deg;Kullback Leibler cross validation: 6&deg;
  eRule of thumb: 9&deg;Kullback Leibler cross validation: 5&deg;

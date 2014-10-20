@@ -23,7 +23,7 @@
                   <li><a href="/download.html">Downloads</a></li>
                </ul>
                <ul class="nav">
-                  <li><a href="/files/doc/index.html">Documentation</a></li>
+                  <li><a href="/documentation.html">Documentation</a></li>
                </ul>
                <ul class="nav">
                   <li><a href="/team.html">People</a></li>
@@ -63,9 +63,9 @@
             </table>
          </div>
          <p>First, let us import some example <a href="mtexdata.html">EBSD data</a> and plot the raw data
-         </p><pre class="codeinput">plotx2east; plotzOutOfPlane
-mtexdata <span class="string">forsterite</span>;
-figure(<span class="string">'position'</span>,[100 100 800 400])
+         </p><pre class="codeinput">mtexdata <span class="string">forsterite</span>;
+
+plotx2east; plotzOutOfPlane
 plot(ebsd)</pre><img src="AliginingEBSDData_01.png"> <p>as well as some pole figure data</p><pre class="codeinput">close <span class="string">all</span>
 CS = ebsd(<span class="string">'forsterite'</span>).CS;
 plotPDF(ebsd(<span class="string">'forsterite'</span>).orientations,Miller(1,2,3,CS),<span class="string">'contourf'</span>)</pre><img src="AliginingEBSDData_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -74,7 +74,6 @@ plotPDF(ebsd(<span class="string">'forsterite'</span>).orientations,Miller(1,2,3
             of the reference frame of your data on your plot is not correct. In the above pictures the x-axis is plotted to east and the
             z-axis is plotted out of plane. Assume you want to change this to z-axis into plane you need to do
          </p><pre class="codeinput">plotzIntoPlane;
-figure(<span class="string">'position'</span>,[100 100 800 400])
 plot(ebsd)</pre><img src="AliginingEBSDData_03.png"> <p>Observe, how the y-axis is inverted but the x-axis is still plotted in east direction. This change of the alignment of the
             reference frame does not only effect spatial EBSD plots but also all pole figure plots.
          </p><pre class="codeinput">plotPDF(ebsd(<span class="string">'fo'</span>).orientations,Miller(1,2,3,CS),<span class="string">'contourf'</span>)</pre><img src="AliginingEBSDData_04.png"> <p>However, by changing the alignment of the reference frame in the graphical output non of the imported spatial coordinats nor
@@ -93,8 +92,6 @@ rot = rotation(<span class="string">'axis'</span>,zvector,<span class="string">'
 ebsd_rot = rotate(ebsd,rot);
 
 <span class="comment">% plot the rotated EBSD data</span>
-close
-figure(<span class="string">'position'</span>,[100 100 800 400])
 plot(ebsd_rot)</pre><img src="AliginingEBSDData_05.png"> <p>It should be stressed that this rotation on does not only effect the spatial data, i.e. the x, y values, but also the Euler
             angles are rotated accordingly.
          </p><pre class="codeinput">plotPDF(ebsd_rot(<span class="string">'fo'</span>).orientations,Miller(1,2,3,CS),<span class="string">'contourf'</span>)</pre><img src="AliginingEBSDData_06.png"> <h3 class="seealso">See also</h3>
@@ -108,8 +105,6 @@ plot(ebsd_rot)</pre><img src="AliginingEBSDData_05.png"> <p>It should be stresse
 ebsd_rot = rotate(ebsd,rot,<span class="string">'keepEuler'</span>);
 
 <span class="comment">% plot the rotated EBSD data</span>
-close
-figure(<span class="string">'position'</span>,[100 100 800 400])
 plot(ebsd_rot)</pre><img src="AliginingEBSDData_07.png"> <p>The pole figure remains unchanged:</p><pre class="codeinput">plotPDF(ebsd_rot(<span class="string">'forsterite'</span>).orientations,Miller(1,2,3,CS),<span class="string">'contourf'</span>)</pre><img src="AliginingEBSDData_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Correcting HKL and CTF files<a name="14"> </a></h2>
          <p>Both *.ctf and *.ang data files are known to use different reference frames for spatial data and Euler angles. To corrrect
