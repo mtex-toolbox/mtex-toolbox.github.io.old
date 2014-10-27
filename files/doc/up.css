@@ -156,13 +156,6 @@ div.note {
   border-width: 1px 1px 1px 1px  #888888;
 }
 
-div.subheading {
-  /* background: #e1ebfd;*/
-  margin: -10px 0px 10px 0px;
-  font-size: normal;
-}
-
-
 div.subheading  p {
   /* background: #e1ebfd;*/
   margin: 0px 0px 0px 0px;
