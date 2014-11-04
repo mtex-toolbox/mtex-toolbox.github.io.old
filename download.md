@@ -16,8 +16,7 @@ In case you experience any problems have a look at our [trouble shooting page]()
 
 File Name  |||  Release Notes||| Comments ||| Downloads
 :-|-|-|:-|-|-|:-|-|-|-
-[**mtex-4.0.4.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.0.4b/mtex-4.0.4.zip) ||| October 2014    ||| major release with many new features and syntax changes, [changelog](files/doc/changelog.html) ||| no idea
-[**mtex-4.0.2.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.0.2/mtex-4.0.2.zip) ||| October 2014    ||| major release with many new features and syntax changes, [changelog](files/doc/changelog.html) ||| no idea
+[**mtex-4.0.5.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.0.5/mtex-4.0.5.zip) ||| October 2014    ||| major release with many new features and syntax changes, [changelog](files/doc/changelog.html) ||| no idea
 [**mtex-3.5.0.zip**](http://mtex.googlecode.com/files/mtex-3.5.0.zip) ||| December 2013   ||| minor release, [changelog]()||| 1774
 [**mtex-3.4.2.zip**](http://mtex.googlecode.com/files/mtex-3.4.2.zip) ||| June 2013       ||| minor release, [changelog]()||| 1514
 
