@@ -20,7 +20,7 @@ be up and running in seconds.
 ### Troubleshooting, Bugs, Contact and Mailing List
 
 
- * [MTEX forum](https://groups.google.com/forum/?fromgroups=#!topic/mtexmail)
+ * [MTEX forum](https://groups.google.com/forum/?fromgroups=#!forum/mtexmail)
   -- Questions, Discussions, Announcements.
  * [report issues](https://github.com/mtex-toolbox/mtex/issues) -- Every bug
    report is welcome.
