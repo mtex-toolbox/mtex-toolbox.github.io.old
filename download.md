@@ -21,3 +21,25 @@ File Name  |||  Release Notes||| Comments ||| Downloads
 [**mtex-3.4.2.zip**](http://mtex.googlecode.com/files/mtex-3.4.2.zip) ||| June 2013       ||| minor release, [changelog]()||| 1514
 
 A full list of previous releases and downloads can be found [here](http://code.google.com/p/mtex/downloads/list).
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        GetLatestReleaseInfo();
+    });
+
+    function GetLatestReleaseInfo() {
+        $.getJSON("https://api.github.com/repos/ShareX/ShareX/releases").done(function (json) {
+            var release = json[0];
+            var asset = release.assets[0];
+            var downloadURL = "https://github.com/ShareX/ShareX/releases/download/" + release.tag_name + "/" + asset.name;
+            var downloadCount = 0;
+            for (var i = 0; i < release.assets.length; i++) {
+                downloadCount += release.assets[i].download_count;
+            }
+            var releaseInfo = release.name + " was updated " + $.timeago(asset.updated_at) + " and downloaded " + downloadCount + " times.";
+            $(".sharex-download").attr("href", downloadURL);
+            $(".release-info").text(releaseInfo);
+            $(".release-info").fadeIn("slow");
+        });
+    }
+</script>
