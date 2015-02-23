@@ -162,10 +162,9 @@ gB_MgMg = grainBoundary
             misorientation angle
          </p><pre class="codeinput">plot(gB_MgMg,gB_MgMg.misorientation.angle./degree,<span class="string">'linewidth'</span>,2)
 colorbar</pre><img src="TwinningAnalysis_02.png"> <p>We observe many grain boundaries with a large misorientation angle of about 86 degree. Those grain boundaries are most likely
-            twin boundaries. To detect them more precisely we define first the twinning as a
-         </p><pre>                          <html>
-                             <table class="usertable"/>
-                          </html></pre><pre class="codeinput">twinning = orientation(<span class="string">'map'</span>,Miller(1,1,-2,0,CS),Miller(2,-1,-1,0,CS),<span class="keyword">...</span>
+            twin boundaries. To detect them more precisely we define first the twinning as a misorientation, which is reported in literature
+            by  (1,1,-2,0) parallel to (2,-1,-1,0) and (-1,0,1,1) parallel to (1,0,-1,1). In MTEX it is defined by
+         </p><pre class="codeinput">twinning = orientation(<span class="string">'map'</span>,Miller(1,1,-2,0,CS),Miller(2,-1,-1,0,CS),<span class="keyword">...</span>
   Miller(-1,0,1,1,CS),Miller(1,0,-1,1,CS))</pre><pre class="codeoutput"> 
 twinning = misorientation  
   size: 1 x 1
