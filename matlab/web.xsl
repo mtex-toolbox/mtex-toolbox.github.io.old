@@ -183,7 +183,7 @@ Use the XSLT command to perform the conversion.
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/">MTEX Homepage</a>
+          <a class="brand" href="/">MTEX Toolbox</a>
           <ul class="nav">
             <li><a href="/download.html">Downloads</a></li>
           </ul>
@@ -217,7 +217,7 @@ Use the XSLT command to perform the conversion.
             <li><a href="/download.html">Downloads</a></li>
           </ul>
           <ul class="nav">
-            <li><a href="/files/doc/index.html">Documentation</a></li>
+            <li><a href="/documentation.html">Documentation</a></li>
           </ul>
           <ul class="nav">
             <li><a href="/team.html">People</a></li>

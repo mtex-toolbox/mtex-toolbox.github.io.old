@@ -10,11 +10,10 @@ end
 clear
 close all
 setMTEXpref('FontSize',12)
-setMTEXpref('figSize','normal')
+setMTEXpref('figSize',0.5)
 
 
 %%
-
 plotx2east
 
 
@@ -23,8 +22,8 @@ set(0,'FormatSpacing','compact')
 
 set(0,'DefaultFigureColor','white');
 
-addpath(fullfile(pwd,'..','..','mtex-doc'))
-addpath(fullfile(pwd,'..','..','mtex-doc','tools'))
+addpath(fullfile(pwd,'..','..','doc'))
+addpath(fullfile(pwd,'..','..','doc','tools'))
 
 %% DocFiles
 %
@@ -35,16 +34,14 @@ mtexFunctionFiles = [...
   DocFile( fullfile(mtex_path,'PoleFigureAnalysis')) ...
   DocFile( fullfile(mtex_path,'plotting')) ...
   DocFile( fullfile(mtex_path,'geometry')) ...
+  DocFile( fullfile(mtex_path,'interfaces')) ...
   DocFile( fullfile(mtex_path,'tools')) ];
 
 %mtexFunctionFiles = exclude(mtexFunctionFiles,'Patala');
 
-mtexExampleFiles = ...
-  DocFile( getFiles(fullfile(mtex_path,'examples'),'*.m',false));
-mtexDocFiles = ...
-  DocFile( fullfile(mtex_path,'help','doc'));
+mtexDocFiles = DocFile( fullfile(mtex_path,'doc'));
 
-mtexHelpFiles = [mtexFunctionFiles mtexExampleFiles mtexDocFiles];
+mtexHelpFiles = [mtexFunctionFiles,mtexDocFiles];
 
 mtexDocPictures = DocFile(getFiles(fullfile(mtex_path,'help','doc'),'*.png',true));
 
@@ -96,25 +93,7 @@ publish(mtexFunctionFiles,options);
 
 %% Publish Examples Reference
 
-publish(mtexExampleFiles,options);
-
-
-%%
-
-makeDemoToc(mtexExampleFiles,'outputDir',options.outputDir);
-copyfile(fullfile(options.outputDir,'demos.xml'), fullfile(mtex_path,'examples'));
-
-
-%%
-
-src = struct(mtexExampleFiles);
-src = [src.sourceInfo];
-
-for k=1:numel(src)
-  temp = DocFile(getFiles(options.outputDir,[src(k).docName '*']));
-  copy(temp,fullfile(mtex_path,'examples','html'));
-end
-copy(DocFile(getPublishGeneral),fullfile(mtex_path,'examples','html'));
+%publish(mtexExampleFiles,options);
 
 
 %% Publish Doc
@@ -136,17 +115,6 @@ publish(mtexDocFiles,options);
 %%
 
 deadlink(mtexDocFiles,options.outputDir);
-
-%% Enable search in documentation
-% (also F1 Help in recent matlab)
-
-%builddocsearchdb(outputDir);
-%copyfile(fullfile(outputDir,'helpsearch'),fullfile(docPath,'helpsearch'));
-
-
-%% Build the help.jar
-
-%system(['jar -cf ' fullfile(docPath,'help.jar') ' -C ' outputDir ' .']);
 
 %% set back mtex options
 
