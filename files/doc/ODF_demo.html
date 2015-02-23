@@ -185,7 +185,7 @@ ans =
 ans =
     0.0253
 ans =
-    5.7257
+    1.9251
 ans =
    -0.5028
 </pre><h2>Plotting ODFs<a name="10"> </a></h2>
@@ -204,8 +204,6 @@ Plotting ODF as phi2 sections, range: 0&deg; - 75&deg;
 </pre><img src="ODF_demo_08.png"> <p>d) Compute the volume of the ODF that is within a distance of 10 degree of the mod. Compare to an the uniform ODF.</p><pre class="codeinput">volume(odf,ori,10*degree)
 volume(uniformODF(CS,SS),ori,10*degree)</pre><pre class="codeoutput">ans =
     0.2939
-Warning: Rotation does not respect
-symmetry! 
 ans =
     0.0270
 </pre><p>e) Construct a trigonal ODF that consists of two fibres at h1 = (0,0,0,1), r1 = (0,1,0), h2 = (1,0,-1,0), r2 = (1,0,0). Do
@@ -245,7 +243,7 @@ Plotting ODF as phi2 sections, range: 0&deg; - 100&deg;
 </pre><img src="ODF_demo_09.png"> <pre class="codeinput">plot(odf,<span class="string">'phi2'</span>,<span class="string">'sections'</span>,6)</pre><pre class="codeoutput">
 Plotting ODF as phi2 sections, range: 0&deg; - 100&deg;
 </pre><img src="ODF_demo_10.png"> <p>h) Compute the texture index of the ODF.</p><pre class="codeinput">textureindex(odf)</pre><pre class="codeoutput">ans =
-    1.4866
+    9.6325
 </pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

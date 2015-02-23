@@ -170,12 +170,16 @@ o1 = orientation
  
  
 </pre><p>Then the class of rotations crystallographically equivalent to o can be computed in two way. Either by using the command <a href="orientation.symmetrise.html">symmetrise</a></p><pre class="codeinput">symmetrise(o)</pre><pre class="codeoutput"> 
-ans = rotation  
+ans = orientation  
   size: 384 x 1
+  crystal symmetry : m-3m
+  specimen symmetry: mmm
  
 </pre><p>or by using multiplication</p><pre class="codeinput">ss * o * cs</pre><pre class="codeoutput"> 
-ans = rotation  
+ans = orientation  
   size: 8 x 48
+  crystal symmetry : m-3m
+  specimen symmetry: mmm
  
 </pre><h3> Caclulating Missorientations<a name="17"> </a></h3>
          <p>Let cs and ss be crystal and specimen symmetry and o1 and o2 two crystal orientations. Then one can ask for the missorientation
@@ -270,8 +274,9 @@ phi2 =
             of orientations with a certain orientation</td></tr><tr><td width="200px"><a href="orientation.symmetrise.html"><tt>symmetrise</tt></a></td><td>all
             crystallographically equivalent orientations</td></tr><tr><td width="200px"><a href="orientation.times.html"><tt>times</tt></a></td><td>vec
             = ori .* Miller</td></tr><tr><td width="200px"><a href="orientation.transformReferenceFrame.html"><tt>transformReferenceFrame</tt></a></td><td>only
-            applicable for crystal symmetry</td></tr><tr><td width="200px"><a href="orientation.volume.html"><tt>volume</tt></a></td><td>ratio
-            of orientations with a certain orientation</td></tr></table>
+            applicable for crystal symmetry</td></tr><tr><td width="200px"><a href="orientation.unique.html"><tt>unique</tt></a></td><td>disjoint
+            list of quaternions</td></tr><tr><td width="200px"><a href="orientation.volume.html"><tt>volume</tt></a></td><td>ratio of
+            orientations with a certain orientation</td></tr></table>
          </p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

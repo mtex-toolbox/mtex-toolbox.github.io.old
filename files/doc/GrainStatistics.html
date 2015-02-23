@@ -88,8 +88,7 @@ grains = grain2d
          <h2>Accessing individual grains<a name="5"> </a></h2>
          <p>The variabe <tt>grains</tt> is essentially a large vector of grains. Thus when applying a function like <a href="Grain2d.area.html">area</a> to this variabe we obtain a vector of the same lenght with numbers representing the area of each grain
          </p><pre class="codeinput">grain_area = grains.area;</pre><p>As a first rather simple application we could colorize the grains according to their area, i.e., according to the numbers
-            stored in <tt>grain_area</tt></p><pre class="codeinput">plot(grains,grain_area)</pre><pre class="codeoutput">Warning: Plot empty. 
-</pre><img src="GrainStatistics_02.png"> <p>As a second application we can ask for the largest grain within our data set. The maximum value and its position within a
+            stored in <tt>grain_area</tt></p><pre class="codeinput">plot(grains,grain_area)</pre><img src="GrainStatistics_02.png"> <p>As a second application we can ask for the largest grain within our data set. The maximum value and its position within a
             vector is found by the Matlab command <tt>max</tt>.
          </p><pre class="codeinput">[max_area,max_id] = max(grain_area)</pre><pre class="codeoutput">max_area =
    3.8945e+06
@@ -107,8 +106,7 @@ ans = grain2d
  
 </pre><p>and so we can plot it</p><pre class="codeinput">hold <span class="string">on</span>
 plot(grains(max_id).boundary,<span class="string">'linecolor'</span>,<span class="string">'red'</span>,<span class="string">'linewidth'</span>,1.5)
-hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Plot empty. 
-</pre><img src="GrainStatistics_03.png"> <p>Note that this way of addressing individuell grains can be generalized to many grains. E.g. assume we are interested in the
+hold <span class="string">off</span></pre><img src="GrainStatistics_03.png"> <p>Note that this way of addressing individuell grains can be generalized to many grains. E.g. assume we are interested in the
             largest 5 grains. Then we can sort the vector <tt>grain_area</tt> and take the indices of the 5 largest grains.
          </p><pre class="codeinput">[sorted_area,sorted_id] = sort(grain_area,<span class="string">'descend'</span>);
 
@@ -116,8 +114,7 @@ large_grain_id = sorted_id(1:5);
 
 hold <span class="string">on</span>
 plot(grains(large_grain_id).boundary,<span class="string">'linecolor'</span>,<span class="string">'green'</span>,<span class="string">'linewidth'</span>,1.5)
-hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Plot empty. 
-</pre><img src="GrainStatistics_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="GrainStatistics_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Indexing by a Condition<a name="11"> </a></h2>
          <p>By the same syntax as above we can also single out grains that satisfy a certain condition. I.e., to access are grains that
             are at least half as large as the largest grain we can do
@@ -125,8 +122,7 @@ hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Plot 
 
 hold <span class="string">on</span>
 plot(grains(condition).boundary,<span class="string">'linecolor'</span>,<span class="string">'red'</span>,<span class="string">'linewidth'</span>,1.5)
-hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Plot empty. 
-</pre><img src="GrainStatistics_05.png"> <p>This is a very powerfull way of accessing grains as the condition can be build up using any grain property. As an example
+hold <span class="string">off</span></pre><img src="GrainStatistics_05.png"> <p>This is a very powerfull way of accessing grains as the condition can be build up using any grain property. As an example
             let us consider the phase. The phase of the first five grains we get by
          </p><pre class="codeinput">grains(1:5).phase</pre><pre class="codeoutput">ans =
      0
@@ -279,8 +275,7 @@ grains = grain2d
 </pre><img src="GrainStatistics_13.png"> <p>Beside the area there are various other geometric properties that can be computed for grains, e.g., the <a href="grain2d.perimeter.html">perimeter</a>, the <a href="grain2d.diameter.html">diameter</a>, the <a href="grain2d.equivalentRadius.html">equivalentRadius</a>, the <a href="grain2d.equivalentPerimeter.html">equivalentPerimeter</a>, the <a href="grain2d.aspectRatio.html">aspectRatio</a>, and the <a href="grain2d.shapeFactor.html">shapeFactor</a>. The following is a simple scatter plot of shape factor against aspact ratio to check for correlation.
          </p><pre class="codeinput"><span class="comment">% the size of the dots corresponds to the area of the grains</span>
 close <span class="string">all</span>
-scatter(grains.shapeFactor, grains.aspectRatio, 70*grains.area./max(grains.area))</pre><img src="GrainStatistics_14.png"> <pre class="codeinput">plot(grains,log(grains.aspectRatio))</pre><pre class="codeoutput">Warning: Plot empty. 
-</pre><img src="GrainStatistics_15.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+scatter(grains.shapeFactor, grains.aspectRatio, 70*grains.area./max(grains.area))</pre><img src="GrainStatistics_14.png"> <pre class="codeinput">plot(grains,log(grains.aspectRatio))</pre><img src="GrainStatistics_15.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Spatial Dependencies<a name="25"> </a></h2>
          <p>One interessting question would be, wether a polyphase system has dependence in the spatial arrangement or not, therefor we
             can count the transitions to a neighbour grain

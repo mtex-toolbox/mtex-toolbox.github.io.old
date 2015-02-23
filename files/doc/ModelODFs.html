@@ -214,7 +214,7 @@ odf = BinghamODF(20,mod,cs)
 
 plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'contourf'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : 1, X||a, Y||b, Z||c
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c
   specimen symmetry: 1
  
   Bingham portion:
@@ -222,7 +222,7 @@ odf = ODF
     weight: 1
  
 
-Plotting ODF as sigma sections, range: 0&deg; - 300&deg;
+Plotting ODF as sigma sections, range: 0&deg; - 100&deg;
 </pre><img src="ModelODFs_05.png"> <p><b>Bingham fibre ODF</b></p><pre class="codeinput">odf = BinghamODF([-10,-10,10,10],quaternion(eye(4)),cs)
 
 plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput"> 

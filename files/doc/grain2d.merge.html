@@ -49,7 +49,7 @@
          <p>
             <div class="syntax" width="100%">
             <div>
-            <tt>[grains_merged,grains] = merge(grains, gB)</tt>
+            <tt>[grains_merged,parentId] = merge(grains, gB)</tt>
             </div>
             </div>
             
@@ -89,15 +89,13 @@
             </tr>
             <tr>
             <td width="100px">
-            <tt>grains</tt>
+            <tt>parentId</tt>
             </td>
             <td>
-            <pre>Example:</pre>
-            <pre>  mtexdata small
-            grains = smooth(calcGrains(ebsd))</pre>
-            <pre>   merge all neigbouring Diopside grains
-            gB = grains.boundary('Diopside','Diopside')
-            [grains_m,grains] = merge(grains,gB)</pre>
+            <p>a list of the same size as grains containing the ids of the merged grains</p>
+            <p>mple:</p>
+            <p>texdata small rains = smooth(calcGrains(ebsd))</p>
+            <p>merge all neigbouring Diopside grains B = grains.boundary('Diopside','Diopside') grains_m,parentId] = merge(grains,gB)</p>
             </td>
             </tr>
             </table>

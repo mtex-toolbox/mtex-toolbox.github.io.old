@@ -45,7 +45,7 @@
             <td>return alignment of the reference frame as string, e.g. x||a, y||b*</td>
             <tr></tr>
             <td width="250px"><a href="allPairs.html"><tt>allPairs</tt></a></td>
-            <td>returns all pairs of elements of the vector x</td>
+            <td>all pairs of elements of x and y modulo permutation</td>
             <tr></tr>
             <td width="250px"><a href="orientation.angle.html"><tt>angle</tt></a><span>   (orientation)</span></td>
             <td>calculates rotational angle between orientations</td>
@@ -85,6 +85,9 @@
             <tr></tr>
             <td width="250px"><a href="grain2d.aspectRatio.html"><tt>aspectRatio</tt></a><span>   (grain2d)</span></td>
             <td>calculates the aspectratio of grain</td>
+            <tr></tr>
+            <td width="250px"><a href="assert_grid.html"><tt>assert_grid</tt></a></td>
+            <td>check for valid grid parameters</td>
             <tr></tr>
             <td width="250px"><a href="assertExt.html"><tt>assertExt</tt></a></td>
             <td></td>
@@ -256,6 +259,9 @@
             <td width="250px"><a href="unimodalComponent.calcMDF.html"><tt>calcMDF</tt></a><span>   (unimodalComponent)</span></td>
             <td>calculate the uncorrelated misorientation distribution function (MDF) from one or two ODF</td>
             <tr></tr>
+            <td width="250px"><a href="ODF.calcMIndex.html"><tt>calcMIndex</tt></a><span>   (ODF)</span></td>
+            <td>M-index of Skemer et al.(2005) based on the difference between uncorrelated and uniform misorientation angle distributions</td>
+            <tr></tr>
             <td width="250px"><a href="EBSD.calcMisorientation.html"><tt>calcMisorientation</tt></a><span>   (EBSD)</span></td>
             <td>calculate uncorelated misorientations between two ebsd phases</td>
             <tr></tr>
@@ -343,6 +349,9 @@
             <td width="250px"><a href="orientation.calcTensor.html"><tt>calcTensor</tt></a><span>   (orientation)</span></td>
             <td>compute the average tensor for a vector of orientations</td>
             <tr></tr>
+            <td width="250px"><a href="calcUnitCell.html"><tt>calcUnitCell</tt></a></td>
+            <td>compute the unit cell for an EBSD data set</td>
+            <tr></tr>
             <td width="250px"><a href="quaternion.calcVoronoi.html"><tt>calcVoronoi</tt></a><span>   (quaternion)</span></td>
             <td>compute the the Voronoi decomposition for unit quaternions</td>
             <tr></tr>
@@ -383,7 +392,7 @@
             <td>write cellstring to file</td>
             <tr></tr>
             <td width="250px"><a href="ODF.centerSpecimen.html"><tt>centerSpecimen</tt></a><span>   (ODF)</span></td>
-            <td>rotatates an odf with specime symmetry into its symmetry axes</td>
+            <td>rotatates an odf with specimen symmetry into its symmetry axes</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.centroid.html"><tt>centroid</tt></a><span>   (grain2d)</span></td>
             <td>calculates the barycenters of the grain polygons</td>
@@ -413,10 +422,10 @@
             <td>object -&gt; string</td>
             <tr></tr>
             <td width="250px"><a href="sphericalRegion.char.html"><tt>char</tt></a><span>   (sphericalRegion)</span></td>
-            <td></td>
+            <td>convert spherical region to char</td>
             <tr></tr>
             <td width="250px"><a href="tensor.char.html"><tt>char</tt></a><span>   (tensor)</span></td>
-            <td></td>
+            <td>tensor to char</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.char.html"><tt>char</tt></a><span>   (vector3d)</span></td>
             <td>convert to char</td>
@@ -424,11 +433,17 @@
             <td width="250px"><a href="FourierComponent.ChebCoeff.html"><tt>ChebCoeff</tt></a><span>   (FourierComponent)</span></td>
             <td>return Chebyshev coefficient of odf</td>
             <tr></tr>
+            <td width="250px"><a href="DelaunaySO3.check.html"><tt>check</tt></a><span>   (DelaunaySO3)</span></td>
+            <td>ignore this</td>
+            <tr></tr>
             <td width="250px"><a href="symmetry.check.html"><tt>check</tt></a><span>   (symmetry)</span></td>
             <td>check symmetry</td>
             <tr></tr>
             <td width="250px"><a href="check_installation.html"><tt>check_installation</tt></a></td>
             <td>check whether all binaries are working properly</td>
+            <tr></tr>
+            <td width="250px"><a href="check_interfaces.html"><tt>check_interfaces</tt></a></td>
+            <td>determine interface from file</td>
             <tr></tr>
             <td width="250px"><a href="check_option.html"><tt>check_option</tt></a></td>
             <td>check for option in option list</td>
@@ -540,7 +555,7 @@
             <td>computes the cross correlation for the kernel density estimator</td>
             <tr></tr>
             <td width="250px"><a href="CSL.html"><tt>CSL</tt></a></td>
-            <td>return orientation of coincidence site lattice for cubic symmetry</td>
+            <td>coincidence site lattice misorientations for cubic symmetry</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.ctranspose.html"><tt>ctranspose</tt></a><span>   (quaternion)</span></td>
             <td>transpose quaternion</td>
@@ -604,6 +619,12 @@
             <td>draw a random sample</td>
             <tr></tr>
             <td width="250px"><a href="unimodalComponent.discreteSample.html"><tt>discreteSample</tt></a><span>   (unimodalComponent)</span></td>
+            <td>draw a random sample</td>
+            <tr></tr>
+            <td width="250px"><a href="quaternion.discreteSample.html"><tt>discreteSample</tt></a><span>   (quaternion)</span></td>
+            <td>draw a random sample</td>
+            <tr></tr>
+            <td width="250px"><a href="vector3d.discreteSample.html"><tt>discreteSample</tt></a><span>   (vector3d)</span></td>
             <td>draw a random sample</td>
             <tr></tr>
             <td width="250px"><a href="discretesample.html"><tt>discretesample</tt></a></td>
@@ -742,7 +763,7 @@
             <td>quaternion to double</td>
             <tr></tr>
             <td width="250px"><a href="tensor.double.html"><tt>double</tt></a><span>   (tensor)</span></td>
-            <td></td>
+            <td>convert tensor values to matrix</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.double.html"><tt>double</tt></a><span>   (vector3d)</span></td>
             <td>converts vector3d to double</td>
@@ -872,7 +893,7 @@
             <td>export quaternions to a ascii file</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.export.html"><tt>export</tt></a><span>   (vector3d)</span></td>
-            <td></td>
+            <td>export quaternions to a ascii file</td>
             <tr></tr>
             <td width="250px"><a href="ODF.export_generic.html"><tt>export_generic</tt></a><span>   (ODF)</span></td>
             <td>export an ODF to an ASCII file</td>
@@ -1023,6 +1044,9 @@
             <td width="250px"><a href="gcm.html"><tt>gcm</tt></a></td>
             <td></td>
             <tr></tr>
+            <td width="250px"><a href="generic_wizard.html"><tt>generic_wizard</tt></a></td>
+            <td></td>
+            <tr></tr>
             <td width="250px"><a href="get_flag.html"><tt>get_flag</tt></a></td>
             <td>extract flag from option list</td>
             <tr></tr>
@@ -1031,6 +1055,9 @@
             <tr></tr>
             <td width="250px"><a href="get_option.html"><tt>get_option</tt></a></td>
             <td>extract option from option list</td>
+            <tr></tr>
+            <td width="250px"><a href="getCamera.html"><tt>getCamera</tt></a></td>
+            <td>get xAxis and zAxis position from axis</td>
             <tr></tr>
             <td width="250px"><a href="getClass.html"><tt>getClass</tt></a></td>
             <td></td>
@@ -1137,6 +1164,9 @@
             <td width="250px"><a href="idRotation.html"><tt>idRotation</tt></a></td>
             <td>the identical rotation</td>
             <tr></tr>
+            <td width="250px"><a href="import_wizard.html"><tt>import_wizard</tt></a></td>
+            <td></td>
+            <tr></tr>
             <td width="250px"><a href="ind2char.html"><tt>ind2char</tt></a></td>
             <td>calculates coordinate from one index i - index s - size of matrix</td>
             <tr></tr>
@@ -1176,6 +1206,9 @@
             <td width="250px"><a href="iseven.html"><tt>iseven</tt></a></td>
             <td>check double mod 2 == 0</td>
             <tr></tr>
+            <td width="250px"><a href="ODF.isFourier.html"><tt>isFourier</tt></a><span>   (ODF)</span></td>
+            <td>check whether odf is given by Fourier coefficients</td>
+            <tr></tr>
             <td width="250px"><a href="rotation.isImproper.html"><tt>isImproper</tt></a><span>   (rotation)</span></td>
             <td></td>
             <tr></tr>
@@ -1199,6 +1232,9 @@
             <tr></tr>
             <td width="250px"><a href="ispos.html"><tt>ispos</tt></a></td>
             <td>check double &gt; 0</td>
+            <tr></tr>
+            <td width="250px"><a href="grainBoundary.isTwinning.html"><tt>isTwinning</tt></a><span>   (grainBoundary)</span></td>
+            <td>Syntax</td>
             <tr></tr>
             <td width="250px"><a href="sphericalRegion.isUpper.html"><tt>isUpper</tt></a><span>   (sphericalRegion)</span></td>
             <td></td>
@@ -1287,6 +1323,180 @@
             <tr></tr>
             <td width="250px"><a href="loadCIF.html"><tt>loadCIF</tt></a></td>
             <td>import crystal symmetry from cif file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadData.html"><tt>loadData</tt></a></td>
+            <td>import PoleFigure, EBSD, and ODF data</td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD.html"><tt>loadEBSD</tt></a></td>
+            <td>import ebsd data</td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_ang.html"><tt>loadEBSD_ang</tt></a></td>
+            <td>read TSL *.ang file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_brukertxt.html"><tt>loadEBSD_brukertxt</tt></a></td>
+            <td>read Bruker *.txt file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_crc.html"><tt>loadEBSD_crc</tt></a></td>
+            <td>interface for Oxford Chanel 5 crc and cpr EBSD data files</td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_csv.html"><tt>loadEBSD_csv</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_ctf.html"><tt>loadEBSD_ctf</tt></a></td>
+            <td>read HKL *.ctf file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_dream3d.html"><tt>loadEBSD_dream3d</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_ebsdimage.html"><tt>loadEBSD_ebsdimage</tt></a></td>
+            <td>Check extension</td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_generic.html"><tt>loadEBSD_generic</tt></a></td>
+            <td>load ebsd data from generic text files</td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_h5.html"><tt>loadEBSD_h5</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_hdf5.html"><tt>loadEBSD_hdf5</tt></a></td>
+            <td>Read rotations</td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_osc.html"><tt>loadEBSD_osc</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_Oxfordcsv.html"><tt>loadEBSD_Oxfordcsv</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="loadEBSD_sor.html"><tt>loadEBSD_sor</tt></a></td>
+            <td>load LaboTex *.sor file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadGrainSet_hdf5.html"><tt>loadGrainSet_hdf5</tt></a></td>
+            <td>Read EBSD</td>
+            <tr></tr>
+            <td width="250px"><a href="loadHelper.html"><tt>loadHelper</tt></a></td>
+            <td>helps to load data-matrix with ColumnNames restricts also data according to conventions (e.g. &gt;4pi)</td>
+            <tr></tr>
+            <td width="250px"><a href="loadODF.html"><tt>loadODF</tt></a></td>
+            <td>import ebsd data</td>
+            <tr></tr>
+            <td width="250px"><a href="loadODF_generic.html"><tt>loadODF_generic</tt></a></td>
+            <td>load pole figure data from (alpha,beta,gamma) files</td>
+            <tr></tr>
+            <td width="250px"><a href="loadODF_VPSC.html"><tt>loadODF_VPSC</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="loadOrientation.html"><tt>loadOrientation</tt></a></td>
+            <td>import orientation data from data files</td>
+            <tr></tr>
+            <td width="250px"><a href="loadOrientation_DRex.html"><tt>loadOrientation_DRex</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="loadOrientation_generic.html"><tt>loadOrientation_generic</tt></a></td>
+            <td>load Orientation data from generic text files</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPHL.html"><tt>loadPHL</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure.html"><tt>loadPoleFigure</tt></a></td>
+            <td>import pole figure data</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_aachen.html"><tt>loadPoleFigure_aachen</tt></a></td>
+            <td>import data fom aachen ptx file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_aachen_exp.html"><tt>loadPoleFigure_aachen_exp</tt></a></td>
+            <td>import data fom aachen_exp file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_ana.html"><tt>loadPoleFigure_ana</tt></a></td>
+            <td>import data fom ana file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_beartex.html"><tt>loadPoleFigure_beartex</tt></a></td>
+            <td>import data fom BeaTex file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_dubna.html"><tt>loadPoleFigure_dubna</tt></a></td>
+            <td>load dubna cnv file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_geesthacht.html"><tt>loadPoleFigure_geesthacht</tt></a></td>
+            <td>load ptx file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_generic.html"><tt>loadPoleFigure_generic</tt></a></td>
+            <td>load pole figure data from (theta,rho,intensity) files</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_gpol.html"><tt>loadPoleFigure_gpol</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_ibm.html"><tt>loadPoleFigure_ibm</tt></a></td>
+            <td>import data fom ibm file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_juelich.html"><tt>loadPoleFigure_juelich</tt></a></td>
+            <td>load juelich data format</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_labotex.html"><tt>loadPoleFigure_labotex</tt></a></td>
+            <td>load labotex pole figure data</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_nja.html"><tt>loadPoleFigure_nja</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_out1.html"><tt>loadPoleFigure_out1</tt></a></td>
+            <td>import polfigure-data form Graz</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_philips.html"><tt>loadPoleFigure_philips</tt></a></td>
+            <td>load philips *.txt file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_plf.html"><tt>loadPoleFigure_plf</tt></a></td>
+            <td>load plf file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_popla.html"><tt>loadPoleFigure_popla</tt></a></td>
+            <td>import data fom Popla file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_pwd.html"><tt>loadPoleFigure_pwd</tt></a></td>
+            <td>load D5000 powder data file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_rigaku.html"><tt>loadPoleFigure_rigaku</tt></a></td>
+            <td>import data fom Rigaku SamrtLab txt file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_rigaku_dat.html"><tt>loadPoleFigure_rigaku_dat</tt></a></td>
+            <td>load *.dat files of rigaku devices</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_rigaku_txt.html"><tt>loadPoleFigure_rigaku_txt</tt></a></td>
+            <td>import data fom ana file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_rw1.html"><tt>loadPoleFigure_rw1</tt></a></td>
+            <td>import data from Philip's Xpert binary file format rw1</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_scintag.html"><tt>loadPoleFigure_scintag</tt></a></td>
+            <td>import data fom scintag ascii file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_siemens.html"><tt>loadPoleFigure_siemens</tt></a></td>
+            <td>load D5000 data file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_slc.html"><tt>loadPoleFigure_slc</tt></a></td>
+            <td>load *.txt file with regular grid</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_uxd.html"><tt>loadPoleFigure_uxd</tt></a></td>
+            <td>import data fom ana file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_xrd.html"><tt>loadPoleFigure_xrd</tt></a></td>
+            <td>import data fom aachen xrd file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPoleFigure_xrdml.html"><tt>loadPoleFigure_xrdml</tt></a></td>
+            <td>load xrdMeasurement (xrdml) file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadTensor.html"><tt>loadTensor</tt></a></td>
+            <td>import Tensor data</td>
+            <tr></tr>
+            <td width="250px"><a href="loadTensor_generic.html"><tt>loadTensor_generic</tt></a></td>
+            <td>load a Tensor from a file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadTensor_mpod.html"><tt>loadTensor_mpod</tt></a></td>
+            <td>import Tensor data</td>
+            <tr></tr>
+            <td width="250px"><a href="loadTensor_P.html"><tt>loadTensor_P</tt></a></td>
+            <td>load a Tensor from a file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadVector3d.html"><tt>loadVector3d</tt></a></td>
+            <td>import ebsd data</td>
+            <tr></tr>
+            <td width="250px"><a href="loadVector3d_generic.html"><tt>loadVector3d_generic</tt></a></td>
+            <td>load pole figure data from (alpha,beta,gamma) files</td>
             <tr></tr>
             <td width="250px"><a href="localOrientationGrid.html"><tt>localOrientationGrid</tt></a></td>
             <td>define a equispaced grid localized to a center orientation</td>
@@ -1615,6 +1825,9 @@
          <h2>P<a name="16"> </a></h2>
          <table width="95%">
             <tr></tr>
+            <td width="250px"><a href="parseXML.html"><tt>parseXML</tt></a></td>
+            <td>PARSEXML Convert XML file to a MATLAB structure.</td>
+            <tr></tr>
             <td width="250px"><a href="parulaColorMap.html"><tt>parulaColorMap</tt></a></td>
             <td>PARULA Blue-green-orange-yellow color map PARULA(M) returns an M-by-3 matrix containing a colormap.  The colors begin with
                dark purplish-blue and blue, range through green and orange, and end with bright yellow. PARULA is named after a bird, the
@@ -1699,6 +1912,9 @@
             <td width="250px"><a href="patalaOrientationMapping.plot.html"><tt>plot</tt></a><span>   (patalaOrientationMapping)</span></td>
             <td>plot colorbar with patala misorientation colorcoding</td>
             <tr></tr>
+            <td width="250px"><a href="ODF.plot3d.html"><tt>plot3d</tt></a><span>   (ODF)</span></td>
+            <td>plots odf</td>
+            <tr></tr>
             <td width="250px"><a href="vector3d.plot3d.html"><tt>plot3d</tt></a><span>   (vector3d)</span></td>
             <td>plot spherical data</td>
             <tr></tr>
@@ -1719,6 +1935,9 @@
             <tr></tr>
             <td width="250px"><a href="orientation.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a><span>   (orientation)</span></td>
             <td>plot the angle distribution</td>
+            <tr></tr>
+            <td width="250px"><a href="symmetry.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a><span>   (symmetry)</span></td>
+            <td>plot axis distribution</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a><span>   (EBSD)</span></td>
             <td>plot uncorrelated axis distribution</td>
@@ -2083,8 +2302,14 @@
             <td width="250px"><a href="save_sparse.html"><tt>save_sparse</tt></a></td>
             <td>convert sparse matrix to jc, ir, pr</td>
             <tr></tr>
+            <td width="250px"><a href="saveEBSD_hdf5.html"><tt>saveEBSD_hdf5</tt></a></td>
+            <td>Save EBSD object to HDF5 format</td>
+            <tr></tr>
             <td width="250px"><a href="saveFigure.html"><tt>saveFigure</tt></a></td>
             <td>save figure as grafik file</td>
+            <tr></tr>
+            <td width="250px"><a href="saveGrainSet_hdf5.html"><tt>saveGrainSet_hdf5</tt></a></td>
+            <td>Save GrainSet object to HDF5 format</td>
             <tr></tr>
             <td width="250px"><a href="PoleFigure.scale.html"><tt>scale</tt></a><span>   (PoleFigure)</span></td>
             <td>scale polefigure by a factor</td>
@@ -2109,6 +2334,9 @@
             <tr></tr>
             <td width="250px"><a href="sectionLabels.html"><tt>sectionLabels</tt></a></td>
             <td></td>
+            <tr></tr>
+            <td width="250px"><a href="grainBoundary.segLength.html"><tt>segLength</tt></a><span>   (grainBoundary)</span></td>
+            <td>length of a boundary segment</td>
             <tr></tr>
             <td width="250px"><a href="PoleFigure.select.html"><tt>select</tt></a><span>   (PoleFigure)</span></td>
             <td>select PoleFigures</td>
@@ -2219,7 +2447,7 @@
             <td></td>
             <tr></tr>
             <td width="250px"><a href="EBSD.spatialProfile.html"><tt>spatialProfile</tt></a><span>   (EBSD)</span></td>
-            <td>selects property values on a given line segment</td>
+            <td>select EBSD data along line segments</td>
             <tr></tr>
             <td width="250px"><a href="orientation.sphereVolume.html"><tt>sphereVolume</tt></a><span>   (orientation)</span></td>
             <td>ratio of orientations with a certain orientation</td>
@@ -2238,6 +2466,9 @@
             <tr></tr>
             <td width="250px"><a href="SquareSingularityKernel.html"><tt>SquareSingularityKernel</tt></a></td>
             <td></td>
+            <tr></tr>
+            <td width="250px"><a href="string2Miller.html"><tt>string2Miller</tt></a></td>
+            <td>converts string to Miller indece</td>
             <tr></tr>
             <td width="250px"><a href="S1Grid.subGrid.html"><tt>subGrid</tt></a><span>   (S1Grid)</span></td>
             <td>epsilon - neighborhood of a point in the grid</td>
@@ -2442,6 +2673,9 @@
          <h2>U<a name="21"> </a></h2>
          <table width="95%">
             <tr></tr>
+            <td width="250px"><a href="uiimport.html"><tt>uiimport</tt></a></td>
+            <td>overload standard MATLAB uiimport</td>
+            <tr></tr>
             <td width="250px"><a href="ODF.uminus.html"><tt>uminus</tt></a><span>   (ODF)</span></td>
             <td>superposeing two ODFs</td>
             <tr></tr>
@@ -2474,6 +2708,9 @@
             <tr></tr>
             <td width="250px"><a href="Miller.unique.html"><tt>unique</tt></a><span>   (Miller)</span></td>
             <td>disjoint list of Miller indices</td>
+            <tr></tr>
+            <td width="250px"><a href="orientation.unique.html"><tt>unique</tt></a><span>   (orientation)</span></td>
+            <td>disjoint list of quaternions</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.unique.html"><tt>unique</tt></a><span>   (quaternion)</span></td>
             <td>disjoint list of quaternions</td>
@@ -2613,7 +2850,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 4.0.1</td>
+               <td valign="baseline" align="right">MTEX 4.0.12</td>
             </tr>
          </table>
       </div>

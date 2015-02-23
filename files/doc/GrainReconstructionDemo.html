@@ -68,8 +68,7 @@ ebsd = EBSD
 </pre><img src="GrainReconstructionDemo_04.png"> <pre class="codeinput">[grains,ebsd.grainId] = calcGrains(ebsd,<span class="string">'angle'</span>,5*degree);
 
 plot(grains)</pre><img src="GrainReconstructionDemo_05.png"> <pre class="codeinput">plot(grains,log(grains.grainSize ./ grains.boundarySize))
-colorbar</pre><pre class="codeoutput">Warning: Plot empty. 
-</pre><img src="GrainReconstructionDemo_06.png"> <p>remove</p><pre class="codeinput">ind = ~grains.isIndexed &amp; log(grains.grainSize ./ grains.boundarySize) &lt; -0.4;
+colorbar</pre><img src="GrainReconstructionDemo_06.png"> <p>remove</p><pre class="codeinput">ind = ~grains.isIndexed &amp; log(grains.grainSize ./ grains.boundarySize) &lt; -0.4;
 
 plot(ebsd)
 hold <span class="string">on</span>

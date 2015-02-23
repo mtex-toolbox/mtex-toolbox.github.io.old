@@ -1,0 +1,278 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>Tensors (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: TensorAnalysis -->
+      <!-- HEADSTUFF: TensorAnalysis -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:TensorAnalysis">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/documentation.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>Tensors</h1>
+         <div class="subheading">
+            <p>Explains how to work with material tensors in MTEX, i.e. how to compute mean material tensors according to an ODF or to EBSD
+               data, how to compute rotate and visualize tensors and how to calculate with elasticity tensors.
+            </p>
+         </div>
+         <p>
+            <table class="ref" width="90%">
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('TensorArithmetics_block','TensorArithmetics_expandable_text');" valign="top" width="15">
+            <img id="TensorArithmetics_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="TensorArithmetics.html">Tensor Arithmetics<td valign="top" width="75%">how to calculate with tensors in MTEX</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="TensorArithmetics_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="TensorArithmetics.html#4">Defining a Tensor</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="TensorArithmetics.html#7">Importing a Tensor from a File</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="TensorArithmetics.html#8">Visualization</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="TensorArithmetics.html#10">Rotating a Tensor</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="TensorArithmetics.html#13">The Inverse Tensor</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="TensorArithmetics.html#14">Tensor Products</a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('MeanTensors_block','MeanTensors_expandable_text');" valign="top" width="15">
+            <img id="MeanTensors_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="MeanTensors.html">Average Material Tensors<td valign="top" width="75%">how to calculate average material tensors
+            from ODF and EBSD data</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="MeanTensors_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="MeanTensors.html#5">Import EBSD Data</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="MeanTensors.html#7">Data Correction</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="MeanTensors.html#8">Define Elastic Stiffness Tensors for Glaucophane and Epidote</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="MeanTensors.html#10">The Average Tensor from EBSD Data</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="MeanTensors.html#12">ODF Estimation</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="MeanTensors.html#13">The Average Tensor from an ODF</a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('ElasticityTensor_block','ElasticityTensor_expandable_text');" valign="top" width="15">
+            <img id="ElasticityTensor_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="ElasticityTensor.html">The Elasticity Tensor<td valign="top" width="75%">how to calculate and plot the elasticity
+            properties</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="ElasticityTensor_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="ElasticityTensor.html#4">Import an Elasticity Tensor</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="ElasticityTensor.html#5">Young's Modulus</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="ElasticityTensor.html#7">Linear Compressibility</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="ElasticityTensor.html#9">Christoffel Tensor</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="ElasticityTensor.html#10">Elastic Wave Velocity</a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('PlasticDeformation_block','PlasticDeformation_expandable_text');" valign="top"
+            width="15">
+            <img id="PlasticDeformation_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="PlasticDeformation.html">Plastic Deformation<td valign="top" width="75%">Schmid factor, active slip systems</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="PlasticDeformation_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="PlasticDeformation.html#4">Schmidt factor</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="PlasticDeformation.html#9">The Schmid tensor</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="PlasticDeformation.html#13">Finding the active slip system</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="PlasticDeformation.html#16">Finding the active slip system</a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('PiezoElectricity_block','PiezoElectricity_expandable_text');" valign="top" width="15">
+            <img id="PiezoElectricity_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="PiezoElectricity.html">The Piezoelectricity Tensor<td valign="top" width="75%">how to work with piezoelectricity</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="PiezoElectricity_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="PiezoElectricity.html#5">Plotting the magnitude surface</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="PiezoElectricity.html#11">Mean Tensor Calculation </a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
+            </table>
+            
+         </p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

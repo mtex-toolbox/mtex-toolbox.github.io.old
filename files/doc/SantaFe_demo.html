@@ -62,41 +62,41 @@ mtexColorMap <span class="string">LaboTeX</span></pre><img src="SantaFe_demo_01.
 Call c-routine
 initialize solver
 start iteration
-error: 7.4285E-02 1.9836E-02 1.0060E-02 9.2968E-03 9.0091E-03 8.8601E-03 8.7716E-03 8.7119E-03 8.6689E-03 8.6363E-03 8.6103E-03 
+error: 7.3140E-02 1.9823E-02 1.0437E-02 9.6488E-03 9.3285E-03 9.1600E-03 9.0545E-03 8.9832E-03 8.9305E-03 8.8900E-03 8.8570E-03 
 Finished PDF-ODF inversion.
-error: 8.6103E-03
-alpha: 1.0063E+02 9.9841E+01 1.0001E+02 9.9479E+01 
-required time: 11s
+error: 8.8570E-03
+alpha: 9.9243E+01 1.0009E+02 1.0017E+02 1.0021E+02 
+required time: 12s
 ghost correction
-calculate with fixed background 0.58
+calculate with fixed background 0.57
 initialize solver
 start iteration
-error: 3.0919E-01 1.1662E-01 5.1288E-02 3.8928E-02 3.7479E-02 3.6897E-02 3.6560E-02 3.6325E-02 3.6159E-02 3.6030E-02 3.5928E-02 
+error: 2.9920E-01 1.2474E-01 5.5962E-02 4.0625E-02 3.8753E-02 3.8045E-02 3.7640E-02 3.7349E-02 3.7139E-02 3.6972E-02 3.6838E-02 
 Finished PDF-ODF inversion.
-error: 3.5928E-02
-alpha: 1.0065E+02 9.9871E+01 1.0006E+02 9.9480E+01 
+error: 3.6838E-02
+alpha: 9.9302E+01 1.0015E+02 1.0018E+02 1.0023E+02 
  
 rec = ODF  
   crystal symmetry : m-3m
   specimen symmetry: 222
  
   Uniform portion:
-    weight: 0.57996
+    weight: 0.57435
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
     center: 1232 orientations, resolution: 5&deg;
-    weight: 0.42004
+    weight: 0.42565
  
 </pre><h2>ODF Estimation without Ghost Correction<a name="4"> </a></h2><pre class="codeinput">rec2 = calcODF(pf,<span class="string">'NoGhostCorrection'</span>)</pre><pre class="codeoutput">------ MTEX -- PDF to ODF inversion ------------------
 Call c-routine
 initialize solver
 start iteration
-error: 7.4285E-02 1.9836E-02 1.0060E-02 9.2968E-03 9.0091E-03 8.8601E-03 8.7716E-03 8.7119E-03 8.6689E-03 8.6363E-03 8.6103E-03 
+error: 7.3140E-02 1.9823E-02 1.0437E-02 9.6488E-03 9.3285E-03 9.1600E-03 9.0545E-03 8.9832E-03 8.9305E-03 8.8900E-03 8.8570E-03 
 Finished PDF-ODF inversion.
-error: 8.6103E-03
-alpha: 1.0063E+02 9.9841E+01 1.0001E+02 9.9479E+01 
-required time: 12s
+error: 8.8570E-03
+alpha: 9.9243E+01 1.0009E+02 1.0017E+02 1.0021E+02 
+required time: 11s
  
 rec2 = ODF  
   crystal symmetry : m-3m
@@ -112,7 +112,7 @@ calcError(rec,SantaFe)
 
 <span class="comment">% difference plot between meassured and recalculated pole figures</span>
 plotDiff(pf,rec)</pre><pre class="codeoutput">ans =
-    0.0459
+    0.0430
 </pre><img src="SantaFe_demo_02.png"> <h2>Plot estimated pole figures<a name="6"> </a></h2><pre class="codeinput">plotPDF(rec,pf.h,<span class="string">'antipodal'</span>)</pre><img src="SantaFe_demo_03.png"> <h2>Plot estimated ODF (Ghost Corrected)<a name="7"> </a></h2><pre class="codeinput">plot(rec,<span class="string">'alpha'</span>,<span class="string">'sections'</span>,18,<span class="string">'resolution'</span>,5*degree,<span class="keyword">...</span>
   <span class="string">'projection'</span>,<span class="string">'plain'</span>,<span class="string">'contourf'</span>,<span class="string">'FontSize'</span>,10,<span class="string">'silent'</span>)
 mtexColorMap <span class="string">white2black</span></pre><pre class="codeoutput">

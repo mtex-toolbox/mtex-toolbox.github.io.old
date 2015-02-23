@@ -170,8 +170,7 @@ close <span class="string">all</span>
 plot(largeGrains(1).boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>
 plot(ebsd,ebsd.orientations)
-hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Plot empty. 
- 
+hold <span class="string">off</span></pre><pre class="codeoutput"> 
   Hint: You might want to use the point group
   "222" for colorcoding!
  
@@ -189,8 +188,7 @@ oM = ipdfHSVOrientationMapping(ebsd);
 oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
 oM.colorStretching = 40;
 plot(ebsd,oM.orientation2color(ebsd.orientations))
-hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Plot empty. 
- 
+hold <span class="string">off</span></pre><pre class="codeoutput"> 
   Hint: You might want to use the point group
   "222" for colorcoding!
  

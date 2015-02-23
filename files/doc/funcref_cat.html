@@ -156,6 +156,9 @@
             <td width="250px"><a href="vector3d.ctranspose.html"><tt>ctranspose</tt></a></td>
             <td>transpose vector</td>
             <tr></tr>
+            <td width="250px"><a href="vector3d.discreteSample.html"><tt>discreteSample</tt></a></td>
+            <td>draw a random sample</td>
+            <tr></tr>
             <td width="250px"><a href="vector3d.display.html"><tt>display</tt></a></td>
             <td>standard output</td>
             <tr></tr>
@@ -175,7 +178,7 @@
             <td>? v1 == v2</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.export.html"><tt>export</tt></a></td>
-            <td></td>
+            <td>export quaternions to a ascii file</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.find.html"><tt>find</tt></a></td>
             <td>return index of all points in a epsilon neighborhood of a vector</td>
@@ -516,6 +519,9 @@
             <td width="250px"><a href="quaternion.ctranspose.html"><tt>ctranspose</tt></a></td>
             <td>transpose quaternion</td>
             <tr></tr>
+            <td width="250px"><a href="quaternion.discreteSample.html"><tt>discreteSample</tt></a></td>
+            <td>draw a random sample</td>
+            <tr></tr>
             <td width="250px"><a href="quaternion.display.html"><tt>display</tt></a></td>
             <td>standart output</td>
             <tr></tr>
@@ -818,6 +824,9 @@
             <td width="250px"><a href="symmetry.plot.html"><tt>plot</tt></a></td>
             <td>plot symmetry</td>
             <tr></tr>
+            <td width="250px"><a href="symmetry.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a></td>
+            <td>plot axis distribution</td>
+            <tr></tr>
             <td width="250px"><a href="symmetry.properGroup.html"><tt>properGroup</tt></a></td>
             <td>return the corresponding Laue group</td>
             <tr></tr>
@@ -966,6 +975,9 @@
             <td width="250px"><a href="orientation.transformReferenceFrame.html"><tt>transformReferenceFrame</tt></a></td>
             <td>only applicable for crystal symmetry</td>
             <tr></tr>
+            <td width="250px"><a href="orientation.unique.html"><tt>unique</tt></a></td>
+            <td>disjoint list of quaternions</td>
+            <tr></tr>
             <td width="250px"><a href="orientation.volume.html"><tt>volume</tt></a></td>
             <td>ratio of orientations with a certain orientation</td>
          </table>
@@ -1075,6 +1087,9 @@
             <td width="250px"><a href="ODF.calcMDF.html"><tt>calcMDF</tt></a></td>
             <td>calculate the uncorrelated misorientation distribution function (MDF) from one or two ODF</td>
             <tr></tr>
+            <td width="250px"><a href="ODF.calcMIndex.html"><tt>calcMIndex</tt></a></td>
+            <td>M-index of Skemer et al.(2005) based on the difference between uncorrelated and uniform misorientation angle distributions</td>
+            <tr></tr>
             <td width="250px"><a href="ODF.calcModes.html"><tt>calcModes</tt></a></td>
             <td>heuristic to find modal orientations</td>
             <tr></tr>
@@ -1094,7 +1109,7 @@
             <td>compute the pdf for h = (theta,rhoh), r = (theta,rhor)</td>
             <tr></tr>
             <td width="250px"><a href="ODF.centerSpecimen.html"><tt>centerSpecimen</tt></a></td>
-            <td>rotatates an odf with specime symmetry into its symmetry axes</td>
+            <td>rotatates an odf with specimen symmetry into its symmetry axes</td>
             <tr></tr>
             <td width="250px"><a href="ODF.concentration.html"><tt>concentration</tt></a></td>
             <td>not yet implemeted</td>
@@ -1132,6 +1147,9 @@
             <td width="250px"><a href="ODF.hist.html"><tt>hist</tt></a></td>
             <td>calcualtes a histogram of ODF</td>
             <tr></tr>
+            <td width="250px"><a href="ODF.isFourier.html"><tt>isFourier</tt></a></td>
+            <td>check whether odf is given by Fourier coefficients</td>
+            <tr></tr>
             <td width="250px"><a href="ODF.max.html"><tt>max</tt></a></td>
             <td>heuristic to find local modal orientations</td>
             <tr></tr>
@@ -1157,6 +1175,9 @@
             <td>caclulate texture index of ODF</td>
             <tr></tr>
             <td width="250px"><a href="ODF.plot.html"><tt>plot</tt></a></td>
+            <td>plots odf</td>
+            <tr></tr>
+            <td width="250px"><a href="ODF.plot3d.html"><tt>plot3d</tt></a></td>
             <td>plots odf</td>
             <tr></tr>
             <td width="250px"><a href="ODF.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a></td>
@@ -1467,7 +1488,7 @@
             <td>shift spatial ebsd-data about (x,y)</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.spatialProfile.html"><tt>spatialProfile</tt></a></td>
-            <td>selects property values on a given line segment</td>
+            <td>select EBSD data along line segments</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.subSample.html"><tt>subSample</tt></a></td>
             <td>subsample of ebsd data</td>
@@ -1507,7 +1528,7 @@
             <td>shear stress</td>
             <tr></tr>
             <td width="250px"><a href="tensor.char.html"><tt>char</tt></a></td>
-            <td></td>
+            <td>tensor to char</td>
             <tr></tr>
             <td width="250px"><a href="tensor.checkSymmetry.html"><tt>checkSymmetry</tt></a></td>
             <td></td>
@@ -1525,7 +1546,7 @@
             <td>standard output</td>
             <tr></tr>
             <td width="250px"><a href="tensor.double.html"><tt>double</tt></a></td>
-            <td></td>
+            <td>convert tensor values to matrix</td>
             <tr></tr>
             <td width="250px"><a href="tensor.eig.html"><tt>eig</tt></a></td>
             <td>compute the eigenvalues and eigenvectors of a tensor</td>
@@ -1693,6 +1714,9 @@
             <td width="250px"><a href="convertFigureRGB2ind.html"><tt>convertFigureRGB2ind</tt></a></td>
             <td>default resolution</td>
             <tr></tr>
+            <td width="250px"><a href="getCamera.html"><tt>getCamera</tt></a></td>
+            <td>get xAxis and zAxis position from axis</td>
+            <tr></tr>
             <td width="250px"><a href="getHoldState.html"><tt>getHoldState</tt></a></td>
             <td></td>
             <tr></tr>
@@ -1725,6 +1749,21 @@
             <td width="250px"><a href="xticklabel_rotate.html"><tt>xticklabel_rotate</tt></a></td>
             <td>hText = xticklabel_rotate(XTick,rot,XTickLabel,varargin)     Rotate XTickLabel</td>
             <tr></tr>
+            <td width="250px"><a href="assert_grid.html"><tt>assert_grid</tt></a></td>
+            <td>check for valid grid parameters</td>
+            <tr></tr>
+            <td width="250px"><a href="calcUnitCell.html"><tt>calcUnitCell</tt></a></td>
+            <td>compute the unit cell for an EBSD data set</td>
+            <tr></tr>
+            <td width="250px"><a href="check_interfaces.html"><tt>check_interfaces</tt></a></td>
+            <td>determine interface from file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadHelper.html"><tt>loadHelper</tt></a></td>
+            <td>helps to load data-matrix with ColumnNames restricts also data according to conventions (e.g. &gt;4pi)</td>
+            <tr></tr>
+            <td width="250px"><a href="string2Miller.html"><tt>string2Miller</tt></a></td>
+            <td>converts string to Miller indece</td>
+            <tr></tr>
             <td width="250px"><a href="docopt.html"><tt>docopt</tt></a></td>
             <td>DOCOPT Web browser for UNIX platforms. DOCOPT is an M-file that you or your system manager can edit to specify the Web browser
                to use with MATLAB. It is used for the WEB function with the -BROWSER option. It is also used for links to external Web sites
@@ -1754,7 +1793,7 @@
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="CSL.html"><tt>CSL</tt></a></td>
-            <td>return orientation of coincidence site lattice for cubic symmetry</td>
+            <td>coincidence site lattice misorientations for cubic symmetry</td>
             <tr></tr>
             <td width="250px"><a href="EulerAngleConvention.html"><tt>EulerAngleConvention</tt></a></td>
             <td></td>
@@ -1809,6 +1848,9 @@
             <tr></tr>
             <td width="250px"><a href="loadCIF.html"><tt>loadCIF</tt></a></td>
             <td>import crystal symmetry from cif file</td>
+            <tr></tr>
+            <td width="250px"><a href="loadPHL.html"><tt>loadPHL</tt></a></td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="localOrientationGrid.html"><tt>localOrientationGrid</tt></a></td>
             <td>define a equispaced grid localized to a center orientation</td>
@@ -1881,7 +1923,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 4.0.1</td>
+               <td valign="baseline" align="right">MTEX 4.0.12</td>
             </tr>
          </table>
       </div>

@@ -1,0 +1,186 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>CSL Boundaries (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: CSLBoundaries -->
+      <!-- HEADSTUFF: CSLBoundaries -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:CSLBoundaries">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/documentation.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>CSL Boundaries</h1>
+         <div class="subheading">
+            <p>Explains how to analyze CSL grain boundaries</p>
+         </div>
+         <div>
+            <table class="content">
+               <tr>
+                  <td class="header">On this page ...</td>
+               </tr>
+               <tr>
+                  <td><a href="#3">Data import and grain detection</a></td>
+               </tr>
+            </table>
+         </div>
+         <h2>Data import and grain detection<a name="3"> </a></h2>
+         <p>Lets import some iron data and segment grains within the data set.</p><pre class="codeinput">CS = crystalSymmetry(<span class="string">'cubic'</span>,<span class="string">'mineral'</span>,<span class="string">'iron'</span>)
+ebsd = loadEBSD(fullfile(mtexDataPath,<span class="string">'EBSD'</span>,<span class="string">'CNR.txt'</span>),CS,<span class="keyword">...</span>
+  <span class="string">'interface'</span>,<span class="string">'generic'</span>,<span class="keyword">...</span>
+  <span class="string">'ColumnNames'</span>,{<span class="string">'phase'</span>,<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'phi1'</span>,<span class="string">'Phi'</span>,<span class="string">'phi2'</span>,<span class="string">'IQ'</span>,<span class="string">'CI'</span>,<span class="string">'error'</span>})
+
+<span class="comment">% grain segementation</span>
+[grains,ebsd.grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>))
+
+<span class="comment">% grain smoothing</span>
+grains = smooth(grains,2)
+
+<span class="comment">% plot the result</span>
+plot(grains,grains.meanOrientation)</pre><pre class="codeoutput"> 
+CS = crystalSymmetry  
+ 
+  mineral : iron   
+  symmetry: m-3m   
+  a, b, c : 1, 1, 1
+ 
+Warning: Some Euler angles appears to be
+quite large. Maybe you forgot '* degree'
+to switch from degree to radians. 
+ 
+ebsd = EBSD  
+ 
+ Phase   Orientations  Mineral       Color  Symmetry  Crystal reference frame
+     1  196608 (100%)     iron  light blue      m-3m                         
+ 
+ Properties: ci, error, iq, x, y
+ Scan unit : um
+ 
+ 
+grains = grain2d  
+ 
+ Phase  Grains  Mineral  Symmetry  Crystal reference frame  Phase
+     1    1181     iron      m-3m                                
+ 
+ Properties: GOS, meanRotation
+ 
+ 
+ebsd = EBSD  
+ 
+ Phase   Orientations  Mineral       Color  Symmetry  Crystal reference frame
+     1  196608 (100%)     iron  light blue      m-3m                         
+ 
+ Properties: ci, error, iq, x, y, grainId
+ Scan unit : um
+ 
+ 
+grains = grain2d  
+ 
+ Phase  Grains  Mineral  Symmetry  Crystal reference frame  Phase
+     1    1181     iron      m-3m                                
+ 
+ Properties: GOS, meanRotation
+ 
+ 
+  Hint: You might want to use the point group
+  "432" for colorcoding!
+ 
+  I'm going to colorize the orientation data with the 
+  standard MTEX colorkey. To view the colorkey do:
+ 
+  oM = ipdfHSVOrientationMapping(ori_variable_name)
+  plot(oM)
+</pre><img src="CSLBoundaries_01.png"> <pre class="codeinput">plot(ebsd,ebsd.prop.iq,<span class="string">'figSize'</span>,<span class="string">'large'</span>)
+mtexColorMap <span class="string">black2white</span></pre><img src="CSLBoundaries_02.png"> <pre class="codeinput">gB = grains.boundary(<span class="string">'iron'</span>,<span class="string">'iron'</span>)
+
+hold <span class="string">on</span>
+plot(grains.boundary)
+hold <span class="string">off</span></pre><pre class="codeoutput"> 
+gB = grainBoundary  
+ 
+ Segments  mineral 1  mineral 2
+    26565       iron       iron
+</pre><img src="CSLBoundaries_03.png"> <pre class="codeinput">hold <span class="string">on</span>
+gB3 = gB(angle(gB.misorientation,CSL(3))&lt;3*degree);
+plot(gB3,<span class="string">'lineColor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'CSL 3'</span>)
+hold <span class="string">off</span></pre><img src="CSLBoundaries_04.png"> <pre class="codeinput">[mergedGrains,parentIds] = merge(grains,gB3);
+
+hold <span class="string">on</span>
+plot(mergedGrains.boundary,<span class="string">'linecolor'</span>,<span class="string">'g'</span>,<span class="string">'linewidth'</span>,2)</pre><img src="CSLBoundaries_05.png"> <pre class="codeinput">delta = 5*degree;
+gB3 = gB(gB.isTwinning(CSL(3),delta))
+gB5 = gB(gB.isTwinning(CSL(5),delta))
+gB7 = gB(gB.isTwinning(CSL(7),delta))
+gB9 = gB(gB.isTwinning(CSL(9),delta))
+gB11 = gB(gB.isTwinning(CSL(11),delta))</pre><pre class="codeoutput"> 
+gB3 = grainBoundary  
+ 
+ Segments  mineral 1  mineral 2
+    12672       iron       iron
+ 
+gB5 = grainBoundary  
+ 
+ Segments  mineral 1  mineral 2
+       59       iron       iron
+ 
+gB7 = grainBoundary  
+ 
+ Segments  mineral 1  mineral 2
+      102       iron       iron
+ 
+gB9 = grainBoundary  
+ 
+ Segments  mineral 1  mineral 2
+      692       iron       iron
+ 
+gB11 = grainBoundary  
+ 
+ Segments  mineral 1  mineral 2
+      261       iron       iron
+</pre><pre class="codeinput">hold <span class="string">on</span>
+plot(gB3,<span class="string">'lineColor'</span>,<span class="string">'g'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'CSL 3'</span>)
+hold <span class="string">on</span>
+plot(gB5,<span class="string">'lineColor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'CSL 5'</span>)
+hold <span class="string">on</span>
+plot(gB7,<span class="string">'lineColor'</span>,<span class="string">'r'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'CSL 7'</span>)
+hold <span class="string">on</span>
+plot(gB9,<span class="string">'lineColor'</span>,<span class="string">'m'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'CSL 9'</span>)
+hold <span class="string">on</span>
+plot(gB11,<span class="string">'lineColor'</span>,<span class="string">'c'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'CSL 11'</span>)
+hold <span class="string">off</span></pre><img src="CSLBoundaries_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

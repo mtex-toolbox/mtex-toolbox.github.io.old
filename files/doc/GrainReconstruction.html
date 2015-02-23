@@ -67,12 +67,9 @@
                </tr>
             </table>
          </div>
-         <p>Let us first import some example EBSD data and reduce it to a subregion of interest.</p><pre class="codeinput">plotx2east
+         <p>Let us first import some example EBSD data and restrict it to a subregion of interest.</p><pre class="codeinput">close <span class="string">all</span>; plotx2east
 mtexdata <span class="string">forsterite</span>
-
 ebsd = ebsd(inpolygon(ebsd,[5 2 10 5]*10^3));
-
-close <span class="string">all</span>
 plot(ebsd)</pre><img src="GrainReconstruction_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Basic grain reconstruction<a name="4"> </a></h2>
          <p>We see that there are a lot of not indexed measurements. For grain reconstruction we have to three different choices how to
@@ -115,7 +112,9 @@ plot(grains.boundary,<span class="string">'linewidth'</span>,1.5)
 hold <span class="string">off</span></pre><img src="GrainReconstruction_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The grainId and how to select EBSD inside specific grains<a name="6"> </a></h2>
          <p>Beside the list of grains the command <a href="EBSD.calcGrains.html">calcGrains</a> returns also two other output arguments.
-         </p><pre class="codeinput">[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd,<span class="string">'angle'</span>,7.5*degree)</pre><pre class="codeoutput"> 
+         </p><pre class="codeinput">[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd,<span class="string">'angle'</span>,7.5*degree);
+grains
+ebsd</pre><pre class="codeoutput"> 
 grains = grain2d  
  
  Phase  Grains     Mineral  Symmetry  Crystal reference frame  Phase
@@ -138,21 +137,9 @@ ebsd = EBSD
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
  
- 
-ebsd = EBSD  
- 
- Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
-     0    4052 (20%)  notIndexed                                                
-     1   14093 (69%)  Forsterite   light blue       mmm                         
-     2   1397 (6.9%)   Enstatite  light green       mmm                         
-     3    759 (3.7%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
- 
- Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
- Scan unit : um
- 
-</pre><p>�The second output argument grainId is a list with the same size as the EBSD measurements that stores for each mesurement
-            the corresponding grainId. The above syntax stores this list directly inside the ebsd variable. This enables MTEX to select
-            EBSD data by grains. The following command returns all the EBSD data that belong to grain number 33.
+</pre><p>The second output argument grainId is a list with the same size as the EBSD measurements that stores for each mesurement the
+            corresponding grainId. The above syntax stores this list directly inside the ebsd variable. This enables MTEX to select EBSD
+            data by grains. The following command returns all the EBSD data that belong to grain number 33.
          </p><pre class="codeinput">ebsd(grains(33))</pre><pre class="codeoutput"> 
 ans = EBSD  
  
@@ -208,7 +195,6 @@ myGrain = grain2d
        GOS   meanRotation
  0.0443014        66.8061
  
-Warning: Plot empty. 
 </pre><img src="GrainReconstruction_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Filling not indexed holes<a name="11"> </a></h2>
          <p>It is important to understand that MTEX distinguishes the following two situations</p>
@@ -277,8 +263,7 @@ notIndexed = grain2d
          </p><pre class="codeinput"><span class="comment">% plot the not indexed regions colorcoded according the the quotient between</span>
 <span class="comment">% number of measurements and number of boundary segments</span>
 plot(notIndexed,log(notIndexed.grainSize ./ notIndexed.boundarySize))
-colorbar</pre><pre class="codeoutput">Warning: Plot empty. 
-</pre><img src="GrainReconstruction_07.png"> <p>Regions with a high quotient are blocks which can be hardly correctly assigned to a grain. Hence, we should keep these regions
+colorbar</pre><img src="GrainReconstruction_07.png"> <p>Regions with a high quotient are blocks which can be hardly correctly assigned to a grain. Hence, we should keep these regions
             as not indexed and only remove the not indexed information from locations with a low quotient.
          </p><pre class="codeinput"><span class="comment">% the "not indexed grains" we want to remove</span>
 toRemove = notIndexed(notIndexed.grainSize ./ notIndexed.boundarySize&lt;0.8)

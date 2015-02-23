@@ -59,10 +59,13 @@
                   <td><a href="#15">Calculating with Rotations</a></td>
                </tr>
                <tr>
-                  <td><a href="#23">Conversion into Euler Angles and Rodrigues Parametrisation</a></td>
+                  <td><a href="#23">Improper Rotations</a></td>
                </tr>
                <tr>
-                  <td><a href="#24">Plotting Rotations</a></td>
+                  <td><a href="#28">Conversion into Euler Angles and Rodrigues Parametrisation</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#29">Plotting Rotations</a></td>
                </tr>
             </table>
          </div>
@@ -147,7 +150,7 @@ o = rotation
     90    0    0    0
  
  
-</pre><p>If only two vectors are specified, then the rotation with the smaller angle is returned and gives the rotation from first
+</pre><p>If only two vectors are specified, then the rotation with the smallest angle is returned and gives the rotation from first
             vector onto the second one.
          </p><pre class="codeinput">o = rotation(<span class="string">'map'</span>,xvector,yvector)</pre><pre class="codeoutput"> 
 o = rotation  
@@ -235,9 +238,9 @@ rot = rotation
  
  
 </pre><p><b>Computing the rotation angle and the rotational axis</b></p>
-         <p>Then rotational angle and the axis of rotation can be computed via then commands <a href="quaternion.angle.html">angle(rot)</a> and <a href="quaternion.axis.html">axis(rot)</a></p><pre class="codeinput">angle(rot)/degree
+         <p>Then rotational angle and the axis of rotation can be computed via then commands <a href="quaternion.angle.html">angle(rot)</a> and <a href="quaternion.axis.html">axis(rot)</a></p><pre class="codeinput">rot.angle / degree
 
-axis(rot)</pre><pre class="codeoutput">ans =
+rot.axis</pre><pre class="codeoutput">ans =
   104.4775
  
 ans = vector3d  
@@ -245,7 +248,7 @@ ans = vector3d
          x         y         z
   0.447214 -0.447214  0.774597
 </pre><p>If two rotations are specifies the command <a href="quaternion.angle.html">angle(rot1,rot2)</a> computes the rotational angle between both rotations
-         </p><pre class="codeinput">angle(rot1,rot2)/degree</pre><pre class="codeoutput">ans =
+         </p><pre class="codeinput">angle(rot1,rot2) / degree</pre><pre class="codeoutput">ans =
   104.4775
 </pre><p><b>The inverse Rotation</b></p>
          <p>The inverse rotation you get from the command <a href="quaternion.inv.html">inv(rot)</a></p><pre class="codeinput">inv(rot)</pre><pre class="codeoutput"> 
@@ -258,7 +261,54 @@ ans = rotation
  
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Conversion into Euler Angles and Rodrigues Parametrisation<a name="23"> </a></h2>
+         <h2>Improper Rotations<a name="23"> </a></h2>
+         <p>Improper rotations are coordinate transformations from a left hand into a right handed coordinate system as, e.g. mirroring
+            or inversion. In MTEX the inversion is defined as the negative identy rotation
+         </p><pre class="codeinput">I = - rotation(<span class="string">'Euler'</span>,0,0,0)</pre><pre class="codeoutput"> 
+I = rotation  
+  size: 1 x 1
+ 
+  Bunge Euler angles in degree
+  phi1  Phi phi2 Inv.
+     0    0    0    1
+ 
+ 
+</pre><p>Note that this is convinient as both groupings of the operations "-" and "*" should give the same result</p><pre class="codeinput">- (rotation(<span class="string">'Euler'</span>,0,0,0) * xvector)
+(- rotation(<span class="string">'Euler'</span>,0,0,0)) * xvector</pre><pre class="codeoutput"> 
+ans = vector3d  
+ size: 1 x 1
+   x  y  z
+  -1  0  0
+ 
+ans = vector3d  
+ size: 1 x 1
+   x  y  z
+  -1  0  0
+</pre><p><b>Mirroring</b></p>
+         <p>As a mirroring is nothing else then a rotation about 180 degree about the normal of the mirroring plane followed by a inversion
+            we can defined a mirroring about the axis (111) by
+         </p><pre class="codeinput">mir = -rotation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,180*degree)</pre><pre class="codeoutput"> 
+mir = rotation  
+  size: 1 x 1
+ 
+  Bunge Euler angles in degree
+  phi1     Phi    phi2    Inv.
+   135 109.471      45       1
+ 
+ 
+</pre><p>A convinient shortcut is the command</p><pre class="codeinput">mir = reflection(vector3d(1,1,1))</pre><pre class="codeoutput"> 
+mir = rotation  
+  size: 1 x 1
+ 
+  Bunge Euler angles in degree
+  phi1     Phi    phi2    Inv.
+   135 109.471      45       1
+ 
+ 
+</pre><p>To check whether a rotation is improper or not you can do</p><pre class="codeinput">mir.isImproper</pre><pre class="codeoutput">ans =
+     1
+</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Conversion into Euler Angles and Rodrigues Parametrisation<a name="28"> </a></h2>
          <p>There are methods to transform quaternion in almost any other parameterization of rotations as they are:</p>
          <div>
             <ul type="square">
@@ -274,9 +324,17 @@ beta =
 gamma =
     3.1416
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Plotting Rotations<a name="24"> </a></h2>
-         <p>The <a href="quaternion.plot.html">plot</a> function allows you to visualize a rotation by plotting how the standard basis x,y,z transforms under the rotation.
-         </p><pre class="codeinput">plot(rot)</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Plotting Rotations<a name="29"> </a></h2>
+         <p>The <a href="quaternion.scatter.html">scatter</a> function allows you to visualize a rotation in Rodriguez space.
+         </p><pre class="codeinput"><span class="comment">% define 100 random rotations</span>
+rot = randq(100)
+
+<span class="comment">% and plot the Rodriguez space</span>
+scatter(rot)</pre><pre class="codeoutput"> 
+rot = rotation  
+  size: 100 x 1
+ 
+</pre><img src="Rotations_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

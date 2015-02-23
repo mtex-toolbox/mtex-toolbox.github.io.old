@@ -94,7 +94,8 @@ plotPDF(ori,h,<span class="string">'antipodal'</span>,<span class="string">'Mark
 hold <span class="string">all</span>
 plotPDF(ori_rotated,h,<span class="string">'MarkerSize'</span>,5,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'k'</span>);
 hold <span class="string">off</span>
-legend({<span class="string">'EBSD 1'</span>,<span class="string">'EBSD 2'</span>},<span class="string">'units'</span>,<span class="string">'normalized'</span>,<span class="string">'position'</span>,[0.05 0.85 0.1 0.08]);</pre><img src="CombinedPlots_demo_04.png"> <p>and, of course, you can do the same with ODF plots:</p><pre class="codeinput">plotODF(odf,<span class="string">'sections'</span>,8,<span class="string">'contourf'</span>,<span class="string">'sigma'</span>)
+legend({<span class="string">'EBSD 1'</span>,<span class="string">'EBSD 2'</span>},<span class="string">'units'</span>,<span class="string">'normalized'</span>,<span class="string">'position'</span>,[0.05 0.85 0.1 0.08]);</pre><pre class="codeoutput">Warning: Plot empty. 
+</pre><img src="CombinedPlots_demo_04.png"> <p>and, of course, you can do the same with ODF plots:</p><pre class="codeinput">plotODF(odf,<span class="string">'sections'</span>,8,<span class="string">'contourf'</span>,<span class="string">'sigma'</span>)
 mtexColorMap <span class="string">white2black</span>
 hold <span class="string">all</span>
 plotODF(ori,<span class="string">'MarkerSize'</span>,6,<span class="string">'MarkerColor'</span>,<span class="string">'b'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'w'</span>)
@@ -122,7 +123,7 @@ error: 7.7539E-01 5.7317E-01 3.5061E-01 2.0710E-01 1.7558E-01 1.6249E-01 1.5329E
 Finished PDF-ODF inversion.
 error: 1.3991E-01
 alpha: 7.7654E+01 7.1704E+00 1.0018E+02 9.7173E+01 4.9029E+01 6.5072E+01 1.4453E+02 
-required time: 12s
+required time: 13s
  
 odf = ODF  
   crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)

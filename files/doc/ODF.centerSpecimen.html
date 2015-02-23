@@ -43,7 +43,7 @@
             <p>(method of <a href="ODF_index.html">ODF</a>)
             </p>
          </div>
-         <p>rotatates an odf with specime symmetry into its symmetry axes</p>
+         <p>rotatates an odf with specimen symmetry into its symmetry axes</p>
          <p>centerSpecimen(odf,center) trys to find the normal vectors of orthorhombic symmetry for the x mirror and y mirror plane and
             calculates an rotation needed to rotate the odf back into these mirror planes. the routine starts with an lookaround grid
             for a given center (default xvector) to find a starting value for newton iteration.
@@ -52,7 +52,7 @@
          <p>
             <div class="syntax" width="100%">
             <div>
-            <tt>[odf,r,v1,v2] = centerSpecimen(odf,center,'param1',val1,'param2',val2)</tt>
+            <tt>[odf,rot,v1,v2] = centerSpecimen(odf,v0,'param1',val1,'param2',val2)</tt>
             </div>
             </div>
             
@@ -70,10 +70,10 @@
             </tr>
             <tr>
             <td width="100px">
-            <tt>center</tt>
+            <tt>v0</tt>
             </td>
             <td>
-            <p>look arround center for a suiteable start value (default xvector)</p>
+            <p><a href="vector3d_index.html">vector3d</a> initial gues for a symmetry axis (default xvector)</p>
             </td>
             </tr>
             <tr>
@@ -87,22 +87,6 @@
             </tr>
             <tr>
             <td width="150px">
-            <tt>'delta'</tt>
-            </td>
-            <td>
-            <p>stepsize for evaluating the gradient</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'itermax'</tt>
-            </td>
-            <td>
-            <p>maximum number of newton iterations (default 5)</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
             <tt>'SO3Grid'</tt>
             </td>
             <td>
@@ -111,7 +95,7 @@
             </tr>
             <tr>
             <td width="150px">
-            <tt>'maxpolar'</tt>
+            <tt>'delta'</tt>
             </td>
             <td>
             <p>specifies the opening angle for the initial search grid around input center</p>
@@ -135,19 +119,11 @@
             </tr>
             <tr>
             <td width="150px">
-            <tt>'plot'</tt>
-            </td>
-            <td>
-            <p>plot objective function around center as axis distribution</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
             <tt>'fourier'</tt>
             </td>
             <td>
             <p>use fourier coefficents as objective function</p>
-            <p>mples rting with an synthetic odf with orthorhombic symmetry</p>
+            <p>mple: rting with an synthetic odf with orthorhombic symmetry</p>
             <pre>  CS = crystalSymmetry('cubic')
             SS = specimenSymmetry('orthorhombic')
             h = [Miller(0,0,1),Miller(0,1,1),Miller(1,1,1)];
@@ -183,10 +159,10 @@
             </tr>
             <tr>
             <td width="100px">
-            <tt>r</tt>
+            <tt>rot</tt>
             </td>
             <td>
-            <p>its rotation rotate(odf_out,r) = odf_in</p>
+            <p><a href="rotation_index.html">rotation</a> such that rotate(odf_out,r) = odf_in</p>
             </td>
             </tr>
             <tr>
@@ -194,7 +170,7 @@
             <tt>v1,v2</tt>
             </td>
             <td>
-            <p>normal vector of the mirrorplans</p>
+            <p>normal vector of the two fold symmetry axes</p>
             </td>
             </tr>
             </table>

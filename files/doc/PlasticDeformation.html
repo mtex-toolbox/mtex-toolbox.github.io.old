@@ -267,12 +267,12 @@ sigma = stress tensor tensor
 </pre><p>Then we can compute the maximum Schmidt factor and the active slip system for all these stress tensors by the singe command</p><pre class="codeinput">[tauMax,mActive,nActive,tau,ind] = calcShearStress(sigma,m,n,<span class="string">'symmetrise'</span>);
 
 <span class="comment">% pot the maximum Schmidt factor</span>
-contourf(r,tauMax);
+contourf(r,abs(tauMax));
 colorbar</pre><img src="PlasticDeformation_03.png"> <pre class="codeinput"><span class="comment">% plot the index of the active slip system</span>
 pcolor(r,ind);
 
 mtexColorMap <span class="string">black2white</span></pre><img src="PlasticDeformation_04.png"> <p>We can even visualize the active slip system</p><pre class="codeinput"><span class="comment">% take as directions the centers of the fundamental regions</span>
-r = symmetrise([Miller(1,3,5,CS),Miller(-1,3,5,CS)]);
+r = symmetrise(CS.fundamentalSector.center,CS);
 sigma = EinsteinSum(tensor(r),1,r,2)
 
 <span class="comment">% compute active slip system</span>
@@ -286,7 +286,7 @@ quiver(r,mActive,<span class="string">'ArrowSize'</span>,0.2,<span class="string
 quiver(r,nActive,<span class="string">'ArrowSize'</span>,0.2,<span class="string">'LineWidth'</span>,2,<span class="string">'Color'</span>,<span class="string">'g'</span>);
 hold <span class="string">off</span></pre><pre class="codeoutput"> 
 sigma = tensor  
-  size: 96 x 1   
+  size: 48 x 1   
   rank: 2 (3 x 3)
 </pre><img src="PlasticDeformation_05.png"> <p>So far we have always assumed that the stress tensor is already given relatively to the crystal coordinate system. Next we
             want to examine the case where the stress is given in specimen coordinates and we know the orientation of the crystal. Lets
@@ -330,7 +330,7 @@ colorbar
 title(<span class="string">'Schmidt factors for (010)[100]'</span>)</pre><img src="PlasticDeformation_06.png"> <p>The above procedure may also be applied to grains which has the advantage to be much less computational demanding for large
             data sets.
          </p><pre class="codeinput"><span class="comment">% compute grains</span>
-grains = calcGrains(ebsd)
+grains = calcGrains(ebsd(<span class="string">'indexed'</span>))
 
 <span class="comment">% extract the orientations</span>
 ori = grains(<span class="string">'Forsterite'</span>).meanOrientation;
@@ -347,21 +347,18 @@ title(<span class="string">'Schmidt factors for (010)[100]'</span>)</pre><pre cl
 grains = grain2d  
  
  Phase  Grains     Mineral  Symmetry  Crystal reference frame  Phase
-     0   16334  notIndexed                                          
-     1    4092  Forsterite       mmm                                
-     2    1864   Enstatite       mmm                                
-     3    1991    Diopside     12/m1        X||a*, Y||b, Z||c       
+     1    1080  Forsterite       mmm                                
+     2     515   Enstatite       mmm                                
+     3    1496    Diopside     12/m1        X||a*, Y||b, Z||c       
  
  Properties: GOS, meanRotation
  
  
 sigmaCS = tensor  
-  size   : 4092 x 1        
+  size   : 1080 x 1        
   rank   : 2 (3 x 3)       
   mineral: Forsterite (mmm)
-Warning: Plot empty. 
-</pre><img src="PlasticDeformation_07.png"> <p>We may also colorize the active slip system.</p><pre class="codeinput">plot(grains(<span class="string">'Forsterite'</span>),ind)</pre><pre class="codeoutput">Warning: Plot empty. 
-</pre><img src="PlasticDeformation_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><img src="PlasticDeformation_07.png"> <p>We may also colorize the active slip system.</p><pre class="codeinput">plot(grains(<span class="string">'Forsterite'</span>),ind)</pre><img src="PlasticDeformation_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

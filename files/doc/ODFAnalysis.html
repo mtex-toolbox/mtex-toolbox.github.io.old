@@ -5,7 +5,7 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
    
-      <title>ODF Analysis (DocHelp Toolbox)
+      <title>ODFs (DocHelp Toolbox)
          
       </title>
       <!-- DOCNAME: DocHelp Toolbox -->
@@ -38,14 +38,76 @@
          </div>
       </div>
       <div class="container">
-         <h1>ODF Analysis</h1>
+         <h1>ODFs</h1>
          <div class="subheading">
-            <p>Explains how to import and export ODFs, how to define model ODFs and how to analyze ODFs, e.g., with respect to modalorientations,
-               textureindex, volumeportions. Pole figure simulation and single orientation simulation is explained as well.
+            <p>ODF stands for orientation distribution functions. This section explains how to import and export ODFs, how to define model
+               ODFs and how to analyze ODFs, e.g., with respect to modalorientations, textureindex, volumeportions. Pole figure simulation
+               and single orientation simulation is explained as well.
             </p>
          </div>
          <p>
             <table class="ref" width="90%">
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('SantaFe_demo_block','SantaFe_demo_expandable_text');" valign="top" width="15">
+            <img id="SantaFe_demo_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="SantaFe_demo.html">The SantaFe example<td valign="top" width="75%">Simulate a set of pole figures for the SantaFe
+            standard ODF, estimate an ODF and compare it to the inital SantaFe ODF.</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="SantaFe_demo_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="SantaFe_demo.html#2">Simulate pole figures</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="SantaFe_demo.html#3">ODF Estimation with Ghost Correction</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="SantaFe_demo.html#4">ODF Estimation without Ghost Correction</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="SantaFe_demo.html#5">Error analysis</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="SantaFe_demo.html#6">Plot estimated pole figures</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="SantaFe_demo.html#7">Plot estimated ODF (Ghost Corrected)</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="SantaFe_demo.html#8">Plot odf</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="SantaFe_demo.html#9">Plot Fourier Coefficients</a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
             <tr>
             <td valign="top" width="15">
             <div align="center">
@@ -157,93 +219,6 @@
             <tr>
             <td>
             <a href="ODFImportExport.html#13">Importing EBSD data using the method loadODF</a>
-            </td>
-            </tr>
-            </table>
-            </div>
-            </td>
-            </tr>
-            <tr>
-            <td valign="top" width="15">
-            <div align="center">
-            <a href="#" onClick="return toggleexpander('PoleFigure2odf_block','PoleFigure2odf_expandable_text');" valign="top" width="15">
-            <img id="PoleFigure2odf_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
-            </div>
-            </td>
-            <td valign="top" width="250px">
-            <a href="PoleFigure2odf.html">ODF Estimation from Pole Figure Data<td valign="top" width="75%">This page describes how to
-            use MTEX to estimate an ODF from pole figure data.</td></a>
-            </td>
-            </tr>
-            <tr>
-            <td/>
-            <td colspan="2">
-            <div class="expander" id="PoleFigure2odf_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
-            <table>
-            <tr>
-            <td>
-            <a href="PoleFigure2odf.html#5">ODF Estimation</a>
-            </td>
-            </tr>
-            <tr>
-            <td>
-            <a href="PoleFigure2odf.html#8">Error analyis</a>
-            </td>
-            </tr>
-            <tr>
-            <td>
-            <a href="PoleFigure2odf.html#11">Discretization</a>
-            </td>
-            </tr>
-            <tr>
-            <td>
-            <a href="PoleFigure2odf.html#13">Zero Range Method</a>
-            </td>
-            </tr>
-            <tr>
-            <td>
-            <a href="PoleFigure2odf.html#14">Ghost Corrections</a>
-            </td>
-            </tr>
-            <tr>
-            <td>
-            <a href="PoleFigure2odf.html#15">Theory</a>
-            </td>
-            </tr>
-            </table>
-            </div>
-            </td>
-            </tr>
-            <tr>
-            <td valign="top" width="15">
-            <div align="center">
-            <a href="#" onClick="return toggleexpander('EBSD2odf_block','EBSD2odf_expandable_text');" valign="top" width="15">
-            <img id="EBSD2odf_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
-            </div>
-            </td>
-            <td valign="top" width="250px">
-            <a href="EBSD2odf.html">ODF Estimation from EBSD data<td valign="top" width="75%">How to estimate an ODF from single orientation
-            measurements.</td></a>
-            </td>
-            </tr>
-            <tr>
-            <td/>
-            <td colspan="2">
-            <div class="expander" id="EBSD2odf_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
-            <table>
-            <tr>
-            <td>
-            <a href="EBSD2odf.html#3">ODF Estimation</a>
-            </td>
-            </tr>
-            <tr>
-            <td>
-            <a href="EBSD2odf.html#5">Automatic halfwidth selection</a>
-            </td>
-            </tr>
-            <tr>
-            <td>
-            <a href="EBSD2odf.html#8">Effect of halfwidth selection</a>
             </td>
             </tr>
             </table>
@@ -427,6 +402,48 @@
             <tr>
             <td>
             <a href="ODFPlot.html#18">Axis / Angle Distribution</a>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </td>
+            </tr>
+            <tr>
+            <td valign="top" width="15">
+            <div align="center">
+            <a href="#" onClick="return toggleexpander('DetectSampleSymmetry_block','DetectSampleSymmetry_expandable_text');" valign="top"
+            width="15">
+            <img id="DetectSampleSymmetry_expandable_text" src="arrow_right.gif" style="border:0px"/></a>
+            </div>
+            </td>
+            <td valign="top" width="250px">
+            <a href="DetectSampleSymmetry.html">Detecting sample symmetry<td valign="top" width="75%">Explains how to detect orthotropic
+            symmetry in an ODF.</td></a>
+            </td>
+            </tr>
+            <tr>
+            <td/>
+            <td colspan="2">
+            <div class="expander" id="DetectSampleSymmetry_block" style="display:none; background:#e7ebf7; padding-left:2ex;">
+            <table>
+            <tr>
+            <td>
+            <a href="DetectSampleSymmetry.html#3">A synthetic example</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="DetectSampleSymmetry.html#4">Reconstruct an ODF from simulated EBSD data</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="DetectSampleSymmetry.html#5">Detect the sample symmetry axis in the reconstructed ODF</a>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <a href="DetectSampleSymmetry.html#6">Real world example</a>
             </td>
             </tr>
             </table>

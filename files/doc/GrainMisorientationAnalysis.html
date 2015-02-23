@@ -1,0 +1,197 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>Misorientation Analysis (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: GrainMisorientationAnalysis -->
+      <!-- HEADSTUFF: GrainMisorientationAnalysis -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:GrainMisorientationAnalysis">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/documentation.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>Misorientation Analysis</h1>
+         <div class="subheading">
+            <p>How to analyse misorientations.</p>
+         </div>
+         <div>
+            <table class="content">
+               <tr>
+                  <td class="header">On this page ...</td>
+               </tr>
+               <tr>
+                  <td><a href="#3">Definition</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#4">The sample data set</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#6">Intergranular misorientations %%TODO</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#9">Boundary misorientations</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#12">The angle distribution</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#16">The axis distribution</a></td>
+               </tr>
+            </table>
+         </div>
+         <h2>Definition<a name="3"> </a></h2>
+         <p>In MTEX the misorientation between two orientations o1, o2 is defined as</p>
+         <p><img src="GrainMisorientationAnalysis_eq10473485919243981333.png"> </p>
+         <p>In the case of EBSD data, intergranular misorientations, misorientations between neighbouring grains, and misorientations
+            between random measurments are of interest.
+         </p>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>The sample data set<a name="4"> </a></h2>
+         <p>Let us first import some EBSD data by a <a href="matlab:edit mtexdata"> script file</a></p><pre class="codeinput">mtexdata <span class="string">forsterite</span>
+plotx2east</pre><p>and <a href="EBSD.calcGrains.html">reconstruct</a> grains by
+         </p><pre class="codeinput"><span class="comment">% perform grain segmentation</span>
+[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd(<span class="string">'indexed'</span>),<span class="string">'threshold'</span>,5*degree);</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Intergranular misorientations %%TODO<a name="6"> </a></h2>
+         <p>The intergranular misorientation is automatically computed while reconstructing the grain structure. It is stored as the property
+            <b>mis2mean</b> within the ebsd variable and can be accessed by the command <a href="ebsd_get.html,get">ebsd_get.html,get</a>.
+         </p><pre class="codeinput"><span class="comment">% get the misorientations to mean</span>
+mori = ebsd(<span class="string">'Fo'</span>).mis2mean
+
+<span class="comment">% plot a histogram of the misorientation angles</span>
+plotAngleDistribution(mori)
+xlabel(<span class="string">'Misorientation angles in degree'</span>)</pre><pre class="codeoutput"> 
+mori = misorientation  
+  size: 152345 x 1
+  crystal symmetry : Forsterite (mmm)
+  crystal symmetry : Forsterite (mmm)
+ 
+</pre><img src="GrainMisorientationAnalysis_01.png"> <p>The visualization of the misorientation can be done by</p><pre class="codeinput">close <span class="string">all</span>
+plot(ebsd(<span class="string">'Forsterite'</span>),ebsd(<span class="string">'Forsterite'</span>).mis2mean.angle./degree)
+mtexColorMap <span class="string">WhiteJet</span>
+colorbar
+hold <span class="string">on</span>
+plot(grains.boundary,<span class="string">'edgecolor'</span>,<span class="string">'k'</span>,<span class="string">'linewidth'</span>,.5)
+hold <span class="string">off</span></pre><img src="GrainMisorientationAnalysis_02.png"> <pre class="codeinput">cs = ebsd(<span class="string">'Forsterite'</span>).CS.Laue;
+oM = axisAngleOrientationMapping(cs)
+<span class="comment">%oM.maxAngle = 50*degree;</span>
+
+plot(ebsd(<span class="string">'Forsterite'</span>),oM.orientation2color(ebsd(<span class="string">'Forsterite'</span>).mis2mean))
+hold <span class="string">on</span>
+plot(grains.boundary,<span class="string">'edgecolor'</span>,<span class="string">'k'</span>,<span class="string">'linewidth'</span>,.5)
+hold <span class="string">off</span></pre><pre class="codeoutput"> 
+  Hint: You might want to use the point group
+  "222" for colorcoding!
+ 
+oM = 
+  axisAngleOrientationMapping with properties:
+
+               center: [1x1 quaternion]
+             maxAngle: 'auto'
+                  CS1: [4x2 crystalSymmetry]
+                  CS2: [1x1 specimenSymmetry]
+    colorPostRotation: [1x1 rotation]
+      colorStretching: 1
+          whiteCenter: [1x1 vector3d]
+                   sR: [1x1 sphericalRegion]
+</pre><img src="GrainMisorientationAnalysis_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Boundary misorientations<a name="9"> </a></h2>
+         <p>The misorientation between adjacent grains can be computed by the command <a href="grainBoundary.misorientation.html">grainBoundary.misorientation.html</a></p><pre class="codeinput">plot(grains)
+
+hold <span class="string">on</span>
+
+bnd_FoFo = grains.boundary(<span class="string">'Fo'</span>,<span class="string">'Fo'</span>)
+
+plot(bnd_FoFo,<span class="string">'linecolor'</span>,<span class="string">'r'</span>)
+
+hold <span class="string">off</span>
+
+bnd_FoFo.misorientation</pre><pre class="codeoutput"> 
+bnd_FoFo = grainBoundary  
+ 
+ Segments   mineral 1   mineral 2
+    15974  Forsterite  Forsterite
+ 
+ans = misorientation  
+  size: 15974 x 1
+  crystal symmetry : Forsterite (mmm)
+  crystal symmetry : Forsterite (mmm)
+ 
+</pre><img src="GrainMisorientationAnalysis_04.png"> <pre class="codeinput">plot(ebsd,<span class="string">'facealpha'</span>,0.5)
+
+hold <span class="string">on</span>
+plot(grains.boundary)
+plot(bnd_FoFo,bnd_FoFo.misorientation.angle./degree,<span class="string">'linewidth'</span>,2)
+mtexColorMap <span class="string">blue2red</span>
+colorbar
+hold <span class="string">off</span></pre><img src="GrainMisorientationAnalysis_05.png"> <p>In order to visualize the the misorientation between any two adjacent grains there are two possibilities in MTEX.</p>
+         <div>
+            <ul type="square">
+               <li>plot the angle distribution for all phase combinations</li>
+               <li>plot the axis distribution for all phase combinations</li>
+            </ul>
+         </div>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>The angle distribution<a name="12"> </a></h2>
+         <p>The following command plot the angle distribution of all misorientations grouped according to phase trasistions.</p><pre class="codeinput">close <span class="string">all</span>
+plotAngleDistribution(grains.boundary)</pre><img src="GrainMisorientationAnalysis_06.png"> <p>The above angle distributions can be compared with the uncorrelated angle distributions. The uncorrelated angle distributions
+            can be obtained in two ways. First one can do the following
+         </p>
+         <div>
+            <ol>
+               <li>estimate an ODF for each phase</li>
+               <li>compute for any phase transition a misorientation distribution function (MDF)</li>
+               <li>compute the continuous angle distribution of the MDFs</li>
+            </ol>
+         </div>
+         <p>All these steps are performed by the single command</p><pre class="codeinput">close <span class="string">all</span>
+plotAngleDistribution(ebsd)</pre><img src="GrainMisorientationAnalysis_07.png"> <p>Another possibility is to compute an uncorrelated angle distribution from the EBSD data set by taking only into account those
+            pairs of measurements that are sufficently far from each other (uncorrelated points). The uncorrelated angle distribution
+            is plotted by
+         </p><pre class="codeinput"><span class="comment">%plotAngleDistribution(ebsd,'ODF')</span></pre><p>In order to consider only a specific phase transistion one can use the syntax</p><pre class="codeinput">close <span class="string">all</span>
+plotAngleDistribution(ebsd(<span class="string">'Fo'</span>),ebsd(<span class="string">'En'</span>))</pre><img src="GrainMisorientationAnalysis_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>The axis distribution<a name="16"> </a></h2>
+         <p>Let's start here with the uncorrelated axis distribution, which depends only on the underlying ODFs.</p><pre class="codeinput">close <span class="string">all</span>
+mtexFig = newMtexFigure;
+plotAxisDistribution(ebsd(<span class="string">'Fo'</span>),<span class="string">'smooth'</span>,<span class="string">'parent'</span>,mtexFig.gca)
+mtexTitle(<span class="string">'uncorrelated axis distribution'</span>)</pre><img src="GrainMisorientationAnalysis_09.png"> <p>We may plot the axes of the boundary misorientations directly into this plot</p><pre class="codeinput">mtexFig.nextAxis
+plotAxisDistribution(grains.boundary(<span class="string">'Fo'</span>,<span class="string">'Fo'</span>),<span class="string">'smooth'</span>,<span class="string">'parent'</span>,mtexFig.gca)
+mtexTitle(<span class="string">'boundary axis distribution'</span>)
+colorbar</pre><img src="GrainMisorientationAnalysis_10.png"> <p>This shows a much stronger preference of the (1,1,1) axis in comparison to the uncorrelated distribution.</p>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

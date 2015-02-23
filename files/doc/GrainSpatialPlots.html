@@ -114,13 +114,11 @@ ebsd_grain = EBSD
  Scan unit : um
  
 </pre><img src="GrainSpatialPlots_04.png"> <p>Also, a property to plot can be given as a Nx1 vector, where N is the number of grains.</p><pre class="codeinput">close <span class="string">all</span>
-plot(grains,shapeFactor(grains))</pre><pre class="codeoutput">Warning: Plot empty. 
-</pre><img src="GrainSpatialPlots_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+plot(grains,shapeFactor(grains))</pre><img src="GrainSpatialPlots_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Visualizing grain boundaries<a name="11"> </a></h2>
          <p>Plotting grain boundaries may be a usefull task, e.g. marking special grain boundaries, generally this is done by the <a href="GrainSet.plotBoundary.html">plotBoundary</a> command.
          </p><pre class="codeinput">close <span class="string">all</span>
-plot(grains.boundary)</pre><pre class="codeoutput">Warning: Plot empty. 
-</pre><img src="GrainSpatialPlots_06.png"> <p>A grain boundaries plot can be easily combined with further plots by *hold on command, so we can plot various information
+plot(grains.boundary)</pre><img src="GrainSpatialPlots_06.png"> <p>A grain boundaries plot can be easily combined with further plots by *hold on command, so we can plot various information
             together
          </p><pre class="codeinput">hold <span class="string">on</span>
 plot(ebsd,ebsd.bc)

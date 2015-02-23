@@ -149,7 +149,7 @@ annotate(center,<span class="string">'marker'</span>,<span class="string">'s'</s
             are the <a href="ODF.entropy.html">entropy</a> and the <a href="ODF.textureindex.html">texture index</a>.
          </p>
          <p>Compute the texture index:</p><pre class="codeinput">textureindex(odf1)</pre><pre class="codeoutput">ans =
-    1.9887
+   72.1701
 </pre><p>Compute the entropy:</p><pre class="codeinput">entropy(odf2)</pre><pre class="codeoutput">ans =
    -2.8402
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -157,7 +157,7 @@ annotate(center,<span class="string">'marker'</span>,<span class="string">'s'</s
          <p>Volume portions describes the relative volume of crystals having a certain orientation. The relative volume of crystals having
             a orientation close to a given orientation is computed by the command <a href="ODF.volume.html">volume</a> and the relative volume of crystals having a orientation close to a given fibre is computed by the command <a href="ODF.fibreVolume.html">fibreVolume</a></p>
          <p>The relative volume in percent of crystals with missorientation maximum 30 degree from the modal orientation:</p><pre class="codeinput">volume(odf3,calcModes(odf3),30*degree)*100</pre><pre class="codeoutput">ans =
-   29.6136
+   60.6118
 </pre><p>The relative volume of crystals with missorientation maximum 20 degree from the prefered fibre in percent: TODO</p><pre class="codeinput"><span class="comment">%fibreVolume(odf2,Miller(0,0,1),xvector,20*degree) * 100</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Fourier Coefficients<a name="16"> </a></h2>
          <p>The Fourier coefficients allow for a complete characterization of the ODF. The are of particular importance for the calcuation
