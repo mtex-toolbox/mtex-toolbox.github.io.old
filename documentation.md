@@ -20,7 +20,7 @@ layout: main
 	<th><a href="files/doc/CrystalGeometry.html">Crystal Geometry</a></th>
 	<th><a href="files/doc/PoleFigureAnalysis.html">Pole Figures</a></th>
 	<th><a href="files/doc/ODFAnalysis.html">ODFs</a></th>
-	<th><a href="files/doc/MaterialTensors.html">Tensors</a></th>
+	<th><a href="files/doc/TensorAnalysis.html">Tensors</a></th>
   </tr>
   <tr>
 	<td align="center"><a href="files/doc/CrystalGeometry.html">
@@ -29,7 +29,7 @@ layout: main
 	  <img src="files/pic/pf.jpg"    width = "230" alt=""  border="0" ></a></td>
 	<td align="center"><a href="files/doc/ODFAnalysis.html">
 	  <img src="files/pic/odf.jpg"  width = "230"  alt=""  border="0" ></a></td>
-	<td align="center"><a href="files/doc/MaterialTensors.html">
+	<td align="center"><a href="files/doc/TensorAnalysis.html">
 	  <img src="files/pic/tensor.jpg" width = "230" alt=""  border="0" ></a></td>
   </tr>
   <tr>
