@@ -80,9 +80,9 @@ P = tensor
 setMTEXpref(<span class="string">'defaultColorMap'</span>,blue2redColorMap);
 
 plot(P)
-colorbar</pre><img src="PiezoElectricity_01.png"> <p>but also, we can plot the whole crystal behavior</p><pre class="codeinput">close <span class="string">all</span>
+mtexColorbar</pre><img src="PiezoElectricity_01.png"> <p>but also, we can plot the whole crystal behavior</p><pre class="codeinput">close <span class="string">all</span>
 plot(P,<span class="string">'complete'</span>,<span class="string">'smooth'</span>,<span class="string">'upper'</span>)
-colorbar</pre><img src="PiezoElectricity_02.png"> <p>Most often, the polarisation is illustrated as surface magnitude</p><pre class="codeinput">close <span class="string">all</span>
+mtexColorbar</pre><img src="PiezoElectricity_02.png"> <p>Most often, the polarisation is illustrated as surface magnitude</p><pre class="codeinput">close <span class="string">all</span>
 plot(P,<span class="string">'3d'</span>)</pre><img src="PiezoElectricity_03.png"> <p>Note, that for directions of negative polarisation the surface is mapped onto the axis of positive, which then let the surface
             appears as a double coverage
          </p>
@@ -105,7 +105,7 @@ ori = orientation
 </pre><p>The figure on p.1184 of the publication</p><pre class="codeinput">Pm = ori.calcTensor(P)
 
 plot(Pm)
-colorbar</pre><pre class="codeoutput"> 
+mtexColorbar</pre><pre class="codeoutput"> 
 Pm = tensor  
   propertyname    : piecoelectricity
   rank            : 3 (3 x 3 x 3)   
@@ -117,7 +117,7 @@ Pm = tensor
  -41.35  40.44   0.91  32.48 -23.42   6.47
 </pre><img src="PiezoElectricity_06.png"> <pre class="codeinput">close <span class="string">all</span>
 plot(Pm,<span class="string">'complete'</span>,<span class="string">'upper'</span>)
-colorbar
+mtexColorbar
 
 setMTEXpref(<span class="string">'defaultColorMap'</span>,WhiteJetColorMap)</pre><img src="PiezoElectricity_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>

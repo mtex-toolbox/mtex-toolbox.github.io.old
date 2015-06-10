@@ -100,22 +100,19 @@ odf2 = ODF
  
 </pre><p>An ODF estimated from diffraction data</p><pre class="codeinput">mtexdata <span class="string">dubna</span>
 
-odf3 = calcODF(pf,<span class="string">'resolution'</span>,5*degree,<span class="string">'zero_Range'</span>)</pre><pre class="codeoutput">------ MTEX -- PDF to ODF inversion ------------------
-applying zero range method to (02-21)...... - reduction: 4594 / 19848
-applying zero range method to (10-10)...... - reduction: 2595 / 19848
-applying zero range method to (01-11)(10-11)...... - reduction: 2595 / 19848
-applying zero range method to (10-12)...... - reduction: 2305 / 19848
-applying zero range method to (11-20)...... - reduction: 2215 / 19848
+odf3 = calcODF(pf,<span class="string">'resolution'</span>,5*degree,<span class="string">'zero_Range'</span>)</pre><pre class="codeoutput">applying zero range method to (02-21)...... - reduction: 4581 / 19848
+applying zero range method to (10-10)...... - reduction: 2616 / 19848
+applying zero range method to (01-11)(10-11)...... - reduction: 2616 / 19848
+applying zero range method to (10-12)...... - reduction: 2312 / 19848
+applying zero range method to (11-20)...... - reduction: 2222 / 19848
 applying zero range method to (11-21)...... - reduction: 2109 / 19848
-applying zero range method to (11-22)...... - reduction: 2027 / 19848
-Call c-routine
+applying zero range method to (11-22)...... - reduction: 2026 / 19848
 initialize solver
 start iteration
-error: 4.4290E-01 2.2148E-01 1.6514E-01 1.5403E-01 1.4907E-01 1.4629E-01 1.4418E-01 1.4270E-01 1.4139E-01 1.4032E-01 1.3928E-01 
+error: 4.3484E-01 2.2892E-01 1.6573E-01 1.5349E-01 1.4868E-01 1.4612E-01 1.4436E-01 1.4312E-01 1.4211E-01 1.4130E-01 1.4060E-01 
 Finished PDF-ODF inversion.
-error: 1.3928E-01
-alpha: 7.8423E+01 7.3800E+00 9.9737E+01 9.5158E+01 5.0474E+01 6.6577E+01 1.4213E+02 
-required time: 6s
+error: 1.4060E-01
+alpha: 7.7442E+01 7.4101E+00 1.0345E+02 9.4669E+01 5.0735E+01 6.6847E+01 1.4137E+02 
  
 odf3 = ODF  
   crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
@@ -123,7 +120,7 @@ odf3 = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 2027 orientations, resolution: 5&deg;
+    center: 2026 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -138,8 +135,8 @@ center = orientation
   specimen symmetry: 1
  
   Bunge Euler angles in degree
-    phi1     Phi    phi2    Inv.
-  315.76 144.876 36.2438       0
+     phi1     Phi    phi2    Inv.
+  135.938 35.7181 203.179       0
  
  
 </pre><p>Lets mark this prefered orientation in the pole figures</p><pre class="codeinput">plotPDF(odf3,h,<span class="string">'antipodal'</span>,<span class="string">'superposition'</span>,c);
@@ -157,7 +154,7 @@ annotate(center,<span class="string">'marker'</span>,<span class="string">'s'</s
          <p>Volume portions describes the relative volume of crystals having a certain orientation. The relative volume of crystals having
             a orientation close to a given orientation is computed by the command <a href="ODF.volume.html">volume</a> and the relative volume of crystals having a orientation close to a given fibre is computed by the command <a href="ODF.fibreVolume.html">fibreVolume</a></p>
          <p>The relative volume in percent of crystals with missorientation maximum 30 degree from the modal orientation:</p><pre class="codeinput">volume(odf3,calcModes(odf3),30*degree)*100</pre><pre class="codeoutput">ans =
-   60.6118
+   59.5860
 </pre><p>The relative volume of crystals with missorientation maximum 20 degree from the prefered fibre in percent: TODO</p><pre class="codeinput"><span class="comment">%fibreVolume(odf2,Miller(0,0,1),xvector,20*degree) * 100</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Fourier Coefficients<a name="16"> </a></h2>
          <p>The Fourier coefficients allow for a complete characterization of the ODF. The are of particular importance for the calcuation
@@ -177,11 +174,11 @@ fodf = ODF
  
 </pre><p>The Fourier coefficients of order 2:</p><pre class="codeinput">reshape(fodf.components{1}.f_hat(11:35),5,5)</pre><pre class="codeoutput">ans =
   Columns 1 through 4
-  -0.0000 - 0.0000i  -0.0000 + 0.0000i   0.2087 - 0.5622i  -0.0000 + 0.0000i
-   0.0000 + 0.0000i  -0.0000 - 0.0000i   2.0200 - 1.1108i  -0.0000 - 0.0000i
-   0.0000 - 0.0000i   0.0000 + 0.0000i   2.5691 - 0.0000i   0.0000 - 0.0000i
-  -0.0000 - 0.0000i  -0.0000 + 0.0000i   2.0200 + 1.1108i  -0.0000 + 0.0000i
-  -0.0000 + 0.0000i  -0.0000 - 0.0000i   0.2087 + 0.5622i  -0.0000 - 0.0000i
+  -0.0000 - 0.0000i  -0.0000 + 0.0000i   0.2099 - 0.5496i  -0.0000 + 0.0000i
+   0.0000 + 0.0000i  -0.0000 - 0.0000i   2.0170 - 1.0994i  -0.0000 - 0.0000i
+   0.0000 - 0.0000i   0.0000 + 0.0000i   2.5810 - 0.0000i   0.0000 - 0.0000i
+  -0.0000 - 0.0000i  -0.0000 + 0.0000i   2.0170 + 1.0994i  -0.0000 + 0.0000i
+  -0.0000 + 0.0000i  -0.0000 - 0.0000i   0.2099 + 0.5496i  -0.0000 - 0.0000i
   Column 5
   -0.0000 - 0.0000i
   -0.0000 + 0.0000i
@@ -212,7 +209,7 @@ plot(odf2.eval(fibre))</pre><img src="ODFCharacteristics_03.png"> <p>Evaluation 
 odf3.components{1}.psi</pre><pre class="codeoutput"> 
 ans = SO3Grid  
   symmetry: "321" - "1"
-  grid    : 2027 orientations, resolution: 5&deg;
+  grid    : 2026 orientations, resolution: 5&deg;
  
 ans = deLaValeePoussinKernel  
   bandwidth: 58

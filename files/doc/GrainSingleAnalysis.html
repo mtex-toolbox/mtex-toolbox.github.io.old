@@ -74,8 +74,8 @@ ebsd = ebsd(<span class="string">'indexed'</span>);
 ebsd_selected = ebsd(grain_selected)</pre><pre class="codeoutput"> 
 grain_selected = grain2d  
  
- Phase  Grains     Mineral  Symmetry  Crystal reference frame  Phase
-     1      32  Forsterite       mmm                                
+ Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
+     1      32   62262  Forsterite       mmm                         
  
  Properties: GOS, meanRotation
  
@@ -91,11 +91,11 @@ ebsd_selected = EBSD
 </pre><p>A more convinient way to select grains in daily practice, is by spatial coordinates.</p><pre class="codeinput">grain_selected = grains(12000,3000)</pre><pre class="codeoutput"> 
 grain_selected = grain2d  
  
- Phase  Grains     Mineral  Symmetry  Crystal reference frame  Phase
-     1       1  Forsterite       mmm                                
+ Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
+     1       1    1208  Forsterite       mmm                         
  
-        GOS   meanRotation
- 0.00808162         73.521
+  Id   Phase   Pixels          GOS   phi1   Phi   phi2
+ 640       1     1208   0.00808162    153    68    237
  
 </pre><p>you can get the id of this grain by</p><pre class="codeinput">grain_selected.id</pre><pre class="codeoutput">ans =
    640
@@ -105,11 +105,11 @@ grain_selected = grains(id)</pre><pre class="codeoutput">id =
  
 grain_selected = grain2d  
  
- Phase  Grains     Mineral  Symmetry  Crystal reference frame  Phase
-     1       1  Forsterite       mmm                                
+ Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
+     1       1    2614  Forsterite       mmm                         
  
-      GOS   meanRotation
- 0.170049        114.096
+   Id   Phase   Pixels        GOS   phi1   Phi   phi2
+ 1856       1     2614   0.170049    153   109    246
  
 </pre><pre class="codeinput">plot(grain_selected.boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>
@@ -120,22 +120,27 @@ plot(grain_selected.boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>
 plot(ebsd(grain_selected),ebsd(grain_selected).mis2mean.angle./degree)
 hold <span class="string">off</span>
-colorbar</pre><img src="GrainSingleAnalysis_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="GrainSingleAnalysis_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Testing on Bingham distribution for a single grain<a name="10"> </a></h2>
          <p>Although the orientations of an individual grain are highly concentrated, they may vary in the shape. In particular, if the
             grain was deformed by some process, we are interessed in quantifications.
          </p><pre class="codeinput">cs = ebsd(grain_selected).CS;
-plotPDF(ebsd(grain_selected).orientations,<span class="keyword">...</span>
-  [Miller(0,0,1,cs),Miller(0,1,1,cs),Miller(1,1,1,cs)],<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">  I'm plotting 1250 random orientations out of 2614 given orientations
+ori = ebsd(grain_selected).orientations;
+plotPDF(ori,[Miller(0,0,1,cs),Miller(0,1,1,cs),Miller(1,1,1,cs)],<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">  I'm plotting 1250 random orientations out of 2614 given orientations
   You can specify the the number points by the option "points".
   The option "all" ensures that all data are plotted
 </pre><img src="GrainSingleAnalysis_03.png"> <p>Testing on the distribution shows a gentle prolatness, nevertheless we would reject the hypothesis for some level of significance,
             since the distribution is highly concentrated and the numerical results vague.
-         </p><pre class="codeinput">[qm,lambda,U,kappa] = mean(ebsd(grain_selected).orientations,<span class="string">'approximated'</span>);
-num2str(kappa')</pre><pre class="codeoutput">ans =
-0      1156.7723      1493.9082       1580.029
-</pre><pre class="codeinput">ori = ebsd(grain_selected).orientations;
-T_spherical = bingham_test(ori,<span class="string">'spherical'</span>,<span class="string">'approximated'</span>);
+         </p><pre class="codeinput">calcBinghamODF(ori,<span class="string">'approximated'</span>)</pre><pre class="codeoutput"> 
+ans = ODF  
+  crystal symmetry : Forsterite (mmm)
+  specimen symmetry: 1
+ 
+  Bingham portion:
+     kappa: 0 1156.7723 1493.9082 1580.029
+    weight: 1
+ 
+</pre><pre class="codeinput">T_spherical = bingham_test(ori,<span class="string">'spherical'</span>,<span class="string">'approximated'</span>);
 T_prolate   = bingham_test(ori,<span class="string">'prolate'</span>,  <span class="string">'approximated'</span>);
 T_oblate    = bingham_test(ori,<span class="string">'oblate'</span>,   <span class="string">'approximated'</span>);
 
@@ -179,7 +184,7 @@ xlabel(<span class="string">'y'</span>); ylabel(<span class="string">'misorienta
 legend(<span class="string">'to reference orientation'</span>,<span class="string">'orientation gradient'</span>)</pre><img src="GrainSingleAnalysis_05.png"> <p>We can also plot the orientations along this line into inverse pole figures and colorize them according to their y-coordinate</p><pre class="codeinput">close, plotIPDF(ebsd_line.orientations,[xvector,yvector,zvector],<span class="keyword">...</span>
   <span class="string">'property'</span>,ebsd_line.y,<span class="string">'markersize'</span>,3,<span class="string">'antipodal'</span>)
 
-colorbar</pre><img src="GrainSingleAnalysis_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="GrainSingleAnalysis_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

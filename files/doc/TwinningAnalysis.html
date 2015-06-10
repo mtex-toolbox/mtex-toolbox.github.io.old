@@ -84,8 +84,8 @@ plot(grains,grains.meanOrientation)
 CS = grains.CS</pre><pre class="codeoutput"> 
 grains = grain2d  
  
- Phase  Grains    Mineral  Symmetry  Crystal reference frame  Phase
-     1     121  Magnesium     6/mmm        X||a*, Y||b, Z||c       
+ Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
+     1     121   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  
@@ -112,8 +112,8 @@ ebsd = EBSD
  
 grains = grain2d  
  
- Phase  Grains    Mineral  Symmetry  Crystal reference frame  Phase
-     1     121  Magnesium     6/mmm        X||a*, Y||b, Z||c       
+ Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
+     1     121   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  
@@ -161,7 +161,7 @@ gB_MgMg = grainBoundary
          <p>These can be used to colorize the grain boundaries. By the following command we plot the grain boundaries colorized by the
             misorientation angle
          </p><pre class="codeinput">plot(gB_MgMg,gB_MgMg.misorientation.angle./degree,<span class="string">'linewidth'</span>,2)
-colorbar</pre><img src="TwinningAnalysis_02.png"> <p>We observe many grain boundaries with a large misorientation angle of about 86 degree. Those grain boundaries are most likely
+mtexColorbar</pre><img src="TwinningAnalysis_02.png"> <p>We observe many grain boundaries with a large misorientation angle of about 86 degree. Those grain boundaries are most likely
             twin boundaries. To detect them more precisely we define first the twinning as a misorientation, which is reported in literature
             by  (1,1,-2,0) parallel to (2,-1,-1,0) and (-1,0,1,1) parallel to (1,0,-1,1). In MTEX it is defined by
          </p><pre class="codeinput">twinning = orientation(<span class="string">'map'</span>,Miller(1,1,-2,0,CS),Miller(2,-1,-1,0,CS),<span class="keyword">...</span>
@@ -184,9 +184,9 @@ twinning.angle / degree</pre><pre class="codeoutput">
 ans = Miller  
  size: 1 x 1
  mineral: Magnesium (6/mmm, X||a*, Y||b, Z||c)
-  h -2
+  h  1
   k  1
-  i  1
+  i -2
   l  0
 ans =
    86.2992
@@ -234,8 +234,8 @@ hold <span class="string">off</span></pre><img src="TwinningAnalysis_04.png"> <p
 </pre><p>Hence, we can find all childs of common grain 16 by</p><pre class="codeinput">childs = grains(parentId == mergedGrains(16).id)</pre><pre class="codeoutput"> 
 childs = grain2d  
  
- Phase  Grains    Mineral  Symmetry  Crystal reference frame  Phase
-     1      24  Magnesium     6/mmm        X||a*, Y||b, Z||c       
+ Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
+     1      24    3789  Magnesium     6/mmm        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  

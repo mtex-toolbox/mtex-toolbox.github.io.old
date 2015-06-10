@@ -258,12 +258,10 @@ angle(o1)/degree
 axis(o1)</pre><pre class="codeoutput">ans =
    30.0000
  
-ans = Miller  
+ans = vector3d  
  size: 1 x 1
- symmetry: m-3m
-  h -1
-  k  0
-  l  0
+   x  y  z
+  -1  0  0
 </pre><p>To obtain the inverse orientation to o, one can use the command <a href="quaternion.inv.html">inv(q)</a></p><pre class="codeinput">inv(o1)</pre><pre class="codeoutput"> 
 ans = inverse orientation  
   size: 1 x 1
@@ -293,9 +291,34 @@ phi2 =
     1.5708
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Plotting Orientations<a name="26"> </a></h2>
-         <p>The <a href="orientation.plot.html">plot</a> function allows you to visualize a quaternion by plotting how the standard basis x,y,z transforms under the rotation.
-         </p><pre class="codeinput">plot(o1)</pre><pre class="codeoutput">Do something fancy here.
-</pre><img src="CrystalOrientations_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <p>The function <a href="orientation.plot.html">plot</a> plots an orientation in 3 dimensinal axis angle space.
+         </p><pre class="codeinput">oR = fundamentalRegion(o1.CS,o1.SS,<span class="string">'complete'</span>)
+plot(oR)
+hold <span class="string">on</span>
+scatter(o1,<span class="string">'axisAngle'</span>,<span class="string">'markerColor'</span>,<span class="string">'b'</span>,<span class="string">'markerSize'</span>,10)
+axis <span class="string">off</span></pre><pre class="codeoutput">oR = 
+  orientationRegion with properties:
+
+            N: [0x1 quaternion]
+            V: [0x0 quaternion]
+            F: {}
+    antipodal: 0
+</pre><img src="CrystalOrientations_01.png"> <p>Note that the orientation is not automatically projected into its fundamental region, as we see if the fundamental region
+            is visuallized
+         </p><pre class="codeinput">hold <span class="string">on</span>
+oR = fundamentalRegion(o1.CS,o1.SS)
+plot(oR,<span class="string">'color'</span>,[0.7 0.5 0.5])
+hold <span class="string">on</span></pre><pre class="codeoutput">oR = 
+  orientationRegion with properties:
+
+            N: [1x14 quaternion]
+            V: [1x24 quaternion]
+            F: {1x14 cell}
+    antipodal: 0
+</pre><img src="CrystalOrientations_02.png"> <pre class="codeinput">hold <span class="string">on</span>
+o2 = quaternion(o1.project2FundamentalRegion);
+scatter(o2,<span class="string">'axisAngle'</span>,<span class="string">'markerColor'</span>,<span class="string">'r'</span>,<span class="string">'markerSize'</span>,10)
+hold <span class="string">off</span></pre><img src="CrystalOrientations_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

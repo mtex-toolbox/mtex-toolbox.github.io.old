@@ -61,7 +61,7 @@ h = project2FundamentalRegion(h);
 color = h.rho ./ degree;
 
 plotIPDF(ebsd.orientations,zvector,<span class="string">'property'</span>,color,<span class="string">'MarkerSize'</span>,3,<span class="string">'grid'</span>)
-colorbar</pre><pre class="codeoutput">  I'm plotting 8333 random orientations out of 20119 given orientations
+mtexColorbar</pre><pre class="codeoutput">  I'm plotting 8333 random orientations out of 20119 given orientations
 </pre><img src="EBSDSharpPlot_02.png"> <p>We see that all individual orientations are clustered around azimuth angle 25 degree with some outliers at 90 and 120 degree.
             In order to increase the contrast for the main group we restrict the colorrange from 20 degree to 29 degree.
          </p><pre class="codeinput">caxis([20 30]);
@@ -83,29 +83,14 @@ cmap(1,:) = [1 0 1];
 colormap(cmap)</pre><img src="EBSDSharpPlot_04.png"> <h2>Sharpening the default colorcoding<a name="5"> </a></h2>
          <p>Next we want to apply the same ideas as above to the default MTEX color mapping, i.e. we want to stretch the colors such that
             they cover just the orientations of interest.
-         </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd);
-oM.CS1 = oM.CS1.properGroup
+         </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd.CS.properGroup);
 
 <span class="comment">% To this end, we first compute the inverse pole figure direction such that</span>
 <span class="comment">% the mean orientation is just at the white spot of the inverse pole figure</span>
 oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
 
 close <span class="string">all</span>;
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "321" for colorcoding!
- 
-oM = 
-  ipdfHSVOrientationMapping with properties:
-
-    inversePoleFigureDirection: [1x1 vector3d]
-                           CS1: [6x1 crystalSymmetry]
-                           CS2: [1x1 specimenSymmetry]
-             colorPostRotation: [1x1 rotation]
-               colorStretching: 1
-                   whiteCenter: [1x1 vector3d]
-                            sR: [1x1 sphericalRegion]
-</pre><img src="EBSDSharpPlot_05.png"> <p>We observe that the orientation map is almost completly white. Next we use the option <tt>colorStretching</tt> to increase contrast.
+plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_05.png"> <p>We observe that the orientation map is almost completly white. Next we use the option <tt>colorStretching</tt> to increase contrast.
          </p><pre class="codeinput">oM.colorStretching = 30;
 plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_06.png"> <p>You may play around with the option <tt>colorStretching</tt> to obtain better results. As for interpretation keep in mind that white color represents the mean orientation and the color
             becomes more saturated and later dark as the orientation to color diverges from the mean orientation.
@@ -129,10 +114,10 @@ largeGrains = grains(grains.grainSize&gt;800)
 ebsd = ebsd(largeGrains(1))</pre><pre class="codeoutput"> 
 grains = grain2d  
  
- Phase  Grains     Mineral  Symmetry  Crystal reference frame  Phase
-     1    1080  Forsterite       mmm                                
-     2     515   Enstatite       mmm                                
-     3    1496    Diopside     12/m1        X||a*, Y||b, Z||c       
+ Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
+     1    1080  152345  Forsterite       mmm                         
+     2     515   26058   Enstatite       mmm                         
+     3    1496    9064    Diopside     12/m1        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  
@@ -150,9 +135,9 @@ ebsd = EBSD
  
 largeGrains = grain2d  
  
- Phase  Grains     Mineral  Symmetry  Crystal reference frame  Phase
-     1      56  Forsterite       mmm                                
-     2       2   Enstatite       mmm                                
+ Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
+     1      56   85514  Forsterite       mmm                         
+     2       2    1969   Enstatite       mmm                         
  
  Properties: GOS, meanRotation
  

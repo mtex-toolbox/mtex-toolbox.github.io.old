@@ -20,18 +20,17 @@
             <tocitem target="FeatureOverview.html#8">Create Publication Ready Plots</tocitem>
             <tocitem target="FeatureOverview.html#9">Writing Scripts to Process Many Data Sets</tocitem>
          </tocitem>
-         <tocitem target="PoleFigureTutorial.html">Short Pole Figure Analysis Tutorial<tocitem target="PoleFigureTutorial.html#2">Import diffraction data</tocitem>
-            <tocitem target="PoleFigureTutorial.html#3">Plot pole figures</tocitem>
-            <tocitem target="PoleFigureTutorial.html#4">Estimate an ODF</tocitem>
-            <tocitem target="PoleFigureTutorial.html#5">Calculate c-axis pole figure from the ODF</tocitem>
+         <tocitem target="PoleFigureTutorial.html">Pole Figure Tutorial<tocitem target="PoleFigureTutorial.html#2">Import diffraction data</tocitem>
+            <tocitem target="PoleFigureTutorial.html#3">Plot Raw Data</tocitem>
+            <tocitem target="PoleFigureTutorial.html#5">ODF Estimation</tocitem>
+            <tocitem target="PoleFigureTutorial.html#9">Quantify the Reconstruction Error</tocitem>
+            <tocitem target="PoleFigureTutorial.html#10">Visualize the ODF</tocitem>
          </tocitem>
-         <tocitem target="EBSDTutorial.html">Short EBSD Analysis Tutorial<tocitem target="EBSDTutorial.html#2">Import EBSD data</tocitem>
-            <tocitem target="EBSDTutorial.html#3">Visualize the data</tocitem>
-            <tocitem target="EBSDTutorial.html#5">Grain reconstruction</tocitem>
-            <tocitem target="EBSDTutorial.html#8">ODF estimation</tocitem>
+         <tocitem target="EBSDTutorial.html">Short EBSD Analysis Tutorial<tocitem target="EBSDTutorial.html#2">TODO: Rewrite this from scratch</tocitem>
          </tocitem>
          <tocitem target="FAQ.html">FAQ<tocitem target="FAQ.html#1">Which MATLAB version and which toolboxes are reguired?</tocitem>
             <tocitem target="FAQ.html#2">I have crazy characters in my plots. What can I do?</tocitem>
+            <tocitem target="FAQ.html#3">I get crazy plots, empty plots, plot with wrong colors</tocitem>
          </tocitem>
          <tocitem target="compilation.html">Compiling MTEX<tocitem target="compilation.html#1">Introduction</tocitem>
             <tocitem target="compilation.html#2">Pre-requisits</tocitem>
@@ -206,6 +205,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.ne.html">ne</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.norm.html">norm</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.normalize.html">normalize</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.orth.html">orth</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.permute.html">permute</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.pertube.html">pertube</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.perturbe.html">perturbe</tocitem>
@@ -265,18 +265,18 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.LaueName.html">LaueName</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.alignment.html">alignment</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.angleDistribution.html">angleDistribution</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.calcAxisDistribution.html">calcAxisDistribution</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.calcQuat.html">calcQuat</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.check.html">check</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.disjoint.html">disjoint</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.ensureCS.html">ensureCS</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.eq.html">eq</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.factor.html">factor</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.fundamentalRegion.html">fundamentalRegion</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.fundamentalSector.html">fundamentalSector</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.getFundamentalRegion.html">getFundamentalRegion</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.getFundamentalRegionRodrigues.html">getFundamentalRegionRodrigues</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.getFundamentalRegionRodriguez.html">getFundamentalRegionRodriguez</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.getMaxAngle.html">getMaxAngle</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.getMaxAngleDir.html">getMaxAngleDir</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.getMaxAngleFundamentalRegion.html">getMaxAngleFundamentalRegion</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.length.html">length</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.maxAngle.html">maxAngle</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.multiplicityPerpZ.html">multiplicityPerpZ</tocitem>
@@ -302,6 +302,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcFourierODF.html">calcFourierODF</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcKernel.html">calcKernel</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcKernelODF.html">calcKernelODF</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcMDF.html">calcMDF</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcODF.html">calcODF</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcTensor.html">calcTensor</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.checkFundamentalRegion.html">checkFundamentalRegion</tocitem>
@@ -309,6 +310,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.display.html">display</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.dot.html">dot</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.dot_outer.html">dot_outer</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.export_VPSC.html">export_VPSC</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.fibreVolume.html">fibreVolume</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.getFundamentalRegion.html">getFundamentalRegion</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.inv.html">inv</tocitem>
@@ -327,7 +329,6 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.plotPDF.html">plotPDF</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.project2EulerFR.html">project2EulerFR</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.project2FundamentalRegion.html">project2FundamentalRegion</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.project2ODFsection.html">project2ODFsection</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.qqplot.html">qqplot</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.scatter.html">scatter</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.sphereVolume.html">sphereVolume</tocitem>
@@ -393,7 +394,6 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="ODF.plot.html">plot</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="ODF.plot3d.html">plot3d</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="ODF.plotAngleDistribution.html">plotAngleDistribution</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="ODF.plotAxisDistribution.html">plotAxisDistribution</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="ODF.plotDiff.html">plotDiff</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="ODF.plotFibre.html">plotFibre</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="ODF.plotFourier.html">plotFourier</tocitem>
@@ -480,7 +480,6 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.char.html">char</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.display.html">display</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.export.html">export</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.export_VPSC.html">export_VPSC</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.export_h5.html">export_h5</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.extend.html">extend</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.fill.html">fill</tocitem>
@@ -489,7 +488,6 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.fliplr.html">fliplr</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.flipud.html">flipud</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.inpolygon.html">inpolygon</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.mean.html">mean</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.mtimes.html">mtimes</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.plot.html">plot</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.plotAngleDistribution.html">plotAngleDistribution</tocitem>
@@ -648,6 +646,13 @@
             <tocitem target="AxialDirectional.html#12">Antipodal Symmetry in Inverse Pole Figures</tocitem>
             <tocitem target="AxialDirectional.html#16">EBSD Colocoding</tocitem>
          </tocitem>
+         <tocitem target="MorawiecCell.html">Fundamental Regions<tocitem target="MorawiecCell.html#3">The complete, symmetry free, orientation space</tocitem>
+            <tocitem target="MorawiecCell.html#6">Crystal Symmetries</tocitem>
+            <tocitem target="MorawiecCell.html#10">Change the center of the fundamental region</tocitem>
+            <tocitem target="MorawiecCell.html#11">Fundamental regions of misorientations</tocitem>
+            <tocitem target="MorawiecCell.html#12">Fundamental regions of misorientations with antipodal symmetry</tocitem>
+            <tocitem target="MorawiecCell.html#14">Axis angle sections</tocitem>
+         </tocitem>
       </tocitem>
       <tocitem target="ODFAnalysis.html">ODFs<tocitem target="SantaFe_demo.html">The SantaFe example<tocitem target="SantaFe_demo.html#2">Simulate pole figures</tocitem>
             <tocitem target="SantaFe_demo.html#3">ODF Estimation with Ghost Correction</tocitem>
@@ -759,10 +764,7 @@
             <tocitem target="PlotPoleFigures.html#8">Plotting Recalculated Pole Figures</tocitem>
          </tocitem>
       </tocitem>
-      <tocitem target="EBSDAnalysis.html">EBSD<tocitem target="EBSDTutorial.html">Short EBSD Analysis Tutorial<tocitem target="EBSDTutorial.html#2">Import EBSD data</tocitem>
-            <tocitem target="EBSDTutorial.html#3">Visualize the data</tocitem>
-            <tocitem target="EBSDTutorial.html#5">Grain reconstruction</tocitem>
-            <tocitem target="EBSDTutorial.html#8">ODF estimation</tocitem>
+      <tocitem target="EBSDAnalysis.html">EBSD<tocitem target="EBSDTutorial.html">Short EBSD Analysis Tutorial<tocitem target="EBSDTutorial.html#2">TODO: Rewrite this from scratch</tocitem>
          </tocitem>
          <tocitem image="$toolbox/matlab/icons/file_new.gif" target="ImportEBSDData.html">Importing EBSD Data<tocitem target="ImportEBSDData.html#4">Importing EBSD data using the import wizard</tocitem>
             <tocitem target="ImportEBSDData.html#6">Supported Data Formats</tocitem>
@@ -827,10 +829,10 @@
          </tocitem>
          <tocitem target="GrainMisorientationAnalysis.html">Misorientation Analysis<tocitem target="GrainMisorientationAnalysis.html#3">Definition</tocitem>
             <tocitem target="GrainMisorientationAnalysis.html#4">The sample data set</tocitem>
-            <tocitem target="GrainMisorientationAnalysis.html#6">Intergranular misorientations %%TODO</tocitem>
-            <tocitem target="GrainMisorientationAnalysis.html#9">Boundary misorientations</tocitem>
-            <tocitem target="GrainMisorientationAnalysis.html#12">The angle distribution</tocitem>
-            <tocitem target="GrainMisorientationAnalysis.html#16">The axis distribution</tocitem>
+            <tocitem target="GrainMisorientationAnalysis.html#6">Intergranular misorientations</tocitem>
+            <tocitem target="GrainMisorientationAnalysis.html#10">Boundary misorientations</tocitem>
+            <tocitem target="GrainMisorientationAnalysis.html#13">The angle distribution</tocitem>
+            <tocitem target="GrainMisorientationAnalysis.html#17">The axis distribution</tocitem>
          </tocitem>
       </tocitem>
       <tocitem target="BoundaryAnalysis.html">Grain Boundaries<tocitem target="BoundaryPlots.html">Grain Boundaries<tocitem target="BoundaryPlots.html#4">The grain boundary</tocitem>
@@ -844,6 +846,11 @@
             <tocitem target="TwinningAnalysis.html#14">Setting Up the EBSD Data for the Merged Grains</tocitem>
          </tocitem>
          <tocitem target="CSLBoundaries.html">CSL Boundaries<tocitem target="CSLBoundaries.html#3">Data import and grain detection</tocitem>
+            <tocitem target="CSLBoundaries.html#5">Detecting CSL Boundaries</tocitem>
+            <tocitem target="CSLBoundaries.html#6">Merging grains with common CSL(3) boundary</tocitem>
+            <tocitem target="CSLBoundaries.html#8">Colorizing misorientations</tocitem>
+            <tocitem target="CSLBoundaries.html#11">Misorientations in the 3d fundamental zone</tocitem>
+            <tocitem target="CSLBoundaries.html#12">Analyzing the misorientation distribution function</tocitem>
          </tocitem>
       </tocitem>
       <tocitem target="TensorAnalysis.html">Tensors<tocitem target="TensorArithmetics.html">Tensor Arithmetics<tocitem target="TensorArithmetics.html#4">Defining a Tensor</tocitem>

@@ -1,0 +1,194 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title> (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: PF2ODFAmbiguity -->
+      <!-- HEADSTUFF: PF2ODFAmbiguity -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:PF2ODFAmbiguity">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/documentation.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container"><pre class="codeinput">cs = crystalSymmetry(<span class="string">'222'</span>)
+
+orix = orientation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,90*degree,cs)
+oriy = orientation(<span class="string">'axis'</span>,yvector,<span class="string">'angle'</span>,90*degree,cs)
+oriz = orientation(<span class="string">'axis'</span>,zvector,<span class="string">'angle'</span>,90*degree,cs)
+
+odf1 = unimodalODF([orix,oriy,oriz])
+
+ori = orientation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,[0,120,240]*degree,cs)
+odf2 = unimodalODF(ori)</pre><pre class="codeoutput"> 
+cs = crystalSymmetry  
+ 
+  symmetry: 222    
+  a, b, c : 1, 1, 1
+ 
+ 
+orix = orientation  
+  size: 1 x 1
+  crystal symmetry : 222
+  specimen symmetry: 1
+ 
+  Bunge Euler angles in degree
+  phi1  Phi phi2 Inv.
+     0   90    0    0
+ 
+ 
+ 
+oriy = orientation  
+  size: 1 x 1
+  crystal symmetry : 222
+  specimen symmetry: 1
+ 
+  Bunge Euler angles in degree
+  phi1  Phi phi2 Inv.
+    90   90  270    0
+ 
+ 
+ 
+oriz = orientation  
+  size: 1 x 1
+  crystal symmetry : 222
+  specimen symmetry: 1
+ 
+  Bunge Euler angles in degree
+  phi1  Phi phi2 Inv.
+    90    0    0    0
+ 
+ 
+ 
+odf1 = ODF  
+  crystal symmetry : 222
+  specimen symmetry: 1
+ 
+  Radially symmetric portion:
+    kernel: de la Vallee Poussin, halfwidth 10&deg;
+    center: Rotations: 1x3
+    weight: 1
+ 
+ 
+ori = orientation  
+  size: 1 x 3
+  crystal symmetry : 222
+  specimen symmetry: 1
+ 
+  Bunge Euler angles in degree
+  phi1  Phi phi2 Inv.
+     0    0    0    0
+    90   90    0    0
+   180   90   90    0
+ 
+ 
+ 
+odf2 = ODF  
+  crystal symmetry : 222
+  specimen symmetry: 1
+ 
+  Radially symmetric portion:
+    kernel: de la Vallee Poussin, halfwidth 10&deg;
+    center: Rotations: 1x3
+    weight: 1
+ 
+</pre><pre class="codeinput">figure(1)
+plotPDF(odf1,Miller({1,0,0},{0,1,0},{0,0,1},{1,1,1},<span class="keyword">...</span>
+  {1,1,0},{1,0,1},{0,1,1},{1,1,-1},cs),<span class="string">'contourf'</span>)
+mtexColorMap <span class="string">LaboTeX</span>
+saveFigure(<span class="string">'~/svn/potts-ag/paper/textureAnalysis/odf1_pf.png'</span>)
+
+figure(2)
+plotPDF(odf2,Miller({1,0,0},{0,1,0},{0,0,1},{1,1,1},<span class="keyword">...</span>
+  {1,1,0},{1,0,1},{0,1,1},{1,1,-1},cs),<span class="string">'contourf'</span>)
+
+mtexColorMap <span class="string">LaboTeX</span>
+
+saveFigure(<span class="string">'~/svn/potts-ag/paper/textureAnalysis/odf2_pf.png'</span>)</pre><img src="PF2ODFAmbiguity_01.png"> <pre class="codeinput">figure(1)
+plotPDF(odf1,Miller({1,1,0},cs))
+figure(2)
+plotPDF(odf2,Miller({1,1,0},cs))</pre><img src="PF2ODFAmbiguity_02.png"> <pre class="codeinput">figure(1)
+plotODF(odf1,<span class="string">'sections'</span>,6)
+figure(2)
+plotODF(odf2,<span class="string">'sections'</span>,6)</pre><img src="PF2ODFAmbiguity_03.png"> <pre class="codeinput">psi = deLaValeePoussinKernel(<span class="string">'halfwidth'</span>,30*degree);
+
+A = psi.A;
+A(2:end) = A(2:end) ./ 3;
+
+psi = kernel(A);
+
+A(2:2:end) = 0;
+
+
+psi2 = kernel(A)
+
+
+plot(psi)
+hold <span class="string">all</span>
+plot(psi2)
+hold <span class="string">off</span>
+ylim([0,22])
+xlabel(<span class="string">'misorientation angle from center'</span>)
+ylabel(<span class="string">'mrd'</span>)
+saveFigure(<span class="string">'~/svn/potts-ag/paper/textureAnalysis/evenOdd.png'</span>)</pre><pre class="codeoutput"> 
+psi2 = kernel  
+  bandwidth: 9
+  halfwidth: 31&deg;
+ 
+</pre><img src="PF2ODFAmbiguity_04.png"> <pre class="codeinput">cs = loadCIF(<span class="string">'Fe-Iron-alpha'</span>)
+
+Bain = orientation(<span class="string">'map'</span>,Miller(0,0,1,cs),Miller(0,0,1,cs),Miller(0,1,1,cs),Miller(-1,1,0,cs))
+
+<span class="comment">% Pitch =</span></pre><pre class="codeoutput"> 
+cs = crystalSymmetry  
+ 
+  mineral : Iron-alpha   
+  symmetry: m-3m         
+  a, b, c : 2.9, 2.9, 2.9
+ 
+ 
+Bain = misorientation  
+  size: 1 x 1
+  crystal symmetry : Iron-alpha (m-3m)
+  crystal symmetry : Iron-alpha (m-3m)
+ 
+  Bunge Euler angles in degree
+  phi1  Phi phi2 Inv.
+    90    0    0    0
+ 
+ 
+</pre><p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

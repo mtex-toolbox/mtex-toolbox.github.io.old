@@ -65,7 +65,15 @@
          <p>Importing EBSD data can be done guided by the import wizard</p><pre class="codeinput">import_wizard(<span class="string">'EBSD'</span>)</pre><img src="EBSDAnalysisIntro_01.png"> <p>or directly by the command <a href="loadEBSD.html">loadEBSD</a></p><pre class="codeinput"><span class="comment">% specify file name</span>
 fname = fullfile(mtexDataPath,<span class="string">'EBSD'</span>,<span class="string">'Forsterite.ctf'</span>);
 
-ebsd = loadEBSD(fname,<span class="string">'convertEuler2SpatialReferenceFrame'</span>)</pre><pre class="codeoutput"> 
+ebsd = loadEBSD(fname,<span class="string">'convertEuler2SpatialReferenceFrame'</span>)</pre><pre class="codeoutput">******************************************************
+* /home/hielscher/mtex/master/data/EBSD/Forsterite.ctf
+* read mode: auto
+* 1141 data lines analysed
+* 18 header line(s)
+* 11 data column(s)
+* 0 string replacement(s)
+******************************************************
+ 
 ebsd = EBSD  
  
  Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame

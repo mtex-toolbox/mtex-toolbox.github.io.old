@@ -44,8 +44,8 @@
             </p>
          </div>
          <p>access subsets of a GrainSet</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">gB(1:10)          <span class="comment">% the 10 first boundaries</span>
-grains(<span class="string">'Fe'</span>)          <span class="comment">% only Fe grains</span>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">gB(1:10)               <span class="comment">% the 10 first boundaries</span>
+gB(<span class="string">'Forsterite'</span>,<span class="string">'Epidote'</span>)  <span class="comment">% only Forsterite - Epidote boundaries</span>
 grains( ~grains(<span class="string">'fe'</span>) ) <span class="comment">% all grains but Fe</span>
                         logical <span class="string">array</span> <span class="string">with</span> <span class="string">size</span> <span class="string">of</span> <span class="string">the</span> <span class="string">complete</span>
                         GrainSet</pre><p style="font-size:1px;"></p>

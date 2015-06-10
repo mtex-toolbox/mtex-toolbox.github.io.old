@@ -44,8 +44,9 @@
             </p>
          </div>
          <p>plot pole figures</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">plotPDF(odf,[h1,..,hN],<options>)
-plotPDF(odf,{h1,..,hN},<span class="string">'superposition'</span>,{c1,..,cN},<options>)</pre><h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">plotPDF(odf,[h1,..,hN])
+plotPDF(odf,{[h11,h12],h2,hN],<span class="string">'superposition'</span>,{[c11,c12],c2,cN})
+plotPDF(odf,pf.h,<span class="string">'superposition'</span>,pf.c)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -83,7 +84,7 @@ plotPDF(odf,{h1,..,hN},<span class="string">'superposition'</span>,{c1,..,cN},<o
             </tr>
             <tr>
             <td width="150px">
-            <tt>'RESOLUTION'</tt>
+            <tt>'resolution'</tt>
             </td>
             <td>
             <p>resolution of the plots</p>
@@ -91,7 +92,7 @@ plotPDF(odf,{h1,..,hN},<span class="string">'superposition'</span>,{c1,..,cN},<o
             </tr>
             <tr>
             <td width="150px">
-            <tt>'SUPERPOSITION'</tt>
+            <tt>'superposition'</tt>
             </td>
             <td>
             <p>plot superposed pole figures</p>
@@ -119,7 +120,7 @@ plotPDF(odf,{h1,..,hN},<span class="string">'superposition'</span>,{c1,..,cN},<o
             </tr>
             <tr>
             <td width="150px">
-            <tt>'COMPLETE'</tt>
+            <tt>'complete'</tt>
             </td>
             <td>
             <p>plot entire (hemi)-sphere</p>

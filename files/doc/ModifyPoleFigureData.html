@@ -117,23 +117,18 @@ odf = calcODF(pf);
 <span class="comment">% and use it for normalization</span>
 pf_normalized = normalize(pf,odf);
 
-plot(pf_normalized)</pre><pre class="codeoutput">------ MTEX -- PDF to ODF inversion ------------------
-Call c-routine
+plot(pf_normalized)</pre><pre class="codeoutput">initialize solver
+start iteration
+error: 1.7819E-01 1.5669E-01 1.5514E-01 1.5444E-01 1.5406E-01 1.5381E-01 1.5362E-01 1.5346E-01 1.5333E-01 1.5321E-01 1.5312E-01 
+Finished PDF-ODF inversion.
+error: 1.5312E-01
+alpha: 3.2140E+02 2.2492E+02 
 initialize solver
 start iteration
-error: 1.7816E-01 1.5645E-01 1.5463E-01 1.5386E-01 1.5352E-01 1.5327E-01 1.5306E-01 1.5289E-01 1.5275E-01 1.5263E-01 1.5253E-01 
+error: 2.3574E-01 2.0728E-01 2.0447E-01 2.0377E-01 2.0345E-01 2.0322E-01 2.0303E-01 2.0287E-01 2.0274E-01 2.0262E-01 2.0252E-01 
 Finished PDF-ODF inversion.
-error: 1.5253E-01
-alpha: 3.2182E+02 2.2425E+02 
-required time: 12s
-ghost correction
-calculate with fixed background 0.16
-initialize solver
-start iteration
-error: 2.3583E-01 2.0712E-01 2.0417E-01 2.0338E-01 2.0303E-01 2.0276E-01 2.0252E-01 2.0231E-01 2.0209E-01 2.0190E-01 2.0174E-01 
-Finished PDF-ODF inversion.
-error: 2.0174E-01
-alpha: 3.2181E+02 2.2434E+02 
+error: 2.0252E-01
+alpha: 3.2139E+02 2.2506E+02 
 </pre><img src="ModifyPoleFigureData_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Modify certain pole figure values<a name="9"> </a></h2>
          <p>As pole figures are usaly experimental data they may contain outliers. In order to remove outliers from pole figure data one

@@ -100,9 +100,7 @@ mtexColorMap <span class="string">white2black</span>
 hold <span class="string">all</span>
 plotODF(ori,<span class="string">'MarkerSize'</span>,6,<span class="string">'MarkerColor'</span>,<span class="string">'b'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'w'</span>)
 plotODF(ori_rotated,<span class="string">'MarkerSize'</span>,6,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'k'</span>);
-hold <span class="string">off</span></pre><pre class="codeoutput">
-Plotting ODF as sigma sections, range: 0&deg; - 105&deg;
-</pre><img src="CombinedPlots_demo_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="CombinedPlots_demo_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Add Miller Indices to an Inverse Pole Figure Plot<a name="10"> </a></h2>
          <p>Next we are going to add some Miller indices to an inverse pole figure plot.</p><pre class="codeinput">plotIPDF(odf,xvector);
 mtexColorMap <span class="string">white2black</span>
@@ -115,15 +113,12 @@ plot(Miller(0,1,-1,1,cs),<span class="string">'symmetrised'</span>,<span class="
 hold <span class="string">off</span> <span class="comment">% next plot command deletes all plots</span></pre><img src="CombinedPlots_demo_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Combining different plots in one figure<a name="11"> </a></h2>
          <p>The next example demonstrates how to arrange arbitary plots into one figure</p><pre class="codeinput"><span class="comment">% let us import some pole figure data</span>
-mtexdata <span class="string">dubna</span></pre><p>next we compute an ODF out of them</p><pre class="codeinput">odf = calcODF(pf)</pre><pre class="codeoutput">------ MTEX -- PDF to ODF inversion ------------------
-Call c-routine
-initialize solver
+mtexdata <span class="string">dubna</span></pre><p>next we compute an ODF out of them</p><pre class="codeinput">odf = calcODF(pf)</pre><pre class="codeoutput">initialize solver
 start iteration
-error: 7.7539E-01 5.7317E-01 3.5061E-01 2.0710E-01 1.7558E-01 1.6249E-01 1.5329E-01 1.4843E-01 1.4458E-01 1.4200E-01 1.3991E-01 
+error: 7.4639E-01 5.5949E-01 3.4031E-01 1.9644E-01 1.6575E-01 1.5709E-01 1.5039E-01 1.4653E-01 1.4328E-01 1.4087E-01 1.3834E-01 
 Finished PDF-ODF inversion.
-error: 1.3991E-01
-alpha: 7.7654E+01 7.1704E+00 1.0018E+02 9.7173E+01 4.9029E+01 6.5072E+01 1.4453E+02 
-required time: 13s
+error: 1.3834E-01
+alpha: 7.6857E+01 7.2451E+00 1.0344E+02 9.5749E+01 4.9403E+01 6.5850E+01 1.4304E+02 
  
 odf = ODF  
   crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)

@@ -72,9 +72,7 @@ model_odf = 0.5*uniformODF(cs) + <span class="keyword">...</span>
   0.05*fibreODF(Miller(0,1,0,cs),yvector,<span class="string">'halfwidth'</span>,10*degree) + <span class="keyword">...</span>
   0.05*fibreODF(Miller(0,0,1,cs),zvector,<span class="string">'halfwidth'</span>,10*degree) + <span class="keyword">...</span>
   0.05*unimodalODF(mod1,<span class="string">'halfwidth'</span>,15*degree) + <span class="keyword">...</span>
-  0.3*unimodalODF(mod2,<span class="string">'halfwidth'</span>,25*degree);</pre><pre class="codeinput">plot(model_odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput">
-Plotting ODF as sigma sections, range: 0&deg; - 150&deg;
-</pre><img src="PoleFigureSimulation_demo_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+  0.3*unimodalODF(mod2,<span class="string">'halfwidth'</span>,25*degree);</pre><pre class="codeinput">plot(model_odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><img src="PoleFigureSimulation_demo_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Simulate Pole Figure Data<a name="5"> </a></h2>
          <p>In order to simulate pole figure data the following parameters has to be specified</p>
          <div>
@@ -103,40 +101,33 @@ pf = PoleFigure
   h = (001), r = 72 x 37 points
 </pre><p>Add some noise to the data. Here assume that the mean intensity is 1000.</p><pre class="codeinput">pf = noisepf(pf,1000);</pre><p>Plot the simulated pole figures.</p><pre class="codeinput">plot(pf)</pre><img src="PoleFigureSimulation_demo_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>ODF Estimation from Pole Figure Data<a name="11"> </a></h2>
-         <p>From these simulated pole figures we can now estimate an ODF,</p><pre class="codeinput">odf = calcODF(pf)</pre><pre class="codeoutput">------ MTEX -- PDF to ODF inversion ------------------
-Call c-routine
+         <p>From these simulated pole figures we can now estimate an ODF,</p><pre class="codeinput">odf = calcODF(pf)</pre><pre class="codeoutput">initialize solver
+start iteration
+error: 2.0824E-01 1.6479E-02 4.5364E-03 2.4227E-03 1.6022E-03 1.2522E-03 1.0522E-03 9.3645E-04 8.5994E-04 8.0899E-04 7.7137E-04 
+Finished PDF-ODF inversion.
+error: 7.7137E-04
+alpha: 9.9898E+02 9.9947E+02 9.9845E+02 1.0032E+03 9.9552E+02 1.0015E+03 1.0053E+03 
 initialize solver
 start iteration
-error: 2.3725E-01 4.8967E-02 7.4620E-03 3.2476E-03 1.9911E-03 1.4659E-03 1.2023E-03 1.0540E-03 9.6028E-04 8.9854E-04 8.5483E-04 
+error: 4.9293E-01 1.7576E-01 3.5137E-02 1.4821E-02 9.9220E-03 7.3700E-03 6.1243E-03 5.2689E-03 4.6696E-03 4.1985E-03 3.8260E-03 
 Finished PDF-ODF inversion.
-error: 8.5483E-04
-alpha: 9.9941E+02 1.0014E+03 9.9869E+02 1.0015E+03 9.9530E+02 1.0114E+03 1.0038E+03 
-required time: 20s
-ghost correction
-calculate with fixed background 0.46
-initialize solver
-start iteration
-error: 5.3869E-01 2.4748E-01 1.2023E-01 5.4104E-02 2.4195E-02 9.7521E-03 7.3442E-03 6.3443E-03 5.6296E-03 5.0765E-03 4.6269E-03 
-Finished PDF-ODF inversion.
-error: 4.6269E-03
-alpha: 9.8936E+02 9.8785E+02 1.0066E+03 1.0036E+03 1.0213E+03 1.0487E+03 1.0460E+03 
+error: 3.8260E-03
+alpha: 9.9161E+02 9.8939E+02 1.0054E+03 9.9741E+02 1.0129E+03 1.0212E+03 1.0234E+03 
  
 odf = ODF  
-  crystal symmetry : mmm
+  crystal symmetry : 222
   specimen symmetry: 1
  
   Uniform portion:
-    weight: 0.46076
+    weight: 0.46828
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
     center: 29772 orientations, resolution: 5&deg;
-    weight: 0.53924
+    weight: 0.53172
  
-</pre><p>which can be plotted,</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput">
-Plotting ODF as sigma sections, range: 0&deg; - 150&deg;
-</pre><img src="PoleFigureSimulation_demo_03.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,model_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">ans =
-    0.0778
+</pre><p>which can be plotted,</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><img src="PoleFigureSimulation_demo_03.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,model_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">ans =
+    0.0755
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Exploration of the relationship between estimation error and number of single orientations<a name="14"> </a></h2>
          <p>For a more systematic analysis of the estimation error we vary the number of pole figures used for ODF estimation from 1 to

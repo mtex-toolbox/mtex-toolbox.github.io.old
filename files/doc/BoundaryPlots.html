@@ -75,10 +75,10 @@ ebsd = ebsd(<span class="string">'indexed'</span>);
 [grains,ebsd.grainId] = calcGrains(ebsd)</pre><pre class="codeoutput"> 
 grains = grain2d  
  
- Phase  Grains     Mineral  Symmetry  Crystal reference frame  Phase
-     1    1080  Forsterite       mmm                                
-     2     515   Enstatite       mmm                                
-     3    1496    Diopside     12/m1        X||a*, Y||b, Z||c       
+ Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
+     1    1080  152345  Forsterite       mmm                         
+     2     515   26058   Enstatite       mmm                         
+     3    1496    9064    Diopside     12/m1        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  
@@ -163,7 +163,7 @@ legend <span class="string">off</span>
 hold <span class="string">on</span>
 plot(gB_Fo,gB_Fo.misorientation.angle./degree,<span class="string">'linewidth'</span>,1.5)
 hold <span class="string">off</span>
-colorbar</pre><img src="BoundaryPlots_06.png"> <p>The more sophisticated way is to colorize the misorientation space and apply the color to the respective grain boundaries.
+mtexColorbar</pre><img src="BoundaryPlots_06.png"> <p>The more sophisticated way is to colorize the misorientation space and apply the color to the respective grain boundaries.
             TODO: apply here patala colorcoding!!!
          </p><pre class="codeinput">close <span class="string">all</span>
 plot(grains,<span class="string">'translucent'</span>,.3)

@@ -43,14 +43,21 @@
             <p>(method of <a href="orientation_index.html">orientation</a>)
             </p>
          </div>
-         <p>rotational axis of the orientation or misorientation</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">v = axis(o)      <span class="comment">% rotational axis</span>
-v = axis(o1,o2)  <span class="comment">% misorientation axis</span></pre><h2>Input<a name="4"> </a></h2>
+         <p>rotational axis of an misorientation or two orientations</p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput"><span class="comment">% define a cubic and hexagonal symmetries</span>
+csCube = crystalSymmetry(<span class="string">'cubic'</span>)
+csHex = crystalSymmetry(<span class="string">'hexagonal'</span>)</pre><pre class="codeinput"><span class="comment">% define two orientations</span>
+o1 = orientation(<span class="string">'euler'</span>,csCube)
+o2 = orientation(<span class="string">'euler'</span>,csHex)</pre><pre class="codeinput"><span class="comment">% the misorientation axis with respect to the specimen coordinate</span>
+<span class="comment">% system is computed by</span>
+a = axis(o1,o2)</pre><pre class="codeinput"><span class="comment">% the misorientation axis with respect to csCube is computed by</span>
+a = axis(inv(o2)*o1)</pre><pre class="codeinput"><span class="comment">% the misorientation axis with respect to csHex is computed by</span>
+a = axis(inv(o1)*o2)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>o</tt>
+            <tt>mori,o1,o2</tt>
             </td>
             <td>
             <p><a href="orientation_index.html">orientation</a></p>
@@ -64,10 +71,18 @@ v = axis(o1,o2)  <span class="comment">% misorientation axis</span></pre><h2>Inp
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>v</tt>
+            <tt>a</tt>
             </td>
             <td>
             <p><a href="vector3d_index.html">vector3d</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>m</tt>
+            </td>
+            <td>
+            <p><a href="Miller_index.html">Miller</a></p>
             </td>
             </tr>
             </table>

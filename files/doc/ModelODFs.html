@@ -185,8 +185,6 @@ odf = ODF
     degree: 2
     weight: 1
  
-
-Plotting ODF as sigma sections, range: 0&deg; - 300&deg;
 </pre><img src="ModelODFs_03.png"> <pre class="codeinput">plotPDF(odf,[Miller(1,0,0,cs),Miller(1,1,0,cs)],<span class="string">'antipodal'</span>)</pre><img src="ModelODFs_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Bingham ODFs<a name="10"> </a></h2>
          <p>The Bingham quaternion distribution</p>
@@ -221,8 +219,6 @@ odf = ODF
      kappa: 20 0 0 0
     weight: 1
  
-
-Plotting ODF as sigma sections, range: 0&deg; - 100&deg;
 </pre><img src="ModelODFs_05.png"> <p><b>Bingham fibre ODF</b></p><pre class="codeinput">odf = BinghamODF([-10,-10,10,10],quaternion(eye(4)),cs)
 
 plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput"> 
@@ -234,8 +230,6 @@ odf = ODF
      kappa: -10 -10 10 10
     weight: 1
  
-
-Plotting ODF as sigma sections, range: 0&deg; - 100&deg;
 </pre><img src="ModelODFs_06.png"> <p><b>Bingham spherical ODF</b></p><pre class="codeinput">odf = BinghamODF([-10,10,10,10],quaternion(eye(4)),cs)
 
 plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>);</pre><pre class="codeoutput"> 
@@ -247,8 +241,6 @@ odf = ODF
      kappa: -10 10 10 10
     weight: 1
  
-
-Plotting ODF as sigma sections, range: 0&deg; - 100&deg;
 </pre><img src="ModelODFs_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Combining model ODFs<a name="14"> </a></h2>
          <p>All the above can be arbitrarily rotated and combinend. For instance, the classical Santafe example can be defined by commands</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'cubic'</span>);

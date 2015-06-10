@@ -47,7 +47,8 @@
          <h2>I have crazy characters in my plots. What can I do?<a name="2"> </a></h2>
          <p>This indicates that your MATLAB installation has problems to interprete LaTex. As a workaround switch off LaTex by uncommenting
             the following line in <a href="matlab:edit mtex_settings.m">mtex_settings.m</a>.
-         </p><pre class="codeinput">setMTEXpref(<span class="string">'LaTex'</span>,false);</pre><p style="font-size:1px;"></p>
+         </p><pre class="codeinput">setMTEXpref(<span class="string">'LaTex'</span>,false);</pre><h2>I get crazy plots, empty plots, plot with wrong colors<a name="3"> </a></h2>
+         <p>This is most likely a Matlab rendering issue. You can change the renderer Matlab uses for plotting by</p><pre class="codeinput">set(gcf,<span class="string">'renderer'</span>,<span class="string">'zBuffer'</span>)</pre><img src="FAQ_01.png"> <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

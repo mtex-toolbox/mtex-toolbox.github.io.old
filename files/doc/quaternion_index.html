@@ -93,7 +93,7 @@ q = <a href="vec42quat.html">vec42quat</a>(u1,v1,u2,v2);      % by four vectors<
 <a href="quaternion.Rodrigues.html">Rodrigues</a>(q) % in Rodrigues parameter</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Plotting quaternions<a name="6"> </a></h3>
          <p>The <a href="quaternion.plot.html">plot</a> function allows you to visualize an quaternion by plotting how the standard basis x,y,z transforms under the rotation.
-         </p><pre class="codeinput">plot(Miller2quat([-1 -1 -1],[1 -2 1]))</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         </p><pre class="codeinput">plot(Miller2quat([-1 -1 -1],[1 -2 1]))</pre><img src="quaternion_index_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Complete Function list<a name="7"> </a></h2>
          <p><table width="90%"><tr><td width="200px"><a href="quaternion.Euler.html"><tt>Euler</tt></a></td><td>quaternion to euler angle</td></tr><tr><td
             width="200px"><a href="quaternion.Rodrigues.html"><tt>Rodrigues</tt></a></td><td>quaternion to rodrigues representation</td></tr><tr><td
@@ -126,7 +126,8 @@ q = <a href="vec42quat.html">vec42quat</a>(u1,v1,u2,v2);      % by four vectors<
             q1 * q2</td></tr><tr><td width="200px"><a href="quaternion.ndims.html"><tt>ndims</tt></a></td><td>overloads ndims</td></tr><tr><td
             width="200px"><a href="quaternion.ne.html"><tt>ne</tt></a></td><td>q1 ~= q2 ?</td></tr><tr><td width="200px"><a href="quaternion.norm.html"><tt>norm</tt></a></td><td>quaternion
             norm sqrt(a^2+b^2+c^2+c^2)</td></tr><tr><td width="200px"><a href="quaternion.normalize.html"><tt>normalize</tt></a></td><td>quaternion
-            </td></tr><tr><td width="200px"><a href="quaternion.permute.html"><tt>permute</tt></a></td><td>overloads permute</td></tr><tr><td
+            </td></tr><tr><td width="200px"><a href="quaternion.orth.html"><tt>orth</tt></a></td><td>returns a quaternion orthogonal to
+            q1, q2, q3</td></tr><tr><td width="200px"><a href="quaternion.permute.html"><tt>permute</tt></a></td><td>overloads permute</td></tr><tr><td
             width="200px"><a href="quaternion.pertube.html"><tt>pertube</tt></a></td><td>data randomly by epsilon</td></tr><tr><td width="200px"><a
             href="quaternion.perturbe.html"><tt>perturbe</tt></a></td><td>pertube data randomly by epsilon</td></tr><tr><td width="200px"><a
             href="quaternion.plus.html"><tt>plus</tt></a></td><td>pointwise addition</td></tr><tr><td width="200px"><a href="quaternion.power.html"><tt>power</tt></a></td><td>q.^n</td></tr><tr><td

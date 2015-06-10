@@ -69,7 +69,7 @@ odf1 = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 6.8&deg;
-    center: 1533 orientations, resolution: 3.3&deg;
+    center: 1530 orientations, resolution: 3.3&deg;
     weight: 1
  
  
@@ -79,34 +79,30 @@ odf2 = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 1921 orientations, resolution: 2.5&deg;
+    center: 1920 orientations, resolution: 2.5&deg;
     weight: 1
  
 </pre><h2>Plot pole figures<a name="7"> </a></h2><pre class="codeinput">plotPDF(odf1,h,<span class="string">'antipodal'</span>)
 figure
 plotPDF(odf2,h,<span class="string">'antipodal'</span>)</pre><img src="ebsd_demo_03.png"> <img src="ebsd_demo_04.png"> <h2>Plot ODF<a name="8"> </a></h2><pre class="codeinput">plotODF(odf2,<span class="string">'sections'</span>,9,<span class="string">'resolution'</span>,2*degree,<span class="keyword">...</span>
-  <span class="string">'FontSize'</span>,10,<span class="string">'silent'</span>)</pre><pre class="codeoutput">
-Plotting ODF as phi2 sections, range: 0&deg; - 80&deg;
-</pre><img src="ebsd_demo_05.png"> <h2>Estimation of Fourier Coefficients<a name="9"> </a></h2>
+  <span class="string">'FontSize'</span>,10,<span class="string">'silent'</span>)</pre><img src="ebsd_demo_05.png"> <h2>Estimation of Fourier Coefficients<a name="9"> </a></h2>
          <p>Once, a ODF has been estimated from EBSD data it is straight forward to calculate Fourier coefficients. E.g. by</p><pre class="codeinput">close <span class="string">all</span>
 odf2 = FourierODF(odf2);
 imagesc(abs(odf2.calcFourier(<span class="string">'order'</span>,10)))
-colorbar</pre><img src="ebsd_demo_06.png"> <p>However this is a biased estimator of the Fourier coefficents which underestimates the true Fourier coefficients by a factor
+mtexColorbar</pre><img src="ebsd_demo_06.png"> <p>However this is a biased estimator of the Fourier coefficents which underestimates the true Fourier coefficients by a factor
             that correspondes to the decay rate of the Fourier coeffients of the kernel used for ODF estimation. One obtains an <b>unbiased</b> estimator of the Fourier coefficients if they are calculated from the ODF estimated with the help fo the Direchlet kernel.
             I.e.
          </p><pre class="codeinput">dirichlet = DirichletKernel(32);
 odf3 = calcODF(ebsd(<span class="string">'Fe'</span>).orientations,<span class="string">'kernel'</span>,dirichlet);
 imagesc(abs(odf3.calcFourier(<span class="string">'order'</span>,10)))
-colorbar</pre><img src="ebsd_demo_07.png"> <p>Let us compare the Fourier coefficients obtained by both methods.</p><pre class="codeinput">plotFourier(odf2,<span class="string">'bandwidth'</span>,32)
+mtexColorbar</pre><img src="ebsd_demo_07.png"> <p>Let us compare the Fourier coefficients obtained by both methods.</p><pre class="codeinput">plotFourier(odf2,<span class="string">'bandwidth'</span>,32)
 hold <span class="string">all</span>
 plotFourier(odf3,<span class="string">'bandwidth'</span>,32)
 hold <span class="string">off</span></pre><img src="ebsd_demo_08.png"> <h2>A Sythetic Example<a name="12"> </a></h2>
          <p>Simulate EBSD data from a given standard ODF</p><pre class="codeinput">CS = crystalSymmetry(<span class="string">'trigonal'</span>);
 fibre_odf = 0.5*uniformODF(CS) + 0.5*fibreODF(Miller(0,0,0,1,CS),zvector);
 plotODF(fibre_odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)
-ori = calcOrientations(fibre_odf,10000)</pre><pre class="codeoutput">
-Plotting ODF as phi2 sections, range: 0&deg; - 100&deg;
- 
+ori = calcOrientations(fibre_odf,10000)</pre><pre class="codeoutput"> 
 ori = orientation  
   size: 10000 x 1
   crystal symmetry : -31m, X||a*, Y||b, Z||c
@@ -121,10 +117,8 @@ odf = ODF
     degree: 27
     weight: 1
  
-</pre><p>plot the estimated ODF</p><pre class="codeinput">plotODF(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><pre class="codeoutput">
-Plotting ODF as phi2 sections, range: 0&deg; - 100&deg;
-</pre><img src="ebsd_demo_10.png"> <p>calculate estimation error</p><pre class="codeinput">calcError(odf,fibre_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">ans =
-    0.0999
+</pre><p>plot the estimated ODF</p><pre class="codeinput">plotODF(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><img src="ebsd_demo_10.png"> <p>calculate estimation error</p><pre class="codeinput">calcError(odf,fibre_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">ans =
+    0.1021
 </pre><p>For a more exhausive example see the <a href="EBSDSimulation_demo.html">EBSD Simulation demo</a>!
          </p>
          <h2>Exercises<a name="17"> </a></h2>
@@ -139,9 +133,7 @@ odf = ODF
     degree: 27
     weight: 1
  
-</pre><p>c) Visualize the ODF and some of its pole figures!</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><pre class="codeoutput">
-Plotting ODF as phi2 sections, range: 0&deg; - 100&deg;
-</pre><img src="ebsd_demo_12.png"> <p>d) Explore the influence of the halfwidth to the kernel density estimation by looking at the pole figures!</p>
+</pre><p>c) Visualize the ODF and some of its pole figures!</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><img src="ebsd_demo_12.png"> <p>d) Explore the influence of the halfwidth to the kernel density estimation by looking at the pole figures!</p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
