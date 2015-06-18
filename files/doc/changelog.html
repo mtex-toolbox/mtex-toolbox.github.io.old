@@ -40,7 +40,100 @@
       <div class="container">
          <h1>MTEX Changelog</h1>
          <div class="subheading"></div>
-         <h2>MTEX 4.0.0 - 10/2014<a name="1"> </a></h2>
+         <h2>MTEX 4.1.beta<a name="1"> </a></h2>
+         <p>MTEX 4.1 introduces new possibilities to analysis of misorientations. For the first time it covers all geometric aspects of
+            misorientations between arbitrary crystal symmetries.
+         </p>
+         <p><b>Support for antipodal symmetry for misorientations</b></p>
+         <p>When working with boundary misorientations between the same phase one can not distinguish between an misorientation <tt>mori</tt> and its inverse |inv(mori). Starting with MTEX 4.1 this symmetry is supported for misorientations and misorientation distribution
+            functions.
+         </p><pre class="codeinput">mori = inv(ori1) * ori2;
+mori.antipodal = true;</pre><pre class="codeinput">mdf = calcMDF(odf1,odf2,<span class="string">'antipodal'</span>)</pre><p>Antipodal symmetry effects the asymetric region in orientation space as described below, as well as the distanc between misorientations.
+            Boundary misorientations between the same phase have set the flag <tt>antipodal</tt> by default.
+         </p>
+         <p><b>Asymetric regions in orientation space</b></p>
+         <p>MTEX 4.1 has now full support of asymmetric regions in orientation space. For any combination of crystal symmetries they can
+            be defined by
+         </p><pre class="codeinput">oR = fundamentalRegion(cs1,cs2)</pre><p>and visualized by</p><pre class="codeinput">plot(oR)</pre><p>One can check, whether an orientation is within the fundamental region by</p><pre class="codeinput">oR.checkInside(ori)</pre><p>similarly as for a sphericalRegion. The fundamental region with antipodal symmetry is defined by.</p><pre class="codeinput">oR = fundamentalRegion(cs1,cs2,<span class="string">'antipodal'</span>)</pre><p>For a fixed rotational angle <tt>omega</tt> the intersection of the fundamental region with the sphere with radius omega gives the fundamental sector for the corresponding
+            rotational axes. The axis sector can be computed by
+         </p><pre class="codeinput">sR = oR.axisSector(omega)</pre><p><b>Axis and angle distributions</b></p>
+         <p>Thanks to the implementation of the asymetric region <tt>plotAxisDistribution</tt> and <tt>plotAngleDistribution</tt> works in MTEX 4.1 for any combination of crystal symmetries.
+         </p>
+         <p>The following syntax is obsolete</p><pre class="codeinput">plotAxisDistribution(grains.boundary(<span class="string">'phase1'</span>,<span class="string">'phase2'</span>))
+plotAngleDistribution(grains.boundary(<span class="string">'phase1'</span>,<span class="string">'phase2'</span>))
+plotAngleDistribution(ebsd)</pre><p>As replacement use the more verbose syntax</p><pre class="codeinput">plotAxisDistribution(grains.boundary(<span class="string">'phase1'</span>,<span class="string">'phase2'</span>).misorientation)
+plotAngleDistribution(grains.boundary(<span class="string">'phase1'</span>,<span class="string">'phase2'</span>).misorientation)</pre><pre class="codeinput">mori = calcMisorientation(ebsd(<span class="string">'phase1'</span>),ebsd(<span class="string">'phase2'</span>))
+plotAngleDistribution(mori)
+plotAxisDistribution(mori)</pre><p><b>Axis angle plots</b></p>
+         <p>(Mis)Orientation, ODFs and MDFs can now be plotted in axis angles sections. Those plots respect the fundamental sector depending
+            on the misorientation angle and for all combinations of crystal symmetries. The angle sections are scaled such that they represent
+            the corrsponding volume in orientation space. This can be switch of as described below
+         </p><pre class="codeinput">plotSection(mori,<span class="string">'axisAngle'</span>,55*degree)
+plotSection(mdf,<span class="string">'axisAngle'</span>,[15:10:55*degree])
+plotSection(mdf,<span class="string">'axisAngle'</span>,[15:10:55*degree],<span class="string">'volumeScaling'</span>,false)
+plotSection(mdf,<span class="string">'axisAngle'</span>,[15:10:55*degree],<span class="string">'antipodal'</span>)</pre><p><b>Replace plotODF by plotSection</b></p>
+         <p>In most cases you can replace <tt>plotODF</tt> by <tt>plot</tt>. Only for misorientations the default plot is <tt>scatter</tt>.
+         </p>
+         <p><b>Other improvements since MTEX 4.0.0</b></p>
+         <p>During the minor revisions of MTEX also several minor improvments has been added which are summarized below</p>
+         <div>
+            <ul type="square">
+               <li>allow syntax</li>
+            </ul>
+         </div><pre class="codeinput">plot(odf,pf.h,<span class="string">'superposition'</span>,pf.c)</pre><div>
+            <ul type="square">
+               <li>allow to show / hide the scale bar by the MTEX menu or by</li>
+            </ul>
+         </div><pre class="codeinput">[~,mP] = plot(ebsd)
+mP.micronBar.visible = <span class="string">'off'</span></pre><div>
+            <ul type="square">
+               <li>new EBSD interface to ACOM Nanomegas *.ang files</li>
+            </ul>
+         </div>
+         <div>
+            <ul type="square">
+               <li>misorientation axis with respect to crystal and specimen reference frame</li>
+            </ul>
+         </div><pre class="codeinput">a = axis(o1,o2)  <span class="comment">% misorientation axis with respect to sample coordinate system</span></pre><pre class="codeinput">a = axis(inv(o2)*o1)  <span class="comment">% misorientation axis with respect to crystal coordinate system</span></pre><div>
+            <ul type="square">
+               <li>new function <tt>intersect</tt> to compute intersections between grain boundary segments an a line
+               </li>
+            </ul>
+         </div><pre>[x,y] = grains.boundary.intersect(xy1,xy2);</pre><div>
+            <ul type="square">
+               <li>option for plotting angle distributions in percent</li>
+            </ul>
+         </div><pre class="codeinput">plotAngleDsitribution(mori,<span class="string">'percent'</span>)</pre><div>
+            <ul type="square">
+               <li>reintroduced min/max in pole figure like plot</li>
+            </ul>
+         </div><pre class="codeinput">plot(pf,<span class="string">'minmax'</span>)</pre><div>
+            <ul type="square">
+               <li>3d plots of pole figures can now be simultanously rotated</li>
+               <li>you can now restrict an EBSD data set to a line to plot profiles</li>
+            </ul>
+         </div><pre class="codeinput">ebsd_prof = ebsd.spatialProfile(ebsd,some_line)</pre><div>
+            <ul type="square">
+               <li>additional syntax to define a list if Miller indices</li>
+            </ul>
+         </div><pre class="codeinput">h = Miller({1,0,0},{1,1,1},{2,3,4},CS,<span class="string">'uvw'</span>)</pre><div>
+            <ul type="square">
+               <li>interface to Bruker phl files</li>
+               <li>new properties for grainBoundary <tt>gB</tt></li>
+            </ul>
+         </div><pre class="codeinput">gB.segmentLength <span class="comment">% length of the corresponding connected segment</span>
+gB.isTwinning(mori,threshold) <span class="comment">% check boundary for twinning</span></pre><div>
+            <ul type="square">
+               <li>for a crystal symmetry <tt>cs</tt> you can access a, b ,c and reciprocal axes by
+               </li>
+            </ul>
+         </div><pre class="codeinput">cs.Aaxis
+cs.AaxisRec</pre><div>
+            <ul type="square">
+               <li>compute KAM with misorientation angle threshold or grain boundary threshold</li>
+            </ul>
+         </div>
+         <h2>MTEX 4.0.0 - 10/2014<a name="2"> </a></h2>
          <p>MTEX 4 is a complete rewrite of the internal class system which was required to keep MTEX compatible with upcomming Matlab
             releases. Note that MTEX 3.5 will not work on Matlab versions later then 2014a. As a positive side effect the syntax has been
             made more consisent and powerfull. On the bad side MTEX 3.5. code will need some adaption to run on MTEX 4. There are two
@@ -129,7 +222,7 @@ pf(condition) = []</pre><p>In order to address individuell pole figures within a
                <li>write import wizard for orientations, vectors, tensors.</li>
             </ul>
          </div>
-         <h2>MTEX 3.5.0 - 12/2013<a name="2"> </a></h2>
+         <h2>MTEX 3.5.0 - 12/2013<a name="3"> </a></h2>
          <p><b>Misorientation colorcoding</b></p>
          <div>
             <ul type="square">
@@ -177,7 +270,7 @@ grains = calcGrains(ebsd,<span class="string">'boundary'</span>,poly)</pre><div>
                <li>MTEX-3.5.0 should be compatible with Matlab 2008a</li>
             </ul>
          </div>
-         <h2>MTEX 3.4.2 - 06/2013<a name="3"> </a></h2>
+         <h2>MTEX 3.4.2 - 06/2013<a name="4"> </a></h2>
          <p><b>bugfix release</b></p>
          <div>
             <ul type="square">
@@ -196,7 +289,7 @@ grains = calcGrains(ebsd,<span class="string">'boundary'</span>,poly)</pre><div>
                <li>improved ODF fibre plot</li>
             </ul>
          </div>
-         <h2>MTEX 3.4.1 - 04/2013<a name="4"> </a></h2>
+         <h2>MTEX 3.4.1 - 04/2013<a name="5"> </a></h2>
          <p><b>bugfix release</b></p>
          <div>
             <ul type="square">
@@ -209,7 +302,7 @@ grains = calcGrains(ebsd,<span class="string">'boundary'</span>,poly)</pre><div>
                <li>fix: Rigaku csv interface</li>
             </ul>
          </div>
-         <h2>MTEX 3.4.0 - 03/2013<a name="5"> </a></h2>
+         <h2>MTEX 3.4.0 - 03/2013<a name="6"> </a></h2>
          <p><b>New plotting engine</b></p>
          <p>MTEX 3.4 features a completely rewritten plotting engine. New features includes</p>
          <div>
@@ -324,7 +417,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>improved instalation / uninstalation</li>
                <li>new setting system</li>
             </ul>
-         </div><pre class="codeinput">setpref(<span class="string">'mtex'</span>,<span class="string">'propertyName'</span>,<span class="string">'propertyValue'</span>)</pre><p>has been replaced by</p><pre class="codeinput">setMTEXpref(<span class="string">'propertyName'</span>,<span class="string">'propertyValue'</span>)</pre><h2>MTEX 3.3.2 - 01/2013<a name="6"> </a></h2>
+         </div><pre class="codeinput">setpref(<span class="string">'mtex'</span>,<span class="string">'propertyName'</span>,<span class="string">'propertyValue'</span>)</pre><p>has been replaced by</p><pre class="codeinput">setMTEXpref(<span class="string">'propertyName'</span>,<span class="string">'propertyValue'</span>)</pre><h2>MTEX 3.3.2 - 01/2013<a name="7"> </a></h2>
          <p><b>bugfix release</b></p>
          <div>
             <ul type="square">
@@ -341,7 +434,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>fix: <a href="http://code.google.com/p/mtex/issues/detail?id=68">http://code.google.com/p/mtex/issues/detail?id=68</a></li>
             </ul>
          </div>
-         <h2>MTEX 3.3.1 - 07/2012<a name="7"> </a></h2>
+         <h2>MTEX 3.3.1 - 07/2012<a name="8"> </a></h2>
          <p><b>bugfix release</b></p>
          <div>
             <ul type="square">
@@ -352,7 +445,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>fix: respect rounding errors when importing pole figures and ODFs</li>
             </ul>
          </div>
-         <h2>MTEX 3.3.0 - 06/2012<a name="8"> </a></h2>
+         <h2>MTEX 3.3.0 - 06/2012<a name="9"> </a></h2>
          <p><b>Grains: change of internal representation</b></p>
          <p>Reimplementation of the whole <b>grain</b> part:
          </p>
@@ -394,7 +487,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>the comand <tt>set_mtex_option</tt> is obsolete. Use the matlab command <tt>setMTEXpref(...)</tt> instead. Additionally, one can now see all options by the command <tt>getpref('mtex')</tt></li>
             </ul>
          </div>
-         <h2>MTEX 3.2.3 - 03/2012<a name="9"> </a></h2>
+         <h2>MTEX 3.2.3 - 03/2012<a name="10"> </a></h2>
          <p><b>bugfix release</b></p>
          <div>
             <ul type="square">
@@ -406,7 +499,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>fix export odf</li>
             </ul>
          </div>
-         <h2>MTEX 3.2.1 - 11/2011<a name="10"> </a></h2>
+         <h2>MTEX 3.2.1 - 11/2011<a name="11"> </a></h2>
          <p><b>New Features</b></p>
          <div>
             <ul type="square">
@@ -431,7 +524,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>import filter for uxd files should now work more reliable</li>
             </ul>
          </div>
-         <h2>MTEX 3.2 - 05/2011<a name="11"> </a></h2>
+         <h2>MTEX 3.2 - 05/2011<a name="12"> </a></h2>
          <p><b>3d EBSD Analysis</b></p>
          <p>This release for the first time supports 3d EBSD data. In particular, MTEX is now able to</p>
          <div>
@@ -468,7 +561,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>many bug fixes</li>
             </ul>
          </div>
-         <h2>MTEX 3.1 - 03/2011<a name="12"> </a></h2>
+         <h2>MTEX 3.1 - 03/2011<a name="13"> </a></h2>
          <p><b>Tensor Arithmetics</b> This release introduces tensor analysis into MTEX, this includes
          </p>
          <div>
@@ -494,7 +587,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>many bug fixes</li>
             </ul>
          </div>
-         <h2>MTEX 3.0 - 10/2010<a name="13"> </a></h2>
+         <h2>MTEX 3.0 - 10/2010<a name="14"> </a></h2>
          <p><b>Crystal Geometry</b></p>
          <p>This release contains a completely redesigned crystal geometry engine which is thought to be much more intuitive and flexible.
             In particular, it introduces two new classes <a href="rotation_index.html">rotation</a> and <a href="orientation_index.html">orientation</a> which make it much more easier to work with crystal orientations. Resulting features are
@@ -520,7 +613,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>MTEX is now compatibel with NFFT 3.1.3</li>
             </ul>
          </div>
-         <h2>MTEX 2.0 - 10/2009<a name="14"> </a></h2>
+         <h2>MTEX 2.0 - 10/2009<a name="15"> </a></h2>
          <p><b>Grain Analysis for EBSD Data</b></p>
          <p>MTEX is now able to partition spatial EBSD data into grains. This allows for the computation of various grain characteristics,
             as well as the computation and visualization of the grain boundaries and neighborhood relationships. Main features are:
@@ -561,7 +654,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>The flags <b>reduced</b> and <b>axial</b> have been replaced by the flag <a href="AxialDirectional.html">antipodal</a></li>
             </ul>
          </div>
-         <h2>MTEX 1.2 - 05/2009<a name="15"> </a></h2>
+         <h2>MTEX 1.2 - 05/2009<a name="16"> </a></h2>
          <p><b>Improved EBSD import</b></p>
          <div>
             <ul type="square">
@@ -597,7 +690,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>The flag <b>reduced</b> has been replaced by the flag <a href="AxialDirectional.html">axial</a></li>
             </ul>
          </div>
-         <h2>MTEX 1.1 - 12/2008<a name="16"> </a></h2>
+         <h2>MTEX 1.1 - 12/2008<a name="17"> </a></h2>
          <p><b>Improved Import Wizzard</b></p>
          <div>
             <ul type="square">
@@ -641,7 +734,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>Fixed a bug in ODF estimation from EBSD data</li>
             </ul>
          </div>
-         <h2>MTEX 1.0 - 06/2008<a name="17"> </a></h2>
+         <h2>MTEX 1.0 - 06/2008<a name="18"> </a></h2>
          <p><b>New Installer Including Binaries for Windows, Linux, and Max OSX</b></p>
          <div>
             <ul type="square">
@@ -696,7 +789,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>Many other bug fixes.</li>
             </ul>
          </div>
-         <h2>MTEX 0.4 - 04/2008<a name="18"> </a></h2>
+         <h2>MTEX 0.4 - 04/2008<a name="19"> </a></h2>
          <p><b>Speed Improvments</b></p>
          <div>
             <ul type="square">
@@ -750,7 +843,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                </li>
             </ul>
          </div>
-         <h2>MTEX 0.3 - 10/2007<a name="19"> </a></h2>
+         <h2>MTEX 0.3 - 10/2007<a name="20"> </a></h2>
          <div>
             <ul type="square">
                <li>new function <a href="ODF.Fourier.html">fourier</a> to calculate the Fouriercoefficents of an arbitrary ODF
@@ -771,7 +864,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>many bugfixes</li>
             </ul>
          </div>
-         <h2>MTEX 0.2 - 07/2007<a name="20"> </a></h2>
+         <h2>MTEX 0.2 - 07/2007<a name="21"> </a></h2>
          <div>
             <ul type="square">
                <li>new functions <a href="ODF.textureindex.html">textureindex</a>, <a href="ODF.entropy.html">entropy</a>, <a href="ODF.volume.html">volume</a></li>
@@ -781,7 +874,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>many bugfixes</li>
             </ul>
          </div>
-         <h2>MTEX 0.1 - 03/2007<a name="21"> </a></h2>
+         <h2>MTEX 0.1 - 03/2007<a name="22"> </a></h2>
          <div>
             <ul type="square">
                <li>initial release</li>
