@@ -42,9 +42,15 @@
          <div class="subheading"></div>
          <h2>MTEX 4.1.beta<a name="1"> </a></h2>
          <p>MTEX 4.1 introduces new possibilities to analysis of misorientations. For the first time it covers all geometric aspects of
-            misorientations between arbitrary crystal symmetries.
+            misorientations between arbitrary crystal symmetries. Furthermore, MTEX 4.1 introduces filters to smooth EBSD data.
          </p>
-         <p><b>Support for antipodal symmetry for misorientations</b></p>
+         <p><b>Smoothing of EBSD Data</b> Smoothing of EBSD data might be necesarry if the orientation data are corrupted by noise which influences the estimation
+            of orientation dependent properties like KAM or GND. The general syntax for smoothing EBSD data is
+         </p><pre class="codeinput">ebsd = smooth(ebsd)</pre><p>This applies the splineFilte> to the orientation data. Beside the spline filter many other filter are available. A general
+            discussion on this topic can be found <a href="EBSDSmoothing.html">here</a>. To make use of a different then the dafault filter use the syntax
+         </p><pre class="codeinput">F = medianFilter
+F.numNeighbours = 2 <span class="comment">% this way options for the filter can be set</span>
+ebsd = smooth(ebsd,F)</pre><p>The command smooth can also be used to fill not indexed measurement points. This behaviour is enabled by the option <tt>fill</tt></p><pre class="codeinput">ebsd = smooth(ebsd,F,<span class="string">'fill'</span>)</pre><p><b>Support for antipodal symmetry for misorientations</b></p>
          <p>When working with boundary misorientations between the same phase one can not distinguish between an misorientation <tt>mori</tt> and its inverse |inv(mori). Starting with MTEX 4.1 this symmetry is supported for misorientations and misorientation distribution
             functions.
          </p><pre class="codeinput">mori = inv(ori1) * ori2;
@@ -64,7 +70,11 @@ plotAngleDistribution(grains.boundary(<span class="string">'phase1'</span>,<span
 plotAngleDistribution(ebsd)</pre><p>As replacement use the more verbose syntax</p><pre class="codeinput">plotAxisDistribution(grains.boundary(<span class="string">'phase1'</span>,<span class="string">'phase2'</span>).misorientation)
 plotAngleDistribution(grains.boundary(<span class="string">'phase1'</span>,<span class="string">'phase2'</span>).misorientation)</pre><pre class="codeinput">mori = calcMisorientation(ebsd(<span class="string">'phase1'</span>),ebsd(<span class="string">'phase2'</span>))
 plotAngleDistribution(mori)
-plotAxisDistribution(mori)</pre><p><b>Axis angle plots</b></p>
+plotAxisDistribution(mori)</pre><p><b>Rotational axis in specimen coordinates</b></p>
+         <p>It is now possible to compute the misorientaion axis between two orientations in specimen coordinate system. This is done
+            by
+         </p><pre class="codeinput">axis(ori1,ori2)</pre><p>To do so with random misorientations from an EBSD data set do</p><pre class="codeinput">[ori1,ori2] = calcMisorientation(ebsd(<span class="string">'phase1'</span>),ebsd(<span class="string">'phase2'</span>))
+plot(axis(ori1,ori2))</pre><p><b>Axis angle plots</b></p>
          <p>(Mis)Orientation, ODFs and MDFs can now be plotted in axis angles sections. Those plots respect the fundamental sector depending
             on the misorientation angle and for all combinations of crystal symmetries. The angle sections are scaled such that they represent
             the corrsponding volume in orientation space. This can be switch of as described below
