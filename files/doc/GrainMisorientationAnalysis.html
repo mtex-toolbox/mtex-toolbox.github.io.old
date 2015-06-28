@@ -105,11 +105,7 @@ hold <span class="string">off</span></pre><img src="GrainMisorientationAnalysis_
          </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(mori)
 oM.colorStretching = 5;
 
-plot(oM)</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-oM = 
+plot(oM,<span class="string">'noTitle'</span>)</pre><pre class="codeoutput">oM = 
   ipdfHSVOrientationMapping with properties:
 
     inversePoleFigureDirection: [1x1 Miller]
@@ -138,10 +134,10 @@ bnd_FoFo.misorientation</pre><pre class="codeoutput">
 bnd_FoFo = grainBoundary  
  
  Segments   mineral 1   mineral 2
-    15974  Forsterite  Forsterite
+    17774  Forsterite  Forsterite
  
 ans = misorientation  
-  size: 15974 x 1
+  size: 17774 x 1
   crystal symmetry : Forsterite (mmm)
   crystal symmetry : Forsterite (mmm)
  
@@ -161,32 +157,78 @@ hold <span class="string">off</span></pre><img src="GrainMisorientationAnalysis_
          </div>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The angle distribution<a name="13"> </a></h2>
-         <p>The following command plot the angle distribution of all misorientations grouped according to phase trasistions.</p><pre class="codeinput">close <span class="string">all</span>
-plotAngleDistribution(grains.boundary)</pre><img src="GrainMisorientationAnalysis_07.png"> <p>The above angle distributions can be compared with the uncorrelated angle distributions. The uncorrelated angle distributions
-            can be obtained in two ways. First one can do the following
-         </p>
-         <div>
-            <ol>
-               <li>estimate an ODF for each phase</li>
-               <li>compute for any phase transition a misorientation distribution function (MDF)</li>
-               <li>compute the continuous angle distribution of the MDFs</li>
-            </ol>
-         </div>
-         <p>All these steps are performed by the single command</p><pre class="codeinput">close <span class="string">all</span>
-plotAngleDistribution(ebsd)</pre><img src="GrainMisorientationAnalysis_08.png"> <p>Another possibility is to compute an uncorrelated angle distribution from the EBSD data set by taking only into account those
-            pairs of measurements that are sufficently far from each other (uncorrelated points). The uncorrelated angle distribution
-            is plotted by
-         </p><pre class="codeinput"><span class="comment">%plotAngleDistribution(ebsd,'ODF')</span></pre><p>In order to consider only a specific phase transistion one can use the syntax</p><pre class="codeinput">close <span class="string">all</span>
-plotAngleDistribution(ebsd(<span class="string">'Fo'</span>),ebsd(<span class="string">'En'</span>))</pre><img src="GrainMisorientationAnalysis_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <p>The following commands plot the angle distributions of all phase transitions from Forsterite to any other phase.</p><pre class="codeinput">plotAngleDistribution(grains.boundary(<span class="string">'Fo'</span>,<span class="string">'Fo'</span>).misorientation,<span class="keyword">...</span>
+  <span class="string">'DisplayName'</span>,<span class="string">'Forsterite-Forsterite'</span>)
+hold <span class="string">on</span>
+plotAngleDistribution(grains.boundary(<span class="string">'Fo'</span>,<span class="string">'En'</span>).misorientation,<span class="keyword">...</span>
+  <span class="string">'DisplayName'</span>,<span class="string">'Forsterite-Enstatite'</span>)
+plotAngleDistribution(grains.boundary(<span class="string">'Fo'</span>,<span class="string">'Di'</span>).misorientation,<span class="keyword">...</span>
+  <span class="string">'DisplayName'</span>,<span class="string">'Forsterite-Diopside'</span>)
+hold <span class="string">off</span>
+legend(<span class="string">'show'</span>,<span class="string">'Location'</span>,<span class="string">'northwest'</span>)</pre><img src="GrainMisorientationAnalysis_07.png"> <p>The above angle distributions can be compared with the uncorrelated misorientation angle distributions. This is done by</p><pre class="codeinput"><span class="comment">% compute uncorrelated misorientations</span>
+mori = calcMisorientation(ebsd(<span class="string">'Fo'</span>),ebsd(<span class="string">'Fo'</span>));
+
+<span class="comment">% plot the angle distribution</span>
+plotAngleDistribution(mori,<span class="string">'DisplayName'</span>,<span class="string">'Forsterite-Forsterite'</span>)
+
+hold <span class="string">on</span>
+
+mori = calcMisorientation(ebsd(<span class="string">'Fo'</span>),ebsd(<span class="string">'En'</span>));
+plotAngleDistribution(mori,<span class="string">'DisplayName'</span>,<span class="string">'Forsterite-Enstatite'</span>)
+
+mori = calcMisorientation(ebsd(<span class="string">'Fo'</span>),ebsd(<span class="string">'Di'</span>));
+plotAngleDistribution(mori,<span class="string">'DisplayName'</span>,<span class="string">'Forsterite-Diopside'</span>)
+
+hold <span class="string">off</span>
+legend(<span class="string">'show'</span>,<span class="string">'Location'</span>,<span class="string">'northwest'</span>)</pre><img src="GrainMisorientationAnalysis_08.png"> <p>Another possibility is to compute an uncorrelated angle distribution from EBSD data by taking only into account those pairs
+            of measurements that are sufficently far from each other (uncorrelated points). The uncorrelated angle distribution is plotted
+            by
+         </p><pre class="codeinput"><span class="comment">% compute the Forsterite ODF</span>
+odf_Fo = calcODF(ebsd(<span class="string">'Fo'</span>).orientations,<span class="string">'Fourier'</span>)
+
+<span class="comment">% compute the uncorrelated Forsterite to Forsterite MDF</span>
+mdf_Fo_Fo = calcMDF(odf_Fo,odf_Fo)
+
+<span class="comment">% plot the uncorrelated angle distribution</span>
+hold <span class="string">on</span>
+plotAngleDistribution(mdf_Fo_Fo,<span class="string">'DisplayName'</span>,<span class="string">'Forsterite-Forsterite'</span>)
+hold <span class="string">off</span>
+
+legend(<span class="string">'-dynamicLegend'</span>,<span class="string">'Location'</span>,<span class="string">'northwest'</span>) <span class="comment">% update legend</span></pre><pre class="codeoutput"> 
+odf_Fo = ODF  
+  crystal symmetry : Forsterite (mmm)
+  specimen symmetry: 1
+ 
+  Portion specified by Fourier coefficients:
+    degree: 38
+    weight: 1
+ 
+ 
+mdf_Fo_Fo = MDF  
+  crystal symmetry : Forsterite (mmm)
+  crystal symmetry : Forsterite (mmm)
+ 
+  Portion specified by Fourier coefficients:
+    degree: 32
+    weight: 1
+ 
+</pre><img src="GrainMisorientationAnalysis_09.png"> <p>What we have ploted above is the uncorrelated misorientation angle distribution for the Forsterite ODF. We can compare it
+            to the uncorrelated misorientation angle distribution of the uniform ODF by
+         </p><pre class="codeinput">hold <span class="string">on</span>
+plotAngleDistribution(odf_Fo.CS,odf_Fo.CS,<span class="string">'DisplayName'</span>,<span class="string">'untextured'</span>)
+hold <span class="string">off</span>
+
+legend(<span class="string">'-dynamicLegend'</span>,<span class="string">'Location'</span>,<span class="string">'northwest'</span>) <span class="comment">% update legend</span></pre><img src="GrainMisorientationAnalysis_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The axis distribution<a name="17"> </a></h2>
          <p>Let's start here with the uncorrelated axis distribution, which depends only on the underlying ODFs.</p><pre class="codeinput">close <span class="string">all</span>
 mtexFig = newMtexFigure;
-plotAxisDistribution(ebsd(<span class="string">'Fo'</span>),<span class="string">'smooth'</span>,<span class="string">'parent'</span>,mtexFig.gca)
+mori = calcMisorientation(ebsd(<span class="string">'Fo'</span>));
+plotAxisDistribution(mori,<span class="string">'smooth'</span>,<span class="string">'parent'</span>,mtexFig.gca)
 mtexTitle(<span class="string">'uncorrelated axis distribution'</span>)
-mtexFig.drawNow(<span class="string">'figSize'</span>,<span class="string">'normal'</span>)</pre><img src="GrainMisorientationAnalysis_10.png"> <p>We may plot the axes of the boundary misorientations directly into this plot</p><pre class="codeinput">mtexFig.nextAxis
-plotAxisDistribution(grains.boundary(<span class="string">'Fo'</span>,<span class="string">'Fo'</span>),<span class="string">'smooth'</span>,<span class="string">'parent'</span>,mtexFig.gca)
+mtexFig.drawNow(<span class="string">'figSize'</span>,<span class="string">'normal'</span>)</pre><img src="GrainMisorientationAnalysis_11.png"> <p>We may plot the axes of the boundary misorientations directly into this plot</p><pre class="codeinput">mtexFig.nextAxis
+plotAxisDistribution(bnd_FoFo.misorientation,<span class="string">'smooth'</span>,<span class="string">'parent'</span>,mtexFig.gca)
 mtexTitle(<span class="string">'boundary axis distribution'</span>)
-mtexColorbar</pre><img src="GrainMisorientationAnalysis_11.png"> <p>This shows a much stronger preference of the (1,1,1) axis in comparison to the uncorrelated distribution.</p>
+mtexColorbar</pre><img src="GrainMisorientationAnalysis_12.png"> <p>This shows a much stronger preference of the (1,1,1) axis in comparison to the uncorrelated distribution.</p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

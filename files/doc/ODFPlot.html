@@ -102,9 +102,9 @@ odf = ODF
          </p><pre class="codeinput">plotPDF(odf,[Miller(1,0,-1,0,cs),Miller(0,0,0,1,cs)])</pre><img src="ODFPlot_01.png"> <p>By default the <a href="ODF.plotPDF.html">plotPDF</a> command plots only the upper hemisphere of each pole sphere. In order to plot upper and lower hemisphere you can do the following
          </p><pre class="codeinput">mtexFig = mtexFigure;
 
-plotPDF(odf,Miller(1,0,-1,1,cs),<span class="string">'TL'</span>,<span class="string">'upper'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
+plotPDF(odf,Miller(1,0,-1,1,cs),<span class="string">'TR'</span>,<span class="string">'upper'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
 
-plotPDF(odf,Miller(1,0,-1,1,cs),<span class="string">'TL'</span>,<span class="string">'lower'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
+plotPDF(odf,Miller(1,0,-1,1,cs),<span class="string">'TR'</span>,<span class="string">'lower'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
 
 mtexFig.drawNow</pre><img src="ODFPlot_02.png"> <p>We see that in general uper and lower hemisphere of the pole figure do not coincide. This is only the case if one one following
             reason is satisfied
@@ -119,9 +119,9 @@ mtexFig.drawNow</pre><img src="ODFPlot_02.png"> <p>We see that in general uper a
          <p>In MTEX antipodal symmetry can be enforced by the use the option <b>antipodal</b>.
          </p><pre class="codeinput">mtexFig = mtexFigure;
 
-plotPDF(odf,Miller(1,0,-1,1,cs),<span class="string">'TL'</span>,<span class="string">'upper'</span>,<span class="string">'antipodal'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
+plotPDF(odf,Miller(1,0,-1,1,cs),<span class="string">'TR'</span>,<span class="string">'upper'</span>,<span class="string">'antipodal'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
 
-plotPDF(odf,Miller(1,0,-1,1,cs),<span class="string">'TL'</span>,<span class="string">'lower'</span>,<span class="string">'antipodal'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
+plotPDF(odf,Miller(1,0,-1,1,cs),<span class="string">'TR'</span>,<span class="string">'lower'</span>,<span class="string">'antipodal'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
 
 mtexFig.drawNow</pre><img src="ODFPlot_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Inverse Pole Figures<a name="8"> </a></h2>
@@ -132,7 +132,7 @@ annotate(Miller(1,0,-1,0,odf.CS,<span class="string">'UVTW'</span>),<span class=
             inverse pole figure you have to use the option <b>complete</b>.
          </p><pre class="codeinput">plotIPDF(odf,[xvector,zvector],<span class="string">'antipodal'</span>,<span class="string">'complete'</span>)</pre><img src="ODFPlot_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>ODF Sections<a name="10"> </a></h2>
-         <p>Plotting an ODF in two dimensional sections through the orientation space is done using the command <a href="ODF.plotODF.html">plot</a>. By default the sections are at constant angles phi2. The number of sections can be specified by the option <tt>sections</tt></p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><img src="ODFPlot_06.png"> <p>One can also specify the phi2 angles of the sections explicitly</p><pre class="codeinput">plot(odf,<span class="string">'phi2'</span>,[25 30 35 40]*degree,<span class="string">'contourf'</span>,<span class="string">'silent'</span>)</pre><img src="ODFPlot_07.png"> <p>Beside the standard phi2 sections MTEX supports also sections according to all other Euler angles.</p>
+         <p>Plotting an ODF in two dimensional sections through the orientation space is done using the command <a href="ODF.plotSection.html">plot</a>. By default the sections are at constant angles phi2. The number of sections can be specified by the option <tt>sections</tt></p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><img src="ODFPlot_06.png"> <p>One can also specify the phi2 angles of the sections explicitly</p><pre class="codeinput">plot(odf,<span class="string">'phi2'</span>,[25 30 35 40]*degree,<span class="string">'contourf'</span>,<span class="string">'silent'</span>)</pre><img src="ODFPlot_07.png"> <p>Beside the standard phi2 sections MTEX supports also sections according to all other Euler angles.</p>
          <div>
             <ul type="square">
                <li>phi2 (default)</li>

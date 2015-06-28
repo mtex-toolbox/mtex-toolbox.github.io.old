@@ -154,11 +154,7 @@ plot(oM)</pre><img src="ColorCodingEBSD_demo_07.png"> <p>Lets now consider an EB
 
 plot(ebsd)</pre><img src="ColorCodingEBSD_demo_08.png"> <p>and asume we want to colorize the Forsterite phase according to its orientation. Then we first define the orientation mapping.
             Note that we can pass the phase we want to color instead of the crysta symmetry
-         </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'Forsterite'</span>))</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-oM = 
+         </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'Forsterite'</span>))</pre><pre class="codeoutput">oM = 
   ipdfHSVOrientationMapping with properties:
 
     inversePoleFigureDirection: [1x1 vector3d]

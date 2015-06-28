@@ -83,10 +83,6 @@ grains = grain2d
  
  Properties: GOS, meanRotation
  
- 
-  Hint: You might want to use the point group
-  "622" for colorcoding!
- 
   I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
@@ -215,11 +211,7 @@ isTwinning = angle(gB.misorientation,mori) &lt; 5*degree;
 plot(grains,grains.meanOrientation)
 hold <span class="string">on</span>
 plot(gB(isTwinning),<span class="string">'edgecolor'</span>,<span class="string">'w'</span>,<span class="string">'linewidth'</span>,2)
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "622" for colorcoding!
- 
-  I'm going to colorize the orientation data with the 
+hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
   oM = ipdfHSVOrientationMapping(ori_variable_name)

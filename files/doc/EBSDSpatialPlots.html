@@ -105,11 +105,7 @@ mtexColorbar</pre><img src="EBSDSpatialPlots_04.png"> <p class="pagenavlink"><sc
          </p><pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),ebsd(<span class="string">'Forsterite'</span>).orientations.angle./degree)
 mtexColorbar</pre><img src="EBSDSpatialPlots_05.png"> <p>Lets make things a bit more formal. Therefore we define first a orientation mapping that assignes to each orientation its
             rotational angle
-         </p><pre class="codeinput">oM = angleOrientationMapping(ebsd(<span class="string">'Fo'</span>))</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-oM = 
+         </p><pre class="codeinput">oM = angleOrientationMapping(ebsd(<span class="string">'Fo'</span>))</pre><pre class="codeoutput">oM = 
   angleOrientationMapping with properties:
 
     CS1: [4x2 crystalSymmetry]
@@ -122,11 +118,7 @@ mtexColorbar</pre><img src="EBSDSpatialPlots_06.png"> <p>While for the previous 
 oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'Forsterite'</span>))
 
 <span class="comment">% this is the colored fundamental sector</span>
-plot(oM)</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-oM = 
+plot(oM)</pre><pre class="codeoutput">oM = 
   ipdfHSVOrientationMapping with properties:
 
     inversePoleFigureDirection: [1x1 vector3d]
@@ -170,17 +162,11 @@ oM.center = Miller(1,1,1,csFo);
 oM.color = [0 0 1];
 oM.psi = deLaValeePoussinKernel(<span class="string">'halfwidth'</span>,7.5*degree);
 
-plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-</pre><img src="EBSDSpatialPlots_12.png"> <p>the option <tt>halfwidth</tt> controls half of the intensity of the color at a given distance. Here we have chosen the (111)[001] fibre to be drawn in
+plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><img src="EBSDSpatialPlots_12.png"> <p>the option <tt>halfwidth</tt> controls half of the intensity of the color at a given distance. Here we have chosen the (111)[001] fibre to be drawn in
             blue, and at 7.5 degrees, where the blue should be only lighter.
          </p><pre class="codeinput">plot(oM)
 hold <span class="string">on</span>
-circle(Miller(1,1,1,csFo),15*degree,<span class="string">'linewidth'</span>,2)</pre><pre class="codeoutput">Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-</pre><img src="EBSDSpatialPlots_13.png"> <p>the percentage of blue colored area in the map is equivalent to the fibre volume</p><pre class="codeinput">vol = fibreVolume(ebsd(<span class="string">'fo'</span>).orientations,Miller(1,1,1,csFo),zvector,15*degree)
+circle(Miller(1,1,1,csFo),15*degree,<span class="string">'linewidth'</span>,2)</pre><img src="EBSDSpatialPlots_13.png"> <p>the percentage of blue colored area in the map is equivalent to the fibre volume</p><pre class="codeinput">vol = fibreVolume(ebsd(<span class="string">'fo'</span>).orientations,Miller(1,1,1,csFo),zvector,15*degree)
 
 plotIPDF(ebsd(<span class="string">'fo'</span>).orientations,zvector,<span class="string">'markercolor'</span>,<span class="string">'k'</span>,<span class="string">'marker'</span>,<span class="string">'x'</span>,<span class="string">'points'</span>,200)
 hold <span class="string">off</span></pre><pre class="codeoutput">vol =
@@ -201,19 +187,7 @@ plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span clas
     inversePoleFigureDirection: [1x1 vector3d]
                            CS1: [4x2 crystalSymmetry]
                            CS2: [1x1 specimenSymmetry]
-</pre><img src="EBSDSpatialPlots_15.png"> <pre class="codeinput">plot(oM,<span class="string">'complete'</span>)</pre><pre class="codeoutput">Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-</pre><img src="EBSDSpatialPlots_16.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><img src="EBSDSpatialPlots_15.png"> <pre class="codeinput">plot(oM,<span class="string">'complete'</span>)</pre><img src="EBSDSpatialPlots_16.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Coloring certain orientations<a name="26"> </a></h3>
          <p>We might be interested to locate some special orientation in our orientation map. Suppose the mode of the ODF somewhere in
             our spatial distribution of grains (the orientation map).
@@ -231,11 +205,7 @@ plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span clas
 
 <span class="comment">% and the correspoding colormap</span>
 figure(2)
-plot(oM,<span class="string">'sections'</span>,9,<span class="string">'sigma'</span>)</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-</pre><img src="EBSDSpatialPlots_17.png"> <p>the area of the colored EBSD data in the map corresponds to the volume portion (in percent)</p><pre class="codeinput">vol = 100 * volume(ebsd(<span class="string">'fo'</span>).orientations,oM.center,20*degree)</pre><pre class="codeoutput">vol =
+plot(oM,<span class="string">'sections'</span>,9,<span class="string">'sigma'</span>)</pre><img src="EBSDSpatialPlots_17.png"> <p>the area of the colored EBSD data in the map corresponds to the volume portion (in percent)</p><pre class="codeinput">vol = 100 * volume(ebsd(<span class="string">'fo'</span>).orientations,oM.center,20*degree)</pre><pre class="codeoutput">vol =
    15.2640
 </pre><p>actually, the colored measurements stress a peak in the ODF</p><pre class="codeinput">close <span class="string">all</span>
 odf = calcODF(ebsd(<span class="string">'fo'</span>).orientations,<span class="string">'halfwidth'</span>,10*degree,<span class="string">'silent'</span>);
@@ -255,11 +225,7 @@ oM.psi = deLaValeePoussinKernel(<span class="string">'halfwidth'</span>,7.5*degr
 
 hold <span class="string">on</span>
 plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span class="string">'fo'</span>).orientations),<span class="string">'FaceAlpha'</span>,0.5)
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-</pre><img src="EBSDSpatialPlots_19.png"> <p>another example</p><pre class="codeinput">close <span class="string">all</span>;
+hold <span class="string">off</span></pre><img src="EBSDSpatialPlots_19.png"> <p>another example</p><pre class="codeinput">close <span class="string">all</span>;
 plot(ebsd,ebsd.bc)
 mtexColorMap <span class="string">black2white</span>
 

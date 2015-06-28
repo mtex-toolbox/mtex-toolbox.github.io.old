@@ -246,15 +246,18 @@ ebsd = EBSD
  Scan unit : um
  
 </pre><p>Then the following command gives you a nice overview over the grain size distributions of the grains</p><pre class="codeinput">hist(grains)</pre><img src="GrainStatistics_10.png"> <p>Sometimes it is desireable to remove all boundary grains as they might distort grain statistics. To do so one should remember
-            that each grain boundary has a property <tt>phaseId</tt> which is zero if the face has an outer boundary.
-         </p><pre class="codeinput"><span class="comment">% first we get all faces that have an outer boundary</span>
-face_id = grains.boundary.hasPhaseId(0);
+            that each grain boundary has a property <tt>grainId</tt> which stores the ids of the neigbouring grains. In the case of an outer grain boundary one of the neighbouring grains has
+            the id zero. We can filter out all these boundary segments by
+         </p><pre class="codeinput"><span class="comment">% ids of the outer boundary segment</span>
+outerBoundary_id = any(grains.boundary.grainId==0,2);
 
 plot(grains)
 hold <span class="string">on</span>
-plot(grains.boundary(face_id),<span class="string">'linecolor'</span>,<span class="string">'red'</span>,<span class="string">'linewidth'</span>,2)
-hold <span class="string">off</span></pre><img src="GrainStatistics_11.png"> <pre class="codeinput"><span class="comment">% next we compute the corresponding grain_id</span>
-grain_id = grains.boundary(face_id).grainId;
+plot(grains.boundary(outerBoundary_id),<span class="string">'linecolor'</span>,<span class="string">'red'</span>,<span class="string">'linewidth'</span>,2)
+hold <span class="string">off</span></pre><img src="GrainStatistics_11.png"> <p>Now <tt>grains.boundary(outerBoundary_id).grainId</tt> is a list of grain ids where the first column is zero, indicating the outer boundary, and the second column contains the
+            id of the boundary grain. Hence, it remains to remove all grains with these ids.
+         </p><pre class="codeinput"><span class="comment">% next we compute the corresponding grain_id</span>
+grain_id = grains.boundary(outerBoundary_id).grainId;
 
 <span class="comment">% remove all zeros</span>
 grain_id(grain_id==0) = [];

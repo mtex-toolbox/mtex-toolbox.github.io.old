@@ -100,11 +100,11 @@ plot(rotX,<span class="string">'MarkerColor'</span>,<span class="string">'r'</sp
 plot(rotY,<span class="string">'MarkerColor'</span>,<span class="string">'g'</span>,<span class="string">'MarkerSize'</span>,10)
 hold <span class="string">off</span></pre><img src="MorawiecCell_02.png"> <p>An alternative view on the orientation space is by sections, e.g. sections along the Euler angles or along the rotational
             angle. The latter one should be demonstrated next:
-         </p><pre class="codeinput">plotODF(rotZ,<span class="string">'MarkerColor'</span>,<span class="string">'b'</span>,<span class="string">'axisAngle'</span>,(30:30:180)*degree)
+         </p><pre class="codeinput">plotSection(rotZ,<span class="string">'MarkerColor'</span>,<span class="string">'b'</span>,<span class="string">'axisAngle'</span>,(30:30:180)*degree)
 hold <span class="string">on</span>
-plotODF(rotX,<span class="string">'MarkerColor'</span>,<span class="string">'g'</span>)
+plotSection(rotX,<span class="string">'MarkerColor'</span>,<span class="string">'g'</span>)
 hold <span class="string">on</span>
-plotODF(rotY,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>)
+plotSection(rotY,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>)
 hold <span class="string">off</span></pre><img src="MorawiecCell_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Crystal Symmetries<a name="6"> </a></h2>
          <p>In case of crystal symmetries the orientation space can divded into as many equivalent segments as the symmetry group has
@@ -214,9 +214,9 @@ mori = misorientation
 plot 2000 random orientations out of 15974 given orientations
 </pre><img src="MorawiecCell_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Axis angle sections<a name="14"> </a></h2>
-         <p>Again we can plot constant angle sections through the fundamental region. This is done by</p><pre class="codeinput">plotODF(mori,<span class="string">'axisAngle'</span>)</pre><pre class="codeoutput">  plotting 2000 random orientations out of 15974 given orientations
+         <p>Again we can plot constant angle sections through the fundamental region. This is done by</p><pre class="codeinput">plotSection(mori,<span class="string">'axisAngle'</span>)</pre><pre class="codeoutput">  plotting 2000 random orientations out of 15974 given orientations
 </pre><img src="MorawiecCell_11.png"> <p>Note that in the previous plot we distinguish between <tt>mori</tt> and <tt>inv(mori)</tt>. Adding antipodal symmetry those are considered as equivalent
-         </p><pre class="codeinput">plotODF(mori,<span class="string">'axisAngle'</span>,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">  plotting 2000 random orientations out of 15974 given orientations
+         </p><pre class="codeinput">plotSection(mori,<span class="string">'axisAngle'</span>,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">  plotting 2000 random orientations out of 15974 given orientations
 </pre><img src="MorawiecCell_12.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

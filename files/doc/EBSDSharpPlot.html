@@ -49,11 +49,7 @@ ebsd = ebsd(<span class="string">'calcite'</span>);
 oM = ipdfHSVOrientationMapping(ebsd);
 
 close <span class="string">all</span>;
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "321" for colorcoding!
- 
-</pre><img src="EBSDSharpPlot_01.png"> <p>and have a look into the 001 inverse pole figure.</p><pre class="codeinput"><span class="comment">% compute the positions in the inverse pole figure</span>
+plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_01.png"> <p>and have a look into the 001 inverse pole figure.</p><pre class="codeinput"><span class="comment">% compute the positions in the inverse pole figure</span>
 h = ebsd.orientations .\ zvector;
 h = project2FundamentalRegion(h);
 
@@ -155,16 +151,7 @@ close <span class="string">all</span>
 plot(largeGrains(1).boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>
 plot(ebsd,ebsd.orientations)
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-  I'm going to colorize the orientation data with the 
-  standard MTEX colorkey. To view the colorkey do:
- 
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
-  plot(oM)
-</pre><img src="EBSDSharpPlot_08.png"> <p>when applying the option sharp MTEX colors the mean orientation as white and scales the maximum saturation to fit the maximum
+hold <span class="string">off</span></pre><img src="EBSDSharpPlot_08.png"> <p>when applying the option sharp MTEX colors the mean orientation as white and scales the maximum saturation to fit the maximum
             misorientation angle. This way deviations of the orientation within one grain can be visualised.
          </p><pre class="codeinput"><span class="comment">% plot a grain</span>
 plot(largeGrains(1).boundary,<span class="string">'linewidth'</span>,2)
@@ -173,11 +160,7 @@ oM = ipdfHSVOrientationMapping(ebsd);
 oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
 oM.colorStretching = 40;
 plot(ebsd,oM.orientation2color(ebsd.orientations))
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-</pre><img src="EBSDSharpPlot_09.png"> <p style="font-size:1px;"></p>
+hold <span class="string">off</span></pre><img src="EBSDSharpPlot_09.png"> <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

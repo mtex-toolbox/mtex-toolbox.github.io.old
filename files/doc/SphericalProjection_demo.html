@@ -74,7 +74,7 @@
             </table>
          </div>
          <h2>Introduction<a name="3"> </a></h2>
-         <p>MTEX supports four type of spherical projection which are avaiable for all spherical plot, e.g. <a href="ODF.plotPDF.html">polefigure plots</a>, <a href="ODF.plotIPDF.html">inverse polefigure plots</a> or <a href="ODF.plotODF.html">ODF plots</a>. These are the equal area projection (Schmidt projection), the equal distance projetion, the stereographic projection (equal
+         <p>MTEX supports four type of spherical projection which are avaiable for all spherical plot, e.g. <a href="ODF.plotPDF.html">polefigure plots</a>, <a href="ODF.plotIPDF.html">inverse polefigure plots</a> or <a href="ODF.plotSection.html">ODF plots</a>. These are the equal area projection (Schmidt projection), the equal distance projetion, the stereographic projection (equal
             angle projection), the three dimensional projection and the flat projection.
          </p>
          <p>In order to demostrate the different projections we start by defining a model ODF.</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'-3m'</span>);
@@ -125,7 +125,7 @@ plotHKL(cs,<span class="string">'projection'</span>,<span class="string">'edist'
          <h2>Plain Projection<a name="12"> </a></h2>
          <p><b>Plain</b> means that the polar angles theta / rho are plotted in a simple rectangular plot. This projection is often chosen for ODF
             plots, e.g.
-         </p><pre class="codeinput">plotODF(SantaFe,<span class="string">'alpha'</span>,<span class="string">'sections'</span>,18,<span class="string">'resolution'</span>,5*degree,<span class="keyword">...</span>
+         </p><pre class="codeinput">plot(SantaFe,<span class="string">'alpha'</span>,<span class="string">'sections'</span>,18,<span class="string">'resolution'</span>,5*degree,<span class="keyword">...</span>
   <span class="string">'projection'</span>,<span class="string">'plain'</span>,<span class="string">'contourf'</span>,<span class="string">'FontSize'</span>,10,<span class="string">'silent'</span>)
 mtexColorMap <span class="string">white2black</span></pre><img src="SphericalProjection_demo_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Three Dimensional Plots<a name="13"> </a></h2>

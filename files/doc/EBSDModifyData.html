@@ -85,23 +85,10 @@ ans = EBSD
  Scan unit : um
  
 </pre><p>As an example, let us plot the Forsterite data.</p><pre class="codeinput">close <span class="string">all</span>
-plot(ebsd(<span class="string">'Forsterite'</span>),ebsd(<span class="string">'Forsterite'</span>).orientations)</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-  I'm going to colorize the orientation data with the 
-  standard MTEX colorkey. To view the colorkey do:
- 
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
-  plot(oM)
-</pre><img src="EBSDModifyData_02.png"> <p>The data are colorized according to its orientation. By default color of an orientation is determined by its position in the
+plot(ebsd(<span class="string">'Forsterite'</span>),ebsd(<span class="string">'Forsterite'</span>).orientations)</pre><img src="EBSDModifyData_02.png"> <p>The data are colorized according to its orientation. By default color of an orientation is determined by its position in the
             001 inverse pole figure which itself is colored as
          </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'Forsterite'</span>))
-plot(oM)</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-oM = 
+plot(oM)</pre><pre class="codeoutput">oM = 
   ipdfHSVOrientationMapping with properties:
 
     inversePoleFigureDirection: [1x1 vector3d]

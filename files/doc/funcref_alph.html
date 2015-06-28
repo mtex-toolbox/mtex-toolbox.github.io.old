@@ -64,12 +64,6 @@
             <td width="250px"><a href="vector3d.angle_outer.html"><tt>angle_outer</tt></a><span>   (vector3d)</span></td>
             <td>angle between two vectors</td>
             <tr></tr>
-            <td width="250px"><a href="orientationRegion.angleDistribution.html"><tt>angleDistribution</tt></a><span>   (orientationRegion)</span></td>
-            <td>compute the angle distribution of a uniform ODF for a crystal symmetry</td>
-            <tr></tr>
-            <td width="250px"><a href="symmetry.angleDistribution.html"><tt>angleDistribution</tt></a><span>   (symmetry)</span></td>
-            <td>compute the angle distribution of a uniform ODF for a crystal symmetry</td>
-            <tr></tr>
             <td width="250px"><a href="annotate.html"><tt>annotate</tt></a></td>
             <td>annotate to a existing figure</td>
             <tr></tr>
@@ -145,9 +139,6 @@
             <td width="250px"><a href="orientation.BCV.html"><tt>BCV</tt></a><span>   (orientation)</span></td>
             <td>biased cross validation</td>
             <tr></tr>
-            <td width="250px"><a href="binary_search.html"><tt>binary_search</tt></a></td>
-            <td>searches for y in x</td>
-            <tr></tr>
             <td width="250px"><a href="orientation.bingham_test.html"><tt>bingham_test</tt></a><span>   (orientation)</span></td>
             <td>bingham test for spherical/prolat/oblat case  Input ori      - @orientation  Options spherical - test case prolate
                   - oblate     -  c_hat     - test without kappas  See also evalkappa c_hat
@@ -189,23 +180,19 @@
             <td width="250px"><a href="calc_flags.html"><tt>calc_flags</tt></a></td>
             <td>check for optional flag</td>
             <tr></tr>
-            <td width="250px"><a href="misorientationAnalysis.calcAngleDistribution.html"><tt>calcAngleDistribution</tt></a><span>   (misorientationAnalysis)</span></td>
-            <td>calculate angle distribution   Input ebsd   - @EBSD grains - @grainSet  Flags  Output density - the density, such
-               that   $$\int f(\omega) d\omega = \pi$$  omega   - interval of density  See also EBSD/calcMisorientation misorientationAnalysis/plotAngleDistribution
-            </td>
-            <tr></tr>
             <td width="250px"><a href="ODF.calcAngleDistribution.html"><tt>calcAngleDistribution</tt></a><span>   (ODF)</span></td>
             <td>compute the angle distribution of an ODF or an MDF</td>
             <tr></tr>
             <td width="250px"><a href="orientation.calcAngleDistribution.html"><tt>calcAngleDistribution</tt></a><span>   (orientation)</span></td>
             <td>calculate angle distribution  Input ori   - @orientation  Flags  Output density - the density normalized such that
-               sum(density)=100 omega   - corresponding list of misorientation angles  See also EBSD/calcMisorientation misorientationAnalysis/plotAngleDistribution
+               sum(density)=100 omega   - corresponding list of misorientation angles  See also EBSD/calcMisorientation plotAngleDistribution
             </td>
             <tr></tr>
-            <td width="250px"><a href="misorientationAnalysis.calcAxisDistribution.html"><tt>calcAxisDistribution</tt></a><span>   (misorientationAnalysis)</span></td>
-            <td>calculate axis distribution  Input ebsd   - @EBSD grains - @grainSet  Flags  Output  See also EBSD/calcMisorientation
-               EBSD/plotAngleDistribution
-            </td>
+            <td width="250px"><a href="orientationRegion.calcAngleDistribution.html"><tt>calcAngleDistribution</tt></a><span>   (orientationRegion)</span></td>
+            <td>compute the angle distribution of a uniform ODF for a crystal symmetry</td>
+            <tr></tr>
+            <td width="250px"><a href="symmetry.calcAngleDistribution.html"><tt>calcAngleDistribution</tt></a><span>   (symmetry)</span></td>
+            <td>compute the angle distribution of a uniform ODF for a crystal symmetry</td>
             <tr></tr>
             <td width="250px"><a href="ODF.calcAxisDistribution.html"><tt>calcAxisDistribution</tt></a><span>   (ODF)</span></td>
             <td>compute the axis distribution of an ODF or MDF</td>
@@ -281,11 +268,6 @@
             <td width="250px"><a href="orientation.calcKernelODF.html"><tt>calcKernelODF</tt></a><span>   (orientation)</span></td>
             <td>calculate ODF from individuel orientations via kernel density estimation</td>
             <tr></tr>
-            <td width="250px"><a href="misorientationAnalysis.calcMDF.html"><tt>calcMDF</tt></a><span>   (misorientationAnalysis)</span></td>
-            <td>calculate misorientation distribution function  Input  ebsd   - @EBSD grains - @GrainSet  Output mdf - @ODF MDF 
-               See also
-            </td>
-            <tr></tr>
             <td width="250px"><a href="FourierComponent.calcMDF.html"><tt>calcMDF</tt></a><span>   (FourierComponent)</span></td>
             <td>calculate the uncorrelated misorientation distribution function (MDF) from one or two ODF</td>
             <tr></tr>
@@ -309,10 +291,15 @@
                04/01/2015
             </td>
             <tr></tr>
+            <td width="250px"><a href="orientation.calcMIndex.html"><tt>calcMIndex</tt></a><span>   (orientation)</span></td>
+            <td>TODO!!!</td>
+            <tr></tr>
             <td width="250px"><a href="EBSD.calcMisorientation.html"><tt>calcMisorientation</tt></a><span>   (EBSD)</span></td>
-            <td>calculate uncorelated misorientations between two ebsd phases  Input  ebsd - @EBSD  Output m - @orientation, such that
-                $$m = (g{_i}^{--1}*CS^{--1}) * (CS *\circ g_j)$$  for two neighbored orientations $g_i, g_j$ with crystal @symmetry $CS$
-               of  the same phase located on a grain boundary.  See also
+            <td>calculate uncorelated misorientations between two ebsd phases  Syntax mori = calcMisorientation(ebsd,'sampleSize',1000)
+               mori = calcMisorientation(ebsd,'minDistance',100) mori = calcMisorientation(ebsd1,ebsd2) [ori1,ori2] = calcMisorientation(ebsd1)
+               plot(axis(ori1,ori2))  Input  ebsd, ebsd1, ebsd2 - @EBSD  Output m - @orientation, such that  $$m = (g{_i}^{--1}*CS^{--1})
+               * (CS *\circ g_j)$$  for two neighbored orientations $g_i, g_j$ with crystal @symmetry $CS$ of  the same phase located
+               on a grain boundary.  See also
             </td>
             <tr></tr>
             <td width="250px"><a href="BinghamComponent.calcModes.html"><tt>calcModes</tt></a><span>   (BinghamComponent)</span></td>
@@ -540,12 +527,6 @@
             <tr></tr>
             <td width="250px"><a href="checkEulerAngleConvention.html"><tt>checkEulerAngleConvention</tt></a></td>
             <td></td>
-            <tr></tr>
-            <td width="250px"><a href="Miller.checkFundamentalRegion.html"><tt>checkFundamentalRegion</tt></a><span>   (Miller)</span></td>
-            <td>checks Miller indice to be within the fundamental region</td>
-            <tr></tr>
-            <td width="250px"><a href="orientation.checkFundamentalRegion.html"><tt>checkFundamentalRegion</tt></a><span>   (orientation)</span></td>
-            <td>checks whether a orientation sits within the fundamental region</td>
             <tr></tr>
             <td width="250px"><a href="orientationRegion.checkInside.html"><tt>checkInside</tt></a><span>   (orientationRegion)</span></td>
             <td>check for points to be inside the orientation region</td>
@@ -1028,6 +1009,9 @@
             <td width="250px"><a href="orientation.export_VPSC.html"><tt>export_VPSC</tt></a><span>   (orientation)</span></td>
             <td>export individual orientations to the VPSC format</td>
             <tr></tr>
+            <td width="250px"><a href="expquat.html"><tt>expquat</tt></a></td>
+            <td>matrix exponential to convert skew symmetric matrices into quaternions</td>
+            <tr></tr>
             <td width="250px"><a href="EBSD.extend.html"><tt>extend</tt></a><span>   (EBSD)</span></td>
             <td>returns the boundings of spatial EBSD data  Output ext - extend as [xmin xmax ymin ymax zmin zmax]</td>
             <tr></tr>
@@ -1084,6 +1068,9 @@
             <td>reads a file rowise into a cellstr</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.fill.html"><tt>fill</tt></a><span>   (EBSD)</span></td>
+            <td>extrapolate spatial EBSD data by nearest neighbour for tetragonal lattice</td>
+            <tr></tr>
+            <td width="250px"><a href="EBSD.fillByGrainId.html"><tt>fillByGrainId</tt></a><span>   (EBSD)</span></td>
             <td>extrapolate spatial EBSD data by nearest neighbour for tetragonal lattice  Input ebsd - @EBSD  Example ebsd_filled =
                fill(ebsd)
             </td>
@@ -1170,6 +1157,9 @@
             <td width="250px"><a href="symmetry.fundamentalRegion.html"><tt>fundamentalRegion</tt></a><span>   (symmetry)</span></td>
             <td>get the fundamental sector for a symmetry in the inverse pole figure</td>
             <tr></tr>
+            <td width="250px"><a href="symmetry.fundamentalRegionEuler.html"><tt>fundamentalRegionEuler</tt></a><span>   (symmetry)</span></td>
+            <td>get the fundamental region in Euler angles</td>
+            <tr></tr>
             <td width="250px"><a href="symmetry.fundamentalSector.html"><tt>fundamentalSector</tt></a><span>   (symmetry)</span></td>
             <td>get the fundamental sector for a symmetry in the inverse pole figure</td>
          </table>
@@ -1209,15 +1199,6 @@
             <tr></tr>
             <td width="250px"><a href="orientation.getFundamentalRegion.html"><tt>getFundamentalRegion</tt></a><span>   (orientation)</span></td>
             <td>projects orientations to a fundamental region</td>
-            <tr></tr>
-            <td width="250px"><a href="symmetry.getFundamentalRegion.html"><tt>getFundamentalRegion</tt></a><span>   (symmetry)</span></td>
-            <td>get the fundamental region in Euler angles</td>
-            <tr></tr>
-            <td width="250px"><a href="symmetry.getFundamentalRegionRodrigues.html"><tt>getFundamentalRegionRodrigues</tt></a><span>   (symmetry)</span></td>
-            <td>get the fundamental region for a crystal and specimen symmetry</td>
-            <tr></tr>
-            <td width="250px"><a href="symmetry.getFundamentalRegionRodriguez.html"><tt>getFundamentalRegionRodriguez</tt></a><span>   (symmetry)</span></td>
-            <td>get the fundamental region for a crystal and specimen symmetry</td>
             <tr></tr>
             <td width="250px"><a href="getHoldState.html"><tt>getHoldState</tt></a></td>
             <td></td>
@@ -1530,7 +1511,7 @@
             <td width="250px"><a href="loadHelper.html"><tt>loadHelper</tt></a></td>
             <td>helps to load data-matrix with ColumnNames restricts also data according to conventions (e.g. &gt;4pi)  Input d -  (n x m)
                matrix ColumnNames - (1 x m) cell of names Columns - (1 x m) cell of ColumnNames indizes  Options KeepNaN Radians passive
-               rotation ... Output loader  - structure with some funs
+               rotation  Output loader  - structure with some funs
             </td>
             <tr></tr>
             <td width="250px"><a href="loadODF.html"><tt>loadODF</tt></a></td>
@@ -1681,6 +1662,11 @@
             <td width="250px"><a href="localOrientationGrid.html"><tt>localOrientationGrid</tt></a></td>
             <td>define a equispaced grid localized to a center orientation</td>
             <tr></tr>
+            <td width="250px"><a href="quaternion.log.html"><tt>log</tt></a><span>   (quaternion)</span></td>
+            <td>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion  Syntax mat = matrix(q)
+                Input q - @quaternion  Output mat - vector of matrixes  See also mat2quat Euler axis2quat hr2quat
+            </td>
+            <tr></tr>
             <td width="250px"><a href="tensor.logm.html"><tt>logm</tt></a><span>   (tensor)</span></td>
             <td>matrix logarithm of a tensor  Input T - @tensor  Output T - @tensor</td>
             <tr></tr>
@@ -1763,15 +1749,6 @@
                also orientation/mean
             </td>
             <tr></tr>
-            <td width="250px"><a href="measurePoleFigure.html"><tt>measurePoleFigure</tt></a></td>
-            <td>simulate a polefigure measurement  Syntax pf = measurePoleFigure(odf,h,@S2Grid,...) -  pf = measurePoleFigure(odf,h,'integral','steps',30,'drho',5*degree,...)
-               - pf = measurePoleFigure(odf,h,'path',@vector3d,@vector3d,...) -   Input  Options S2Grid     - perform a point measure
-               integral   - integrate over small circle while measuring mintheta/minrho - S2Grid parameter maxtheta/maxrho -  dtheta 
-                -  drho     - length of integral way path       - integrate from A to B, where data is cummulated to B domega   - cummulate
-               after a certain way dpoints  - fill the path A to B with d--points midpoint - cummulate to midpoint / else to endpoint of
-               route steps     - number of measures
-            </td>
-            <tr></tr>
             <td width="250px"><a href="grain2d.merge.html"><tt>merge</tt></a><span>   (grain2d)</span></td>
             <td>merge grains along certain grain boundaries  The function merges grains where the special boundary is determined by the
                function &lt;GrainSet.specialBoundary.html specialBoundary&gt;  Input grains   - @grain2d boundary - @grainBoundary  Output
@@ -1800,9 +1777,6 @@
             <tr></tr>
             <td width="250px"><a href="orientationRegion.minAngle.html"><tt>minAngle</tt></a><span>   (orientationRegion)</span></td>
             <td>get the minimum angle of the boundary of the fundamental region</td>
-            <tr></tr>
-            <td width="250px"><a href="misorientationAnalysis.mIndex.html"><tt>mIndex</tt></a><span>   (misorientationAnalysis)</span></td>
-            <td>experimental angle distribution</td>
             <tr></tr>
             <td width="250px"><a href="ODF.minus.html"><tt>minus</tt></a><span>   (ODF)</span></td>
             <td>superposeing two ODFs</td>
@@ -1909,9 +1883,6 @@
             <td width="250px"><a href="orientation.mtimes.html"><tt>mtimes</tt></a><span>   (orientation)</span></td>
             <td>orientation times Miller and orientation times orientation</td>
             <tr></tr>
-            <td width="250px"><a href="orientationRegion.mtimes.html"><tt>mtimes</tt></a><span>   (orientationRegion)</span></td>
-            <td>rotate of a orientation region</td>
-            <tr></tr>
             <td width="250px"><a href="quaternion.mtimes.html"><tt>mtimes</tt></a><span>   (quaternion)</span></td>
             <td>quaternionen multiplication q1 * q2</td>
             <tr></tr>
@@ -1951,6 +1922,12 @@
             <tr></tr>
             <td width="250px"><a href="nanmin.html"><tt>nanmin</tt></a></td>
             <td>FORMAT: [Y,IDX] = NANMIN(A,DIM,[B])</td>
+            <tr></tr>
+            <td width="250px"><a href="nanplus.html"><tt>nanplus</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="nanquaternion.html"><tt>nanquaternion</tt></a></td>
+            <td>the identical rotation - quaternion(1,0,0,0)</td>
             <tr></tr>
             <td width="250px"><a href="nansum.html"><tt>nansum</tt></a></td>
             <td>FORMAT: Y = NANSUM(X,DIM)</td>
@@ -2065,11 +2042,6 @@
             <td width="250px"><a href="optionplot.html"><tt>optionplot</tt></a></td>
             <td>plot y against x using the options in varargin</td>
             <tr></tr>
-            <td width="250px"><a href="quaternion.orth.html"><tt>orth</tt></a><span>   (quaternion)</span></td>
-            <td>returns a quaternion orthogonal to q1, q2, q3  Input q1, q2, q3 - @quaternions  Output q - @quaternion with dot(q,[q1,q2,q3])
-               == 0
-            </td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.orth.html"><tt>orth</tt></a><span>   (vector3d)</span></td>
             <td>an arbitrary orthogonal vector</td>
          </table>
@@ -2085,9 +2057,6 @@
                dark purplish-blue and blue, range through green and orange, and end with bright yellow. PARULA is named after a bird, the
                tropical parula, which has these colors.
             </td>
-            <tr></tr>
-            <td width="250px"><a href="vector3d.patchPatala.html"><tt>patchPatala</tt></a><span>   (vector3d)</span></td>
-            <td>Syntax  Input  Output  Options  See also</td>
             <tr></tr>
             <td width="250px"><a href="pauseline.html"><tt>pauseline</tt></a></td>
             <td></td>
@@ -2130,6 +2099,9 @@
             <tr></tr>
             <td width="250px"><a href="phi2Sections.html"><tt>phi2Sections</tt></a></td>
             <td></td>
+            <tr></tr>
+            <td width="250px"><a href="planeIntersect.html"><tt>planeIntersect</tt></a></td>
+            <td>compute the intersection of two planes</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.plot.html"><tt>plot</tt></a><span>   (EBSD)</span></td>
             <td>spatial EBSD plot</td>
@@ -2205,39 +2177,8 @@
             <td width="250px"><a href="PoleFigure.plot_zero_range.html"><tt>plot_zero_range</tt></a><span>   (PoleFigure)</span></td>
             <td>implements the zero range method</td>
             <tr></tr>
-            <td width="250px"><a href="EBSD.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a><span>   (EBSD)</span></td>
-            <td>plot uncorelated angle distribution for all pairs of phases  Input ebsd - @EBSD  Flags ODF, MDF - compute the uncorrelated
-               angle distribution from the MDF  See also orientation/calcAngleDistribution
-            </td>
-            <tr></tr>
-            <td width="250px"><a href="grainBoundary.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a><span>   (grainBoundary)</span></td>
-            <td>plot uncorelated angle distribution for all pairs of phases  Input gB - @grainBoundary  See also orientation/calcAngleDistribution</td>
-            <tr></tr>
-            <td width="250px"><a href="misorientationAnalysis.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a><span>   (misorientationAnalysis)</span></td>
-            <td>plot the angle distribution  Input ebsd - @EBSD grains - @grainSet  Flags ODF, MDF     - compute the uncorrelated angle
-               distribution from the MDF uncorrelated - compute the uncorrelated angle distribution from the EBSD data  See also EBSD/calcAngleDistribution
-            </td>
-            <tr></tr>
-            <td width="250px"><a href="ODF.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a><span>   (ODF)</span></td>
+            <td width="250px"><a href="plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a></td>
             <td>plot axis distribution</td>
-            <tr></tr>
-            <td width="250px"><a href="orientation.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a><span>   (orientation)</span></td>
-            <td>plot the angle distribution  Input ori - @orientation n   - number of bins  See also orientation/plotAxisDistribution</td>
-            <tr></tr>
-            <td width="250px"><a href="symmetry.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a><span>   (symmetry)</span></td>
-            <td>plot axis distribution</td>
-            <tr></tr>
-            <td width="250px"><a href="EBSD.plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a><span>   (EBSD)</span></td>
-            <td>plot uncorrelated axis distribution</td>
-            <tr></tr>
-            <td width="250px"><a href="grainBoundary.plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a><span>   (grainBoundary)</span></td>
-            <td>plot uncorelated angle distribution for all pairs of phases  Input gB - @grainBoundary  See also orientation/calcAngleDistribution</td>
-            <tr></tr>
-            <td width="250px"><a href="misorientationAnalysis.plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a><span>   (misorientationAnalysis)</span></td>
-            <td>plot uncorrelated axis distribution</td>
-            <tr></tr>
-            <td width="250px"><a href="orientation.plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a><span>   (orientation)</span></td>
-            <td>plot uncorrelated axis distribution</td>
             <tr></tr>
             <td width="250px"><a href="plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a></td>
             <td>plot axis distribution</td>
@@ -2269,12 +2210,6 @@
             <td width="250px"><a href="orientation.plotIPDF.html"><tt>plotIPDF</tt></a><span>   (orientation)</span></td>
             <td>plot orientations into inverse pole figures</td>
             <tr></tr>
-            <td width="250px"><a href="ODF.plotODF.html"><tt>plotODF</tt></a><span>   (ODF)</span></td>
-            <td>plot ODF sections</td>
-            <tr></tr>
-            <td width="250px"><a href="orientation.plotODF.html"><tt>plotODF</tt></a><span>   (orientation)</span></td>
-            <td>plot orientations to ODF sections</td>
-            <tr></tr>
             <td width="250px"><a href="ODF.plotPDF.html"><tt>plotPDF</tt></a><span>   (ODF)</span></td>
             <td>plot pole figures</td>
             <tr></tr>
@@ -2289,6 +2224,12 @@
             <tr></tr>
             <td width="250px"><a href="plotS2Grid.html"><tt>plotS2Grid</tt></a></td>
             <td>create a regular S2Grid for plotting</td>
+            <tr></tr>
+            <td width="250px"><a href="ODF.plotSection.html"><tt>plotSection</tt></a><span>   (ODF)</span></td>
+            <td>plot ODF sections</td>
+            <tr></tr>
+            <td width="250px"><a href="orientation.plotSection.html"><tt>plotSection</tt></a><span>   (orientation)</span></td>
+            <td>plot orientations to ODF sections</td>
             <tr></tr>
             <td width="250px"><a href="plotSO3Grid.html"><tt>plotSO3Grid</tt></a></td>
             <td>give a regular grid in orientation space</td>
@@ -2349,7 +2290,7 @@
             <tr></tr>
             <td width="250px"><a href="grain2d.principalComponents.html"><tt>principalComponents</tt></a><span>   (grain2d)</span></td>
             <td>returns the principalcomponents of grain polygon, without Holes  Input grains - @grain2d  Output cmp   - angle of components
-               as complex v     - length of axis   See also polygon/hullprincipalcomponents grain/plotEllipse
+               as complex v     - length of axis   See also grain2d/plotEllipse
             </td>
             <tr></tr>
             <td width="250px"><a href="quaternion.prod.html"><tt>prod</tt></a><span>   (quaternion)</span></td>
@@ -2359,7 +2300,7 @@
             <td>display progress</td>
             <tr></tr>
             <td width="250px"><a href="ODFSections.project.html"><tt>project</tt></a><span>   (ODFSections)</span></td>
-            <td>project orientation to ODF sections used by plotODF</td>
+            <td>project orientation to ODF sections used by plotSection</td>
             <tr></tr>
             <td width="250px"><a href="orientation.project2EulerFR.html"><tt>project2EulerFR</tt></a><span>   (orientation)</span></td>
             <td>projects orientation to a fundamental region</td>
@@ -2628,11 +2569,7 @@
             <td>plot function</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.scatter.html"><tt>scatter</tt></a><span>   (vector3d)</span></td>
-            <td>Syntax scatter(v)              % scatter(v,data)         % scatter(v,text)  Input v     - @vector3d data  - double
-               rgb   - a list of rgb color values  Options Marker            -  MarkerFaceColor   - MarkerEdgeColor   -  MarkerColor
-                     - shortcut for the above two MarkerSize        - size of the markers in pixel DynamicMarkerSize - scale marker size
-               when plot is resized  Output  See also
-            </td>
+            <td>Syntax scatter(v)              % scatter(v,data)         % scatter(v,text)</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.scatter3d.html"><tt>scatter3d</tt></a><span>   (vector3d)</span></td>
             <td>plot spherical data</td>
@@ -2724,6 +2661,15 @@
             <td width="250px"><a href="ODF.slope.html"><tt>slope</tt></a><span>   (ODF)</span></td>
             <td>| grad(r) |</td>
             <tr></tr>
+            <td width="250px"><a href="EBSD.smooth.html"><tt>smooth</tt></a><span>   (EBSD)</span></td>
+            <td>smooth spatial EBSD   Input ebsd - @EBSD  Example mtexdata forsterite ebsd = ebsd('indexed'); % segment grains [grains,ebsd.grainId]
+               = calcGrains(ebsd)  % find largest grains largeGrains = grains(grains.grainSize&gt;800) ebsd = ebsd(largeGrains(1))  figure
+               plot(largeGrains(1).boundary,'linewidth',2) hold on oM = ipdfHSVOrientationMapping(ebsd); oM.inversePoleFigureDirection
+               = mean(ebsd.orientations) * oM.whiteCenter; oM.colorStretching = 50; plot(ebsd,oM.orientation2color(ebsd.orientations))
+               hold off  ebsd_smoothed = smooth(ebsd) plot(ebsd_smoothed('indexed'),oM.orientation2color(ebsd_smoothed('indexed').orientations))
+               hold on plot(largeGrains(1).boundary,'linewidth',2) hold off
+            </td>
+            <tr></tr>
             <td width="250px"><a href="grain2d.smooth.html"><tt>smooth</tt></a><span>   (grain2d)</span></td>
             <td>constraint laplacian smoothing of grains</td>
             <tr></tr>
@@ -2754,6 +2700,75 @@
             <td width="250px"><a href="vector3d.smooth.html"><tt>smooth</tt></a><span>   (vector3d)</span></td>
             <td>Syntax  Input  Output  Options  See also</td>
             <tr></tr>
+            <td width="250px"><a href="smoothn.html"><tt>smoothn</tt></a></td>
+            <td>SMOOTHN Robust spline smoothing for 1-D to N-D data. SMOOTHN provides a fast, automatized and robust discretized spline
+               smoothing for data of arbitrary dimension.  Z = SMOOTHN(Y) automatically smoothes the uniformly-sampled array Y. Y can
+               be any N-D noisy array (time series, images, 3D data,...). Non finite data (NaN or Inf) are treated as missing values. 
+               Z = SMOOTHN(Y,S) smoothes the array Y using the smoothing parameter S. S must be a real positive scalar. The larger S is,
+               the smoother the output will be. If the smoothing parameter S is omitted (see previous option) or empty (i.e. S = []), it
+               is automatically determined by minimizing the generalized cross-validation (GCV) score.  Z = SMOOTHN(Y,W) or Z = SMOOTHN(Y,W,S)
+               smoothes Y using a weighting array W of positive values, that must have the same size as Y. Note that a nil weight corresponds
+               to a missing value.  If you want to smooth a vector field or multicomponent data, Y must be a cell array. For example,
+               if you need to smooth a 3-D vectorial flow (Vx,Vy,Vz), use Y = {Vx,Vy,Vz}. The output Z is also a cell array which contains
+               the smoothed components. See examples 5 to 8 below.  [Z,S] = SMOOTHN(...) also returns the calculated value for the smoothness
+               parameter S so that you can fine-tune the smoothing subsequently if needed.   1) ROBUST smoothing -------------------
+               Z = SMOOTHN(...,'robust') carries out a robust smoothing that minimizes the influence of outlying data.  An iteration process
+               is used with the 'ROBUST' option, or in the presence of weighted and/or missing values. Z = SMOOTHN(...,OPTIONS) smoothes
+               with the termination parameters specified in the structure OPTIONS. OPTIONS is a structure of optional parameters that change
+               the default smoothing properties. It must be last input argument. --- The structure OPTIONS can contain the following fields:
+               ----------------- OPTIONS.TolZ:       Termination tolerance on Z (default = 1e-3), OPTIONS.TolZ must be in ]0,1[ OPTIONS.MaxIter:
+                  Maximum number of iterations allowed (default = 100) OPTIONS.Initial:    Initial value for the iterative process (default
+               = original data, Y) OPTIONS.Weight:     Weight function for robust smoothing: 'bisquare' (default), 'talworth' or 'cauchy'
+               -----------------  [Z,S,EXITFLAG] = SMOOTHN(...) returns a boolean value EXITFLAG that describes the exit condition of
+               SMOOTHN: 1       SMOOTHN converged. 0       Maximum number of iterations was reached.   2) Different spacing increments
+               ------------------------------- SMOOTHN, by default, assumes that the spacing increments are constant and equal in all the
+               directions (i.e. dx = dy = dz = ...). This means that the smoothness parameter is also similar for each direction. If the
+               increments differ from one direction to the other, it can be useful to adapt these smoothness parameters. You can thus use
+               the following field in OPTIONS: OPTIONS.Spacing' = [d1 d2 d3...], where dI represents the spacing between points in the
+               Ith dimension.  Important note: d1 is the spacing increment for the first non-singleton dimension (i.e. the vertical direction
+               for matrices).   3) REFERENCES (please refer to the two following papers) -------------  1) Garcia D, Robust smoothing
+               of gridded data in one and higher dimensions with missing values. Computational Statistics &amp; Data Analysis, 2010;54:1167-1178.
+                &lt;a href="matlab:web('http://www.biomecardio.com/pageshtm/publi/csda10.pdf')"&gt;PDF download&lt;/a&gt; 2) Garcia D, A fast all-in-one
+               method for automated post-processing of PIV data. Exp Fluids, 2011;50:1247-1259. &lt;a href="matlab:web('http://www.biomecardio.com/pageshtm/publi/media11.pdf')"&gt;PDF
+               download&lt;/a&gt;   EXAMPLES: -------- %--- Example #1: smooth a curve --- x = linspace(0,100,2^8); y = cos(x/10)+(x/50).^2
+               + randn(size(x))/10; y([70 75 80]) = [5.5 5 6]; z = smoothn(y); % Regular smoothing zr = smoothn(y,'robust'); % Robust
+               smoothing subplot(121), plot(x,y,'r.',x,z,'k','LineWidth',2) axis square, title('Regular smoothing') subplot(122), plot(x,y,'r.',x,zr,'k','LineWidth',2)
+               axis square, title('Robust smoothing')  %--- Example #2: smooth a surface --- xp = 0:.02:1; [x,y] = meshgrid(xp); f =
+               exp(x+y) + sin((x-2*y)*3); fn = f + randn(size(f))*0.5; fs = smoothn(fn); subplot(121), surf(xp,xp,fn), zlim([0 8]), axis
+               square subplot(122), surf(xp,xp,fs), zlim([0 8]), axis square  %--- Example #3: smooth an image with missing data ---
+               n = 256; y0 = peaks(n); y = y0 + randn(size(y0))*2; I = randperm(n^2); y(I(1:n^2*0.5)) = NaN; % lose 1/2 of data y(40:90,140:190)
+               = NaN; % create a hole z = smoothn(y); % smooth data subplot(2,2,1:2), imagesc(y), axis equal off title('Noisy corrupt
+               data') subplot(223), imagesc(z), axis equal off title('Recovered data ...') subplot(224), imagesc(y0), axis equal off
+               title('... compared with the actual data')  %--- Example #4: smooth volumetric data --- [x,y,z] = meshgrid(-2:.2:2); xslice
+               = [-0.8,1]; yslice = 2; zslice = [-2,0]; vn = x.*exp(-x.^2-y.^2-z.^2) + randn(size(x))*0.06; subplot(121), slice(x,y,z,vn,xslice,yslice,zslice,'cubic')
+               title('Noisy data') v = smoothn(vn); subplot(122), slice(x,y,z,v,xslice,yslice,zslice,'cubic') title('Smoothed data')
+                %--- Example #5: smooth a cardioid --- t = linspace(0,2*pi,1000); x = 2*cos(t).*(1-cos(t)) + randn(size(t))*0.1; y =
+               2*sin(t).*(1-cos(t)) + randn(size(t))*0.1; z = smoothn({x,y}); plot(x,y,'r.',z{1},z{2},'k','linewidth',2) axis equal tight
+                %--- Example #6: smooth a 3-D parametric curve --- t = linspace(0,6*pi,1000); x = sin(t) + 0.1*randn(size(t)); y = cos(t)
+               + 0.1*randn(size(t)); z = t + 0.1*randn(size(t)); u = smoothn({x,y,z}); plot3(x,y,z,'r.',u{1},u{2},u{3},'k','linewidth',2)
+               axis tight square  %--- Example #7: smooth a 2-D vector field --- [x,y] = meshgrid(linspace(0,1,24)); Vx = cos(2*pi*x+pi/2).*cos(2*pi*y);
+               Vy = sin(2*pi*x+pi/2).*sin(2*pi*y); Vx = Vx + sqrt(0.05)*randn(24,24); % adding Gaussian noise Vy = Vy + sqrt(0.05)*randn(24,24);
+               % adding Gaussian noise I = randperm(numel(Vx)); Vx(I(1:30)) = (rand(30,1)-0.5)*5; % adding outliers Vy(I(1:30)) = (rand(30,1)-0.5)*5;
+               % adding outliers Vx(I(31:60)) = NaN; % missing values Vy(I(31:60)) = NaN; % missing values Vs = smoothn({Vx,Vy},'robust');
+               % automatic smoothing subplot(121), quiver(x,y,Vx,Vy,2.5), axis square title('Noisy velocity field') subplot(122), quiver(x,y,Vs{1},Vs{2}),
+               axis square title('Smoothed velocity field')  %--- Example #8: smooth a 3-D vector field --- load wind % original 3-D
+               flow % -- Create noisy data % Gaussian noise un = u + randn(size(u))*8; vn = v + randn(size(v))*8; wn = w + randn(size(w))*8;
+               % Add some outliers I = randperm(numel(u)) &lt; numel(u)*0.025; un(I) = (rand(1,nnz(I))-0.5)*200; vn(I) = (rand(1,nnz(I))-0.5)*200;
+               wn(I) = (rand(1,nnz(I))-0.5)*200; % -- Visualize the noisy flow (see CONEPLOT documentation) figure, title('Noisy 3-D vectorial
+               flow') xmin = min(x(:)); xmax = max(x(:)); ymin = min(y(:)); ymax = max(y(:)); zmin = min(z(:)); daspect([2,2,1]) xrange
+               = linspace(xmin,xmax,8); yrange = linspace(ymin,ymax,8); zrange = 3:4:15; [cx cy cz] = meshgrid(xrange,yrange,zrange);
+               k = 0.1; hcones = coneplot(x,y,z,un*k,vn*k,wn*k,cx,cy,cz,0); set(hcones,'FaceColor','red','EdgeColor','none') hold on
+               wind_speed = sqrt(un.^2 + vn.^2 + wn.^2); hsurfaces = slice(x,y,z,wind_speed,[xmin,xmax],ymax,zmin); set(hsurfaces,'FaceColor','interp','EdgeColor','none')
+               hold off axis tight; view(30,40); axis off camproj perspective; camzoom(1.5) camlight right; lighting phong set(hsurfaces,'AmbientStrength',.6)
+               set(hcones,'DiffuseStrength',.8) % -- Smooth the noisy flow Vs = smoothn({un,vn,wn},'robust'); % -- Display the result
+               figure, title('3-D flow smoothed by SMOOTHN') daspect([2,2,1]) hcones = coneplot(x,y,z,Vs{1}*k,Vs{2}*k,Vs{3}*k,cx,cy,cz,0);
+               set(hcones,'FaceColor','red','EdgeColor','none') hold on wind_speed = sqrt(Vs{1}.^2 + Vs{2}.^2 + Vs{3}.^2); hsurfaces =
+               slice(x,y,z,wind_speed,[xmin,xmax],ymax,zmin); set(hsurfaces,'FaceColor','interp','EdgeColor','none') hold off axis tight;
+               view(30,40); axis off camproj perspective; camzoom(1.5) camlight right; lighting phong set(hsurfaces,'AmbientStrength',.6)
+               set(hcones,'DiffuseStrength',.8)  See also SMOOTH1Q, DCTN, IDCTN.  -- Damien Garcia -- 2009/03, revised 2014/10 website:
+               &lt;a href="matlab:web('http://www.biomecardio.com')"&gt;www.BiomeCardio.com&lt;/a&gt;
+            </td>
+            <tr></tr>
             <td width="250px"><a href="SobolevKernel.html"><tt>SobolevKernel</tt></a></td>
             <td></td>
             <tr></tr>
@@ -2765,7 +2780,7 @@
                 Input ebsd  - @EBSD lineX - list of spatial coordinates |[x(:) y(:)]| of if 3d |[x(:) y(:) z(:)]|,  where $x_i,x_{i+1}$
                defines a line segment  Output ebsd - @EBSD restrcited to the line of interest dist - double distance along the line to
                the initial point  Example  mtexdata twins plot(ebsd('indexed'),ebsd('indexed').orientations) lineX = ginput(2) ebsd_lineX
-               = spatialProfile(ebsd,lineX) clf; plot(ebsd_lineX.x,angle(ebsd_lineX(1).orientations,ebsd_lineX.orientations)) xlabel('x'),
+               = spatialProfile(ebsd,lineX) clf; plot(ebsd_lineX.x,angle(ebsd_lineX(1).orientations,ebsd_lineX.orientations)./degree) xlabel('x'),
                ylabel('misorientation angle')
             </td>
             <tr></tr>
@@ -2994,9 +3009,6 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.transpose.html"><tt>transpose</tt></a><span>   (vector3d)</span></td>
             <td>transpose vector</td>
-            <tr></tr>
-            <td width="250px"><a href="vector3d.TSP.html"><tt>TSP</tt></a><span>   (vector3d)</span></td>
-            <td>traveling salesman problem on the 2 dimensional unit-sphere</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>U<a name="20"> </a></h2>
@@ -3147,16 +3159,6 @@
             <td width="250px"><a href="wignerD2.html"><tt>wignerD2</tt></a></td>
             <td>spherical harmonics of degree l</td>
             <tr></tr>
-            <td width="250px"><a href="WignerD3.html"><tt>WignerD3</tt></a></td>
-            <td>Wigner-D function  Syntax  Dl = WignerD(g,'degree',l) D  = WignerD(g,'bandwidth',l) D  = W  Input g - @quaternion
-               / @rotation / @orientation / @symmetry  Options bandwidth - harmonic degree of series expansion degree    - number or
-               array, single degree reshapes result kernel    - multiply wigner coefficients by kernel   Output Dl - $(2l+1) \times (2l+1)$
-               D  - $(l(2*l--1)(2*l+1)/3) \times n$ where n is the number of rotations  See also sphericalY
-            </td>
-            <tr></tr>
-            <td width="250px"><a href="wignerDOld.html"><tt>wignerDOld</tt></a></td>
-            <td>Wiegner-D function</td>
-            <tr></tr>
             <td width="250px"><a href="write_cell.html"><tt>write_cell</tt></a></td>
             <td>write cell string to text file</td>
             <tr></tr>
@@ -3203,7 +3205,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 4.1.beta1</td>
+               <td valign="baseline" align="right">MTEX 4.1.beta3</td>
             </tr>
          </table>
       </div>

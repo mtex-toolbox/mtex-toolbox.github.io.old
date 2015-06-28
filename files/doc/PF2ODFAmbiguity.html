@@ -134,9 +134,9 @@ saveFigure(<span class="string">'~/svn/potts-ag/paper/textureAnalysis/odf2_pf.pn
 plotPDF(odf1,Miller({1,1,0},cs))
 figure(2)
 plotPDF(odf2,Miller({1,1,0},cs))</pre><img src="PF2ODFAmbiguity_02.png"> <pre class="codeinput">figure(1)
-plotODF(odf1,<span class="string">'sections'</span>,6)
+plot(odf1,<span class="string">'sections'</span>,6)
 figure(2)
-plotODF(odf2,<span class="string">'sections'</span>,6)</pre><img src="PF2ODFAmbiguity_03.png"> <pre class="codeinput">psi = deLaValeePoussinKernel(<span class="string">'halfwidth'</span>,30*degree);
+plot(odf2,<span class="string">'sections'</span>,6)</pre><img src="PF2ODFAmbiguity_03.png"> <pre class="codeinput">psi = deLaValeePoussinKernel(<span class="string">'halfwidth'</span>,30*degree);
 
 A = psi.A;
 A(2:end) = A(2:end) ./ 3;

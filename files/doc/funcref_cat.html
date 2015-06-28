@@ -99,6 +99,12 @@
          </table>
          <table width="95%">
             <tr></tr>
+            <td width="250px"><a href="planeIntersect.html"><tt>planeIntersect</tt></a></td>
+            <td>compute the intersection of two planes</td>
+            <tr></tr>
+            <td width="250px"><a href="plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a></td>
+            <td>plot axis distribution</td>
+            <tr></tr>
             <td width="250px"><a href="plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a></td>
             <td>plot axis distribution</td>
          </table>
@@ -108,9 +114,6 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.SchmidTensor.html"><tt>SchmidTensor</tt></a></td>
             <td>computes the Schmidt tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="vector3d.TSP.html"><tt>TSP</tt></a></td>
-            <td>traveling salesman problem on the 2 dimensional unit-sphere</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.abs.html"><tt>abs</tt></a></td>
             <td>length of vector</td>
@@ -239,9 +242,6 @@
             <td width="250px"><a href="vector3d.orth.html"><tt>orth</tt></a></td>
             <td>an arbitrary orthogonal vector</td>
             <tr></tr>
-            <td width="250px"><a href="vector3d.patchPatala.html"><tt>patchPatala</tt></a></td>
-            <td>Syntax  Input  Output  Options  See also</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.pcolor.html"><tt>pcolor</tt></a></td>
             <td>spherical contour plot  Syntax pcolor(v,data)  Input v - @vector3d data - double  See also vector3d/plot vector3d/contourf</td>
             <tr></tr>
@@ -290,11 +290,7 @@
             <td>rotate vector3d by quaternion</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.scatter.html"><tt>scatter</tt></a></td>
-            <td>Syntax scatter(v)              % scatter(v,data)         % scatter(v,text)  Input v     - @vector3d data  - double
-               rgb   - a list of rgb color values  Options Marker            -  MarkerFaceColor   - MarkerEdgeColor   -  MarkerColor
-                     - shortcut for the above two MarkerSize        - size of the markers in pixel DynamicMarkerSize - scale marker size
-               when plot is resized  Output  See also
-            </td>
+            <td>Syntax scatter(v)              % scatter(v,data)         % scatter(v,text)</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.scatter3d.html"><tt>scatter3d</tt></a></td>
             <td>plot spherical data</td>
@@ -359,9 +355,6 @@
             <tr></tr>
             <td width="250px"><a href="Miller.char.html"><tt>char</tt></a></td>
             <td>Miller indece to string</td>
-            <tr></tr>
-            <td width="250px"><a href="Miller.checkFundamentalRegion.html"><tt>checkFundamentalRegion</tt></a></td>
-            <td>checks Miller indice to be within the fundamental region</td>
             <tr></tr>
             <td width="250px"><a href="Miller.display.html"><tt>display</tt></a></td>
             <td>standard output</td>
@@ -583,6 +576,11 @@
             <td width="250px"><a href="quaternion.length.html"><tt>length</tt></a></td>
             <td>overloads length</td>
             <tr></tr>
+            <td width="250px"><a href="quaternion.log.html"><tt>log</tt></a></td>
+            <td>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion  Syntax mat = matrix(q)
+                Input q - @quaternion  Output mat - vector of matrixes  See also mat2quat Euler axis2quat hr2quat
+            </td>
+            <tr></tr>
             <td width="250px"><a href="quaternion.matrix.html"><tt>matrix</tt></a></td>
             <td>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion  Syntax mat = matrix(q)
                 Input q - @quaternion  Output mat - vector of matrixes  See also mat2quat Euler axis2quat hr2quat
@@ -625,11 +623,6 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.normalize.html"><tt>normalize</tt></a></td>
             <td>normalize quaternion</td>
-            <tr></tr>
-            <td width="250px"><a href="quaternion.orth.html"><tt>orth</tt></a></td>
-            <td>returns a quaternion orthogonal to q1, q2, q3  Input q1, q2, q3 - @quaternions  Output q - @quaternion with dot(q,[q1,q2,q3])
-               == 0
-            </td>
             <tr></tr>
             <td width="250px"><a href="quaternion.permute.html"><tt>permute</tt></a></td>
             <td>overloads permute</td>
@@ -803,7 +796,7 @@
             <td width="250px"><a href="symmetry.alignment.html"><tt>alignment</tt></a></td>
             <td>return alignment of the reference frame as string, e.g. x||a, y||b*</td>
             <tr></tr>
-            <td width="250px"><a href="symmetry.angleDistribution.html"><tt>angleDistribution</tt></a></td>
+            <td width="250px"><a href="symmetry.calcAngleDistribution.html"><tt>calcAngleDistribution</tt></a></td>
             <td>compute the angle distribution of a uniform ODF for a crystal symmetry</td>
             <tr></tr>
             <td width="250px"><a href="symmetry.calcAxisDistribution.html"><tt>calcAxisDistribution</tt></a></td>
@@ -830,17 +823,11 @@
             <td width="250px"><a href="symmetry.fundamentalRegion.html"><tt>fundamentalRegion</tt></a></td>
             <td>get the fundamental sector for a symmetry in the inverse pole figure</td>
             <tr></tr>
-            <td width="250px"><a href="symmetry.fundamentalSector.html"><tt>fundamentalSector</tt></a></td>
-            <td>get the fundamental sector for a symmetry in the inverse pole figure</td>
-            <tr></tr>
-            <td width="250px"><a href="symmetry.getFundamentalRegion.html"><tt>getFundamentalRegion</tt></a></td>
+            <td width="250px"><a href="symmetry.fundamentalRegionEuler.html"><tt>fundamentalRegionEuler</tt></a></td>
             <td>get the fundamental region in Euler angles</td>
             <tr></tr>
-            <td width="250px"><a href="symmetry.getFundamentalRegionRodrigues.html"><tt>getFundamentalRegionRodrigues</tt></a></td>
-            <td>get the fundamental region for a crystal and specimen symmetry</td>
-            <tr></tr>
-            <td width="250px"><a href="symmetry.getFundamentalRegionRodriguez.html"><tt>getFundamentalRegionRodriguez</tt></a></td>
-            <td>get the fundamental region for a crystal and specimen symmetry</td>
+            <td width="250px"><a href="symmetry.fundamentalSector.html"><tt>fundamentalSector</tt></a></td>
+            <td>get the fundamental sector for a symmetry in the inverse pole figure</td>
             <tr></tr>
             <td width="250px"><a href="symmetry.length.html"><tt>length</tt></a></td>
             <td>number of symmetry elements</td>
@@ -859,9 +846,6 @@
             <tr></tr>
             <td width="250px"><a href="symmetry.plot.html"><tt>plot</tt></a></td>
             <td>plot symmetry</td>
-            <tr></tr>
-            <td width="250px"><a href="symmetry.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a></td>
-            <td>plot axis distribution</td>
             <tr></tr>
             <td width="250px"><a href="symmetry.properGroup.html"><tt>properGroup</tt></a></td>
             <td>return the corresponding Laue group</td>
@@ -904,7 +888,7 @@
             <tr></tr>
             <td width="250px"><a href="orientation.calcAngleDistribution.html"><tt>calcAngleDistribution</tt></a></td>
             <td>calculate angle distribution  Input ori   - @orientation  Flags  Output density - the density normalized such that
-               sum(density)=100 omega   - corresponding list of misorientation angles  See also EBSD/calcMisorientation misorientationAnalysis/plotAngleDistribution
+               sum(density)=100 omega   - corresponding list of misorientation angles  See also EBSD/calcMisorientation plotAngleDistribution
             </td>
             <tr></tr>
             <td width="250px"><a href="orientation.calcBinghamODF.html"><tt>calcBinghamODF</tt></a></td>
@@ -926,6 +910,9 @@
             <td width="250px"><a href="orientation.calcMDF.html"><tt>calcMDF</tt></a></td>
             <td>computes an MDF from individuel orientations</td>
             <tr></tr>
+            <td width="250px"><a href="orientation.calcMIndex.html"><tt>calcMIndex</tt></a></td>
+            <td>TODO!!!</td>
+            <tr></tr>
             <td width="250px"><a href="orientation.calcODF.html"><tt>calcODF</tt></a></td>
             <td>computes an ODF from individuel orientations</td>
             <tr></tr>
@@ -936,9 +923,6 @@
                 Input ori     - @orientation T       - @tensor w       - weights for each orientation  Output TVoigt, TReuss, THill
                - @tensor  Options Voigt - voigt mean Reuss - reuss mean Hill  - hill mean  See also
             </td>
-            <tr></tr>
-            <td width="250px"><a href="orientation.checkFundamentalRegion.html"><tt>checkFundamentalRegion</tt></a></td>
-            <td>checks whether a orientation sits within the fundamental region</td>
             <tr></tr>
             <td width="250px"><a href="orientation.crossCorrelation.html"><tt>crossCorrelation</tt></a></td>
             <td>computes the cross correlation for the kernel density estimator</td>
@@ -992,20 +976,14 @@
             <td width="250px"><a href="orientation.plot.html"><tt>plot</tt></a></td>
             <td>annotate a orientation to an existing plot</td>
             <tr></tr>
-            <td width="250px"><a href="orientation.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a></td>
-            <td>plot the angle distribution  Input ori - @orientation n   - number of bins  See also orientation/plotAxisDistribution</td>
-            <tr></tr>
-            <td width="250px"><a href="orientation.plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a></td>
-            <td>plot uncorrelated axis distribution</td>
-            <tr></tr>
             <td width="250px"><a href="orientation.plotIPDF.html"><tt>plotIPDF</tt></a></td>
             <td>plot orientations into inverse pole figures</td>
             <tr></tr>
-            <td width="250px"><a href="orientation.plotODF.html"><tt>plotODF</tt></a></td>
-            <td>plot orientations to ODF sections</td>
-            <tr></tr>
             <td width="250px"><a href="orientation.plotPDF.html"><tt>plotPDF</tt></a></td>
             <td>plot orientations into pole figures</td>
+            <tr></tr>
+            <td width="250px"><a href="orientation.plotSection.html"><tt>plotSection</tt></a></td>
+            <td>plot orientations to ODF sections</td>
             <tr></tr>
             <td width="250px"><a href="orientation.project2EulerFR.html"><tt>project2EulerFR</tt></a></td>
             <td>projects orientation to a fundamental region</td>
@@ -1272,9 +1250,6 @@
             <td width="250px"><a href="ODF.plot3d.html"><tt>plot3d</tt></a></td>
             <td>plots odf</td>
             <tr></tr>
-            <td width="250px"><a href="ODF.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a></td>
-            <td>plot axis distribution</td>
-            <tr></tr>
             <td width="250px"><a href="ODF.plotDiff.html"><tt>plotDiff</tt></a></td>
             <td>difference plot between two odfs or an odf and a pole figure</td>
             <tr></tr>
@@ -1287,11 +1262,11 @@
             <td width="250px"><a href="ODF.plotIPDF.html"><tt>plotIPDF</tt></a></td>
             <td>plot inverse pole figures</td>
             <tr></tr>
-            <td width="250px"><a href="ODF.plotODF.html"><tt>plotODF</tt></a></td>
-            <td>plot ODF sections</td>
-            <tr></tr>
             <td width="250px"><a href="ODF.plotPDF.html"><tt>plotPDF</tt></a></td>
             <td>plot pole figures</td>
+            <tr></tr>
+            <td width="250px"><a href="ODF.plotSection.html"><tt>plotSection</tt></a></td>
+            <td>plot ODF sections</td>
             <tr></tr>
             <td width="250px"><a href="ODF.plus.html"><tt>plus</tt></a></td>
             <td>superposeing two ODFs</td>
@@ -1528,9 +1503,11 @@
             </td>
             <tr></tr>
             <td width="250px"><a href="EBSD.calcMisorientation.html"><tt>calcMisorientation</tt></a></td>
-            <td>calculate uncorelated misorientations between two ebsd phases  Input  ebsd - @EBSD  Output m - @orientation, such that
-                $$m = (g{_i}^{--1}*CS^{--1}) * (CS *\circ g_j)$$  for two neighbored orientations $g_i, g_j$ with crystal @symmetry $CS$
-               of  the same phase located on a grain boundary.  See also
+            <td>calculate uncorelated misorientations between two ebsd phases  Syntax mori = calcMisorientation(ebsd,'sampleSize',1000)
+               mori = calcMisorientation(ebsd,'minDistance',100) mori = calcMisorientation(ebsd1,ebsd2) [ori1,ori2] = calcMisorientation(ebsd1)
+               plot(axis(ori1,ori2))  Input  ebsd, ebsd1, ebsd2 - @EBSD  Output m - @orientation, such that  $$m = (g{_i}^{--1}*CS^{--1})
+               * (CS *\circ g_j)$$  for two neighbored orientations $g_i, g_j$ with crystal @symmetry $CS$ of  the same phase located
+               on a grain boundary.  See also
             </td>
             <tr></tr>
             <td width="250px"><a href="EBSD.calcTensor.html"><tt>calcTensor</tt></a></td>
@@ -1562,6 +1539,9 @@
             <td>returns the boundings of spatial EBSD data  Output ext - extend as [xmin xmax ymin ymax zmin zmax]</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.fill.html"><tt>fill</tt></a></td>
+            <td>extrapolate spatial EBSD data by nearest neighbour for tetragonal lattice</td>
+            <tr></tr>
+            <td width="250px"><a href="EBSD.fillByGrainId.html"><tt>fillByGrainId</tt></a></td>
             <td>extrapolate spatial EBSD data by nearest neighbour for tetragonal lattice  Input ebsd - @EBSD  Example ebsd_filled =
                fill(ebsd)
             </td>
@@ -1596,26 +1576,27 @@
             <td width="250px"><a href="EBSD.plot.html"><tt>plot</tt></a></td>
             <td>spatial EBSD plot</td>
             <tr></tr>
-            <td width="250px"><a href="EBSD.plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a></td>
-            <td>plot uncorelated angle distribution for all pairs of phases  Input ebsd - @EBSD  Flags ODF, MDF - compute the uncorrelated
-               angle distribution from the MDF  See also orientation/calcAngleDistribution
-            </td>
-            <tr></tr>
-            <td width="250px"><a href="EBSD.plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a></td>
-            <td>plot uncorrelated axis distribution</td>
-            <tr></tr>
             <td width="250px"><a href="EBSD.rotate.html"><tt>rotate</tt></a></td>
             <td>rotate EBSD orientations or spatial data around point of origin</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.shift.html"><tt>shift</tt></a></td>
             <td>shift spatial ebsd-data about (x,y)  Input ebsd - @EBSD xy   - coordinates  Output shifted ebsd - @EBSD</td>
             <tr></tr>
+            <td width="250px"><a href="EBSD.smooth.html"><tt>smooth</tt></a></td>
+            <td>smooth spatial EBSD   Input ebsd - @EBSD  Example mtexdata forsterite ebsd = ebsd('indexed'); % segment grains [grains,ebsd.grainId]
+               = calcGrains(ebsd)  % find largest grains largeGrains = grains(grains.grainSize&gt;800) ebsd = ebsd(largeGrains(1))  figure
+               plot(largeGrains(1).boundary,'linewidth',2) hold on oM = ipdfHSVOrientationMapping(ebsd); oM.inversePoleFigureDirection
+               = mean(ebsd.orientations) * oM.whiteCenter; oM.colorStretching = 50; plot(ebsd,oM.orientation2color(ebsd.orientations))
+               hold off  ebsd_smoothed = smooth(ebsd) plot(ebsd_smoothed('indexed'),oM.orientation2color(ebsd_smoothed('indexed').orientations))
+               hold on plot(largeGrains(1).boundary,'linewidth',2) hold off
+            </td>
+            <tr></tr>
             <td width="250px"><a href="EBSD.spatialProfile.html"><tt>spatialProfile</tt></a></td>
             <td>select EBSD data along line segments  Syntax % returns a sorted list of ebsd data along lineX [ebsd_lineX,dist] = spatialProfile(ebsd,lineX)
                 Input ebsd  - @EBSD lineX - list of spatial coordinates |[x(:) y(:)]| of if 3d |[x(:) y(:) z(:)]|,  where $x_i,x_{i+1}$
                defines a line segment  Output ebsd - @EBSD restrcited to the line of interest dist - double distance along the line to
                the initial point  Example  mtexdata twins plot(ebsd('indexed'),ebsd('indexed').orientations) lineX = ginput(2) ebsd_lineX
-               = spatialProfile(ebsd,lineX) clf; plot(ebsd_lineX.x,angle(ebsd_lineX(1).orientations,ebsd_lineX.orientations)) xlabel('x'),
+               = spatialProfile(ebsd,lineX) clf; plot(ebsd_lineX.x,angle(ebsd_lineX(1).orientations,ebsd_lineX.orientations)./degree) xlabel('x'),
                ylabel('misorientation angle')
             </td>
             <tr></tr>
@@ -1915,7 +1896,7 @@
             <td width="250px"><a href="loadHelper.html"><tt>loadHelper</tt></a></td>
             <td>helps to load data-matrix with ColumnNames restricts also data according to conventions (e.g. &gt;4pi)  Input d -  (n x m)
                matrix ColumnNames - (1 x m) cell of names Columns - (1 x m) cell of ColumnNames indizes  Options KeepNaN Radians passive
-               rotation ... Output loader  - structure with some funs
+               rotation  Output loader  - structure with some funs
             </td>
             <tr></tr>
             <td width="250px"><a href="string2Miller.html"><tt>string2Miller</tt></a></td>
@@ -1988,6 +1969,9 @@
             <td width="250px"><a href="euler2quat.html"><tt>euler2quat</tt></a></td>
             <td>converts euler angle to quaternion</td>
             <tr></tr>
+            <td width="250px"><a href="expquat.html"><tt>expquat</tt></a></td>
+            <td>matrix exponential to convert skew symmetric matrices into quaternions</td>
+            <tr></tr>
             <td width="250px"><a href="fibre2quat.html"><tt>fibre2quat</tt></a></td>
             <td>arbitrary quaternion q with q * h = r</td>
             <tr></tr>
@@ -2023,6 +2007,9 @@
             <tr></tr>
             <td width="250px"><a href="mat2quat.html"><tt>mat2quat</tt></a></td>
             <td>converts direction cosine matrix to quaternion</td>
+            <tr></tr>
+            <td width="250px"><a href="nanquaternion.html"><tt>nanquaternion</tt></a></td>
+            <td>the identical rotation - quaternion(1,0,0,0)</td>
             <tr></tr>
             <td width="250px"><a href="plotS2Grid.html"><tt>plotS2Grid</tt></a></td>
             <td>create a regular S2Grid for plotting</td>
@@ -2091,7 +2078,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 4.1.beta1</td>
+               <td valign="baseline" align="right">MTEX 4.1.beta3</td>
             </tr>
          </table>
       </div>

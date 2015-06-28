@@ -117,10 +117,6 @@ grains = grain2d
  
  Properties: GOS, meanRotation
  
- 
-  Hint: You might want to use the point group
-  "622" for colorcoding!
- 
   I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
@@ -205,10 +201,6 @@ twinBoundary = grainBoundary
  
  Segments  mineral 1  mineral 2
      1757  Magnesium  Magnesium
- 
-  Hint: You might want to use the point group
-  "622" for colorcoding!
- 
   I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
@@ -253,16 +245,7 @@ sum(area(grains(twinId))) / sum(area(grains)) * 100</pre><pre class="codeoutput"
          </p><pre class="codeinput">plot(mergedGrains(16).boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>
 plot(ebsd(mergedGrains(16)),ebsd(mergedGrains(16)).orientations)
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "622" for colorcoding!
- 
-  I'm going to colorize the orientation data with the 
-  standard MTEX colorkey. To view the colorkey do:
- 
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
-  plot(oM)
-</pre><img src="TwinningAnalysis_05.png"> <p>In order to update the grainId in the ebsd variable to the merged grains we proceed as follows.</p><pre class="codeinput"><span class="comment">% copy ebsd data into a new variable to not change the old data</span>
+hold <span class="string">off</span></pre><img src="TwinningAnalysis_05.png"> <p>In order to update the grainId in the ebsd variable to the merged grains we proceed as follows.</p><pre class="codeinput"><span class="comment">% copy ebsd data into a new variable to not change the old data</span>
 ebsd_merged = ebsd;
 
 <span class="comment">% update the grainIds to the parentIds</span>
@@ -280,16 +263,7 @@ ebsd_merged = EBSD
          </p><pre class="codeinput">plot(ebsd_merged(mergedGrains(16)),ebsd_merged(mergedGrains(16)).orientations)
 hold <span class="string">on</span>
 plot(mergedGrains(16).boundary,<span class="string">'linewidth'</span>,2)
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "622" for colorcoding!
- 
-  I'm going to colorize the orientation data with the 
-  standard MTEX colorkey. To view the colorkey do:
- 
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
-  plot(oM)
-</pre><img src="TwinningAnalysis_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="TwinningAnalysis_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

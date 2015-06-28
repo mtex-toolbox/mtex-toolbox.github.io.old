@@ -117,11 +117,7 @@ plotPDF(odf,[Miller(1,2,2,CS),-Miller(1,2,2,CS)])</pre><img src="AxialDirectiona
          </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'fo'</span>).CS.Laue);
 
 <span class="comment">% the colorcode</span>
-plot(oM)</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-</pre><img src="AxialDirectional_10.png"> <p>Here the colorized data</p><pre class="codeinput">plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><img src="AxialDirectional_11.png"> <p>If we use the point group of proper rotations this antipodal symmetry is not present and a larger region of the inverse pole
+plot(oM)</pre><img src="AxialDirectional_10.png"> <p>Here the colorized data</p><pre class="codeinput">plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><img src="AxialDirectional_11.png"> <p>If we use the point group of proper rotations this antipodal symmetry is not present and a larger region of the inverse pole
             figure is colorized
          </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'fo'</span>).CS.properGroup);
 

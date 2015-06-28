@@ -148,7 +148,7 @@ odf = loadODF(fname,cs,<span class="string">'resolution'</span>,res,<span class=
   <span class="string">'ColumnNames'</span>,{<span class="string">'Euler 1'</span>,<span class="string">'Euler 2'</span>,<span class="string">'Euler 3'</span>,<span class="string">'weights'</span>});
 
 <span class="comment">% plot data</span>
-plotODF(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><pre class="codeoutput">  Interpolating the ODF. This might take some time...
+plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><pre class="codeoutput">  Interpolating the ODF. This might take some time...
 pcg converged at iteration 6 to a solution with relative residual 0.0059.
 </pre><img src="ODFImportExport_03.png"> <p>So far ODFs may only exported from and imported into ASCII files that consists of a table of orientatiotions and weights.
             The orientations may be given either as Euler angles or as quaternions. The weight may either represent the value of the ODF

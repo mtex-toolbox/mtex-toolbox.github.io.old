@@ -102,10 +102,6 @@ grains = grain2d
  
  Properties: GOS, meanRotation
  
- 
-  Hint: You might want to use the point group
-  "432" for colorcoding!
- 
   I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
@@ -118,11 +114,7 @@ CLim(gcm,[.5,5])
 <span class="comment">% the option 'FaceAlpha',0.4 makes the plot a bit transluent</span>
 hold <span class="string">on</span>
 plot(grains,grains.meanOrientation,<span class="string">'FaceAlpha'</span>,0.4)
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "432" for colorcoding!
- 
-  I'm going to colorize the orientation data with the 
+hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
   oM = ipdfHSVOrientationMapping(ori_variable_name)
@@ -174,11 +166,7 @@ hold <span class="string">off</span></pre><img src="CSLBoundaries_05.png"> <p cl
             In order to analyze the distribution of misorientations we may colorize the grain boundaries according to their misorientation.
             See S. Patala, J. K. Mason, and C. A. Schuh, 2012, for details. The coresponding orientation to color mapping is implemented
             into MTEX as
-         </p><pre class="codeinput">oM = patalaOrientationMapping(gB)</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "432" for colorcoding!
- 
-oM = 
+         </p><pre class="codeinput">oM = patalaOrientationMapping(gB)</pre><pre class="codeoutput">oM = 
   patalaOrientationMapping with properties:
 
     CS1: [24x2 crystalSymmetry]
@@ -193,11 +181,7 @@ plot(grains,grains.meanOrientation,<span class="string">'FaceAlpha'</span>,0.4)
 
 hold <span class="string">on</span>
 plot(gB,oM.orientation2color(gB.misorientation),<span class="string">'linewidth'</span>,2)
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "432" for colorcoding!
- 
-  I'm going to colorize the orientation data with the 
+hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
   oM = ipdfHSVOrientationMapping(ori_variable_name)

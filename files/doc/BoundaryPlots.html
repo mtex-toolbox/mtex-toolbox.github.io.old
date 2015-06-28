@@ -131,11 +131,7 @@ ebsd_931 = ebsd(grains(931));
 <span class="comment">% plot the orientation data</span>
 hold <span class="string">on</span>
 plot(ebsd_931,oM.orientation2color(ebsd_931.orientations))
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-</pre><img src="BoundaryPlots_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="BoundaryPlots_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Visualizing special grain boundaries<a name="7"> </a></h2>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Phase boundaries<a name="8"> </a></h3>
@@ -181,11 +177,7 @@ plot(gB_Fo,oM.orientation2color(gB_Fo.misorientation),<span class="string">'line
 hold <span class="string">off</span>
 
 <span class="comment">% plot the colorcoding</span>
-<span class="comment">% plot(oM)</span></pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-</pre><img src="BoundaryPlots_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<span class="comment">% plot(oM)</span></pre><img src="BoundaryPlots_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Classifing special boundaries<a name="12"> </a></h3>
          <p>Actually, it might be more informative, if we classify the grain boundaries after some special property. This is done by the
             command <a href="GrainSet.specialBoundary.html">specialBoundary</a>, which will be invoked by the plotting routine.
@@ -216,9 +208,7 @@ ind = angle(gB_Fo.misorientation.axis,xvector)&lt;5*degree;
 
 plot(gB_Fo(ind),<span class="string">'linecolor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2)
 
-legend(<span class="string">'&gt;5^\circ'</span>,<span class="string">'[100]'</span>)</pre><pre class="codeoutput">Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-Warning: Plot empty. 
+legend(<span class="string">'&gt;5^\circ'</span>,<span class="string">'[100]'</span>)</pre><pre class="codeoutput">Warning: Plot empty. 
 </pre><img src="BoundaryPlots_10.png"> <p>Or we mark a special rotation between neighboured grains. If a linecolor is not specified, then the boundary is colorcoded
             after its angular difference to the given rotation.
          </p><pre class="codeinput">rot = rotation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,60*degree);

@@ -157,16 +157,7 @@ hold <span class="string">on</span>, plot(ebsd(grain_selected),ebsd(grain_select
 <span class="comment">% line segment</span>
 lineSec =  [18826   6438; 18089 10599];
 
-line(lineSec(:,1),lineSec(:,2),<span class="string">'linewidth'</span>,2)</pre><pre class="codeoutput"> 
-  Hint: You might want to use the point group
-  "222" for colorcoding!
- 
-  I'm going to colorize the orientation data with the 
-  standard MTEX colorkey. To view the colorkey do:
- 
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
-  plot(oM)
-</pre><img src="GrainSingleAnalysis_04.png"> <p>The command <a href="EBSD.spatialProfile.html">spatialProfile</a> restricts the EBSD data to this line
+line(lineSec(:,1),lineSec(:,2),<span class="string">'linewidth'</span>,2)</pre><img src="GrainSingleAnalysis_04.png"> <p>The command <a href="EBSD.spatialProfile.html">spatialProfile</a> restricts the EBSD data to this line
          </p><pre class="codeinput">ebsd_line = spatialProfile(ebsd(grain_selected),lineSec);</pre><p>Next, we plot the misorientation angle to the first point of the line as well as the orientation gradient</p><pre class="codeinput">close <span class="string">all</span> <span class="comment">% close previous plots</span>
 
 <span class="comment">% misorientation angle to the first orientation on the line</span>
