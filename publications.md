@@ -6,7 +6,7 @@ layout: main
 ### Reference Publications
 
 If you are using the library for your research, please cite one of the
-following paper that best fit your application.
+following paper that best fits your application.
 
 #### 2014
 
