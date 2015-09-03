@@ -201,7 +201,7 @@ oR = fundamentalRegion(oM.CS1,oM.CS2,<span class="string">'antipodal'</span>);
 plot(oR)
 
 <span class="comment">% plot 500 random misorientations in the 3d fundamenal zone</span>
-mori = gB.misorientation.discreteSample(500);
+mori = discreteSample(gB.misorientation,500);
 hold <span class="string">on</span>
 plot(mori.project2FundamentalRegion(<span class="string">'antipodal'</span>))
 hold <span class="string">off</span>
@@ -219,10 +219,10 @@ hold <span class="string">off</span>
 mdf = MDF  
   crystal symmetry : iron (m-3m)
   crystal symmetry : iron (m-3m)
+  antipodal:         true
  
-  Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 2.5&deg;
-    center: 6299 orientations, resolution: 1.2&deg;
+  Portion specified by Fourier coefficients:
+    degree: 64
     weight: 1
  
 </pre><p>Next we can visualize the misorientation distribution function in axis angle sections.</p><pre class="codeinput"><span class="comment">% TODO: this antipodal should be stored later directly in the mdf</span>
@@ -241,8 +241,8 @@ mori = misorientation
  
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
-  62.7843 48.0359 333.939       0
-  103.129 26.8018  284.91       0
+  63.4003 48.2376 333.257       0
+  104.063 26.9708 283.944       0
  
  
 </pre><p>and their volumes</p><pre class="codeinput">volume(gB.misorientation,CSL(3),2*degree)
@@ -289,7 +289,7 @@ mori = misorientation
  
  
 ans =
-   11.5440
+    5.8319
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

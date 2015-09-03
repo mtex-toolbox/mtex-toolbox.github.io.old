@@ -3,10 +3,9 @@
    <tocitem target="mtex_product_page.html">MTEX Toolbox<tocitem target="GettingStarted.html">Getting Started with the MTEX Toolbox<tocitem target="installation.html">Installation Guide<tocitem target="installation.html#1">Download</tocitem>
             <tocitem target="installation.html#2">MATLAB</tocitem>
             <tocitem target="installation.html#3">Installation</tocitem>
-            <tocitem target="installation.html#4">Installation for All Users</tocitem>
-            <tocitem target="installation.html#5">Checking Your Installation</tocitem>
-            <tocitem target="installation.html#8">Configuration and Troubleshooting</tocitem>
-            <tocitem target="installation.html#9">Compile MTEX Your Self</tocitem>
+            <tocitem target="installation.html#4">Checking Your Installation</tocitem>
+            <tocitem target="installation.html#5">Configuration and Troubleshooting</tocitem>
+            <tocitem target="installation.html#6">Compiling MTEX</tocitem>
          </tocitem>
          <tocitem target="configuration.html">Configuration<tocitem target="configuration.html#1">Global Configuration</tocitem>
             <tocitem target="configuration.html#2">The Option System</tocitem>
@@ -26,11 +25,14 @@
             <tocitem target="PoleFigureTutorial.html#9">Quantify the Reconstruction Error</tocitem>
             <tocitem target="PoleFigureTutorial.html#10">Visualize the ODF</tocitem>
          </tocitem>
-         <tocitem target="EBSDTutorial.html">Short EBSD Analysis Tutorial<tocitem target="EBSDTutorial.html#2">TODO: Rewrite this from scratch</tocitem>
+         <tocitem target="EBSDTutorial.html">Short EBSD Analysis Tutorial<tocitem target="EBSDTutorial.html#2">Data import</tocitem>
+            <tocitem target="EBSDTutorial.html#6">Visualize EBSD data</tocitem>
          </tocitem>
          <tocitem target="FAQ.html">FAQ<tocitem target="FAQ.html#1">Which MATLAB version and which toolboxes are reguired?</tocitem>
             <tocitem target="FAQ.html#2">I have crazy characters in my plots. What can I do?</tocitem>
             <tocitem target="FAQ.html#3">I get crazy plots, empty plots, plot with wrong colors</tocitem>
+            <tocitem target="FAQ.html#4">How can I import my data</tocitem>
+            <tocitem target="FAQ.html#6">I can not import EBSD OSC files</tocitem>
          </tocitem>
          <tocitem target="compilation.html">Compiling MTEX<tocitem target="compilation.html#1">Introduction</tocitem>
             <tocitem target="compilation.html#2">Pre-requisits</tocitem>
@@ -56,7 +58,6 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.cross.html">cross</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.cross_outer.html">cross_outer</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.ctranspose.html">ctranspose</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.discreteSample.html">discreteSample</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.display.html">display</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.dot.html">dot</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.dot_outer.html">dot_outer</tocitem>
@@ -79,6 +80,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.norm.html">norm</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.normalize.html">normalize</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.orth.html">orth</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.orthProj.html">orthProj</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.pcolor.html">pcolor</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.perp.html">perp</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.plot.html">plot</tocitem>
@@ -127,6 +129,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.round.html">round</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.scatter.html">scatter</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.smooth.html">smooth</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.surf.html">surf</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.symmetrise.html">symmetrise</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.text.html">text</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.transformReferenceFrame.html">transformReferenceFrame</tocitem>
@@ -176,7 +179,6 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.char.html">char</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.cross.html">cross</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.ctranspose.html">ctranspose</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.discreteSample.html">discreteSample</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.display.html">display</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.dot.html">dot</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.dot_angle.html">dot_angle</tocitem>
@@ -486,7 +488,6 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.shift.html">shift</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.smooth.html">smooth</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.spatialProfile.html">spatialProfile</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.subSample.html">subSample</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.subSet.html">subSet</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.subsasgn.html">subsasgn</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.subsref.html">subsref</tocitem>
@@ -757,7 +758,8 @@
             <tocitem target="PlotPoleFigures.html#8">Plotting Recalculated Pole Figures</tocitem>
          </tocitem>
       </tocitem>
-      <tocitem target="EBSDAnalysis.html">EBSD<tocitem target="EBSDTutorial.html">Short EBSD Analysis Tutorial<tocitem target="EBSDTutorial.html#2">TODO: Rewrite this from scratch</tocitem>
+      <tocitem target="EBSDAnalysis.html">EBSD<tocitem target="EBSDTutorial.html">Short EBSD Analysis Tutorial<tocitem target="EBSDTutorial.html#2">Data import</tocitem>
+            <tocitem target="EBSDTutorial.html#6">Visualize EBSD data</tocitem>
          </tocitem>
          <tocitem image="$toolbox/matlab/icons/file_new.gif" target="ImportEBSDData.html">Importing EBSD Data<tocitem target="ImportEBSDData.html#4">Importing EBSD data using the import wizard</tocitem>
             <tocitem target="ImportEBSDData.html#6">Supported Data Formats</tocitem>
@@ -929,7 +931,7 @@
             <tocitem target="ColorCodingEBSD_demo.html#10">Colorcoding according to inverse pole figure</tocitem>
          </tocitem>
       </tocitem>
-      <tocitem target="ReleaseNotes.html">Release Notes<tocitem target="changelog.html">MTEX Changelog<tocitem target="changelog.html#1">MTEX 4.1.beta</tocitem>
+      <tocitem target="ReleaseNotes.html">Release Notes<tocitem target="changelog.html">MTEX Changelog<tocitem target="changelog.html#1">MTEX 4.1 - 09/2015</tocitem>
             <tocitem target="changelog.html#2">MTEX 4.0.0 - 10/2014</tocitem>
             <tocitem target="changelog.html#3">MTEX 3.5.0 - 12/2013</tocitem>
             <tocitem target="changelog.html#4">MTEX 3.4.2 - 06/2013</tocitem>

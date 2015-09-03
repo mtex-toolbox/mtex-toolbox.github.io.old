@@ -45,16 +45,9 @@
          </div>
          <p>plot grain boundaries</p>
          <p>The function plots grain boundaries where the boundary is determined by the function <a href="GrainSet.specialBoundary.html">specialBoundary</a></p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>[h,mP] = plot(gB,'param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">plot(grains.boundary)
+plot(grains.innerBoundary,<span class="string">'linecolor'</span>,<span class="string">'r'</span>)
+plot(gB(<span class="string">'Forsterite'</span>,<span class="string">'Forsterite'</span>),gB(<span class="string">'Forsterite'</span>,<span class="string">'Forsterite'</span>).misorientation.angle)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -76,85 +69,8 @@
             </tr>
             <tr>
             <td width="150px">
-            <tt>'property'</tt>
-            </td>
-            <td>
-            <p>colorize a special grain boundary property, variants are:</p>
-            <ul>
-            <li>
-            <tt>'phase'</tt> - boundaries between different phases</li>
-            </ul>
-            <ul>
-            <li>
-            <tt>'phaseTransition'</tt>  - colorize boundaries according to phase change                (same phase, different phase).</li>
-            <li>
-            <tt>'angle'</tt> - misorientation angle between two neighboured ebsd         measurements on the boundary.</li>
-            <li>
-            <tt>'misorientation'</tt> - calculate the misorientation on the grain boundary         between two ebsd measurements and <a href="orientation2color.html">colorize</a>         it after a choosen colorcoding, i.e.</li>
-            </ul>
-            <pre>       plot(grains,'property','misorientation',...
-            'colorcoding','ipdfHSV')</pre>
-            <ul>
-            <li><a href="quaternion_index.html">quaternion</a> | <a href="rotation_index.html">rotation</a> | <a href="orientation_index.html">orientation</a> - plot grain boundaries with         a specified misorientation</li>
-            </ul>
-            <pre>       plot(grains,'property',...
-            rotation('axis',zvector,'angle',60*degree))</pre>
-            <ul>
-            <li><a href="Miller_index.html">Miller</a> | <a href="vector3d_index.html">vector3d</a> - plot grain boundaries such as specified         crystallographic face are parallel. use with option 'delta'</li>
-            </ul>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'delta'</tt>
-            </td>
-            <td>
-            <p>specify a searching radius for special grain boundary         (default 5 degrees), if a orientation or crystallographic
-            face         is specified.</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'linecolor', 'edgecolor', 'facecolor'</tt>
-            </td>
-            <td>
-            <p>color of the boundary</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'linewidth'</tt>
-            </td>
-            <td>
-            <p>width of the line</p>
-            </td>
-            </tr>
-            </table>
-            </td>
-            </tr>
-            <tr>
-            <td width="100px">
-            <tt>param</tt>
-            </td>
-            <td>Options that control the plot behavior<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
-            <tr>
-            <td class="header" width="100px">Parameter</td>
-            <td class="header">Description</td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'internal'</tt>
-            </td>
-            <td>
-            <p>only plot boundaries within a grain which do not match the grain boundary      criterion</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'external'</tt>
-            </td>
-            <td>
-            <p>only plot grain-boundaries to other grains.</p>
+            <tt>'linewidth
+            linecolor'</tt>
             </td>
             </tr>
             </table>
@@ -163,8 +79,6 @@
             </table>
             
          </p>
-         <h3 class="seealso">See also</h3>
-         <p><a href="GrainSet.specialBoundary.html">GrainSet/specialBoundary</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

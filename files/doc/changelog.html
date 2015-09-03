@@ -40,13 +40,13 @@
       <div class="container">
          <h1>MTEX Changelog</h1>
          <div class="subheading"></div>
-         <h2>MTEX 4.1.beta<a name="1"> </a></h2>
-         <p>MTEX 4.1 introduces new possibilities to analysis of misorientations. For the first time it covers all geometric aspects of
-            misorientations between arbitrary crystal symmetries. Furthermore, MTEX 4.1 introduces filters to smooth EBSD data.
+         <h2>MTEX 4.1 - 09/2015<a name="1"> </a></h2>
+         <p>MTEX 4.1 introduces new possibilities to the analysis of misorientations. For the first time it covers all geometric aspects
+            of misorientations between arbitrary crystal symmetries. Furthermore, MTEX 4.1 introduces filters to smooth EBSD data.
          </p>
          <p><b>Smoothing of EBSD Data</b> Smoothing of EBSD data might be necesarry if the orientation data are corrupted by noise which influences the estimation
             of orientation dependent properties like KAM or GND. The general syntax for smoothing EBSD data is
-         </p><pre class="codeinput">ebsd = smooth(ebsd)</pre><p>This applies the splineFilte> to the orientation data. Beside the spline filter many other filter are available. A general
+         </p><pre class="codeinput">ebsd = smooth(ebsd)</pre><p>This applies the spline filter to the orientation data. Beside the spline filter many other filters are available. A general
             discussion on this topic can be found <a href="EBSDSmoothing.html">here</a>. To make use of a different then the dafault filter use the syntax
          </p><pre class="codeinput">F = medianFilter
 F.numNeighbours = 2 <span class="comment">% this way options for the filter can be set</span>
@@ -79,14 +79,36 @@ plot(axis(ori1,ori2))</pre><p><b>Axis angle plots</b></p>
             on the misorientation angle and for all combinations of crystal symmetries. The angle sections are scaled such that they represent
             the corrsponding volume in orientation space. This can be switch of as described below
          </p><pre class="codeinput">plotSection(mori,<span class="string">'axisAngle'</span>,55*degree)
-plotSection(mdf,<span class="string">'axisAngle'</span>,[15:10:55*degree])
-plotSection(mdf,<span class="string">'axisAngle'</span>,[15:10:55*degree],<span class="string">'volumeScaling'</span>,false)
-plotSection(mdf,<span class="string">'axisAngle'</span>,[15:10:55*degree],<span class="string">'antipodal'</span>)</pre><p><b>Replace plotODF by plotSection</b></p>
+plotSection(mdf,<span class="string">'axisAngle'</span>,(15:10:55)*degree)
+plotSection(mdf,<span class="string">'axisAngle'</span>,(15:10:55)*degree,<span class="string">'volumeScaling'</span>,false)
+plotSection(mdf,<span class="string">'axisAngle'</span>,(15:10:55)*degree,<span class="string">'antipodal'</span>)</pre><p><b>Replace plotODF by plotSection</b></p>
          <p>In most cases you can replace <tt>plotODF</tt> by <tt>plot</tt>. Only for misorientations the default plot is <tt>scatter</tt>.
          </p>
-         <p><b>Other improvements since MTEX 4.0.0</b></p>
+         <p><b>More default settings for EBSD maps and pole figure plots</b></p>
+         <div>
+            <ul type="square">
+               <li>new MTEXpref to show/hide the micronbar in EBSD maps. The default is set in <tt>mtex_settings.m</tt> to <tt>on</tt>. The following command switches them off.
+               </li>
+            </ul>
+         </div><pre class="codeinput">setMTEXpref(<span class="string">'showMicronBar'</span>,<span class="string">'off'</span>)</pre><div>
+            <ul type="square">
+               <li>new MTEXpref to show/hide the coordinates in EBSD maps. The default is set in <tt>mtex_settings.m</tt> to <tt>off</tt>. The following command switches them on.
+               </li>
+            </ul>
+         </div><pre class="codeinput">setMTEXpref(<span class="string">'showCoordinates'</span>,<span class="string">'off'</span>)</pre><div>
+            <ul type="square">
+               <li>new MTEXpref to display coordinates in pole figure plot. The default is set in <tt>mtex_settings.m</tt> to display the directions <tt>X</tt> and <tt>Y</tt>. The following command switches it to <tt>RD</tt> and <tt>ND</tt>.
+               </li>
+            </ul>
+         </div><pre class="codeinput">pfAnnotations = @(varargin) text([vector3d.X,vector3d.Y],{<span class="string">'RD'</span>,<span class="string">'ND'</span>},<span class="keyword">...</span>
+ <span class="string">'BackgroundColor'</span>,<span class="string">'w'</span>,<span class="string">'tag'</span>,<span class="string">'axesLabels'</span>,varargin{:});
+setMTEXpref(<span class="string">'pfAnnotations'</span>,pfAnnotations);</pre><p><b>Other improvements since MTEX 4.0.0</b></p>
          <p>During the minor revisions of MTEX also several minor improvments has been added which are summarized below</p>
          <div>
+            <ul type="square">
+               <li>check for inclusions in grains: the following command returns a list of true/false depending whether a grain in <tt>grainList</tt> is an inclusion in <tt>hostGrain</tt></li>
+            </ul>
+         </div><pre class="codeinput">hostGrain.checkInside(grainList)</pre><div>
             <ul type="square">
                <li>allow syntax</li>
             </ul>
@@ -97,7 +119,16 @@ plotSection(mdf,<span class="string">'axisAngle'</span>,[15:10:55*degree],<span 
          </div><pre class="codeinput">[~,mP] = plot(ebsd)
 mP.micronBar.visible = <span class="string">'off'</span></pre><div>
             <ul type="square">
+               <li>allow to place labels above/below the marker by</li>
+            </ul>
+         </div><pre class="codeinput">plot(xvector,<span class="string">'label'</span>,<span class="string">'RD'</span>,<span class="string">'textAboveMarker'</span>)</pre><div>
+            <ul type="square">
                <li>new EBSD interface to ACOM Nanomegas *.ang files</li>
+            </ul>
+         </div>
+         <div>
+            <ul type="square">
+               <li>plot relative to the crystal coordinate system are now always aligned such that x points to the east and y points to north</li>
             </ul>
          </div>
          <div>

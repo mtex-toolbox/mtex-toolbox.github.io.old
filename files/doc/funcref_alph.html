@@ -56,7 +56,7 @@
             <td>calcualtes the rotational angle between rotations q1 and q2</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.angle.html"><tt>angle</tt></a><span>   (vector3d)</span></td>
-            <td>angle between two vectors Input v1, v2 - @vector3d</td>
+            <td>angle between two vectors</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.angle_outer.html"><tt>angle_outer</tt></a><span>   (quaternion)</span></td>
             <td>calcualtes the rotational angle between all rotations q1 and q2</td>
@@ -528,6 +528,13 @@
             <td width="250px"><a href="checkEulerAngleConvention.html"><tt>checkEulerAngleConvention</tt></a></td>
             <td></td>
             <tr></tr>
+            <td width="250px"><a href="grain2d.checkInside.html"><tt>checkInside</tt></a><span>   (grain2d)</span></td>
+            <td>check for points or grains to be inside a big grain  Syntax isInside = checkInside(hostGrains, [x,y]) isInside = checkInside(hostGrains,
+               inclusionGrains)  Input hostGrains      - @grain2d inclusionGrains - @grain2d [x,y] - list of [x(:) y(:)] coordinates
+                Output isInside - numInclusionGrains x numHostGrains matrix  Example mtexdata small grains = calcGrains(ebsd('indexed'))
+               plot(grains(grains(75).checkInside(grains)))  See also EBSD/findByLocation grain2d/findByOrientation
+            </td>
+            <tr></tr>
             <td width="250px"><a href="orientationRegion.checkInside.html"><tt>checkInside</tt></a><span>   (orientationRegion)</span></td>
             <td>check for points to be inside the orientation region</td>
             <tr></tr>
@@ -706,11 +713,8 @@
             <td width="250px"><a href="unimodalComponent.discreteSample.html"><tt>discreteSample</tt></a><span>   (unimodalComponent)</span></td>
             <td>draw a random sample</td>
             <tr></tr>
-            <td width="250px"><a href="quaternion.discreteSample.html"><tt>discreteSample</tt></a><span>   (quaternion)</span></td>
-            <td>draw a random sample</td>
-            <tr></tr>
-            <td width="250px"><a href="vector3d.discreteSample.html"><tt>discreteSample</tt></a><span>   (vector3d)</span></td>
-            <td>draw a random sample</td>
+            <td width="250px"><a href="discreteSample.html"><tt>discreteSample</tt></a></td>
+            <td>take a diskrete sample from a list of vectors, orientations, grains, EBSD</td>
             <tr></tr>
             <td width="250px"><a href="discretesample.html"><tt>discretesample</tt></a></td>
             <td>Samples from a discrete distribution</td>
@@ -853,7 +857,7 @@
             <td>convert tensor values to matrix</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.double.html"><tt>double</tt></a><span>   (vector3d)</span></td>
-            <td>converts vector3d to double</td>
+            <td>converts vector3d to double Input v - @vector3d Output x, y, z - double</td>
             <tr></tr>
             <td width="250px"><a href="mtexFigure.drawNow.html"><tt>drawNow</tt></a><span>   (mtexFigure)</span></td>
             <td></td>
@@ -947,9 +951,6 @@
             <td width="250px"><a href="EulerAngleConvention.html"><tt>EulerAngleConvention</tt></a></td>
             <td></td>
             <tr></tr>
-            <td width="250px"><a href="EulerCycles.html"><tt>EulerCycles</tt></a></td>
-            <td>retrieve Euler cycles from an not oriented edge list</td>
-            <tr></tr>
             <td width="250px"><a href="BinghamComponent.eval.html"><tt>eval</tt></a><span>   (BinghamComponent)</span></td>
             <td>evaluate an odf at orientation g</td>
             <tr></tr>
@@ -1017,6 +1018,9 @@
             <tr></tr>
             <td width="250px"><a href="extract_argoption.html"><tt>extract_argoption</tt></a></td>
             <td>extract options from option list</td>
+            <tr></tr>
+            <td width="250px"><a href="extract_data.html"><tt>extract_data</tt></a></td>
+            <td>extract data</td>
             <tr></tr>
             <td width="250px"><a href="extract_kernel.html"><tt>extract_kernel</tt></a></td>
             <td></td>
@@ -1157,6 +1161,9 @@
             <td width="250px"><a href="symmetry.fundamentalRegion.html"><tt>fundamentalRegion</tt></a><span>   (symmetry)</span></td>
             <td>get the fundamental sector for a symmetry in the inverse pole figure</td>
             <tr></tr>
+            <td width="250px"><a href="fundamentalRegion.html"><tt>fundamentalRegion</tt></a></td>
+            <td>get the fundamental zone in orientation space for a symmetry</td>
+            <tr></tr>
             <td width="250px"><a href="symmetry.fundamentalRegionEuler.html"><tt>fundamentalRegionEuler</tt></a><span>   (symmetry)</span></td>
             <td>get the fundamental region in Euler angles</td>
             <tr></tr>
@@ -1166,6 +1173,9 @@
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>G<a name="7"> </a></h2>
          <table width="95%">
+            <tr></tr>
+            <td width="250px"><a href="gammaSections.html"><tt>gammaSections</tt></a></td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="GaussWeierstrassKernel.html"><tt>GaussWeierstrassKernel</tt></a></td>
             <td></td>
@@ -1395,7 +1405,7 @@
                bandwidth - the optimal bandwidth (Gaussian kernel assumed); density - column vector of length 'n' with the values of the
                density estimate at the grid points; xmesh   - the grid over which the density estimate is computed; - If no output is
                requested, then the code automatically plots a graph of the density estimate. cdf  - column vector of length 'n' with the
-               values of the cdf Reference:  Kernel density estimation via diffusion Z. I. Botev, J. F. Grotowski, and D. P. Kroese (2010)
+               values of the cdf Reference: Kernel density estimation via diffusion Z. I. Botev, J. F. Grotowski, and D. P. Kroese (2010)
                Annals of Statistics, Volume 38, Number 5, pages 2916-2957.
             </td>
             <tr></tr>
@@ -2033,6 +2043,9 @@
          <h2>O<a name="14"> </a></h2>
          <table width="95%">
             <tr></tr>
+            <td width="250px"><a href="omegaSections.html"><tt>omegaSections</tt></a></td>
+            <td></td>
+            <tr></tr>
             <td width="250px"><a href="option2str.html"><tt>option2str</tt></a></td>
             <td>transforms option list to comma separated list</td>
             <tr></tr>
@@ -2044,6 +2057,9 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.orth.html"><tt>orth</tt></a><span>   (vector3d)</span></td>
             <td>an arbitrary orthogonal vector</td>
+            <tr></tr>
+            <td width="250px"><a href="vector3d.orthProj.html"><tt>orthProj</tt></a><span>   (vector3d)</span></td>
+            <td></td>
          </table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>P<a name="15"> </a></h2>
@@ -2100,8 +2116,8 @@
             <td width="250px"><a href="phi2Sections.html"><tt>phi2Sections</tt></a></td>
             <td></td>
             <tr></tr>
-            <td width="250px"><a href="planeIntersect.html"><tt>planeIntersect</tt></a></td>
-            <td>compute the intersection of two planes</td>
+            <td width="250px"><a href="PhiSections.html"><tt>PhiSections</tt></a></td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="EBSD.plot.html"><tt>plot</tt></a><span>   (EBSD)</span></td>
             <td>spatial EBSD plot</td>
@@ -2114,17 +2130,8 @@
             <tr></tr>
             <td width="250px"><a href="grainBoundary.plot.html"><tt>plot</tt></a><span>   (grainBoundary)</span></td>
             <td>plot grain boundaries  The function plots grain boundaries where the boundary is determined by the function &lt;GrainSet.specialBoundary.html
-               specialBoundary&gt;  Input grains  - @grainBoundary  Options property - colorize a special grain boundary property, variants
-               are:  * |'phase'| -- boundaries between different phases  * |'phaseTransition'|  -- colorize boundaries according to phase
-               change (same phase, different phase). * |'angle'| -- misorientation angle between two neighboured ebsd measurements on
-               the boundary. * |'misorientation'| -- calculate the misorientation on the grain boundary between two ebsd measurements and
-               [[orientation2color.html,colorize]] it after a choosen colorcoding, i.e.  plot(grains,'property','misorientation',...
-               'colorcoding','ipdfHSV')  *  @quaternion | @rotation | @orientation -- plot grain boundaries with a specified misorientation
-                plot(grains,'property',... rotation('axis',zvector,'angle',60*degree))  *  @Miller | @vector3d -- plot grain boundaries
-               such as specified crystallographic face are parallel. use with option 'delta'  delta - specify a searching radius for special
-               grain boundary (default 5 degrees), if a orientation or crystallographic face is specified.  linecolor|edgecolor|facecolor
-               - color of the boundary  linewidth - width of the line  Flags internal - only plot boundaries within a grain which do
-               not match the grain boundary criterion external - only plot grain--boundaries to other grains.  See also GrainSet/specialBoundary
+               specialBoundary&gt;  Syntax plot(grains.boundary) plot(grains.innerBoundary,'linecolor','r') plot(gB('Forsterite','Forsterite'),gB('Forsterite','Forsterite').misorientation.angle)
+                Input grains  - @grainBoundary  Options linewidth linecolor
             </td>
             <tr></tr>
             <td width="250px"><a href="ODF.plot.html"><tt>plot</tt></a><span>   (ODF)</span></td>
@@ -2152,7 +2159,7 @@
             <td>plots a spherical region</td>
             <tr></tr>
             <td width="250px"><a href="symmetry.plot.html"><tt>plot</tt></a><span>   (symmetry)</span></td>
-            <td>plot symmetry</td>
+            <td>visualize symmetry elements according to international table</td>
             <tr></tr>
             <td width="250px"><a href="tensor.plot.html"><tt>plot</tt></a><span>   (tensor)</span></td>
             <td>plot a tensor T  Input T - @tensor  Options plotType - directionalMagnitude YoungsModulus linearCompressibility velocity'
@@ -2551,7 +2558,7 @@
             <td>Save EBSD object to HDF5 format</td>
             <tr></tr>
             <td width="250px"><a href="saveFigure.html"><tt>saveFigure</tt></a></td>
-            <td>save figure as grafik file</td>
+            <td>save figure as graphics file</td>
             <tr></tr>
             <td width="250px"><a href="saveGrainSet_hdf5.html"><tt>saveGrainSet_hdf5</tt></a></td>
             <td>Save GrainSet object to HDF5 format</td>
@@ -2606,9 +2613,6 @@
             <tr></tr>
             <td width="250px"><a href="set_option.html"><tt>set_option</tt></a></td>
             <td>set option in option list</td>
-            <tr></tr>
-            <td width="250px"><a href="set_option_property.html"><tt>set_option_property</tt></a></td>
-            <td></td>
             <tr></tr>
             <td width="250px"><a href="setCamera.html"><tt>setCamera</tt></a></td>
             <td>set Camera according to xAxis and zAxis position</td>
@@ -2817,9 +2821,6 @@
             <td width="250px"><a href="submatrix.html"><tt>submatrix</tt></a></td>
             <td>B = A(ind) with size as A if possible</td>
             <tr></tr>
-            <td width="250px"><a href="EBSD.subSample.html"><tt>subSample</tt></a><span>   (EBSD)</span></td>
-            <td>subsample of ebsd data</td>
-            <tr></tr>
             <td width="250px"><a href="EBSD.subsasgn.html"><tt>subsasgn</tt></a><span>   (EBSD)</span></td>
             <td>overloads subsasgn</td>
             <tr></tr>
@@ -2914,6 +2915,9 @@
             <td width="250px"><a href="vector3d.sum.html"><tt>sum</tt></a><span>   (vector3d)</span></td>
             <td>sum of vectors</td>
             <tr></tr>
+            <td width="250px"><a href="Miller.surf.html"><tt>surf</tt></a><span>   (Miller)</span></td>
+            <td>Syntax  Input  Output  Options  See also</td>
+            <tr></tr>
             <td width="250px"><a href="vector3d.surf.html"><tt>surf</tt></a><span>   (vector3d)</span></td>
             <td>Syntax  Input  Output  Options  See also</td>
             <tr></tr>
@@ -2949,7 +2953,9 @@
             <td>plot Miller indece</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.text.html"><tt>text</tt></a><span>   (vector3d)</span></td>
-            <td>display a text in a spherical plot  Syntax text(v,s)  %  Input v  - @vector3d s  - string  Options  See also</td>
+            <td>display a text in a spherical plot  Syntax text(v,s) text(v,s,'fontSize',16) text(v,s,'textAboveMarker') text(v,s,'textColor','blue')
+               text(v,s,'textBackgroundColor','white')  Input v  - @vector3d s  - string  Options  See also
+            </td>
             <tr></tr>
             <td width="250px"><a href="vector3d.text3.html"><tt>text3</tt></a><span>   (vector3d)</span></td>
             <td>plot three dimensional arrows</td>
@@ -3096,6 +3102,9 @@
             <td width="250px"><a href="vector3d.vertcat.html"><tt>vertcat</tt></a><span>   (vector3d)</span></td>
             <td>overloads [v1,v2,v3..]</td>
             <tr></tr>
+            <td width="250px"><a href="viridisColorMap.html"><tt>viridisColorMap</tt></a></td>
+            <td></td>
+            <tr></tr>
             <td width="250px"><a href="tensor.Voigt.html"><tt>Voigt</tt></a><span>   (tensor)</span></td>
             <td></td>
             <tr></tr>
@@ -3205,7 +3214,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 4.1.beta3</td>
+               <td valign="baseline" align="right">MTEX 4.1.0</td>
             </tr>
          </table>
       </div>

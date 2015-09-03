@@ -97,7 +97,7 @@ mdf_boundary = MDF
 </pre><p>The misorientation distribution function can be processed as any other ODF. E.g. we can compute the prefered misorientation
             via
          </p><pre class="codeinput">[v,mori] = max(mdf_boundary)</pre><pre class="codeoutput">v =
-   38.8872
+   38.9278
  
 mori = misorientation  
   size: 1 x 1
@@ -114,7 +114,7 @@ mori = misorientation
          <p>Alternatively the uncorelated misorientation distribution function can be computed by providing the option <b>uncorelated</b></p><pre class="codeinput">mori = calcMisorientation(ebsd(<span class="string">'En'</span>),ebsd(<span class="string">'Fo'</span>))
 mdf_uncor = calcODF(mori)</pre><pre class="codeoutput"> 
 mori = misorientation  
-  size: 98567 x 1
+  size: 98601 x 1
   crystal symmetry : Forsterite (mmm)
   crystal symmetry : Enstatite (mmm)
  
@@ -123,9 +123,8 @@ mdf_uncor = MDF
   crystal symmetry : Forsterite (mmm)
   crystal symmetry : Enstatite (mmm)
  
-  Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 5.9&deg;
-    center: 28055 orientations, resolution: 3&deg;
+  Portion specified by Fourier coefficients:
+    degree: 49
     weight: 1
  
 </pre><p>Obviously it is different from the boundary misorientation distribution function.</p><pre class="codeinput">plotPDF(mdf_uncor,Miller(1,0,0,ebsd(<span class="string">'Fo'</span>).CS))</pre><img src="MDFAnalysis_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

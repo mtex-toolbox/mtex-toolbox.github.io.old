@@ -44,16 +44,9 @@
             </p>
          </div>
          <p>angle between two vectors</p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>a = angle(v1,v2,'param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">omega = angle(v1,v2)
+omega = angle(v1,v2,<span class="string">'antipodal'</span>)
+omega = angle(v1,v2,N)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -62,6 +55,14 @@
             </td>
             <td>
             <p><a href="vector3d_index.html">vector3d</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>N</tt>
+            </td>
+            <td>
+            <p><a href="vector3d_index.html">vector3d</a> normal to plane</p>
             </td>
             </tr>
             <tr>
@@ -92,7 +93,7 @@
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>angle</tt>
+            <tt>omega</tt>
             </td>
             <td>
             <p>double</p>

@@ -99,8 +99,8 @@
          </table>
          <table width="95%">
             <tr></tr>
-            <td width="250px"><a href="planeIntersect.html"><tt>planeIntersect</tt></a></td>
-            <td>compute the intersection of two planes</td>
+            <td width="250px"><a href="fundamentalRegion.html"><tt>fundamentalRegion</tt></a></td>
+            <td>get the fundamental zone in orientation space for a symmetry</td>
             <tr></tr>
             <td width="250px"><a href="plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a></td>
             <td>plot axis distribution</td>
@@ -119,7 +119,7 @@
             <td>length of vector</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.angle.html"><tt>angle</tt></a></td>
-            <td>angle between two vectors Input v1, v2 - @vector3d</td>
+            <td>angle between two vectors</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.angle_outer.html"><tt>angle_outer</tt></a></td>
             <td>angle between two vectors</td>
@@ -171,9 +171,6 @@
             <td width="250px"><a href="vector3d.ctranspose.html"><tt>ctranspose</tt></a></td>
             <td>transpose vector</td>
             <tr></tr>
-            <td width="250px"><a href="vector3d.discreteSample.html"><tt>discreteSample</tt></a></td>
-            <td>draw a random sample</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.display.html"><tt>display</tt></a></td>
             <td>standard output</td>
             <tr></tr>
@@ -184,7 +181,7 @@
             <td>outer dot product</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.double.html"><tt>double</tt></a></td>
-            <td>converts vector3d to double</td>
+            <td>converts vector3d to double Input v - @vector3d Output x, y, z - double</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.end.html"><tt>end</tt></a></td>
             <td>overloaded end function</td>
@@ -241,6 +238,9 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.orth.html"><tt>orth</tt></a></td>
             <td>an arbitrary orthogonal vector</td>
+            <tr></tr>
+            <td width="250px"><a href="vector3d.orthProj.html"><tt>orthProj</tt></a></td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="vector3d.pcolor.html"><tt>pcolor</tt></a></td>
             <td>spherical contour plot  Syntax pcolor(v,data)  Input v - @vector3d data - double  See also vector3d/plot vector3d/contourf</td>
@@ -320,7 +320,9 @@
             <td>symmetrcially equivalent directions and its multiple</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.text.html"><tt>text</tt></a></td>
-            <td>display a text in a spherical plot  Syntax text(v,s)  %  Input v  - @vector3d s  - string  Options  See also</td>
+            <td>display a text in a spherical plot  Syntax text(v,s) text(v,s,'fontSize',16) text(v,s,'textAboveMarker') text(v,s,'textColor','blue')
+               text(v,s,'textBackgroundColor','white')  Input v  - @vector3d s  - string  Options  See also
+            </td>
             <tr></tr>
             <td width="250px"><a href="vector3d.text3.html"><tt>text3</tt></a></td>
             <td>plot three dimensional arrows</td>
@@ -385,6 +387,9 @@
             <tr></tr>
             <td width="250px"><a href="Miller.smooth.html"><tt>smooth</tt></a></td>
             <td>plot Miller indece</td>
+            <tr></tr>
+            <td width="250px"><a href="Miller.surf.html"><tt>surf</tt></a></td>
+            <td>Syntax  Input  Output  Options  See also</td>
             <tr></tr>
             <td width="250px"><a href="Miller.symmetrise.html"><tt>symmetrise</tt></a></td>
             <td>directions symmetrically equivalent to m</td>
@@ -533,9 +538,6 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.ctranspose.html"><tt>ctranspose</tt></a></td>
             <td>transpose quaternion</td>
-            <tr></tr>
-            <td width="250px"><a href="quaternion.discreteSample.html"><tt>discreteSample</tt></a></td>
-            <td>draw a random sample</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.display.html"><tt>display</tt></a></td>
             <td>standart output</td>
@@ -845,7 +847,7 @@
             <td>maximal n-fold of symmetry axes</td>
             <tr></tr>
             <td width="250px"><a href="symmetry.plot.html"><tt>plot</tt></a></td>
-            <td>plot symmetry</td>
+            <td>visualize symmetry elements according to international table</td>
             <tr></tr>
             <td width="250px"><a href="symmetry.properGroup.html"><tt>properGroup</tt></a></td>
             <td>return the corresponding Laue group</td>
@@ -1600,9 +1602,6 @@
                ylabel('misorientation angle')
             </td>
             <tr></tr>
-            <td width="250px"><a href="EBSD.subSample.html"><tt>subSample</tt></a></td>
-            <td>subsample of ebsd data</td>
-            <tr></tr>
             <td width="250px"><a href="EBSD.subSet.html"><tt>subSet</tt></a></td>
             <td>indexing of EBSD data</td>
             <tr></tr>
@@ -2078,7 +2077,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 4.1.beta3</td>
+               <td valign="baseline" align="right">MTEX 4.1.0</td>
             </tr>
          </table>
       </div>

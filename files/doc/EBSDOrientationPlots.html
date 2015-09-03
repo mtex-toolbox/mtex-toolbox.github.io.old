@@ -100,13 +100,12 @@ ans = orientation
 </pre><img src="EBSDOrientationPlots_05.png"> <p>In the same way the mean orientations of grains can be visualized</p><pre class="codeinput">hold <span class="string">all</span>
 plotIPDF(grains(<span class="string">'Fo'</span>).meanOrientation,xvector,<span class="string">'points'</span>,500, <span class="string">'MarkerSize'</span>,3);
 hold <span class="string">off</span></pre><pre class="codeoutput">  I'm plotting 500 random orientations out of 4092 given orientations
-</pre><img src="EBSDOrientationPlots_06.png"> <p>One can also use different colors on the scatter points by certain <a href="EBSD.get.html">EBSD properties</a> or <a href="GrainSet.get.html">grain properties</a></p><pre class="codeinput">h = [Miller(1,0,0,ebsd(<span class="string">'Fo'</span>).CS),Miller(1,1,0,ebsd(<span class="string">'Fo'</span>).CS)];
-plotPDF(ebsd(<span class="string">'Fo'</span>).orientations,<span class="keyword">...</span>
-  h,<span class="string">'antipodal'</span>,<span class="string">'MarkerSize'</span>,4,<span class="string">'property'</span>,ebsd.mad)</pre><pre class="codeoutput">  I'm plotting 1250 random orientations out of 152345 given orientations
+</pre><img src="EBSDOrientationPlots_06.png"> <p>One can also use different colors on the scatter points</p><pre class="codeinput">h = [Miller(1,0,0,ebsd(<span class="string">'Fo'</span>).CS),Miller(1,1,0,ebsd(<span class="string">'Fo'</span>).CS)];
+plotPDF(ebsd(<span class="string">'Fo'</span>).orientations,ebsd(<span class="string">'Fo'</span>).mad,h,<span class="string">'antipodal'</span>,<span class="string">'MarkerSize'</span>,4)</pre><pre class="codeoutput">  I'm plotting 1250 random orientations out of 152345 given orientations
   You can specify the the number points by the option "points".
   The option "all" ensures that all data are plotted
-</pre><img src="EBSDOrientationPlots_07.png"> <p>or some arbitrary data vector</p><pre class="codeinput">plotSection(grains(<span class="string">'Fo'</span>).meanOrientation,<span class="string">'antipodal'</span>,<span class="string">'sections'</span>,9,<span class="string">'MarkerSize'</span>,3,<span class="keyword">...</span>
-  <span class="string">'property'</span>,grains(<span class="string">'Fo'</span>).area,<span class="string">'sigma'</span>);</pre><pre class="codeoutput">  plotting 2000 random orientations out of 4092 given orientations
+</pre><img src="EBSDOrientationPlots_07.png"> <p>or some arbitrary data vector</p><pre class="codeinput">plotSection(grains(<span class="string">'Fo'</span>).meanOrientation,grains(<span class="string">'Fo'</span>).area,<span class="keyword">...</span>
+  <span class="string">'sigma'</span>,<span class="string">'antipodal'</span>,<span class="string">'sections'</span>,9,<span class="string">'MarkerSize'</span>,3);</pre><pre class="codeoutput">  plotting 2000 random orientations out of 4092 given orientations
 </pre><img src="EBSDOrientationPlots_08.png"> <p>See also <a href="PlotTypes_demo.html#5,">Scatter plots</a> for more information about scatter plot and <a href="SphericalProjection_demo.html,spherical">projections</a>  for more information on spherical projections.
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

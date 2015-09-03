@@ -44,7 +44,13 @@
             </p>
          </div>
          <p>plot orientations into pole figures</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">plotPDF(ori,[h1,..,hN],<options>)</pre><h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">plotPDF(ori,[h1,h2,h3])
+plotPDF(ori,[h1,h2,h3],<span class="string">'points'</span>,100)
+plotPDF(ori,[h1,h2,h3],<span class="string">'points'</span>,<span class="string">'all'</span>)
+plotPDF(ori,[h1,h2,h3],<span class="string">'contourf'</span>)
+plotPDF(ori,[h1,h2,h3],<span class="string">'antipodal'</span>)
+plotPDF(ori,[h1,h2,h3],<span class="string">'superposition'</span>,{1,[1.5 0.5]})
+plotPDF(ori,data,[h1,h2,h3])</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>

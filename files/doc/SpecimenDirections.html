@@ -40,7 +40,7 @@
       <div class="container">
          <h1>Specimen Directions</h1>
          <div class="subheading">
-            <p>Explains how to define and calculate with specimen directions.</p>
+            <p>How to represent directions with respect to the sample or specimen reference system.</p>
          </div>
          <div>
             <table class="content">
@@ -75,11 +75,11 @@ v = vector3d
   x y z
   1 2 3
 </pre><p>This gives a single vector with coordinates (1,1,0) with respect to the X, Y, Z coordinate system. Lets visualize this vector</p><pre class="codeinput">plot(v)
-annotate([xvector,yvector,zvector],<span class="string">'label'</span>,{<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>},<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)</pre><img src="SpecimenDirections_01.png"> <p>Note that the alignment of the X, Y, Z axes is only a plotting convention, which can be easily changed without changing the
+annotate([vector3d.X,vector3d.Y,vector3d.Z],<span class="string">'label'</span>,{<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>},<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)</pre><img src="SpecimenDirections_01.png"> <p>Note that the alignment of the X, Y, Z axes is only a plotting convention, which can be easily changed without changing the
             coordinates, e.g., by setting
          </p><pre class="codeinput">plotx2north
 plot(v,<span class="string">'grid'</span>)
-annotate([xvector,yvector,zvector],<span class="string">'label'</span>,{<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>},<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)</pre><img src="SpecimenDirections_02.png"> <p>One can easily acces the coordinates of any vector by</p><pre class="codeinput">v.x</pre><pre class="codeoutput">ans =
+annotate([vector3d.X,vector3d.Y,vector3d.Z],<span class="string">'label'</span>,{<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>},<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)</pre><img src="SpecimenDirections_02.png"> <p>One can easily acces the coordinates of any vector by</p><pre class="codeinput">v.x</pre><pre class="codeoutput">ans =
      1
 </pre><p>or change it by</p><pre class="codeinput">v.x = 0</pre><pre class="codeoutput"> 
 v = vector3d  
@@ -96,7 +96,7 @@ v = vector3d(<span class="string">'polar'</span>,polar_angle,azimuth_angle)
 
 plotx2east
 plot(v,<span class="string">'grid'</span>)
-annotate([xvector,yvector,zvector],<span class="string">'label'</span>,{<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>},<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)</pre><pre class="codeoutput"> 
+annotate([vector3d.X,vector3d.Y,vector3d.Z],<span class="string">'label'</span>,{<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>},<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)</pre><pre class="codeoutput"> 
 v = vector3d  
  size: 1 x 1
          x        y        z

@@ -159,15 +159,12 @@ legend <span class="string">off</span>
 hold <span class="string">on</span>
 plot(gB_Fo,gB_Fo.misorientation.angle./degree,<span class="string">'linewidth'</span>,1.5)
 hold <span class="string">off</span>
-mtexColorbar</pre><img src="BoundaryPlots_06.png"> <p>The more sophisticated way is to colorize the misorientation space and apply the color to the respective grain boundaries.
-            TODO: apply here patala colorcoding!!!
-         </p><pre class="codeinput">close <span class="string">all</span>
+mtexColorbar</pre><img src="BoundaryPlots_06.png"> <p>The more sophisticated way is to colorize the misorientation space and apply the color to the respective grain boundaries.</p><pre class="codeinput">close <span class="string">all</span>
 plot(grains,<span class="string">'translucent'</span>,.3)
 legend <span class="string">off</span>
 hold <span class="string">on</span>
 
-oM = axisAngleOrientationMapping(gB_Fo);
-oM.maxAngle = 180*degree;
+oM = patalaOrientationMapping(gB_Fo);
 
 plot(grains.boundary)
 hold <span class="string">on</span>

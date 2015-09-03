@@ -40,8 +40,8 @@
       <div class="container">
          <h1>Misorientations</h1>
          <div class="subheading">
-            <p>Explains how to define crystal orientations, how to switch between different convention and how to compute crystallographic
-               equivalent orientations.
+            <p>Misorientation describe the relative orientation of two grains with respect to each other. Important concepts are are twinnings
+               and CSL (coincidence site lattice),
             </p>
          </div>
          <div>
@@ -201,7 +201,7 @@ annotate(m,<span class="string">'labeled'</span>)
 legend({},<span class="string">'location'</span>,<span class="string">'NorthWest'</span>,<span class="string">'FontSize'</span>,13);</pre><img src="Misorientations_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Highlight twinning boundaries<a name="11"> </a></h2>
          <p>It turns out that in the previous EBSD map many grain boudaries have a misorientation close to the twinning misorientation
-            we just defined. Lets higlight such twinning boundaries
+            we just defined. Lets Lets higlight those twinning boundaries
          </p><pre class="codeinput"><span class="comment">% consider only Magnesium to Magnesium grain boundaries</span>
 gB = grains.boundary(<span class="string">'Mag'</span>,<span class="string">'Mag'</span>);
 <span class="comment">% check for small deviation from the twinning misorientation</span>

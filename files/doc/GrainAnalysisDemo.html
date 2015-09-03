@@ -75,16 +75,13 @@ grains = grain2d
  Properties: GOS, meanRotation
  
 </pre><h2>Plot grain boundaries and phase<a name="7"> </a></h2>
-         <p>(RoI) Detailed phase map with measurement locations and reconstructed grain boundaries.</p><pre class="codeinput">hold <span class="string">on</span>
-plot(ebsd_region)
+         <p>(RoI) Detailed phase map with measurement locations and reconstructed grain boundaries.</p><pre class="codeinput">plot(ebsd_region)
 hold <span class="string">on</span>
 plot(grains.boundary,<span class="string">'color'</span>,<span class="string">'k'</span>)
-hold <span class="string">off</span>
-<span class="comment">% set(gcf,'renderer','zbuffer')</span></pre><img src="GrainAnalysisDemo_03.png"> <p>(RoI) Individual orientation measurements of quartz together with the grain boundaries.</p><pre class="codeinput">plot(grains({<span class="string">'Andesina'</span>,<span class="string">'Biotite'</span>,<span class="string">'Orthoclase'</span>}),<span class="string">'FaceAlpha'</span>,0.2)
-hold <span class="string">on</span>
-plot(grains.boundary,<span class="string">'color'</span>,<span class="string">'black'</span>);
+hold <span class="string">off</span></pre><img src="GrainAnalysisDemo_03.png"> <p>(RoI) Individual orientation measurements of quartz together with the grain boundaries.</p><pre class="codeinput">plot(grains({<span class="string">'Andesina'</span>,<span class="string">'Biotite'</span>,<span class="string">'Orthoclase'</span>}),<span class="string">'FaceAlpha'</span>,0.2)
 hold <span class="string">on</span>
 plot(ebsd_region(<span class="string">'Quartz'</span>))
+plot(grains.boundary,<span class="string">'color'</span>,<span class="string">'black'</span>);
 legend <span class="string">off</span>
 hold <span class="string">off</span></pre><img src="GrainAnalysisDemo_04.png"> <p>colored according to the false color map of its inverse polefigure</p><pre class="codeinput">close <span class="string">all</span>
 oM = ipdfHSVOrientationMapping(ebsd_region(<span class="string">'Quartz'</span>));

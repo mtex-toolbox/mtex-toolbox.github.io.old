@@ -61,15 +61,7 @@
 ebsd = loadEBSD(fullfile(mtexDataPath,<span class="string">'EBSD'</span>,<span class="string">'Forsterite.ctf'</span>),<span class="keyword">...</span>
   <span class="string">'convertEuler2SpatialReferenceFrame'</span>);
 
-plot(ebsd)</pre><pre class="codeoutput">******************************************************
-* /home/hielscher/mtex/master/data/EBSD/Forsterite.ctf
-* read mode: auto
-* 1141 data lines analysed
-* 18 header line(s)
-* 11 data column(s)
-* 0 string replacement(s)
-******************************************************
-</pre><img src="AnalyzeEBSDData_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+plot(ebsd)</pre><img src="AnalyzeEBSDData_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Orientation plot<a name="5"> </a></h2>
          <p>We start our investiagations of the Forsterite phase by plotting some pole figures</p><pre class="codeinput">cs = ebsd(<span class="string">'Forsterite'</span>).CS <span class="comment">% the crystal symmetry of the forsterite phase</span>
 h = [Miller(1,0,0,cs),Miller(0,1,0,cs),Miller(0,0,1,cs)];
