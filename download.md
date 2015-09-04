@@ -6,7 +6,7 @@ layout: main
 ### Installation ###
 
 1. download and extract the zip file to an arbitrary folder
-2. start Matlab
+2. start Matlab (version 2012b or newer required - older versions have not been tested)
 3. change the current folder in Matlab to the folder where MTEX is installed
 4. type `startup_mtex` into the command window
 
