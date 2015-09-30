@@ -9,7 +9,7 @@ textures by means of EBSD or pole figure data.
 ### News
 
 * Chemnitz MTEX Workshop 2016: ・[Announcement](https://groups.google.com/forum/#!topic/mtexmail/SqH6sn6R9VE) ・[Homepage](http://www-user.tu-chemnitz.de/~rahi/mtexWorkshop16)・[Registration](http://www-user.tu-chemnitz.de/~rahi/mtexWorkshop16/registration.php)・
-* MTEX 4.1.2 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.1.2/mtex-4.1.2.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
+* MTEX 4.1.3 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.1.3/mtex-4.1.3.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
 
 ### Requirements and Licensing
 
