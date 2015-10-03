@@ -85,7 +85,7 @@ CS = grains.CS</pre><pre class="codeoutput">
 grains = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1     121   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1     103   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  
@@ -113,7 +113,7 @@ ebsd = EBSD
 grains = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1     121   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1     103   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  
@@ -135,15 +135,15 @@ CS = crystalSymmetry
 gB = grainBoundary  
  
  Segments   mineral 1  mineral 2
-      606  notIndexed  Magnesium
-     3219   Magnesium  Magnesium
+     1208  notIndexed  Magnesium
+     5230   Magnesium  Magnesium
 </pre><p>The output tells us that we have 3219 Magnesium to Magnesium boundary segments and 606 boundary segements where the grains
             are cutted by the scanning boundary. To restrict the grain boundaries to a specific phase transistion you shall do
          </p><pre class="codeinput">gB_MgMg = gB(<span class="string">'Magnesium'</span>,<span class="string">'Magnesium'</span>)</pre><pre class="codeoutput"> 
 gB_MgMg = grainBoundary  
  
  Segments  mineral 1  mineral 2
-     3219  Magnesium  Magnesium
+     5230  Magnesium  Magnesium
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Properties of grain boundaries<a name="6"> </a></h2>
          <p>A variable of type grain boundary contains the following properties</p>
@@ -200,7 +200,7 @@ hold <span class="string">off</span></pre><pre class="codeoutput">
 twinBoundary = grainBoundary  
  
  Segments  mineral 1  mineral 2
-     1757  Magnesium  Magnesium
+     2817  Magnesium  Magnesium
   I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
@@ -227,9 +227,15 @@ hold <span class="string">off</span></pre><img src="TwinningAnalysis_04.png"> <p
 childs = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1      24    3789  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1       6    1460  Magnesium     6/mmm        X||a*, Y||b, Z||c
  
- Properties: GOS, meanRotation
+ Id   Phase   Pixels          GOS   phi1   Phi   phi2
+ 17       1       11   0.00641042    153    19    203
+ 35       1       92   0.00709537    155    19    202
+ 37       1      560    0.0128808     30    75    194
+ 39       1      422   0.00755447    154    18    203
+ 41       1      345    0.0126356     30    75    195
+ 42       1       30   0.00963634    159    18    199
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Calculate the twinned area<a name="13"> </a></h2>
@@ -237,7 +243,7 @@ childs = grain2d
 
 <span class="comment">% compute the area fraction</span>
 sum(area(grains(twinId))) / sum(area(grains)) * 100</pre><pre class="codeoutput">ans =
-   82.4595
+   82.4652
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Setting Up the EBSD Data for the Merged Grains<a name="14"> </a></h2>
          <p>Note that the Id's of the merged grains does not fit to the grainIds stored in the initial ebsd variable. As a consequence,

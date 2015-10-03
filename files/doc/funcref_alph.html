@@ -39,9 +39,7 @@
             <td>determine optimal size</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.affinetrans.html"><tt>affinetrans</tt></a><span>   (EBSD)</span></td>
-            <td>perform an affine transformation on spatial ebsd data  Input ebsd - @EBSD A    - transformation matrix or homogeneous
-               coordinates, e.g.   [1 0;0 1]  or  [1 0 dy; 0 1 dx; 0 0 1 ]  b    - shift term  Output transformed ebsd - @EBSD
-            </td>
+            <td>perform an affine transformation on spatial ebsd data</td>
             <tr></tr>
             <td width="250px"><a href="symmetry.alignment.html"><tt>alignment</tt></a><span>   (symmetry)</span></td>
             <td>return alignment of the reference frame as string, e.g. x||a, y||b*</td>
@@ -74,7 +72,7 @@
             <td>compute rgb values from angle and radius</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.area.html"><tt>area</tt></a><span>   (grain2d)</span></td>
-            <td>calculates the area of a list of grains  Input grains - @grain2d  Output A  - list of areas</td>
+            <td>calculates the area of a list of grains</td>
             <tr></tr>
             <td width="250px"><a href="argin_check.html"><tt>argin_check</tt></a></td>
             <td>check ar to be of class classes</td>
@@ -83,9 +81,7 @@
             <td>plot three dimensional arrows</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.aspectRatio.html"><tt>aspectRatio</tt></a><span>   (grain2d)</span></td>
-            <td>calculates the aspectratio of grain  the aspect ratio is the ratio between the two &lt;grain2d.principalcomponents.html,principal
-               componentes&gt; of a grain  Input g - @grain2d  Output asp   - aspect--ratio  See also grain2d/principalcomponents
-            </td>
+            <td>calculates the aspectratio of grain</td>
             <tr></tr>
             <td width="250px"><a href="assert_grid.html"><tt>assert_grid</tt></a></td>
             <td>check for valid grid parameters</td>
@@ -140,9 +136,7 @@
             <td>biased cross validation</td>
             <tr></tr>
             <td width="250px"><a href="orientation.bingham_test.html"><tt>bingham_test</tt></a><span>   (orientation)</span></td>
-            <td>bingham test for spherical/prolat/oblat case  Input ori      - @orientation  Options spherical - test case prolate
-                  - oblate     -  c_hat     - test without kappas  See also evalkappa c_hat
-            </td>
+            <td>bingham test for spherical/prolat/oblat case</td>
             <tr></tr>
             <td width="250px"><a href="BinghamODF.html"><tt>BinghamODF</tt></a></td>
             <td>defines a Bingham distributed ODF</td>
@@ -160,7 +154,7 @@
             <td>compute boundary points</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.boundarySize.html"><tt>boundarySize</tt></a><span>   (grain2d)</span></td>
-            <td>number of boundary segment  Input grains - @grain2d  Output bS - number of boundary segment  Syntax peri = grains.boundarySize</td>
+            <td>number of boundary segment</td>
             <tr></tr>
             <td width="250px"><a href="brassOrientation.html"><tt>brassOrientation</tt></a></td>
             <td>returns the cube orientation</td>
@@ -173,9 +167,7 @@
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="c_hat.html"><tt>c_hat</tt></a></td>
-            <td>return the second moments for bingham test  Input o   -  @EBSD / @orientation / @grain  Output chat  - 4x4 tensor 
-               T     - eigenvalues Tv    - eigenvectors n     - number of points  See also bingham_test
-            </td>
+            <td>return the second moments for bingham test</td>
             <tr></tr>
             <td width="250px"><a href="calc_flags.html"><tt>calc_flags</tt></a></td>
             <td>check for optional flag</td>
@@ -184,9 +176,7 @@
             <td>compute the angle distribution of an ODF or an MDF</td>
             <tr></tr>
             <td width="250px"><a href="orientation.calcAngleDistribution.html"><tt>calcAngleDistribution</tt></a><span>   (orientation)</span></td>
-            <td>calculate angle distribution  Input ori   - @orientation  Flags  Output density - the density normalized such that
-               sum(density)=100 omega   - corresponding list of misorientation angles  See also EBSD/calcMisorientation plotAngleDistribution
-            </td>
+            <td>calculate angle distribution</td>
             <tr></tr>
             <td width="250px"><a href="orientationRegion.calcAngleDistribution.html"><tt>calcAngleDistribution</tt></a><span>   (orientationRegion)</span></td>
             <td>compute the angle distribution of a uniform ODF for a crystal symmetry</td>
@@ -252,18 +242,10 @@
             <td>calculate ODF from individuel orientations via kernel density estimation</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.calcGrains.html"><tt>calcGrains</tt></a><span>   (EBSD)</span></td>
-            <td>2d and 3d construction of GrainSets from spatially indexed EBSD data  Syntax grains = calcGrains(ebsd,'angle',10*degree)
-                Input ebsd   - @EBSD  Output grains  - @Grain2d | @Grain3d  Options threshold|angle - array of threshold angles per
-               phase of mis/disorientation in radians boundary        - bounds the spatial domain  Flags unitcell     - omit voronoi
-               decomposition and treat a unitcell lattice  See also GrainSet/GrainSet
-            </td>
+            <td>2d and 3d construction of GrainSets from spatially indexed EBSD data</td>
             <tr></tr>
             <td width="250px"><a href="orientation.calcKernel.html"><tt>calcKernel</tt></a><span>   (orientation)</span></td>
-            <td>compute an optimal kernel function for ODF estimation  Input ori - @orientation  Output psi    - @kernel  Options
-               method  - select a halfwidth by  * |'RuleOfThumb'|   or via cross valiadation method:  * |'LSCV'| -- least squares cross
-               valiadation * |'KLCV'| -- Kullback Leibler cross validation * |'BCV'| -- biased cross validation  See also EBSD/calcODF
-               orientation/BCV orientation/KLCV orientation/LSCV
-            </td>
+            <td>compute an optimal kernel function for ODF estimation</td>
             <tr></tr>
             <td width="250px"><a href="orientation.calcKernelODF.html"><tt>calcKernelODF</tt></a><span>   (orientation)</span></td>
             <td>calculate ODF from individuel orientations via kernel density estimation</td>
@@ -281,36 +263,19 @@
             <td>computes an MDF from individuel orientations</td>
             <tr></tr>
             <td width="250px"><a href="ODF.calcMIndex.html"><tt>calcMIndex</tt></a><span>   (ODF)</span></td>
-            <td>M-index of Skemer et al.(2005) based on the difference between uncorrelated and uniform misorientation angle distributions
-                Reference Skemer, P., Katayama, I., Jiang, Z. &amp; Karato, S.-I. (2005) The misorientation index: development of a new method
-               for calculating the strength of latticepreferred orientation. Tectonophysics, 411, 157?167.  Reference for the computational
-               method using MTEX Mainprice, D., Bachmann, F., Hielscher, R., Schaeben, H. (2014) Descriptive tools for the analysis of
-               texture projects with large datasets using MTEX: strength, symmetry and components. In: Faulkner, D. R., Mariani, E. &amp; Mecklenburgh,
-               J. (eds) Rock Deformation from Field, Experiments and Theory: A Volume in Honour of Ernie Rutter. Geological Society, London,
-               Special Publications, 409, http://dx.doi.org/10.1144/SP409.8  Input odf = @odf  Output MI = M-index  David Mainprice
-               04/01/2015
-            </td>
+            <td>M-index of Skemer et al.(2005) based on the difference between uncorrelated and uniform misorientation angle distributions</td>
             <tr></tr>
             <td width="250px"><a href="orientation.calcMIndex.html"><tt>calcMIndex</tt></a><span>   (orientation)</span></td>
             <td>TODO!!!</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.calcMisorientation.html"><tt>calcMisorientation</tt></a><span>   (EBSD)</span></td>
-            <td>calculate uncorelated misorientations between two ebsd phases  Syntax mori = calcMisorientation(ebsd,'sampleSize',1000)
-               mori = calcMisorientation(ebsd,'minDistance',100) mori = calcMisorientation(ebsd1,ebsd2) [ori1,ori2] = calcMisorientation(ebsd1)
-               plot(axis(ori1,ori2))  Input  ebsd, ebsd1, ebsd2 - @EBSD  Output m - @orientation, such that  $$m = (g{_i}^{--1}*CS^{--1})
-               * (CS *\circ g_j)$$  for two neighbored orientations $g_i, g_j$ with crystal @symmetry $CS$ of  the same phase located
-               on a grain boundary.  See also
-            </td>
+            <td>calculate uncorelated misorientations between two ebsd phases</td>
             <tr></tr>
             <td width="250px"><a href="BinghamComponent.calcModes.html"><tt>calcModes</tt></a><span>   (BinghamComponent)</span></td>
             <td>return the modes of the component</td>
             <tr></tr>
             <td width="250px"><a href="ODF.calcModes.html"><tt>calcModes</tt></a><span>   (ODF)</span></td>
-            <td>heuristic to find modal orientations  Syntax [modes, values] = calcModes(odf,n)  Input odf - @ODF  n   - number of
-               modes  Output modes - modal @orientation values - values of the ODF at the modal @orientation  Options resolution 
-               - search--grid resolution accuracy    - in radians  Example find the local maxima of the [[SantaFe.html,SantaFe]] ODF
-                mode = calcModes(SantaFe) plotPDF(SantaFe,Miller(0,0,1)) annotate(mode)  See also ODF/max
-            </td>
+            <td>heuristic to find modal orientations</td>
             <tr></tr>
             <td width="250px"><a href="ODFComponent.calcModes.html"><tt>calcModes</tt></a><span>   (ODFComponent)</span></td>
             <td>return the modes of the component</td>
@@ -376,14 +341,7 @@
             <td>shear stress</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.calcTensor.html"><tt>calcTensor</tt></a><span>   (EBSD)</span></td>
-            <td>compute the average tensor for an EBSD data set  Syntax [TVoigt, TReuss, THill] = calcTensor(ebsd,T_phase1,T_phase2,...)
-               - returns the Voigt--, Reuss-- and Hill-- @tensor, applies each tensor given in order of input to each phase  [TVoigt,
-               TReuss, THill] = calcTensor(ebsd('phase2'),T_phase2) - returns the Voigt--, Reuss-- and Hill-- @tensor, applies a tensor
-               on a given phase  THill = calcTensor(ebsd,T_phase1,T_phase2,'Hill') - returns the specified @tensor, i.e. 'Hill' in this
-               case  TVoigt = calcTensor(ebsd,T_phase1,T_phase2,'geometricMean') - use geometric mean instead of arithmetric one  Input
-               ebsd     - @EBSD T_phaseN - @tensor for the N--th phase  Output T    - @tensor  Options Voigt - voigt mean Reuss -
-               reuss mean Hill  - hill mean  See also
-            </td>
+            <td>compute the average tensor for an EBSD data set</td>
             <tr></tr>
             <td width="250px"><a href="FourierComponent.calcTensor.html"><tt>calcTensor</tt></a><span>   (FourierComponent)</span></td>
             <td>compute the average tensor for an ODF</td>
@@ -395,44 +353,28 @@
             <td>compute the average tensor for an ODF</td>
             <tr></tr>
             <td width="250px"><a href="orientation.calcTensor.html"><tt>calcTensor</tt></a><span>   (orientation)</span></td>
-            <td>compute the average tensor for a vector of orientations  Syntax %returns the Voigt--, Reuss-- and Hill-- average @tensor
-               of T [TVoigt, TReuss, THill] = calcTensor(ori,T,'weights',w) -   % returns the specified @tensor, i.e. 'Hill' in this case
-               THill = calcTensor(ori,T,'Hill')  % uses geometric mean instead of arithmetric one TVoigt = calcTensor(ori,T,'geometricMean')
-                Input ori     - @orientation T       - @tensor w       - weights for each orientation  Output TVoigt, TReuss, THill
-               - @tensor  Options Voigt - voigt mean Reuss - reuss mean Hill  - hill mean  See also
-            </td>
+            <td>compute the average tensor for a vector of orientations</td>
             <tr></tr>
             <td width="250px"><a href="calcUnitCell.html"><tt>calcUnitCell</tt></a></td>
-            <td>compute the unit cell for an EBSD data set  Input xy - spatial coordinates  Output unitCell - coordinates of the unit
-               cell  Options  GridType - [automatic, hexagonal, rectangular]
-            </td>
+            <td>compute the unit cell for an EBSD data set</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.calcVoronoi.html"><tt>calcVoronoi</tt></a><span>   (quaternion)</span></td>
-            <td>compute the the Voronoi decomposition for unit quaternions  Input q - @quaternion  Output V - Voronoi--Vertices C -
-               Voronoi--Cells containing the index to the Voronoi--Vertex  See also S2Grid\calcVoronoi voronoin
-            </td>
+            <td>compute the the Voronoi decomposition for unit quaternions</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.calcVoronoi.html"><tt>calcVoronoi</tt></a><span>   (vector3d)</span></td>
-            <td>compute the area of the Voronoi decomposition  Input v - @vector3d  Output V - list of Voronoi--Vertices C - cell array
-               of Voronoi--Vertices per generator  See also voronoin
-            </td>
+            <td>compute the area of the Voronoi decomposition</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.calcVoronoiArea.html"><tt>calcVoronoiArea</tt></a><span>   (vector3d)</span></td>
             <td>compute the area of the Voronoi decomposition</td>
             <tr></tr>
             <td width="250px"><a href="call_extern.html"><tt>call_extern</tt></a></td>
-            <td>execute extern program with arguments  Syntax varargout = call_extern(prg,variable_name,variable_value,...,flags,....)
-                Input prg            - command to be executed varaiable_name - name of a variable varaiable_name - value of a variable
-                Flags SILENT VERBOSE EXTERN INTERN  Output varagout - list of output parameters
-            </td>
+            <td>execute extern program with arguments</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.cat.html"><tt>cat</tt></a><span>   (EBSD)</span></td>
             <td>overloads [ebsd1,ebsd2,ebsd3..]</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.cat.html"><tt>cat</tt></a><span>   (grain2d)</span></td>
-            <td>concatenation of grains from the same GrainSet  Syntax g = [grains_1, grains_2, grains_n]  Example g = [grains('fe')
-               grains('mg')] g = [grains(1:100) grains(500:end)]  See also GrainSet/vertcat
-            </td>
+            <td>concatenation of grains from the same GrainSet</td>
             <tr></tr>
             <td width="250px"><a href="PoleFigure.cat.html"><tt>cat</tt></a><span>   (PoleFigure)</span></td>
             <td></td>
@@ -456,20 +398,7 @@
             <td>write cellstring to file</td>
             <tr></tr>
             <td width="250px"><a href="ODF.centerSpecimen.html"><tt>centerSpecimen</tt></a><span>   (ODF)</span></td>
-            <td>rotatates an odf with specimen symmetry into its symmetry axes  centerSpecimen(odf,center) trys to find the normal vectors
-               of orthorhombic symmetry for the x mirror and y mirror plane and calculates an rotation needed to rotate the odf back into
-               these mirror planes. the routine starts with an lookaround grid for a given center (default xvector) to find a starting
-               value for newton iteration.  Input odf - @ODF v0  - @vector3d initial gues for a symmetry axis (default xvector)  Output
-               odf    - rotated @ODF rot    - @rotation such that rotate(odf_out,r) = odf_in v1,v2  - normal vector of the two fold symmetry
-               axes  Options SO3Grid    - a @SO3Grid the @ODF is evaluatete on delta      - specifies the opening angle for the initial
-               search grid around input center resolution - specifies the resolution for the initial search grid silent     - dont verbose
-               number of initial axes and the newton iteration  fourier    - use fourier coefficents as objective function  Example:
-               Starting with an synthetic odf with orthorhombic symmetry  CS = crystalSymmetry('cubic') SS = specimenSymmetry('orthorhombic')
-               h = [Miller(0,0,1),Miller(0,1,1),Miller(1,1,1)]; r = [ rotation('euler', 90*degree,35*degree,30*degree) ... rotation('euler',
-               90*degree,35*degree,0*degree)]  sr = SS*r; odf = unimodalODF(sr,CS);  we define a rotational displacement  r2 = rotation('euler',
-               6*degree,4*degree,0*degree) odf = rotate(odf,r2);  plotPDF(odf,h,'antipodal');  and now retrive the rotation back 
-               [odr,r,v1,v2] = centerSpecimen(odf); plotPDF(odr,h,'antipodal')
-            </td>
+            <td>rotatates an odf with specimen symmetry into its symmetry axes</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.centroid.html"><tt>centroid</tt></a><span>   (grain2d)</span></td>
             <td>calculates the barycenters of the grain polygons</td>
@@ -529,11 +458,7 @@
             <td></td>
             <tr></tr>
             <td width="250px"><a href="grain2d.checkInside.html"><tt>checkInside</tt></a><span>   (grain2d)</span></td>
-            <td>check for points or grains to be inside a big grain  Syntax isInside = checkInside(hostGrains, [x,y]) isInside = checkInside(hostGrains,
-               inclusionGrains)  Input hostGrains      - @grain2d inclusionGrains - @grain2d [x,y] - list of [x(:) y(:)] coordinates
-                Output isInside - numInclusionGrains x numHostGrains matrix  Example mtexdata small grains = calcGrains(ebsd('indexed'))
-               plot(grains(grains(75).checkInside(grains)))  See also EBSD/findByLocation grain2d/findByOrientation
-            </td>
+            <td>check for points or grains to be inside a big grain</td>
             <tr></tr>
             <td width="250px"><a href="orientationRegion.checkInside.html"><tt>checkInside</tt></a><span>   (orientationRegion)</span></td>
             <td>check for points to be inside the orientation region</td>
@@ -551,9 +476,7 @@
             <td>Christoffel tensor of an elasticity tensor for a given direction</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.circle.html"><tt>circle</tt></a><span>   (vector3d)</span></td>
-            <td>annotated a circle  Input n     - a normal @vector3d omega - an opening angle around n (default pi/2) (GreatCircle) an
-               @vector3d  Options
-            </td>
+            <td>annotated a circle</td>
             <tr></tr>
             <td width="250px"><a href="orientationRegion.cleanUp.html"><tt>cleanUp</tt></a><span>   (orientationRegion)</span></td>
             <td>testing: cs = crystalSymmetry('222'); oR = cs.fundamentalRegion;</td>
@@ -571,8 +494,8 @@
             <td>set color range for figures</td>
             <tr></tr>
             <td width="250px"><a href="clusterBreaker.html"><tt>clusterBreaker</tt></a></td>
-            <td>Recursively assigns points based on neighboring assignments If flag == 0, the point is fresh,  1, the point is set &gt;1,
-               the point belongs to a cluster that may have run into the recusion limit
+            <td>Recursively assigns points based on neighboring assignments If flag == 0, the point is fresh,  1, the point is set &gt;1, the
+               point belongs to a cluster that may have run into the recusion limit
             </td>
             <tr></tr>
             <td width="250px"><a href="S1Grid.coarser.html"><tt>coarser</tt></a><span>   (S1Grid)</span></td>
@@ -585,23 +508,19 @@
             <td>not yet implemeted</td>
             <tr></tr>
             <td width="250px"><a href="tensor.conj.html"><tt>conj</tt></a><span>   (tensor)</span></td>
-            <td>conjugate of a tensor  Input T - @tensor  Output T - @tensor</td>
+            <td>conjugate of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="connectedComponents.html"><tt>connectedComponents</tt></a></td>
             <td>label connected componentes in an graph (adjacency matrix)</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.contour.html"><tt>contour</tt></a><span>   (vector3d)</span></td>
-            <td>spherical contour plot  Syntax contour(v,data)  Input v - @vector3d data - double  Options contours - number of
-               contours  See also vector3d/plot vector3d/contourf
-            </td>
+            <td>spherical contour plot</td>
             <tr></tr>
             <td width="250px"><a href="contour3s.html"><tt>contour3s</tt></a></td>
             <td>contour-slices</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.contourf.html"><tt>contourf</tt></a><span>   (vector3d)</span></td>
-            <td>spherical filled contour plot  Syntax contourf(v,data)  Input v - @vector3d data - double  Options contours - number
-               of contours  See also vector3d/plot vector3d/contour
-            </td>
+            <td>spherical filled contour plot</td>
             <tr></tr>
             <td width="250px"><a href="FourierComponent.conv.html"><tt>conv</tt></a><span>   (FourierComponent)</span></td>
             <td>convolute ODF with kernel psi</td>
@@ -630,7 +549,7 @@
             <td></td>
             <tr></tr>
             <td width="250px"><a href="quaternion.cross.html"><tt>cross</tt></a><span>   (quaternion)</span></td>
-            <td>pointwise cross product of three quaternions  Input q1,q2,q3 - @quaternion  Output @quaternion</td>
+            <td>pointwise cross product of three quaternions</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.cross.html"><tt>cross</tt></a><span>   (vector3d)</span></td>
             <td>pointwise cross product of two vector3d</td>
@@ -642,15 +561,13 @@
             <td>computes the cross correlation for the kernel density estimator</td>
             <tr></tr>
             <td width="250px"><a href="CSL.html"><tt>CSL</tt></a></td>
-            <td>coincidence site lattice misorientations for cubic symmetry  Syntax q = CSL(sigma)  Options delta    - search radius
-               around angle or axis maxsigma -   Output  o - @orientation
-            </td>
+            <td>coincidence site lattice misorientations for cubic symmetry</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.ctranspose.html"><tt>ctranspose</tt></a><span>   (quaternion)</span></td>
             <td>transpose quaternion</td>
             <tr></tr>
             <td width="250px"><a href="tensor.ctranspose.html"><tt>ctranspose</tt></a><span>   (tensor)</span></td>
-            <td>conjugate of a tensor  Input T - @tensor  Output T - @tensor</td>
+            <td>conjugate of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.ctranspose.html"><tt>ctranspose</tt></a><span>   (vector3d)</span></td>
             <td>transpose vector</td>
@@ -729,9 +646,7 @@
             <td>standard output</td>
             <tr></tr>
             <td width="250px"><a href="grainBoundary.display.html"><tt>display</tt></a><span>   (grainBoundary)</span></td>
-            <td>standard output  id  | mineralLeft | mineralRight ---------------------------------  #ids | mineralLeft | mineralRight
-               ---------------------------------
-            </td>
+            <td>standard output</td>
             <tr></tr>
             <td width="250px"><a href="BinghamComponent.display.html"><tt>display</tt></a><span>   (BinghamComponent)</span></td>
             <td>standard output</td>
@@ -875,6 +790,9 @@
             <td width="250px"><a href="tensor.eig.html"><tt>eig</tt></a><span>   (tensor)</span></td>
             <td>compute the eigenvalues and eigenvectors of a tensor</td>
             <tr></tr>
+            <td width="250px"><a href="eig3.html"><tt>eig3</tt></a></td>
+            <td>returns the largest eigenvalue of a symmetric 3x3 matrix</td>
+            <tr></tr>
             <td width="250px"><a href="tensor.EinsteinSum.html"><tt>EinsteinSum</tt></a><span>   (tensor)</span></td>
             <td>tensor multiplication according to Einstein summation</td>
             <tr></tr>
@@ -933,14 +851,10 @@
             <td>defines a equispaced grid in the orientation space</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.equivalentPerimeter.html"><tt>equivalentPerimeter</tt></a><span>   (grain2d)</span></td>
-            <td>returns the equivalent perimeter of grain-polygon  defined as  $$ p = 2 \pi ER $$,  where $ER$ is the [[Grain2d.equivalentRadius.html,equivalent
-               radius]] of a grain  Input grains - @grain2d  Output p   - perimeter  See also grain2d/deltaarea grain2d/paris grain2d/equivalentRadius
-            </td>
+            <td>returns the equivalent perimeter of grain-polygon</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.equivalentRadius.html"><tt>equivalentRadius</tt></a><span>   (grain2d)</span></td>
-            <td>returns the equivalent radius of grain-polygon  defined as   $$ r = \sqrt{\frac{A}{\pi}} $$,  where $A$ is the [[Grain2d.area.html,area]]
-               of a grain  Input grains - @grain2d  Output r  - radius  See also grain2d/deltaarea grain2d/equivalentPerimeter grain2d/paris
-            </td>
+            <td>returns the equivalent radius of grain-polygon</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.Euler.html"><tt>Euler</tt></a><span>   (quaternion)</span></td>
             <td>quaternion to euler angle</td>
@@ -973,12 +887,10 @@
             <td>evaluate an odf at orientation g</td>
             <tr></tr>
             <td width="250px"><a href="evalkappa.html"><tt>evalkappa</tt></a></td>
-            <td>eigenvalues of orientation tensor to bingham distribution parameters  Options approximated - approximated solution of kappas
-               precision    - precision of solvus iteration    - number of newton interations  See also orientation/mean EBSD/mean BinghamODF
-            </td>
+            <td>eigenvalues of orientation tensor to bingham distribution parameters</td>
             <tr></tr>
             <td width="250px"><a href="tensor.expm.html"><tt>expm</tt></a><span>   (tensor)</span></td>
-            <td>matrix exponential of a tensor  Input T - @tensor  Output T - @tensor</td>
+            <td>matrix exponential of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.export.html"><tt>export</tt></a><span>   (EBSD)</span></td>
             <td>export EBSD data to a ascii file</td>
@@ -1014,7 +926,7 @@
             <td>matrix exponential to convert skew symmetric matrices into quaternions</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.extend.html"><tt>extend</tt></a><span>   (EBSD)</span></td>
-            <td>returns the boundings of spatial EBSD data  Output ext - extend as [xmin xmax ymin ymax zmin zmax]</td>
+            <td>returns the boundings of spatial EBSD data</td>
             <tr></tr>
             <td width="250px"><a href="extract_argoption.html"><tt>extract_argoption</tt></a></td>
             <td>extract options from option list</td>
@@ -1075,9 +987,7 @@
             <td>extrapolate spatial EBSD data by nearest neighbour for tetragonal lattice</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.fillByGrainId.html"><tt>fillByGrainId</tt></a><span>   (EBSD)</span></td>
-            <td>extrapolate spatial EBSD data by nearest neighbour for tetragonal lattice  Input ebsd - @EBSD  Example ebsd_filled =
-               fill(ebsd)
-            </td>
+            <td>extrapolate spatial EBSD data by nearest neighbour for tetragonal lattice</td>
             <tr></tr>
             <td width="250px"><a href="S1Grid.find.html"><tt>find</tt></a><span>   (S1Grid)</span></td>
             <td>find close points</td>
@@ -1101,27 +1011,16 @@
             <td>parse arguments list for a specific type an returns the first occurance</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.findByLocation.html"><tt>findByLocation</tt></a><span>   (EBSD)</span></td>
-            <td>select EBSD data by spatial coordinates  Input ebsd - @EBSD xy - list of [x(:) y(:)] coordinates, respectively [x(:) y(:)
-               z(:)]  Output ebsd - @EBSD subset  Example  plotx2east plot(ebsd) p = ginput(1) g = findByLocation(ebsd,p)  See
-               also EBSD/findByLocation GrainSet/findByOrientation
-            </td>
+            <td>select EBSD data by spatial coordinates</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.findByLocation.html"><tt>findByLocation</tt></a><span>   (grain2d)</span></td>
-            <td>select a grain by spatial coordinates  Input grains - @grain2d xy     - list of [x(:) y(:)] coordinates, respectively
-               [x(:) y(:) z(:)]  Output grains - list of grainIds  Example plotx2east plot(grains) p = ginput(1) id = findByLocation(grains,p);
-               hold on, plot(grains(id).boundary,'linecolor','r','lineWidth',2), hold off  See also EBSD/findByLocation GrainSet/findByOrientation
-            </td>
+            <td>select a grain by spatial coordinates</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.findByOrientation.html"><tt>findByOrientation</tt></a><span>   (EBSD)</span></td>
-            <td>select grains by orientation  Input ebsd    - @EBSD q0      - @quaternion | @rotation | @orientation  epsilon - searching
-               radius  Output ebsd - @EBSD  See also EBSD/findByLocation GrainSet/findByOrientation
-            </td>
+            <td>select grains by orientation</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.findByOrientation.html"><tt>findByOrientation</tt></a><span>   (grain2d)</span></td>
-            <td>select grains by orientation  Input grains - @GrainSet q0 - @quaternion | @rotation | @orientation  epsilon - searching
-               radius  Output grains - @GrainSet  Example  g = findByOrientation(grains,idquaternion,10*degree);  See also EBSD/findByLocation
-               GrainSet/findByOrientation
-            </td>
+            <td>select grains by orientation</td>
             <tr></tr>
             <td width="250px"><a href="PoleFigure.findOutlier.html"><tt>findOutlier</tt></a><span>   (PoleFigure)</span></td>
             <td>find outliers in pole figures</td>
@@ -1130,10 +1029,10 @@
             <td>find tetrahegon</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.fliplr.html"><tt>fliplr</tt></a><span>   (EBSD)</span></td>
-            <td>flip spatial ebsd-data from left to right  Input ebsd - @EBSD  Output flipped ebsd - @EBSD</td>
+            <td>flip spatial ebsd-data from left to right</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.flipud.html"><tt>flipud</tt></a><span>   (EBSD)</span></td>
-            <td>flip spatial ebsd-data from upside down  Input ebsd - @EBSD  Output flipped ebsd - @EBSD</td>
+            <td>flip spatial ebsd-data from upside down</td>
             <tr></tr>
             <td width="250px"><a href="FMC_Coarsen.html"><tt>FMC_Coarsen</tt></a></td>
             <td>Performs one coarsening step.</td>
@@ -1148,9 +1047,7 @@
             <td>get Fourier coefficients of and ODF</td>
             <tr></tr>
             <td width="250px"><a href="tensor.Fourier.html"><tt>Fourier</tt></a><span>   (tensor)</span></td>
-            <td>compute the Fourier coefficients of the tensor  Description  Input T - @tensor  Options order -   Output F - Fourier
-               coefficients as an 2*rank+1 x 2*rank + 1 matrix
-            </td>
+            <td>compute the Fourier coefficients of the tensor</td>
             <tr></tr>
             <td width="250px"><a href="ODF.FourierODF.html"><tt>FourierODF</tt></a><span>   (ODF)</span></td>
             <td>compute FourierODF from another ODF</td>
@@ -1232,17 +1129,14 @@
             <td>return number of points</td>
             <tr></tr>
             <td width="250px"><a href="guessfibre.html"><tt>guessfibre</tt></a></td>
-            <td>try to find the fibre of to given rotations by finding the eigenvector of g_1*h = g_2*h -&gt; (g_2^-1)*g_1* h = h -&gt; R*h = (lambda)*h
-                Input g1 - @rotation, @ODF g2 - @rotation  Output h -  r -  v - (in case of odf) fibre volumn  Options resolution
-               - discretisation parameter  See also fibreODF rotation
-            </td>
+            <td>try to find the fibre of to given rotations by finding the eigenvector of g_1*h = g_2*h -&gt; (g_2^-1)*g_1* h = h -&gt; R*h = (lambda)*h</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>H<a name="8"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="grain2d.hasHole.html"><tt>hasHole</tt></a><span>   (grain2d)</span></td>
-            <td>test if a grain has a hole or not  Input grains - @Grain2d  Output h  - logical array, |true| if a grain has hole</td>
+            <td>test if a grain has a hole or not</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.hist.html"><tt>hist</tt></a><span>   (grain2d)</span></td>
             <td></td>
@@ -1298,22 +1192,13 @@
             <td>calculates coordinate from one index i - index s - size of matrix</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.inpolygon.html"><tt>inpolygon</tt></a><span>   (EBSD)</span></td>
-            <td>checks which ebsd data are within given polygon  Syntax ind = inpolygon(ebsd,[xmin,ymin,dx,dy]) % select indices by rectangle
-               ind = inpolygon(ebsd,[x1 y1; x2 y2; x3 y3; x4 y4]) % select indices by poylgon ebsd = ebsd(ind) % select EBSD data by indices
-                Input ebsd    - @EBSD xmin, xmax - lower left corner of a rectangle dx, dy - extend of a rectangle x, y  - vertices
-               of a polygon  Ouput ind - logical  See also inpolygon
-            </td>
+            <td>checks which ebsd data are within given polygon</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.interp.html"><tt>interp</tt></a><span>   (vector3d)</span></td>
             <td>dirty spherical interpolation - including some smoothing</td>
             <tr></tr>
             <td width="250px"><a href="grainBoundary.intersect.html"><tt>intersect</tt></a><span>   (grainBoundary)</span></td>
-            <td>length of a boundary segment  Syntax [x,y] = intersect(gB,xy1,xy2) [x,y,segLength] = intersect(gB,xy1,xy2)  Input gb
-               - @grainBoundary xy1, xy2 coordinates of the endpoints of the line  Output x,y - list of intersection points  Example
-               mtexdata csl grains = calcGrains(ebsd) plot(grains.boundary) % define some line xy1 = [0,10];  % staring point xy2 =
-               [31,41]; % end point line([xy1(1);xy2(1)],[xy1(2);xy2(2)],'linewidth',1.5,'color','g') [x,y] = grains.boundary.intersect(xy1,xy2);
-               hold on scatter(x,y,'red') hold off % find the number of intersection points   sum(~isnan(x))
-            </td>
+            <td>length of a boundary segment</td>
             <tr></tr>
             <td width="250px"><a href="orientation.inv.html"><tt>inv</tt></a><span>   (orientation)</span></td>
             <td>inverse of an orientation</td>
@@ -1322,7 +1207,7 @@
             <td>quaternion of the inverse roation</td>
             <tr></tr>
             <td width="250px"><a href="tensor.inv.html"><tt>inv</tt></a><span>   (tensor)</span></td>
-            <td>inverse of a tensor  Input T - @tensor  Output T - @tensor</td>
+            <td>inverse of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="inversion.html"><tt>inversion</tt></a></td>
             <td>the inversion - reflection at the origin</td>
@@ -1372,6 +1257,9 @@
             <td width="250px"><a href="ispos.html"><tt>ispos</tt></a></td>
             <td>check double &gt; 0</td>
             <tr></tr>
+            <td width="250px"><a href="isRGB.html"><tt>isRGB</tt></a></td>
+            <td></td>
+            <tr></tr>
             <td width="250px"><a href="grainBoundary.isTwinning.html"><tt>isTwinning</tt></a><span>   (grainBoundary)</span></td>
             <td>Syntax</td>
             <tr></tr>
@@ -1386,12 +1274,7 @@
             <td>evaluate kernel modulo symmetries</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.KAM.html"><tt>KAM</tt></a><span>   (EBSD)</span></td>
-            <td>intergranular average misorientation angle per orientation  Syntax  % ignore misorientation angles &gt; threshold kam =
-               KAM(ebsd,'threshold',10*degree); plot(ebsd,ebsd.KAM./degree)  % ignore grain boundary misorientations [ebsd, ebsd.grainId]
-               = calcGrains(ebsd) kam = KAM(ebsd);  plot(ebsd,ebsd.KAM./degree)  % consider also second order neigbors kam = KAM(ebsd,'order',2);
-                Input ebsd - @ebsd  Options threshold - ignore misorientation angles larger then threshold order     - consider neighbors
-               of order n  See alo grain2d.GOS
-            </td>
+            <td>intergranular average misorientation angle per orientation</td>
             <tr></tr>
             <td width="250px"><a href="kde.html"><tt>kde</tt></a></td>
             <td>Reliable and extremely fast kernel density estimator for one-dimensional data; Gaussian kernel is assumed and the bandwidth
@@ -1401,18 +1284,16 @@
                n  - the number of mesh points used in the uniform discretization of the interval [MIN, MAX]; n has to be a power of two;
                if n is not a power of two, then n is rounded up to the next power of two, i.e., n is set to n=2^ceil(log2(n)); the default
                value of n is n=2^12; MIN, MAX  - defines the interval [MIN,MAX] on which the density estimate is constructed; the default
-               values of MIN and MAX are: MIN=min(data)-Range/10 and MAX=max(data)+Range/10, where Range=max(data)-min(data); OUTPUTS:
-               bandwidth - the optimal bandwidth (Gaussian kernel assumed); density - column vector of length 'n' with the values of the
-               density estimate at the grid points; xmesh   - the grid over which the density estimate is computed; - If no output is
-               requested, then the code automatically plots a graph of the density estimate. cdf  - column vector of length 'n' with the
-               values of the cdf Reference: Kernel density estimation via diffusion Z. I. Botev, J. F. Grotowski, and D. P. Kroese (2010)
-               Annals of Statistics, Volume 38, Number 5, pages 2916-2957.
+               values of MIN and MAX are: MIN=min(data)-Range/10 and MAX=max(data)+Range/10, where Range=max(data)-min(data); OUTPUTS: bandwidth
+               - the optimal bandwidth (Gaussian kernel assumed); density - column vector of length 'n' with the values of the density estimate
+               at the grid points; xmesh   - the grid over which the density estimate is computed; - If no output is requested, then the
+               code automatically plots a graph of the density estimate. cdf  - column vector of length 'n' with the values of the cdf Reference:
+               Kernel density estimation via diffusion Z. I. Botev, J. F. Grotowski, and D. P. Kroese (2010) Annals of Statistics, Volume
+               38, Number 5, pages 2916-2957.
             </td>
             <tr></tr>
             <td width="250px"><a href="vector3d.kernelDensityEstimation.html"><tt>kernelDensityEstimation</tt></a><span>   (vector3d)</span></td>
-            <td>calculates a density function out of (weighted) unit vectors  Input v   - @vector3d out - @vector3d  Options halfwidth
-               - halfwidth of a kernel kernel    - specifies a kernel weights   - vector of weights, with same length as v
-            </td>
+            <td>calculates a density function out of (weighted) unit vectors</td>
             <tr></tr>
             <td width="250px"><a href="orientation.KLCV.html"><tt>KLCV</tt></a><span>   (orientation)</span></td>
             <td>Kullback Leibler cross validation for optimal kernel estimation</td>
@@ -1434,7 +1315,7 @@
             <td>get Laue name</td>
             <tr></tr>
             <td width="250px"><a href="orientation.ldivide.html"><tt>ldivide</tt></a><span>   (orientation)</span></td>
-            <td>o .\ v   Syntax h = o .\ r  Input o - @orientation r - @vector3d  Output h - @Miller indice  See also</td>
+            <td>o .\ v</td>
             <tr></tr>
             <td width="250px"><a href="legendre0.html"><tt>legendre0</tt></a></td>
             <td>Legendrepolynome bis zur Odnung N und gibt sie als Matrix zur&#65533;ck erste Dimension -&gt; Ordnung zweite Dimension -&gt; x</td>
@@ -1470,11 +1351,7 @@
             <td>import ebsd data</td>
             <tr></tr>
             <td width="250px"><a href="loadEBSD_ACOM.html"><tt>loadEBSD_ACOM</tt></a></td>
-            <td>read ACOM files (converted from *.res ASTAR)  Syntax ebsd = loadEBSD_ACOM(fname) ebsd = loadEBSD_ACOM(fname,'convertSpatial2EulerReferenceFrame')
-               ebsd = loadEBSD_ACOM(fname,'convertEuler2SpatialReferenceFrame')  Input fname - file name  Flags convertSpatial2EulerReferenceFrame
-               - change x and y values such that spatial and Euler reference frame coincide, i.e., rotate them by 180 degree convertEuler2SpatialReferenceFrame
-               - change the Euler angles such that spatial and Euler reference frame coincide, i.e., rotate them by 180 degree
-            </td>
+            <td>read ACOM files (converted from *.res ASTAR)</td>
             <tr></tr>
             <td width="250px"><a href="loadEBSD_ang.html"><tt>loadEBSD_ang</tt></a></td>
             <td>read TSL *.ang file</td>
@@ -1519,10 +1396,7 @@
             <td>Read EBSD</td>
             <tr></tr>
             <td width="250px"><a href="loadHelper.html"><tt>loadHelper</tt></a></td>
-            <td>helps to load data-matrix with ColumnNames restricts also data according to conventions (e.g. &gt;4pi)  Input d -  (n x m)
-               matrix ColumnNames - (1 x m) cell of names Columns - (1 x m) cell of ColumnNames indizes  Options KeepNaN Radians passive
-               rotation  Output loader  - structure with some funs
-            </td>
+            <td>helps to load data-matrix with ColumnNames restricts also data according to conventions (e.g. &gt;4pi)</td>
             <tr></tr>
             <td width="250px"><a href="loadODF.html"><tt>loadODF</tt></a></td>
             <td>import ebsd data</td>
@@ -1591,7 +1465,7 @@
             <td>load philips *.txt file</td>
             <tr></tr>
             <td width="250px"><a href="loadPoleFigure_plf.html"><tt>loadPoleFigure_plf</tt></a></td>
-            <td>load plf file  Syntax pf = loadPoleFigure_plf(fname,&lt;options&gt;)  Input fname - file name  Output pf    - @PoleFigure</td>
+            <td>load plf file</td>
             <tr></tr>
             <td width="250px"><a href="loadPoleFigure_popla.html"><tt>loadPoleFigure_popla</tt></a></td>
             <td>import data fom Popla file</td>
@@ -1609,14 +1483,10 @@
             <td>import data fom ana file</td>
             <tr></tr>
             <td width="250px"><a href="loadPoleFigure_rw1.html"><tt>loadPoleFigure_rw1</tt></a></td>
-            <td>import data from Philip's Xpert binary file format rw1  Syntax pf = loadPoleFigure_rw1(fname)  Input fname  - filename
-                Output pf - vector of @PoleFigure  See also ImportPoleFigureData loadPoleFigure
-            </td>
+            <td>import data from Philip's Xpert binary file format rw1</td>
             <tr></tr>
             <td width="250px"><a href="loadPoleFigure_scintag.html"><tt>loadPoleFigure_scintag</tt></a></td>
-            <td>import data fom scintag ascii file  Syntax pf = loadPoleFigure_scintag(fname,&lt;options&gt;)  Input fname    - filename
-                Output pf - vector of @PoleFigure  See also ImportPoleFigureData loadPoleFigure
-            </td>
+            <td>import data fom scintag ascii file</td>
             <tr></tr>
             <td width="250px"><a href="loadPoleFigure_siemens.html"><tt>loadPoleFigure_siemens</tt></a></td>
             <td>load D5000 data file</td>
@@ -1634,34 +1504,16 @@
             <td>load xrdMeasurement (xrdml) file</td>
             <tr></tr>
             <td width="250px"><a href="loadTensor.html"><tt>loadTensor</tt></a></td>
-            <td>import Tensor data   Description *loadTensor* is a high level method for importing EBSD data from external files. It autodetects
-               the format of the file. As parameters the method requires a filename and the crystal and specimen @symmetry. Furthermore,
-               you can specify a comment to be associated with the data. In the case of generic ascii files each of which consist of a table
-               containing in each row the euler angles of a certain orientation see &lt;loadTensor_generic.html loadTensor_generic&gt; for additional
-               options.  Syntax T = loadTensor(fname,cs)  Input fname     - filename cs    - crystal @symmetry  Options interface
-                - specific interface to be used  Output T - @tensor
-            </td>
+            <td>import Tensor data</td>
             <tr></tr>
             <td width="250px"><a href="loadTensor_generic.html"><tt>loadTensor_generic</tt></a></td>
-            <td>load a Tensor from a file  Description   *loadEBSD_generic* is a generic function that reads any ascii file containing
-               a matrix like  e_11 e_12  ... e_1j .     .   ...  . .     .    .   . e_i1   .   ... e_ij  describing the a Tensor
-                Syntax pf   = loadTensor_generic(fname,&lt;options&gt;)  Input fname - file name (text files only)  Options name      
-                      - name of the tensor  Example  See also loadData
-            </td>
+            <td>load a Tensor from a file</td>
             <tr></tr>
             <td width="250px"><a href="loadTensor_mpod.html"><tt>loadTensor_mpod</tt></a></td>
-            <td>import Tensor data  Description *loadTensor_mod* is a high level method for importing Tensor data from external files.
-               &lt;http://www.materialproperties.org/data/ Material Properties Open Database&gt;  Syntax pf = loadTensor_mpod(fname,cs,ss,&lt;options&gt;)
-                Input fname     - filename cs, ss    - crystal, specimen @symmetry (optional)  Example download form MPOD T = loadTensor_mpod(1000055)
-               T = loadTensor_mpod('1000055.mpod')  See also loadTensor
-            </td>
+            <td>import Tensor data</td>
             <tr></tr>
             <td width="250px"><a href="loadTensor_P.html"><tt>loadTensor_P</tt></a></td>
-            <td>load a Tensor from a file  Description   *loadEBSD_generic* is a generic function that reads any ascii file containing
-               a matrix like  e_11 e_12  ... e_1j .     .   ...  . .     .    .   . e_i1   .   ... e_ij  describing the a Tensor
-                Syntax T   = loadTensor_generic(fname,&lt;options&gt;)  Input fname - file name (text files only)  Options name       
-                     - name of the tensor  Example  See also loadData
-            </td>
+            <td>load a Tensor from a file</td>
             <tr></tr>
             <td width="250px"><a href="loadVector3d.html"><tt>loadVector3d</tt></a></td>
             <td>import ebsd data</td>
@@ -1673,12 +1525,10 @@
             <td>define a equispaced grid localized to a center orientation</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.log.html"><tt>log</tt></a><span>   (quaternion)</span></td>
-            <td>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion  Syntax mat = matrix(q)
-                Input q - @quaternion  Output mat - vector of matrixes  See also mat2quat Euler axis2quat hr2quat
-            </td>
+            <td>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion</td>
             <tr></tr>
             <td width="250px"><a href="tensor.logm.html"><tt>logm</tt></a><span>   (tensor)</span></td>
-            <td>matrix logarithm of a tensor  Input T - @tensor  Output T - @tensor</td>
+            <td>matrix logarithm of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="orientation.LSCV.html"><tt>LSCV</tt></a><span>   (orientation)</span></td>
             <td>least squares cross valiadation</td>
@@ -1691,26 +1541,16 @@
             <td>converts direction cosine matrix to quaternion</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.matrix.html"><tt>matrix</tt></a><span>   (quaternion)</span></td>
-            <td>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion  Syntax mat = matrix(q)
-                Input q - @quaternion  Output mat - vector of matrixes  See also mat2quat Euler axis2quat hr2quat
-            </td>
+            <td>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion</td>
             <tr></tr>
             <td width="250px"><a href="rotation.matrix.html"><tt>matrix</tt></a><span>   (rotation)</span></td>
-            <td>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion  Syntax mat = matrix(q)
-                Input  q - @quaternion  Output  mat - vector of matrixes  See also mat2quat Euler axis2quat hr2quat
-            </td>
+            <td>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion</td>
             <tr></tr>
             <td width="250px"><a href="tensor.matrix.html"><tt>matrix</tt></a><span>   (tensor)</span></td>
-            <td>return tensor as a matrix  Syntax m = matrix(T) m = matrix(T,'voigt')  Input T - @tensor  Output m - matrix  Options
-               voigt - give a 4 rank tensor in voigt notation, i.e. as a 6 x 6 matrix  See also
-            </td>
+            <td>return tensor as a matrix</td>
             <tr></tr>
             <td width="250px"><a href="ODF.max.html"><tt>max</tt></a><span>   (ODF)</span></td>
-            <td>heuristic to find local modal orientations  Input odf - @ODF   Output m   - maximum in multiples of the uniform ODF
-               ori - @orientation where the maximum is atained  Options resolution  - search--grid resolution accuracy    - in radians
-                Example find the local maxima of the [[SantaFe.html,SantaFe]] ODF  [m,ori] = max(SantaFe) plotPDF(SantaFe,Miller(0,0,1))
-               annotate(ori)   See also ODF/calcModes
-            </td>
+            <td>heuristic to find local modal orientations</td>
             <tr></tr>
             <td width="250px"><a href="PoleFigure.max.html"><tt>max</tt></a><span>   (PoleFigure)</span></td>
             <td>maximum of two pole figures or the maximum of a single polefigure</td>
@@ -1728,50 +1568,31 @@
             <td>get the maximum angle of the fundamental region</td>
             <tr></tr>
             <td width="250px"><a href="ODF.maxpdf.html"><tt>maxpdf</tt></a><span>   (ODF)</span></td>
-            <td>returns the maximum orientation in a polefigure  Input odf - @ODF h   - @Miller</td>
+            <td>returns the maximum orientation in a polefigure</td>
             <tr></tr>
             <td width="250px"><a href="ODF.mean.html"><tt>mean</tt></a><span>   (ODF)</span></td>
-            <td>returns mean, kappas  Input odf       - @ODF  Output mean      - @orientation kappa     - parameters of bingham distribution
-               v         - eigenvectors
-            </td>
+            <td>returns mean, kappas</td>
             <tr></tr>
             <td width="250px"><a href="PoleFigure.mean.html"><tt>mean</tt></a><span>   (PoleFigure)</span></td>
             <td>mean of pole figure intensities</td>
             <tr></tr>
             <td width="250px"><a href="orientation.mean.html"><tt>mean</tt></a><span>   (orientation)</span></td>
-            <td>mean of a list of orientations, principle axes and moments of inertia  Syntax [m, lambda, V, kappa, q]  = mean(o)  Input
-               o        - list of @orientation  Options weights  - list of weights  Output m      - mean @orientation lambda - principle
-               moments of inertia V      - principle axes of inertia (@orientation) kappa  - form parameters of bingham distribution q
-                    - crystallographic equivalent @quaternion projected to fundamental region  See also BinghamODF
-            </td>
+            <td>mean of a list of orientations, principle axes and moments of inertia</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.mean.html"><tt>mean</tt></a><span>   (quaternion)</span></td>
-            <td>mean of a list of quaternions, principle axes and moments of inertia  Input q        - list of @quaternion  Options
-               weights  - list of weights  Output mean     - mean orientation lambda   - principle moments of inertia V        - principle
-               axes of inertia (@orientation)  See also orientation/mean
-            </td>
+            <td>mean of a list of quaternions, principle axes and moments of inertia</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.mean.html"><tt>mean</tt></a><span>   (vector3d)</span></td>
             <td>computes the mean vector</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.mean_CS.html"><tt>mean_CS</tt></a><span>   (quaternion)</span></td>
-            <td>fast mean of   Syntax m = mean(o)  Input o        - list of @orientation  Output m      - mean @orientation  See
-               also orientation/mean
-            </td>
+            <td>fast mean of</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.merge.html"><tt>merge</tt></a><span>   (grain2d)</span></td>
-            <td>merge grains along certain grain boundaries  The function merges grains where the special boundary is determined by the
-               function &lt;GrainSet.specialBoundary.html specialBoundary&gt;  Input grains   - @grain2d boundary - @grainBoundary  Output
-               grains_merged - @grain2d parentId      - a list of the same size as grains containing the ids of the merged grains  Example:
-                mtexdata small grains = smooth(calcGrains(ebsd))  % merge all neigbouring Diopside grains gB = grains.boundary('Diopside','Diopside')
-               [grains_m,parentId] = merge(grains,gB)
-            </td>
+            <td>merge grains along certain grain boundaries</td>
             <tr></tr>
             <td width="250px"><a href="mhyper.html"><tt>mhyper</tt></a></td>
-            <td>multivariat hypergeometric function 1F1(1/2,p/2, kappa)  reference: G. HILLIER, R. KAN, and X. WANG: Computationally Efficient
-               Recursions for Top-Order Invariant Polynomials with Applications in Econometric Theory, 25(1), 211-242, 2009. http://www.rotman.utoronto.ca/~kan/papers/zonal5.pdf
-               with many thanks to Raymond Kan
-            </td>
+            <td>multivariat hypergeometric function 1F1(1/2,p/2, kappa)</td>
             <tr></tr>
             <td width="250px"><a href="Miller2quat.html"><tt>Miller2quat</tt></a></td>
             <td>calculate quaternion from Miller indece</td>
@@ -1825,9 +1646,7 @@
             <td>scaling of the ODF</td>
             <tr></tr>
             <td width="250px"><a href="PoleFigure.mrdivide.html"><tt>mrdivide</tt></a><span>   (PoleFigure)</span></td>
-            <td>implements pf1 ./ b and a ./ pf2  overload the .* operator, i.e. one can now write x .* pf in order to scale the @PoleFigure
-               pf by the factor x   See also PoleFigure_index PoleFigure/plus PoleFigure/minus
-            </td>
+            <td>implements pf1 ./ b and a ./ pf2</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.mrdivide.html"><tt>mrdivide</tt></a><span>   (quaternion)</span></td>
             <td>scalar division</td>
@@ -1851,11 +1670,7 @@
             <td>define an MTEX colormap</td>
             <tr></tr>
             <td width="250px"><a href="mtexdata.html"><tt>mtexdata</tt></a></td>
-            <td>load of data provided with mtex and often used in documentation  Syntax mtexdata        % displays a list of available
-               loading routines mtexdata name   % loads specified data set  Input  Flags aachen - 3d - serial section 3d EBSD data
-               from Leo Kestens mylonite - collected by Daniel Rutte (Brad R. Hacker) epidote - data provided by David Mainprice  dubna
-               - collected by Florian Wobbe at Dubna ptx - geesthacht -   See also
-            </td>
+            <td>load of data provided with mtex and often used in documentation</td>
             <tr></tr>
             <td width="250px"><a href="mtexDataPath.html"><tt>mtexDataPath</tt></a></td>
             <td>returns the default path to mtex sample data</td>
@@ -1964,19 +1779,10 @@
             <td>? v1 == v2</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.neighbors.html"><tt>neighbors</tt></a><span>   (grain2d)</span></td>
-            <td>returns the number of neighboring grains  Input grains - @GrainSet  Output counts - number of neighbors per grain pairs
-                - index list of size N x 2, where   $$N = 2 \sum n_i $$ is the total number of neighborhood relations (without self--reference).
-                pairs(i,:) give the indexes of two neighbored grains, i.e   neighbor_gr = grains(pairs(1,:))  selects two neighbored
-               grains.
-            </td>
+            <td>returns the number of neighboring grains</td>
             <tr></tr>
             <td width="250px"><a href="ODF.neuralgas.html"><tt>neuralgas</tt></a><span>   (ODF)</span></td>
-            <td>attempt to distribute measure-sites equally according to invers polefigure density (experimental)  Input odf - @ODF h
-                 - @Miller  Options Grid    - @S2Grid, reference Grid to evaluate PDF resolution - Grid Resolution maxtheta - max Theta
-               of Grid Points  - number of Points epoches - number of Iterations eta     - 'learing--rate' as vector: [eta_start eta_stop],
-               default [0.1 0.02] lambda  - stimuli of  verbose - display points during optimisation  Example S2G = neuralgas(odf,Miller(1,0,0,cs),'points',500,'epoches',25)
-                See also S2Grid/refine
-            </td>
+            <td>attempt to distribute measure-sites equally according to invers polefigure density (experimental)</td>
             <tr></tr>
             <td width="250px"><a href="newer_version.html"><tt>newer_version</tt></a></td>
             <td>check matlab version</td>
@@ -1991,9 +1797,7 @@
             <td>generate a new ODF section plot</td>
             <tr></tr>
             <td width="250px"><a href="newSphericalPlot.html"><tt>newSphericalPlot</tt></a></td>
-            <td>split plot in upper and lower hemisphere  1: axis given -&gt; no sphericalRegion stored -&gt; compute sphericalRegion -&gt; finish
-               2: axis is hold and has sphericalRegion -&gt; use multiplot 3: new multiplot
-            </td>
+            <td>split plot in upper and lower hemisphere</td>
             <tr></tr>
             <td width="250px"><a href="mtexFigure.nextAxis.html"><tt>nextAxis</tt></a><span>   (mtexFigure)</span></td>
             <td>go to next plot</td>
@@ -2078,7 +1882,7 @@
             <td></td>
             <tr></tr>
             <td width="250px"><a href="vector3d.pcolor.html"><tt>pcolor</tt></a><span>   (vector3d)</span></td>
-            <td>spherical contour plot  Syntax pcolor(v,data)  Input v - @vector3d data - double  See also vector3d/plot vector3d/contourf</td>
+            <td>spherical contour plot</td>
             <tr></tr>
             <td width="250px"><a href="femComponent.pdfMatrix.html"><tt>pdfMatrix</tt></a><span>   (femComponent)</span></td>
             <td>called by pdf</td>
@@ -2087,16 +1891,10 @@
             <td>called by pdf</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.perimeter.html"><tt>perimeter</tt></a><span>   (grain2d)</span></td>
-            <td>calculates the perimeter of a grain, without holes  Input grains - @grain2d  Output peri - perimeter  Syntax peri
-               = grains.perimeter  See also grain2d/equivalentPerimeter
-            </td>
+            <td>calculates the perimeter of a grain without holes</td>
             <tr></tr>
             <td width="250px"><a href="grainBoundary.perimeter.html"><tt>perimeter</tt></a><span>   (grainBoundary)</span></td>
-            <td>boundary length  Input gb - @grainBoundary  Output peri    - perimeter  Syntax p = perimeter(grains.boundary) - 
-                p = perimeter(grains,10*degree) - returns the length of low angle boundaries per grain  p = perimeter(grains,CSL(3))
-               - returns the length of special boundaries per grains  p = perimeter(grains,property,...,param,val,...) -  See also
-               Grain2d/equivalentPerimeter
-            </td>
+            <td>boundary length per grain including holes</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.permute.html"><tt>permute</tt></a><span>   (quaternion)</span></td>
             <td>overloads permute</td>
@@ -2123,16 +1921,10 @@
             <td>spatial EBSD plot</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.plot.html"><tt>plot</tt></a><span>   (grain2d)</span></td>
-            <td>colorize grains  Syntax plot(grains)          % colorize by phase plot(grains,property) % colorize by property  Input
-               grains  - @grain2d  PatchProperty - see documentation of patch objects for manipulating the apperance, e.g. 'EdgeColor'
-               See also EBSD/plot grainBoundary/plot
-            </td>
+            <td>colorize grains</td>
             <tr></tr>
             <td width="250px"><a href="grainBoundary.plot.html"><tt>plot</tt></a><span>   (grainBoundary)</span></td>
-            <td>plot grain boundaries  The function plots grain boundaries where the boundary is determined by the function &lt;GrainSet.specialBoundary.html
-               specialBoundary&gt;  Syntax plot(grains.boundary) plot(grains.innerBoundary,'linecolor','r') plot(gB('Forsterite','Forsterite'),gB('Forsterite','Forsterite').misorientation.angle)
-                Input grains  - @grainBoundary  Options linewidth linecolor
-            </td>
+            <td>plot grain boundaries</td>
             <tr></tr>
             <td width="250px"><a href="ODF.plot.html"><tt>plot</tt></a><span>   (ODF)</span></td>
             <td>plots odf</td>
@@ -2162,9 +1954,7 @@
             <td>visualize symmetry elements according to international table</td>
             <tr></tr>
             <td width="250px"><a href="tensor.plot.html"><tt>plot</tt></a><span>   (tensor)</span></td>
-            <td>plot a tensor T  Input T - @tensor  Options plotType - directionalMagnitude YoungsModulus linearCompressibility velocity'
-               3d - plot surface of plotType instead of spherical projection section - plot a section  -- @vector3d - of given plane normal
-            </td>
+            <td>plot a tensor T</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.plot.html"><tt>plot</tt></a><span>   (vector3d)</span></td>
             <td>plot three dimensional vector</td>
@@ -2191,7 +1981,7 @@
             <td>plot axis distribution</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.plotCustom.html"><tt>plotCustom</tt></a><span>   (vector3d)</span></td>
-            <td>Syntax plotcustom(v,@(x,y) drawCommand(x,y))  %  Input v  - @vector3d s  - string  Options  Output  See also</td>
+            <td>Syntax plotcustom(v,@(x,y) drawCommand(x,y))  %</td>
             <tr></tr>
             <td width="250px"><a href="ODF.plotDiff.html"><tt>plotDiff</tt></a><span>   (ODF)</span></td>
             <td>difference plot between two odfs or an odf and a pole figure</td>
@@ -2278,10 +2068,7 @@
             <td>poitwise addition</td>
             <tr></tr>
             <td width="250px"><a href="tensor.PoissonRatio.html"><tt>PoissonRatio</tt></a><span>   (tensor)</span></td>
-            <td>computes the Poisson ratio of an elasticity tensor  Input C - elastic compliance @tensor x - @vector3d y - @vector3d
-                Output nu - Poisson ratio in directions x and y  Remarks  $$\nu = \frac{-S_{ijkl} x_i x_j y_k y_l}{S_{mnop} x_m x_n
-               x_o x_p}$$
-            </td>
+            <td>computes the Poisson ratio of an elasticity tensor</td>
             <tr></tr>
             <td width="250px"><a href="S2Grid.polar.html"><tt>polar</tt></a><span>   (S2Grid)</span></td>
             <td>polar coordinates of S2Grid</td>
@@ -2296,9 +2083,7 @@
             <td>q.^n</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.principalComponents.html"><tt>principalComponents</tt></a><span>   (grain2d)</span></td>
-            <td>returns the principalcomponents of grain polygon, without Holes  Input grains - @grain2d  Output cmp   - angle of components
-               as complex v     - length of axis   See also grain2d/plotEllipse
-            </td>
+            <td>returns the principalcomponents of grain polygon, without Holes</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.prod.html"><tt>prod</tt></a><span>   (quaternion)</span></td>
             <td>overloads q1 * q2 * q3</td>
@@ -2341,26 +2126,22 @@
             <td>returns the quaternion multiplication matrix</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.qq.html"><tt>qq</tt></a><span>   (quaternion)</span></td>
-            <td>returns w * q' * q  Input q - list of quaternions w - list of weights</td>
+            <td>returns w * q' * q</td>
             <tr></tr>
             <td width="250px"><a href="orientation.qqplot.html"><tt>qqplot</tt></a><span>   (orientation)</span></td>
-            <td>quantile-quantile of misorientation angle against random angular misorientation  Example  qqplot(SO3Grid(2.5*degree,crystalSymmetry('m-3m')))</td>
+            <td>quantile-quantile of misorientation angle against random angular misorientation</td>
             <tr></tr>
             <td width="250px"><a href="tensor.quadric.html"><tt>quadric</tt></a><span>   (tensor)</span></td>
             <td>quadric</td>
             <tr></tr>
             <td width="250px"><a href="ODF.quantile.html"><tt>quantile</tt></a><span>   (ODF)</span></td>
-            <td>quantile orientations of an ODF  Syntax SO3 = quantile(odf,p,&lt;options&gt;)  Input odf - @ODF p   - upper quantile, if
-               negative lower quantile  See Also PoleFigure/quantile
-            </td>
+            <td>quantile orientations of an ODF</td>
             <tr></tr>
             <td width="250px"><a href="quantile.html"><tt>quantile</tt></a></td>
             <td>n percent quantile of x</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.quiver.html"><tt>quiver</tt></a><span>   (vector3d)</span></td>
-            <td>Syntax quiver(v,d)  Input v - @vector3d d - @vector3d    Options arrowSize     - length of the arrow autoArrowSize
-               - automatically determine the length of the arrow MaxHeadSize   - size of the head  Output  See also
-            </td>
+            <td>Syntax quiver(v,d)</td>
             <tr></tr>
             <td width="250px"><a href="tensor.quiverGrid.html"><tt>quiverGrid</tt></a><span>   (tensor)</span></td>
             <td></td>
@@ -2391,9 +2172,7 @@
             <td>scaling of the ODF</td>
             <tr></tr>
             <td width="250px"><a href="PoleFigure.rdivide.html"><tt>rdivide</tt></a><span>   (PoleFigure)</span></td>
-            <td>implements pf1 ./ b and a ./ pf2  overload the .* operator, i.e. one can now write x .* pf in order to scale the @PoleFigure
-               pf by the factor x   See also PoleFigure_index PoleFigure/plus PoleFigure/minus
-            </td>
+            <td>implements pf1 ./ b and a ./ pf2</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.rdivide.html"><tt>rdivide</tt></a><span>   (quaternion)</span></td>
             <td>scalar division</td>
@@ -2412,6 +2191,9 @@
             <tr></tr>
             <td width="250px"><a href="red2blueColorMap.html"><tt>red2blueColorMap</tt></a></td>
             <td>creates a colormap, ranging from dark blue via white to dark red.</td>
+            <tr></tr>
+            <td width="250px"><a href="EBSD.reduce.html"><tt>reduce</tt></a><span>   (EBSD)</span></td>
+            <td>reduce ebsd data by a factor</td>
             <tr></tr>
             <td width="250px"><a href="DelaunaySO3.refine.html"><tt>refine</tt></a><span>   (DelaunaySO3)</span></td>
             <td>step 1: compute center of any two orientation connected by an edge</td>
@@ -2522,7 +2304,7 @@
             <td>rotates pole figures by a certain rotation</td>
             <tr></tr>
             <td width="250px"><a href="Miller.rotate.html"><tt>rotate</tt></a><span>   (Miller)</span></td>
-            <td>rotate crystal directions  Input m - @Miller ori - @orientation  Output v - vector3d</td>
+            <td>rotate crystal directions</td>
             <tr></tr>
             <td width="250px"><a href="orientationRegion.rotate.html"><tt>rotate</tt></a><span>   (orientationRegion)</span></td>
             <td>rotate of a orientation region</td>
@@ -2531,9 +2313,7 @@
             <td>rotate of a spherical region</td>
             <tr></tr>
             <td width="250px"><a href="tensor.rotate.html"><tt>rotate</tt></a><span>   (tensor)</span></td>
-            <td>rotate a tensor by a list of rotations  Description  $$T_{rst} = T_{ijk} R_{ri} R_{sj} R_{tk}$$  Input T - @tensor
-               R - @rotation or rotation matrix or a list of them  Output T - rotated @tensor
-            </td>
+            <td>rotate a tensor by a list of rotations</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.rotate.html"><tt>rotate</tt></a><span>   (vector3d)</span></td>
             <td>rotate vector3d by quaternion</td>
@@ -2588,7 +2368,7 @@
             <td></td>
             <tr></tr>
             <td width="250px"><a href="grainBoundary.segLength.html"><tt>segLength</tt></a><span>   (grainBoundary)</span></td>
-            <td>length of a boundary segment  Input gb - @grainBoundary  Output l - length of the boundary segments</td>
+            <td>length of a boundary segment</td>
             <tr></tr>
             <td width="250px"><a href="PoleFigure.select.html"><tt>select</tt></a><span>   (PoleFigure)</span></td>
             <td>select PoleFigures</td>
@@ -2633,16 +2413,13 @@
             <td>indexing of quaternions</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.shapeFactor.html"><tt>shapeFactor</tt></a><span>   (grain2d)</span></td>
-            <td>calculates the shapefactor of the grain-polygon, without Holes  define as  $$ F = \frac{P}{EP} $$,  where $P$ is the
-               [[Grain2d.perimeter.html,perimeter]] and  $EP$ is the [[Grain2d.equivalentPerimeter.html,equivalent perimeter]].  Input
-               p - @grain2d  Output F    - shapefactor  See also polygon/aspectRatio polygon/equivalentPerimeter polygon/perimeter
-            </td>
+            <td>calculates the shapefactor of the grain-polygon, without Holes</td>
             <tr></tr>
             <td width="250px"><a href="tensor.shearModulus.html"><tt>shearModulus</tt></a><span>   (tensor)</span></td>
             <td>shear modulus for an elasticity tensor</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.shift.html"><tt>shift</tt></a><span>   (EBSD)</span></td>
-            <td>shift spatial ebsd-data about (x,y)  Input ebsd - @EBSD xy   - coordinates  Output shifted ebsd - @EBSD</td>
+            <td>shift spatial ebsd-data about (x,y)</td>
             <tr></tr>
             <td width="250px"><a href="S1Grid.shift.html"><tt>shift</tt></a><span>   (S1Grid)</span></td>
             <td>shifts S1Grid by delta</td>
@@ -2666,13 +2443,7 @@
             <td>| grad(r) |</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.smooth.html"><tt>smooth</tt></a><span>   (EBSD)</span></td>
-            <td>smooth spatial EBSD   Input ebsd - @EBSD  Example mtexdata forsterite ebsd = ebsd('indexed'); % segment grains [grains,ebsd.grainId]
-               = calcGrains(ebsd)  % find largest grains largeGrains = grains(grains.grainSize&gt;800) ebsd = ebsd(largeGrains(1))  figure
-               plot(largeGrains(1).boundary,'linewidth',2) hold on oM = ipdfHSVOrientationMapping(ebsd); oM.inversePoleFigureDirection
-               = mean(ebsd.orientations) * oM.whiteCenter; oM.colorStretching = 50; plot(ebsd,oM.orientation2color(ebsd.orientations))
-               hold off  ebsd_smoothed = smooth(ebsd) plot(ebsd_smoothed('indexed'),oM.orientation2color(ebsd_smoothed('indexed').orientations))
-               hold on plot(largeGrains(1).boundary,'linewidth',2) hold off
-            </td>
+            <td>smooth spatial EBSD</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.smooth.html"><tt>smooth</tt></a><span>   (grain2d)</span></td>
             <td>constraint laplacian smoothing of grains</td>
@@ -2702,75 +2473,11 @@
             <td>plot Miller indece</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.smooth.html"><tt>smooth</tt></a><span>   (vector3d)</span></td>
-            <td>Syntax  Input  Output  Options  See also</td>
+            <td>Syntax</td>
             <tr></tr>
             <td width="250px"><a href="smoothn.html"><tt>smoothn</tt></a></td>
-            <td>SMOOTHN Robust spline smoothing for 1-D to N-D data. SMOOTHN provides a fast, automatized and robust discretized spline
-               smoothing for data of arbitrary dimension.  Z = SMOOTHN(Y) automatically smoothes the uniformly-sampled array Y. Y can
-               be any N-D noisy array (time series, images, 3D data,...). Non finite data (NaN or Inf) are treated as missing values. 
-               Z = SMOOTHN(Y,S) smoothes the array Y using the smoothing parameter S. S must be a real positive scalar. The larger S is,
-               the smoother the output will be. If the smoothing parameter S is omitted (see previous option) or empty (i.e. S = []), it
-               is automatically determined by minimizing the generalized cross-validation (GCV) score.  Z = SMOOTHN(Y,W) or Z = SMOOTHN(Y,W,S)
-               smoothes Y using a weighting array W of positive values, that must have the same size as Y. Note that a nil weight corresponds
-               to a missing value.  If you want to smooth a vector field or multicomponent data, Y must be a cell array. For example,
-               if you need to smooth a 3-D vectorial flow (Vx,Vy,Vz), use Y = {Vx,Vy,Vz}. The output Z is also a cell array which contains
-               the smoothed components. See examples 5 to 8 below.  [Z,S] = SMOOTHN(...) also returns the calculated value for the smoothness
-               parameter S so that you can fine-tune the smoothing subsequently if needed.   1) ROBUST smoothing -------------------
-               Z = SMOOTHN(...,'robust') carries out a robust smoothing that minimizes the influence of outlying data.  An iteration process
-               is used with the 'ROBUST' option, or in the presence of weighted and/or missing values. Z = SMOOTHN(...,OPTIONS) smoothes
-               with the termination parameters specified in the structure OPTIONS. OPTIONS is a structure of optional parameters that change
-               the default smoothing properties. It must be last input argument. --- The structure OPTIONS can contain the following fields:
-               ----------------- OPTIONS.TolZ:       Termination tolerance on Z (default = 1e-3), OPTIONS.TolZ must be in ]0,1[ OPTIONS.MaxIter:
-                  Maximum number of iterations allowed (default = 100) OPTIONS.Initial:    Initial value for the iterative process (default
-               = original data, Y) OPTIONS.Weight:     Weight function for robust smoothing: 'bisquare' (default), 'talworth' or 'cauchy'
-               -----------------  [Z,S,EXITFLAG] = SMOOTHN(...) returns a boolean value EXITFLAG that describes the exit condition of
-               SMOOTHN: 1       SMOOTHN converged. 0       Maximum number of iterations was reached.   2) Different spacing increments
-               ------------------------------- SMOOTHN, by default, assumes that the spacing increments are constant and equal in all the
-               directions (i.e. dx = dy = dz = ...). This means that the smoothness parameter is also similar for each direction. If the
-               increments differ from one direction to the other, it can be useful to adapt these smoothness parameters. You can thus use
-               the following field in OPTIONS: OPTIONS.Spacing' = [d1 d2 d3...], where dI represents the spacing between points in the
-               Ith dimension.  Important note: d1 is the spacing increment for the first non-singleton dimension (i.e. the vertical direction
-               for matrices).   3) REFERENCES (please refer to the two following papers) -------------  1) Garcia D, Robust smoothing
-               of gridded data in one and higher dimensions with missing values. Computational Statistics &amp; Data Analysis, 2010;54:1167-1178.
-                &lt;a href="matlab:web('http://www.biomecardio.com/pageshtm/publi/csda10.pdf')"&gt;PDF download&lt;/a&gt; 2) Garcia D, A fast all-in-one
-               method for automated post-processing of PIV data. Exp Fluids, 2011;50:1247-1259. &lt;a href="matlab:web('http://www.biomecardio.com/pageshtm/publi/media11.pdf')"&gt;PDF
-               download&lt;/a&gt;   EXAMPLES: -------- %--- Example #1: smooth a curve --- x = linspace(0,100,2^8); y = cos(x/10)+(x/50).^2
-               + randn(size(x))/10; y([70 75 80]) = [5.5 5 6]; z = smoothn(y); % Regular smoothing zr = smoothn(y,'robust'); % Robust
-               smoothing subplot(121), plot(x,y,'r.',x,z,'k','LineWidth',2) axis square, title('Regular smoothing') subplot(122), plot(x,y,'r.',x,zr,'k','LineWidth',2)
-               axis square, title('Robust smoothing')  %--- Example #2: smooth a surface --- xp = 0:.02:1; [x,y] = meshgrid(xp); f =
-               exp(x+y) + sin((x-2*y)*3); fn = f + randn(size(f))*0.5; fs = smoothn(fn); subplot(121), surf(xp,xp,fn), zlim([0 8]), axis
-               square subplot(122), surf(xp,xp,fs), zlim([0 8]), axis square  %--- Example #3: smooth an image with missing data ---
-               n = 256; y0 = peaks(n); y = y0 + randn(size(y0))*2; I = randperm(n^2); y(I(1:n^2*0.5)) = NaN; % lose 1/2 of data y(40:90,140:190)
-               = NaN; % create a hole z = smoothn(y); % smooth data subplot(2,2,1:2), imagesc(y), axis equal off title('Noisy corrupt
-               data') subplot(223), imagesc(z), axis equal off title('Recovered data ...') subplot(224), imagesc(y0), axis equal off
-               title('... compared with the actual data')  %--- Example #4: smooth volumetric data --- [x,y,z] = meshgrid(-2:.2:2); xslice
-               = [-0.8,1]; yslice = 2; zslice = [-2,0]; vn = x.*exp(-x.^2-y.^2-z.^2) + randn(size(x))*0.06; subplot(121), slice(x,y,z,vn,xslice,yslice,zslice,'cubic')
-               title('Noisy data') v = smoothn(vn); subplot(122), slice(x,y,z,v,xslice,yslice,zslice,'cubic') title('Smoothed data')
-                %--- Example #5: smooth a cardioid --- t = linspace(0,2*pi,1000); x = 2*cos(t).*(1-cos(t)) + randn(size(t))*0.1; y =
-               2*sin(t).*(1-cos(t)) + randn(size(t))*0.1; z = smoothn({x,y}); plot(x,y,'r.',z{1},z{2},'k','linewidth',2) axis equal tight
-                %--- Example #6: smooth a 3-D parametric curve --- t = linspace(0,6*pi,1000); x = sin(t) + 0.1*randn(size(t)); y = cos(t)
-               + 0.1*randn(size(t)); z = t + 0.1*randn(size(t)); u = smoothn({x,y,z}); plot3(x,y,z,'r.',u{1},u{2},u{3},'k','linewidth',2)
-               axis tight square  %--- Example #7: smooth a 2-D vector field --- [x,y] = meshgrid(linspace(0,1,24)); Vx = cos(2*pi*x+pi/2).*cos(2*pi*y);
-               Vy = sin(2*pi*x+pi/2).*sin(2*pi*y); Vx = Vx + sqrt(0.05)*randn(24,24); % adding Gaussian noise Vy = Vy + sqrt(0.05)*randn(24,24);
-               % adding Gaussian noise I = randperm(numel(Vx)); Vx(I(1:30)) = (rand(30,1)-0.5)*5; % adding outliers Vy(I(1:30)) = (rand(30,1)-0.5)*5;
-               % adding outliers Vx(I(31:60)) = NaN; % missing values Vy(I(31:60)) = NaN; % missing values Vs = smoothn({Vx,Vy},'robust');
-               % automatic smoothing subplot(121), quiver(x,y,Vx,Vy,2.5), axis square title('Noisy velocity field') subplot(122), quiver(x,y,Vs{1},Vs{2}),
-               axis square title('Smoothed velocity field')  %--- Example #8: smooth a 3-D vector field --- load wind % original 3-D
-               flow % -- Create noisy data % Gaussian noise un = u + randn(size(u))*8; vn = v + randn(size(v))*8; wn = w + randn(size(w))*8;
-               % Add some outliers I = randperm(numel(u)) &lt; numel(u)*0.025; un(I) = (rand(1,nnz(I))-0.5)*200; vn(I) = (rand(1,nnz(I))-0.5)*200;
-               wn(I) = (rand(1,nnz(I))-0.5)*200; % -- Visualize the noisy flow (see CONEPLOT documentation) figure, title('Noisy 3-D vectorial
-               flow') xmin = min(x(:)); xmax = max(x(:)); ymin = min(y(:)); ymax = max(y(:)); zmin = min(z(:)); daspect([2,2,1]) xrange
-               = linspace(xmin,xmax,8); yrange = linspace(ymin,ymax,8); zrange = 3:4:15; [cx cy cz] = meshgrid(xrange,yrange,zrange);
-               k = 0.1; hcones = coneplot(x,y,z,un*k,vn*k,wn*k,cx,cy,cz,0); set(hcones,'FaceColor','red','EdgeColor','none') hold on
-               wind_speed = sqrt(un.^2 + vn.^2 + wn.^2); hsurfaces = slice(x,y,z,wind_speed,[xmin,xmax],ymax,zmin); set(hsurfaces,'FaceColor','interp','EdgeColor','none')
-               hold off axis tight; view(30,40); axis off camproj perspective; camzoom(1.5) camlight right; lighting phong set(hsurfaces,'AmbientStrength',.6)
-               set(hcones,'DiffuseStrength',.8) % -- Smooth the noisy flow Vs = smoothn({un,vn,wn},'robust'); % -- Display the result
-               figure, title('3-D flow smoothed by SMOOTHN') daspect([2,2,1]) hcones = coneplot(x,y,z,Vs{1}*k,Vs{2}*k,Vs{3}*k,cx,cy,cz,0);
-               set(hcones,'FaceColor','red','EdgeColor','none') hold on wind_speed = sqrt(Vs{1}.^2 + Vs{2}.^2 + Vs{3}.^2); hsurfaces =
-               slice(x,y,z,wind_speed,[xmin,xmax],ymax,zmin); set(hsurfaces,'FaceColor','interp','EdgeColor','none') hold off axis tight;
-               view(30,40); axis off camproj perspective; camzoom(1.5) camlight right; lighting phong set(hsurfaces,'AmbientStrength',.6)
-               set(hcones,'DiffuseStrength',.8)  See also SMOOTH1Q, DCTN, IDCTN.  -- Damien Garcia -- 2009/03, revised 2014/10 website:
-               &lt;a href="matlab:web('http://www.biomecardio.com')"&gt;www.BiomeCardio.com&lt;/a&gt;
+            <td>SMOOTHN Robust spline smoothing for 1-D to N-D data. SMOOTHN provides a fast, automatized and robust discretized spline smoothing
+               for data of arbitrary dimension.
             </td>
             <tr></tr>
             <td width="250px"><a href="SobolevKernel.html"><tt>SobolevKernel</tt></a></td>
@@ -2780,13 +2487,7 @@
             <td></td>
             <tr></tr>
             <td width="250px"><a href="EBSD.spatialProfile.html"><tt>spatialProfile</tt></a><span>   (EBSD)</span></td>
-            <td>select EBSD data along line segments  Syntax % returns a sorted list of ebsd data along lineX [ebsd_lineX,dist] = spatialProfile(ebsd,lineX)
-                Input ebsd  - @EBSD lineX - list of spatial coordinates |[x(:) y(:)]| of if 3d |[x(:) y(:) z(:)]|,  where $x_i,x_{i+1}$
-               defines a line segment  Output ebsd - @EBSD restrcited to the line of interest dist - double distance along the line to
-               the initial point  Example  mtexdata twins plot(ebsd('indexed'),ebsd('indexed').orientations) lineX = ginput(2) ebsd_lineX
-               = spatialProfile(ebsd,lineX) clf; plot(ebsd_lineX.x,angle(ebsd_lineX(1).orientations,ebsd_lineX.orientations)./degree) xlabel('x'),
-               ylabel('misorientation angle')
-            </td>
+            <td>select EBSD data along line segments</td>
             <tr></tr>
             <td width="250px"><a href="orientation.sphereVolume.html"><tt>sphereVolume</tt></a><span>   (orientation)</span></td>
             <td>ratio of orientations with a certain orientation</td>
@@ -2873,14 +2574,10 @@
             <td>indexing of EBSD data</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.subsref.html"><tt>subsref</tt></a><span>   (grain2d)</span></td>
-            <td>access subsets of a GrainSet  Syntax grains(1:10)          % the 10 first grains of a GrainSet grains('Fe')          %
-               only Fe grains grains( ~grains('fe') ) % all grains but Fe logical array with size of the complete GrainSet
-            </td>
+            <td>access subsets of a GrainSet</td>
             <tr></tr>
             <td width="250px"><a href="grainBoundary.subsref.html"><tt>subsref</tt></a><span>   (grainBoundary)</span></td>
-            <td>access subsets of a GrainSet  Syntax gB(1:10)               % the 10 first boundaries gB('Forsterite','Epidote')  % only
-               Forsterite - Epidote boundaries grains( ~grains('fe') ) % all grains but Fe logical array with size of the complete GrainSet
-            </td>
+            <td>access subsets of a GrainSet</td>
             <tr></tr>
             <td width="250px"><a href="PoleFigure.subsref.html"><tt>subsref</tt></a><span>   (PoleFigure)</span></td>
             <td></td>
@@ -2916,16 +2613,13 @@
             <td>sum of vectors</td>
             <tr></tr>
             <td width="250px"><a href="Miller.surf.html"><tt>surf</tt></a><span>   (Miller)</span></td>
-            <td>Syntax  Input  Output  Options  See also</td>
+            <td>Syntax</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.surf.html"><tt>surf</tt></a><span>   (vector3d)</span></td>
-            <td>Syntax  Input  Output  Options  See also</td>
+            <td>Syntax</td>
             <tr></tr>
             <td width="250px"><a href="switchUnit.html"><tt>switchUnit</tt></a></td>
-            <td>returns the closest length to a known unit. For example, 10e3m will give 10km.  Syntax [fval funit] = closest_value(val,
-               unit)  Input val  - a value unit - unit of the value (e.g. nm, m, ...)  Output oval  - output value  ounit - output
-               unit
-            </td>
+            <td>returns the closest length to a known unit. For example, 10e3m will give 10km.</td>
             <tr></tr>
             <td width="250px"><a href="Miller.symmetrise.html"><tt>symmetrise</tt></a><span>   (Miller)</span></td>
             <td>directions symmetrically equivalent to m</td>
@@ -2953,9 +2647,7 @@
             <td>plot Miller indece</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.text.html"><tt>text</tt></a><span>   (vector3d)</span></td>
-            <td>display a text in a spherical plot  Syntax text(v,s) text(v,s,'fontSize',16) text(v,s,'textAboveMarker') text(v,s,'textColor','blue')
-               text(v,s,'textBackgroundColor','white')  Input v  - @vector3d s  - string  Options  See also
-            </td>
+            <td>display a text in a spherical plot</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.text3.html"><tt>text3</tt></a><span>   (vector3d)</span></td>
             <td>plot three dimensional arrows</td>
@@ -3000,9 +2692,7 @@
             <td>only applicable for crystal symmetry</td>
             <tr></tr>
             <td width="250px"><a href="tensor.transformReferenceFrame.html"><tt>transformReferenceFrame</tt></a><span>   (tensor)</span></td>
-            <td>set properties of a tensor variable  Syntax T = set(T,'mineral','mineral name')    Input T      - @tensor pName  -
-               property name pValue - property value  Output  See also tensor/get
-            </td>
+            <td>set properties of a tensor variable</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.transpose.html"><tt>transpose</tt></a><span>   (quaternion)</span></td>
             <td>transpose array of quaternions</td>
@@ -3011,7 +2701,7 @@
             <td>transpose array of rotations</td>
             <tr></tr>
             <td width="250px"><a href="tensor.transpose.html"><tt>transpose</tt></a><span>   (tensor)</span></td>
-            <td>conjugate of a tensor  Input T - @tensor  Output T - @tensor</td>
+            <td>conjugate of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.transpose.html"><tt>transpose</tt></a><span>   (vector3d)</span></td>
             <td>transpose vector</td>
@@ -3085,13 +2775,7 @@
             <td>returns a quaternion q with q u_1 = v1 and q u2 = v2</td>
             <tr></tr>
             <td width="250px"><a href="tensor.velocity.html"><tt>velocity</tt></a><span>   (tensor)</span></td>
-            <td>computes the elastic wave velocity(km/s) from the elastic stiffness Cijkl tensor and density (g/cm3)  Input C   - elasticity
-               stiffness tensor Cijkl (UNITS GPa) @tensor x   - list of propagation directions (@vector3d) rho - material density (UNITS
-               g/cm3)  Output vp  - velocity of the p--wave (UNITS km/s) vs1 - velocity of the s1--wave (UNITS km/s) vs2 - velocity
-               of the s2--wave (UNITS km/s) pp  - polarisation of the p--wave (particle movement, vibration direction) ps1 - polarisation
-               of the s1--wave (particle movement, vibration direction) ps2 - polarisation of the s2--wave (particle movement, vibration
-               direction)
-            </td>
+            <td>computes the elastic wave velocity(km/s) from the elastic stiffness Cijkl tensor and density (g/cm3)</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.vertcat.html"><tt>vertcat</tt></a><span>   (quaternion)</span></td>
             <td>implements [q1;q2;q3..]</td>
@@ -3149,12 +2833,7 @@
             <td></td>
             <tr></tr>
             <td width="250px"><a href="Wigner3j.html"><tt>Wigner3j</tt></a></td>
-            <td>Compute the Wigner 3j symbol using the Racah formula.   W = Wigner3j( J123, M123 )   J123 = [J1, J2, J3], with the condition:
-               |Ji - Jj| &lt;= Jk &lt;= (Ji + Jj)    (i,j,k are permutations of 1,2,3) M123 = [M1, M2, M3], with the conditions: |Mi| &lt;= Ji 
-                 (i = 1,2,3) M1 + M2 + M3 = 0 All Ji and Mi have to be half integers (correspondingly).  Reference:  Wigner 3j-Symbol
-               entry of Eric Weinstein's Mathworld: http://mathworld.wolfram.com/Wigner3j-Symbol.html  Inspired by Wigner3j.m by David
-               Terr, Raytheon, 6-17-04 (available at www.mathworks.com/matlabcentral/fileexchange).  By Kobi Kraus, Technion, 25-6-08.
-            </td>
+            <td>Compute the Wigner 3j symbol using the Racah formula.</td>
             <tr></tr>
             <td width="250px"><a href="Wigner3j_new.html"><tt>Wigner3j_new</tt></a></td>
             <td>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</td>
@@ -3162,8 +2841,8 @@
             <td width="250px"><a href="Wigner3jPrecomputed.html"><tt>Wigner3jPrecomputed</tt></a></td>
             <td></td>
             <tr></tr>
-            <td width="250px"><a href="wignerD.html"><tt>wignerD</tt></a></td>
-            <td>Wiegner-D function</td>
+            <td width="250px"><a href="WignerD.html"><tt>WignerD</tt></a></td>
+            <td>Wigner-D function</td>
             <tr></tr>
             <td width="250px"><a href="wignerD2.html"><tt>wignerD2</tt></a></td>
             <td>spherical harmonics of degree l</td>
@@ -3214,7 +2893,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 4.1.0</td>
+               <td valign="baseline" align="right">MTEX 4.1.3</td>
             </tr>
          </table>
       </div>

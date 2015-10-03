@@ -44,16 +44,10 @@
             </p>
          </div>
          <p>computes the mean vector</p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>m = mean(v,'param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput"><span class="comment">% average direction with respect to the first nonsingleton dimension</span>
+m = mean(v)</pre><pre class="codeinput"><span class="comment">% average direction along dimension d</span>
+m = mean(v,d)</pre><pre class="codeinput"><span class="comment">% average axis</span>
+m = mean(v,<span class="string">'antipodal'</span>)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>

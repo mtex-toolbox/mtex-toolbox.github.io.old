@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mytoolbox>
+   <name>DocHelp</name>
+   <fullname>&lt;b&gt;DocHelp&lt;/b&gt; a Matlab Toolbox for building Documentation</fullname>
+   <versionname>DocHelp 0.1 beta</versionname>
+   <procuctpage>docGuide.html</procuctpage>
+   <icon>$toolbox/matlab/icons/book_mat.gif</icon>
+</mytoolbox>

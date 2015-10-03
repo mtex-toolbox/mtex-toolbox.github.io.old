@@ -76,9 +76,9 @@ ebsd = ebsd(<span class="string">'indexed'</span>);
 grains = grain2d  
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
-     1    1080  152345  Forsterite       mmm                         
-     2     515   26058   Enstatite       mmm                         
-     3    1496    9064    Diopside     12/m1        X||a*, Y||b, Z||c
+     1    1044  152345  Forsterite       mmm                         
+     2     479   26058   Enstatite       mmm                         
+     3    1401    9064    Diopside     12/m1        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  
@@ -101,25 +101,22 @@ plot(gB)</pre><pre class="codeoutput">
 gB = grainBoundary  
  
  Segments   mineral 1   mineral 2
-     1363  notIndexed  Forsterite
-      205  notIndexed   Enstatite
-       68  notIndexed    Diopside
-    15974  Forsterite  Forsterite
-    11814  Forsterite   Enstatite
-     8185  Forsterite    Diopside
-      663   Enstatite   Enstatite
-     4235   Enstatite    Diopside
-     1405    Diopside    Diopside
+     2714  notIndexed  Forsterite
+      413  notIndexed   Enstatite
+      129  notIndexed    Diopside
+    20767  Forsterite  Forsterite
+    15307  Forsterite   Enstatite
+    10543  Forsterite    Diopside
+      832   Enstatite   Enstatite
+     5438   Enstatite    Diopside
+     1756    Diopside    Diopside
 </pre><img src="BoundaryPlots_01.png"> <p>Accordingly we can access the grain boundary of a specific grain by</p><pre class="codeinput">grains(931).boundary
 
 plot(grains(931).boundary)</pre><pre class="codeoutput"> 
 ans = grainBoundary  
  
  Segments   mineral 1   mineral 2
-      331  Forsterite  Forsterite
-      147  Forsterite   Enstatite
-      241  Forsterite    Diopside
-        1   Enstatite    Diopside
+       41  Forsterite  Forsterite
 </pre><img src="BoundaryPlots_02.png"> <p>lets combine it with the orientation measurements inside</p><pre class="codeinput"><span class="comment">% define the colorcoding such that the meanorientation becomes white</span>
 oM = ipdfHSVOrientationMapping(grains(931));
 oM.inversePoleFigureDirection = grains(931).meanOrientation * oM.whiteCenter;
@@ -205,7 +202,9 @@ ind = angle(gB_Fo.misorientation.axis,xvector)&lt;5*degree;
 
 plot(gB_Fo(ind),<span class="string">'linecolor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2)
 
-legend(<span class="string">'&gt;5^\circ'</span>,<span class="string">'[100]'</span>)</pre><pre class="codeoutput">Warning: Plot empty. 
+legend(<span class="string">'&gt;5^\circ'</span>,<span class="string">'[100]'</span>)</pre><pre class="codeoutput">Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+Warning: Plot empty. 
 </pre><img src="BoundaryPlots_10.png"> <p>Or we mark a special rotation between neighboured grains. If a linecolor is not specified, then the boundary is colorcoded
             after its angular difference to the given rotation.
          </p><pre class="codeinput">rot = rotation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,60*degree);

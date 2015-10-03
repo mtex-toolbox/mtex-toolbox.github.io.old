@@ -48,61 +48,46 @@
                   <td class="header">On this page ...</td>
                </tr>
                <tr>
-                  <td><a href="#3">Some sample ODFs</a></td>
+                  <td><a href="#3">Colorbars</a></td>
                </tr>
                <tr>
-                  <td><a href="#4">Adding a Colorbar</a></td>
+                  <td><a href="#6">Annotating Directions, Orientations, Fibres</a></td>
                </tr>
                <tr>
-                  <td><a href="#7">Adding Specimen and Crystal Directions</a></td>
-               </tr>
-               <tr>
-                  <td><a href="#9">Adding Preferred Orientations</a></td>
-               </tr>
-               <tr>
-                  <td><a href="#12">Adding a Legend</a></td>
+                  <td><a href="#11">Legends</a></td>
                </tr>
             </table>
          </div>
-         <h2>Some sample ODFs<a name="3"> </a></h2>
-         <p>Let us first define some model ODFs to be plotted later on.</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'-3m'</span>);
+         <h2>Colorbars<a name="3"> </a></h2>
+         <p>Unlike the common Matlab command <tt>colorbar</tt> the MTEX command <a href="mtexColorbar.html">mtexColorbar</a> allows you to add a colorbar to all subplot in one figure.
+         </p><pre class="codeinput"><span class="comment">% this defines some model ODFs</span>
+cs = crystalSymmetry(<span class="string">'-3m'</span>);
 mod1 = orientation(<span class="string">'Euler'</span>,30*degree,40*degree,10*degree,cs);
 mod2 = orientation(<span class="string">'Euler'</span>,10*degree,80*degree,70*degree,cs);
-odf = 0.7*unimodalODF(mod1) + 0.3*unimodalODF(mod2)</pre><pre class="codeoutput"> 
-odf = ODF  
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
-  specimen symmetry: 1
- 
-  Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: (30&deg;,40&deg;,10&deg;)
-    weight: 0.7
- 
-  Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: (10&deg;,80&deg;,70&deg;)
-    weight: 0.3
- 
-</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Adding a Colorbar<a name="4"> </a></h2>
-         <p>Adding colorbars is done by using the command <a href="mtexFigure.colorbar.html">colorbar</a>.
-         </p><pre class="codeinput">plotPDF(odf,[Miller(1,0,0,cs),Miller(1,1,1,cs)],<span class="string">'antipodal'</span>)
-mtexColorbar</pre><img src="Annotations_demo_01.png"> <p>Executing the command <a href="colorbar.html">colorbar</a> twice deletes the colorbar. You can also have a horizontal colorbar at the bottom of the figure using the option <b>south</b>.
-         </p><pre class="codeinput">mtexColorbar                        <span class="comment">% delete vertical colorbar</span>
-mtexColorbar(<span class="string">'location'</span>,<span class="string">'southOutSide'</span>) <span class="comment">% add horizontal colorbars</span></pre><img src="Annotations_demo_02.png"> <p>If color range is equal in all plots of one figure only one colorbar is added (see. <a href="ColorCoding_demo.html">Color Coding</a>).
+odf = 0.7*unimodalODF(mod1) + 0.3*unimodalODF(mod2);
+
+<span class="comment">% plot some pole figurs</span>
+plotPDF(odf,Miller({1,0,0},{1,1,1},cs))
+
+<span class="comment">% and add a colorbar to each pole figure</span>
+mtexColorbar</pre><img src="Annotations_demo_01.png"> <p>Executing the command <a href="mtexColorbar.html">mtexColorbar</a> twice deletes the colorbar. You can also have a horizontal colorbar at the bottom of the figure by setting the option <tt>location</tt> to <tt>southOutside</tt>. Further we can set a title to the colorbar to describe the unit.
+         </p><pre class="codeinput"><span class="comment">% delete vertical colorbar</span>
+mtexColorbar
+
+<span class="comment">% add horizontal colorbars</span>
+mtexColorbar(<span class="string">'location'</span>,<span class="string">'southOutSide'</span>,<span class="string">'title'</span>,<span class="string">'mrd'</span>)</pre><img src="Annotations_demo_02.png"> <p>If color range is set to equal in an MTEX figure only one colorbar is added (see. <a href="ColorCoding_demo.html">Color Coding</a>).
          </p><pre class="codeinput">mtexColorbar       <span class="comment">% delete colorbar</span>
 CLim(gcm,<span class="string">'equal'</span>); <span class="comment">% set equal color range to all plots</span>
 mtexColorbar       <span class="comment">% create a new colorbar</span></pre><img src="Annotations_demo_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Adding Specimen and Crystal Directions<a name="7"> </a></h2>
-         <p>Pole figures and inverse pole figures are much more readable if they include specimen or crystal directions. Using the MTEX
+         <h2>Annotating Directions, Orientations, Fibres<a name="6"> </a></h2>
+         <p>Pole figures and inverse pole figures are much better readable if they include specimen or crystal directions. Using the MTEX
             command <a href="annotate.html">annotate</a> one can easily add <a href="vector3d_index.html">specimen coordinate axes</a> to a pole figure plot.
-         </p><pre class="codeinput">annotate([xvector,yvector,zvector],<span class="string">'label'</span>,{<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>},<span class="string">'BackgroundColor'</span>,<span class="string">'w'</span>)</pre><img src="Annotations_demo_04.png"> <p>The command <a href="annotate.html">annotate</a> allows also to plot <a href="Miller_index.html">crystal directions</a> to inverse pole figures.
+         </p><pre class="codeinput">annotate(zvector,<span class="string">'label'</span>,{<span class="string">'Z'</span>},<span class="string">'BackgroundColor'</span>,<span class="string">'w'</span>)</pre><img src="Annotations_demo_04.png"> <p>The command <a href="annotate.html">annotate</a> allows also to mark <a href="Miller_index.html">crystal directions</a> in inverse pole figures.
          </p><pre class="codeinput">plotIPDF(odf,[xvector,zvector],<span class="string">'antipodal'</span>,<span class="string">'marginx'</span>,10)
 mtexColorMap <span class="string">white2black</span>
+
 annotate([Miller(1,0,0,cs),Miller(1,1,0,cs),Miller(0,0,1,cs),Miller(2,-1,0,cs)],<span class="keyword">...</span>
-  <span class="string">'all'</span>,<span class="string">'labeled'</span>,<span class="string">'BackgroundColor'</span>,<span class="string">'w'</span>)</pre><img src="Annotations_demo_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Adding Preferred Orientations<a name="9"> </a></h2>
-         <p>One can also mark specific orientations in the pole figures or in the inverse pole figures</p><pre class="codeinput">plotIPDF(odf,[xvector,zvector],<span class="string">'antipodal'</span>)
+  <span class="string">'all'</span>,<span class="string">'labeled'</span>,<span class="string">'BackgroundColor'</span>,<span class="string">'w'</span>)</pre><img src="Annotations_demo_05.png"> <p>One can also mark specific orientations in pole figures or in inverse pole figures.</p><pre class="codeinput">plotIPDF(odf,[xvector,zvector],<span class="string">'antipodal'</span>)
 mtexColorMap <span class="string">white2black</span>
 annotate(mod1,<span class="keyword">...</span>
     <span class="string">'marker'</span>,<span class="string">'s'</span>,<span class="string">'MarkerSize'</span>,6,<span class="string">'MarkerFaceColor'</span>,<span class="string">'r'</span>,<span class="keyword">...</span>
@@ -112,7 +97,7 @@ annotate(mod2,<span class="keyword">...</span>
     <span class="string">'marker'</span>,<span class="string">'s'</span>,<span class="string">'MarkerSize'</span>,6,<span class="string">'MarkerFaceColor'</span>,<span class="string">'g'</span>,<span class="keyword">...</span>
     <span class="string">'label'</span>,<span class="string">'B'</span>)
 
-drawNow(gcm,<span class="string">'figSize'</span>,<span class="string">'normal'</span>)</pre><img src="Annotations_demo_06.png"> <p>as well as in ODF plots</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,18,<span class="string">'sigma'</span>)
+drawNow(gcm,<span class="string">'figSize'</span>,<span class="string">'normal'</span>)</pre><img src="Annotations_demo_06.png"> <p>as well as in ODF plots</p><pre class="codeinput">plot(odf,<span class="string">'sigma'</span>)
 mtexColorMap <span class="string">white2black</span>
 annotate(mod1,<span class="keyword">...</span>
     <span class="string">'MarkerSize'</span>,15,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'r'</span>,<span class="string">'MarkerFaceColor'</span>,<span class="string">'none'</span>)
@@ -124,7 +109,7 @@ annotate(mod1,<span class="keyword">...</span>
   <span class="string">'MarkerSize'</span>,10,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'r'</span>,<span class="string">'MarkerFaceColor'</span>,<span class="string">'r'</span>)
 annotate(mod2,<span class="keyword">...</span>
   <span class="string">'MarkerSize'</span>,10,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'g'</span>,<span class="string">'MarkerFaceColor'</span>,<span class="string">'g'</span>)</pre><img src="Annotations_demo_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Adding a Legend<a name="12"> </a></h2>
+         <h2>Legends<a name="11"> </a></h2>
          <p>If you have multiple data in one plot then it makes sense to add a legend saying which color / symbol correspond to which
             data set.
          </p>

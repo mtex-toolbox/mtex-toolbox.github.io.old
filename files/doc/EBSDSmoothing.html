@@ -78,10 +78,10 @@
 mtexdata <span class="string">twins</span>
 
 <span class="comment">% compute grains</span>
-[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd(<span class="string">'indexed'</span>));
+[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd,<span class="string">'angle'</span>,10*degree);
 
 <span class="comment">% restrict data to one single grain</span>
-oneGrain = grains(119)
+oneGrain = grains(22)
 ebsd = ebsd(oneGrain)
 
 plot(ebsd,ebsd.orientations)
@@ -92,16 +92,16 @@ hold <span class="string">off</span></pre><pre class="codeoutput">
 oneGrain = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1       1    1287  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1       1    2016  Magnesium     6/mmm        X||a*, Y||b, Z||c
  
-  Id   Phase   Pixels         GOS   phi1   Phi   phi2
- 119       1     1287   0.0162054     16    34    211
+ Id   Phase   Pixels          GOS   phi1   Phi   phi2
+ 22       1     2016   0.00679459    163   112    186
  
  
 ebsd = EBSD  
  
  Phase  Orientations    Mineral       Color  Symmetry  Crystal reference frame
-     1   1287 (100%)  Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
+     1   2016 (100%)  Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -112,10 +112,10 @@ ebsd = EBSD
 
 <span class="comment">% set inversePoleFigureDirection  such that the mean orientation is</span>
 <span class="comment">% colorized white</span>
-oM.inversePoleFigureDirection = grains(119).meanOrientation * oM.whiteCenter;
+oM.inversePoleFigureDirection = grains(22).meanOrientation * oM.whiteCenter;
 
 <span class="comment">% concentrate the colors around the mean orientation</span>
-oM.colorStretching = 25;
+oM.maxAngle = 3*degree;
 
 <span class="comment">% plot the colormap</span>
 plot(oM)</pre><img src="EBSDSmoothing_02.png"> <p>With the new colormap we can clearly see the noise overlapping the texture gradient within the grain.</p><pre class="codeinput"><span class="comment">% plot the grain</span>
@@ -156,8 +156,8 @@ hold <span class="string">off</span></pre><pre class="codeoutput">
 ebsd_smoothed = EBSD  
  
  Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
-     0     771 (37%)  notIndexed                                               
-     1    1287 (63%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
+     0    1264 (39%)  notIndexed                                               
+     1    2016 (61%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
  
  Properties: x, y, grainId
  Scan unit : um
@@ -197,7 +197,7 @@ hold <span class="string">off</span>
 
 <span class="comment">% the smoothing parameter determined during smoothing is</span>
 F.alpha</pre><pre class="codeoutput">ans =
-    1.3765
+    4.6123
 </pre><img src="EBSDSmoothing_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> The halfquadratic Filter<a name="10"> </a></h3>
          <p>The halfquadratic filter differs from the smoothing spline filter by the fact that it better preserves inner grain boundaries.

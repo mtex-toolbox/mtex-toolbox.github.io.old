@@ -40,13 +40,60 @@
       <div class="container">
          <h1>Installation Guide</h1>
          <div class="subheading">
-            <p>Explains how to instal MTEX on you computer.</p>
+            <p>How to install MTEX on you computer.</p>
          </div>
          <h2>Download<a name="1"> </a></h2>
-         <p>The MTEX toolbox is available for Windows, Linux and MAC-OSX at: <a href="http://mtex-toolbox.github.io/">http://mtex-toolbox.github.io/</a></p>
+         <p>The MTEX toolbox is available for Windows, Linux and MAC-OSX at <a href="http://mtex-toolbox.github.io/">http://mtex-toolbox.github.io/</a></p>
          <h2>MATLAB<a name="2"> </a></h2>
-         <p>Since MTEX is a MATLAB toolbox, <a href="http://www.mathworks.com">MATLAB</a> has to be installed in order to use MTEX. The MTEX toolbox has been tested with MATLAB versions 2012b and higher. No additional
-            addons or packages are necessary.
+         <p>Since MTEX is a MATLAB toolbox <a href="http://www.mathworks.com">MATLAB</a> has to be installed in order to use MTEX. It works fine with the student version and does not require any additional toolboxes,
+            addons or packages. Check table below to see whether MTEX will run on your Matlab version.
+         </p>
+         <p>
+            <table border=0 align="center">
+            <tr><td>Matlab</td>
+            <td>2015b</td>
+            <td>2015a</td>
+            <td>2014b</td>
+            <td>2014a</td>
+            <td>2013b</td>
+            <td>2013a</td>
+            <td>2012b</td>
+            <td>2012a</td>
+            <td>2011b</td>
+            <td>2011a</td>
+            <td>2010b</td>
+            <td>2010a</td>
+            </tr>
+            <tr>
+            <td>MTEX 4.1</td>
+            <td>&#10004;</td><td>&#10004;</td><td>&#10004;</td>
+            <td>&#10004;</td><td>&#10004;</td><td>&#10004;</td>
+            <td>&#10004;</td><td>(&#10004;)</td><td>(&#10004;)</td>
+            <td>(&#10004;)</td><td>(&#10004;)</td><td>(&#10004;)</td>
+            </tr>
+            <tr>
+            <td>MTEX 4.0</td>
+            <td>-</td><td>&#10004;</td><td>&#10004;</td>
+            <td>&#10004;</td><td>&#10004;</td><td>&#10004;</td>
+            <td>&#10004;</td><td>(&#10004;)</td><td>(&#10004;)</td>
+            <td>(&#10004;)</td><td>(&#10004;)</td><td>(&#10004;)</td>
+            </tr>
+            <tr>
+            <td>MTEX 3.5</td>
+            <td>-</td><td>-</td><td>-</td>
+            <td>&#10004;</td><td>&#10004;</td><td>&#10004;</td>
+            <td>&#10004;</td><td>&#10004;</td><td>&#10004;</td>
+            <td>&#10004;</td><td>&#10004;</td><td>&#10004;</td>
+            </tr>
+            <tr>
+            <td>MTEX 3.3</td>
+            <td>-</td><td>-</td><td>-</td>
+            <td>&#10004;</td><td>&#10004;</td><td>&#10004;</td>
+            <td>&#10004;</td><td>&#10004;</td><td>&#10004;</td>
+            <td>&#10004;</td><td>&#10004;</td><td>&#10004;</td>
+            </tr>
+            </table>
+            
          </p>
          <h2>Installation<a name="3"> </a></h2>
          <p>In order to install MTEX proceed as follows</p>
@@ -54,60 +101,15 @@
             <ol>
                <li>extract MTEX to an arbitrary folder</li>
                <li>start MATLAB</li>
-               <li>navigate to the MTEX folder</li>
-               <li>type 'startup_mtex'</li>
+               <li>type into the Matlab command window</li>
             </ol>
-         </div>
-         <h2>Checking Your Installation<a name="4"> </a></h2>
-         <p>After the MTEX toolbox is loaded you can check your installation by typing</p><pre class="codeinput">check_mtex</pre><pre class="codeoutput">checking MTEX installation
-this might take some time
- 
-simulating pole figures
- 
-pf = PoleFigure  
-  crystal symmetry : m-3m
-  specimen symmetry: 222
- 
-  h = (100), r = 1 x 206 points
-  h = (110), r = 1 x 206 points
-  h = (111), r = 1 x 206 points
-  h = (211), r = 1 x 206 points
- 
-initialize solver
-start iteration
-error: 7.6789E-02 2.5115E-02 1.2679E-02 8.3856E-03 6.6842E-03 5.6454E-03 4.9630E-03 4.3781E-03 3.9393E-03 3.5268E-03 3.2031E-03 
-Finished PDF-ODF inversion.
-error: 3.2031E-03
-alpha: 9.9506E-01 9.9918E-01 1.0003E+00 9.9753E-01 
-initialize solver
-start iteration
-error: 4.6922E-01 3.2059E-01 2.2928E-01 1.7337E-01 1.3681E-01 1.0678E-01 8.1424E-02 5.9278E-02 4.2179E-02 2.9415E-02 2.0853E-02 1.6000E-02 
-Finished PDF-ODF inversion.
-error: 1.6000E-02
-alpha: 9.9144E-01 9.9588E-01 9.9718E-01 1.0018E+00 
- 
-rec = ODF  
-  crystal symmetry : 432
-  specimen symmetry: 222
- 
-  Uniform portion:
-    weight: 0.73223
- 
-  Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: 150 orientations, resolution: 10&deg;
-    weight: 0.26777
- 
- 
-check reconstruction error: 
-everythink seems to be ok!
-Elapsed time is 2.786881 seconds.
-</pre><h2>Configuration and Troubleshooting<a name="5"> </a></h2>
-         <p>You can configure your MTEX installation by editting the file <a href="matlab:edit mtex_settings.m">mtex_settings.m</a>. See <a href="configuration.html">Configuration</a> for more details! This page contains also some workarounds for known problems.
+         </div><pre class="codeinput">addpath <span class="string">your_MTEX_path</span>
+startup_mtex</pre><h2>Configuration and Troubleshooting<a name="4"> </a></h2>
+         <p>You can <a href="configuration.html">configure</a> your MTEX installation by editting the file <a href="matlab:edit('mtex_settings.m')">mtex_settings.m</a>. This includes also some workarounds for known problems.
          </p>
-         <p>Don't hesitate to contact the <a href="mtex_about.html">authors</a> of MTEX if you have any problems.
+         <p>Don't hesitate to contact the <a href="mtex_about.html">MTEX authors</a> if you have any problems.
          </p>
-         <h2>Compiling MTEX<a name="6"> </a></h2>
+         <h2>Compiling MTEX<a name="5"> </a></h2>
          <p>Compiling MTEX is only neccesary if the provided binaries does not run on your system or if you want to optimize them to you
             specific system. Compiling intstructions can be found <a href="compilation.html">here</a>.
          </p>

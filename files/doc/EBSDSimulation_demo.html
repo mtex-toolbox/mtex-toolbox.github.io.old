@@ -85,11 +85,11 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5.7&deg;
-    center: 7161 orientations, resolution: 2.9&deg;
+    center: 7157 orientations, resolution: 2.9&deg;
     weight: 1
  
 </pre><p>which can be plotted,</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><img src="EBSDSimulation_demo_02.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,fibre_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">ans =
-    0.0941
+    0.0964
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Exploration of the relationship between estimation error and number of single orientations<a name="11"> </a></h2>
          <p>For a more systematic analysis of the estimation error we simulate 10, 100, ..., 1000000 single orientations of the model
@@ -107,18 +107,24 @@ odf = ODF
   odf = calcODF(ori,<span class="string">'kernel'</span>,psi2,<span class="string">'silent'</span>);
   e(i,2) = calcError(odf,fibre_odf,<span class="string">'resolution'</span>,2.5*degree);
 
-  disp([<span class="string">'Rule of thumb: '</span> int2str(psi2.halfwidth/degree) mtexdegchar <span class="keyword">...</span>
-    <span class="string">'Kullback Leibler cross validation: '</span> int2str(psi1.halfwidth/degree) mtexdegchar]);
+  psi3 = calcKernel(ori,<span class="string">'method'</span>,<span class="string">'magicRule'</span>,<span class="string">'silent'</span>);
+  odf = calcODF(ori,<span class="string">'kernel'</span>,psi3,<span class="string">'silent'</span>);
+  e(i,3) = calcError(odf,fibre_odf,<span class="string">'resolution'</span>,2.5*degree);
 
-<span class="keyword">end</span></pre><pre class="codeoutput"> eRule of thumb: 33&deg;Kullback Leibler cross validation: 15&deg;
- eRule of thumb: 38&deg;Kullback Leibler cross validation: 15&deg;
- eRule of thumb: 18&deg;Kullback Leibler cross validation: 9&deg;
- eRule of thumb: 10&deg;Kullback Leibler cross validation: 6&deg;
- eRule of thumb: 9&deg;Kullback Leibler cross validation: 5&deg;
- eRule of thumb: 7&deg;Kullback Leibler cross validation: 4&deg;
+  disp([<span class="string">'RuleOfThumb: '</span> int2str(psi2.halfwidth/degree) mtexdegchar <span class="keyword">...</span>
+    <span class="string">' KLCV: '</span> int2str(psi1.halfwidth/degree) mtexdegchar <span class="keyword">...</span>
+    <span class="string">' magicRule: '</span> int2str(psi3.halfwidth/degree) mtexdegchar <span class="keyword">...</span>
+    ]);
+
+<span class="keyword">end</span></pre><pre class="codeoutput">RuleOfThumb: 43&deg; KLCV: 19&deg; magicRule: 31&deg;
+RuleOfThumb: 40&deg; KLCV: 19&deg; magicRule: 22&deg;
+RuleOfThumb: 18&deg; KLCV: 9&deg; magicRule: 16&deg;
+RuleOfThumb: 10&deg; KLCV: 6&deg; magicRule: 11&deg;
+RuleOfThumb: 9&deg; KLCV: 5&deg; magicRule: 8&deg;
+RuleOfThumb: 7&deg; KLCV: 4&deg; magicRule: 6&deg;
 </pre><p>Plot the error in dependency of the number of single orientations.</p><pre class="codeinput">close <span class="string">all</span>;
 semilogx(10.^(1:length(e)),e)
-legend(<span class="string">'Default'</span>,<span class="string">'RuleOfThumb'</span>)
+legend(<span class="string">'Default'</span>,<span class="string">'RuleOfThumb'</span>,<span class="string">'magicRule'</span>)
 xlabel(<span class="string">'Number of orientations'</span>)
 ylabel(<span class="string">'Estimation Error'</span>)
 title(<span class="string">'Error between original fibre ODF model and simulated ebsd'</span>,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>)</pre><img src="EBSDSimulation_demo_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

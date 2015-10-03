@@ -67,9 +67,8 @@ odf1 = ODF
   crystal symmetry : Fe (m-3m)
   specimen symmetry: 1
  
-  Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 6.8&deg;
-    center: 1530 orientations, resolution: 3.3&deg;
+  Portion specified by Fourier coefficients:
+    degree: 28
     weight: 1
  
  
@@ -114,11 +113,11 @@ odf = ODF
   specimen symmetry: 1
  
   Portion specified by Fourier coefficients:
-    degree: 27
+    degree: 28
     weight: 1
  
 </pre><p>plot the estimated ODF</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><img src="ebsd_demo_10.png"> <p>calculate estimation error</p><pre class="codeinput">calcError(odf,fibre_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">ans =
-    0.1011
+    0.0938
 </pre><p>For a more exhausive example see the <a href="EBSDSimulation_demo.html">EBSD Simulation demo</a>!
          </p>
          <h2>Exercises<a name="17"> </a></h2>
@@ -130,7 +129,7 @@ odf = ODF
   specimen symmetry: 1
  
   Portion specified by Fourier coefficients:
-    degree: 27
+    degree: 28
     weight: 1
  
 </pre><p>c) Visualize the ODF and some of its pole figures!</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><img src="ebsd_demo_12.png"> <p>d) Explore the influence of the halfwidth to the kernel density estimation by looking at the pole figures!</p>

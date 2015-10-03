@@ -171,7 +171,7 @@ largeGrain = grain2d
      1       1    2683  Forsterite       mmm                         
  
   Id   Phase   Pixels         GOS   phi1   Phi   phi2
- 931       1     2683   0.0441043    171    55    261
+ 891       1     2683   0.0441043    171    55    261
  
  
 ori = orientation  
@@ -195,7 +195,7 @@ plot(oR)
 <span class="comment">% Let plot grain boundary misorientations within this fundamental region</span>
 hold <span class="string">on</span>
 plot(grains.boundary(<span class="string">'fo'</span>,<span class="string">'En'</span>).misorientation.project2FundamentalRegion)
-hold <span class="string">off</span></pre><pre class="codeoutput">plot 2000 random orientations out of 11814 given orientations
+hold <span class="string">off</span></pre><pre class="codeoutput">plot 2000 random orientations out of 15307 given orientations
 </pre><img src="MorawiecCell_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Fundamental regions of misorientations with antipodal symmetry<a name="12"> </a></h2>
          <p>Note that for boundary misorientations between the same phase we can <b>not</b> distinguish between a misorintation and its inverse. This is not the case for misorientations between different phases or
@@ -211,17 +211,17 @@ mori = grains.boundary(<span class="string">'Fo'</span>,<span class="string">'Fo
 plot(mori.project2FundamentalRegion(<span class="string">'antipodal'</span>))
 hold <span class="string">off</span></pre><pre class="codeoutput"> 
 mori = misorientation  
-  size: 15974 x 1
+  size: 20767 x 1
   crystal symmetry : Forsterite (mmm)
   crystal symmetry : Forsterite (mmm)
   antipodal:         true
  
-plot 2000 random orientations out of 15974 given orientations
+plot 2000 random orientations out of 20767 given orientations
 </pre><img src="MorawiecCell_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Axis angle sections<a name="14"> </a></h2>
-         <p>Again we can plot constant angle sections through the fundamental region. This is done by</p><pre class="codeinput">plotSection(mori,<span class="string">'axisAngle'</span>)</pre><pre class="codeoutput">  plotting 2000 random orientations out of 15974 given orientations
+         <p>Again we can plot constant angle sections through the fundamental region. This is done by</p><pre class="codeinput">plotSection(mori,<span class="string">'axisAngle'</span>)</pre><pre class="codeoutput">  plotting 2000 random orientations out of 20767 given orientations
 </pre><img src="MorawiecCell_11.png"> <p>Note that in the previous plot we distinguish between <tt>mori</tt> and <tt>inv(mori)</tt>. Adding antipodal symmetry those are considered as equivalent
-         </p><pre class="codeinput">plotSection(mori,<span class="string">'axisAngle'</span>,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">  plotting 2000 random orientations out of 15974 given orientations
+         </p><pre class="codeinput">plotSection(mori,<span class="string">'axisAngle'</span>,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">  plotting 2000 random orientations out of 20767 given orientations
 </pre><img src="MorawiecCell_12.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

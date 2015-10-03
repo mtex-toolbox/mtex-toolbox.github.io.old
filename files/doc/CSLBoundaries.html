@@ -69,6 +69,7 @@
          </div>
          <h2>Data import and grain detection<a name="3"> </a></h2>
          <p>Lets import some iron data and segment grains within the data set.</p><pre class="codeinput">mtexdata <span class="string">csl</span>
+plotx2east
 
 <span class="comment">% grain segementation</span>
 [grains,ebsd.grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>))
@@ -81,7 +82,7 @@ plot(grains,grains.meanOrientation)</pre><pre class="codeoutput">
 grains = grain2d  
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
-    -1     885  154107     iron      m-3m                         
+    -1     863  154107     iron      m-3m                         
  
  Properties: GOS, meanRotation
  
@@ -98,7 +99,7 @@ ebsd = EBSD
 grains = grain2d  
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
-    -1     885  154107     iron      m-3m                         
+    -1     863  154107     iron      m-3m                         
  
  Properties: GOS, meanRotation
  
@@ -136,7 +137,7 @@ hold <span class="string">off</span></pre><pre class="codeoutput">
 gB = grainBoundary  
  
  Segments  mineral 1  mineral 2
-    20356       iron       iron
+    34563       iron       iron
 </pre><img src="CSLBoundaries_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Merging grains with common CSL(3) boundary<a name="6"> </a></h2>
          <p>Next we merge all grains together which have a common CSL(3) boundary. This is done with the command <a href="grain2d_merge.html">merge</a>.
@@ -193,7 +194,7 @@ hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to
 hold <span class="string">on</span>
 plot(gB.misorientation,<span class="string">'points'</span>,300,<span class="keyword">...</span>
   <span class="string">'MarkerFaceColor'</span>,<span class="string">'none'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'w'</span>)
-hold <span class="string">off</span></pre><pre class="codeoutput">  plotting 300 random orientations out of 20356 given orientations
+hold <span class="string">off</span></pre><pre class="codeoutput">  plotting 300 random orientations out of 34563 given orientations
 </pre><img src="CSLBoundaries_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Misorientations in the 3d fundamental zone<a name="11"> </a></h2>
          <p>We can also look at the boundary misorienations in the 3 dimensional fundamental orientation zone.</p><pre class="codeinput"><span class="comment">% compute the boundary of the fundamental zone</span>
@@ -208,25 +209,23 @@ hold <span class="string">off</span>
 
 
 <span class="comment">% mark the CSL(3) misorientation</span>
-<span class="comment">% TODO: not yet working</span>
-<span class="comment">%hold on</span>
-<span class="comment">%plot(CSL(3),'MarkerColor','r','DisplayName','CSL 3','MarkerSize',10)</span>
-<span class="comment">%hold off</span></pre><img src="CSLBoundaries_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">on</span>
+plot(CSL(3),<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'DisplayName'</span>,<span class="string">'CSL 3'</span>,<span class="string">'MarkerSize'</span>,20)
+hold <span class="string">off</span></pre><img src="CSLBoundaries_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Analyzing the misorientation distribution function<a name="12"> </a></h2>
-         <p>In order to analyze more quantitively the boundary misorientation distribution we can compute the so called misorientation
+         <p>In order to analyze more quantitatively the boundary misorientation distribution we can compute the so called misorientation
             distribution function. The option <tt>antipodal</tt> is applied since we want to identify <tt>mori</tt> and <tt>inv(mori)</tt>.
-         </p><pre class="codeinput">mdf = calcMDF(gB.misorientation,<span class="string">'antipodal'</span>,<span class="string">'halfwidth'</span>,2.5*degree)</pre><pre class="codeoutput"> 
+         </p><pre class="codeinput">mdf = calcMDF(gB.misorientation,<span class="string">'halfwidth'</span>,2.5*degree,<span class="string">'bandwidth'</span>,54)</pre><pre class="codeoutput"> 
 mdf = MDF  
   crystal symmetry : iron (m-3m)
   crystal symmetry : iron (m-3m)
   antipodal:         true
  
   Portion specified by Fourier coefficients:
-    degree: 64
+    degree: 54
     weight: 1
  
-</pre><p>Next we can visualize the misorientation distribution function in axis angle sections.</p><pre class="codeinput"><span class="comment">% TODO: this antipodal should be stored later directly in the mdf</span>
-plot(mdf,<span class="string">'axisAngle'</span>,(25:5:60)*degree,<span class="string">'colorRange'</span>,[0 15],<span class="string">'antipodal'</span>)
+</pre><p>Next we can visualize the misorientation distribution function in axis angle sections.</p><pre class="codeinput">plot(mdf,<span class="string">'axisAngle'</span>,(25:5:60)*degree,<span class="string">'colorRange'</span>,[0 15])
 
 annotate(CSL(3),<span class="string">'label'</span>,<span class="string">'$CSL_3$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
 annotate(CSL(5),<span class="string">'label'</span>,<span class="string">'$CSL_5$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
@@ -242,22 +241,27 @@ mori = misorientation
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
   63.4003 48.2376 333.257       0
-  104.063 26.9708 283.944       0
+   104.16 27.3472 283.789       0
  
  
-</pre><p>and their volumes</p><pre class="codeinput">volume(gB.misorientation,CSL(3),2*degree)
+</pre><p>and their volumes in percent</p><pre class="codeinput">100 * volume(gB.misorientation,CSL(3),2*degree)
 
-volume(gB.misorientation,CSL(9),2*degree)</pre><pre class="codeoutput">ans =
-    0.4099
+100 * volume(gB.misorientation,CSL(9),2*degree)</pre><pre class="codeoutput">ans =
+   40.9918
 ans =
-    0.0203
+    2.0803
 </pre><p>or to plot the MDF along certain fibres</p><pre class="codeinput">omega = linspace(0,55*degree);
 fibre100 = orientation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,omega,mdf.CS,mdf.SS)
 fibre111 = orientation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,omega,mdf.CS,mdf.SS)
 fibre101 = orientation(<span class="string">'axis'</span>,vector3d(1,0,1),<span class="string">'angle'</span>,omega,mdf.CS,mdf.SS)
 
 close <span class="string">all</span>
-plot(omega ./ degree,mdf.eval(fibre101))</pre><pre class="codeoutput"> 
+plot(omega ./ degree,mdf.eval(fibre100))
+hold <span class="string">on</span>
+plot(omega ./ degree,mdf.eval(fibre111))
+plot(omega ./ degree,mdf.eval(fibre101))
+hold <span class="string">off</span>
+legend(<span class="string">'100'</span>,<span class="string">'111'</span>,<span class="string">'101'</span>)</pre><pre class="codeoutput"> 
 fibre100 = misorientation  
   size: 1 x 100
   crystal symmetry : iron (m-3m)
@@ -289,7 +293,7 @@ mori = misorientation
  
  
 ans =
-    5.8319
+    5.8598
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

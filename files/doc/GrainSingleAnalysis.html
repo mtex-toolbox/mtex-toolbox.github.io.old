@@ -75,7 +75,7 @@ ebsd_selected = ebsd(grain_selected)</pre><pre class="codeoutput">
 grain_selected = grain2d  
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
-     1      32   62262  Forsterite       mmm                         
+     1      34   64923  Forsterite       mmm                         
  
  Properties: GOS, meanRotation
  
@@ -83,7 +83,7 @@ grain_selected = grain2d
 ebsd_selected = EBSD  
  
  Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
-     1  62262 (100%)  Forsterite  light blue       mmm                         
+     1  64923 (100%)  Forsterite  light blue       mmm                         
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -95,13 +95,13 @@ grain_selected = grain2d
      1       1    1208  Forsterite       mmm                         
  
   Id   Phase   Pixels          GOS   phi1   Phi   phi2
- 640       1     1208   0.00808162    153    68    237
+ 611       1     1208   0.00808162    153    68    237
  
 </pre><p>you can get the id of this grain by</p><pre class="codeinput">grain_selected.id</pre><pre class="codeoutput">ans =
-   640
+   611
 </pre><p>lets look for the grain with the largest grain orientation spread</p><pre class="codeinput">[~,id] = max(grains.GOS)
 grain_selected = grains(id)</pre><pre class="codeoutput">id =
-        1856
+        1754
  
 grain_selected = grain2d  
  
@@ -109,7 +109,7 @@ grain_selected = grain2d
      1       1    2614  Forsterite       mmm                         
  
    Id   Phase   Pixels        GOS   phi1   Phi   phi2
- 1856       1     2614   0.170049    153   109    246
+ 1754       1     2614   0.170049    153   109    246
  
 </pre><pre class="codeinput">plot(grain_selected.boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>

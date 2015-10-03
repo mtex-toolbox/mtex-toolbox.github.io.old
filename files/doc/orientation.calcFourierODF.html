@@ -52,17 +52,9 @@
          <p>If the halfwidth is large the estimated ODF is smooth whereas a small halfwidth results in a sharp ODF. It depends on your
             prior information about the ODF to choose this parameter right. Look at this <a href="EBSDSimulation_demo.html"> description</a> for exhausive discussion.
          </p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>calcODF(ori,...,param,var,...)
-            calcODF(ebsd,...,param,var,...)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">calcODF(ori)
+calcODF(ori,<span class="string">'kernel'</span>,psi)
+calcODF(ori,<span class="string">'bandwidth'</span>,32)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -71,14 +63,6 @@
             </td>
             <td>
             <p><a href="orientation_index.html">orientation</a></p>
-            </td>
-            </tr>
-            <tr>
-            <td width="100px">
-            <tt>ebsd</tt>
-            </td>
-            <td>
-            <p><a href="EBSD_index.html">EBSD</a></p>
             </td>
             </tr>
             <tr>
@@ -129,6 +113,14 @@
             </td>
             <td>
             <p><a href="ODF_index.html">ODF</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>psi</tt>
+            </td>
+            <td>
+            <p><a href="kernel_index.html">kernel</a></p>
             </td>
             </tr>
             </table>

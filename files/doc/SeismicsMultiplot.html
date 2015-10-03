@@ -5,7 +5,7 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
    
-      <title> (DocHelp Toolbox)
+      <title>Seismic velocities and anisotropy (DocHelp Toolbox)
          
       </title>
       <!-- DOCNAME: DocHelp Toolbox -->
@@ -37,14 +37,52 @@
             </div>
          </div>
       </div>
-      <div class="container"><pre class="codeinput"><span class="comment">% Calculalating and plotting elastic velocities (km/s) from elasticity stiffness</span>
-<span class="comment">% Cijkl tensor (GPa) and density (g/cm3)</span>
-<span class="comment">%</span>
-<span class="comment">% By David Mainprice</span>
-<span class="comment">%</span></pre><h2>Crystal Symmetry<a name="2"> </a></h2>
+      <div class="container">
+         <h1>Seismic velocities and anisotropy</h1>
+         <div class="subheading">
+            <p>Calculalating and plotting elastic velocities from elastic stiffness Cijkl tensor and density (by David Mainprice).</p>
+         </div>
+         <div>
+            <table class="content">
+               <tr>
+                  <td class="header">On this page ...</td>
+               </tr>
+               <tr>
+                  <td><a href="#3">Crystal Symmetry and definition of the elastic stiffness tensor</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#5">compute maximum and minimum velocities</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#6">Plotting section</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#8">AVS : Plot S-wave anisotropy percentage for each proppagation direction</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#9">S1 Polarization: Plot fastest S-wave (Vs1) polarization directions</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#10">Vs1 : Plot Vs1 velocities (km/s)</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#11">Vs2 : Plot Vs2 velocities (km/s)</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#12">dVs : Plot Velocity difference Vs1-Vs2 (km/s) plus Vs1 polarizations</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#13">Vp/Vs1 : Plot Vp/Vs1 ratio (no units)</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#14">Vp/Vs2 : Plot Vp/Vs2 ratio (no units)</a></td>
+               </tr>
+            </table>
+         </div>
+         <h2>Crystal Symmetry and definition of the elastic stiffness tensor<a name="3"> </a></h2>
          <p>crystal symmetry - Orthorhombic mmm Olivine structure (4.7646 10.2296 5.9942 90.00 90.00 90.00) - Orthorhombic</p><pre class="codeinput">cs_tensor = crystalSymmetry(<span class="string">'mmm'</span>,[4.7646,10.2296,5.9942],<span class="keyword">...</span>
-    [90.00,90.00,90.00]*degree,<span class="string">'x||a'</span>,<span class="string">'z||c'</span>,<span class="string">'mineral'</span>,<span class="string">'Olivine'</span>);</pre><h2>Import 4th rank tensor as 6 by 6 matrix<a name="3"> </a></h2>
-         <p>Olivine elastic stiffness (Cij) Tensor in GPa Abramson E.H., Brown J.M., Slutsky L.J., and Zaug J.(1997) The elastic constants
+  <span class="string">'x||a'</span>,<span class="string">'z||c'</span>,<span class="string">'mineral'</span>,<span class="string">'Olivine'</span>);</pre><p><b>Import 4th rank tensor as 6 by 6 matrix</b></p>
+         <p>Olivine elastic stiffness (Cij) tensor in GPa Abramson E.H., Brown J.M., Slutsky L.J., and Zaug J.(1997) The elastic constants
             of San Carlos olivine to 17 GPa. Journal of Geophysical Research 102: 12253-12263.
          </p>
          <p>Enter tensor as 6 by 6 matrix,M line by line.</p><pre class="codeinput">M = [[320.5  68.15  71.6     0     0     0];<span class="keyword">...</span>
@@ -53,7 +91,6 @@
     [   0      0      0     64     0     0];<span class="keyword">...</span>
     [   0      0      0      0    77     0];<span class="keyword">...</span>
     [   0      0      0      0     0  78.7]];
-
 
 <span class="comment">% Define density (g/cm3)</span>
 rho=3.355;
@@ -74,8 +111,9 @@ C = elastic stiffness tensor
      0     0     0    64     0     0
      0     0     0     0    77     0
      0     0     0     0     0  78.7
-</pre><h2>compute maximum and minimum velocities<a name="4"> </a></h2><pre class="codeinput"><span class="comment">% Generate velocities and polarizations on a fine pole figure S2Grid</span>
-XY_grid = equispacedS2Grid(<span class="string">'HEMISPHERE'</span>,<span class="string">'upper'</span>, <span class="string">'resolution'</span>,1*degree);
+</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>compute maximum and minimum velocities<a name="5"> </a></h2><pre class="codeinput"><span class="comment">% Generate velocities and polarizations on a fine pole figure S2Grid</span>
+XY_grid = equispacedS2Grid(<span class="string">'upper'</span>, <span class="string">'resolution'</span>,1*degree);
 
 [vp,vs1,vs2,pp,ps1,ps2] = velocity(C,XY_grid);
 
@@ -188,7 +226,8 @@ AVpVs2=200*(VpVs2_max_value-VpVs2_min_value)/(VpVs2_max_value+VpVs2_min_value);
 [~,index_min] = min(vpvs2);
 <span class="comment">% vector in S2Grid</span>
 VpVs2_max_vector = XY_grid(index_max);
-VpVs2_min_vector = XY_grid(index_min);</pre><h2>Plotting section<a name="5"> </a></h2><pre class="codeinput"><span class="comment">% plotting convention - plot X-axis to north</span>
+VpVs2_min_vector = XY_grid(index_min);</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Plotting section<a name="6"> </a></h2><pre class="codeinput"><span class="comment">% plotting convention - plot X-axis to north</span>
 plotx2north;
 
 <span class="comment">% close all open graphics</span>
@@ -237,7 +276,8 @@ ylabel(AVpS,titleOpt{:})
 hold <span class="string">on</span>
 plot(Vp_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 plot(Vp_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_02.png"> <h2>AVS : Plot S-wave anisotropy percentage for each proppagation direction<a name="7"> </a></h2>
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>AVS : Plot S-wave anisotropy percentage for each proppagation direction<a name="8"> </a></h2>
          <p>defined as AVs = 200*(Vs1-Vs2)/(Vs1+Vs2)</p><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
@@ -259,7 +299,8 @@ text([xvector,yvector,zvector],{<span class="string">'[100] '</span>,<span class
 hold <span class="string">on</span>
 plot(AVs_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 plot(AVs_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_03.png"> <h2>S1 Polarization: Plot fastest S-wave (Vs1) polarization directions<a name="8"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>S1 Polarization: Plot fastest S-wave (Vs1) polarization directions<a name="9"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
 plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'200*(vs1-vs2)./(vs1+vs2)'</span>,<span class="string">'complete'</span>,<span class="keyword">...</span>
@@ -269,7 +310,8 @@ mtexTitle(<span class="string">'Vs1 polarization'</span>,titleOpt{:})
 hold <span class="string">on</span>
 plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'ps1'</span>,<span class="keyword">...</span>
 <span class="string">'complete'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'color'</span>,<span class="string">'black'</span>,<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_04.png"> <h2>Vs1 : Plot Vs1 velocities (km/s)<a name="9"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Vs1 : Plot Vs1 velocities (km/s)<a name="10"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
 plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vs1'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
@@ -287,7 +329,8 @@ plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</s
 hold <span class="string">on</span>
 plot(Vs1_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 plot(Vs1_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_05.png"> <h2>Vs2 : Plot Vs2 velocities (km/s)<a name="10"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Vs2 : Plot Vs2 velocities (km/s)<a name="11"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
 plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vs2'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
@@ -305,7 +348,8 @@ plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</s
 hold <span class="string">on</span>
 plot(Vs2_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 plot(Vs2_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_06.png"> <h2>dVs : Plot Velocity difference Vs1-Vs2 (km/s) plus Vs1 polarizations<a name="11"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>dVs : Plot Velocity difference Vs1-Vs2 (km/s) plus Vs1 polarizations<a name="12"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
 plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vs1-vs2'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
@@ -319,7 +363,8 @@ ylabel(AdVsS,titleOpt{:})
 hold <span class="string">on</span>
 plot(dVs_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 plot(dVs_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_07.png"> <h2>Vp/Vs1 : Plot Vp/Vs1 ratio (no units)<a name="12"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Vp/Vs1 : Plot Vp/Vs1 ratio (no units)<a name="13"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
 plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vp./vs1'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
@@ -333,7 +378,8 @@ ylabel(AVpVs1S,titleOpt{:})
 hold <span class="string">on</span>
 plot(VpVs1_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 plot(VpVs1_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_08.png"> <h2>Vp/Vs2 : Plot Vp/Vs2 ratio (no units)<a name="13"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
+hold <span class="string">off</span></pre><img src="SeismicsMultiplot_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Vp/Vs2 : Plot Vp/Vs2 ratio (no units)<a name="14"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
 plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vp./vs2'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
@@ -349,21 +395,8 @@ plot(VpVs2_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFi
 plot(VpVs2_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 hold <span class="string">off</span></pre><img src="SeismicsMultiplot_09.png"> <pre class="codeinput"><span class="comment">% add colorbars to all plots</span>
 mtexColorbar
-drawNow(gcm,<span class="string">'figSize'</span>,<span class="string">'large'</span>)</pre><img src="SeismicsMultiplot_10.png"> <p>save plot as *.pdf file</p><pre class="codeinput"><span class="comment">%savefigure('Plot_Olivine_Single_Crystal_seismic_analysis.pdf');</span>
-<span class="comment">%</span>
-<span class="comment">%</span>
-<span class="comment">% reset colour map to default for MTEX</span>
-setMTEXpref(<span class="string">'defaultColorMap'</span>,WhiteJetColorMap);
-<span class="comment">%</span>
-disp(<span class="string">' '</span>)
-disp(<span class="string">' Script has successfully terminated'</span>)
-disp(<span class="string">' '</span>)
-<span class="comment">%</span>
-<span class="comment">% End of script</span>
-<span class="comment">%</span></pre><pre class="codeoutput"> 
- Script has successfully terminated
- 
-</pre><p style="font-size:1px;"></p>
+drawNow(gcm,<span class="string">'figSize'</span>,<span class="string">'large'</span>)</pre><img src="SeismicsMultiplot_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

@@ -3,9 +3,8 @@
    <tocitem target="mtex_product_page.html">MTEX Toolbox<tocitem target="GettingStarted.html">Getting Started with the MTEX Toolbox<tocitem target="installation.html">Installation Guide<tocitem target="installation.html#1">Download</tocitem>
             <tocitem target="installation.html#2">MATLAB</tocitem>
             <tocitem target="installation.html#3">Installation</tocitem>
-            <tocitem target="installation.html#4">Checking Your Installation</tocitem>
-            <tocitem target="installation.html#5">Configuration and Troubleshooting</tocitem>
-            <tocitem target="installation.html#6">Compiling MTEX</tocitem>
+            <tocitem target="installation.html#4">Configuration and Troubleshooting</tocitem>
+            <tocitem target="installation.html#5">Compiling MTEX</tocitem>
          </tocitem>
          <tocitem target="configuration.html">Configuration<tocitem target="configuration.html#1">Global Configuration</tocitem>
             <tocitem target="configuration.html#2">The Option System</tocitem>
@@ -484,6 +483,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.inpolygon.html">inpolygon</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.mtimes.html">mtimes</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.plot.html">plot</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.reduce.html">reduce</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.rotate.html">rotate</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.shift.html">shift</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.smooth.html">smooth</tocitem>
@@ -736,6 +736,10 @@
             <tocitem target="PoleFigure2odf.html#14">Ghost Corrections</tocitem>
             <tocitem target="PoleFigure2odf.html#15">Theory</tocitem>
          </tocitem>
+         <tocitem target="PF2ODFAmbiguity.html">Ambiguity of the Pole Figure to ODF Reconstruction Problem<tocitem target="PF2ODFAmbiguity.html#3">The ambiguity due to too few pole figures</tocitem>
+            <tocitem target="PF2ODFAmbiguity.html#12">The ambiguity due to too Fridel's law</tocitem>
+            <tocitem target="PF2ODFAmbiguity.html#17">The inherent ambiguity of the pole figure - ODF relationship</tocitem>
+         </tocitem>
          <tocitem target="ghost_demo.html">Ghost Effect Analysis<tocitem target="ghost_demo.html#3">Introduction</tocitem>
             <tocitem target="ghost_demo.html#4">Construct Model ODF</tocitem>
             <tocitem target="ghost_demo.html#5">Simulate pole figures</tocitem>
@@ -879,6 +883,17 @@
          <tocitem target="PiezoElectricity.html">The Piezoelectricity Tensor<tocitem target="PiezoElectricity.html#5">Plotting the magnitude surface</tocitem>
             <tocitem target="PiezoElectricity.html#11">Mean Tensor Calculation</tocitem>
          </tocitem>
+         <tocitem target="SeismicsMultiplot.html">Seismic velocities and anisotropy<tocitem target="SeismicsMultiplot.html#3">Crystal Symmetry and definition of the elastic stiffness tensor</tocitem>
+            <tocitem target="SeismicsMultiplot.html#5">compute maximum and minimum velocities</tocitem>
+            <tocitem target="SeismicsMultiplot.html#6">Plotting section</tocitem>
+            <tocitem target="SeismicsMultiplot.html#8">AVS : Plot S-wave anisotropy percentage for each proppagation direction</tocitem>
+            <tocitem target="SeismicsMultiplot.html#9">S1 Polarization: Plot fastest S-wave (Vs1) polarization directions</tocitem>
+            <tocitem target="SeismicsMultiplot.html#10">Vs1 : Plot Vs1 velocities (km/s)</tocitem>
+            <tocitem target="SeismicsMultiplot.html#11">Vs2 : Plot Vs2 velocities (km/s)</tocitem>
+            <tocitem target="SeismicsMultiplot.html#12">dVs : Plot Velocity difference Vs1-Vs2 (km/s) plus Vs1 polarizations</tocitem>
+            <tocitem target="SeismicsMultiplot.html#13">Vp/Vs1 : Plot Vp/Vs1 ratio (no units)</tocitem>
+            <tocitem target="SeismicsMultiplot.html#14">Vp/Vs2 : Plot Vp/Vs2 ratio (no units)</tocitem>
+         </tocitem>
       </tocitem>
       <tocitem target="Plotting.html">Plotting<tocitem target="PlottingIntro.html">Plotting Overview<tocitem target="PlottingIntro.html#3">Plotting in MTEX</tocitem>
             <tocitem target="PlottingIntro.html#4">Plot Types</tocitem>
@@ -888,11 +903,9 @@
             <tocitem target="PlottingIntro.html#8">Combined Plots</tocitem>
             <tocitem target="PlottingIntro.html#9">Exporting Plots</tocitem>
          </tocitem>
-         <tocitem target="Annotations_demo.html">Annotations<tocitem target="Annotations_demo.html#3">Some sample ODFs</tocitem>
-            <tocitem target="Annotations_demo.html#4">Adding a Colorbar</tocitem>
-            <tocitem target="Annotations_demo.html#7">Adding Specimen and Crystal Directions</tocitem>
-            <tocitem target="Annotations_demo.html#9">Adding Preferred Orientations</tocitem>
-            <tocitem target="Annotations_demo.html#12">Adding a Legend</tocitem>
+         <tocitem target="Annotations_demo.html">Annotations<tocitem target="Annotations_demo.html#3">Colorbars</tocitem>
+            <tocitem target="Annotations_demo.html#6">Annotating Directions, Orientations, Fibres</tocitem>
+            <tocitem target="Annotations_demo.html#11">Legends</tocitem>
          </tocitem>
          <tocitem target="CombinedPlots_demo.html">Combinded Plots<tocitem target="CombinedPlots_demo.html#3">General Principle</tocitem>
             <tocitem target="CombinedPlots_demo.html#4">Combine Different EBSD Data</tocitem>
