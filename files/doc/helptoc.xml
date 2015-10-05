@@ -737,8 +737,8 @@
             <tocitem target="PoleFigure2odf.html#15">Theory</tocitem>
          </tocitem>
          <tocitem target="PF2ODFAmbiguity.html">Ambiguity of the Pole Figure to ODF Reconstruction Problem<tocitem target="PF2ODFAmbiguity.html#3">The ambiguity due to too few pole figures</tocitem>
-            <tocitem target="PF2ODFAmbiguity.html#12">The ambiguity due to too Fridel's law</tocitem>
-            <tocitem target="PF2ODFAmbiguity.html#17">The inherent ambiguity of the pole figure - ODF relationship</tocitem>
+            <tocitem target="PF2ODFAmbiguity.html#14">The ambiguity due to too Fridel's law</tocitem>
+            <tocitem target="PF2ODFAmbiguity.html#19">The inherent ambiguity of the pole figure - ODF relationship</tocitem>
          </tocitem>
          <tocitem target="ghost_demo.html">Ghost Effect Analysis<tocitem target="ghost_demo.html#3">Introduction</tocitem>
             <tocitem target="ghost_demo.html#4">Construct Model ODF</tocitem>
