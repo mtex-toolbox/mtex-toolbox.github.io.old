@@ -5,7 +5,7 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
    
-      <title> (DocHelp Toolbox)
+      <title>Visualizing EBSD data with sharp textures (DocHelp Toolbox)
          
       </title>
       <!-- DOCNAME: DocHelp Toolbox -->
@@ -38,7 +38,20 @@
          </div>
       </div>
       <div class="container">
-         <h2>Visualizing EBSD data with sharp textures<a name="1"> </a></h2>
+         <h1>Visualizing EBSD data with sharp textures</h1>
+         <div class="subheading">
+            <p>How visualize texturgradients within grains</p>
+         </div>
+         <div>
+            <table class="content">
+               <tr>
+                  <td class="header">On this page ...</td>
+               </tr>
+               <tr>
+                  <td><a href="#7">Sharpening the default colorcoding</a></td>
+               </tr>
+            </table>
+         </div>
          <p>Using spezialized orientation mappings is particularly usefull when visualizing sharp data. Let us consider the following
             data set which restrict to the calcite phase
          </p><pre class="codeinput">plotx2east
@@ -49,7 +62,9 @@ ebsd = ebsd(<span class="string">'calcite'</span>);
 oM = ipdfHSVOrientationMapping(ebsd);
 
 close <span class="string">all</span>;
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_01.png"> <p>and have a look into the 001 inverse pole figure.</p><pre class="codeinput"><span class="comment">% compute the positions in the inverse pole figure</span>
+plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><pre class="codeoutput"> loading data ...
+ saving data to /home/hielscher/mtex/master/data/sharp.mat
+</pre><img src="EBSDSharpPlot_01.png"> <p>and have a look into the 001 inverse pole figure.</p><pre class="codeinput"><span class="comment">% compute the positions in the inverse pole figure</span>
 h = ebsd.orientations .\ zvector;
 h = project2FundamentalRegion(h);
 
@@ -76,7 +91,8 @@ caxis([20 30]);
 cmap = colormap;
 cmap(end,:) = [1 0 1];
 cmap(1,:) = [1 0 1];
-colormap(cmap)</pre><img src="EBSDSharpPlot_04.png"> <h2>Sharpening the default colorcoding<a name="5"> </a></h2>
+colormap(cmap)</pre><img src="EBSDSharpPlot_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Sharpening the default colorcoding<a name="7"> </a></h2>
          <p>Next we want to apply the same ideas as above to the default MTEX color mapping, i.e. we want to stretch the colors such that
             they cover just the orientations of interest.
          </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd.CS.properGroup);
@@ -105,13 +121,13 @@ ebsd = ebsd(<span class="string">'indexed'</span>);
 [grains,ebsd.grainId] = calcGrains(ebsd);
 
 <span class="comment">% find largest grains</span>
-largeGrains = grains(grains.grainSize&gt;800)
+largeGrains = grains(grains.grainSize &gt; 800)
 
 ebsd = ebsd(largeGrains(1))</pre><pre class="codeoutput"> 
 largeGrains = grain2d  
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
-     1      57   87105  Forsterite       mmm                         
+     1      56   85514  Forsterite       mmm                         
      2       2    1969   Enstatite       mmm                         
  
  Properties: GOS, meanRotation
@@ -137,9 +153,10 @@ plot(largeGrains(1).boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>
 oM = ipdfHSVOrientationMapping(ebsd);
 oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
-oM.colorStretching = 40;
+oM.maxAngle = 2*degree;
 plot(ebsd,oM.orientation2color(ebsd.orientations))
-hold <span class="string">off</span></pre><img src="EBSDSharpPlot_09.png"> <p style="font-size:1px;"></p>
+hold <span class="string">off</span></pre><img src="EBSDSharpPlot_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

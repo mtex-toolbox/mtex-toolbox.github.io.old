@@ -43,13 +43,23 @@
             <p>(method of <a href="quaternion_index.html">quaternion</a>)
             </p>
          </div>
-         <p>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">mat = matrix(q)</pre><h2>Input<a name="4"> </a></h2>
+         <p>project a quaternion into the tangential space</p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">v = log(q)       <span class="comment">% tangential vector as vector3d</span>
+v = log(q,q_ref) <span class="comment">% tangential vector as vector3d</span>
+M = logMat(q) <span class="comment">% return tangential vector as (skew symmetric) matrix</span></pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
             <tt>q</tt>
+            </td>
+            <td>
+            <p><a href="quaternion_index.html">quaternion</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>q_ref</tt>
             </td>
             <td>
             <p><a href="quaternion_index.html">quaternion</a></p>
@@ -63,17 +73,17 @@
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>mat</tt>
+            <tt>v</tt>
             </td>
             <td>
-            <p>vector of matrixes</p>
+            <p><a href="vector3d_index.html">vector3d</a></p>
             </td>
             </tr>
             </table>
             
          </p>
          <h3 class="seealso">See also</h3>
-         <p><a href="mat2quat.html">mat2quat</a>, <a href="Euler.html">Euler</a>, <a href="axis2quat.html">axis2quat</a>, <a href="hr2quat.html">hr2quat</a></p>
+         <p><a href="expquat.html">expquat</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

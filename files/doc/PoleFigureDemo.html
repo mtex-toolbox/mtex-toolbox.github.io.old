@@ -145,10 +145,10 @@ error: 2.7825E-03
 alpha: 1.0006E+00 9.9733E-01 9.9459E-01 
 initialize solver
 start iteration
-error: 5.4173E-01 3.3935E-01 2.3711E-01 1.8011E-01 1.3962E-01 1.0750E-01 7.9084E-02 5.7310E-02 3.9256E-02 2.7742E-02 2.1057E-02 1.7245E-02 
+error: 5.4173E-01 3.3935E-01 2.3711E-01 1.8011E-01 1.3962E-01 1.0473E-01 7.6948E-02 5.2699E-02 3.6109E-02 2.5846E-02 1.9807E-02 1.6550E-02 
 Finished PDF-ODF inversion.
-error: 1.7245E-02
-alpha: 9.8610E-01 1.0024E+00 1.0100E+00 
+error: 1.6550E-02
+alpha: 9.8659E-01 1.0024E+00 1.0096E+00 
  
 rec = ODF  
   crystal symmetry : 432
@@ -182,12 +182,12 @@ rec_ng = ODF
  
 </pre><img src="PoleFigureDemo_06.png"> <h2>Error Analysis<a name="14"> </a></h2><pre class="codeinput">calcError(pf_SantaFe,rec)
 calcError(pf_SantaFe,rec_ng)</pre><pre class="codeoutput">ans =
-    0.0170    0.0254    0.0231
+    0.0165    0.0249    0.0227
 ans =
     0.0301    0.0316    0.0297
 </pre><p><b>Difference plot</b></p><pre class="codeinput">plotDiff(pf_SantaFe,rec)</pre><img src="PoleFigureDemo_07.png"> <p><b>ODF error</b></p><pre class="codeinput">calcError(SantaFe,rec)
 calcError(SantaFe,rec_ng)</pre><pre class="codeoutput">ans =
-    0.0278
+    0.0271
 ans =
     0.0859
 </pre><h2>Exercises<a name="17"> </a></h2>

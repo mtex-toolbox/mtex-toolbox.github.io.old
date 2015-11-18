@@ -54,7 +54,7 @@
                   <td><a href="#4">The sample data set</a></td>
                </tr>
                <tr>
-                  <td><a href="#6">Intergranular misorientations</a></td>
+                  <td><a href="#6">Intragranular misorientations</a></td>
                </tr>
                <tr>
                   <td><a href="#10">Boundary misorientations</a></td>
@@ -70,7 +70,7 @@
          <h2>Definition<a name="3"> </a></h2>
          <p>In MTEX the misorientation between two orientations o1, o2 is defined as</p>
          <p><img src="GrainMisorientationAnalysis_eq10473485919243981333.png"> </p>
-         <p>In the case of EBSD data, intergranular misorientations, misorientations between neighbouring grains, and misorientations
+         <p>In the case of EBSD data, intragranular misorientations, misorientations between neighbouring grains, and misorientations
             between random measurments are of interest.
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -79,8 +79,8 @@
 plotx2east</pre><p>and <a href="EBSD.calcGrains.html">reconstruct</a> grains by
          </p><pre class="codeinput"><span class="comment">% perform grain segmentation</span>
 [grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd(<span class="string">'indexed'</span>),<span class="string">'threshold'</span>,5*degree);</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Intergranular misorientations<a name="6"> </a></h2>
-         <p>The intergranular misorientation is automatically computed while reconstructing the grain structure. It is stored as the property
+         <h2>Intragranular misorientations<a name="6"> </a></h2>
+         <p>The intragranular misorientation is automatically computed while reconstructing the grain structure. It is stored as the property
             <tt>mis2mean</tt> within the ebsd variable and can be accessed by
          </p><pre class="codeinput"><span class="comment">% get the misorientations to mean</span>
 mori = ebsd(<span class="string">'Fo'</span>).mis2mean
@@ -114,8 +114,8 @@ plot(oM,<span class="string">'noTitle'</span>)</pre><pre class="codeoutput">oM =
              colorPostRotation: [1x1 rotation]
                colorStretching: 1
                    whiteCenter: [1x1 vector3d]
-                     grayValue: 0
-                  grayGradient: 1
+                     grayValue: [0.2000 0.5000]
+                  grayGradient: 0.5000
                       maxAngle: Inf
                             sR: [1x1 sphericalRegion]
 </pre><img src="GrainMisorientationAnalysis_03.png"> <pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),oM.orientation2color(ebsd(<span class="string">'Forsterite'</span>).mis2mean))
@@ -137,10 +137,10 @@ bnd_FoFo.misorientation</pre><pre class="codeoutput">
 bnd_FoFo = grainBoundary  
  
  Segments   mineral 1   mineral 2
-    23201  Forsterite  Forsterite
+    17774  Forsterite  Forsterite
  
 ans = misorientation  
-  size: 23201 x 1
+  size: 17774 x 1
   crystal symmetry : Forsterite (mmm)
   crystal symmetry : Forsterite (mmm)
   antipodal:         true
@@ -213,7 +213,7 @@ mdf_Fo_Fo = MDF
   crystal symmetry : Forsterite (mmm)
  
   Portion specified by Fourier coefficients:
-    degree: 32
+    degree: 28
     weight: 1
  
 </pre><img src="GrainMisorientationAnalysis_09.png"> <p>What we have ploted above is the uncorrelated misorientation angle distribution for the Forsterite ODF. We can compare it

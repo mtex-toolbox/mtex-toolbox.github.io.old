@@ -127,8 +127,8 @@ plot(oM)</pre><pre class="codeoutput">oM =
              colorPostRotation: [1x1 rotation]
                colorStretching: 1
                    whiteCenter: [1x1 vector3d]
-                     grayValue: 0
-                  grayGradient: 1
+                     grayValue: [0.2000 0.5000]
+                  grayGradient: 0.5000
                       maxAngle: Inf
                             sR: [1x1 sphericalRegion]
 </pre><img src="EBSDSpatialPlots_07.png"> <p>Now we can proceed as above</p><pre class="codeinput"><span class="comment">% compute the colors</span>
@@ -212,7 +212,7 @@ plot(oM,<span class="string">'sections'</span>,9,<span class="string">'sigma'</s
    15.2640
 </pre><p>actually, the colored measurements stress a peak in the ODF</p><pre class="codeinput">close <span class="string">all</span>
 odf = calcODF(ebsd(<span class="string">'fo'</span>).orientations,<span class="string">'halfwidth'</span>,10*degree,<span class="string">'silent'</span>);
-plot(odf,<span class="string">'sections'</span>,9,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)
+plot(odf,<span class="string">'sections'</span>,9,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)
 mtexColorbar</pre><img src="EBSDSpatialPlots_18.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Combining different plots<a name="30"> </a></h2>
          <p>Combining different plots can be done either by plotting only subsets of the ebsd data, or via the option <tt>'translucent'</tt>. Note that the option <tt>'translucent'</tt> requires the renderer of the figure to be set to <tt>'opengl'</tt>.

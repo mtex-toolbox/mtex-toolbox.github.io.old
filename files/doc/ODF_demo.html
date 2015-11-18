@@ -108,19 +108,14 @@ odf = ODF
      kappa: -10 -10 10 10
     weight: 1
  
-</pre><img src="ODF_demo_01.png"> <p><b>ODF Arithmetics</b></p><pre class="codeinput">0.2*odf1 + 0.3*odf2 + 0.5*odf3
+</pre><img src="ODF_demo_01.png"> <p><b>ODF Arithmetics</b></p><pre class="codeinput">0.3*odf2 + 0.7*odf3
 
 rot = rotation(<span class="string">'axis'</span>,yvector,<span class="string">'angle'</span>,90*degree);
 odf = rotate(odf,rot)
 plotPDF(odf,Miller(1,0,0,CS))</pre><pre class="codeoutput"> 
 ans = ODF  
-  crystal symmetry : m-3m
-  specimen symmetry: mmm
- 
-  Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: (35&deg;,45&deg;,0&deg;)
-    weight: 0.2
+  crystal symmetry : 6/mmm, X||a*, Y||b, Z||c
+  specimen symmetry: 1
  
   Fibre symmetric portion:
     kernel: Abel Poisson, halfwidth 18&deg;
@@ -128,7 +123,7 @@ ans = ODF
     weight: 0.3
  
   Uniform portion:
-    weight: 0.5
+    weight: 0.7
  
  
 odf = ODF  

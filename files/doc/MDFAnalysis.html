@@ -76,10 +76,10 @@ grains = calcGrains(ebsd)</pre><pre class="codeoutput">
 grains = grain2d  
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
-     0   11579   58485  notIndexed                                   
-     1    2523  152345  Forsterite       mmm                         
-     2    1241   26058   Enstatite       mmm                         
-     3    1742    9064    Diopside     12/m1        X||a*, Y||b, Z||c
+     0   16334   58485  notIndexed                                   
+     1    4092  152345  Forsterite       mmm                         
+     2    1864   26058   Enstatite       mmm                         
+     3    1991    9064    Diopside     12/m1        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  
@@ -97,7 +97,7 @@ mdf_boundary = MDF
 </pre><p>The misorientation distribution function can be processed as any other ODF. E.g. we can compute the prefered misorientation
             via
          </p><pre class="codeinput">[v,mori] = max(mdf_boundary)</pre><pre class="codeoutput">v =
-   32.3755
+   38.9278
  
 mori = misorientation  
   size: 1 x 1
@@ -114,7 +114,7 @@ mori = misorientation
          <p>Alternatively the uncorelated misorientation distribution function can be computed by providing the option <b>uncorelated</b></p><pre class="codeinput">mori = calcMisorientation(ebsd(<span class="string">'En'</span>),ebsd(<span class="string">'Fo'</span>))
 mdf_uncor = calcODF(mori)</pre><pre class="codeoutput"> 
 mori = misorientation  
-  size: 98579 x 1
+  size: 98592 x 1
   crystal symmetry : Forsterite (mmm)
   crystal symmetry : Enstatite (mmm)
  
@@ -154,7 +154,7 @@ mdf = MDF
   crystal symmetry : Enstatite (mmm)
  
   Portion specified by Fourier coefficients:
-    degree: 32
+    degree: 28
     weight: 1
  
 </pre><p>This misorientation distribution function should be similar to the uncorrelated misorinetation function computed directly

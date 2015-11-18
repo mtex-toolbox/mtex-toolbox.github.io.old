@@ -67,19 +67,13 @@
          </p>
          <p>Lets demonstrate the ambiguity due to too few pole figures at the example of two orhorhombic ODFs. The first ODF has three
             modes at the positions
-         </p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'mmm'</span>)
+         </p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'mmm'</span>);
 
 orix = orientation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,90*degree,cs);
 oriy = orientation(<span class="string">'axis'</span>,yvector,<span class="string">'angle'</span>,90*degree,cs);
 oriz = orientation(<span class="string">'axis'</span>,zvector,<span class="string">'angle'</span>,90*degree,cs);
 
 odf1 = unimodalODF([orix,oriy,oriz])</pre><pre class="codeoutput"> 
-cs = crystalSymmetry  
- 
-  symmetry: mmm    
-  a, b, c : 1, 1, 1
- 
- 
 odf1 = ODF  
   crystal symmetry : mmm
   specimen symmetry: 1
@@ -255,7 +249,7 @@ odf1 = ODF
             its representation
          </p><pre class="codeinput">odf1 = FourierODF(odf1,10)
 
-plotPDF(odf1,Miller(1,0,0,cs))</pre><pre class="codeoutput"> 
+plotPDF(odf1,Miller({1,0,0},{0,1,0},{0,0,1},cs))</pre><pre class="codeoutput"> 
 odf1 = ODF  
   crystal symmetry : -1, X||a, Y||b, Z||c
   specimen symmetry: 1
@@ -325,12 +319,12 @@ odf_rec1 = ODF
   specimen symmetry: 1
  
   Uniform portion:
-    weight: 0.80071
+    weight: 0.79979
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
     center: 119088 orientations, resolution: 5&deg;
-    weight: 0.19929
+    weight: 0.20021
  
 </pre><p>This method can be switched off by the following command</p><pre class="codeinput">odf_rec2 = calcODF(pf,<span class="string">'noGhostCorrection'</span>,<span class="string">'silent'</span>)</pre><pre class="codeoutput"> 
 odf_rec2 = ODF  

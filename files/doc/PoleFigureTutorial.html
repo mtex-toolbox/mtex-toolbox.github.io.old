@@ -102,8 +102,7 @@ pf_def = loadPoleFigure(fname_def,h,CS,SS,<span class="string">'interface'</span
 
 <span class="comment">% correct data</span>
 pf = correct(pf,<span class="string">'def'</span>,pf_def);</pre><h2>Plot Raw Data<a name="3"> </a></h2>
-         <p>You should run the sript section wise to see how MTEX imports the pole figure data. Next you can plot your data</p><pre class="codeinput">plot(pf)
-annotate([xvector,yvector,zvector],<span class="string">'label'</span>,{<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>},<span class="string">'backgroundColor'</span>,<span class="string">'w'</span>)</pre><img src="PoleFigureTutorial_01.png"> <p>Make sure that the Miller indices are correctly assigned to the pole figures and that the alignment of the specimen coordinate
+         <p>You should run the sript section wise to see how MTEX imports the pole figure data. Next you can plot your data</p><pre class="codeinput">plot(pf)</pre><img src="PoleFigureTutorial_01.png"> <p>Make sure that the Miller indices are correctly assigned to the pole figures and that the alignment of the specimen coordinate
             system, i.e., X, Y, Z is correct. In case of outliers or misanligned data you may want to correct you raw data. See <a href="ModifyPoleFigureData.html">how to modify pole figure data</a> for further information.
          </p>
          <h2>ODF Estimation<a name="5"> </a></h2>

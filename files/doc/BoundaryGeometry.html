@@ -72,11 +72,13 @@ grains = grains.smooth
 plot(grains,grains.meanOrientation)
 
 <span class="comment">% extract the grain boundaries</span>
-gB = grains.boundary</pre><pre class="codeoutput"> 
+gB = grains.boundary</pre><pre class="codeoutput"> loading data ...
+ saving data to /home/hielscher/mtex/master/data/twins.mat
+ 
 grains = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1     103   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1     121   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  
@@ -104,7 +106,7 @@ ebsd = EBSD
 grains = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1     103   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1     121   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  
@@ -117,8 +119,8 @@ grains = grain2d
 gB = grainBoundary  
  
  Segments   mineral 1  mineral 2
-     1208  notIndexed  Magnesium
-     5230   Magnesium  Magnesium
+      606  notIndexed  Magnesium
+     3219   Magnesium  Magnesium
 </pre><img src="BoundaryGeometry_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Properties of grain boundaries<a name="4"> </a></h2>
          <p>A variable of type grain boundary contains the following properties</p>
@@ -147,7 +149,7 @@ scatter(x,y,<span class="string">'red'</span>)
 hold <span class="string">off</span>
 <span class="comment">% find the number of intersection points</span>
 sum(~isnan(x))</pre><pre class="codeoutput">ans =
-    14
+    10
 </pre><img src="BoundaryGeometry_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

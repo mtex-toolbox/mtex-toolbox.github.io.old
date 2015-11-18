@@ -79,7 +79,7 @@ plot(grains([70,80]).boundary,<span class="string">'edgecolor'</span>,<span clas
 grains = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1     103   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1     121   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  
@@ -100,7 +100,7 @@ mori = misorientation
  
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
-  121.267 50.2996 219.232       0
+  149.583 94.2717 150.165       0
  
  
 </pre><p>In the present case the misorientation describes the coordinate transform from the reference frame of grain 80 into the reference
@@ -110,18 +110,18 @@ mori = misorientation
 ans = Miller  
  size: 1 x 1
  mineral: Magnesium (6/mmm, X||a*, Y||b, Z||c)
-  h  1
-  k  0
+  h  2
+  k -1
   i -1
-  l -2
+  l  0
 </pre><p>Conversely, the inverse of mori is the coordinate transform from crystal 70 to grain 80.</p><pre class="codeinput">round(inv(mori) * Miller(2,-1,-1,0,CS))</pre><pre class="codeoutput"> 
 ans = Miller  
  size: 1 x 1
  mineral: Magnesium (6/mmm, X||a*, Y||b, Z||c)
-  h  3
-  k -1
+  h  1
+  k  1
   i -2
-  l  2
+  l  0
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Coinsident lattice planes<a name="7"> </a></h2>
          <p>The coincidence between major lattice planes may suggest that the misorientation is a twinning misorientation. Lets analyse
@@ -150,15 +150,15 @@ angle(mori * Miller(-1,0,1,1,CS),Miller(1,0,-1,1,CS)) / degree
 angle(mori * Miller(0,0,0,1,CS) ,Miller(1,0,-1,0,CS)) / degree
 angle(mori * Miller(1,1,-2,2,CS),Miller(1,0,-1,0,CS)) / degree
 angle(mori * Miller(1,0,-1,0,CS),Miller(1,1,-2,2,CS)) / degree</pre><pre class="codeoutput">ans =
-   52.7738
+    0.4592
 ans =
-   18.8202
+    0.1766
 ans =
-   47.5723
+    4.2919
 ans =
-   20.5658
+    2.6341
 ans =
-    2.7116
+    2.5686
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Twinning misorientations<a name="9"> </a></h2>
          <p>Lets define a misorientation that makes a perfect fit between the {11-20} lattice planes and between the {10-11} lattice planes</p><pre class="codeinput">mori = orientation(<span class="string">'map'</span>,Miller(1,1,-2,0,CS),Miller(2,-1,-1,0,CS),<span class="keyword">...</span>

@@ -42,16 +42,11 @@
          <div class="subheading">
             <p>plot axis distribution</p>
          </div>
-         <h2>Syntax<a name="2"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>h = plotAxisDistribution(obj,'param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="3"> </a></h2>
+         <h2>Syntax<a name="2"> </a></h2><pre class="codeinput">plotAxisDistribution(cs)        <span class="comment">% random axis distribution</span>
+plotAxisDistribution(cs1,cs2)   <span class="comment">% random misorientation axis distribution</span>
+plotAxisDistribution(mori)      <span class="comment">% axes in crystal coordinates</span>
+plotAxisDistribution(ori1,ori2) <span class="comment">% axes in specimen coordinates</span>
+plotAxisDistribution(odf)</pre><h2>Input<a name="3"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -64,7 +59,15 @@
             </tr>
             <tr>
             <td width="100px">
-            <tt>ori</tt>
+            <tt>mori</tt>
+            </td>
+            <td>
+            <p>@misorientation</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>ori1,ori2</tt>
             </td>
             <td>
             <p><a href="orientation_index.html">orientation</a></p>
@@ -75,7 +78,7 @@
             <tt>cs1, cs2</tt>
             </td>
             <td>
-            <p>crystal symmetry</p>
+            <p><a href="crystalSymmetry_index.html">crystalSymmetry</a></p>
             </td>
             </tr>
             <tr>

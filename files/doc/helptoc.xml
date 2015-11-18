@@ -27,11 +27,13 @@
          <tocitem target="EBSDTutorial.html">Short EBSD Analysis Tutorial<tocitem target="EBSDTutorial.html#2">Data import</tocitem>
             <tocitem target="EBSDTutorial.html#6">Visualize EBSD data</tocitem>
          </tocitem>
-         <tocitem target="FAQ.html">FAQ<tocitem target="FAQ.html#1">Which MATLAB version and which toolboxes are reguired?</tocitem>
-            <tocitem target="FAQ.html#2">I have crazy characters in my plots. What can I do?</tocitem>
-            <tocitem target="FAQ.html#3">I get crazy plots, empty plots, plot with wrong colors</tocitem>
-            <tocitem target="FAQ.html#4">How can I import my data</tocitem>
-            <tocitem target="FAQ.html#6">I can not import EBSD OSC files</tocitem>
+         <tocitem target="FAQ.html">FAQ<tocitem target="FAQ.html#1">Why is there no graphical user interface?</tocitem>
+            <tocitem target="FAQ.html#2">Why Matlab?</tocitem>
+            <tocitem target="FAQ.html#3">Which Matlab version and which toolboxes do I need?</tocitem>
+            <tocitem target="FAQ.html#4">I get crazy plots, empty plots, plot with wrong colors</tocitem>
+            <tocitem target="FAQ.html#5">I have crazy characters in my plots. What can I do?</tocitem>
+            <tocitem target="FAQ.html#6">How can I import my data</tocitem>
+            <tocitem target="FAQ.html#8">MTEX fails to import EBSD OSC files</tocitem>
          </tocitem>
          <tocitem target="compilation.html">Compiling MTEX<tocitem target="compilation.html#1">Introduction</tocitem>
             <tocitem target="compilation.html#2">Pre-requisits</tocitem>
@@ -280,6 +282,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.nfold.html">nfold</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.plot.html">plot</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.properGroup.html">properGroup</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.properSubGroup.html">properSubGroup</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.rotation_special.html">rotation_special</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.subsref.html">subsref</tocitem>
                <tocitem target="symmetry.symmetry.html"/>
@@ -801,7 +804,7 @@
             <tocitem target="EBSDSpatialPlots.html#20">Customizing the color</tocitem>
             <tocitem target="EBSDSpatialPlots.html#30">Combining different plots</tocitem>
          </tocitem>
-         <tocitem target="EBSDSharpPlot.html">Visualizing EBSD data with sharp textures<tocitem target="EBSDSharpPlot.html#4">Sharpening the default colorcoding</tocitem>
+         <tocitem target="EBSDSharpPlot.html">Visualizing EBSD data with sharp textures<tocitem target="EBSDSharpPlot.html#7">Sharpening the default colorcoding</tocitem>
          </tocitem>
          <tocitem target="EBSDSimulation_demo.html">Simulating EBSD data<tocitem target="EBSDSimulation_demo.html#6">Simulate EBSD Data</tocitem>
             <tocitem target="EBSDSimulation_demo.html#7">ODF Estimation from EBSD Data</tocitem>
@@ -831,7 +834,7 @@
          </tocitem>
          <tocitem target="GrainMisorientationAnalysis.html">Misorientation Analysis<tocitem target="GrainMisorientationAnalysis.html#3">Definition</tocitem>
             <tocitem target="GrainMisorientationAnalysis.html#4">The sample data set</tocitem>
-            <tocitem target="GrainMisorientationAnalysis.html#6">Intergranular misorientations</tocitem>
+            <tocitem target="GrainMisorientationAnalysis.html#6">Intragranular misorientations</tocitem>
             <tocitem target="GrainMisorientationAnalysis.html#10">Boundary misorientations</tocitem>
             <tocitem target="GrainMisorientationAnalysis.html#13">The angle distribution</tocitem>
             <tocitem target="GrainMisorientationAnalysis.html#17">The axis distribution</tocitem>
@@ -853,6 +856,12 @@
             <tocitem target="CSLBoundaries.html#8">Colorizing misorientations</tocitem>
             <tocitem target="CSLBoundaries.html#11">Misorientations in the 3d fundamental zone</tocitem>
             <tocitem target="CSLBoundaries.html#12">Analyzing the misorientation distribution function</tocitem>
+         </tocitem>
+         <tocitem target="TripelPoints.html">Tripel points<tocitem target="TripelPoints.html#3">Calculation of tripel points</tocitem>
+            <tocitem target="TripelPoints.html#4">Index tripel points by phase</tocitem>
+            <tocitem target="TripelPoints.html#7">Index tripel points by grains</tocitem>
+            <tocitem target="TripelPoints.html#8">Index tripel points by grain boundary</tocitem>
+            <tocitem target="TripelPoints.html#9">Boundary segments from tripel points</tocitem>
          </tocitem>
       </tocitem>
       <tocitem target="TensorAnalysis.html">Tensors<tocitem target="TensorArithmetics.html">Tensor Arithmetics<tocitem target="TensorArithmetics.html#4">Defining a Tensor</tocitem>
@@ -944,28 +953,29 @@
             <tocitem target="ColorCodingEBSD_demo.html#10">Colorcoding according to inverse pole figure</tocitem>
          </tocitem>
       </tocitem>
-      <tocitem target="ReleaseNotes.html">Release Notes<tocitem target="changelog.html">MTEX Changelog<tocitem target="changelog.html#1">MTEX 4.1 - 09/2015</tocitem>
-            <tocitem target="changelog.html#2">MTEX 4.0.0 - 10/2014</tocitem>
-            <tocitem target="changelog.html#3">MTEX 3.5.0 - 12/2013</tocitem>
-            <tocitem target="changelog.html#4">MTEX 3.4.2 - 06/2013</tocitem>
-            <tocitem target="changelog.html#5">MTEX 3.4.1 - 04/2013</tocitem>
-            <tocitem target="changelog.html#6">MTEX 3.4.0 - 03/2013</tocitem>
-            <tocitem target="changelog.html#7">MTEX 3.3.2 - 01/2013</tocitem>
-            <tocitem target="changelog.html#8">MTEX 3.3.1 - 07/2012</tocitem>
-            <tocitem target="changelog.html#9">MTEX 3.3.0 - 06/2012</tocitem>
-            <tocitem target="changelog.html#10">MTEX 3.2.3 - 03/2012</tocitem>
-            <tocitem target="changelog.html#11">MTEX 3.2.1 - 11/2011</tocitem>
-            <tocitem target="changelog.html#12">MTEX 3.2 - 05/2011</tocitem>
-            <tocitem target="changelog.html#13">MTEX 3.1 - 03/2011</tocitem>
-            <tocitem target="changelog.html#14">MTEX 3.0 - 10/2010</tocitem>
-            <tocitem target="changelog.html#15">MTEX 2.0 - 10/2009</tocitem>
-            <tocitem target="changelog.html#16">MTEX 1.2 - 05/2009</tocitem>
-            <tocitem target="changelog.html#17">MTEX 1.1 - 12/2008</tocitem>
-            <tocitem target="changelog.html#18">MTEX 1.0 - 06/2008</tocitem>
-            <tocitem target="changelog.html#19">MTEX 0.4 - 04/2008</tocitem>
-            <tocitem target="changelog.html#20">MTEX 0.3 - 10/2007</tocitem>
-            <tocitem target="changelog.html#21">MTEX 0.2 - 07/2007</tocitem>
-            <tocitem target="changelog.html#22">MTEX 0.1 - 03/2007</tocitem>
+      <tocitem target="ReleaseNotes.html">Release Notes<tocitem target="changelog.html">MTEX Changelog<tocitem target="changelog.html#1">MTEX 4.2 - 11/2015</tocitem>
+            <tocitem target="changelog.html#2">MTEX 4.1 - 09/2015</tocitem>
+            <tocitem target="changelog.html#3">MTEX 4.0.0 - 10/2014</tocitem>
+            <tocitem target="changelog.html#4">MTEX 3.5.0 - 12/2013</tocitem>
+            <tocitem target="changelog.html#5">MTEX 3.4.2 - 06/2013</tocitem>
+            <tocitem target="changelog.html#6">MTEX 3.4.1 - 04/2013</tocitem>
+            <tocitem target="changelog.html#7">MTEX 3.4.0 - 03/2013</tocitem>
+            <tocitem target="changelog.html#8">MTEX 3.3.2 - 01/2013</tocitem>
+            <tocitem target="changelog.html#9">MTEX 3.3.1 - 07/2012</tocitem>
+            <tocitem target="changelog.html#10">MTEX 3.3.0 - 06/2012</tocitem>
+            <tocitem target="changelog.html#11">MTEX 3.2.3 - 03/2012</tocitem>
+            <tocitem target="changelog.html#12">MTEX 3.2.1 - 11/2011</tocitem>
+            <tocitem target="changelog.html#13">MTEX 3.2 - 05/2011</tocitem>
+            <tocitem target="changelog.html#14">MTEX 3.1 - 03/2011</tocitem>
+            <tocitem target="changelog.html#15">MTEX 3.0 - 10/2010</tocitem>
+            <tocitem target="changelog.html#16">MTEX 2.0 - 10/2009</tocitem>
+            <tocitem target="changelog.html#17">MTEX 1.2 - 05/2009</tocitem>
+            <tocitem target="changelog.html#18">MTEX 1.1 - 12/2008</tocitem>
+            <tocitem target="changelog.html#19">MTEX 1.0 - 06/2008</tocitem>
+            <tocitem target="changelog.html#20">MTEX 0.4 - 04/2008</tocitem>
+            <tocitem target="changelog.html#21">MTEX 0.3 - 10/2007</tocitem>
+            <tocitem target="changelog.html#22">MTEX 0.2 - 07/2007</tocitem>
+            <tocitem target="changelog.html#23">MTEX 0.1 - 03/2007</tocitem>
          </tocitem>
          <tocitem target="bugs.html">List of Known Bugs<tocitem target="bugs.html#2">Open Issues</tocitem>
          </tocitem>

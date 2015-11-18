@@ -137,8 +137,8 @@ plot(oM)</pre><pre class="codeoutput">oM =
              colorPostRotation: [1x1 rotation]
                colorStretching: 1
                    whiteCenter: [1x1 vector3d]
-                     grayValue: 0
-                  grayGradient: 1
+                     grayValue: [0.2000 0.5000]
+                  grayGradient: 0.5000
                       maxAngle: Inf
                             sR: [1x1 sphericalRegion]
 </pre><img src="ColorCodingEBSD_demo_03.png"> <p>We may also look at the inverse pole figure sphere in 3d. One can nicely observe how the color map follows the given symmetry
@@ -166,8 +166,8 @@ plot(ebsd)</pre><img src="ColorCodingEBSD_demo_08.png"> <p>and asume we want to 
              colorPostRotation: [1x1 rotation]
                colorStretching: 1
                    whiteCenter: [1x1 vector3d]
-                     grayValue: 0
-                  grayGradient: 1
+                     grayValue: [0.2000 0.5000]
+                  grayGradient: 0.5000
                       maxAngle: Inf
                             sR: [1x1 sphericalRegion]
 </pre><p>We may also want to set the inverse pole figure direction. This is done by</p><pre class="codeinput">oM.inversePoleFigureDirection = zvector;</pre><p>Next we compute the color corresponding to each orientation we want to plot.</p><pre class="codeinput">color = oM.orientation2color(ebsd(<span class="string">'Forsterite'</span>).orientations);</pre><p>Finally, we can use these colors to visuallize the orientations of the Forsterite phase</p><pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),color)</pre><img src="ColorCodingEBSD_demo_09.png"> <p>We can visuallize the orientations of the forsterite phase also the other way round by plotting them into the inverse pole
@@ -196,8 +196,8 @@ plot(oM)</pre><pre class="codeoutput">oM =
              colorPostRotation: [1x1 rotation]
                colorStretching: 1
                    whiteCenter: [1x1 vector3d]
-                     grayValue: 0
-                  grayGradient: 1
+                     grayValue: [0.2000 0.5000]
+                  grayGradient: 0.5000
                       maxAngle: Inf
                             sR: [1x1 sphericalRegion]
 </pre><img src="ColorCodingEBSD_demo_11.png"> <p>We observe that the fundamental sector is twice as large as for the original crystal symmetry. Furthermore, the meassured

@@ -78,11 +78,13 @@ plotx2east
 grains = smooth(grains,2)
 
 <span class="comment">% plot the result</span>
-plot(grains,grains.meanOrientation)</pre><pre class="codeoutput"> 
+plot(grains,grains.meanOrientation)</pre><pre class="codeoutput"> loading data ...
+ saving data to /home/hielscher/mtex/master/data/csl.mat
+ 
 grains = grain2d  
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
-    -1     863  154107     iron      m-3m                         
+    -1     885  154107     iron      m-3m                         
  
  Properties: GOS, meanRotation
  
@@ -99,7 +101,7 @@ ebsd = EBSD
 grains = grain2d  
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
-    -1     863  154107     iron      m-3m                         
+    -1     885  154107     iron      m-3m                         
  
  Properties: GOS, meanRotation
  
@@ -128,7 +130,7 @@ hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to
 gB = grains.boundary(<span class="string">'iron'</span>,<span class="string">'iron'</span>)
 
 <span class="comment">% select CSL(3) grain boundaries</span>
-gB3 = gB(angle(gB.misorientation,CSL(3)) &lt; 3*degree);
+gB3 = gB(angle(gB.misorientation,CSL(3,ebsd.CS)) &lt; 3*degree);
 
 <span class="comment">% overlay CSL(3) grain boundaries with the existing plot</span>
 hold <span class="string">on</span>
@@ -137,7 +139,7 @@ hold <span class="string">off</span></pre><pre class="codeoutput">
 gB = grainBoundary  
  
  Segments  mineral 1  mineral 2
-    34563       iron       iron
+    20356       iron       iron
 </pre><img src="CSLBoundaries_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Merging grains with common CSL(3) boundary<a name="6"> </a></h2>
          <p>Next we merge all grains together which have a common CSL(3) boundary. This is done with the command <a href="grain2d_merge.html">merge</a>.
@@ -148,10 +150,10 @@ gB = grainBoundary
 hold <span class="string">on</span>
 plot(mergedGrains.boundary,<span class="string">'linecolor'</span>,<span class="string">'w'</span>,<span class="string">'linewidth'</span>,2)
 hold <span class="string">off</span></pre><img src="CSLBoundaries_04.png"> <p>Finaly, we check for all other types of CSL boundaries and overlay them with our plot.</p><pre class="codeinput">delta = 5*degree;
-gB5 = gB(gB.isTwinning(CSL(5),delta));
-gB7 = gB(gB.isTwinning(CSL(7),delta));
-gB9 = gB(gB.isTwinning(CSL(9),delta));
-gB11 = gB(gB.isTwinning(CSL(11),delta));
+gB5 = gB(gB.isTwinning(CSL(5,ebsd.CS),delta));
+gB7 = gB(gB.isTwinning(CSL(7,ebsd.CS),delta));
+gB9 = gB(gB.isTwinning(CSL(9,ebsd.CS),delta));
+gB11 = gB(gB.isTwinning(CSL(11,ebsd.CS),delta));
 
 hold <span class="string">on</span>
 plot(gB5,<span class="string">'lineColor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'CSL 5'</span>)
@@ -194,7 +196,7 @@ hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to
 hold <span class="string">on</span>
 plot(gB.misorientation,<span class="string">'points'</span>,300,<span class="keyword">...</span>
   <span class="string">'MarkerFaceColor'</span>,<span class="string">'none'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'w'</span>)
-hold <span class="string">off</span></pre><pre class="codeoutput">  plotting 300 random orientations out of 34563 given orientations
+hold <span class="string">off</span></pre><pre class="codeoutput">  plotting 300 random orientations out of 20356 given orientations
 </pre><img src="CSLBoundaries_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Misorientations in the 3d fundamental zone<a name="11"> </a></h2>
          <p>We can also look at the boundary misorienations in the 3 dimensional fundamental orientation zone.</p><pre class="codeinput"><span class="comment">% compute the boundary of the fundamental zone</span>
@@ -210,7 +212,7 @@ hold <span class="string">off</span>
 
 <span class="comment">% mark the CSL(3) misorientation</span>
 hold <span class="string">on</span>
-plot(CSL(3),<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'DisplayName'</span>,<span class="string">'CSL 3'</span>,<span class="string">'MarkerSize'</span>,20)
+plot(CSL(3,ebsd.CS),<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'DisplayName'</span>,<span class="string">'CSL 3'</span>,<span class="string">'MarkerSize'</span>,20)
 hold <span class="string">off</span></pre><img src="CSLBoundaries_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Analyzing the misorientation distribution function<a name="12"> </a></h2>
          <p>In order to analyze more quantitatively the boundary misorientation distribution we can compute the so called misorientation
@@ -227,10 +229,10 @@ mdf = MDF
  
 </pre><p>Next we can visualize the misorientation distribution function in axis angle sections.</p><pre class="codeinput">plot(mdf,<span class="string">'axisAngle'</span>,(25:5:60)*degree,<span class="string">'colorRange'</span>,[0 15])
 
-annotate(CSL(3),<span class="string">'label'</span>,<span class="string">'$CSL_3$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
-annotate(CSL(5),<span class="string">'label'</span>,<span class="string">'$CSL_5$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
-annotate(CSL(7),<span class="string">'label'</span>,<span class="string">'$CSL_7$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
-annotate(CSL(9),<span class="string">'label'</span>,<span class="string">'$CSL_9$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
+annotate(CSL(3,ebsd.CS),<span class="string">'label'</span>,<span class="string">'$CSL_3$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
+annotate(CSL(5,ebsd.CS),<span class="string">'label'</span>,<span class="string">'$CSL_5$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
+annotate(CSL(7,ebsd.CS),<span class="string">'label'</span>,<span class="string">'$CSL_7$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
+annotate(CSL(9,ebsd.CS),<span class="string">'label'</span>,<span class="string">'$CSL_9$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
 
 drawNow(gcm)</pre><img src="CSLBoundaries_09.png"> <p>The MDF can be now used to compute prefered misorientations</p><pre class="codeinput">mori = mdf.calcModes(2)</pre><pre class="codeoutput"> 
 mori = misorientation  
@@ -241,15 +243,15 @@ mori = misorientation
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
   63.4003 48.2376 333.257       0
-   104.16 27.3472 283.789       0
+  45.2962 38.7291 315.013       0
  
  
-</pre><p>and their volumes in percent</p><pre class="codeinput">100 * volume(gB.misorientation,CSL(3),2*degree)
+</pre><p>and their volumes in percent</p><pre class="codeinput">100 * volume(gB.misorientation,CSL(3,ebsd.CS),2*degree)
 
-100 * volume(gB.misorientation,CSL(9),2*degree)</pre><pre class="codeoutput">ans =
-   40.9918
+100 * volume(gB.misorientation,CSL(9,ebsd.CS),2*degree)</pre><pre class="codeoutput">ans =
+   40.9904
 ans =
-    2.0803
+    2.0338
 </pre><p>or to plot the MDF along certain fibres</p><pre class="codeinput">omega = linspace(0,55*degree);
 fibre100 = orientation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,omega,mdf.CS,mdf.SS)
 fibre111 = orientation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,omega,mdf.CS,mdf.SS)
@@ -293,7 +295,7 @@ mori = misorientation
  
  
 ans =
-    5.8598
+    5.7758
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

@@ -47,6 +47,9 @@
             <td width="250px"><a href="allPairs.html"><tt>allPairs</tt></a></td>
             <td>all pairs of elements of x and y modulo permutation</td>
             <tr></tr>
+            <td width="250px"><a href="allTripel.html"><tt>allTripel</tt></a></td>
+            <td>all tripel of elements of x and y modulo permutation</td>
+            <tr></tr>
             <td width="250px"><a href="orientation.angle.html"><tt>angle</tt></a><span>   (orientation)</span></td>
             <td>calculates rotational angle between orientations</td>
             <tr></tr>
@@ -114,22 +117,7 @@
          <h2>B<a name="2"> </a></h2>
          <table width="95%">
             <tr></tr>
-            <td width="250px"><a href="FourierComponent.bandwidth.html"><tt>bandwidth</tt></a><span>   (FourierComponent)</span></td>
-            <td>bandwidth of the ODF</td>
-            <tr></tr>
             <td width="250px"><a href="ODF.bandwidth.html"><tt>bandwidth</tt></a><span>   (ODF)</span></td>
-            <td>bandwidth of the ODF</td>
-            <tr></tr>
-            <td width="250px"><a href="ODFComponent.bandwidth.html"><tt>bandwidth</tt></a><span>   (ODFComponent)</span></td>
-            <td>bandwidth of the component</td>
-            <tr></tr>
-            <td width="250px"><a href="fibreComponent.bandwidth.html"><tt>bandwidth</tt></a><span>   (fibreComponent)</span></td>
-            <td>bandwidth of the ODF</td>
-            <tr></tr>
-            <td width="250px"><a href="uniformComponent.bandwidth.html"><tt>bandwidth</tt></a><span>   (uniformComponent)</span></td>
-            <td>bandwidth of the component</td>
-            <tr></tr>
-            <td width="250px"><a href="unimodalComponent.bandwidth.html"><tt>bandwidth</tt></a><span>   (unimodalComponent)</span></td>
             <td>bandwidth of the ODF</td>
             <tr></tr>
             <td width="250px"><a href="orientation.BCV.html"><tt>BCV</tt></a><span>   (orientation)</span></td>
@@ -646,6 +634,9 @@
             <td>standard output</td>
             <tr></tr>
             <td width="250px"><a href="grainBoundary.display.html"><tt>display</tt></a><span>   (grainBoundary)</span></td>
+            <td>standard output</td>
+            <tr></tr>
+            <td width="250px"><a href="tripelPointList.display.html"><tt>display</tt></a><span>   (tripelPointList)</span></td>
             <td>standard output</td>
             <tr></tr>
             <td width="250px"><a href="BinghamComponent.display.html"><tt>display</tt></a><span>   (BinghamComponent)</span></td>
@@ -1274,7 +1265,7 @@
             <td>evaluate kernel modulo symmetries</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.KAM.html"><tt>KAM</tt></a><span>   (EBSD)</span></td>
-            <td>intergranular average misorientation angle per orientation</td>
+            <td>intragranular average misorientation angle per orientation</td>
             <tr></tr>
             <td width="250px"><a href="kde.html"><tt>kde</tt></a></td>
             <td>Reliable and extremely fast kernel density estimator for one-dimensional data; Gaussian kernel is assumed and the bandwidth
@@ -1525,7 +1516,7 @@
             <td>define a equispaced grid localized to a center orientation</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.log.html"><tt>log</tt></a><span>   (quaternion)</span></td>
-            <td>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion</td>
+            <td>project a quaternion into the tangential space</td>
             <tr></tr>
             <td width="250px"><a href="tensor.logm.html"><tt>logm</tt></a><span>   (tensor)</span></td>
             <td>matrix logarithm of a tensor</td>
@@ -1891,7 +1882,7 @@
             <td>called by pdf</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.perimeter.html"><tt>perimeter</tt></a><span>   (grain2d)</span></td>
-            <td>calculates the perimeter of a grain without holes</td>
+            <td>calculates the perimeter of a grain without or without inclusions</td>
             <tr></tr>
             <td width="250px"><a href="grainBoundary.perimeter.html"><tt>perimeter</tt></a><span>   (grainBoundary)</span></td>
             <td>boundary length per grain including holes</td>
@@ -1911,6 +1902,9 @@
             <td width="250px"><a href="quaternion.perturbe.html"><tt>perturbe</tt></a><span>   (quaternion)</span></td>
             <td>pertube data randomly by epsilon</td>
             <tr></tr>
+            <td width="250px"><a href="phi1Sections.html"><tt>phi1Sections</tt></a></td>
+            <td></td>
+            <tr></tr>
             <td width="250px"><a href="phi2Sections.html"><tt>phi2Sections</tt></a></td>
             <td></td>
             <tr></tr>
@@ -1924,6 +1918,9 @@
             <td>colorize grains</td>
             <tr></tr>
             <td width="250px"><a href="grainBoundary.plot.html"><tt>plot</tt></a><span>   (grainBoundary)</span></td>
+            <td>plot grain boundaries</td>
+            <tr></tr>
+            <td width="250px"><a href="tripelPointList.plot.html"><tt>plot</tt></a><span>   (tripelPointList)</span></td>
             <td>plot grain boundaries</td>
             <tr></tr>
             <td width="250px"><a href="ODF.plot.html"><tt>plot</tt></a><span>   (ODF)</span></td>
@@ -2117,6 +2114,9 @@
             <tr></tr>
             <td width="250px"><a href="symmetry.properGroup.html"><tt>properGroup</tt></a><span>   (symmetry)</span></td>
             <td>return the corresponding Laue group</td>
+            <tr></tr>
+            <td width="250px"><a href="symmetry.properSubGroup.html"><tt>properSubGroup</tt></a><span>   (symmetry)</span></td>
+            <td>return the corresponding Laue group</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Q<a name="16"> </a></h2>
@@ -2227,9 +2227,6 @@
             <tr></tr>
             <td width="250px"><a href="repcell.html"><tt>repcell</tt></a></td>
             <td>equivalent to repmat for cells</td>
-            <tr></tr>
-            <td width="250px"><a href="repentry.html"><tt>repentry</tt></a></td>
-            <td>reshape by element</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.repmat.html"><tt>repmat</tt></a><span>   (quaternion)</span></td>
             <td>overloads repmat</td>
@@ -2356,7 +2353,9 @@
             <td>plot function</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.scatter.html"><tt>scatter</tt></a><span>   (vector3d)</span></td>
-            <td>Syntax scatter(v)              % scatter(v,data)         % scatter(v,text)</td>
+            <td>Syntax scatter(v)              % plot the directions v scatter(v,data)         % colorize directions according to data scatter(v,'label',text)
+               % plot text below markers scatter(v,'label',text,'textaboveMarker') % plot text above markers
+            </td>
             <tr></tr>
             <td width="250px"><a href="vector3d.scatter3d.html"><tt>scatter3d</tt></a><span>   (vector3d)</span></td>
             <td>plot spherical data</td>
@@ -2531,6 +2530,9 @@
             <td width="250px"><a href="grainBoundary.subsasgn.html"><tt>subsasgn</tt></a><span>   (grainBoundary)</span></td>
             <td>overloads subsasgn</td>
             <tr></tr>
+            <td width="250px"><a href="tripelPointList.subsasgn.html"><tt>subsasgn</tt></a><span>   (tripelPointList)</span></td>
+            <td>overloads subsasgn</td>
+            <tr></tr>
             <td width="250px"><a href="PoleFigure.subsasgn.html"><tt>subsasgn</tt></a><span>   (PoleFigure)</span></td>
             <td>overloads subsasgn</td>
             <tr></tr>
@@ -2561,6 +2563,9 @@
             <td width="250px"><a href="grainBoundary.subSet.html"><tt>subSet</tt></a><span>   (grainBoundary)</span></td>
             <td>restrict boundary</td>
             <tr></tr>
+            <td width="250px"><a href="tripelPointList.subSet.html"><tt>subSet</tt></a><span>   (tripelPointList)</span></td>
+            <td>restrict boundary</td>
+            <tr></tr>
             <td width="250px"><a href="quaternion.subSet.html"><tt>subSet</tt></a><span>   (quaternion)</span></td>
             <td>indexing of quaternions</td>
             <tr></tr>
@@ -2577,6 +2582,9 @@
             <td>access subsets of a GrainSet</td>
             <tr></tr>
             <td width="250px"><a href="grainBoundary.subsref.html"><tt>subsref</tt></a><span>   (grainBoundary)</span></td>
+            <td>access subsets of a GrainSet</td>
+            <tr></tr>
+            <td width="250px"><a href="tripelPointList.subsref.html"><tt>subsref</tt></a><span>   (tripelPointList)</span></td>
             <td>access subsets of a GrainSet</td>
             <tr></tr>
             <td width="250px"><a href="PoleFigure.subsref.html"><tt>subsref</tt></a><span>   (PoleFigure)</span></td>
@@ -2893,7 +2901,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 4.1.3</td>
+               <td valign="baseline" align="right">MTEX 4.2.0</td>
             </tr>
          </table>
       </div>

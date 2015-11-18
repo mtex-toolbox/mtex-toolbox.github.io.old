@@ -81,44 +81,27 @@ mtexdata <span class="string">twins</span>
 [grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd,<span class="string">'angle'</span>,10*degree);
 
 <span class="comment">% restrict data to one single grain</span>
-oneGrain = grains(22)
-ebsd = ebsd(oneGrain)
+[~,id] = max(grains.area);
+oneGrain = grains(id);
+ebsd = ebsd(oneGrain);
 
 plot(ebsd,ebsd.orientations)
 
 hold <span class="string">on</span>
 plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
-oneGrain = grain2d  
- 
- Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1       1    2016  Magnesium     6/mmm        X||a*, Y||b, Z||c
- 
- Id   Phase   Pixels          GOS   phi1   Phi   phi2
- 22       1     2016   0.00679459    163   112    186
- 
- 
-ebsd = EBSD  
- 
- Phase  Orientations    Mineral       Color  Symmetry  Crystal reference frame
-     1   2016 (100%)  Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
- 
- Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
- Scan unit : um
- 
-</pre><img src="EBSDSmoothing_01.png"> <p>With the default colormap we can not distinguish any orientation gradient within the grain. Lets adapt the colormap to this
+hold <span class="string">off</span></pre><img src="EBSDSmoothing_01.png"> <p>With the default colormap we can not distinguish any orientation gradient within the grain. Lets adapt the colormap to this
             specific grain
          </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd);
 
 <span class="comment">% set inversePoleFigureDirection  such that the mean orientation is</span>
 <span class="comment">% colorized white</span>
-oM.inversePoleFigureDirection = grains(22).meanOrientation * oM.whiteCenter;
+oM.inversePoleFigureDirection = grains(id).meanOrientation * oM.whiteCenter;
 
 <span class="comment">% concentrate the colors around the mean orientation</span>
 oM.maxAngle = 3*degree;
 
 <span class="comment">% plot the colormap</span>
-plot(oM)</pre><img src="EBSDSmoothing_02.png"> <p>With the new colormap we can clearly see the noise overlapping the texture gradient within the grain.</p><pre class="codeinput"><span class="comment">% plot the grain</span>
+plot(oM,<span class="string">'resolution'</span>,0.5*degree)</pre><img src="EBSDSmoothing_02.png"> <p>With the new colormap we can clearly see the noise overlapping the texture gradient within the grain.</p><pre class="codeinput"><span class="comment">% plot the grain</span>
 plot(ebsd,oM.orientation2color(ebsd.orientations))
 
 hold <span class="string">on</span>
@@ -236,7 +219,7 @@ ebsdNaN_smoothed = smooth(ebsdNaN,splineFilter);
 plot(ebsdNaN_smoothed(<span class="string">'indexed'</span>),oM.orientation2color(ebsdNaN_smoothed(<span class="string">'indexed'</span>).orientations))
 hold <span class="string">on</span>
 plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
-hold <span class="string">off</span></pre><img src="EBSDSmoothing_10.png"> <p>We may plot the misorientation angle between the interpolated orientations and the measured orientations</p><pre class="codeinput">plot(ebsd(<span class="string">'indexed'</span>),angle(ebsdNaN_smoothed(<span class="string">'indexed'</span>).orientations,ebsd_smoothed(<span class="string">'indexed'</span>).orientations)./degree)
+hold <span class="string">off</span></pre><img src="EBSDSmoothing_10.png"> <p>We may plot the misorientation angle between the interpolated orientations and the measured orientations</p><pre class="codeinput">plot(ebsd_smoothed(<span class="string">'indexed'</span>),angle(ebsdNaN_smoothed(<span class="string">'indexed'</span>).orientations,ebsd_smoothed(<span class="string">'indexed'</span>).orientations)./degree)
 mtexColorbar
 
 hold <span class="string">on</span>
@@ -268,24 +251,24 @@ plot(ebsd_smoothed(<span class="string">'Di'</span>),ebsd_smoothed(<span class="
 plot(grains.boundary,<span class="string">'linewidth'</span>,1.5)
 
 <span class="comment">% stop overide mode</span>
-hold <span class="string">off</span></pre><img src="EBSDSmoothing_13.png"> <p>In order to visualize the orientation gradient within the grains we plot the mis2mean. We observe that the mis2mean varies
-            smoothly also within the regions of not indexed orientations.
+hold <span class="string">off</span></pre><img src="EBSDSmoothing_13.png"> <p>In order to visualize the orientation gradient within the grains we plot the misorientation to the meanorientation. We observe
+            that the mis2mean varies smoothly also within the regions of not indexed orientations.
          </p><pre class="codeinput"><span class="comment">% compute mis2mean for the interpolated orientations</span>
 [~,~,ebsd_smoothed.mis2mean] = calcGrains(ebsd_smoothed,<span class="string">'angle'</span>,10*degree);
 
 <span class="comment">% plot mis2mean for all phases</span>
 oM = ipdfHSVOrientationMapping(ebsd_smoothed(<span class="string">'Fo'</span>).CS,ebsd_smoothed(<span class="string">'Fo'</span>).CS);
-oM.colorStretching = 10;
+oM.maxAngle = 5*degree;
 plot(ebsd_smoothed(<span class="string">'Fo'</span>),oM.orientation2color(ebsd_smoothed(<span class="string">'Fo'</span>).mis2mean))
 
 hold <span class="string">on</span>
 
 oM = ipdfHSVOrientationMapping(ebsd_smoothed(<span class="string">'En'</span>).CS,ebsd_smoothed(<span class="string">'En'</span>).CS);
-oM.colorStretching = 10;
+oM.maxAngle = 5*degree;
 plot(ebsd_smoothed(<span class="string">'En'</span>),oM.orientation2color(ebsd_smoothed(<span class="string">'En'</span>).mis2mean))
 
 oM = ipdfHSVOrientationMapping(ebsd_smoothed(<span class="string">'Di'</span>).CS,ebsd_smoothed(<span class="string">'Di'</span>).CS);
-oM.colorStretching = 10;
+oM.maxAngle = 5*degree;
 plot(ebsd_smoothed(<span class="string">'Di'</span>),oM.orientation2color(ebsd_smoothed(<span class="string">'Di'</span>).mis2mean))
 
 <span class="comment">% plot boundary</span>
