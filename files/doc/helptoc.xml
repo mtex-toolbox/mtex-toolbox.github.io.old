@@ -857,11 +857,11 @@
             <tocitem target="CSLBoundaries.html#11">Misorientations in the 3d fundamental zone</tocitem>
             <tocitem target="CSLBoundaries.html#12">Analyzing the misorientation distribution function</tocitem>
          </tocitem>
-         <tocitem target="TripelPoints.html">Tripel points<tocitem target="TripelPoints.html#3">Calculation of tripel points</tocitem>
-            <tocitem target="TripelPoints.html#4">Index tripel points by phase</tocitem>
-            <tocitem target="TripelPoints.html#7">Index tripel points by grains</tocitem>
-            <tocitem target="TripelPoints.html#8">Index tripel points by grain boundary</tocitem>
-            <tocitem target="TripelPoints.html#9">Boundary segments from tripel points</tocitem>
+         <tocitem target="TriplePoints.html">Triple points<tocitem target="TriplePoints.html#3">Calculation of triple points</tocitem>
+            <tocitem target="TriplePoints.html#4">Index triple points by phase</tocitem>
+            <tocitem target="TriplePoints.html#7">Index triple points by grains</tocitem>
+            <tocitem target="TriplePoints.html#8">Index triple points by grain boundary</tocitem>
+            <tocitem target="TriplePoints.html#9">Boundary segments from triple points</tocitem>
          </tocitem>
       </tocitem>
       <tocitem target="TensorAnalysis.html">Tensors<tocitem target="TensorArithmetics.html">Tensor Arithmetics<tocitem target="TensorArithmetics.html#4">Defining a Tensor</tocitem>
