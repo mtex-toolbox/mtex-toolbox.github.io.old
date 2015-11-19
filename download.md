@@ -18,10 +18,10 @@ In case you experience any problems have a look at our [trouble shooting page]()
 File Name  |||  Release Date||| Comments ||| Downloads
 :-|-|-|:-|-|-|:-|-|-|-
 [**mtex-4.2.1.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.2.1/mtex-4.2.1.zip) ||| November 2015 ||| introduces triple points, [changelog](files/doc/changelog.html) ||| 0
-[**mtex-4.1.4.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.1.4/mtex-4.1.4.zip) ||| September 2015    ||| major release with many new features and syntax changes, [changelog](files/doc/changelog.html) ||| 23
-[__mtex-4.0.23.zip__](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.0.23/mtex-4.0.23.zip) ||| April 2015    ||| major release with many new features and syntax changes, [changelog](files/doc/changelog.html) ||| 733
-[**mtex-3.5.0.zip**](http://mtex.googlecode.com/files/mtex-3.5.0.zip) ||| December 2013   ||| minor release, [changelog]()||| 2090
-[**mtex-3.4.2.zip**](http://mtex.googlecode.com/files/mtex-3.4.2.zip) ||| June 2013       ||| minor release, [changelog]()||| 1514
+[**mtex-4.1.4.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.1.4/mtex-4.1.4.zip) ||| September 2015    ||| major release with many new features and syntax changes, [changelog](files/doc/changelog.html) ||| 593
+[__mtex-4.0.23.zip__](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.0.23/mtex-4.0.23.zip) ||| April 2015    ||| major release with many new features and syntax changes, [changelog](files/doc/changelog.html) ||| 785
+[**mtex-3.5.0.zip**](http://mtex.googlecode.com/files/mtex-3.5.0.zip) ||| December 2013   ||| minor release, [changelog]()||| 2398
+[**mtex-3.4.2.zip**](http://mtex.googlecode.com/files/mtex-3.4.2.zip) ||| June 2013       ||| minor release, [changelog]()||| 1660
 
 A full list of previous releases and downloads can be found [here](http://code.google.com/p/mtex/downloads/list).
 
