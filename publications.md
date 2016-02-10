@@ -5,8 +5,20 @@ layout: main
 
 ### Reference Publications
 
-If you are using the library for your research, please cite one of the
+If you are using MTEX for your research, please cite one of the
 following paper that best fits your application.
+
+#### 2016
+
+* **IPF coloring of crystal orientation data**, G. Nolze, R. Hielscher:
+  [TU Chemnitz Fakultät für Mathematik, Preprint 2016-2](
+  http://dx.doi.org/10.1144/SP409.8).
+  [![PDF](./files/pic/icon_pdf_32x32.png "Download PDF
+  file")](https://www-user.tu-chemnitz.de/~rahi/paper/ipfColors.pdf)
+
+  script files: [section1.m](), [section2.m](), [section3_1.m](), [section3_2.m](),
+  [appendix.m](), [data.zip]()
+
 
 #### 2014
 
