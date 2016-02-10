@@ -16,8 +16,8 @@ following paper that best fits your application.
   [![PDF](./files/pic/icon_pdf_32x32.png "Download PDF
   file")](https://www-user.tu-chemnitz.de/~rahi/paper/ipfColors.pdf)
 
-  script files: [section1.m](), [section2.m](), [section3_1.m](), [section3_2.m](),
-  [appendix.m](), [data.zip]()
+  script files: [section1.m](files/matlab/ipfColoring/section1.m), [section2.m](files/matlab/ipfColoring/section2.m), [section3_1.m](files/matlab/ipfColoring/section3_1.m), [section3_2.m](files/matlab/ipfColoring/section3_2.m),
+  [appendix.m](files/matlab/ipfColoring/appendix.m), [data.zip]()
 
 
 #### 2014
