@@ -11,8 +11,8 @@ following paper that best fits your application.
 #### 2016
 
 * **IPF coloring of crystal orientation data**, G. Nolze, R. Hielscher:
-  [TU Chemnitz Fakultät für Mathematik, Preprint 2016-2](
-  http://dx.doi.org/10.1144/SP409.8).
+  [TU Chemnitz Fakultät für Mathematik, Preprint 2016-1](
+  https://www.tu-chemnitz.de/mathematik/preprint/2016/PREPRINT.php?year=2016&num=01).
   [![PDF](./files/pic/icon_pdf_32x32.png "Download PDF
   file")](https://www-user.tu-chemnitz.de/~rahi/paper/ipfColors.pdf)
 
