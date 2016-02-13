@@ -14,9 +14,11 @@ layout: main
 In case you experience any problems have a look at our [trouble shooting page]()
 
 ### Downloads ###
-
 File Name  |||  Release Date||| Comments ||| Downloads
 :-|-|-|:-|-|-|:-|-|-|-
+[**mtex-4.3.beta1.zip**](https://github.com/ralfHielscher/mtex/releases/download/mtex-4.3.beta1/mtex-4.3.beta1.zip)
+||| February 2016 ||| GND calculation, [changelog](files/doc/changelog.html)
+||| 0
 [**mtex-4.2.1.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.2.1/mtex-4.2.1.zip) ||| November 2015 ||| introduces triple points, [changelog](files/doc/changelog.html) ||| 1071
 [**mtex-4.1.4.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.1.4/mtex-4.1.4.zip) ||| September 2015    ||| major release with many new features and syntax changes, [changelog](files/doc/changelog.html) ||| 819
 [__mtex-4.0.23.zip__](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.0.23/mtex-4.0.23.zip) ||| April 2015    ||| major release with many new features and syntax changes, [changelog](files/doc/changelog.html) ||| 848
