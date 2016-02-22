@@ -90,7 +90,7 @@ mdf_boundary = MDF
   crystal symmetry : Forsterite (mmm)
   crystal symmetry : Enstatite (mmm)
  
-  Portion specified by Fourier coefficients:
+  Harmonic portion:
     degree: 28
     weight: 1
  
@@ -114,7 +114,7 @@ mori = misorientation
          <p>Alternatively the uncorelated misorientation distribution function can be computed by providing the option <b>uncorelated</b></p><pre class="codeinput">mori = calcMisorientation(ebsd(<span class="string">'En'</span>),ebsd(<span class="string">'Fo'</span>))
 mdf_uncor = calcODF(mori)</pre><pre class="codeoutput"> 
 mori = misorientation  
-  size: 98592 x 1
+  size: 98586 x 1
   crystal symmetry : Forsterite (mmm)
   crystal symmetry : Enstatite (mmm)
  
@@ -123,7 +123,7 @@ mdf_uncor = MDF
   crystal symmetry : Forsterite (mmm)
   crystal symmetry : Enstatite (mmm)
  
-  Portion specified by Fourier coefficients:
+  Harmonic portion:
     degree: 28
     weight: 1
  
@@ -135,7 +135,7 @@ odf_fo = ODF
   crystal symmetry : Forsterite (mmm)
   specimen symmetry: 1
  
-  Portion specified by Fourier coefficients:
+  Harmonic portion:
     degree: 28
     weight: 1
  
@@ -144,7 +144,7 @@ odf_en = ODF
   crystal symmetry : Enstatite (mmm)
   specimen symmetry: 1
  
-  Portion specified by Fourier coefficients:
+  Harmonic portion:
     degree: 28
     weight: 1
  
@@ -153,8 +153,8 @@ mdf = MDF
   crystal symmetry : Forsterite (mmm)
   crystal symmetry : Enstatite (mmm)
  
-  Portion specified by Fourier coefficients:
-    degree: 28
+  Harmonic portion:
+    degree: 19
     weight: 1
  
 </pre><p>This misorientation distribution function should be similar to the uncorrelated misorinetation function computed directly

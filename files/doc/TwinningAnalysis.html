@@ -74,6 +74,11 @@ mtexdata <span class="string">twins</span>
 <span class="comment">% segment grains</span>
 [grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd(<span class="string">'indexed'</span>),<span class="string">'angle'</span>,5*degree)
 
+<span class="comment">% remove two pixel grains</span>
+ebsd(grains(grains.grainSize&lt;=2)) = [];
+[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd(<span class="string">'indexed'</span>),<span class="string">'angle'</span>,5*degree)
+
+
 <span class="comment">% smooth them</span>
 grains = grains.smooth
 
@@ -113,7 +118,35 @@ ebsd = EBSD
 grains = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1     126   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1      91   22794  Magnesium     6/mmm        X||a*, Y||b, Z||c
+ 
+ Properties: GOS, meanRotation
+ 
+ 
+ebsd = EBSD  
+ 
+ Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
+     0     46 (0.2%)  notIndexed                                               
+     1  22794 (100%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
+ 
+ Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
+ Scan unit : um
+ 
+ 
+ebsd = EBSD  
+ 
+ Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
+     0     46 (0.2%)  notIndexed                                               
+     1  22794 (100%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
+ 
+ Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
+ Scan unit : um
+ 
+ 
+grains = grain2d  
+ 
+ Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
+     1      91   22794  Magnesium     6/mmm        X||a*, Y||b, Z||c
  
  Properties: GOS, meanRotation
  
@@ -135,15 +168,15 @@ CS = crystalSymmetry
 gB = grainBoundary  
  
  Segments   mineral 1  mineral 2
-      606  notIndexed  Magnesium
-     3286   Magnesium  Magnesium
+      600  notIndexed  Magnesium
+     3164   Magnesium  Magnesium
 </pre><p>The output tells us that we have 3219 Magnesium to Magnesium boundary segments and 606 boundary segements where the grains
             are cutted by the scanning boundary. To restrict the grain boundaries to a specific phase transistion you shall do
          </p><pre class="codeinput">gB_MgMg = gB(<span class="string">'Magnesium'</span>,<span class="string">'Magnesium'</span>)</pre><pre class="codeoutput"> 
 gB_MgMg = grainBoundary  
  
  Segments  mineral 1  mineral 2
-     3286  Magnesium  Magnesium
+     3164  Magnesium  Magnesium
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Properties of grain boundaries<a name="6"> </a></h2>
          <p>A variable of type grain boundary contains the following properties</p>
@@ -202,7 +235,7 @@ hold <span class="string">off</span></pre><pre class="codeoutput">
 twinBoundary = grainBoundary  
  
  Segments  mineral 1  mineral 2
-     1757  Magnesium  Magnesium
+     1649  Magnesium  Magnesium
   I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
@@ -229,13 +262,17 @@ hold <span class="string">off</span></pre><img src="TwinningAnalysis_04.png"> <p
 childs = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1       4     615  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1       8    1698  Magnesium     6/mmm        X||a*, Y||b, Z||c
  
  Id   Phase   Pixels          GOS   phi1   Phi   phi2
-  7       1       44   0.00430035    177   104    183
-  9       1       38   0.00441718    177   104    183
- 13       1      525    0.0127289     67   152    217
- 15       1        8   0.00957141    177   105    183
+  6       1       40   0.00755032    178    90    236
+ 14       1      254    0.0113603     81    25    187
+ 17       1        4    0.0135723     80    26    189
+ 19       1       38   0.00600972     95   145    186
+ 24       1      774    0.0102946    178    90    235
+ 28       1       45    0.0108147     80    25    188
+ 29       1      293   0.00913161     94   145    185
+ 33       1      250    0.0107569    179    89    235
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Calculate the twinned area<a name="13"> </a></h2>
@@ -243,7 +280,7 @@ childs = grain2d
 
 <span class="comment">% compute the area fraction</span>
 sum(area(grains(twinId))) / sum(area(grains)) * 100</pre><pre class="codeoutput">ans =
-   73.5967
+   73.6009
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Setting Up the EBSD Data for the Merged Grains<a name="14"> </a></h2>
          <p>Note that the Id's of the merged grains does not fit to the grainIds stored in the initial ebsd variable. As a consequence,
@@ -260,7 +297,7 @@ ebsd_merged = EBSD
  
  Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
      0     46 (0.2%)  notIndexed                                               
-     1  22833 (100%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
+     1  22794 (100%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um

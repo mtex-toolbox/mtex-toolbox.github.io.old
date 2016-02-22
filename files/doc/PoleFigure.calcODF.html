@@ -46,16 +46,10 @@
          <p>PDF to ODF inversion</p>
          <p><b>calcODF</b> is one of the main function of the MTEX toolbox. It estimates an ODF from given Polefigure intensities by <a href="PoleFigure2odf.html">fitting an ODF that consists of a large number of unimodal ODFs to the data</a>. It does so by minimizing a least squares functional. The command <b>calcODF</b> supports <a href="ghost_demo.html">automatic ghost correction</a> and <a href="dubna_demo.html">the zero range method</a>. The function <b>calcODF</b> has several options to control convergence, resolution, smoothing, etc. See below for a complete description.
          </p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>[odf,alpha] = calcODF(pf,'param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">odf = calcODF(pf)
+odf = calcODF(pf,<span class="string">'halfwidth'</span>,5*degree)
+odf = calcODF(pf,<span class="string">'ZERO_RANGE'</span>)
+odf = calcODF(pf,<span class="string">'resolution'</span>,2.5*degree)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>

@@ -63,7 +63,7 @@
             <td>calcualtes the rotational angle between all rotations q1 and q2</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.angle_outer.html"><tt>angle_outer</tt></a><span>   (vector3d)</span></td>
-            <td>angle between two vectors</td>
+            <td>angle between two vectors Input v1, v2 - @vector3d</td>
             <tr></tr>
             <td width="250px"><a href="annotate.html"><tt>annotate</tt></a></td>
             <td>annotate to a existing figure</td>
@@ -84,7 +84,7 @@
             <td>plot three dimensional arrows</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.aspectRatio.html"><tt>aspectRatio</tt></a><span>   (grain2d)</span></td>
-            <td>calculates the aspectratio of grain</td>
+            <td>aspectratio = length / width</td>
             <tr></tr>
             <td width="250px"><a href="assert_grid.html"><tt>assert_grid</tt></a></td>
             <td>check for valid grid parameters</td>
@@ -229,6 +229,9 @@
             <td width="250px"><a href="orientation.calcFourierODF.html"><tt>calcFourierODF</tt></a><span>   (orientation)</span></td>
             <td>calculate ODF from individuel orientations via kernel density estimation</td>
             <tr></tr>
+            <td width="250px"><a href="EBSDsquare.calcGND.html"><tt>calcGND</tt></a><span>   (EBSDsquare)</span></td>
+            <td>compute the geometrically necessary dislocation</td>
+            <tr></tr>
             <td width="250px"><a href="EBSD.calcGrains.html"><tt>calcGrains</tt></a><span>   (EBSD)</span></td>
             <td>2d and 3d construction of GrainSets from spatially indexed EBSD data</td>
             <tr></tr>
@@ -249,6 +252,9 @@
             <tr></tr>
             <td width="250px"><a href="orientation.calcMDF.html"><tt>calcMDF</tt></a><span>   (orientation)</span></td>
             <td>computes an MDF from individuel orientations</td>
+            <tr></tr>
+            <td width="250px"><a href="grainBoundary.calcMeanDirection.html"><tt>calcMeanDirection</tt></a><span>   (grainBoundary)</span></td>
+            <td>compute a smoothed direction that ignores staircasing</td>
             <tr></tr>
             <td width="250px"><a href="ODF.calcMIndex.html"><tt>calcMIndex</tt></a><span>   (ODF)</span></td>
             <td>M-index of Skemer et al.(2005) based on the difference between uncorrelated and uniform misorientation angle distributions</td>
@@ -285,6 +291,9 @@
             <tr></tr>
             <td width="250px"><a href="ODF.calcOrientations.html"><tt>calcOrientations</tt></a><span>   (ODF)</span></td>
             <td>draw random orientations from ODF</td>
+            <tr></tr>
+            <td width="250px"><a href="grain2d.calcParis.html"><tt>calcParis</tt></a><span>   (grain2d)</span></td>
+            <td>Percentile Average Relative Indented Surface</td>
             <tr></tr>
             <td width="250px"><a href="BinghamComponent.calcPDF.html"><tt>calcPDF</tt></a><span>   (BinghamComponent)</span></td>
             <td>called by pdf</td>
@@ -342,6 +351,9 @@
             <tr></tr>
             <td width="250px"><a href="orientation.calcTensor.html"><tt>calcTensor</tt></a><span>   (orientation)</span></td>
             <td>compute the average tensor for a vector of orientations</td>
+            <tr></tr>
+            <td width="250px"><a href="grainBoundary.calcTriplePoints.html"><tt>calcTriplePoints</tt></a><span>   (grainBoundary)</span></td>
+            <td>compute triple points</td>
             <tr></tr>
             <td width="250px"><a href="calcUnitCell.html"><tt>calcUnitCell</tt></a></td>
             <td>compute the unit cell for an EBSD data set</td>
@@ -709,7 +721,7 @@
             <td>on Octave skip this</td>
             <tr></tr>
             <td width="250px"><a href="docmethods.html"><tt>docmethods</tt></a></td>
-            <td>for octave skip this</td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="docopt.html"><tt>docopt</tt></a></td>
             <td>DOCOPT Web browser for UNIX platforms. DOCOPT is an M-file that you or your system manager can edit to specify the Web browser
@@ -977,6 +989,9 @@
             <td width="250px"><a href="EBSD.fill.html"><tt>fill</tt></a><span>   (EBSD)</span></td>
             <td>extrapolate spatial EBSD data by nearest neighbour for tetragonal lattice</td>
             <tr></tr>
+            <td width="250px"><a href="EBSDsquare.fill.html"><tt>fill</tt></a><span>   (EBSDsquare)</span></td>
+            <td>fill spatial EBSD data</td>
+            <tr></tr>
             <td width="250px"><a href="EBSD.fillByGrainId.html"><tt>fillByGrainId</tt></a><span>   (EBSD)</span></td>
             <td>extrapolate spatial EBSD data by nearest neighbour for tetragonal lattice</td>
             <tr></tr>
@@ -1115,6 +1130,9 @@
             <tr></tr>
             <td width="250px"><a href="gossOrientation.html"><tt>gossOrientation</tt></a></td>
             <td>returns the cube orientation</td>
+            <tr></tr>
+            <td width="250px"><a href="EBSD.gridify.html"><tt>gridify</tt></a><span>   (EBSD)</span></td>
+            <td>extend EBSD data to an grid</td>
             <tr></tr>
             <td width="250px"><a href="S1Grid.GridLength.html"><tt>GridLength</tt></a><span>   (S1Grid)</span></td>
             <td>return number of points</td>
@@ -1514,6 +1532,9 @@
             <tr></tr>
             <td width="250px"><a href="localOrientationGrid.html"><tt>localOrientationGrid</tt></a></td>
             <td>define a equispaced grid localized to a center orientation</td>
+            <tr></tr>
+            <td width="250px"><a href="orientation.log.html"><tt>log</tt></a><span>   (orientation)</span></td>
+            <td>Syntax v = log(ori) v = log(ori,ori_ref)</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.log.html"><tt>log</tt></a><span>   (quaternion)</span></td>
             <td>project a quaternion into the tangential space</td>
@@ -2028,6 +2049,9 @@
             <td width="250px"><a href="plotSO3Grid.html"><tt>plotSO3Grid</tt></a></td>
             <td>give a regular grid in orientation space</td>
             <tr></tr>
+            <td width="250px"><a href="crystalSymmetry.plotUVW.html"><tt>plotUVW</tt></a><span>   (crystalSymmetry)</span></td>
+            <td>plot symmetry</td>
+            <tr></tr>
             <td width="250px"><a href="plotx2east.html"><tt>plotx2east</tt></a></td>
             <td>set the default plot direction of the x-axis</td>
             <tr></tr>
@@ -2139,6 +2163,9 @@
             <tr></tr>
             <td width="250px"><a href="quantile.html"><tt>quantile</tt></a></td>
             <td>n percent quantile of x</td>
+            <tr></tr>
+            <td width="250px"><a href="grainBoundary.quiver.html"><tt>quiver</tt></a><span>   (grainBoundary)</span></td>
+            <td>plot directions at grain boundaries</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.quiver.html"><tt>quiver</tt></a><span>   (vector3d)</span></td>
             <td>Syntax quiver(v,d)</td>
@@ -2444,6 +2471,9 @@
             <td width="250px"><a href="EBSD.smooth.html"><tt>smooth</tt></a><span>   (EBSD)</span></td>
             <td>smooth spatial EBSD</td>
             <tr></tr>
+            <td width="250px"><a href="EBSDsquare.smooth.html"><tt>smooth</tt></a><span>   (EBSDsquare)</span></td>
+            <td>smooth spatial EBSD data</td>
+            <tr></tr>
             <td width="250px"><a href="grain2d.smooth.html"><tt>smooth</tt></a><span>   (grain2d)</span></td>
             <td>constraint laplacian smoothing of grains</td>
             <tr></tr>
@@ -2574,6 +2604,12 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.subSet.html"><tt>subSet</tt></a><span>   (vector3d)</span></td>
             <td>subindex vector3d</td>
+            <tr></tr>
+            <td width="250px"><a href="EBSD.subsind.html"><tt>subsind</tt></a><span>   (EBSD)</span></td>
+            <td>subindexing of EBSD data</td>
+            <tr></tr>
+            <td width="250px"><a href="EBSDsquare.subsind.html"><tt>subsind</tt></a><span>   (EBSDsquare)</span></td>
+            <td>subindexing of EBSD data</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.subsref.html"><tt>subsref</tt></a><span>   (EBSD)</span></td>
             <td>indexing of EBSD data</td>
@@ -2901,7 +2937,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 4.2.0</td>
+               <td valign="baseline" align="right">MTEX 4.3.beta2</td>
             </tr>
          </table>
       </div>

@@ -254,8 +254,8 @@ odf1 = ODF
   crystal symmetry : -1, X||a, Y||b, Z||c
   specimen symmetry: 1
  
-  Portion specified by Fourier coefficients:
-    degree: 10
+  Harmonic portion:
+    degree: 9
     weight: 1
  
 </pre><img src="PF2ODFAmbiguity_13.png"> <p>We may look at the coefficients of this expansion and observe how the decay to zero rapdidly. This justifies to cut the harmonic
@@ -276,8 +276,8 @@ odf2 = ODF
   crystal symmetry : -1, X||a, Y||b, Z||c
   specimen symmetry: 1
  
-  Portion specified by Fourier coefficients:
-    degree: 10
+  Harmonic portion:
+    degree: 9
     weight: 1
  
 </pre><img src="PF2ODFAmbiguity_15.png"> <p>The point is that all pole figures of odf1 looks exactly the same as the pole figures of odf2.</p><pre class="codeinput">plotPDF(odf2,Miller({1,0,0},{0,1,0},{0,0,1},cs),<span class="string">'antipodal'</span>)</pre><img src="PF2ODFAmbiguity_16.png"> <p>and hence, it is imposible for any reconstruction algorithm to decide whether odf1 or odf2 is the correct reconstruction.

@@ -138,11 +138,10 @@ plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="stri
 hold <span class="string">off</span></pre><pre class="codeoutput"> 
 ebsd_smoothed = EBSD  
  
- Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
-     0    1264 (39%)  notIndexed                                               
-     1    2016 (61%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
+ Phase  Orientations    Mineral       Color  Symmetry  Crystal reference frame
+     1   2016 (100%)  Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
  
- Properties: x, y, grainId
+ Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
  
 </pre><img src="EBSDSmoothing_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -239,8 +238,10 @@ plot(ebsd(<span class="string">'Di'</span>),ebsd(<span class="string">'Di'</span
 
 <span class="comment">% plot the boundary of all grains</span>
 plot(grains.boundary,<span class="string">'linewidth'</span>,1.5)
-hold <span class="string">off</span></pre><img src="EBSDSmoothing_12.png"> <pre class="codeinput">F = splineFilter;
-ebsd_smoothed = smooth(ebsd(<span class="string">'indexed'</span>),F,<span class="string">'fill'</span>);
+hold <span class="string">off</span></pre><img src="EBSDSmoothing_12.png"> <p>Using the option <tt>fill</tt> the command <tt>smooth</tt> fills the holes inside the grains. Note that the notindexed pixels at the grain boundaries kept untouched. In order to allow
+            MTEX to decide wheter a pixel is inside a grain or not the <tt>grain</tt> variable has to be passed as additional argument.
+         </p><pre class="codeinput">F = splineFilter;
+ebsd_smoothed = smooth(ebsd(<span class="string">'indexed'</span>),F,<span class="string">'fill'</span>,grains);
 
 plot(ebsd_smoothed(<span class="string">'Fo'</span>),ebsd_smoothed(<span class="string">'Fo'</span>).orientations)
 hold <span class="string">on</span>
@@ -273,7 +274,19 @@ plot(ebsd_smoothed(<span class="string">'Di'</span>),oM.orientation2color(ebsd_s
 
 <span class="comment">% plot boundary</span>
 plot(grains.boundary,<span class="string">'linewidth'</span>,1.5)
-hold <span class="string">off</span></pre><img src="EBSDSmoothing_14.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="EBSDSmoothing_14.png"> <p>If no <tt>grain</tt> variable is passed to the smoothing command the not indexed pixels are assigned to the nearest neighbour.
+         </p><pre class="codeinput">ebsd_smoothed = smooth(ebsd(<span class="string">'indexed'</span>),F,<span class="string">'fill'</span>);
+
+plot(ebsd_smoothed(<span class="string">'Fo'</span>),ebsd_smoothed(<span class="string">'Fo'</span>).orientations)
+hold <span class="string">on</span>
+plot(ebsd_smoothed(<span class="string">'En'</span>),ebsd_smoothed(<span class="string">'En'</span>).orientations)
+plot(ebsd_smoothed(<span class="string">'Di'</span>),ebsd_smoothed(<span class="string">'Di'</span>).orientations)
+
+<span class="comment">% plot the boundary of all grains</span>
+plot(grains.boundary,<span class="string">'linewidth'</span>,1.5)
+
+<span class="comment">% stop overide mode</span>
+hold <span class="string">off</span></pre><img src="EBSDSmoothing_15.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

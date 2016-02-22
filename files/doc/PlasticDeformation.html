@@ -183,7 +183,7 @@ sigma001 = stress tensor
  0 0 0
  0 0 1
  
-sigmaRot = tensor  
+sigmaRot = stress tensor  
   rank: 2 (3 x 3)
  
  *10^-2
@@ -312,7 +312,7 @@ CS_Forsterite = ori.CS;
 
 <span class="comment">% transform the stress tensor from specimen to crystal coordinates</span>
 sigmaCS = rotate(sigma001,inv(ori))</pre><pre class="codeoutput"> 
-sigmaCS = tensor  
+sigmaCS = stress tensor  
   size   : 152345 x 1      
   rank   : 2 (3 x 3)       
   mineral: Forsterite (mmm)
@@ -355,7 +355,7 @@ grains = grain2d
  Properties: GOS, meanRotation
  
  
-sigmaCS = tensor  
+sigmaCS = stress tensor  
   size   : 1080 x 1        
   rank   : 2 (3 x 3)       
   mineral: Forsterite (mmm)

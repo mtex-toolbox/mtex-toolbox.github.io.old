@@ -118,6 +118,9 @@ plot(oM,<span class="string">'noTitle'</span>)</pre><pre class="codeoutput">oM =
                   grayGradient: 0.5000
                       maxAngle: Inf
                             sR: [1x1 sphericalRegion]
+                          refl: []
+                           rot: [1x1 rotation]
+                         alpha: 0
 </pre><img src="GrainMisorientationAnalysis_03.png"> <pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),oM.orientation2color(ebsd(<span class="string">'Forsterite'</span>).mis2mean))
 hold <span class="string">on</span>
 plot(grains.boundary,<span class="string">'edgecolor'</span>,<span class="string">'k'</span>,<span class="string">'linewidth'</span>,.5)
@@ -203,7 +206,7 @@ odf_Fo = ODF
   crystal symmetry : Forsterite (mmm)
   specimen symmetry: 1
  
-  Portion specified by Fourier coefficients:
+  Harmonic portion:
     degree: 28
     weight: 1
  
@@ -212,8 +215,8 @@ mdf_Fo_Fo = MDF
   crystal symmetry : Forsterite (mmm)
   crystal symmetry : Forsterite (mmm)
  
-  Portion specified by Fourier coefficients:
-    degree: 28
+  Harmonic portion:
+    degree: 20
     weight: 1
  
 </pre><img src="GrainMisorientationAnalysis_09.png"> <p>What we have ploted above is the uncorrelated misorientation angle distribution for the Forsterite ODF. We can compare it
