@@ -195,10 +195,12 @@ ans = orientation
 axis(o1)</pre><pre class="codeoutput">ans =
    30.0000
  
-ans = vector3d  
+ans = Miller  
  size: 1 x 1
-   x  y  z
-  -1  0  0
+ symmetry: 1, X||a, Y||b, Z||c
+  h -1
+  k  0
+  l  0
 </pre><p>The inverse orientation to o you get from the command <a href="quaternion.inv.html">inv(q)</a></p><pre class="codeinput">inv(o1)</pre><pre class="codeoutput"> 
 ans = inverse orientation  
   size: 1 x 1
@@ -252,7 +254,7 @@ hold <span class="string">off</span></pre><pre class="codeoutput">oR =
             ODF from individuel orientations via kernel density estimation</td></tr><tr><td width="200px"><a href="orientation.calcKernel.html"><tt>calcKernel</tt></a></td><td>compute
             an optimal kernel function for ODF estimation</td></tr><tr><td width="200px"><a href="orientation.calcKernelODF.html"><tt>calcKernelODF</tt></a></td><td>calculate
             ODF from individuel orientations via kernel density estimation</td></tr><tr><td width="200px"><a href="orientation.calcMDF.html"><tt>calcMDF</tt></a></td><td>computes
-            an MDF from individuel orientations</td></tr><tr><td width="200px"><a href="orientation.calcMIndex.html"><tt>calcMIndex</tt></a></td><td>TODO!!!</td></tr><tr><td
+            an MDF from individuel orientations or misorientations</td></tr><tr><td width="200px"><a href="orientation.calcMIndex.html"><tt>calcMIndex</tt></a></td><td>TODO!!!</td></tr><tr><td
             width="200px"><a href="orientation.calcODF.html"><tt>calcODF</tt></a></td><td>computes an ODF from individuel orientations</td></tr><tr><td
             width="200px"><a href="orientation.calcTensor.html"><tt>calcTensor</tt></a></td><td>compute the average tensor for a vector
             of orientations</td></tr><tr><td width="200px"><a href="orientation.crossCorrelation.html"><tt>crossCorrelation</tt></a></td><td>computes

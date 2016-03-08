@@ -860,10 +860,11 @@
          </tocitem>
          <tocitem target="CSLBoundaries.html">CSL Boundaries<tocitem target="CSLBoundaries.html#3">Data import and grain detection</tocitem>
             <tocitem target="CSLBoundaries.html#5">Detecting CSL Boundaries</tocitem>
-            <tocitem target="CSLBoundaries.html#6">Merging grains with common CSL(3) boundary</tocitem>
-            <tocitem target="CSLBoundaries.html#8">Colorizing misorientations</tocitem>
-            <tocitem target="CSLBoundaries.html#11">Misorientations in the 3d fundamental zone</tocitem>
-            <tocitem target="CSLBoundaries.html#12">Analyzing the misorientation distribution function</tocitem>
+            <tocitem target="CSLBoundaries.html#6">Mark triple points</tocitem>
+            <tocitem target="CSLBoundaries.html#7">Merging grains with common CSL(3) boundary</tocitem>
+            <tocitem target="CSLBoundaries.html#9">Colorizing misorientations</tocitem>
+            <tocitem target="CSLBoundaries.html#12">Misorientations in the 3d fundamental zone</tocitem>
+            <tocitem target="CSLBoundaries.html#13">Analyzing the misorientation distribution function</tocitem>
          </tocitem>
          <tocitem target="TriplePoints.html">Triple points<tocitem target="TriplePoints.html#3">Calculation of triple points</tocitem>
             <tocitem target="TriplePoints.html#4">Index triple points by phase</tocitem>
@@ -961,29 +962,30 @@
             <tocitem target="ColorCodingEBSD_demo.html#10">Colorcoding according to inverse pole figure</tocitem>
          </tocitem>
       </tocitem>
-      <tocitem target="ReleaseNotes.html">Release Notes<tocitem target="changelog.html">MTEX Changelog<tocitem target="changelog.html#1">MTEX 4.2 - 11/2015</tocitem>
-            <tocitem target="changelog.html#2">MTEX 4.1 - 09/2015</tocitem>
-            <tocitem target="changelog.html#3">MTEX 4.0.0 - 10/2014</tocitem>
-            <tocitem target="changelog.html#4">MTEX 3.5.0 - 12/2013</tocitem>
-            <tocitem target="changelog.html#5">MTEX 3.4.2 - 06/2013</tocitem>
-            <tocitem target="changelog.html#6">MTEX 3.4.1 - 04/2013</tocitem>
-            <tocitem target="changelog.html#7">MTEX 3.4.0 - 03/2013</tocitem>
-            <tocitem target="changelog.html#8">MTEX 3.3.2 - 01/2013</tocitem>
-            <tocitem target="changelog.html#9">MTEX 3.3.1 - 07/2012</tocitem>
-            <tocitem target="changelog.html#10">MTEX 3.3.0 - 06/2012</tocitem>
-            <tocitem target="changelog.html#11">MTEX 3.2.3 - 03/2012</tocitem>
-            <tocitem target="changelog.html#12">MTEX 3.2.1 - 11/2011</tocitem>
-            <tocitem target="changelog.html#13">MTEX 3.2 - 05/2011</tocitem>
-            <tocitem target="changelog.html#14">MTEX 3.1 - 03/2011</tocitem>
-            <tocitem target="changelog.html#15">MTEX 3.0 - 10/2010</tocitem>
-            <tocitem target="changelog.html#16">MTEX 2.0 - 10/2009</tocitem>
-            <tocitem target="changelog.html#17">MTEX 1.2 - 05/2009</tocitem>
-            <tocitem target="changelog.html#18">MTEX 1.1 - 12/2008</tocitem>
-            <tocitem target="changelog.html#19">MTEX 1.0 - 06/2008</tocitem>
-            <tocitem target="changelog.html#20">MTEX 0.4 - 04/2008</tocitem>
-            <tocitem target="changelog.html#21">MTEX 0.3 - 10/2007</tocitem>
-            <tocitem target="changelog.html#22">MTEX 0.2 - 07/2007</tocitem>
-            <tocitem target="changelog.html#23">MTEX 0.1 - 03/2007</tocitem>
+      <tocitem target="ReleaseNotes.html">Release Notes<tocitem target="changelog.html">MTEX Changelog<tocitem target="changelog.html#1">MTEX 4.3 - 03/2016</tocitem>
+            <tocitem target="changelog.html#2">MTEX 4.2 - 11/2015</tocitem>
+            <tocitem target="changelog.html#3">MTEX 4.1 - 09/2015</tocitem>
+            <tocitem target="changelog.html#4">MTEX 4.0.0 - 10/2014</tocitem>
+            <tocitem target="changelog.html#5">MTEX 3.5.0 - 12/2013</tocitem>
+            <tocitem target="changelog.html#6">MTEX 3.4.2 - 06/2013</tocitem>
+            <tocitem target="changelog.html#7">MTEX 3.4.1 - 04/2013</tocitem>
+            <tocitem target="changelog.html#8">MTEX 3.4.0 - 03/2013</tocitem>
+            <tocitem target="changelog.html#9">MTEX 3.3.2 - 01/2013</tocitem>
+            <tocitem target="changelog.html#10">MTEX 3.3.1 - 07/2012</tocitem>
+            <tocitem target="changelog.html#11">MTEX 3.3.0 - 06/2012</tocitem>
+            <tocitem target="changelog.html#12">MTEX 3.2.3 - 03/2012</tocitem>
+            <tocitem target="changelog.html#13">MTEX 3.2.1 - 11/2011</tocitem>
+            <tocitem target="changelog.html#14">MTEX 3.2 - 05/2011</tocitem>
+            <tocitem target="changelog.html#15">MTEX 3.1 - 03/2011</tocitem>
+            <tocitem target="changelog.html#16">MTEX 3.0 - 10/2010</tocitem>
+            <tocitem target="changelog.html#17">MTEX 2.0 - 10/2009</tocitem>
+            <tocitem target="changelog.html#18">MTEX 1.2 - 05/2009</tocitem>
+            <tocitem target="changelog.html#19">MTEX 1.1 - 12/2008</tocitem>
+            <tocitem target="changelog.html#20">MTEX 1.0 - 06/2008</tocitem>
+            <tocitem target="changelog.html#21">MTEX 0.4 - 04/2008</tocitem>
+            <tocitem target="changelog.html#22">MTEX 0.3 - 10/2007</tocitem>
+            <tocitem target="changelog.html#23">MTEX 0.2 - 07/2007</tocitem>
+            <tocitem target="changelog.html#24">MTEX 0.1 - 03/2007</tocitem>
          </tocitem>
          <tocitem target="bugs.html">List of Known Bugs<tocitem target="bugs.html#2">Open Issues</tocitem>
          </tocitem>

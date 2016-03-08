@@ -62,9 +62,7 @@ ebsd = ebsd(<span class="string">'calcite'</span>);
 oM = ipdfHSVOrientationMapping(ebsd);
 
 close <span class="string">all</span>;
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><pre class="codeoutput"> loading data ...
- saving data to /home/hielscher/mtex/master/data/sharp.mat
-</pre><img src="EBSDSharpPlot_01.png"> <p>and have a look into the 001 inverse pole figure.</p><pre class="codeinput"><span class="comment">% compute the positions in the inverse pole figure</span>
+plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_01.png"> <p>and have a look into the 001 inverse pole figure.</p><pre class="codeinput"><span class="comment">% compute the positions in the inverse pole figure</span>
 h = ebsd.orientations .\ zvector;
 h = project2FundamentalRegion(h);
 
@@ -75,7 +73,7 @@ plotIPDF(ebsd.orientations,zvector,<span class="string">'property'</span>,color,
 mtexColorbar</pre><pre class="codeoutput">  I'm plotting 8333 random orientations out of 20119 given orientations
 </pre><img src="EBSDSharpPlot_02.png"> <p>We see that all individual orientations are clustered around azimuth angle 25 degree with some outliers at 90 and 120 degree.
             In order to increase the contrast for the main group we restrict the colorrange from 20 degree to 29 degree.
-         </p><pre class="codeinput">caxis([20 30]);
+         </p><pre class="codeinput">caxis([90 100]);
 
 <span class="comment">% by the following lines we colorcode the outliers in purple.</span>
 cmap = colormap;
@@ -85,7 +83,7 @@ colormap(cmap)</pre><img src="EBSDSharpPlot_03.png"> <p>The same colorcoding we 
 plot(ebsd,color)
 
 <span class="comment">% set scaling of the angles to 20 - 29 degree</span>
-caxis([20 30]);
+caxis([90 100]);
 
 <span class="comment">% colorize outliers in purple.</span>
 cmap = colormap;

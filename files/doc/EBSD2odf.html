@@ -132,7 +132,25 @@ ori = orientation
   odf = calcODF(ori,<span class="string">'halfwidth'</span>,hw(i),<span class="string">'silent'</span>);
   e(i) = calcError(modelODF, odf);
 
-<span class="keyword">end</span></pre><p>After visualizing the estimation error we observe that its value is large either if we choose a very small or a very large
+<span class="keyword">end</span></pre><pre class="codeoutput">Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK
+instead. 
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK
+instead. 
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK
+instead. 
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK
+instead. 
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK
+instead. 
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK
+instead. 
+</pre><p>After visualizing the estimation error we observe that its value is large either if we choose a very small or a very large
             halfwidth. In this specific example the optimal halfwidth seems to be about 4 degree.
          </p><pre class="codeinput">close <span class="string">all</span>
 plot(hw/degree,e)

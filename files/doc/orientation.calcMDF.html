@@ -43,7 +43,7 @@
             <p>(method of <a href="orientation_index.html">orientation</a>)
             </p>
          </div>
-         <p>computes an MDF from individuel orientations</p>
+         <p>computes an MDF from individuel orientations or misorientations</p>
          <p>The function <b>calcMDF</b> applies one of the following algorithms to compute an MDF from a list of orientations.
          </p>
          <div>
@@ -54,11 +54,13 @@
             </ol>
          </div>
          <h2>Syntax<a name="3"> </a></h2><pre class="codeinput"><span class="comment">% use kernel density estimation with a 10 degree kernel</span>
-mdf = calcMDF(ori,<span class="string">'halfwidth'</span>,10*degree)</pre><pre class="codeinput"><span class="comment">% use grain area as weights for the orientations</span>
-mdf = calcMDF(grains.meanOrientation,<span class="string">'weights'</span>,grains.area)</pre><pre class="codeinput"><span class="comment">% use a specific kernel</span>
+mori = grains.boundary.misorientation
+mdf = calcMDF(mori,<span class="string">'halfwidth'</span>,10*degree)</pre><pre class="codeinput"><span class="comment">% compute an uncorrelated MDF</span>
+mdf = calcMDF(grains(<span class="string">'phase1'</span>).meanorientation)</pre><pre class="codeinput"><span class="comment">% use grain area as weights for the orientations</span>
+mdf = calcMDF(grains(<span class="string">'phase1'</span>).meanOrientation,<span class="string">'weights'</span>,grains(<span class="string">'phase1'</span>).diameter)</pre><pre class="codeinput"><span class="comment">% use a specific kernel</span>
 psi = AbelPoissonKernel(<span class="string">'halfwidth'</span>,10*degree)
-mdf = calcMDF(ori,<span class="string">'kernel'</span>,psi)</pre><pre class="codeinput"><span class="comment">% compute the MDF as a Fourier series of order 16</span>
-mdf = calcMDF(ori,<span class="string">'order'</span>,16)</pre><h2>Input<a name="4"> </a></h2>
+mdf = calcMDF(mori,<span class="string">'kernel'</span>,psi)</pre><pre class="codeinput"><span class="comment">% compute the MDF as a Fourier series of order 16</span>
+mdf = calcMDF(mori,<span class="string">'order'</span>,16)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -67,6 +69,14 @@ mdf = calcMDF(ori,<span class="string">'order'</span>,16)</pre><h2>Input<a name=
             </td>
             <td>
             <p><a href="orientation_index.html">orientation</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>mori</tt>
+            </td>
+            <td>
+            <p>misorientation</p>
             </td>
             </tr>
             <tr>

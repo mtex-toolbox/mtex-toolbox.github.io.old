@@ -101,12 +101,16 @@ oM.inversePoleFigureDirection = grains(id).meanOrientation * oM.whiteCenter;
 oM.maxAngle = 3*degree;
 
 <span class="comment">% plot the colormap</span>
-plot(oM,<span class="string">'resolution'</span>,0.5*degree)</pre><img src="EBSDSmoothing_02.png"> <p>With the new colormap we can clearly see the noise overlapping the texture gradient within the grain.</p><pre class="codeinput"><span class="comment">% plot the grain</span>
+plot(oM,<span class="string">'resolution'</span>,0.5*degree)</pre><pre class="codeoutput">Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+</pre><img src="EBSDSmoothing_02.png"> <p>With the new colormap we can clearly see the noise overlapping the texture gradient within the grain.</p><pre class="codeinput"><span class="comment">% plot the grain</span>
 plot(ebsd,oM.orientation2color(ebsd.orientations))
 
 hold <span class="string">on</span>
 plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
-hold <span class="string">off</span></pre><img src="EBSDSmoothing_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+</pre><img src="EBSDSmoothing_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> The Mean Filter<a name="6"> </a></h3>
          <p>The most simplest filter to apply to the orientation data is the <tt>meanFilter</tt> which simple takes the mean of all orientations within a certain neighbourhood.
          </p><pre class="codeinput"><span class="comment">% define the meanFilter</span>
@@ -121,7 +125,9 @@ plot(ebsd_smoothed(<span class="string">'indexed'</span>),<span class="keyword">
 
 hold <span class="string">on</span>
 plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
-hold <span class="string">off</span></pre><img src="EBSDSmoothing_04.png"> <p>As an additional option one can specify the size of the neighbourhood and weights for the averaging. Lets define a 5x5 window
+hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+</pre><img src="EBSDSmoothing_04.png"> <p>As an additional option one can specify the size of the neighbourhood and weights for the averaging. Lets define a 5x5 window
             with weights comming from the Gaussian distribution.
          </p><pre class="codeinput">[x,y] = meshgrid(-2:2);
 F.weights = exp(-(x.^2+y.^2)/10);
@@ -144,6 +150,8 @@ ebsd_smoothed = EBSD
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
  
+Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
 </pre><img src="EBSDSmoothing_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> The Median Filter<a name="8"> </a></h3>
          <p>The disadvantage of the mean filter is that is smoothes away all subgrain boundaries and is quite sensitiv agains outliers.
@@ -162,7 +170,9 @@ plot(ebsd_smoothed(<span class="string">'indexed'</span>),<span class="keyword">
 
 hold <span class="string">on</span>
 plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
-hold <span class="string">off</span></pre><img src="EBSDSmoothing_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+</pre><img src="EBSDSmoothing_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> The Smoothing Spline Filter<a name="9"> </a></h3>
          <p>The smoothing spline filter is up to now the only filter that automatically callibrates the smoothing paramter</p><pre class="codeinput">F = splineFilter;
 
@@ -178,7 +188,9 @@ plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="stri
 hold <span class="string">off</span>
 
 <span class="comment">% the smoothing parameter determined during smoothing is</span>
-F.alpha</pre><pre class="codeoutput">ans =
+F.alpha</pre><pre class="codeoutput">Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+ans =
     4.6123
 </pre><img src="EBSDSmoothing_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> The halfquadratic Filter<a name="10"> </a></h3>
@@ -196,7 +208,9 @@ plot(ebsd_smoothed(<span class="string">'indexed'</span>),<span class="keyword">
 
 hold <span class="string">on</span>
 plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
-hold <span class="string">off</span></pre><img src="EBSDSmoothing_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+</pre><img src="EBSDSmoothing_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Interpolating Missing Data<a name="11"> </a></h2>
          <p>The filters above can also be used to interpolate missindexed orientations.</p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -212,13 +226,17 @@ ebsdNaN(ind).orientations = orientation(nanquaternion,ebsd.CS);
 plot(ebsdNaN,oM.orientation2color(ebsdNaN.orientations))
 hold <span class="string">on</span>
 plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
-hold <span class="string">off</span></pre><img src="EBSDSmoothing_09.png"> <p>By default all orientations that are set to <tt>nan</tt> are interpolated.
+hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+</pre><img src="EBSDSmoothing_09.png"> <p>By default all orientations that are set to <tt>nan</tt> are interpolated.
          </p><pre class="codeinput"><span class="comment">% interpolate the missing data with the smoothing spline filter</span>
 ebsdNaN_smoothed = smooth(ebsdNaN,splineFilter);
 plot(ebsdNaN_smoothed(<span class="string">'indexed'</span>),oM.orientation2color(ebsdNaN_smoothed(<span class="string">'indexed'</span>).orientations))
 hold <span class="string">on</span>
 plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
-hold <span class="string">off</span></pre><img src="EBSDSmoothing_10.png"> <p>We may plot the misorientation angle between the interpolated orientations and the measured orientations</p><pre class="codeinput">plot(ebsd_smoothed(<span class="string">'indexed'</span>),angle(ebsdNaN_smoothed(<span class="string">'indexed'</span>).orientations,ebsd_smoothed(<span class="string">'indexed'</span>).orientations)./degree)
+hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+</pre><img src="EBSDSmoothing_10.png"> <p>We may plot the misorientation angle between the interpolated orientations and the measured orientations</p><pre class="codeinput">plot(ebsd_smoothed(<span class="string">'indexed'</span>),angle(ebsdNaN_smoothed(<span class="string">'indexed'</span>).orientations,ebsd_smoothed(<span class="string">'indexed'</span>).orientations)./degree)
 mtexColorbar
 
 hold <span class="string">on</span>
@@ -274,7 +292,13 @@ plot(ebsd_smoothed(<span class="string">'Di'</span>),oM.orientation2color(ebsd_s
 
 <span class="comment">% plot boundary</span>
 plot(grains.boundary,<span class="string">'linewidth'</span>,1.5)
-hold <span class="string">off</span></pre><img src="EBSDSmoothing_14.png"> <p>If no <tt>grain</tt> variable is passed to the smoothing command the not indexed pixels are assigned to the nearest neighbour.
+hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+</pre><img src="EBSDSmoothing_14.png"> <p>If no <tt>grain</tt> variable is passed to the smoothing command the not indexed pixels are assigned to the nearest neighbour.
          </p><pre class="codeinput">ebsd_smoothed = smooth(ebsd(<span class="string">'indexed'</span>),F,<span class="string">'fill'</span>);
 
 plot(ebsd_smoothed(<span class="string">'Fo'</span>),ebsd_smoothed(<span class="string">'Fo'</span>).orientations)
