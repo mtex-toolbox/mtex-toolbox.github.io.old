@@ -42,23 +42,28 @@
          <div class="subheading"></div>
          <h2>MTEX 4.3 - 03/2016<a name="1"> </a></h2>
          <p><b>Alignment of Miller plots</b></p>
-         <p>Starting with MTEX 4.3 plot with respect to the crystal coordinate system are always aligned such that the b-axis points towards
-            east. This follows the convention given in the International Table of Crystallography. This change effects: inverse pole figure
-            plots, ipf keys, misorientation axes plots. The alignment can be adjusted using the option <tt>xAxisAlignment</tt></p><pre class="codeinput">plot(Miller(1,0,0,cs),<span class="string">'xAxisAlignment'</span>,30*degree)</pre><p><b>Vector field plot at grain centers or grain boundaries</b></p>
-         <p>There are three new commands</p><pre>quiver(ebsd,dir)
-quiver(grains,dir)
-quiver(grains.boundary,dir)</pre><p>that allow to visualize directions for EBSD data, grains and at grain boundaries. <tt>dir</tt> should be a list of <tt>vector3d</tt> and may represent e.g. slip directions, polarization direction, etc.
+         <p>Starting with MTEX 4.3 plots with respect to the crystal coordinate system, i.e., inverse pole figure plots, misorientation
+            axis plot, ipf keys, are always aligned such that the b-axis points towards east. This follows the convention given in the
+            International Table of Crystallography. The alignment can be adjusted using the option <tt>xAxisAlignment</tt></p><pre class="codeinput">plot(Miller(1,0,0,cs),<span class="string">'xAxisAlignment'</span>,30*degree)</pre><p><b>Plotting vector fields at grain centers or grain boundaries</b></p>
+         <p>There are three new commands</p>
+         <div>
+            <ul type="square">
+               <li><a href="EBSD.quiver.html">quiver(ebsd,dir)</a></li>
+               <li><a href="grain2d.quiver.html">quiver(grains,dir)</a></li>
+               <li><a href="grainBoundary.quiver.html">quiver(grains.boundary,dir)</a></li>
+            </ul>
+         </div>
+         <p>that allow to visualize directions for EBSD data, grains and at grain boundaries. The input argument <tt>dir</tt> should be a list of <tt>vector3d</tt> and may represent e.g. slip directions, polarization direction, etc.
          </p>
-         <p><b>EBSD as data as image</b></p>
+         <p><b>EBSD data in raster format</b></p>
          <p>Until MTEX 4.2 EBSD data have been always considered as a one dimensional list of data, i.e., the often present structure
-            of the data in a regular grid was completely ignored. Starting with MTEX 4.3 EBSD data can be converted in a regular grid
-            by
+            of a regular grid was completely ignored. Starting with MTEX 4.3 EBSD data can be converted in a regular grid by
          </p><pre class="codeinput">ebsd = ebsd.gridify</pre><p>Missing data are represented as NaN in the regular representation. Gridified EBSD data may be addressed analogously like matrixes,
             i.e.,
          </p><pre class="codeinput">ebsd(100,200)</pre><p>will give pixel 100 in y direction and 200 in x direction. Analogously.</p><pre class="codeinput">ebsd(50:100,:)</pre><p>will give the stripe if pixels with y coordinate between 50 and 100.</p>
          <p><b>Orientation gradients and GND</b></p>
          <p>Gridified EBSD data allows also to compture orientation gradients by</p><pre class="codeinput">ebsd.gradientX
-ebsd.gradientY</pre><p>as well as an estimate of the gemeometrically neccessary dislocation density (GND) by</p><pre class="codeinput">ebsd.calcGND</pre><p><b>Auxilary new functionality</b></p>
+ebsd.gradientY</pre><p>as well as an estimate of the gemeometrically neccessary dislocation density (GND) using the command <a href="EBSDSquare.calcGND.html">calcGND</a></p><pre class="codeinput">ebsd.calcGND</pre><p><b>Auxilary new functionality</b></p>
          <div>
             <ul type="square">
                <li>grain2d.calcParis - Percentile Average Relative Indented Surface</li>
