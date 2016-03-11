@@ -28,6 +28,15 @@ be up and running in seconds.
  * [contribute](https://github.com/mtex-toolbox/mtex) -- MTEX is open
    source and adding new features is more simple then you might think.
 
+### Toolboxes that work with MTEX###
+
+* [PolyLX](http://petrol.natur.cuni.cz/~ondro/polylx) -- a Matlab toolbox for microstructure
+  analysis
+* [FAME](http://peternell.org/archive.html) -- a Matlab based fabric analysis
+software
+* [Stabix](https://github.com/stabix/stabix) -- a Matlab slip transfer analysis toolbox
+* [MSAT](https://github.com/andreww/MSAT) -- MATLAB Seismic Anisotropy Toolkit
+
 ### Users Guide and Feature Overview ###
 
 <table border='0' cellpadding='5' width = "940px" style="width:100%" >
