@@ -102,11 +102,13 @@ odf = ODF
                <li>L1 - error</li>
                <li>L2 - error</li>
             </ul>
-         </div><pre class="codeinput">calcError(pf,odf,<span class="string">'RP'</span>,1)</pre><pre class="codeoutput">ans =
+         </div><pre class="codeinput">calcError(pf,odf,<span class="string">'RP'</span>,1)</pre><pre class="codeoutput">progress: 100%
+ans =
     0.6739    0.7825    0.1904    0.2366    0.5677    0.6109    0.4506
 </pre><p>In order to recognize bad pole figure intensities it is often usfull to plot difference pole figures between the normalized
             measured intensities and the recalculated ODF. This can be done by the command <a href="PoleFigure.plotDiff.html">PlotDiff</a>.
-         </p><pre class="codeinput">plotDiff(pf,odf)</pre><img src="PoleFigure2odf_03.png"> <p>Assuming you have drived two ODFs from different pole figure measurements or by ODF modelling. Then one can ask for the difference
+         </p><pre class="codeinput">plotDiff(pf,odf)</pre><pre class="codeoutput">progress: 100%
+</pre><img src="PoleFigure2odf_03.png"> <p>Assuming you have drived two ODFs from different pole figure measurements or by ODF modelling. Then one can ask for the difference
             between both. This difference is computet by the command <a href="ODF.calcError.html">calcError</a>.
          </p><pre class="codeinput"><span class="comment">% define a unimodal ODF with the same modal orientation</span>
 odf_model = unimodalODF(calcModes(odf),<span class="string">'halfwidth'</span>,15*degree)
@@ -115,7 +117,8 @@ odf_model = unimodalODF(calcModes(odf),<span class="string">'halfwidth'</span>,1
 plotPDF(odf_model,h,<span class="string">'antipodal'</span>,<span class="string">'superposition'</span>,c)
 
 <span class="comment">% compute the difference</span>
-calcError(odf_model,odf)</pre><pre class="codeoutput"> 
+calcError(odf_model,odf)</pre><pre class="codeoutput">progress: 100%
+ 
 odf_model = ODF  
   crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
   specimen symmetry: 1
@@ -125,6 +128,7 @@ odf_model = ODF
     center: (136&deg;,36&deg;,203&deg;)
     weight: 1
  
+progress: 100%
 ans =
     0.4704
 </pre><img src="PoleFigure2odf_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

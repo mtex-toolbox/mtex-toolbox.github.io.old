@@ -68,6 +68,9 @@
             <td width="250px"><a href="annotate.html"><tt>annotate</tt></a></td>
             <td>annotate to a existing figure</td>
             <tr></tr>
+            <td width="250px"><a href="tensor.antiSym.html"><tt>antiSym</tt></a><span>   (tensor)</span></td>
+            <td>the antisymmetric part A = 0.5(T - T.') of a tensor</td>
+            <tr></tr>
             <td width="250px"><a href="apply_recursivly.html"><tt>apply_recursivly</tt></a></td>
             <td>apply cmd recursively to all file in a directory</td>
             <tr></tr>
@@ -235,6 +238,9 @@
             <td width="250px"><a href="EBSD.calcGrains.html"><tt>calcGrains</tt></a><span>   (EBSD)</span></td>
             <td>2d and 3d construction of GrainSets from spatially indexed EBSD data</td>
             <tr></tr>
+            <td width="250px"><a href="orientation.calcInvTaylor.html"><tt>calcInvTaylor</tt></a><span>   (orientation)</span></td>
+            <td>Taylor factor from orientation gradient</td>
+            <tr></tr>
             <td width="250px"><a href="orientation.calcKernel.html"><tt>calcKernel</tt></a><span>   (orientation)</span></td>
             <td>compute an optimal kernel function for ODF estimation</td>
             <tr></tr>
@@ -337,6 +343,9 @@
             <td width="250px"><a href="tensor.calcShearStress.html"><tt>calcShearStress</tt></a><span>   (tensor)</span></td>
             <td>shear stress</td>
             <tr></tr>
+            <td width="250px"><a href="tensor.calcTaylor.html"><tt>calcTaylor</tt></a><span>   (tensor)</span></td>
+            <td>compute Taylor factor and strain dependent orientation gradient</td>
+            <tr></tr>
             <td width="250px"><a href="EBSD.calcTensor.html"><tt>calcTensor</tt></a><span>   (EBSD)</span></td>
             <td>compute the average tensor for an EBSD data set</td>
             <tr></tr>
@@ -389,6 +398,9 @@
             <td></td>
             <tr></tr>
             <td width="250px"><a href="rotation.cat.html"><tt>cat</tt></a><span>   (rotation)</span></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.cat.html"><tt>cat</tt></a><span>   (slipSystem)</span></td>
             <td></td>
             <tr></tr>
             <td width="250px"><a href="vector3d.cat.html"><tt>cat</tt></a><span>   (vector3d)</span></td>
@@ -563,6 +575,9 @@
             <td width="250px"><a href="CSL.html"><tt>CSL</tt></a></td>
             <td>coincidence site lattice misorientations for cubic symmetry</td>
             <tr></tr>
+            <td width="250px"><a href="orientation.ctranspose.html"><tt>ctranspose</tt></a><span>   (orientation)</span></td>
+            <td>inverse orientation</td>
+            <tr></tr>
             <td width="250px"><a href="quaternion.ctranspose.html"><tt>ctranspose</tt></a><span>   (quaternion)</span></td>
             <td>transpose quaternion</td>
             <tr></tr>
@@ -584,6 +599,9 @@
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>D<a name="4"> </a></h2>
          <table width="95%">
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.deformationTensor.html"><tt>deformationTensor</tt></a><span>   (slipSystem)</span></td>
+            <td>deformation tensor</td>
             <tr></tr>
             <td width="250px"><a href="deg2dim.html"><tt>deg2dim</tt></a></td>
             <td>dimension of the harmonic space up to order l</td>
@@ -718,7 +736,7 @@
             <td>distance to all points of S1Grid</td>
             <tr></tr>
             <td width="250px"><a href="doclink.html"><tt>doclink</tt></a></td>
-            <td>on Octave skip this</td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="docmethods.html"><tt>docmethods</tt></a></td>
             <td></td>
@@ -802,6 +820,12 @@
             <td width="250px"><a href="quaternion.end.html"><tt>end</tt></a><span>   (quaternion)</span></td>
             <td>overloads end function</td>
             <tr></tr>
+            <td width="250px"><a href="slipSystem.end.html"><tt>end</tt></a><span>   (slipSystem)</span></td>
+            <td>overloaded end function</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.end.html"><tt>end</tt></a><span>   (tensor)</span></td>
+            <td>overloaded end function</td>
+            <tr></tr>
             <td width="250px"><a href="vector3d.end.html"><tt>end</tt></a><span>   (vector3d)</span></td>
             <td>overloaded end function</td>
             <tr></tr>
@@ -831,6 +855,9 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.eq.html"><tt>eq</tt></a><span>   (quaternion)</span></td>
             <td>? q1 == q2</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.eq.html"><tt>eq</tt></a><span>   (slipSystem)</span></td>
+            <td>? sS1 == sS2</td>
             <tr></tr>
             <td width="250px"><a href="sphericalRegion.eq.html"><tt>eq</tt></a><span>   (sphericalRegion)</span></td>
             <td></td>
@@ -1159,6 +1186,9 @@
             <td width="250px"><a href="quaternion.horzcat.html"><tt>horzcat</tt></a><span>   (quaternion)</span></td>
             <td>implements [q1,q2,q3..]</td>
             <tr></tr>
+            <td width="250px"><a href="slipSystem.horzcat.html"><tt>horzcat</tt></a><span>   (slipSystem)</span></td>
+            <td>overloads [v1,v2,v3..]</td>
+            <tr></tr>
             <td width="250px"><a href="sphericalRegion.horzcat.html"><tt>horzcat</tt></a><span>   (sphericalRegion)</span></td>
             <td></td>
             <tr></tr>
@@ -1209,9 +1239,6 @@
             <td width="250px"><a href="grainBoundary.intersect.html"><tt>intersect</tt></a><span>   (grainBoundary)</span></td>
             <td>length of a boundary segment</td>
             <tr></tr>
-            <td width="250px"><a href="orientation.inv.html"><tt>inv</tt></a><span>   (orientation)</span></td>
-            <td>inverse of an orientation</td>
-            <tr></tr>
             <td width="250px"><a href="quaternion.inv.html"><tt>inv</tt></a><span>   (quaternion)</span></td>
             <td>quaternion of the inverse roation</td>
             <tr></tr>
@@ -1228,6 +1255,9 @@
             <td>overloads length</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.isempty.html"><tt>isempty</tt></a><span>   (quaternion)</span></td>
+            <td>overloads isempty</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.isempty.html"><tt>isempty</tt></a><span>   (slipSystem)</span></td>
             <td>overloads isempty</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.isempty.html"><tt>isempty</tt></a><span>   (vector3d)</span></td>
@@ -1330,6 +1360,9 @@
             <td>Legendrepolynome bis zur Odnung N und gibt sie als Matrix zur&#65533;ck erste Dimension -&gt; Ordnung zweite Dimension -&gt; x</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.length.html"><tt>length</tt></a><span>   (quaternion)</span></td>
+            <td>overloads length</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.length.html"><tt>length</tt></a><span>   (slipSystem)</span></td>
             <td>overloads length</td>
             <tr></tr>
             <td width="250px"><a href="symmetry.length.html"><tt>length</tt></a><span>   (symmetry)</span></td>
@@ -1539,6 +1572,9 @@
             <td width="250px"><a href="quaternion.log.html"><tt>log</tt></a><span>   (quaternion)</span></td>
             <td>project a quaternion into the tangential space</td>
             <tr></tr>
+            <td width="250px"><a href="quaternion.logm.html"><tt>logm</tt></a><span>   (quaternion)</span></td>
+            <td>the dislocation tensor for a rotation</td>
+            <tr></tr>
             <td width="250px"><a href="tensor.logm.html"><tt>logm</tt></a><span>   (tensor)</span></td>
             <td>matrix logarithm of a tensor</td>
             <tr></tr>
@@ -1601,7 +1637,7 @@
             <td>fast mean of</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.merge.html"><tt>merge</tt></a><span>   (grain2d)</span></td>
-            <td>merge grains along certain grain boundaries</td>
+            <td>merge grains along special grain boundaries</td>
             <tr></tr>
             <td width="250px"><a href="mhyper.html"><tt>mhyper</tt></a></td>
             <td>multivariat hypergeometric function 1F1(1/2,p/2, kappa)</td>
@@ -1653,6 +1689,9 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.mpower.html"><tt>mpower</tt></a><span>   (quaternion)</span></td>
             <td>q^n</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.mPrime.html"><tt>mPrime</tt></a><span>   (slipSystem)</span></td>
+            <td>m' parameter from Luster and Morris in 1995</td>
             <tr></tr>
             <td width="250px"><a href="ODF.mrdivide.html"><tt>mrdivide</tt></a><span>   (ODF)</span></td>
             <td>scaling of the ODF</td>
@@ -1780,6 +1819,9 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.ne.html"><tt>ne</tt></a><span>   (quaternion)</span></td>
             <td>q1 ~= q2 ?</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.ne.html"><tt>ne</tt></a><span>   (slipSystem)</span></td>
+            <td>? sS1 ~= sS2</td>
             <tr></tr>
             <td width="250px"><a href="sphericalRegion.ne.html"><tt>ne</tt></a><span>   (sphericalRegion)</span></td>
             <td></td>
@@ -1965,6 +2007,9 @@
             <td width="250px"><a href="quaternion.plot.html"><tt>plot</tt></a><span>   (quaternion)</span></td>
             <td></td>
             <tr></tr>
+            <td width="250px"><a href="sphFun.plot.html"><tt>plot</tt></a><span>   (sphFun)</span></td>
+            <td>Syntax</td>
+            <tr></tr>
             <td width="250px"><a href="sphericalRegion.plot.html"><tt>plot</tt></a><span>   (sphericalRegion)</span></td>
             <td>plots a spherical region</td>
             <tr></tr>
@@ -1992,11 +2037,35 @@
             <td width="250px"><a href="PoleFigure.plot_zero_range.html"><tt>plot_zero_range</tt></a><span>   (PoleFigure)</span></td>
             <td>implements the zero range method</td>
             <tr></tr>
+            <td width="250px"><a href="plota2east.html"><tt>plota2east</tt></a></td>
+            <td>set the default plot direction of the x-axis</td>
+            <tr></tr>
+            <td width="250px"><a href="plota2north.html"><tt>plota2north</tt></a></td>
+            <td>set the default plot direction of the x-axis</td>
+            <tr></tr>
+            <td width="250px"><a href="plota2south.html"><tt>plota2south</tt></a></td>
+            <td>set the default plot direction of the x-axis</td>
+            <tr></tr>
+            <td width="250px"><a href="plota2west.html"><tt>plota2west</tt></a></td>
+            <td>set the default plot direction of the x-axis</td>
+            <tr></tr>
             <td width="250px"><a href="plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a></td>
             <td>plot axis distribution</td>
             <tr></tr>
             <td width="250px"><a href="plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a></td>
             <td>plot axis distribution</td>
+            <tr></tr>
+            <td width="250px"><a href="plotb2east.html"><tt>plotb2east</tt></a></td>
+            <td>set the default plot direction of the x-axis</td>
+            <tr></tr>
+            <td width="250px"><a href="plotb2north.html"><tt>plotb2north</tt></a></td>
+            <td>set the default plot direction of the x-axis</td>
+            <tr></tr>
+            <td width="250px"><a href="plotb2south.html"><tt>plotb2south</tt></a></td>
+            <td>set the default plot direction of the x-axis</td>
+            <tr></tr>
+            <td width="250px"><a href="plotb2west.html"><tt>plotb2west</tt></a></td>
+            <td>set the default plot direction of the x-axis</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.plotCustom.html"><tt>plotCustom</tt></a><span>   (vector3d)</span></td>
             <td>Syntax plotcustom(v,@(x,y) drawCommand(x,y))  %</td>
@@ -2100,8 +2169,14 @@
             <td width="250px"><a href="sphericalRegion.polarCoordinates.html"><tt>polarCoordinates</tt></a><span>   (sphericalRegion)</span></td>
             <td>compute polar coordinates of with respect to a spherical region</td>
             <tr></tr>
+            <td width="250px"><a href="orientation.power.html"><tt>power</tt></a><span>   (orientation)</span></td>
+            <td>ori.^n</td>
+            <tr></tr>
             <td width="250px"><a href="quaternion.power.html"><tt>power</tt></a><span>   (quaternion)</span></td>
             <td>q.^n</td>
+            <tr></tr>
+            <td width="250px"><a href="rotation.power.html"><tt>power</tt></a><span>   (rotation)</span></td>
+            <td>r.^n</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.principalComponents.html"><tt>principalComponents</tt></a><span>   (grain2d)</span></td>
             <td>returns the principalcomponents of grain polygon, without Holes</td>
@@ -2164,8 +2239,11 @@
             <td width="250px"><a href="quantile.html"><tt>quantile</tt></a></td>
             <td>n percent quantile of x</td>
             <tr></tr>
+            <td width="250px"><a href="EBSD.quiver.html"><tt>quiver</tt></a><span>   (EBSD)</span></td>
+            <td>plot directions at ebsd centers</td>
+            <tr></tr>
             <td width="250px"><a href="grain2d.quiver.html"><tt>quiver</tt></a><span>   (grain2d)</span></td>
-            <td>plot directions at grain boundaries</td>
+            <td>plot directions at grain centers</td>
             <tr></tr>
             <td width="250px"><a href="grainBoundary.quiver.html"><tt>quiver</tt></a><span>   (grainBoundary)</span></td>
             <td>plot directions at grain boundaries</td>
@@ -2276,6 +2354,9 @@
             <td width="250px"><a href="vector3d.reshape.html"><tt>reshape</tt></a><span>   (vector3d)</span></td>
             <td>overloads reshape</td>
             <tr></tr>
+            <td width="250px"><a href="slipSystem.residualBurgersVector.html"><tt>residualBurgersVector</tt></a><span>   (slipSystem)</span></td>
+            <td>compute the Schmid factor</td>
+            <tr></tr>
             <td width="250px"><a href="sphericalRegion.restrict2Lower.html"><tt>restrict2Lower</tt></a><span>   (sphericalRegion)</span></td>
             <td></td>
             <tr></tr>
@@ -2336,6 +2417,9 @@
             <td width="250px"><a href="orientationRegion.rotate.html"><tt>rotate</tt></a><span>   (orientationRegion)</span></td>
             <td>rotate of a orientation region</td>
             <tr></tr>
+            <td width="250px"><a href="slipSystem.rotate.html"><tt>rotate</tt></a><span>   (slipSystem)</span></td>
+            <td>rotate slip system</td>
+            <tr></tr>
             <td width="250px"><a href="sphericalRegion.rotate.html"><tt>rotate</tt></a><span>   (sphericalRegion)</span></td>
             <td>rotate of a spherical region</td>
             <tr></tr>
@@ -2343,6 +2427,18 @@
             <td>rotate a tensor by a list of rotations</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.rotate.html"><tt>rotate</tt></a><span>   (vector3d)</span></td>
+            <td>rotate vector3d by rotation or orientation</td>
+            <tr></tr>
+            <td width="250px"><a href="Miller.rotate_outer.html"><tt>rotate_outer</tt></a><span>   (Miller)</span></td>
+            <td>rotate crystal directions</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.rotate_outer.html"><tt>rotate_outer</tt></a><span>   (slipSystem)</span></td>
+            <td>rotate slip system</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.rotate_outer.html"><tt>rotate_outer</tt></a><span>   (tensor)</span></td>
+            <td>rotate a tensor by a list of rotations</td>
+            <tr></tr>
+            <td width="250px"><a href="vector3d.rotate_outer.html"><tt>rotate_outer</tt></a><span>   (vector3d)</span></td>
             <td>rotate vector3d by quaternion</td>
             <tr></tr>
             <td width="250px"><a href="symmetry.rotation_special.html"><tt>rotation_special</tt></a><span>   (symmetry)</span></td>
@@ -2389,6 +2485,9 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.scatter3d.html"><tt>scatter3d</tt></a><span>   (vector3d)</span></td>
             <td>plot spherical data</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.SchmidFactor.html"><tt>SchmidFactor</tt></a><span>   (slipSystem)</span></td>
+            <td>compute the Schmid factor</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.SchmidTensor.html"><tt>SchmidTensor</tt></a><span>   (vector3d)</span></td>
             <td>computes the Schmidt tensor</td>
@@ -2457,6 +2556,9 @@
             <td></td>
             <tr></tr>
             <td width="250px"><a href="quaternion.size.html"><tt>size</tt></a><span>   (quaternion)</span></td>
+            <td>overloads size</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.size.html"><tt>size</tt></a><span>   (slipSystem)</span></td>
             <td>overloads size</td>
             <tr></tr>
             <td width="250px"><a href="tensor.size.html"><tt>size</tt></a><span>   (tensor)</span></td>
@@ -2539,6 +2641,12 @@
             <td width="250px"><a href="SquareSingularityKernel.html"><tt>SquareSingularityKernel</tt></a></td>
             <td></td>
             <tr></tr>
+            <td width="250px"><a href="strainTensor.html"><tt>strainTensor</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="stressTensor.html"><tt>stressTensor</tt></a></td>
+            <td></td>
+            <tr></tr>
             <td width="250px"><a href="string2Miller.html"><tt>string2Miller</tt></a></td>
             <td>converts string to Miller indece</td>
             <tr></tr>
@@ -2581,6 +2689,9 @@
             <td width="250px"><a href="rotation.subsasgn.html"><tt>subsasgn</tt></a><span>   (rotation)</span></td>
             <td>overloads subsasgn</td>
             <tr></tr>
+            <td width="250px"><a href="slipSystem.subsasgn.html"><tt>subsasgn</tt></a><span>   (slipSystem)</span></td>
+            <td>overloads subsasgn</td>
+            <tr></tr>
             <td width="250px"><a href="tensor.subsasgn.html"><tt>subsasgn</tt></a><span>   (tensor)</span></td>
             <td>overloads subsasgn</td>
             <tr></tr>
@@ -2604,6 +2715,9 @@
             <tr></tr>
             <td width="250px"><a href="rotation.subSet.html"><tt>subSet</tt></a><span>   (rotation)</span></td>
             <td>indexing of rotation</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.subSet.html"><tt>subSet</tt></a><span>   (slipSystem)</span></td>
+            <td>subindex vector3d</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.subSet.html"><tt>subSet</tt></a><span>   (vector3d)</span></td>
             <td>subindex vector3d</td>
@@ -2641,6 +2755,9 @@
             <td width="250px"><a href="rotation.subsref.html"><tt>subsref</tt></a><span>   (rotation)</span></td>
             <td>overloads subsref</td>
             <tr></tr>
+            <td width="250px"><a href="slipSystem.subsref.html"><tt>subsref</tt></a><span>   (slipSystem)</span></td>
+            <td>overloads subsref</td>
+            <tr></tr>
             <td width="250px"><a href="symmetry.subsref.html"><tt>subsref</tt></a><span>   (symmetry)</span></td>
             <td>overloads subsref</td>
             <tr></tr>
@@ -2668,6 +2785,9 @@
             <td width="250px"><a href="switchUnit.html"><tt>switchUnit</tt></a></td>
             <td>returns the closest length to a known unit. For example, 10e3m will give 10km.</td>
             <tr></tr>
+            <td width="250px"><a href="tensor.sym.html"><tt>sym</tt></a><span>   (tensor)</span></td>
+            <td>the symmetric part S = 0.5(T + T.') of a tensor</td>
+            <tr></tr>
             <td width="250px"><a href="Miller.symmetrise.html"><tt>symmetrise</tt></a><span>   (Miller)</span></td>
             <td>directions symmetrically equivalent to m</td>
             <tr></tr>
@@ -2676,6 +2796,9 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.symmetrise.html"><tt>symmetrise</tt></a><span>   (quaternion)</span></td>
             <td>symmetrcially equivalent orientations</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.symmetrise.html"><tt>symmetrise</tt></a><span>   (slipSystem)</span></td>
+            <td>find all symmetrically equivalent slips systems</td>
             <tr></tr>
             <td width="250px"><a href="tensor.symmetrise.html"><tt>symmetrise</tt></a><span>   (tensor)</span></td>
             <td>symmetrise a tensor according to its crystal symmetry</td>
@@ -2712,7 +2835,7 @@
             <td>vec = ori .* Miller</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.times.html"><tt>times</tt></a><span>   (quaternion)</span></td>
-            <td>implements quaternion .* quaternion and quaternion .* vector3d</td>
+            <td>quaternion .* quaternion and quaternion .* vector3d</td>
             <tr></tr>
             <td width="250px"><a href="rotation.times.html"><tt>times</tt></a><span>   (rotation)</span></td>
             <td>r = a .* b</td>
@@ -2747,6 +2870,9 @@
             <td width="250px"><a href="rotation.transpose.html"><tt>transpose</tt></a><span>   (rotation)</span></td>
             <td>transpose array of rotations</td>
             <tr></tr>
+            <td width="250px"><a href="slipSystem.transpose.html"><tt>transpose</tt></a><span>   (slipSystem)</span></td>
+            <td>transpose list of slipSystem</td>
+            <tr></tr>
             <td width="250px"><a href="tensor.transpose.html"><tt>transpose</tt></a><span>   (tensor)</span></td>
             <td>conjugate of a tensor</td>
             <tr></tr>
@@ -2771,6 +2897,9 @@
             <tr></tr>
             <td width="250px"><a href="rotation.uminus.html"><tt>uminus</tt></a><span>   (rotation)</span></td>
             <td>implements -rotation</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.uminus.html"><tt>uminus</tt></a><span>   (slipSystem)</span></td>
+            <td>overloads unitary minus</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.uminus.html"><tt>uminus</tt></a><span>   (vector3d)</span></td>
             <td>overloads unitary minus</td>
@@ -2826,6 +2955,9 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.vertcat.html"><tt>vertcat</tt></a><span>   (quaternion)</span></td>
             <td>implements [q1;q2;q3..]</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.vertcat.html"><tt>vertcat</tt></a><span>   (slipSystem)</span></td>
+            <td>overloads [v1,v2,v3..]</td>
             <tr></tr>
             <td width="250px"><a href="tensor.vertcat.html"><tt>vertcat</tt></a><span>   (tensor)</span></td>
             <td>overloads [T1,T2,T3..]</td>
@@ -2908,7 +3040,7 @@
             <td>convert number to string</td>
             <tr></tr>
             <td width="250px"><a href="xticklabel_rotate.html"><tt>xticklabel_rotate</tt></a></td>
-            <td>hText = xticklabel_rotate(XTick,rot,XTickLabel,varargin)     Rotate XTickLabel</td>
+            <td>Rotate XTickLabel</td>
             <tr></tr>
             <td width="250px"><a href="xvector.html"><tt>xvector</tt></a></td>
             <td>vector (1,0,0)</td>
@@ -2940,7 +3072,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 4.3.0</td>
+               <td valign="baseline" align="right"> MTEX 4.4.alpha.4</td>
             </tr>
          </table>
       </div>

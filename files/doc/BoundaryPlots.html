@@ -72,9 +72,7 @@ mtexdata <span class="string">forsterite</span>
 plotx2east
 
 ebsd = ebsd(<span class="string">'indexed'</span>);
-[grains,ebsd.grainId] = calcGrains(ebsd)</pre><pre class="codeoutput"> loading data ...
- saving data to /home/hielscher/mtex/master/data/forsterite.mat
- 
+[grains,ebsd.grainId] = calcGrains(ebsd)</pre><pre class="codeoutput"> 
 grains = grain2d  
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
@@ -132,9 +130,7 @@ ebsd_931 = ebsd(grains(931));
 <span class="comment">% plot the orientation data</span>
 hold <span class="string">on</span>
 plot(ebsd_931,oM.orientation2color(ebsd_931.orientations))
-hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-</pre><img src="BoundaryPlots_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="BoundaryPlots_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Visualizing special grain boundaries<a name="7"> </a></h2>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Phase boundaries<a name="8"> </a></h3>
@@ -199,7 +195,8 @@ legend(<span class="string">'&gt;40^\circ'</span>,<span class="keyword">...</spa
   <span class="string">'10^\circ-20^\circ'</span>,<span class="keyword">...</span>
   <span class="string">'&lt; 10^\circ'</span>)
 
-hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Plot empty. 
+hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Ignoring extra legend
+entries. 
 </pre><img src="BoundaryPlots_09.png"> <p>Or we mark the rotation axis of the misorientation.</p><pre class="codeinput">close <span class="string">all</span>
 plot(gB)
 hold <span class="string">on</span>
@@ -210,7 +207,8 @@ plot(gB_Fo(ind),<span class="string">'linecolor'</span>,<span class="string">'b'
 
 legend(<span class="string">'&gt;5^\circ'</span>,<span class="string">'[100]'</span>)</pre><pre class="codeoutput">Warning: Symmetry mismatch 
 Warning: Symmetry mismatch 
-Warning: Plot empty. 
+Warning: Ignoring extra legend
+entries. 
 </pre><img src="BoundaryPlots_10.png"> <p>Or we mark a special rotation between neighboured grains. If a linecolor is not specified, then the boundary is colorcoded
             after its angular difference to the given rotation.
          </p><pre class="codeinput">rot = rotation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,60*degree);
@@ -221,7 +219,8 @@ plot(gB)
 hold <span class="string">on</span>
 plot(gB_Fo(ind),<span class="string">'linewidth'</span>,1.5,<span class="string">'linecolor'</span>,<span class="string">'r'</span>)
 
-legend(<span class="string">'&gt;2^\circ'</span>,<span class="string">'60^\circ/[001]'</span>)</pre><pre class="codeoutput">Warning: Plot empty. 
+legend(<span class="string">'&gt;2^\circ'</span>,<span class="string">'60^\circ/[001]'</span>)</pre><pre class="codeoutput">Warning: Ignoring extra legend
+entries. 
 </pre><img src="BoundaryPlots_11.png"> <p>In the same manner, we can classify after predefined special rotations, e.g. coincident site lattice (CSL) for cubic crystalls.
             Additionaly we specify a searching radius with the option <tt>'delta'</tt>, in this way, we control how far the misorientation of the boundary segment is actuall away from the specified rotation.
             TODO

@@ -99,10 +99,6 @@
             </td>
             <td>
             <p>plot dots instead of unitcells</p>
-            <p>mple t a EBSD data set spatially with custom colorcoding</p>
-            <p>texdata forsterite lot(ebsd)</p>
-            <p>lot(ebsd('Forsterite'),ebsd('Forsterite').orientations)</p>
-            <p>lot(ebsd,ebsd.mad,'micronbar','off')</p>
             </td>
             </tr>
             </table>
@@ -111,7 +107,9 @@
             </table>
             
          </p>
-         <h3 class="seealso">See also</h3>
+         <h2>Example<a name="5"> </a></h2>
+         <p>plot a EBSD data set spatially with custom colorcoding</p><pre class="codeinput">mtexdata <span class="string">forsterite</span>
+plot(ebsd)</pre><img src="EBSD.plot_01.png"> <pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),ebsd(<span class="string">'Forsterite'</span>).orientations)</pre><img src="EBSD.plot_02.png"> <pre class="codeinput">plot(ebsd,ebsd.mad,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)</pre><img src="EBSD.plot_03.png"> <h3 class="seealso">See also</h3>
          <p><a href="EBSD.plot.html">EBSD/plot</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

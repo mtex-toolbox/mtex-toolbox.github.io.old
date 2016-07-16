@@ -108,8 +108,8 @@ mtexColorbar</pre><img src="EBSDSpatialPlots_05.png"> <p>Lets make things a bit 
          </p><pre class="codeinput">oM = angleOrientationMapping(ebsd(<span class="string">'Fo'</span>))</pre><pre class="codeoutput">oM = 
   angleOrientationMapping with properties:
 
-    CS1: [4x2 crystalSymmetry]
-    CS2: [1x1 specimenSymmetry]
+    CS1: [4&times;2 crystalSymmetry]
+    CS2: [1&times;1 specimenSymmetry]
 </pre><p>now the color, which is actually the rotational angle, is computed by the command</p><pre class="codeinput">color = oM.orientation2color(ebsd(<span class="string">'Fo'</span>).orientations);</pre><p>and we can visuallize it by</p><pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),color)
 mtexColorbar</pre><img src="EBSDSpatialPlots_06.png"> <p>While for the previous case this seems to be unnecesarily complicated it allows us to define arbitrary complex color mapping.
             Consider for example the following standard color mapping that uses an colorization of the fundamental sector in the inverse
@@ -121,18 +121,18 @@ oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'Forsterite'</span>))
 plot(oM)</pre><pre class="codeoutput">oM = 
   ipdfHSVOrientationMapping with properties:
 
-    inversePoleFigureDirection: [1x1 vector3d]
-                           CS1: [4x2 crystalSymmetry]
-                           CS2: [1x1 specimenSymmetry]
-             colorPostRotation: [1x1 rotation]
+    inversePoleFigureDirection: [1&times;1 vector3d]
+                           CS1: [4&times;2 crystalSymmetry]
+                           CS2: [1&times;1 specimenSymmetry]
+             colorPostRotation: [1&times;1 rotation]
                colorStretching: 1
-                   whiteCenter: [1x1 vector3d]
+                   whiteCenter: [1&times;1 vector3d]
                      grayValue: [0.2000 0.5000]
                   grayGradient: 0.5000
                       maxAngle: Inf
-                            sR: [1x1 sphericalRegion]
+                            sR: [1&times;1 sphericalRegion]
                           refl: []
-                           rot: [1x1 rotation]
+                           rot: [1&times;1 rotation]
                          alpha: 0
 </pre><img src="EBSDSpatialPlots_07.png"> <p>Now we can proceed as above</p><pre class="codeinput"><span class="comment">% compute the colors</span>
 color = oM.orientation2color(ebsd(<span class="string">'Fo'</span>).orientations);
@@ -187,12 +187,12 @@ close <span class="string">all</span>;
 plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><pre class="codeoutput">oM = 
   ipdfCenterOrientationMapping with properties:
 
-                        center: [1x6 Miller]
+                        center: [1&times;6 Miller]
                          color: [0 0 1]
-                           psi: [1x1 deLaValeePoussinKernel]
-    inversePoleFigureDirection: [1x1 vector3d]
-                           CS1: [4x2 crystalSymmetry]
-                           CS2: [1x1 specimenSymmetry]
+                           psi: [1&times;1 deLaValeePoussinKernel]
+    inversePoleFigureDirection: [1&times;1 vector3d]
+                           CS1: [4&times;2 crystalSymmetry]
+                           CS2: [1&times;1 specimenSymmetry]
 </pre><img src="EBSDSpatialPlots_15.png"> <pre class="codeinput">plot(oM,<span class="string">'complete'</span>)</pre><img src="EBSDSpatialPlots_16.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Coloring certain orientations<a name="26"> </a></h3>
          <p>We might be interested to locate some special orientation in our orientation map. Suppose the mode of the ODF somewhere in

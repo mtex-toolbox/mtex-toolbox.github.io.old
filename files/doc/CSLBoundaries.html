@@ -186,8 +186,8 @@ hold <span class="string">off</span></pre><img src="CSLBoundaries_06.png"> <p cl
          </p><pre class="codeinput">oM = patalaOrientationMapping(gB)</pre><pre class="codeoutput">oM = 
   patalaOrientationMapping with properties:
 
-    CS1: [24x2 crystalSymmetry]
-    CS2: [24x2 crystalSymmetry]
+    CS1: [24&times;2 crystalSymmetry]
+    CS2: [24&times;2 crystalSymmetry]
 </pre><p>Colorizing the grain boundaries is now straight forward</p><pre class="codeinput">plot(ebsd,log(ebsd.prop.iq),<span class="string">'figSize'</span>,<span class="string">'large'</span>)
 mtexColorMap <span class="string">black2white</span>
 CLim(gcm,[.5,5])
@@ -220,13 +220,14 @@ plot(oR)
 <span class="comment">% plot 500 random misorientations in the 3d fundamenal zone</span>
 mori = discreteSample(gB.misorientation,500);
 hold <span class="string">on</span>
-plot(mori.project2FundamentalRegion(<span class="string">'antipodal'</span>))
+plot(mori.project2FundamentalRegion)
 hold <span class="string">off</span>
 
 
 <span class="comment">% mark the CSL(3) misorientation</span>
 hold <span class="string">on</span>
-plot(CSL(3,ebsd.CS),<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'DisplayName'</span>,<span class="string">'CSL 3'</span>,<span class="string">'MarkerSize'</span>,20)
+csl3 = CSL(3,ebsd.CS);
+plot(csl3.project2FundamentalRegion(<span class="string">'antipodal'</span>) ,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'DisplayName'</span>,<span class="string">'CSL 3'</span>,<span class="string">'MarkerSize'</span>,20)
 hold <span class="string">off</span></pre><img src="CSLBoundaries_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Analyzing the misorientation distribution function<a name="13"> </a></h2>
          <p>In order to analyze more quantitatively the boundary misorientation distribution we can compute the so called misorientation

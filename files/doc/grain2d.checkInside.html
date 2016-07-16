@@ -103,13 +103,14 @@ isInside = checkInside(hostGrains, ebsd)</pre><h2>Input<a name="4"> </a></h2>
             <p>numXY x numHostGrains matrix</p>
             <p>e, for an EBSD pixel to be inside a grain it has to be completely ide the grain. Pixels at the boundary may belong to no
             grain.</p>
-            <p>mple exdata small ains = calcGrains(ebsd('indexed')) ot(grains(grains(75).checkInside(grains)))</p>
             </td>
             </tr>
             </table>
             
          </p>
-         <h3 class="seealso">See also</h3>
+         <h2>Example<a name="6"> </a></h2><pre>mtexdata small
+grains = calcGrains(ebsd('indexed'))
+plot(grains(grains(75).checkInside(grains)))</pre><h3 class="seealso">See also</h3>
          <p><a href="EBSD.findByLocation.html">EBSD/findByLocation</a>, <a href="grain2d.findByOrientation.html">grain2d/findByOrientation</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

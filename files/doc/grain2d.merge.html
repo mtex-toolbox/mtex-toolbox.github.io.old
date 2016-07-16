@@ -43,18 +43,13 @@
             <p>(method of <a href="grain2d_index.html">grain2d</a>)
             </p>
          </div>
-         <p>merge grains along certain grain boundaries</p>
-         <p>The function merges grains where the special boundary is determined by the function <a href="GrainSet.specialBoundary.html">specialBoundary</a></p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>[grains_merged,parentId] = merge(grains, gB)</tt>
-            </div>
-            </div>
-            
+         <p>merge grains along special grain boundaries</p>
+         <p>Whenever two grains share a grain boundary that is in the list <tt>gB</tt> both grains are merged and the common grain boundary is removed. All the properties of the unmerged grains are removed in
+            the merged grains, since there is no common convention for a mean. In case of merging allong small angle grain boundaries
+            one can force MTEX to compute a new meanOrientation using the option <tt>calcMeanOrientation</tt>.
          </p>
-         <h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">[grainsMerged,parentId] = merge(grains,gB)</pre><pre class="codeinput"><span class="comment">% compute new meanOrientations for the grains</span>
+[grainsMerged,parentId] = merge(grains,gB,<span class="string">'calcMeanOrientation'</span>)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -81,7 +76,7 @@
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>grains_merged</tt>
+            <tt>grainsMerged</tt>
             </td>
             <td>
             <p><a href="grain2d_index.html">grain2d</a></p>
@@ -93,15 +88,26 @@
             </td>
             <td>
             <p>a list of the same size as grains containing the ids of the merged grains</p>
-            <p>mple:</p>
-            <p>texdata small rains = smooth(calcGrains(ebsd))</p>
-            <p>merge all neigbouring Diopside grains B = grains.boundary('Diopside','Diopside') grains_m,parentId] = merge(grains,gB)</p>
             </td>
             </tr>
             </table>
             
          </p>
-         <p style="font-size:1px;"></p>
+         <h2>Example<a name="6"> </a></h2><pre class="codeinput">mtexdata <span class="string">small</span>
+grains = smooth(calcGrains(ebsd))</pre><pre class="codeoutput"> loading data ...
+ saving data to /home/hielscher/mtex/master/data/small.mat
+ 
+grains = grain2d  
+ 
+ Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
+     0     292    1197  notIndexed                                   
+     1      50    1952  Forsterite       mmm                         
+     2      61     290   Enstatite       mmm                         
+     3      62     282    Diopside     12/m1        X||a*, Y||b, Z||c
+ 
+ Properties: GOS, meanRotation
+ 
+</pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

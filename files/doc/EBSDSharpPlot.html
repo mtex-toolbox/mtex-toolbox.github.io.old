@@ -153,7 +153,20 @@ oM = ipdfHSVOrientationMapping(ebsd);
 oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
 oM.maxAngle = 2*degree;
 plot(ebsd,oM.orientation2color(ebsd.orientations))
-hold <span class="string">off</span></pre><img src="EBSDSharpPlot_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="EBSDSharpPlot_09.png"> <pre class="codeinput">ebsd = ebsd.gridify
+
+plot(ebsd,abs(ebsd.gradientX))
+plot(ebsd,abs(ebsd.gradientY))</pre><pre class="codeoutput"> 
+ebsd = EBSD  
+ 
+ Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
+     1    1453 (71%)  Forsterite  light blue       mmm                         
+ 
+ Properties: bands, bc, bs, error, mad, x, y, grainId
+ Scan unit : um
+ Grid size : 33 x 62
+ 
+</pre><img src="EBSDSharpPlot_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

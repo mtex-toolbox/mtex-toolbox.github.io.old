@@ -128,7 +128,8 @@ odf3 = ODF
          <p>The modal orientation of an ODF is the crystallographic prefered orientation of the texture. It is characterized as the maximum
             of the ODF. In MTEX it can be computed by the command <a href="ODF.calcModes.html">calcModes</a></p>
          <p>Determine the modalorientation as an <a href="orientation_index.html">orientation</a>:
-         </p><pre class="codeinput">center = calcModes(odf3)</pre><pre class="codeoutput"> 
+         </p><pre class="codeinput">center = calcModes(odf3)</pre><pre class="codeoutput">progress: 100%
+ 
 center = orientation  
   size: 1 x 1
   crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
@@ -153,7 +154,8 @@ annotate(center,<span class="string">'marker'</span>,<span class="string">'s'</s
          <h2>Volume Portions<a name="13"> </a></h2>
          <p>Volume portions describes the relative volume of crystals having a certain orientation. The relative volume of crystals having
             a orientation close to a given orientation is computed by the command <a href="ODF.volume.html">volume</a> and the relative volume of crystals having a orientation close to a given fibre is computed by the command <a href="ODF.fibreVolume.html">fibreVolume</a></p>
-         <p>The relative volume in percent of crystals with missorientation maximum 30 degree from the modal orientation:</p><pre class="codeinput">volume(odf3,calcModes(odf3),30*degree)*100</pre><pre class="codeoutput">ans =
+         <p>The relative volume in percent of crystals with missorientation maximum 30 degree from the modal orientation:</p><pre class="codeinput">volume(odf3,calcModes(odf3),30*degree)*100</pre><pre class="codeoutput">progress: 100%
+ans =
    59.5860
 </pre><p>The relative volume of crystals with missorientation maximum 20 degree from the prefered fibre in percent: TODO</p><pre class="codeinput"><span class="comment">%fibreVolume(odf2,Miller(0,0,1),xvector,20*degree) * 100</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Fourier Coefficients<a name="16"> </a></h2>

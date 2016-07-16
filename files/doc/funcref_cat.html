@@ -107,6 +107,12 @@
             <tr></tr>
             <td width="250px"><a href="plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a></td>
             <td>plot axis distribution</td>
+            <tr></tr>
+            <td width="250px"><a href="strainTensor.html"><tt>strainTensor</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="stressTensor.html"><tt>stressTensor</tt></a></td>
+            <td></td>
          </table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2> Specimen Directions (The Class @vector3d)<a name="2"> </a></h2>
@@ -275,6 +281,9 @@
             <td>overloads reshape</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.rotate.html"><tt>rotate</tt></a></td>
+            <td>rotate vector3d by rotation or orientation</td>
+            <tr></tr>
+            <td width="250px"><a href="vector3d.rotate_outer.html"><tt>rotate_outer</tt></a></td>
             <td>rotate vector3d by quaternion</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.scatter.html"><tt>scatter</tt></a></td>
@@ -365,6 +374,9 @@
             <td>return spherical region associated to a set of crystal directions</td>
             <tr></tr>
             <td width="250px"><a href="Miller.rotate.html"><tt>rotate</tt></a></td>
+            <td>rotate crystal directions</td>
+            <tr></tr>
+            <td width="250px"><a href="Miller.rotate_outer.html"><tt>rotate_outer</tt></a></td>
             <td>rotate crystal directions</td>
             <tr></tr>
             <td width="250px"><a href="Miller.round.html"><tt>round</tt></a></td>
@@ -567,6 +579,9 @@
             <td width="250px"><a href="quaternion.log.html"><tt>log</tt></a></td>
             <td>project a quaternion into the tangential space</td>
             <tr></tr>
+            <td width="250px"><a href="quaternion.logm.html"><tt>logm</tt></a></td>
+            <td>the dislocation tensor for a rotation</td>
+            <tr></tr>
             <td width="250px"><a href="quaternion.matrix.html"><tt>matrix</tt></a></td>
             <td>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion</td>
             <tr></tr>
@@ -676,7 +691,7 @@
             <td>symmetrcially equivalent orientations</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.times.html"><tt>times</tt></a></td>
-            <td>implements quaternion .* quaternion and quaternion .* vector3d</td>
+            <td>quaternion .* quaternion and quaternion .* vector3d</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.transpose.html"><tt>transpose</tt></a></td>
             <td>transpose array of quaternions</td>
@@ -726,6 +741,9 @@
             <tr></tr>
             <td width="250px"><a href="rotation.permute.html"><tt>permute</tt></a></td>
             <td>overloads permute</td>
+            <tr></tr>
+            <td width="250px"><a href="rotation.power.html"><tt>power</tt></a></td>
+            <td>r.^n</td>
             <tr></tr>
             <td width="250px"><a href="rotation.project2FundamentalRegion.html"><tt>project2FundamentalRegion</tt></a></td>
             <td>projects rotation to a fundamental region</td>
@@ -873,6 +891,9 @@
             <td width="250px"><a href="orientation.calcFourierODF.html"><tt>calcFourierODF</tt></a></td>
             <td>calculate ODF from individuel orientations via kernel density estimation</td>
             <tr></tr>
+            <td width="250px"><a href="orientation.calcInvTaylor.html"><tt>calcInvTaylor</tt></a></td>
+            <td>Taylor factor from orientation gradient</td>
+            <tr></tr>
             <td width="250px"><a href="orientation.calcKernel.html"><tt>calcKernel</tt></a></td>
             <td>compute an optimal kernel function for ODF estimation</td>
             <tr></tr>
@@ -894,6 +915,9 @@
             <td width="250px"><a href="orientation.crossCorrelation.html"><tt>crossCorrelation</tt></a></td>
             <td>computes the cross correlation for the kernel density estimator</td>
             <tr></tr>
+            <td width="250px"><a href="orientation.ctranspose.html"><tt>ctranspose</tt></a></td>
+            <td>inverse orientation</td>
+            <tr></tr>
             <td width="250px"><a href="orientation.display.html"><tt>display</tt></a></td>
             <td>standart output</td>
             <tr></tr>
@@ -911,9 +935,6 @@
             <tr></tr>
             <td width="250px"><a href="orientation.getFundamentalRegion.html"><tt>getFundamentalRegion</tt></a></td>
             <td>projects orientations to a fundamental region</td>
-            <tr></tr>
-            <td width="250px"><a href="orientation.inv.html"><tt>inv</tt></a></td>
-            <td>inverse of an orientation</td>
             <tr></tr>
             <td width="250px"><a href="orientation.isMisorientation.html"><tt>isMisorientation</tt></a></td>
             <td>check whether o is a misorientation</td>
@@ -950,6 +971,9 @@
             <tr></tr>
             <td width="250px"><a href="orientation.plotSection.html"><tt>plotSection</tt></a></td>
             <td>plot orientations to ODF sections</td>
+            <tr></tr>
+            <td width="250px"><a href="orientation.power.html"><tt>power</tt></a></td>
+            <td>ori.^n</td>
             <tr></tr>
             <td width="250px"><a href="orientation.project2EulerFR.html"><tt>project2EulerFR</tt></a></td>
             <td>projects orientation to a fundamental region</td>
@@ -1469,6 +1493,9 @@
             <td width="250px"><a href="EBSD.plot.html"><tt>plot</tt></a></td>
             <td>spatial EBSD plot</td>
             <tr></tr>
+            <td width="250px"><a href="EBSD.quiver.html"><tt>quiver</tt></a></td>
+            <td>plot directions at ebsd centers</td>
+            <tr></tr>
             <td width="250px"><a href="EBSD.reduce.html"><tt>reduce</tt></a></td>
             <td>reduce ebsd data by a factor</td>
             <tr></tr>
@@ -1518,8 +1545,14 @@
             <td width="250px"><a href="tensor.YoungsModulus.html"><tt>YoungsModulus</tt></a></td>
             <td>Young's modulus for an elasticity tensor</td>
             <tr></tr>
+            <td width="250px"><a href="tensor.antiSym.html"><tt>antiSym</tt></a></td>
+            <td>the antisymmetric part A = 0.5(T - T.') of a tensor</td>
+            <tr></tr>
             <td width="250px"><a href="tensor.calcShearStress.html"><tt>calcShearStress</tt></a></td>
             <td>shear stress</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.calcTaylor.html"><tt>calcTaylor</tt></a></td>
+            <td>compute Taylor factor and strain dependent orientation gradient</td>
             <tr></tr>
             <td width="250px"><a href="tensor.char.html"><tt>char</tt></a></td>
             <td>tensor to char</td>
@@ -1544,6 +1577,9 @@
             <tr></tr>
             <td width="250px"><a href="tensor.eig.html"><tt>eig</tt></a></td>
             <td>compute the eigenvalues and eigenvectors of a tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.end.html"><tt>end</tt></a></td>
+            <td>overloaded end function</td>
             <tr></tr>
             <td width="250px"><a href="tensor.eq.html"><tt>eq</tt></a></td>
             <td>checks whether two tensors are equal</td>
@@ -1614,6 +1650,9 @@
             <td width="250px"><a href="tensor.rotate.html"><tt>rotate</tt></a></td>
             <td>rotate a tensor by a list of rotations</td>
             <tr></tr>
+            <td width="250px"><a href="tensor.rotate_outer.html"><tt>rotate_outer</tt></a></td>
+            <td>rotate a tensor by a list of rotations</td>
+            <tr></tr>
             <td width="250px"><a href="tensor.shearModulus.html"><tt>shearModulus</tt></a></td>
             <td>shear modulus for an elasticity tensor</td>
             <tr></tr>
@@ -1628,6 +1667,9 @@
             <tr></tr>
             <td width="250px"><a href="tensor.sum.html"><tt>sum</tt></a></td>
             <td>sum over all tensors allong dimension 1</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.sym.html"><tt>sym</tt></a></td>
+            <td>the symmetric part S = 0.5(T + T.') of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="tensor.symmetrise.html"><tt>symmetrise</tt></a></td>
             <td>symmetrise a tensor according to its crystal symmetry</td>
@@ -1741,7 +1783,7 @@
             <td>returns the closest length to a known unit. For example, 10e3m will give 10km.</td>
             <tr></tr>
             <td width="250px"><a href="xticklabel_rotate.html"><tt>xticklabel_rotate</tt></a></td>
-            <td>hText = xticklabel_rotate(XTick,rot,XTickLabel,varargin)     Rotate XTickLabel</td>
+            <td>Rotate XTickLabel</td>
             <tr></tr>
             <td width="250px"><a href="assert_grid.html"><tt>assert_grid</tt></a></td>
             <td>check for valid grid parameters</td>
@@ -1923,7 +1965,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 4.3.0</td>
+               <td valign="baseline" align="right"> MTEX 4.4.alpha.4</td>
             </tr>
          </table>
       </div>

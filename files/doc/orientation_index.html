@@ -237,9 +237,9 @@ plot(o.project2FundamentalRegion,<span class="string">'markercolor'</span>,<span
 hold <span class="string">off</span></pre><pre class="codeoutput">oR = 
   orientationRegion with properties:
 
-            N: [1x8 quaternion]
-            V: [1x12 quaternion]
-            F: {1x8 cell}
+            N: [1&times;8 quaternion]
+            V: [1&times;12 quaternion]
+            F: {1&times;8 cell}
     antipodal: 0
 </pre><img src="orientation_index_01.png"> <h2>Complete Function list<a name="23"> </a></h2>
          <p><table width="90%"><tr><td width="200px"><a href="orientation.BCV.html"><tt>BCV</tt></a></td><td>biased cross validation</td></tr><tr><td
@@ -251,21 +251,21 @@ hold <span class="string">off</span></pre><pre class="codeoutput">oR =
             case</td></tr><tr><td width="200px"><a href="orientation.calcAngleDistribution.html"><tt>calcAngleDistribution</tt></a></td><td>calculate
             angle distribution</td></tr><tr><td width="200px"><a href="orientation.calcBinghamODF.html"><tt>calcBinghamODF</tt></a></td><td>calculate
             ODF from individuel orientations via kernel density estimation</td></tr><tr><td width="200px"><a href="orientation.calcFourierODF.html"><tt>calcFourierODF</tt></a></td><td>calculate
-            ODF from individuel orientations via kernel density estimation</td></tr><tr><td width="200px"><a href="orientation.calcKernel.html"><tt>calcKernel</tt></a></td><td>compute
+            ODF from individuel orientations via kernel density estimation</td></tr><tr><td width="200px"><a href="orientation.calcInvTaylor.html"><tt>calcInvTaylor</tt></a></td><td>Taylor
+            factor from orientation gradient</td></tr><tr><td width="200px"><a href="orientation.calcKernel.html"><tt>calcKernel</tt></a></td><td>compute
             an optimal kernel function for ODF estimation</td></tr><tr><td width="200px"><a href="orientation.calcKernelODF.html"><tt>calcKernelODF</tt></a></td><td>calculate
             ODF from individuel orientations via kernel density estimation</td></tr><tr><td width="200px"><a href="orientation.calcMDF.html"><tt>calcMDF</tt></a></td><td>computes
             an MDF from individuel orientations or misorientations</td></tr><tr><td width="200px"><a href="orientation.calcMIndex.html"><tt>calcMIndex</tt></a></td><td>TODO!!!</td></tr><tr><td
             width="200px"><a href="orientation.calcODF.html"><tt>calcODF</tt></a></td><td>computes an ODF from individuel orientations</td></tr><tr><td
             width="200px"><a href="orientation.calcTensor.html"><tt>calcTensor</tt></a></td><td>compute the average tensor for a vector
             of orientations</td></tr><tr><td width="200px"><a href="orientation.crossCorrelation.html"><tt>crossCorrelation</tt></a></td><td>computes
-            the cross correlation for the kernel density estimator</td></tr><tr><td width="200px"><a href="orientation.display.html"><tt>display</tt></a></td><td>standart
-            output</td></tr><tr><td width="200px"><a href="orientation.dot.html"><tt>dot</tt></a></td><td>compute minimum dot(o1,o2) modulo
-            symmetry</td></tr><tr><td width="200px"><a href="orientation.dot_outer.html"><tt>dot_outer</tt></a></td><td/></tr><tr><td
-            width="200px"><a href="orientation.export_VPSC.html"><tt>export_VPSC</tt></a></td><td>export individual orientations to the
-            VPSC format</td></tr><tr><td width="200px"><a href="orientation.fibreVolume.html"><tt>fibreVolume</tt></a></td><td>ratio of
-            orientations close to a certain fibre</td></tr><tr><td width="200px"><a href="orientation.getFundamentalRegion.html"><tt>getFundamentalRegion</tt></a></td><td>projects
-            orientations to a fundamental region</td></tr><tr><td width="200px"><a href="orientation.inv.html"><tt>inv</tt></a></td><td>erse
-            of an orientation</td></tr><tr><td width="200px"><a href="orientation.isMisorientation.html"><tt>isMisorientation</tt></a></td><td>check
+            the cross correlation for the kernel density estimator</td></tr><tr><td width="200px"><a href="orientation.ctranspose.html"><tt>ctranspose</tt></a></td><td>inverse
+            orientation</td></tr><tr><td width="200px"><a href="orientation.display.html"><tt>display</tt></a></td><td>standart output</td></tr><tr><td
+            width="200px"><a href="orientation.dot.html"><tt>dot</tt></a></td><td>compute minimum dot(o1,o2) modulo symmetry</td></tr><tr><td
+            width="200px"><a href="orientation.dot_outer.html"><tt>dot_outer</tt></a></td><td/></tr><tr><td width="200px"><a href="orientation.export_VPSC.html"><tt>export_VPSC</tt></a></td><td>export
+            individual orientations to the VPSC format</td></tr><tr><td width="200px"><a href="orientation.fibreVolume.html"><tt>fibreVolume</tt></a></td><td>ratio
+            of orientations close to a certain fibre</td></tr><tr><td width="200px"><a href="orientation.getFundamentalRegion.html"><tt>getFundamentalRegion</tt></a></td><td>projects
+            orientations to a fundamental region</td></tr><tr><td width="200px"><a href="orientation.isMisorientation.html"><tt>isMisorientation</tt></a></td><td>check
             whether o is a misorientation</td></tr><tr><td width="200px"><a href="orientation.ldivide.html"><tt>ldivide</tt></a></td><td>o
             .\ v </td></tr><tr><td width="200px"><a href="orientation.log.html"><tt>log</tt></a></td><td>Syntax</td></tr><tr><td width="200px"><a
             href="orientation.mean.html"><tt>mean</tt></a></td><td>of a list of orientations, principle axes and moments of inertia</td></tr><tr><td
@@ -276,8 +276,9 @@ hold <span class="string">off</span></pre><pre class="codeoutput">oR =
             a orientation to an existing plot</td></tr><tr><td width="200px"><a href="orientation.plotIPDF.html"><tt>plotIPDF</tt></a></td><td>plot
             orientations into inverse pole figures</td></tr><tr><td width="200px"><a href="orientation.plotPDF.html"><tt>plotPDF</tt></a></td><td>plot
             orientations into pole figures</td></tr><tr><td width="200px"><a href="orientation.plotSection.html"><tt>plotSection</tt></a></td><td>plot
-            orientations to ODF sections</td></tr><tr><td width="200px"><a href="orientation.project2EulerFR.html"><tt>project2EulerFR</tt></a></td><td>projects
-            orientation to a fundamental region</td></tr><tr><td width="200px"><a href="orientation.project2FundamentalRegion.html"><tt>project2FundamentalRegion</tt></a></td><td>projects
+            orientations to ODF sections</td></tr><tr><td width="200px"><a href="orientation.power.html"><tt>power</tt></a></td><td>ori.^n</td></tr><tr><td
+            width="200px"><a href="orientation.project2EulerFR.html"><tt>project2EulerFR</tt></a></td><td>projects orientation to a fundamental
+            region</td></tr><tr><td width="200px"><a href="orientation.project2FundamentalRegion.html"><tt>project2FundamentalRegion</tt></a></td><td>projects
             orientation to a fundamental region</td></tr><tr><td width="200px"><a href="orientation.qqplot.html"><tt>qqplot</tt></a></td><td>quantilequantile
             of misorientation angle against random angular</td></tr><tr><td width="200px"><a href="orientation.scatter.html"><tt>scatter</tt></a></td><td>plots
             ebsd data as scatter plot</td></tr><tr><td width="200px"><a href="orientation.sphereVolume.html"><tt>sphereVolume</tt></a></td><td>ratio

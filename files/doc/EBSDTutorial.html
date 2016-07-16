@@ -44,12 +44,14 @@
          </div>
          <h2>Data import<a name="2"> </a></h2>
          <p>EBSD data may be imported by the import_wizard by typing</p><pre class="codeinput">import_wizard</pre><img src="EBSDTutorial_01.png"> <p>or by the command</p><pre class="codeinput">fileName = [mtexDataPath filesep <span class="string">'EBSD'</span> filesep <span class="string">'Forsterite.ctf'</span>];
-ebsd = loadEBSD(fileName)</pre><pre class="codeoutput">Warning: .ctf files have usualy inconsistent
-conventions for spatial coordinates and
-Euler angles. You may want to use one of the
-options 'convertSpatial2EulerReferenceFrame'
-or 'convertEuler2SpatialReferenceFrame' to
-correct for this 
+ebsd = loadEBSD(fileName)</pre><pre class="codeoutput">Warning: .ctf files have usualy
+inconsistent conventions for spatial
+coordinates and Euler angles. You
+may want to use one of the options
+'convertSpatial2EulerReferenceFrame'
+or
+'convertEuler2SpatialReferenceFrame'
+to correct for this 
  
 ebsd = EBSD  
  

@@ -94,9 +94,9 @@ pf_modified = PoleFigure
   crystal symmetry : -3m1, X||a*, Y||b, Z||c
   specimen symmetry: 1
  
-  h = (10-10), r = 1 x 1368 points
-  h = (01-11)(10-11), r = 1 x 1368 points
-  h = (11-22), r = 1 x 1368 points
+  h = (10-10), r = 72 x 19 points
+  h = (01-11)(10-11), r = 72 x 19 points
+  h = (11-22), r = 72 x 19 points
 </pre><img src="PoleFigureDemo_03.png"> <h2>PDF - to - ODF Reconstruction<a name="8"> </a></h2><pre class="codeinput">rec = calcODF(pf,<span class="string">'RESOLUTION'</span>,10*degree,<span class="string">'iter_max'</span>,6)
 
 plotPDF(rec,h)
@@ -181,11 +181,14 @@ rec_ng = ODF
     weight: 1
  
 </pre><img src="PoleFigureDemo_06.png"> <h2>Error Analysis<a name="14"> </a></h2><pre class="codeinput">calcError(pf_SantaFe,rec)
-calcError(pf_SantaFe,rec_ng)</pre><pre class="codeoutput">ans =
+calcError(pf_SantaFe,rec_ng)</pre><pre class="codeoutput">progress: 100%
+ans =
     0.0165    0.0249    0.0227
+progress: 100%
 ans =
     0.0301    0.0316    0.0297
-</pre><p><b>Difference plot</b></p><pre class="codeinput">plotDiff(pf_SantaFe,rec)</pre><img src="PoleFigureDemo_07.png"> <p><b>ODF error</b></p><pre class="codeinput">calcError(SantaFe,rec)
+</pre><p><b>Difference plot</b></p><pre class="codeinput">plotDiff(pf_SantaFe,rec)</pre><pre class="codeoutput">progress: 100%
+</pre><img src="PoleFigureDemo_07.png"> <p><b>ODF error</b></p><pre class="codeinput">calcError(SantaFe,rec)
 calcError(SantaFe,rec_ng)</pre><pre class="codeoutput">ans =
     0.0271
 ans =

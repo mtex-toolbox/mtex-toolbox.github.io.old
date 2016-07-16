@@ -80,7 +80,7 @@ odf = ODF
          <p>MTEX includes an automatic halfwidth selection algorithm which is called by the command <a href="EBSD.calcKernel.html">calcKernel</a>. To work properly, this algorithm needs spatially independent EBSD data as in the case of this dataset of very rough EBSD
             measurements (only one measurement per grain).
          </p><pre class="codeinput"><span class="comment">% try to compute an optimal kernel</span>
-psi = calcKernel(ebsd(<span class="string">'fo'</span>).orientations)</pre><pre class="codeoutput"> e 
+psi = calcKernel(ebsd(<span class="string">'fo'</span>).orientations)</pre><pre class="codeoutput"> 
 psi = deLaValeePoussinKernel  
   bandwidth: 130
   halfwidth: 2.3&deg;
@@ -97,7 +97,7 @@ grains = grains(grains.grainSize&gt;5);
 psi = calcKernel(grains(<span class="string">'fo'</span>).meanOrientation)
 
 <span class="comment">% compute the ODF with the kernel psi</span>
-odf = calcODF(ebsd(<span class="string">'fo'</span>).orientations,<span class="string">'kernel'</span>,psi)</pre><pre class="codeoutput"> e 
+odf = calcODF(ebsd(<span class="string">'fo'</span>).orientations,<span class="string">'kernel'</span>,psi)</pre><pre class="codeoutput"> 
 psi = deLaValeePoussinKernel  
   bandwidth: 48
   halfwidth: 6&deg;
@@ -132,24 +132,24 @@ ori = orientation
   odf = calcODF(ori,<span class="string">'halfwidth'</span>,hw(i),<span class="string">'silent'</span>);
   e(i) = calcError(modelODF, odf);
 
-<span class="keyword">end</span></pre><pre class="codeoutput">Warning: NARGCHK will be removed in a future
-release. Use NARGINCHK or NARGOUTCHK
-instead. 
-Warning: NARGCHK will be removed in a future
-release. Use NARGINCHK or NARGOUTCHK
-instead. 
-Warning: NARGCHK will be removed in a future
-release. Use NARGINCHK or NARGOUTCHK
-instead. 
-Warning: NARGCHK will be removed in a future
-release. Use NARGINCHK or NARGOUTCHK
-instead. 
-Warning: NARGCHK will be removed in a future
-release. Use NARGINCHK or NARGOUTCHK
-instead. 
-Warning: NARGCHK will be removed in a future
-release. Use NARGINCHK or NARGOUTCHK
-instead. 
+<span class="keyword">end</span></pre><pre class="codeoutput">Warning: NARGCHK will be removed in
+a future release. Use NARGINCHK or
+NARGOUTCHK instead. 
+Warning: NARGCHK will be removed in
+a future release. Use NARGINCHK or
+NARGOUTCHK instead. 
+Warning: NARGCHK will be removed in
+a future release. Use NARGINCHK or
+NARGOUTCHK instead. 
+Warning: NARGCHK will be removed in
+a future release. Use NARGINCHK or
+NARGOUTCHK instead. 
+Warning: NARGCHK will be removed in
+a future release. Use NARGINCHK or
+NARGOUTCHK instead. 
+Warning: NARGCHK will be removed in
+a future release. Use NARGINCHK or
+NARGOUTCHK instead. 
 </pre><p>After visualizing the estimation error we observe that its value is large either if we choose a very small or a very large
             halfwidth. In this specific example the optimal halfwidth seems to be about 4 degree.
          </p><pre class="codeinput">close <span class="string">all</span>
