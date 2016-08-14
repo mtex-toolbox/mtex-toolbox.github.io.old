@@ -127,12 +127,13 @@ ori = orientation
 </pre><pre class="codeinput"><span class="comment">% define a slip system</span>
 sS = slipSystem.fcc(cs)</pre><pre class="codeoutput"> 
 sS = slipSystem  
- size: 1 x 1
  symmetry: m-3m
+ CRSS: 1
+ size: 1 x 1
   u   v   w | h   k   l
   0   1  -1   1   1   1
-</pre><pre class="codeinput"><span class="comment">% compute the Taylor factor</span>
-[M,b,mori] = calcTaylor(inv(ori)*eps,sS.symmetrise)</pre><pre class="codeoutput">M =
+WDEavRCx computing Taylor factor: 100%
+M =
     0.2719
 b =
   Columns 1 through 7
@@ -154,7 +155,8 @@ mori = misorientation
   60.8632 2.13282 300.268       0
  
  
-</pre><p style="font-size:1px;"></p>
+</pre><pre class="codeinput"><span class="comment">% compute the Taylor factor</span>
+[M,b,mori] = calcTaylor(inv(ori)*eps,sS.symmetrise)</pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

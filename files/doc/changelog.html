@@ -51,6 +51,51 @@
                <li><a href="StrainAnalysis.html">Strain transmission through grain boundaries</a></li>
             </ul>
          </div>
+         <p><b>Fibres</b></p>
+         <p>MTEX 4.4 has experimental support for fibres in orientation space. A an example the alpha fibre in cubic materials can be
+            defined in the following ways
+         </p>
+         <div>
+            <ol>
+               <li>as a predefined fibre</li>
+            </ol>
+         </div><pre class="codeinput">cs = crystalSymmetry(<span class="string">'m-3m'</span>)
+f  = fibre.alpha(cs)</pre><div>
+            <ol>
+               <li>by a pair of directions</li>
+            </ol>
+         </div><pre class="codeinput">f = fibre(Miller(1,0,0,cs),vector3d.X)</pre><div>
+            <ol>
+               <li>by two orientations</li>
+            </ol>
+         </div><pre class="codeinput">ori1 = orientation(<span class="string">'Miller'</span>,[0 0 1],[1 1 0],cs);
+ori2 = orientation(<span class="string">'Miller'</span>,[1 1 1],[1 1 0],cs);</pre><pre class="codeinput">f = fibre.fit(ori1,ori2)</pre><div>
+            <ol>
+               <li>by a list of orientations</li>
+            </ol>
+         </div><pre class="codeinput">f = fibre.fit([ori1,ori2,mean(ori1,ori2)])</pre><p>Up to now the following functions are implemented for fibres</p>
+         <div>
+            <ul type="square">
+               <li>plot to Rodrigues space</li>
+            </ul>
+         </div><pre>  oR = fundamentalRegion(cs,cs)
+  v = orientation(oR.V,cs,cs)
+  f = fibre.fit(v(1),v(2))
+  plot(oR)
+  hold on
+  plot(fibre,'restrict2fundamentalRegion')
+  hold off</pre><div>
+            <ul type="square">
+               <li>rotate a fibre</li>
+            </ul>
+         </div>
+         <div>
+            <ul type="square">
+               <li>angle between orientation and fibre</li>
+            </ul>
+         </div><pre class="codeinput">angle(f,ori)</pre><p><b>Ignore Symmetry</b></p>
+         <p>Many functions support now the flag <tt>noSymmetry</tt>. Among them are <tt>angle</tt>, <tt>axis</tt>, <tt>dot</tt>, <tt>cunion</tt>.
+         </p>
          <p><b>Auxilary new functionality</b></p>
          <div>
             <ul type="square">
