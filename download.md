@@ -17,7 +17,7 @@ In case you experience any problems have a look at our [trouble shooting page]()
 
 File Name  |||  Release Date||| Comments ||| Downloads
 :-|-|-|:-|-|-|:-|-|-|-
-[**mtex-4.4.alpha5.zip**](https://github.com/ralfHielscher/mtex/releases/download/mtex-4.4.alpha.5/mtex-4.4.alpha.5.zip) ||| July 2016 ||| Slip Systems, Taylor calculation, [changelog](files/doc/changelog.html) ||| 913
+[**mtex-4.4.alpha6.zip**](https://github.com/ralfHielscher/mtex/releases/download/mtex-4.4.alpha.6/mtex-4.4.alpha.6.zip) ||| August 2016 ||| Slip Systems, Taylor calculation, [changelog](files/doc/changelog.html) ||| 913
 [**mtex-4.3.2.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.3.2/mtex-4.3.2.zip) ||| July 2016 ||| GND calculation, [changelog](files/doc/changelog.html) ||| 1028
 [**mtex-4.2.1.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.2.1/mtex-4.2.1.zip) ||| November 2015 ||| introduces triple points, [changelog](files/doc/changelog.html) ||| 1451
 [**mtex-4.1.4.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.1.4/mtex-4.1.4.zip) ||| September 2015    ||| major release with many new features and syntax changes, [changelog](files/doc/changelog.html) ||| 876
