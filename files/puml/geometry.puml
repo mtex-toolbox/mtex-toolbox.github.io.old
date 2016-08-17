@@ -43,31 +43,4 @@ slipSystem -- Miller
 
 }
 
-package "EBSDAnalysis" {
- class EBSD {
- }
- 
- class grain2d {
- }
-
- class grainBoundary {
- }
-
- class triplePoints {
- }
-
-}
-
-package "ODFAnalysis" {
- class ODF
-}
-
-package "PoleFigureAnalysis" {
- class PoleFigure
-}
-
-package "plotting" {
- class MtexFigure
- class sphericalProjection
-}
-@enduml 
+@enduml
