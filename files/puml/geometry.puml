@@ -1,0 +1,73 @@
+@startuml
+package "geometry"{
+class vector3d{
+ x,y,z
+}
+class Miller{
+ h,k,l
+ u,v,w
+}
+
+
+together {
+ abstract class symmetry
+ class crystalSymmetry {
+ [[http://www.yahoo.com]]
+  a, b, c
+ }
+ class specimenSymmetry
+}
+
+class quaternion {
+ a,b,c,d
+}
+
+class rotation
+
+quaternion <|- rotation
+rotation <|- orientation
+
+rotation <|- symmetry
+symmetry -|> specimenSymmetry
+crystalSymmetry <|- symmetry
+
+crystalSymmetry -- Miller : < CS
+crystalSymmetry <- vector3d :< a,b,c
+
+orientation -- symmetry : < CS, SS
+
+
+Miller <|- vector3d
+
+slipSystem -- Miller
+
+}
+
+package "EBSDAnalysis" {
+ class EBSD {
+ }
+ 
+ class grain2d {
+ }
+
+ class grainBoundary {
+ }
+
+ class triplePoints {
+ }
+
+}
+
+package "ODFAnalysis" {
+ class ODF
+}
+
+package "PoleFigureAnalysis" {
+ class PoleFigure
+}
+
+package "plotting" {
+ class MtexFigure
+ class sphericalProjection
+}
+@enduml 
