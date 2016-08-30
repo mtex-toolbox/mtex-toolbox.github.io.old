@@ -195,8 +195,7 @@ legend(<span class="string">'&gt;40^\circ'</span>,<span class="keyword">...</spa
   <span class="string">'10^\circ-20^\circ'</span>,<span class="keyword">...</span>
   <span class="string">'&lt; 10^\circ'</span>)
 
-hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Ignoring extra legend
-entries. 
+hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Plot empty. 
 </pre><img src="BoundaryPlots_09.png"> <p>Or we mark the rotation axis of the misorientation.</p><pre class="codeinput">close <span class="string">all</span>
 plot(gB)
 hold <span class="string">on</span>
@@ -207,8 +206,7 @@ plot(gB_Fo(ind),<span class="string">'linecolor'</span>,<span class="string">'b'
 
 legend(<span class="string">'&gt;5^\circ'</span>,<span class="string">'[100]'</span>)</pre><pre class="codeoutput">Warning: Symmetry mismatch 
 Warning: Symmetry mismatch 
-Warning: Ignoring extra legend
-entries. 
+Warning: Plot empty. 
 </pre><img src="BoundaryPlots_10.png"> <p>Or we mark a special rotation between neighboured grains. If a linecolor is not specified, then the boundary is colorcoded
             after its angular difference to the given rotation.
          </p><pre class="codeinput">rot = rotation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,60*degree);
@@ -219,8 +217,7 @@ plot(gB)
 hold <span class="string">on</span>
 plot(gB_Fo(ind),<span class="string">'linewidth'</span>,1.5,<span class="string">'linecolor'</span>,<span class="string">'r'</span>)
 
-legend(<span class="string">'&gt;2^\circ'</span>,<span class="string">'60^\circ/[001]'</span>)</pre><pre class="codeoutput">Warning: Ignoring extra legend
-entries. 
+legend(<span class="string">'&gt;2^\circ'</span>,<span class="string">'60^\circ/[001]'</span>)</pre><pre class="codeoutput">Warning: Plot empty. 
 </pre><img src="BoundaryPlots_11.png"> <p>In the same manner, we can classify after predefined special rotations, e.g. coincident site lattice (CSL) for cubic crystalls.
             Additionaly we specify a searching radius with the option <tt>'delta'</tt>, in this way, we control how far the misorientation of the boundary segment is actuall away from the specified rotation.
             TODO
@@ -263,7 +260,15 @@ entries.
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>
             </tr>
-         </table>
-      </div>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
    </body>
 </html>

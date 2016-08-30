@@ -301,8 +301,8 @@ scatter(o1,<span class="string">'axisAngle'</span>,<span class="string">'markerC
 axis <span class="string">off</span></pre><pre class="codeoutput">oR = 
   orientationRegion with properties:
 
-            N: [0&times;1 quaternion]
-            V: [0&times;0 quaternion]
+            N: [0x1 quaternion]
+            V: [0x0 quaternion]
             F: {}
     antipodal: 0
 </pre><img src="CrystalOrientations_01.png"> <p>Note that the orientation is not automatically projected into its fundamental region, as we see if the fundamental region
@@ -313,9 +313,9 @@ plot(oR,<span class="string">'color'</span>,[0.7 0.5 0.5])
 hold <span class="string">on</span></pre><pre class="codeoutput">oR = 
   orientationRegion with properties:
 
-            N: [1&times;14 quaternion]
-            V: [1&times;24 quaternion]
-            F: {1&times;14 cell}
+            N: [1x14 quaternion]
+            V: [1x24 quaternion]
+            F: {1x14 cell}
     antipodal: 0
 </pre><img src="CrystalOrientations_02.png"> <pre class="codeinput">hold <span class="string">on</span>
 o2 = quaternion(o1.project2FundamentalRegion);
@@ -326,7 +326,15 @@ hold <span class="string">off</span></pre><img src="CrystalOrientations_03.png">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>
             </tr>
-         </table>
-      </div>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
    </body>
 </html>

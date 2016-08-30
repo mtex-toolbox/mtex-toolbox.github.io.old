@@ -81,9 +81,7 @@ plotx2east
 grains = smooth(grains,2)
 
 <span class="comment">% plot the result</span>
-plot(grains,grains.meanOrientation)</pre><pre class="codeoutput"> loading data ...
- saving data to /home/hielscher/mtex/master/data/csl.mat
- 
+plot(grains,grains.meanOrientation)</pre><pre class="codeoutput"> 
 grains = grain2d  
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
@@ -186,8 +184,8 @@ hold <span class="string">off</span></pre><img src="CSLBoundaries_06.png"> <p cl
          </p><pre class="codeinput">oM = patalaOrientationMapping(gB)</pre><pre class="codeoutput">oM = 
   patalaOrientationMapping with properties:
 
-    CS1: [24&times;2 crystalSymmetry]
-    CS2: [24&times;2 crystalSymmetry]
+    CS1: [24x2 crystalSymmetry]
+    CS2: [24x2 crystalSymmetry]
 </pre><p>Colorizing the grain boundaries is now straight forward</p><pre class="codeinput">plot(ebsd,log(ebsd.prop.iq),<span class="string">'figSize'</span>,<span class="string">'large'</span>)
 mtexColorMap <span class="string">black2white</span>
 CLim(gcm,[.5,5])
@@ -317,7 +315,15 @@ ans =
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>
             </tr>
-         </table>
-      </div>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
    </body>
 </html>

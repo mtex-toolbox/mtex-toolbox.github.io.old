@@ -23,6 +23,10 @@
   <![endif]-->
 
   <link rel="apple-touch-icon" href="/apple-touch-icon.jpg" />
+  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="/js/jquery_plantuml.js"></script>
+  <script type="text/javascript" src="/js/rawdeflate.js"></script>
+  <!-- rawdeflate.js is implicity used by jquery_plantuml.js -->
 </head>
 
 <body>
@@ -77,6 +81,11 @@
       </div>
     </section>
   </div>
+
+  {% if jekyll.environment == 'production' %}
+  {% include analytics.html %}
+  {% endif %}
+
 </body>
 
 </html>

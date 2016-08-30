@@ -44,16 +44,15 @@
             </p>
          </div>
          <p>spatial EBSD plot</p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>[h,mP] = plot(ebsd,'param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput"><span class="comment">% colorize according to phase</span>
+plot(ebsd)</pre><pre class="codeinput"><span class="comment">% colorize according to arbitrary value - here MAD</span>
+plot(ebsd,ebsd.mad)</pre><pre class="codeinput"><span class="comment">% colorize according to orientation</span>
+plot(ebsd(<span class="string">'phaseName'</span>),ebsd(<span class="string">'phaseName'</span>).orientation)</pre><pre class="codeinput"><span class="comment">% colorize according to custom color</span>
+oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'phaseName'</span>))
+color = oM.orientation2color(ebsd(<span class="string">'phaseName'</span>).orientations);
+plot(ebsd(<span class="string">'phaseName'</span>),color)</pre><pre class="codeinput"><span class="comment">% specify the color directly and show in Legend</span>
+badMAD = ebsd.mad > 1;
+plot(ebsd(badMAD),<span class="string">'faceColor'</span>,<span class="string">'black,'</span>DisplayName',<span class="string">'bad values'</span>)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -62,6 +61,14 @@
             </td>
             <td>
             <p><a href="EBSD_index.html">EBSD</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>color</tt>
+            </td>
+            <td>
+            <p>length(ebsd) x 3 vector of RGB values</p>
             </td>
             </tr>
             <tr>
@@ -75,10 +82,18 @@
             </tr>
             <tr>
             <td width="150px">
-            <tt>'antipodal'</tt>
+            <tt>'micronbar'</tt>
             </td>
             <td>
-            <p>include <a href="AxialDirectional.html">antipodal symmetry</a> when  using inverse PoleFigure colorization</p>
+            <p>'on'/'off'</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'DisplayName'</tt>
+            </td>
+            <td>
+            <p>add a legend entry</p>
             </td>
             </tr>
             </table>
@@ -107,16 +122,25 @@
             </table>
             
          </p>
-         <h2>Example<a name="5"> </a></h2>
-         <p>plot a EBSD data set spatially with custom colorcoding</p><pre class="codeinput">mtexdata <span class="string">forsterite</span>
-plot(ebsd)</pre><img src="EBSD.plot_01.png"> <pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),ebsd(<span class="string">'Forsterite'</span>).orientations)</pre><img src="EBSD.plot_02.png"> <pre class="codeinput">plot(ebsd,ebsd.mad,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)</pre><img src="EBSD.plot_03.png"> <h3 class="seealso">See also</h3>
-         <p><a href="EBSD.plot.html">EBSD/plot</a></p>
+         <h2>Example<a name="5"> </a></h2><pre class="codeinput">mtexdata <span class="string">forsterite</span>
+plot(ebsd)</pre><img src="EBSD.plot_01.png"> <pre class="codeinput"><span class="comment">% colorize accoding to orientations</span>
+plot(ebsd(<span class="string">'Forsterite'</span>),ebsd(<span class="string">'Forsterite'</span>).orientations)</pre><img src="EBSD.plot_02.png"> <pre class="codeinput"><span class="comment">% colorize according to MAD</span>
+plot(ebsd,ebsd.mad,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)</pre><img src="EBSD.plot_03.png"> <h3 class="seealso">See also</h3>
+         <p><a href="EBSDSpatialPlots.html">EBSDSpatialPlots</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>
             </tr>
-         </table>
-      </div>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
    </body>
 </html>

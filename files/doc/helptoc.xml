@@ -115,11 +115,11 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.transpose.html">transpose</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.uminus.html">uminus</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.unique.html">unique</tocitem>
-               <tocitem target="vector3d.vector3d.html"/>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.vector3d.html">vector3d</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.vertcat.html">vertcat</tocitem>
             </tocitem>
             <tocitem target="Miller_index.html">Crystal Directions (The Class @Miller)<tocitem target="Miller_index.html#3">Class Description</tocitem>
-               <tocitem target="Miller.Miller.html"/>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.Miller.html">Miller</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.cat.html">cat</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.char.html">char</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.display.html">display</tocitem>
@@ -139,38 +139,109 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.transformReferenceFrame.html">transformReferenceFrame</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.unique.html">unique</tocitem>
             </tocitem>
-            <tocitem target="S1Grid_index.html">Discretisation of 1-Sphere (The Class @S1Grid)<tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.GridLength.html">GridLength</tocitem>
-               <tocitem target="S1Grid.S1Grid.html"/>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.coarser.html">coarser</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.delete.html">delete</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.display.html">display</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.dist.html">dist</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.dist_outer.html">dist_outer</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.double.html">double</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.eq.html">eq</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.find.html">find</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.max.html">max</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.min.html">min</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.minus.html">minus</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.plot.html">plot</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.plus.html">plus</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.refine.html">refine</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.shift.html">shift</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.subGrid.html">subGrid</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="specimenSymmetry.specimenSymmetry.html">specimenSymmetry</tocitem>
+            <tocitem target="rotation_index.html">Rotations (The Class @rotation)<tocitem target="rotation_index.html#3">Class Description</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.cat.html">cat</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.char.html">char</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.display.html">display</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.dot.html">dot</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.dot_outer.html">dot_outer</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.getMinAxes.html">getMinAxes</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.isImproper.html">isImproper</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.line.html">line</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.matrix.html">matrix</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.mldivide.html">mldivide</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.mtimes.html">mtimes</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.permute.html">permute</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.power.html">power</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.project2FundamentalRegion.html">project2FundamentalRegion</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.repmat.html">repmat</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.reshape.html">reshape</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.rotation.html">rotation</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.subSet.html">subSet</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.subsasgn.html">subsasgn</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.subsref.html">subsref</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.times.html">times</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.transpose.html">transpose</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.uminus.html">uminus</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.unique.html">unique</tocitem>
             </tocitem>
-            <tocitem target="S2Grid_index.html">Discretisation of 2 - Sphere (The Class @S2Grid)<tocitem target="S2Grid_index.html#2">Class Description</tocitem>
-               <tocitem target="S2Grid.S2Grid.html"/>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.cat.html">cat</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.copy.html">copy</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.delete.html">delete</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.display.html">display</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.find.html">find</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.getdata.html">getdata</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.polar.html">polar</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.refine.html">refine</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.subGrid.html">subGrid</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.subsasgn.html">subsasgn</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.subsref.html">subsref</tocitem>
+            <tocitem target="symmetry_index.html">Crystal and Specimen Symmetries (The Class @symmetry)<tocitem target="symmetry_index.html#3">Class Description</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.Laue.html">Laue</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.LaueName.html">LaueName</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.alignment.html">alignment</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.calcAngleDistribution.html">calcAngleDistribution</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.calcAxisDistribution.html">calcAxisDistribution</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.calcQuat.html">calcQuat</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.check.html">check</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.disjoint.html">disjoint</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.ensureCS.html">ensureCS</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.eq.html">eq</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.factor.html">factor</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.fundamentalRegion.html">fundamentalRegion</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.fundamentalRegionEuler.html">fundamentalRegionEuler</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.fundamentalSector.html">fundamentalSector</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.length.html">length</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.maxAngle.html">maxAngle</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.multiplicityPerpZ.html">multiplicityPerpZ</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.multiplicityZ.html">multiplicityZ</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.nfold.html">nfold</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.plot.html">plot</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.properGroup.html">properGroup</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.properSubGroup.html">properSubGroup</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.rotation_special.html">rotation_special</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.subsref.html">subsref</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.symmetry.html">symmetry</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.union.html">union</tocitem>
+            </tocitem>
+            <tocitem target="orientation_index.html">Crystal Orientations (The Class @orientation)<tocitem target="orientation_index.html#2">Class Description</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.BCV.html">BCV</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.KLCV.html">KLCV</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.LSCV.html">LSCV</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.angle.html">angle</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.axis.html">axis</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.bingham_test.html">bingham_test</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcAngleDistribution.html">calcAngleDistribution</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcBinghamODF.html">calcBinghamODF</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcFourierODF.html">calcFourierODF</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcInvTaylor.html">calcInvTaylor</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcKernel.html">calcKernel</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcKernelODF.html">calcKernelODF</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcMDF.html">calcMDF</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcMIndex.html">calcMIndex</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcODF.html">calcODF</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcTensor.html">calcTensor</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.crossCorrelation.html">crossCorrelation</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.ctranspose.html">ctranspose</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.display.html">display</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.dot.html">dot</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.dot_outer.html">dot_outer</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.export_VPSC.html">export_VPSC</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.fibreVolume.html">fibreVolume</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.getFundamentalRegion.html">getFundamentalRegion</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.isMisorientation.html">isMisorientation</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.ldivide.html">ldivide</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.log.html">log</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.mean.html">mean</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.mldivide.html">mldivide</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.mtimes.html">mtimes</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.niceEuler.html">niceEuler</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.orientation.html">orientation</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.plot.html">plot</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.plotIPDF.html">plotIPDF</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.plotPDF.html">plotPDF</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.plotSection.html">plotSection</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.power.html">power</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.project2EulerFR.html">project2EulerFR</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.project2FundamentalRegion.html">project2FundamentalRegion</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.qqplot.html">qqplot</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.scatter.html">scatter</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.sphereVolume.html">sphereVolume</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.symmetrise.html">symmetrise</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.times.html">times</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.transformReferenceFrame.html">transformReferenceFrame</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.unique.html">unique</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.volume.html">volume</tocitem>
             </tocitem>
             <tocitem target="quaternion_index.html">Quaternions (The Class @quaternion)<tocitem target="quaternion_index.html#2">Class Description</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.Euler.html">Euler</tocitem>
@@ -221,7 +292,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.project2FundamentalRegion.html">project2FundamentalRegion</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.qmatrix.html">qmatrix</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.qq.html">qq</tocitem>
-               <tocitem target="quaternion.quaternion.html"/>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.quaternion.html">quaternion</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.rdivide.html">rdivide</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.real.html">real</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.repmat.html">repmat</tocitem>
@@ -240,110 +311,40 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.unique.html">unique</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.vertcat.html">vertcat</tocitem>
             </tocitem>
-            <tocitem target="rotation_index.html">Rotations (The Class @rotation)<tocitem target="rotation_index.html#3">Class Description</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.cat.html">cat</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.char.html">char</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.display.html">display</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.dot.html">dot</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.dot_outer.html">dot_outer</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.getMinAxes.html">getMinAxes</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.isImproper.html">isImproper</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.line.html">line</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.matrix.html">matrix</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.mldivide.html">mldivide</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.mtimes.html">mtimes</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.permute.html">permute</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.power.html">power</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.project2FundamentalRegion.html">project2FundamentalRegion</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.repmat.html">repmat</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.reshape.html">reshape</tocitem>
-               <tocitem target="rotation.rotation.html"/>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.subSet.html">subSet</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.subsasgn.html">subsasgn</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.subsref.html">subsref</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.times.html">times</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.transpose.html">transpose</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.uminus.html">uminus</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.unique.html">unique</tocitem>
+            <tocitem target="S1Grid_index.html">Discretisation of 1-Sphere (The Class @S1Grid)<tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.GridLength.html">GridLength</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.S1Grid.html">S1Grid</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.coarser.html">coarser</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.delete.html">delete</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.display.html">display</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.dist.html">dist</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.dist_outer.html">dist_outer</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.double.html">double</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.eq.html">eq</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.find.html">find</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.max.html">max</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.min.html">min</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.minus.html">minus</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.plot.html">plot</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.plus.html">plus</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.refine.html">refine</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.shift.html">shift</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S1Grid.subGrid.html">subGrid</tocitem>
             </tocitem>
-            <tocitem target="symmetry_index.html">Crystal and Specimen Symmetries (The Class @symmetry)<tocitem target="symmetry_index.html#3">Class Description</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.Laue.html">Laue</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.LaueName.html">LaueName</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.alignment.html">alignment</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.calcAngleDistribution.html">calcAngleDistribution</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.calcAxisDistribution.html">calcAxisDistribution</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.calcQuat.html">calcQuat</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.check.html">check</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.disjoint.html">disjoint</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.ensureCS.html">ensureCS</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.eq.html">eq</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.factor.html">factor</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.fundamentalRegion.html">fundamentalRegion</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.fundamentalRegionEuler.html">fundamentalRegionEuler</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.fundamentalSector.html">fundamentalSector</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.length.html">length</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.maxAngle.html">maxAngle</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.multiplicityPerpZ.html">multiplicityPerpZ</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.multiplicityZ.html">multiplicityZ</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.nfold.html">nfold</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.plot.html">plot</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.properGroup.html">properGroup</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.properSubGroup.html">properSubGroup</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.rotation_special.html">rotation_special</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.subsref.html">subsref</tocitem>
-               <tocitem target="symmetry.symmetry.html"/>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="symmetry.union.html">union</tocitem>
+            <tocitem target="S2Grid_index.html">Discretisation of 2 - Sphere (The Class @S2Grid)<tocitem target="S2Grid_index.html#2">Class Description</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.S2Grid.html">S2Grid</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.cat.html">cat</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.copy.html">copy</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.delete.html">delete</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.display.html">display</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.find.html">find</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.getdata.html">getdata</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.polar.html">polar</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.refine.html">refine</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.subGrid.html">subGrid</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.subsasgn.html">subsasgn</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2Grid.subsref.html">subsref</tocitem>
             </tocitem>
-            <tocitem target="orientation_index.html">Crystal Orientations (The Class @orientation)<tocitem target="orientation_index.html#2">Class Description</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.BCV.html">BCV</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.KLCV.html">KLCV</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.LSCV.html">LSCV</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.angle.html">angle</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.axis.html">axis</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.bingham_test.html">bingham_test</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcAngleDistribution.html">calcAngleDistribution</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcBinghamODF.html">calcBinghamODF</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcFourierODF.html">calcFourierODF</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcInvTaylor.html">calcInvTaylor</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcKernel.html">calcKernel</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcKernelODF.html">calcKernelODF</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcMDF.html">calcMDF</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcMIndex.html">calcMIndex</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcODF.html">calcODF</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.calcTensor.html">calcTensor</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.crossCorrelation.html">crossCorrelation</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.ctranspose.html">ctranspose</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.display.html">display</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.dot.html">dot</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.dot_outer.html">dot_outer</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.export_VPSC.html">export_VPSC</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.fibreVolume.html">fibreVolume</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.getFundamentalRegion.html">getFundamentalRegion</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.isMisorientation.html">isMisorientation</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.ldivide.html">ldivide</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.log.html">log</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.mean.html">mean</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.mldivide.html">mldivide</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.mtimes.html">mtimes</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.niceEuler.html">niceEuler</tocitem>
-               <tocitem target="orientation.orientation.html"/>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.plot.html">plot</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.plotIPDF.html">plotIPDF</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.plotPDF.html">plotPDF</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.plotSection.html">plotSection</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.power.html">power</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.project2EulerFR.html">project2EulerFR</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.project2FundamentalRegion.html">project2FundamentalRegion</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.qqplot.html">qqplot</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.scatter.html">scatter</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.sphereVolume.html">sphereVolume</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.symmetrise.html">symmetrise</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.times.html">times</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.transformReferenceFrame.html">transformReferenceFrame</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.unique.html">unique</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.volume.html">volume</tocitem>
-            </tocitem>
-            <tocitem target="SO3Grid_index.html">Discretisation of Orientation Space (The Class SO3Grid)<tocitem target="SO3Grid.SO3Grid.html"/>
+            <tocitem target="SO3Grid_index.html">Discretisation of Orientation Space (The Class SO3Grid)<tocitem image="$toolbox/matlab/icons/help_fx.png" target="SO3Grid.SO3Grid.html">SO3Grid</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="SO3Grid.char.html">char</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="SO3Grid.copy.html">copy</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="SO3Grid.delete.html">delete</tocitem>
@@ -359,7 +360,7 @@
          </tocitem>
          <tocitem target="QTA_index.html">Classes for Quantitative Texture Analysis<tocitem target="ODF_index.html">Orientation Density Functions (The Class @ODF)<tocitem target="ODF_index.html#1">Class Description</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="ODF.FourierODF.html">FourierODF</tocitem>
-               <tocitem target="ODF.ODF.html"/>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="ODF.ODF.html">ODF</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="ODF.bandwidth.html">bandwidth</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="ODF.calcAngleDistribution.html">calcAngleDistribution</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="ODF.calcAxisDistribution.html">calcAxisDistribution</tocitem>
@@ -427,14 +428,14 @@
             <tocitem target="kernel_index.html">ODF Shapes (The class @kernel)<tocitem target="kernel_index.html#2">Class Description</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="kernel.K_symmetrised.html">K_symmetrised</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="kernel.RK_symmetrised.html">RK_symmetrised</tocitem>
-               <tocitem target="kernel.kernel.html"/>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="kernel.kernel.html">kernel</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="kernel.plot.html">plot</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="kernel.plotFourier.html">plotFourier</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="kernel.plotPDF.html">plotPDF</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="kernel.volume.html">volume</tocitem>
             </tocitem>
             <tocitem target="PoleFigure_index.html">Pole Figure Data (The Class @PoleFigure)<tocitem target="PoleFigure_index.html#2">Class Description</tocitem>
-               <tocitem target="PoleFigure.PoleFigure.html"/>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.PoleFigure.html">PoleFigure</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.calcError.html">calcError</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.calcErrorPF.html">calcErrorPF</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.calcFEMODF.html">calcFEMODF</tocitem>
@@ -474,7 +475,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.zeroRange.html">zeroRange</tocitem>
             </tocitem>
             <tocitem target="EBSD_index.html">Electron Backscatter Diffraction Data (The Class @EBSD)<tocitem target="EBSD_index.html#2">Class Description</tocitem>
-               <tocitem target="EBSD.EBSD.html"/>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.EBSD.html">EBSD</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.KAM.html">KAM</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.affinetrans.html">affinetrans</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.calcGrains.html">calcGrains</tocitem>
@@ -557,7 +558,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.sum.html">sum</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.sym.html">sym</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.symmetrise.html">symmetrise</tocitem>
-               <tocitem target="tensor.tensor.html"/>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.tensor.html">tensor</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.tensorSize.html">tensorSize</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.times.html">times</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.transform.html">transform</tocitem>

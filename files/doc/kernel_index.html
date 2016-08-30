@@ -74,31 +74,34 @@
 psi{2} = deLaValeePoussinKernel(13);
 psi{3} = vonMisesFisherKernel(7.5);
 psi{4} = bumpKernel(35*degree);
-psi{5} = DirichletKernel(9);
-<span class="comment">%psi{6} = GaussWeierstrassKernel(0.07);</span>
-
-<span class="comment">%psi{5} = fibreVonMisesFisherKernel(7.2);</span>
-<span class="comment">%psi{8} = SquareSingularityKernel(0.72);</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+psi{5} = DirichletKernel(3);
+psi{6} = GaussWeierstrassKernel(0.07);
+psi{7} = fibreVonMisesFisherKernel(7.2);
+psi{8} = SquareSingularityKernel(0.72);</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Plotting the kernel<a name="4"> </a></h3>
          <p>Using the plot command you can plot the kernel as a function on SO(3) as well as the corresponding PDF, or its Fourier coefficients</p><pre class="codeinput"><span class="comment">% the kernel on SO(3)</span>
-close; figure(<span class="string">'position'</span>,[100,100,500,450])
+close; figure(<span class="string">'position'</span>,[100,100,700,450])
 hold <span class="string">all</span>
 <span class="keyword">for</span> i = 1:numel(psi)
-  plot(psi{i});
+  plot(psi{i},<span class="string">'DisplayName'</span>,class(psi{i}));
 <span class="keyword">end</span>
-hold <span class="string">off</span></pre><img src="kernel_index_01.png"> <p>the corresponding PDF</p><pre class="codeinput">close; figure(<span class="string">'position'</span>,[100,100,500,450])
+hold <span class="string">off</span>
+legend(gca,<span class="string">'show'</span>)</pre><img src="kernel_index_01.png"> <p>the corresponding PDF</p><pre class="codeinput">close; figure(<span class="string">'position'</span>,[100,100,700,450])
 hold <span class="string">all</span>
 <span class="keyword">for</span> i = 1:numel(psi)
-  plotPDF(psi{i},<span class="string">'RK'</span>);
+  plotPDF(psi{i},<span class="string">'RK'</span>,<span class="string">'DisplayName'</span>,class(psi{i}));
 <span class="keyword">end</span>
 hold <span class="string">off</span>
 
-ylim([-1,20])</pre><img src="kernel_index_02.png"> <p>the Fourrier coefficients of the kernels</p><pre class="codeinput">close; figure(<span class="string">'position'</span>,[100,100,500,450])
+ylim([-1,20])
+
+legend(gca,<span class="string">'show'</span>)</pre><img src="kernel_index_02.png"> <p>the Fourrier coefficients of the kernels</p><pre class="codeinput">close; figure(<span class="string">'position'</span>,[100,100,500,450])
 hold <span class="string">all</span>
 <span class="keyword">for</span> i = 1:numel(psi)
-  plotFourier(psi{i},<span class="string">'bandwidth'</span>,32);
+  plotFourier(psi{i},<span class="string">'bandwidth'</span>,32,<span class="string">'DisplayName'</span>,class(psi{i}));
 <span class="keyword">end</span>
-hold <span class="string">off</span></pre><img src="kernel_index_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span>
+legend(gca,<span class="string">'show'</span>)</pre><img src="kernel_index_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Complete Function list<a name="7"> </a></h2>
          <p><table width="90%"><tr><td width="200px"><a href="kernel.K_symmetrised.html"><tt>K_symmetrised</tt></a></td><td>evaluate kernel
             modulo symmetries</td></tr><tr><td width="200px"><a href="kernel.RK_symmetrised.html"><tt>RK_symmetrised</tt></a></td><td>sum
@@ -113,7 +116,15 @@ hold <span class="string">off</span></pre><img src="kernel_index_03.png"> <p cla
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>
             </tr>
-         </table>
-      </div>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
    </body>
 </html>

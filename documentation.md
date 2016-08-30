@@ -49,3 +49,21 @@ layout: main
 	  <img src="files/pic/plotting.jpg" width = "230" alt=""  border="0" ></a></td>
   </tr>
 </table>
+
+<iframe height="750"  width="100%" src="files/puml/geometry.svg" scrolling="no"
+   frameborder="0">
+   <p>SVG-Grafik – hier eine Kopie als PNG</p>
+   <img src="files/pic/geometry.svg" width="220" height="220" alt="Dashboard" />
+</iframe>
+
+<hr>
+
+<img uml="
+Bob->Alice : foo
+Bob<--Alice : foo
+">
+<hr>
+<img uml="
+Bob->Alice : dummy
+Bob<--Alice : dummy
+">

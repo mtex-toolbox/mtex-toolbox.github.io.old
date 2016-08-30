@@ -48,7 +48,8 @@
          <p>
             <div class="syntax" width="100%">
             <div>
-            <tt>plotFibre(odf,h,r);</tt>
+            <tt>plotFibre(odf,h,r);
+            plotFibre(odf,f);</tt>
             </div>
             </div>
             
@@ -62,6 +63,14 @@
             </td>
             <td>
             <p><a href="ODF_index.html">ODF</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>f</tt>
+            </td>
+            <td>
+            <p><a href="fibre_index.html">fibre</a></p>
             </td>
             </tr>
             <tr>
@@ -91,7 +100,7 @@
             </tr>
             <tr>
             <td width="150px">
-            <tt>'RESOLUTION'</tt>
+            <tt>'resolution'</tt>
             </td>
             <td>
             <p>resolution of each plot</p>
@@ -99,11 +108,10 @@
             </tr>
             <tr>
             <td width="150px">
-            <tt>'CENTER'</tt>
+            <tt>'center'</tt>
             </td>
             <td>
             <p>for radially symmetric plot</p>
-            <p>mple lotFibre(SantaFe,Miller(1,1.2,1.6),vector3d(1.1,1.5,1.3))</p>
             </td>
             </tr>
             </table>
@@ -112,14 +120,33 @@
             </table>
             
          </p>
-         <h3 class="seealso">See also</h3>
+         <h2>Example<a name="5"> </a></h2><pre class="codeinput">odf = SantaFe;
+f = fibre.gamma(odf.CS,odf.SS)
+plotFibre(SantaFe,f)</pre><pre class="codeoutput"> 
+f = fibre  
+ size: 1 x 1
+ crystal symmetry:  m-3m
+ specimen symmetry: 222
+ h: (111)
+ o1: (180&deg;,55&deg;,45&deg;)
+ o2: (270&deg;,55&deg;,45&deg;)
+Warning: Rotation does not respect symmetry! 
+</pre><img src="ODF.plotFibre_01.png"> <h3 class="seealso">See also</h3>
          <p><a href="S2Grid.plot.html">S2Grid/plot</a>, <a href="savefigure.html">savefigure</a>, <a href="Plotting.html">Plotting</a>, <a href="Annotations_demo.html">Annotations_demo</a>, <a href="ColorCoding_demo.html">ColorCoding_demo</a>, <a href="PlotTypes_demo.html">PlotTypes_demo</a>, <a href="SphericalProjection_demo.html">SphericalProjection_demo</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>
             </tr>
-         </table>
-      </div>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
    </body>
 </html>

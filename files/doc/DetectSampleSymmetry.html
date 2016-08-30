@@ -117,12 +117,6 @@ odf_est = ODF
     degree: 28
     weight: 1
  
-Wprogress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-ans =
-   23.7573
 </pre><img src="DetectSampleSymmetry_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Detect the sample symmetry axis in the reconstructed ODF<a name="5"> </a></h2>
          <p>We observe that the reconstructed ODF has almost orthotropic symmetry, but with rescpect to axed different from x, y, z. With
@@ -134,7 +128,13 @@ figure
 plotPDF(odf_corrected,h,<span class="string">'antipodal'</span>,8,<span class="string">'silent'</span>)
 
 <span class="comment">% the difference between the applied rotation and the estimate rotation</span>
-angle(rot,inv(rot_inv)) / degree</pre><img src="DetectSampleSymmetry_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+angle(rot,inv(rot_inv)) / degree</pre><pre class="codeoutput">progress: 100%
+progress: 100%
+progress: 100%
+progress: 100%
+ans =
+   23.9094
+</pre><img src="DetectSampleSymmetry_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Sample symmetry in an ODF computed from pole figure data<a name="6"> </a></h2>
          <p>In the next example we apply the function <tt>centerSpecimen</tt> to an ODF estimated from pole figure data. Lets start by importing them
          </p><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'PoleFigure'</span>,<span class="string">'aachen_exp.EXP'</span>);
@@ -182,7 +182,15 @@ a3 = vector3d
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>
             </tr>
-         </table>
-      </div>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
    </body>
 </html>

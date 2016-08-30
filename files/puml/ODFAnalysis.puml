@@ -1,0 +1,31 @@
+@startuml
+
+abstract class ODFComponent {
+}
+
+class uniformComponent {
+}
+
+class unimodalComponent {
+}
+
+class fibreComponent {
+}
+
+class BinghamComponent {
+}
+
+class femComponent {
+}
+
+class FourierComponent {
+}
+
+uniformComponent -up-|> ODFComponent
+unimodalComponent -up-|> ODFComponent
+fibreComponent -up-|> ODFComponent
+BinghamComponent -up-|> ODFComponent
+femComponent -up-|> ODFComponent
+FourierComponent -up-|> ODFComponent
+
+@enduml

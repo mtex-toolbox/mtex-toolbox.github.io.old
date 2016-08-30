@@ -1,46 +1,119 @@
 @startuml
-package "geometry"{
+
 class vector3d{
- x,y,z
-}
-class Miller{
- h,k,l
- u,v,w
+ [[/files/doc/vector3d_index.html]]
+ +x,y,z: double
+ +antipodal: logical
 }
 
+class Miller{
+ +CS: crystalSymmetry[[crystalSymmetry_index.html]]
+ -h,k,l: double
+ -u,v,w: double
+}
 
 together {
- abstract class symmetry
+ abstract class symmetry{
+ +id: integer
+ -lattice: string
+ -pointGroup: string
+ -isLaue: logical
+ -isProper: logical
+ }
  class crystalSymmetry {
- [[http://www.yahoo.com]]
-  a, b, c
+ [[crystalSymmetry_index.html]]
+ +axes: vector3d[[/files/doc/vector3d_index.html]]
+ +mineral: string
+ +color: RGB
+ +alpha, beta, gamma: double
+ +aAxis, bAxis, cAxis: vector3d[[/files/doc/vector3d_index.html]]
+ +aAxisRec, bAxisRec, cAxisRec: vector3d[[/files/doc/vector3d_index.html]]
  }
  class specimenSymmetry
 }
 
+together {
+
 class quaternion {
- a,b,c,d
+ [[/files/doc/quaternion_index.html]]
+ +a,b,c,d: double
 }
 
-class rotation
+class rotation{
+ [[/files/doc/rotation_index.html]]
+ +i: logical
+ -phi1,Phi,phi2: double
+}
 
+class orientation{
+ [[/files/doc/orientation_index.html]]
+ +CS: crystalSymmetry
+ +SS: specimenSymmetry
+ +antipodal: logical
+}
+}
 quaternion <|- rotation
 rotation <|- orientation
 
-rotation <|- symmetry
-symmetry -|> specimenSymmetry
-crystalSymmetry <|- symmetry
-
-crystalSymmetry -- Miller : < CS
-crystalSymmetry <- vector3d :< a,b,c
-
-orientation -- symmetry : < CS, SS
+rotation <|-down- symmetry
+symmetry <|- specimenSymmetry
+crystalSymmetry -|> symmetry
 
 
-Miller <|- vector3d
+vector3d <|- Miller
 
-slipSystem -- Miller
-
+class slipSystem{
+ +b: Miller [[/files/doc/Miller_index.html]]
+ +n: Miller [[/files/doc/Miller_index.html]]
+ +CRSS: double
+ -CS: crystalSymmetry
 }
 
+class fibre{
+ +o1: orientation
+ +h: Miller
+}
+
+class S2Grid {
+ +resolution: double
+}
+class SO3Grid {
+ +resolution: double
+}
+
+
+
+class sphericalRegion {
+ +N: vector3d
+ +alpha: double
+ +antipodal: logical
+}
+
+class orientationRegion {
+ +N: orientation
+ +V: orientation
+ +F:
+ +antipodal: logical
+}
+
+crystalSymmetry --> sphericalRegion :> fundamentalSector()
+crystalSymmetry --> orientationRegion :> fundamentalRegion()
+crystalSymmetry --> slipSystem :> fcc(), bcc(), hcp()
+
+sphericalRegion --> S2Grid :> plotS2Grid()
+orientationRegion -right-> SO3Grid :> plotSO3Grid()
+orientationRegion -right-> SO3Grid :> equispacedSO3Grid()
+
+S2Grid -|> vector3d
+SO3Grid -|> orientation
+
+
 @enduml
+
+slipSymstem -- Miller
+
+
+orientation -- symmetry : < CS, SS
+crystalSymmetry -- Miller : < CS
+crystalSymmetry <- vector3d :< a,b,c
+package "geometry"{

@@ -5,15 +5,15 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
    
-      <title>subSet (DocHelp Toolbox)
+      <title>orientation (DocHelp Toolbox)
          
       </title>
       <!-- DOCNAME: DocHelp Toolbox -->
       <meta name="chunktype" content="refpage">
-      <!-- CHUNKNAME: tripelPointList.subSet -->
-      <!-- HEADSTUFF: tripelPointList.subSet -->
+      <!-- CHUNKNAME: fibre.orientation -->
+      <!-- HEADSTUFF: fibre.orientation -->
       <!-- HEADSTUFF -->
-      <meta name="refentity" content="method:tripelPointList.subSet">
+      <meta name="refentity" content="method:fibre.orientation">
       <meta http-equiv="Content-Script-Type" content="text/javascript">
       <meta name="toctype" content="fcn">
       <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
@@ -38,46 +38,55 @@
          </div>
       </div>
       <div class="container">
-         <h1>subSet</h1>
+         <h1>orientation</h1>
          <div class="subheading">
-            <p>(method of <a href="tripelPointList_index.html">tripelPointList</a>)
+            <p>(method of <a href="fibre_index.html">fibre</a>)
             </p>
          </div>
-         <p>restrict boundary</p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>tP = subSet(tP,ind)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="4"> </a></h2>
+         <p>generate a list of orientation out of a fibre</p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">ori = orientations(f,<span class="string">'points'</span>,1000)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>tP</tt>
+            <tt>f</tt>
             </td>
             <td>
-            <p><a href="grainBoundary_index.html">grainBoundary</a></p>
+            <p><a href="fibre_index.html">fibre</a></p>
             </td>
             </tr>
             <tr>
             <td width="100px">
-            <tt>ind</tt>
+            <tt>param,val</tt>
             </td>
-            <td>
-            <pre>Ouput</pre>
-            </td>
+            <td>Parameters and values that control orientation<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
+            <tr>
+            <td class="header" width="100px">Parameter</td>
+            <td class="header">Description</td>
             </tr>
             <tr>
-            <td width="100px">
-            <tt>grains</tt>
+            <td width="150px">
+            <tt>'points'</tt>
             </td>
             <td>
-            <p><a href="grainBoundary_index.html">grainBoundary</a></p>
+            <p>number of points that are generated</p>
+            </td>
+            </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+            
+         </p>
+         <h2>Output<a name="5"> </a></h2>
+         <p>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>ori</tt>
+            </td>
+            <td>
+            <p><a href="orientation_index.html">orientation</a></p>
             </td>
             </tr>
             </table>
@@ -88,7 +97,15 @@
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>
             </tr>
-         </table>
-      </div>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
    </body>
 </html>

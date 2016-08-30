@@ -1,0 +1,15 @@
+@startuml
+
+package "ODFAnalysis" {
+ class ODF
+}
+
+package "PoleFigureAnalysis" {
+ class PoleFigure
+}
+
+package "plotting" {
+ class MtexFigure
+ class sphericalProjection
+}
+@enduml

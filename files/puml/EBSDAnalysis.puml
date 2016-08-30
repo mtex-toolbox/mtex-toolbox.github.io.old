@@ -1,0 +1,95 @@
+@startuml
+
+abstract class phaseList {
+ + CSList : list of crystalSymmetry
+ + phaseMap :
+ + phaseId : index to phase map
+
+ - phase
+ - isIndexed
+ - CS : crystalSymmetry
+ - mineral : string
+ - mineralList : cell string
+ - indexedPhasesId
+ - color - string
+}
+
+class EBSD {
+ + id : EBSD id
+ + rotations : rotation
+ + A_D : adjacency matrix
+ + x,y : double
+ + prop : struct
+ + scanUnit : string
+ + unicCell : double
+ - orientations : orientation
+ - grainId : double
+ - mis2mean : rotation
+}
+
+
+
+class grain2d {
+ + id : grain id
+ + poly : double
+ + grainSize : double
+ - meanOrientation : orientation
+ - V : list of vertices
+ - scanUnit : string
+ - id2int : double
+ - GOS : double
+ - x,y : double
+ - triplePoints : triplePointList
+ - boundary : grainBoundary
+ - innerBoundary : grainBoundary
+}
+
+class grainBoundary {
+ + F : list of faces
+ + grainId : id's of the neigbouring grains to a face
+ + ebsdId :
+ + misrotation : rotation
+
+ +V : vertices
+ +scanUnit : string
+ +triplePoints : triplePointList
+
+ -misorientation : orientation
+ -direction : vector3d
+ -midPoint : x,y coordinates of the midpoint of the segment
+ -I_VF : incidence matrix vertices - faces
+ -I_FG : incidence matrix faces - grains
+ -A_F : adjecency matrix faces - faces
+ -segmentId : connected component id
+ -segmentSize : number of faces that form a segment
+ -x,y :  double
+}
+
+class triplePointList {
+ +id : double
+ +V : double
+ +grainId : double
+ +boundaryId :
+ -misorientation : orientation
+ -x,y : vector3d
+}
+
+class EBSDSquare {
+ +dx
+ +dy
+ -gradientX
+ -gradientY
+}
+
+EBSD -up-|> phaseList
+EBSDSquare -up-|> EBSD
+grain2d -up-|> phaseList
+grainBoundary -up-|> phaseList
+triplePointList -up-|> phaseList
+
+EBSD --> EBSDSquare :> gridify
+EBSD -right-> grain2d :> calcGrains
+grain2d -right-> grainBoundary :> grains.boundary
+grainBoundary -right-> triplePointList :> boundary.triplePoints
+
+@enduml

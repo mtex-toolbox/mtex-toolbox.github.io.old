@@ -131,19 +131,6 @@ phi1_M Phi_M phi2_M</pre><p>The assoziation of the columns as Euler angles, phas
             <td width="150px">
             <tt>'PASSIVE'</tt>
             </td>
-            <td>
-            <pre>Example</pre>
-            <pre>  fname = fullfile(mtexDataPath,'EBSD','85_829grad_07_09_06.txt');</pre>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'CS = crystalSymmetry('m'</tt>
-            </td>
-            <td>
-            <p>m','mineral','Mg'); S = specimenSymmetry('triclinic');</p>
-            <p>ri = loadOrientation_generic(fname,'CS',CS,'SS',SS, 'ColumnNames', ...  {'Euler1' 'Euler2' 'Euler3'},'Columns',[5,6,7],'Bunge')</p>
-            </td>
             </tr>
             </table>
             </td>
@@ -151,14 +138,31 @@ phi1_M Phi_M phi2_M</pre><p>The assoziation of the columns as Euler angles, phas
             </table>
             
          </p>
-         <h3 class="seealso">See also</h3>
+         <h2>Example<a name="5"> </a></h2><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'EBSD'</span>,<span class="string">'85_829grad_07_09_06.txt'</span>);
+CS = crystalSymmetry(<span class="string">'m-3m'</span>,<span class="string">'mineral'</span>,<span class="string">'Mg'</span>);
+SS = specimenSymmetry(<span class="string">'triclinic'</span>);</pre><pre class="codeinput">ori = loadOrientation_generic(fname,<span class="string">'CS'</span>,CS,<span class="string">'SS'</span>,SS, <span class="string">'ColumnNames'</span>, <span class="keyword">...</span>
+{<span class="string">'Euler1'</span> <span class="string">'Euler2'</span> <span class="string">'Euler3'</span>},<span class="string">'Columns'</span>,[5,6,7],<span class="string">'Bunge'</span>)</pre><pre class="codeoutput"> 
+ori = orientation  
+  size: 60775 x 1
+  crystal symmetry : Mg (m-3m)
+  specimen symmetry: -1
+ 
+</pre><h3 class="seealso">See also</h3>
          <p><a href="loadOrientation.html">loadOrientation</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>
             </tr>
-         </table>
-      </div>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
    </body>
 </html>

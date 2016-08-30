@@ -122,7 +122,7 @@ ans = ODF
   specimen symmetry: 1
  
   Bingham portion:
-     kappa: 0 1.0816 2.6027 25.7013
+     kappa: 0 2.2596 3.4026 26.5756
     weight: 1
  
 </pre><p>where <tt>U</tt> is the orthogonal matrix of eigenvectors of the orientation tensor and <tt>kappa</tt> the shape parameters associated with the <tt>U</tt>.
@@ -132,7 +132,7 @@ T_oblate    = bingham_test(ori_spherical,<span class="string">'prolate'</span>, 
 T_prolate   = bingham_test(ori_spherical,<span class="string">'oblate'</span>,   <span class="string">'approximated'</span>);
 
 t = [T_spherical T_oblate T_prolate]</pre><pre class="codeoutput">t =
-    0.2828    0.2063    0.3987
+    0.5639    0.6275    0.2516
 </pre><p>The spherical test case failed to reject it for some level of significance, hence we would dismiss the hypothesis prolate
             and oblate.
          </p><pre class="codeinput">odf_spherical = BinghamODF(kappa,U,crystalSymmetry,specimenSymmetry)</pre><pre class="codeoutput"> 
@@ -165,7 +165,7 @@ ans = ODF
   specimen symmetry: 1
  
   Bingham portion:
-     kappa: 0 4.8697 53.1539 54.1921
+     kappa: 0 6.3631 54.5265 55.5961
     weight: 1
  
 </pre><p>and test on the three cases</p><pre class="codeinput">T_spherical = bingham_test(ori_prolate,<span class="string">'spherical'</span>,<span class="string">'approximated'</span>);
@@ -173,7 +173,7 @@ T_oblate    = bingham_test(ori_prolate,<span class="string">'prolate'</span>,  <
 T_prolate   = bingham_test(ori_prolate,<span class="string">'oblate'</span>,   <span class="string">'approximated'</span>);
 
 t = [T_spherical T_oblate T_prolate]</pre><pre class="codeoutput">t =
-    1.0000    0.6701    1.0000
+    1.0000    0.8426    1.0000
 </pre><p>The test clearly rejects the spherical and prolate case, but not the prolate. We construct the bingham distribution from the
             parameters, it might show some skewness
          </p><pre class="codeinput">odf_prolate = BinghamODF(kappa,U,crystalSymmetry,specimenSymmetry)</pre><pre class="codeoutput"> 
@@ -206,7 +206,7 @@ ans = ODF
   specimen symmetry: 1
  
   Bingham portion:
-     kappa: 0 46.6467 46.763 48.26
+     kappa: 0 48.823 48.9598 50.4433
     weight: 1
  
 </pre><p>and do the tests</p><pre class="codeinput">T_spherical = bingham_test(ori_oblate,<span class="string">'spherical'</span>,<span class="string">'approximated'</span>);
@@ -214,7 +214,7 @@ T_oblate    = bingham_test(ori_oblate,<span class="string">'prolate'</span>,  <s
 T_prolate   = bingham_test(ori_oblate,<span class="string">'oblate'</span>,   <span class="string">'approximated'</span>);
 
 t = [T_spherical T_oblate T_prolate]</pre><pre class="codeoutput">t =
-    1.0000    1.0000    0.5035
+    1.0000    1.0000    0.6220
 </pre><p>the spherical and oblate case are clearly rejected, the prolate case failed to reject for some level of significance</p><pre class="codeinput">odf_oblate = BinghamODF(kappa, U,crystalSymmetry,specimenSymmetry)</pre><pre class="codeoutput"> 
 odf_oblate = ODF  
   crystal symmetry : 1, X||a, Y||b, Z||c
@@ -230,7 +230,15 @@ odf_oblate = ODF
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>
             </tr>
-         </table>
-      </div>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
    </body>
 </html>

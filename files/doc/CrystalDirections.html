@@ -164,11 +164,9 @@ ans = Miller
 </pre><p>Using the options <b>symmetrised</b> and <b>labeled</b> all symmetrically equivalent crystal directions are plotted together with their Miller indices.
          </p><pre class="codeinput">plot(m,<span class="string">'symmetrised'</span>,<span class="string">'labeled'</span>,<span class="string">'grid'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)</pre><img src="CrystalDirections_03.png"> <p>The command <a href="vector3d.eq.html">eq or ==</a> can be used to check whether two crystal directions are symmetrically equivalent. Compare
          </p><pre class="codeinput">Miller(1,1,-2,0,cs) == Miller(-1,-1,2,0,cs)</pre><pre class="codeoutput">ans =
-  logical
-   0
+     0
 </pre><p>and</p><pre class="codeinput">eq(Miller(1,1,-2,0,cs),Miller(-1,-1,2,0,cs),<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">ans =
-  logical
-   1
+     1
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Angles<a name="14"> </a></h2>
          <p>The angle between two crystal directions m1 and m2 is defined as the smallest angle between m1 and all symmetrically equivalent
@@ -219,7 +217,15 @@ plot(p,<span class="string">'grid'</span>)</pre><img src="CrystalDirections_04.p
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>
             </tr>
-         </table>
-      </div>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
    </body>
 </html>
