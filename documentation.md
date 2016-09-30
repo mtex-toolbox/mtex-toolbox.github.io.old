@@ -10,7 +10,7 @@ layout: main
 ・[Frequently Asked Questions](files/doc/FAQ.html)
 ・[Release Notes](files/doc/changelog.html)
 ・[Function Overview](files/doc/funcref_cat.html)
-・[Matlab Basics](files/doc/matlab.html)・
+・[Matlab Basics](http://mathworks.com/help/matlab/getting-started-with-matlab.html)・
 
 
 ### Users Guide ###

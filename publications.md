@@ -10,11 +10,11 @@ following paper that best fits your application.
 
 #### 2016
 
-* **IPF coloring of crystal orientation data**, G. Nolze, R. Hielscher:
-  [TU Chemnitz Fakultät für Mathematik, Preprint 2016-1](
-  https://www.tu-chemnitz.de/mathematik/preprint/2016/PREPRINT.php?year=2016&num=01).
+* **Orientations - perfectly colored**, G. Nolze, R. Hielscher:
+  [Journal of Applied Crystallography, 49, 1786-1802, 2016](
+  http://dx.doi.org/10.1107/S1600576716012942).
   [![PDF](./files/pic/icon_pdf_32x32.png "Download PDF
-  file")](https://www-user.tu-chemnitz.de/~rahi/paper/ipfColors.pdf)
+  file")](https://www-user.tu-chemnitz.de/~rahi/paper/so3Colors.pdf)
 
   script files: [section1.m](files/matlab/ipfColoring/section1.m), [section2.m](files/matlab/ipfColoring/section2.m), [section3_1.m](files/matlab/ipfColoring/section3_1.m), [section3_2.m](files/matlab/ipfColoring/section3_2.m),
   [appendix.m](files/matlab/ipfColoring/appendix.m), [data.zip](files/matlab/ipfColoring/data.zip)
