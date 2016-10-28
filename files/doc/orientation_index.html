@@ -46,10 +46,10 @@
          </div>
          <h2>Class Description<a name="2"> </a></h2>
          <p>In texture analysis crystal orientations are used to describe the alignment of the crystals within the specimen. A crystal
-            orientation is defined as the rotation that maps the specimen coordinate system onto the crystal coordinate system. Since,
+            orientation is defined as the rotation that maps the specimen coordinate system onto the crystal coordinate system. Since
             the crystal coordinate system and the specimen coordinate system are well defined only up to crystal symmetry and specimen
-            symmetry, a orientation is in general represented by a class of crystallographically equivalent rotations. In MTEX the class
-            <b>orientation</b> is an inheritant of the class <a href="rotation_index.html">rotation</a>. In particular, every function that is defined for a rotation is also available for a orientation.
+            symmetry, an orientation is in general represented by a class of crystallographically equivalent rotations. In MTEX the class
+            <b>orientation</b> is an inheritance of the class <a href="rotation_index.html">rotation</a>. In particular, every function that is defined for a rotation is also available for an orientation.
          </p>
          <h3> Defining a Crystal Orientation<a name="3"> </a></h3>
          <p>In order to define a crystal orientation one has to define crystal and specimen symmetry first.</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'cubic'</span>);
@@ -87,11 +87,11 @@ o = orientation
                <li>quaternion</li>
             </ul>
          </div>
-         <p>Have a look at <a href="rotation_index.html">rotation help page</a> for more details. Beside these parameterisations for rotations there are also some parameterisations which are unique for
+         <p>Have a look at <a href="rotation_index.html">rotation help page</a> for more details. Besides these parameterisations for rotations there are also some parameterisations which are unique for
             orientations
          </p>
-         <p><b>Miller indice</b></p>
-         <p>There is also a Miller indice convention for defining crystal orientations.</p><pre class="codeinput">o = orientation(<span class="string">'Miller'</span>,[1 0 0],[0 1 1],cs,ss)</pre><pre class="codeoutput"> 
+         <p><b>Miller indices</b></p>
+         <p>There is also a Miller indices convention for defining crystal orientations.</p><pre class="codeinput">o = orientation(<span class="string">'Miller'</span>,[1 0 0],[0 1 1],cs,ss)</pre><pre class="codeoutput"> 
 o = orientation  
   size: 1 x 1
   crystal symmetry : m-3m
@@ -158,7 +158,8 @@ ans = Miller
          <p>Let</p><pre class="codeinput">o = orientation(<span class="string">'Euler'</span>,90*degree,0,0,cs,ss);
 rot = rotation(<span class="string">'Euler'</span>,0,60*degree,0);</pre><p>be a crystal orientation and a rotation of the specimen coordinate system. Then the orientation of the crystal with respect
             to the rotated specimen coordinate system calculates by
-         </p><pre class="codeinput">o1 = rot * o</pre><pre class="codeoutput"> 
+         </p><pre class="codeinput">o1 = rot * o</pre><pre class="codeoutput">Warning: Rotation does not respect symmetry! 
+ 
 o1 = orientation  
   size: 1 x 1
   crystal symmetry : m-3m
@@ -169,7 +170,8 @@ o1 = orientation
      0   60   90    0
  
  
-</pre><p>Then the class of rotations crystallographically equivalent to o can be computed in two way. Either by using the command <a href="orientation.symmetrise.html">symmetrise</a></p><pre class="codeinput">symmetrise(o)</pre><pre class="codeoutput"> 
+</pre><p>Then the class of rotations crystallographically equivalent to o can be computed in two ways. Either by using the command
+            <a href="orientation.symmetrise.html">symmetrise</a></p><pre class="codeinput">symmetrise(o)</pre><pre class="codeoutput"> 
 ans = orientation  
   size: 384 x 1
   crystal symmetry : m-3m
@@ -181,15 +183,15 @@ ans = orientation
   crystal symmetry : m-3m
   specimen symmetry: mmm
  
-</pre><h3> Caclulating Missorientations<a name="17"> </a></h3>
-         <p>Let cs and ss be crystal and specimen symmetry and o1 and o2 two crystal orientations. Then one can ask for the missorientation
-            between both orientations. This missorientation can be calculated by the function <a href="orientation.angle.html">angle</a>.
+</pre><h3> Calculating Misorientations<a name="17"> </a></h3>
+         <p>Let cs and ss be crystal and specimen symmetry and o1 and o2 two crystal orientations. Then one can ask for the misorientation
+            between both orientations. This misorientation can be calculated by the function <a href="orientation.angle.html">angle</a>.
          </p><pre class="codeinput">angle(rot * o1,o1) / degree</pre><pre class="codeoutput">ans =
    30.0000
-</pre><p>This missorientation angle is in general smaller then the missorientation without crystal symmetry which can be computed via</p><pre class="codeinput">angle(rotation(o),rotation(o1)) /degree</pre><pre class="codeoutput">ans =
+</pre><p>This misorientation angle is, in general, smaller than the misorientation without crystal symmetry which can be computed via</p><pre class="codeinput">angle(rotation(o),rotation(o1)) /degree</pre><pre class="codeoutput">ans =
    60.0000
 </pre><h3> Calculating with Orientations and Rotations<a name="19"> </a></h3>
-         <p>Beside the standard linear algebra operations there are also the following functions available in MTEX. Then rotational angle
+         <p>Besides the standard linear algebra operations there are also the following functions available in MTEX. Then rotational angle
             and the axis of rotation can be computed via then commands <a href="quaternion.angle.html">angle(o)</a> and <a href="quaternion.axis.html">axis(o)</a></p><pre class="codeinput">angle(o1)/degree
 
 axis(o1)</pre><pre class="codeoutput">ans =
@@ -234,13 +236,12 @@ plot(oR)
 hold <span class="string">on</span>
 plot(o,<span class="string">'markercolor'</span>,<span class="string">'b'</span>,<span class="string">'markerSize'</span>,10)
 plot(o.project2FundamentalRegion,<span class="string">'markercolor'</span>,<span class="string">'r'</span>,<span class="string">'markerSize'</span>,10)
-hold <span class="string">off</span></pre><pre class="codeoutput">oR = 
-  orientationRegion with properties:
-
-            N: [1x7 quaternion]
-            V: [1x9 quaternion]
-            F: {1x7 cell}
-    antipodal: 0
+hold <span class="string">off</span></pre><pre class="codeoutput"> 
+oR = orientationRegion  
+ crystal symmetry:  m-3m
+ specimen symmetry: mmm
+ &lt;a href="matlab:display(oR.N)"&gt;face normales&lt;/a&gt;: 1 x 7
+ &lt;a href="matlab:display(oR.V)"&gt;vertices&lt;/a&gt;: 1 x 9
 </pre><img src="orientation_index_01.png"> <h2>Complete Function list<a name="23"> </a></h2>
          <p><table width="90%"><tr><td width="200px"><a href="orientation.BCV.html"><tt>BCV</tt></a></td><td>biased cross validation</td></tr><tr><td
             width="200px"><a href="orientation.KLCV.html"><tt>KLCV</tt></a></td><td>Kullback Leibler cross validation for optimal kernel

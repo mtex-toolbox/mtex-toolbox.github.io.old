@@ -68,8 +68,8 @@
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Defining a S2Grid<a name="3"> </a></h3>
-         <p>There are various ways to define a S2Grid. Next you find some exaples. For a detailed description of possible specifications
-            look for the documentation of the copnstructor <a href="S2Grid_index.html">S2Grid</a>.
+         <p>There are various ways to define a S2Grid. Next, you find some examples. For a detailed description of possible specifications
+            look for the documentation of the constructor <a href="S2Grid_index.html">S2Grid</a>.
          </p><pre class="codeinput"><span class="comment">% equidistributions</span>
 S2G = equispacedS2Grid(<span class="string">'points'</span>,100,<span class="string">'antipodal'</span>);  <span class="comment">% specified by number of points</span>
 S2G = equispacedS2Grid(<span class="string">'RESOLUTION'</span>,5*degree,<span class="string">'antipodal'</span>);  <span class="comment">% specified by resolution</span>
@@ -77,11 +77,11 @@ S2G = equispacedS2Grid(<span class="string">'RESOLUTION'</span>,5*degree,<span c
 <span class="comment">% regular grids</span>
 S2G = regularS2Grid(<span class="string">'points'</span>,[72,19]); <span class="comment">% specified by number of theta and rho steps</span>
 S2G = regularS2Grid(<span class="string">'theta'</span>,linspace(0,2*pi,72),<span class="keyword">...</span>
-             <span class="string">'rho'</span>,linspace(0,pi/2,19)); <span class="comment">% explicitely determine theta and rho values</span>
+             <span class="string">'rho'</span>,linspace(0,pi/2,19)); <span class="comment">% explicitly determine theta and rho values</span>
 
 <span class="comment">% restrictes grids</span>
-S2G = equispacedS2Grid(<span class="string">'points'</span>,100,<span class="string">'MAXTHETA'</span>,75*degree);  <span class="comment">% specifiy maximum theta angle</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h3> Plots<a name="4"> </a></h3><pre class="codeinput">plot(equispacedS2Grid(<span class="string">'points'</span>,100,<span class="string">'antipodal'</span>))  <span class="comment">% plot grid of nodes</span></pre><img src="S2Grid_index_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+S2G = equispacedS2Grid(<span class="string">'points'</span>,100,<span class="string">'MAXTHETA'</span>,75*degree);  <span class="comment">% specify maximum theta angle</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h3> Plots<a name="4"> </a></h3><pre class="codeinput">plot(equispacedS2Grid(<span class="string">'points'</span>,100,<span class="string">'antipodal'</span>))  <span class="comment">% plot the grid of nodes</span></pre><img src="S2Grid_index_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Complete Function list<a name="5"> </a></h2>
          <p><table width="90%"><tr><td width="200px"><a href="S2Grid.S2Grid.html"><tt>S2Grid</tt></a></td><td>Syntax</td></tr><tr><td
             width="200px"><a href="S2Grid.copy.html"><tt>copy</tt></a></td><td>certain condition from grid</td></tr><tr><td width="200px"><a

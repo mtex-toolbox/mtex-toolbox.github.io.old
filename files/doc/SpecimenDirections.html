@@ -79,7 +79,7 @@ annotate([vector3d.X,vector3d.Y,vector3d.Z],<span class="string">'label'</span>,
             coordinates, e.g., by setting
          </p><pre class="codeinput">plotx2north
 plot(v,<span class="string">'grid'</span>)
-annotate([vector3d.X,vector3d.Y,vector3d.Z],<span class="string">'label'</span>,{<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>},<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)</pre><img src="SpecimenDirections_02.png"> <p>One can easily acces the coordinates of any vector by</p><pre class="codeinput">v.x</pre><pre class="codeoutput">ans =
+annotate([vector3d.X,vector3d.Y,vector3d.Z],<span class="string">'label'</span>,{<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>},<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)</pre><img src="SpecimenDirections_02.png"> <p>One can easily access the coordinates of any vector by</p><pre class="codeinput">v.x</pre><pre class="codeoutput">ans =
      1
 </pre><p>or change it by</p><pre class="codeinput">v.x = 0</pre><pre class="codeoutput"> 
 v = vector3d  
@@ -101,14 +101,14 @@ v = vector3d
  size: 1 x 1
          x        y        z
   0.612372 0.612372      0.5
-</pre><img src="SpecimenDirections_03.png"> <p>Analogously as for the cartesian coordinates we can acces and change polar coordinates directly by</p><pre class="codeinput">v.rho ./ degree   <span class="comment">% the azimuth angle in degree</span>
+</pre><img src="SpecimenDirections_03.png"> <p>Analogously as for the Cartesian coordinates we can access and change polar coordinates directly by</p><pre class="codeinput">v.rho ./ degree   <span class="comment">% the azimuth angle in degree</span>
 v.theta ./ degree <span class="comment">% the polar angle in degree</span></pre><pre class="codeoutput">ans =
    45.0000
 ans =
    60.0000
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Calculating with Specimen Directions<a name="11"> </a></h2>
-         <p>In MTEX, one can calculate with specimen directions as with ordinary numbers, i.e. we can use the predifined vectors  <a href="xvector.html">xvector</a>, <a href="yvector.html">yvector</a>, and <a href="zvector.html">zvector</a> and set
+         <p>In MTEX, one can calculate with specimen directions as with ordinary numbers, i.e. we can use the predefined vectors  <a href="xvector.html">xvector</a>, <a href="yvector.html">yvector</a>, and <a href="zvector.html">zvector</a> and set
          </p><pre class="codeinput">v = xvector + 2*yvector</pre><pre class="codeoutput"> 
 v = vector3d  
  size: 1 x 1
@@ -140,9 +140,9 @@ ans = vector3d
 v = loadVector3d(fname,<span class="string">'ColumnNames'</span>,{<span class="string">'polar angle'</span>,<span class="string">'azimuth angle'</span>})</pre><pre class="codeoutput"> 
 v = vector3d  
  size: 1000 x 1
-</pre><p>and exported by the command</p><pre class="codeinput">export(v,fname,<span class="string">'polar'</span>)</pre><p>In order to visualize large lists of specimen directions scatter plots</p><pre class="codeinput">scatter(v,<span class="string">'upper'</span>)</pre><img src="SpecimenDirections_04.png"> <p>or contour plots may be helpfull</p><pre class="codeinput">contourf(v,<span class="string">'upper'</span>)</pre><img src="SpecimenDirections_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><p>and exported by the command</p><pre class="codeinput">export(v,fname,<span class="string">'polar'</span>)</pre><p>In order to visualize large lists of specimen directions scatter plots</p><pre class="codeinput">scatter(v,<span class="string">'upper'</span>)</pre><img src="SpecimenDirections_04.png"> <p>or contour plots may be helpful</p><pre class="codeinput">contourf(v,<span class="string">'upper'</span>)</pre><img src="SpecimenDirections_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Indexing lists of vectors<a name="19"> </a></h2>
-         <p>A list of vectors can be indexed directly by specifying the ids of the vectores one is interested in, e.g.</p><pre class="codeinput">v([1:5])</pre><pre class="codeoutput"> 
+         <p>A list of vectors can be indexed directly by specifying the ids of the vectors one is interested in, e.g.</p><pre class="codeinput">v([1:5])</pre><pre class="codeoutput"> 
 ans = vector3d  
  size: 5 x 1
            x          y          z
@@ -151,7 +151,7 @@ ans = vector3d
     0.430105   0.900869  0.0586948
    -0.447234  0.0186977   0.894221
    -0.139746   0.555614   0.819612
-</pre><p>gives the first 5 vectors from the list, or by logiacal indexing. The following command plots all vectors with an polar angle
+</pre><p>gives the first 5 vectors from the list, or by logical indexing. The following command plots all vectors with an polar angle
             smaller then 60 degree
          </p><pre class="codeinput">scatter(v(v.theta&lt;60*degree),<span class="string">'grid'</span>,<span class="string">'on'</span>)</pre><img src="SpecimenDirections_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>

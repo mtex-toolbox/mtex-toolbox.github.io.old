@@ -40,7 +40,7 @@
       <div class="container">
          <h1>Plotting Overview</h1>
          <div class="subheading">
-            <p>Overview over the plotting faccilities of MTEX, including annotations, plot types, color coding, combined plots and export
+            <p>Overview over the plotting facilities of MTEX, including annotations, plot types, color coding, combined plots and export
                of plots.
             </p>
          </div>
@@ -73,14 +73,14 @@
             </table>
          </div>
          <h2>Plotting in MTEX<a name="3"> </a></h2>
-         <p>In MTEX you can plot almost any type data. Simply apply the <b>plot</b> command to any variable and MTEX tries to plot the content of the variable in the most intuive way. In this way you can plot
-            three Miller indeces, rotations, pole figures, or ODFs. MTEX also offers you a wide range of possibilities to custumize your
-            plots, e.g. by changing the <a href="PlotTypes_demo.html">plot style</a>, the <a href="SphericalProjection_demo.html">spherical projection</a>, the <a href="ColorCoding_demo.html">color coding</a>, or by adding <a href="Annotations_demo.html">colorbars or other annotations</a> to the plot. You can even <a href="CombinedPlots_demo.html">combine plots</a> of different ODFs or EBSD data. This way MTEX allows you to create publication ready plots which can be exported to almost
+         <p>In MTEX you can plot almost any type data. Simply apply the <b>plot</b> command to any variable and MTEX tries to plot the content of the variable in the most intuitive way. In this way, you can
+            plot three Miller indices, rotations, pole figures, or ODFs. MTEX also offers you a wide range of possibilities to customize
+            your plots, e.g. by changing the <a href="PlotTypes_demo.html">plot style</a>, the <a href="SphericalProjection_demo.html">spherical projection</a>, the <a href="ColorCoding_demo.html">color coding</a>, or by adding <a href="Annotations_demo.html">colorbars or other annotations</a> to the plot. You can even <a href="CombinedPlots_demo.html">combine plots</a> of different ODFs or EBSD data. This way MTEX allows you to create publication-ready plots which can be exported to almost
             any format using the commands <a href="savefigure.html">savefigure</a>.
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Plot Types<a name="4"> </a></h2>
-         <p>In general MTEX knows the following <a href="PlotTypes_demo.html">plot types</a></p>
+         <p>In general, MTEX knows the following <a href="PlotTypes_demo.html">plot types</a></p>
          <div>
             <ul type="square">
                <li>contour plots</li>
@@ -91,13 +91,13 @@
             </ul>
          </div>
          <p>Contour plots are plots consisting only of contour lines and mainly used for pole figure or ODF plots. For raw pole figure
-            data MTEX uses by default a plot where each datapoint is represented by a single dot colored accordingly to the intensity.
-            Line plots are used by MTEX for one dimesional ODF plots, plots of Fourier coefficients and plots of kernel functions functions
+            data, MTEX uses by default a plot where each datapoint is represented by a single dot colored accordingly to the intensity.
+            Line plots are used by MTEX for one- dimensional ODF plots, plots of Fourier coefficients and plots of kernel functions
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Spherical Projections<a name="5"> </a></h2>
          <p>Whenever MTEX plots pole figures, ODFs, or crystal or specimen directions MTEX uses spherical projections to map the spherical
-            data to the plane. By doing so MTEX supports a wide varity of <a href="SphericalProjection_demo.html">spherical projections</a>, i.e.,
+            data to the plane. By doing so MTEX supports a wide variety of <a href="SphericalProjection_demo.html">spherical projections</a>, i.e.,
          </p>
          <div>
             <ul type="square">
@@ -110,8 +110,8 @@
          </div>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Color Coding<a name="6"> </a></h2>
-         <p>A central issue when interpreting plots is to have a consistent <a href="ColorCoding_demo.html">color coding</a> among all plots. In MTEX this can be achieved in two ways. If the the minimum and maximum value is known then one can use
-            one of the following syntaxes to have a consistent color coding.
+         <p>A central issue when interpreting plots is to have a consistent <a href="ColorCoding_demo.html">color coding</a> among all plots. In MTEX this can be achieved in two ways. If the minimum and maximum values are known then one can use one
+            of the following syntaxes to have a consistent color coding.
          </p>
          <div>
             <ul type="square">
@@ -123,7 +123,7 @@
          </div>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Plot Annotations<a name="7"> </a></h2>
-         <p>After generating a plot with MTEX it is possible to modify it interactivly using the MATLAB plotting tools in the plotting
+         <p>After generating a plot with MTEX it is possible to modify it interactively using the MATLAB plotting tools in the plotting
             figure. This includes
          </p>
          <div>
@@ -137,8 +137,8 @@
          <p>This is described in more detail <a href="Annotations_demo.html">here.</a></p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Combined Plots<a name="8"> </a></h2>
-         <p>Sometimes it is usefull to combine several plots, e.g. plotting on the top of an inverse pole figure some important crystall
-            directions. This can be performed by the command <a href="matlab:doc hold">hold all</a>, which preserfes MATLAB from replacing the old plot by the new one. This technique is described in more detail <a href="CombinedPlots_demo.html">here.</a></p>
+         <p>Sometimes it is useful to combine several plots, e.g. plotting on the top of an inverse pole figure some important crystal
+            directions. This can be performed by the command <a href="matlab:doc hold">hold all</a>, which preserves MATLAB from replacing the old plot by the new one. This technique is described in more detail <a href="CombinedPlots_demo.html">here.</a></p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Exporting Plots<a name="9"> </a></h2>
          <p>Plots generated by MTEX can be exported to a wide range of formats using the MATLAB function <b>save as</b> in the figure menu or using the command <a href="savefigure.html">savefigure</a></p>

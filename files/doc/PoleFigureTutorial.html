@@ -43,10 +43,10 @@
             <p>Tutorial on x-ray and neutron diffraction data.</p>
          </div>
          <h2>Import diffraction data<a name="2"> </a></h2>
-         <p>Click on <a href="matlab:import_wizard('PoleFigure')">Import pole figure data</a> to start the import wizard which is a GUI leading you throught the import of pole figure data. After finishing the wizard
+         <p>Click on <a href="matlab:import_wizard('PoleFigure')">Import pole figure data</a> to start the import wizard which is a GUI leading you through the import of pole figure data. After finishing the wizard
             you will end with a script similar to the following one.
          </p><pre class="codeinput"><span class="comment">% This script was automatically created by the import wizard. You should</span>
-<span class="comment">% run the whoole script or parts of it in order to import your data. There</span>
+<span class="comment">% run the whole script or parts of it in order to import your data. There</span>
 <span class="comment">% is no problem in making any changes to this script.</span>
 
 <span class="comment">% *Specify Crystal and Specimen Symmetries*</span>
@@ -83,7 +83,7 @@ fname_def = {<span class="keyword">...</span>
   [pname <span class="string">'/ZnCuTi_defocusing_PF_102_R.UXD'</span>],<span class="keyword">...</span>
   };
 
-<span class="comment">% *Specify Miller Indice*</span>
+<span class="comment">% *Specify Miller Indices*</span>
 
 h = { <span class="keyword">...</span>
   Miller(0,0,2,CS),<span class="keyword">...</span>
@@ -97,17 +97,17 @@ h = { <span class="keyword">...</span>
 <span class="comment">% create a Pole Figure variable containing the data</span>
 pf = loadPoleFigure(fname,h,CS,SS,<span class="string">'interface'</span>,<span class="string">'uxd'</span>);
 
-<span class="comment">% defocussing</span>
+<span class="comment">% defocusing</span>
 pf_def = loadPoleFigure(fname_def,h,CS,SS,<span class="string">'interface'</span>,<span class="string">'uxd'</span>);
 
 <span class="comment">% correct data</span>
 pf = correct(pf,<span class="string">'def'</span>,pf_def);</pre><h2>Plot Raw Data<a name="3"> </a></h2>
-         <p>You should run the sript section wise to see how MTEX imports the pole figure data. Next you can plot your data</p><pre class="codeinput">plot(pf)</pre><img src="PoleFigureTutorial_01.png"> <p>Make sure that the Miller indices are correctly assigned to the pole figures and that the alignment of the specimen coordinate
-            system, i.e., X, Y, Z is correct. In case of outliers or misanligned data you may want to correct you raw data. See <a href="ModifyPoleFigureData.html">how to modify pole figure data</a> for further information.
+         <p>You should run the script section wise to see how MTEX imports the pole figure data. Next, you can plot your data</p><pre class="codeinput">plot(pf)</pre><img src="PoleFigureTutorial_01.png"> <p>Make sure that the Miller indices are correctly assigned to the pole figures and that the alignment of the specimen coordinate
+            system, i.e., X, Y, Z is correct. In case of outliers or misaligned data, you may want to correct your raw data. See <a href="ModifyPoleFigureData.html">how to modify pole figure data</a> for further information.
          </p>
          <h2>ODF Estimation<a name="5"> </a></h2>
-         <p>Once your data are in a good shape, i.e. defocussing correction has been done and only few outliers are left you can step
-            to reconstruct an ODF out of these data. This is done by the command <a href="PoleFigure_calcODF.html">calcODF</a>.
+         <p>Once your data are in a good shape, i.e. defocusing correction has been done and only few outliers are left you can stop to
+            reconstruct an ODF out of these data. This is done by the command <a href="PoleFigure_calcODF.html">calcODF</a>.
          </p><pre class="codeinput">odf = calcODF(pf,<span class="string">'silent'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
   crystal symmetry : 622, X||a*, Y||b, Z||c
@@ -121,16 +121,16 @@ odf = ODF
     center: 9924 orientations, resolution: 5&deg;
     weight: 0.47977
  
-</pre><p>Note that reconstructing an ODF from pole figure data is a severly ill posed problem, i.e., it does <b>not</b> provide an unique solution. A more troughout discussion on the ambiguity of ODF reconstruction from pole figure data can
-            be found <a href="PF2ODFAmbiguity.html">here</a>. As a rule of thumb: as more pole figures you have and as more consistent you pole figure data are as better you reconstructed
+</pre><p>Note that reconstructing an ODF from pole figure data is a severely ill- posed problem, i.e., it does <b>not</b> provide a unique solution. A more throughout the discussion on the ambiguity of ODF reconstruction from pole figure data
+            can be found <a href="PF2ODFAmbiguity.html">here</a>. As a rule of thumb: as more pole figures you have and as more consistent you pole figure data are as better you reconstructed
             ODF will be.
          </p>
-         <p>To check how well your reconstructd ODF fitts the measured pole figure data do</p><pre class="codeinput">plotPDF(odf,pf.h)</pre><img src="PoleFigureTutorial_02.png"> <p>Compare the recalculated pole figures with the measured data. Quantitative measure for the fitting are the so called RP values.
-            They can be computed by
+         <p>To check how well your reconstructed ODF fits the measured pole figure data do</p><pre class="codeinput">plotPDF(odf,pf.h)</pre><img src="PoleFigureTutorial_02.png"> <p>Compare the recalculated pole figures with the measured data. A quantitative measure for the fitting are the so called RP
+            values. They can be computed by
          </p><pre class="codeinput">calcError(odf,pf)</pre><pre class="codeoutput">progress: 100%
 ans =
     0.0388    0.0429    0.0586    0.0449
-</pre><p>In case of a bad fitting you may want to tweak the reconstruction algorithm. See <a href="PoleFigure2odf.html">here</a> for more information.
+</pre><p>In the case of a bad fitting, you may want to tweak the reconstruction algorithm. See <a href="PoleFigure2odf.html">here</a> for more information.
          </p>
          <h2>Quantify the Reconstruction Error<a name="9"> </a></h2>
          <h2>Visualize the ODF<a name="10"> </a></h2><pre class="codeinput">plot(odf)

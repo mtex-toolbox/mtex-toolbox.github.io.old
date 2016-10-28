@@ -84,13 +84,20 @@
             </td>
             <td>
             <p><a href="EBSD_index.html">EBSD</a> subset</p>
-            <p>mple lotx2east lot(ebsd)  = ginput(1)  = findByLocation(ebsd,p)</p>
             </td>
             </tr>
             </table>
             
          </p>
-         <h3 class="seealso">See also</h3>
+         <h2>Example<a name="6"> </a></h2><pre class="codeinput">mtexdata <span class="string">fo</span>
+plotx2east
+plot(ebsd)
+p = [10000 5000] <span class="comment">%ginput(1)</span>
+g = findByLocation(ebsd,p)</pre><pre class="codeoutput">p =
+       10000        5000
+g =
+       73401
+</pre><img src="EBSD.findByLocation_01.png"> <h3 class="seealso">See also</h3>
          <p><a href="EBSD.findByLocation.html">EBSD/findByLocation</a>, <a href="GrainSet.findByOrientation.html">GrainSet/findByOrientation</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

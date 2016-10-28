@@ -80,7 +80,7 @@ ans =
 
 plot(pf_modified)</pre><pre class="codeoutput"> 
 pf_modified = PoleFigure  
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
+  crystal symmetry : -3m1, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   h = (10-10), r = 1 x 1224 points
@@ -91,7 +91,7 @@ pf_modified = rotate(pf,rot)
 
 plot(pf_modified)</pre><pre class="codeoutput"> 
 pf_modified = PoleFigure  
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
+  crystal symmetry : -3m1, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   h = (10-10), r = 72 x 19 points
@@ -108,7 +108,7 @@ error: 1.5645E-01
 alpha: 6.8114E+00 1.0320E+02 1.4255E+02 
  
 rec = ODF  
-  crystal symmetry : 321, X||a*, Y||b, Z||c
+  crystal symmetry : 321, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Radially symmetric portion:
@@ -189,8 +189,12 @@ ans =
     0.0301    0.0316    0.0297
 </pre><p><b>Difference plot</b></p><pre class="codeinput">plotDiff(pf_SantaFe,rec)</pre><pre class="codeoutput">progress: 100%
 </pre><img src="PoleFigureDemo_07.png"> <p><b>ODF error</b></p><pre class="codeinput">calcError(SantaFe,rec)
-calcError(SantaFe,rec_ng)</pre><pre class="codeoutput">ans =
+calcError(SantaFe,rec_ng)</pre><pre class="codeoutput">Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
+ans =
     0.0271
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 ans =
     0.0859
 </pre><h2>Exercises<a name="17"> </a></h2>

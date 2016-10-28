@@ -55,7 +55,9 @@
                </tr>
             </table>
          </div>
-         <p>One of the central issues analizing grains is the visualization by spatial maps. Therefor, let us first reconstruct some grains</p><pre class="codeinput">mtexdata <span class="string">forsterite</span>
+         <p>One of the central issues analyzing grains is the visualization by spatial maps. Therefore, let us first reconstruct some
+            grains
+         </p><pre class="codeinput">mtexdata <span class="string">forsterite</span>
 plotx2east
 
 <span class="comment">% consider only indexed data for grain segmentation</span>
@@ -67,7 +69,7 @@ grains = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1    1080  152345  Forsterite       mmm                         
      2     515   26058   Enstatite       mmm                         
-     3    1496    9064    Diopside     12/m1        X||a*, Y||b, Z||c
+     3    1496    9064    Diopside     12/m1        X||a, Y||b, Z||c*
  
  Properties: GOS, meanRotation
  
@@ -77,7 +79,7 @@ ebsd = EBSD
  Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
      1  152345 (81%)  Forsterite   light blue       mmm                         
      2   26058 (14%)   Enstatite  light green       mmm                         
-     3   9064 (4.8%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+     3   9064 (4.8%)    Diopside    light red     12/m1        X||a, Y||b, Z||c*
  
  Properties: bands, bc, bs, error, mad, x, y, grainId
  Scan unit : um
@@ -108,7 +110,7 @@ ebsd_grain = EBSD
  Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
      1  151009 (82%)  Forsterite   light blue       mmm                         
      2   25270 (14%)   Enstatite  light green       mmm                         
-     3   6816 (3.7%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+     3   6816 (3.7%)    Diopside    light red     12/m1        X||a, Y||b, Z||c*
  
  Properties: bands, bc, bs, error, mad, x, y, grainId
  Scan unit : um
@@ -116,13 +118,13 @@ ebsd_grain = EBSD
 </pre><img src="GrainSpatialPlots_04.png"> <p>Also, a property to plot can be given as a Nx1 vector, where N is the number of grains.</p><pre class="codeinput">close <span class="string">all</span>
 plot(grains,shapeFactor(grains))</pre><img src="GrainSpatialPlots_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Visualizing grain boundaries<a name="11"> </a></h2>
-         <p>Plotting grain boundaries may be a usefull task, e.g. marking special grain boundaries, generally this is done by the <a href="GrainSet.plotBoundary.html">plotBoundary</a> command.
+         <p>Plotting grain boundaries may be a useful task, e.g. marking special grain boundaries, generaly this is done by the <a href="GrainSet.plotBoundary.html">plotBoundary</a> command.
          </p><pre class="codeinput">close <span class="string">all</span>
 plot(grains.boundary)</pre><img src="GrainSpatialPlots_06.png"> <p>A grain boundaries plot can be easily combined with further plots by *hold on command, so we can plot various information
             together
          </p><pre class="codeinput">hold <span class="string">on</span>
 plot(ebsd,ebsd.bc)
-mtexColorMap <span class="string">white2black</span></pre><img src="GrainSpatialPlots_07.png"> <p>e.g. we want also to see all one pixel grains</p><pre class="codeinput">grains_selection = grains( grains.grainSize == 1) ;
+mtexColorMap <span class="string">white2black</span></pre><img src="GrainSpatialPlots_07.png"> <p>e.g. we want also to see all one-pixel grains</p><pre class="codeinput">grains_selection = grains( grains.grainSize == 1) ;
 
 hold <span class="string">on</span>
 plot(grains_selection.boundary,<span class="string">'linecolor'</span>,<span class="string">'r'</span>,<span class="string">'linewidth'</span>,2)</pre><img src="GrainSpatialPlots_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

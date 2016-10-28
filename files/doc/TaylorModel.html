@@ -52,7 +52,7 @@
                   <td><a href="#6">The orientation dependence of the Taylor factor</a></td>
                </tr>
                <tr>
-                  <td><a href="#7">The orientation dependency of the rotation value</a></td>
+                  <td><a href="#7">The orientation dependence of the rotation value</a></td>
                </tr>
                <tr>
                   <td><a href="#9">Most active slip direction</a></td>
@@ -127,9 +127,9 @@ toc
 sP.plot(M,<span class="string">'smooth'</span>)
 
 mtexColorbar</pre><pre class="codeoutput"> computing Taylor factor: 100%
-Elapsed time is 122.745538 seconds.
+Elapsed time is 60.759868 seconds.
 </pre><img src="TaylorModel_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>The orientation dependency of the rotation value<a name="7"> </a></h2>
+         <h2>The orientation dependence of the rotation value<a name="7"> </a></h2>
          <p>Compare Fig. 8 of the above paper</p><pre class="codeinput">sP.plot(mori.angle./degree,<span class="string">'smooth'</span>)
 mtexColorbar</pre><img src="TaylorModel_02.png"> <pre class="codeinput">sP = sigmaSections(cs,specimenSymmetry);
 oriGrid = sP.makeGrid(<span class="string">'resolution'</span>,2.5*degree);
@@ -191,115 +191,18 @@ q = 0;
 epsilon = 0.3 * tensor.diag([1 -q -(1-q)],<span class="string">'name'</span>,<span class="string">'strain'</span>);
 
 <span class="comment">%</span>
-numIter = 50;
+numIter = 10;
 progress(0,numIter);
 <span class="keyword">for</span> sas=1:numIter
 
   <span class="comment">% compute the Taylor factors and the orientation gradients</span>
-  [M,~,mori] = calcTaylor(inv(ori) * epsilon ./ numIter, sS.symmetrise);
+  [M,~,mori] = calcTaylor(inv(ori) * epsilon ./ numIter, sS.symmetrise,<span class="string">'silent'</span>);
 
   <span class="comment">% rotate the individual orientations</span>
   ori = ori .* mori;
   progress(sas,numIter);
-<span class="keyword">end</span></pre><pre class="codeoutput"> computing Taylor factor: 100%
-progress: 2%
- computing Taylor factor: 100%
-progress: 4%
- computing Taylor factor: 100%
-progress: 6%
- computing Taylor factor: 100%
-progress: 8%
- computing Taylor factor: 100%
-progress: 10%
- computing Taylor factor: 100%
-progress: 12%
- computing Taylor factor: 100%
-progress: 14%
- computing Taylor factor: 100%
-progress: 16%
- computing Taylor factor: 100%
-progress: 18%
- computing Taylor factor: 100%
-progress: 20%
- computing Taylor factor: 100%
-progress: 22%
- computing Taylor factor: 100%
-progress: 24%
- computing Taylor factor: 100%
-progress: 26%
- computing Taylor factor: 100%
-progress: 28%
- computing Taylor factor: 100%
-progress: 30%
- computing Taylor factor: 100%
-progress: 32%
- computing Taylor factor: 100%
-progress: 34%
- computing Taylor factor: 100%
-progress: 36%
- computing Taylor factor: 100%
-progress: 38%
- computing Taylor factor: 100%
-progress: 40%
- computing Taylor factor: 100%
-progress: 42%
- computing Taylor factor: 100%
-progress: 44%
- computing Taylor factor: 100%
-progress: 46%
- computing Taylor factor: 100%
-progress: 48%
- computing Taylor factor: 100%
-progress: 50%
- computing Taylor factor: 100%
-progress: 52%
- computing Taylor factor: 100%
-progress: 54%
- computing Taylor factor: 100%
-progress: 56%
- computing Taylor factor: 100%
-progress: 58%
- computing Taylor factor: 100%
-progress: 60%
- computing Taylor factor: 100%
-progress: 62%
- computing Taylor factor: 100%
-progress: 64%
- computing Taylor factor: 100%
-progress: 66%
- computing Taylor factor: 100%
-progress: 68%
- computing Taylor factor: 100%
-progress: 70%
- computing Taylor factor: 100%
-progress: 72%
- computing Taylor factor: 100%
-progress: 74%
- computing Taylor factor: 100%
-progress: 76%
- computing Taylor factor: 100%
-progress: 78%
- computing Taylor factor: 100%
-progress: 80%
- computing Taylor factor: 100%
-progress: 82%
- computing Taylor factor: 100%
-progress: 84%
- computing Taylor factor: 100%
-progress: 86%
- computing Taylor factor: 100%
-progress: 88%
- computing Taylor factor: 100%
-progress: 90%
- computing Taylor factor: 100%
-progress: 92%
- computing Taylor factor: 100%
-progress: 94%
- computing Taylor factor: 100%
-progress: 96%
- computing Taylor factor: 100%
-progress: 98%
- computing Taylor factor: 100%
+<span class="keyword">end</span></pre><pre class="codeoutput">progress: 0%
+Warning: Symmetryprogress: 100%
 </pre><pre class="codeinput"><span class="comment">% plot the resulting pole figures</span>
 
 plotPDF(ori,Miller({0,0,1},{1,1,1},cs),<span class="string">'contourf'</span>)

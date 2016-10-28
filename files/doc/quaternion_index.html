@@ -69,12 +69,12 @@
             </table>
          </div>
          <h2>Class Description<a name="2"> </a></h2>
-         <p>The class quaternion allows to work with rotations in MTEX, as they occur e.g. as crystal orientation or symmetries. Quaternions
-            may be multiplied with <a href="vector3d_index.html">three dimensional vecotors</a> which means rotating the vector or may by multiplied with another quaternion which means to concatenate both rotations.
+         <p>The class quaternion allows working with rotations in MTEX, as they occur e.g. as crystal orientation or symmetries. Quaternions
+            may be multiplied with <a href="vector3d_index.html">three-dimensional vecotors</a> which means rotating the vector or may be multiplied with another quaternion which means to concatenate both rotations.
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Defining quaternions<a name="3"> </a></h3>
-         <p>The standard way is to define a quaternion q is to give its coordinates (a,b,c,d). However making use of one of the following
+         <p>The standard way is to define a quaternion q is to give its coordinates (a,b,c,d). However, making use of one of the following
             conversion methods is much more human readable.
          </p><pre>q = <a href="quaternion.quaternion.html">quaternion</a>(a,b,c,d)          % by coordinates
 q = <a href="axis2quat.html">axis2quat</a>(axis,angle);       % by rotational axis and rotational angle
@@ -85,7 +85,7 @@ q = <a href="vec42quat.html">vec42quat</a>(u1,v1,u2,v2);      % by four vectors<
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Calculating with three dimensional vectors<a name="4"> </a></h3>
-         <p>Beside the standard linear algebra operations there are also the following functions available in MTEX.</p><pre><a href="quaternion.angle.html">angle</a>(q); % rotational angle
+         <p>Besides the standard linear algebra operations there are also the following functions available in MTEX.</p><pre><a href="quaternion.angle.html">angle</a>(q); % rotational angle
 <a href="quaternion.axis.html">axis</a>(q);  % rotational axis
 <a href="quaternion.inverse.html">inverse</a>(q);  % inverse rotation</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Conversion<a name="5"> </a></h3>

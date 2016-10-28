@@ -63,6 +63,7 @@ crystalSymmetry -|> symmetry
 vector3d <|- Miller
 
 class slipSystem{
+ [[/files/doc/slipSystem_index.html]]
  +b: Miller [[/files/doc/Miller_index.html]]
  +n: Miller [[/files/doc/Miller_index.html]]
  +CRSS: double
@@ -70,8 +71,13 @@ class slipSystem{
 }
 
 class fibre{
+ [[/files/doc/fibre_index.html]]
  +o1: orientation
+ +o2: orientation
  +h: Miller
+ -r: vector3d
+ -CS: crystalSymmetry
+ -SS: specimenSymmetry
 }
 
 class S2Grid {
@@ -81,15 +87,15 @@ class SO3Grid {
  +resolution: double
 }
 
-
-
 class sphericalRegion {
+ [[/files/doc/sphericalRegion_index.html]]
  +N: vector3d
  +alpha: double
  +antipodal: logical
 }
 
 class orientationRegion {
+ [[/files/doc/orientationRegion_index.html]]
  +N: orientation
  +V: orientation
  +F:
@@ -106,6 +112,8 @@ orientationRegion -right-> SO3Grid :> equispacedSO3Grid()
 
 S2Grid -|> vector3d
 SO3Grid -|> orientation
+
+orientation --> fibre :> fibre(o1,o2)
 
 
 @enduml

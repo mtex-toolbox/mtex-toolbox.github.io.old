@@ -44,16 +44,11 @@
             </p>
          </div>
          <p>plots odf</p>
-         <p>this function is only a shortcut to plotSection, plot3d and plotFibre</p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>plot(odf,'param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput"><span class="comment">% plot the odf along the alpha fibre</span>
+f = fibre.alpha(odf.CS)
+plot(odf,f)</pre><pre class="codeinput"><span class="comment">% plot the odf as phi2 sections</span>
+oS = phi2Sections(odf.CS)
+plot(odf,oS)</pre><p>this function is only a shortcut to plotSection, plot3d and plotFibre</p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

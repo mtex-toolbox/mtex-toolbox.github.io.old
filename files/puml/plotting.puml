@@ -1,15 +1,76 @@
 @startuml
 
-package "ODFAnalysis" {
- class ODF
+ class MtexFigure{
+  +parent: handle
+  +children: handle
+  +cBarAxis: handle
+  +innerPlotSpacing: double
+  +keepAspectRatio: logical
+  +nrows: integer
+  +ncols: integer
+  +axisWidth: double
+  +axisHeight: double
+  +cbx: double
+  +cby: double
+  +tightInset
+  +figTightInset
+  -currentAxes
+  -currentId
+  -axesWidth
+  -axesHeight
+  -currentAxis
+  -outerPlotSpacing
+  -dataCursorMenu
+ }
+
+
+class mapPlot{
+ +ax: handle
+ +parent: handle
+ +micronBar: scaleBar
+ +extend: double
 }
 
-package "PoleFigureAnalysis" {
- class PoleFigure
+
+class scaleBar{
+ +backgroundColor
+ +backgroundAlpha
+ +scanUnit
+ +lineColor
+ +border
+ +borderWidth
+ +location
+ +length
+ +hgt
+ +shadow
+ +txt
+ +ruler
+ -visible
 }
 
-package "plotting" {
- class MtexFigure
+class sphericalPlot{
+ +proj
+ +boundary
+ +bounds
+ +grid
+ +ticks
+ +labels
+ +ax
+ +hgt
+ +parent
+ +TL
+ +TR
+ +BL
+ +BR
+ +minData
+ +maxData
+ +dispMinMax
+
+ -sphericalRegion
+ -antipodal
+}
+
+
  class sphericalProjection
-}
+
 @enduml

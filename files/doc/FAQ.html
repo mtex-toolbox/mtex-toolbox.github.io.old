@@ -43,7 +43,7 @@
             <p>Frequently asked questions</p>
          </div>
          <h2>Why is there no graphical user interface?<a name="1"> </a></h2>
-         <p>In contrast to almost any other texture analysis software MTEX has no graphical user interface but provides a scripting languages.
+         <p>In contrast to almost any other texture analysis software MTEX has no graphical user interface but provides scripting languages.
             We believe that this has the following advantages
          </p>
          <div>
@@ -73,7 +73,7 @@ grains = calcGrains(ebsd(<span class="string">'indexed'</span>));
 hold <span class="string">on</span>
 plot(grains.boundary)
 hold <span class="string">off</span></pre><img src="FAQ_01.png"> <h2>Why Matlab?<a name="2"> </a></h2>
-         <p>Matlab offers a very comfortable scripting interface as well as a very powerfull graphics engine. A reasonable alternative
+         <p>Matlab offers a very comfortable scripting interface as well as a very powerful graphics engine. A reasonable alternative
             is Phyton which would have several advantages. However, so far there are no plans for migration.
          </p>
          <h2>Which Matlab version and which toolboxes do I need?<a name="3"> </a></h2>
@@ -91,7 +91,7 @@ set(gcf,<span class="string">'renderer'</span>,<span class="string">'zBuffer'</s
   oM = ipdfHSVOrientationMapping(ori_variable_name)
   plot(oM)
 </pre><img src="FAQ_02.png"> <h2>I have crazy characters in my plots. What can I do?<a name="5"> </a></h2>
-         <p>This indicates that your MATLAB installation has problems to interprete LaTex. As a workaround switch off LaTex by uncommenting
+         <p>This indicates that your MATLAB installation has problems to interpret LaTex. As a workaround switch off LaTex by uncommenting
             the following line in <a href="matlab:edit('mtex_settings.m')">mtex_settings.m</a>.
          </p><pre class="codeinput">setMTEXpref(<span class="string">'LaTex'</span>,false);</pre><h2>How can I import my data<a name="6"> </a></h2>
          <p>You might use the import_wizard by typing</p><pre class="codeinput">import_wizard</pre><img src="FAQ_03.png"> <p>See also</p>
@@ -105,7 +105,7 @@ set(gcf,<span class="string">'renderer'</span>,<span class="string">'zBuffer'</s
             </ul>
          </div>
          <h2>MTEX fails to import EBSD OSC files<a name="8"> </a></h2>
-         <p>The OSC file format is a commercial binary EBSD format that has undergone heavy changes. For that reason it hard for MTEX
+         <p>The OSC file format is a commercial binary EBSD format that has undergone heavy changes. For that reason it is hard for MTEX
             to keep up with a functional interface. As a workaround export your data to ANG file. Those can be easily imported into MTEX.
          </p>
          <p style="font-size:1px;"></p>

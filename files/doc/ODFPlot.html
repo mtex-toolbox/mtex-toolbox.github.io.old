@@ -78,7 +78,7 @@ odf = 0.2*unimodalODF(mod1) <span class="keyword">...</span>
 
 <span class="comment">%odf = 0.2*unimodalODF(mod2)</span></pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : 321, X||a*, Y||b, Z||c
+  crystal symmetry : 321, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Radially symmetric portion:
@@ -102,16 +102,16 @@ odf = ODF
          </p><pre class="codeinput">plotPDF(odf,[Miller(1,0,-1,0,cs),Miller(0,0,0,1,cs)])</pre><img src="ODFPlot_01.png"> <p>By default the <a href="ODF.plotPDF.html">plotPDF</a> command plots only the upper hemisphere of each pole sphere. In order to plot upper and lower hemisphere you can do the following
          </p><pre class="codeinput">mtexFig = mtexFigure;
 
-plotPDF(odf,Miller(1,0,-1,1,cs),<span class="string">'TR'</span>,<span class="string">'upper'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
+plotPDF(odf,Miller(1,1,-2,1,cs),<span class="string">'TR'</span>,<span class="string">'upper'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
 
-plotPDF(odf,Miller(1,0,-1,1,cs),<span class="string">'TR'</span>,<span class="string">'lower'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
+plotPDF(odf,Miller(1,1,-2,1,cs),<span class="string">'TR'</span>,<span class="string">'lower'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
 
-mtexFig.drawNow</pre><img src="ODFPlot_02.png"> <p>We see that in general uper and lower hemisphere of the pole figure do not coincide. This is only the case if one one following
+mtexFig.drawNow</pre><img src="ODFPlot_02.png"> <p>We see that in general upper and lower hemisphere of the pole figure do not coincide. This is only the case if one one following
             reason is satisfied
          </p>
          <div>
             <ul type="square">
-               <li>the crystal direction h is symmetricaly equivalent to -h, in the present example this is true for the c-axis h = (0001)</li>
+               <li>the crystal direction h is symmetrically equivalent to -h, in the present example this is true for the c-axis h = (0001)</li>
                <li>the symmetry group contains the inversion, i.e., it is a Laue group</li>
                <li>we consider experimental pole figures where we have antipodal symmetry, due to Friedel's law.</li>
             </ul>
@@ -119,16 +119,16 @@ mtexFig.drawNow</pre><img src="ODFPlot_02.png"> <p>We see that in general uper a
          <p>In MTEX antipodal symmetry can be enforced by the use the option <b>antipodal</b>.
          </p><pre class="codeinput">mtexFig = mtexFigure;
 
-plotPDF(odf,Miller(1,0,-1,1,cs),<span class="string">'TR'</span>,<span class="string">'upper'</span>,<span class="string">'antipodal'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
+plotPDF(odf,Miller(1,1,-2,1,cs),<span class="string">'TR'</span>,<span class="string">'upper'</span>,<span class="string">'antipodal'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
 
-plotPDF(odf,Miller(1,0,-1,1,cs),<span class="string">'TR'</span>,<span class="string">'lower'</span>,<span class="string">'antipodal'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
+plotPDF(odf,Miller(1,1,-2,1,cs),<span class="string">'TR'</span>,<span class="string">'lower'</span>,<span class="string">'antipodal'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis)
 
 mtexFig.drawNow</pre><img src="ODFPlot_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Inverse Pole Figures<a name="8"> </a></h2>
          <p>Plotting inverse pole figures is analogously to plotting pole figures with the only difference that you have to use the command
             <a href="ODF.plotIPDF.html">plotIPDF</a> and you to specify specimen directions and not crystal directions.
          </p><pre class="codeinput">plotIPDF(odf,[xvector,zvector],<span class="string">'antipodal'</span>)
-annotate(Miller(1,0,-1,0,odf.CS,<span class="string">'UVTW'</span>),<span class="string">'labeled'</span>)</pre><img src="ODFPlot_04.png"> <p>By default MTEX alway plots only the fundamental region with respect to the crystal symmetry. In order to plot the complete
+annotate(Miller(1,0,-1,0,odf.CS,<span class="string">'UVTW'</span>),<span class="string">'labeled'</span>)</pre><img src="ODFPlot_04.png"> <p>By default MTEX always plots only the fundamental region with respect to the crystal symmetry. In order to plot the complete
             inverse pole figure you have to use the option <b>complete</b>.
          </p><pre class="codeinput">plotIPDF(odf,[xvector,zvector],<span class="string">'antipodal'</span>,<span class="string">'complete'</span>)</pre><img src="ODFPlot_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>ODF Sections<a name="10"> </a></h2>
@@ -142,23 +142,24 @@ annotate(Miller(1,0,-1,0,odf.CS,<span class="string">'UVTW'</span>),<span class=
                <li>sigma (alpha+gamma)</li>
             </ul>
          </div>
-         <p>In this context the authors of MTEX recommends the sigma sections as they provide a much less distorted representation of
-            the orientation space. They can be seen as the (001) pole figure splitted according to rotations about the (001) axis. Lets
-            have a look at the 001 pole figure
+         <p>In this context the authors of MTEX recommend the sigma sections as they provide a much less distorted representation of the
+            orientation space. They can be seen as the (001) pole figure splitted according to rotations about the (001) axis. Lets have
+            a look at the 001 pole figure
          </p><pre class="codeinput">plotPDF(odf,Miller(0,0,0,1,cs))</pre><img src="ODFPlot_08.png"> <p>We observe three spots. Two in the center and one at 100. When splitting the pole figure, i.e. plotting the odf as sigma sections</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><img src="ODFPlot_09.png"> <p>we can clearly distinguish the two spots in the middle indicating two radial symmetric portions. On the other hand the spots
             at 001 appear in every section indicating a fibre at position [001](100). Knowing that sigma sections are nothing else then
-            the splitted 001 pole figure they are much more simple to interprete then ussual phi2 sections.
+            the splitted 001 pole figure they are much more simple to interpret then usual phi2 sections.
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Plotting the ODF along a fibre<a name="16"> </a></h2>
          <p>For plotting the ODF along a certain fibre we have the command</p><pre class="codeinput">close <span class="string">all</span>
-plotFibre(odf,Miller(1,2,-3,2,cs),vector3d(2,1,1),<span class="string">'LineWidth'</span>,2);</pre><img src="ODFPlot_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+f = fibre(Miller(1,2,-3,2,cs),vector3d(2,1,1));
+plot(odf,f,<span class="string">'LineWidth'</span>,2);</pre><img src="ODFPlot_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Fourier Coefficients<a name="17"> </a></h2>
          <p>A last way to visualize an ODF is to plot its Fourier coefficients</p><pre class="codeinput">close <span class="string">all</span>;
 fodf = FourierODF(odf,32)
 plotFourier(fodf)</pre><pre class="codeoutput"> 
 fodf = ODF  
-  crystal symmetry : 321, X||a*, Y||b, Z||c
+  crystal symmetry : 321, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Harmonic portion:
@@ -169,8 +170,8 @@ fodf = ODF
          <h2>Axis / Angle Distribution<a name="18"> </a></h2>
          <p>Let us consider the uncorrelated missorientation ODF corresponding to our model ODF.</p><pre class="codeinput">mdf = calcMDF(odf)</pre><pre class="codeoutput"> 
 mdf = MDF  
-  crystal symmetry : 321, X||a*, Y||b, Z||c
-  crystal symmetry : 321, X||a*, Y||b, Z||c
+  crystal symmetry : 321, X||a, Y||b*, Z||c
+  crystal symmetry : 321, X||a, Y||b*, Z||c
  
   Harmonic portion:
     degree: 23

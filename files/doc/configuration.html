@@ -58,8 +58,8 @@
             </ul>
          </div>
          <h2>The Option System<a name="2"> </a></h2>
-         <p>Many functions provided by MTEX can be customized by options. A option is passed to a method as a string parameter followed
-            by a value. For example, almost all ploting methods support the option <tt>RESOLUTION</tt> followed by a double value specifying the resolution
+         <p>Many functions provided by MTEX can be customized by options. An option is passed to a method as a string parameter followed
+            by a value. For example, almost all plotting methods support the option <tt>RESOLUTION</tt> followed by a double value specifying the resolution
          </p><pre class="codeinput">odf = SantaFe
 plotPDF(odf,Miller(1,0,0,odf.CS),<span class="string">'resolution'</span>,5*degree,<span class="string">'contour'</span>);</pre><pre class="codeoutput"> 
 odf = ODF  
@@ -74,9 +74,9 @@ odf = ODF
     center: (297&deg;,48&deg;,27&deg;)
     weight: 0.27
  
-</pre><img src="configuration_01.png"> <p>Options that are not followed by a value are called flags. In the above example <tt>contour</tt> is a flag that says the plotting routine to plot contour lines. Options and flags to a function are allways optional and
-            can be passed in any order. If conflicting options or flags are passed, i.e., the resolution is specified twice, the later
-            option in the list is considered to be the right one.
+</pre><img src="configuration_01.png"> <p>Options that are not followed by a value are called flags. In the above example, <tt>contour</tt> is a flag that says the plotting routine to plot contour lines. Options and flags to a function are always optional and can
+            be passed in any order. If conflicting options or flags are passed, i.e., the resolution is specified twice, the later option
+            in the list is considered to be the right one.
          </p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

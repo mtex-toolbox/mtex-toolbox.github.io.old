@@ -41,7 +41,7 @@
          <h1>Fundamental Regions</h1>
          <div class="subheading">
             <p>Thanks to crystal symmetry the orientation space can be reduced to the so called fundamental or asymmetric region. Those regions
-               play an important role for the computation of axis and angle distribtions of misorientations.
+               play an important role for the computation of axis and angle distributions of misorientations.
             </p>
          </div>
          <div>
@@ -111,9 +111,9 @@ hold <span class="string">on</span>
 plotSection(rotY,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>)
 hold <span class="string">off</span></pre><img src="MorawiecCell_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Crystal Symmetries<a name="6"> </a></h2>
-         <p>In case of crystal symmetries the orientation space can divded into as many equivalent segments as the symmetry group has
-            elements. E.g. in the case of orthorombic symmetry the orientation space is subdived into four equal parts, the central one
-            looking like
+         <p>In case of crystal symmetries the orientation space can divided into as many equivalent segments as the symmetry group has
+            elements. E.g. in the case of orthorombic symmetry the orientation space is subdivided into four equal parts, the central
+            one looking like
          </p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'222'</span>)
 oR = fundamentalRegion(cs);
 
@@ -150,7 +150,7 @@ plot 2000 random orientations out of 152345 given orientations
          </p><pre class="codeinput"><span class="comment">% segment data into grains</span>
 [grains,ebsd.grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>));
 
-<span class="comment">% take the orientaions of the largest on</span>
+<span class="comment">% take the orientations of the largest on</span>
 [~,id] = max(grains.area);
 largeGrain = grains(id)
 ori = ebsd(largeGrain).orientations
@@ -198,7 +198,7 @@ plot(grains.boundary(<span class="string">'fo'</span>,<span class="string">'En'<
 hold <span class="string">off</span></pre><pre class="codeoutput">plot 2000 random orientations out of 11814 given orientations
 </pre><img src="MorawiecCell_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Fundamental regions of misorientations with antipodal symmetry<a name="12"> </a></h2>
-         <p>Note that for boundary misorientations between the same phase we can <b>not</b> distinguish between a misorintation and its inverse. This is not the case for misorientations between different phases or
+         <p>Note that for boundary misorientations between the same phase we can <b>not</b> distinguish between a misorientation and its inverse. This is not the case for misorientations between different phases or
             the misorientation between the mean orientation of a grain and all other orientations. The inverse of a misorientation is
             axis - angle representation is simply the one with the same angle but antipodal axis. Accordingly this additional symmetry
             is handled in MTEX by the keyword <b>antipodal</b>.

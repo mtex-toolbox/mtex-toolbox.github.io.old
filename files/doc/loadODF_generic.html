@@ -126,9 +126,6 @@ alpha_M beta_M gamma_M weight_m</pre><p>The assoziation of the columns as Euler 
             </td>
             <td>
             <p>[alpha beta gamma] Euler angle in Mathies convention</p>
-            <p>mple</p>
-            <p>fname = fullfile(mtexDataPath,'ODF','odf.txt'); odf = loadODF_generic(fname,'cs',crystalSymmetry('cubic'),'header',5,...
-            'ColumnNames',{'Euler 1' 'Euler 2' 'Euler 3' 'weight'},...   'Columns',[1,2,3,4])</p>
             </td>
             </tr>
             </table>
@@ -137,7 +134,20 @@ alpha_M beta_M gamma_M weight_m</pre><p>The assoziation of the columns as Euler 
             </table>
             
          </p>
-         <h3 class="seealso">See also</h3>
+         <h2>Example<a name="5"> </a></h2><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'ODF'</span>,<span class="string">'odf.txt'</span>);
+odf = loadODF_generic(fname,<span class="string">'cs'</span>,crystalSymmetry(<span class="string">'cubic'</span>),<span class="string">'header'</span>,5,<span class="keyword">...</span>
+<span class="string">'ColumnNames'</span>,{<span class="string">'Euler 1'</span> <span class="string">'Euler 2'</span> <span class="string">'Euler 3'</span> <span class="string">'weight'</span>},<span class="keyword">...</span>
+<span class="string">'Columns'</span>,[1,2,3,4])</pre><pre class="codeoutput"> 
+odf = ODF  
+  crystal symmetry : m-3m
+  specimen symmetry: 1
+ 
+  Radially symmetric portion:
+    kernel: de la Vallee Poussin, halfwidth 10&deg;
+    center: Rotations: 4957x1
+    weight: 1
+ 
+</pre><h3 class="seealso">See also</h3>
          <p><a href="import_wizard.html">import_wizard</a>, <a href="loadODF.html">loadODF</a>, <a href="ODF_demo.html">ODF_demo</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

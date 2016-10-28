@@ -68,15 +68,24 @@
             </td>
             <td>
             <p>list of intersection points</p>
-            <p>mple exdata csl ains = calcGrains(ebsd) ot(grains.boundary) efine some line 1 = [0,10];   staring point 2 = [31,41];  end
-            point ne([xy1(1);xy2(1)],[xy1(2);xy2(2)],'linewidth',1.5,'color','g') ,y] = grains.boundary.intersect(xy1,xy2); ld on atter(x,y,'red')
-            ld off ind the number of intersection points m(~isnan(x))</p>
             </td>
             </tr>
             </table>
             
          </p>
-         <p style="font-size:1px;"></p>
+         <h2>Example<a name="6"> </a></h2><pre>mtexdata csl
+grains = calcGrains(ebsd)
+plot(grains.boundary)
+% define some line
+xy1 = [0,10];  % staring point
+xy2 = [31,41]; % end point
+line([xy1(1);xy2(1)],[xy1(2);xy2(2)],'linewidth',1.5,'color','g')
+[x,y] = grains.boundary.intersect(xy1,xy2);
+hold on
+scatter(x,y,'red')
+hold off
+% find the number of intersection points
+sum(~isnan(x))</pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

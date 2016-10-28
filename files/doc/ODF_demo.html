@@ -67,7 +67,7 @@ psi = AbelPoissonKernel(<span class="string">'halfwidth'</span>,18*degree);
 
 odf2 = fibreODF(h,r,psi)</pre><pre class="codeoutput"> 
 odf2 = ODF  
-  crystal symmetry : 6/mmm, X||a*, Y||b, Z||c
+  crystal symmetry : 6/mmm, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Fibre symmetric portion:
@@ -77,7 +77,7 @@ odf2 = ODF
  
 </pre><p><b>uniform ODFs</b></p><pre class="codeinput">odf3 = uniformODF(CS)</pre><pre class="codeoutput"> 
 odf3 = ODF  
-  crystal symmetry : 6/mmm, X||a*, Y||b, Z||c
+  crystal symmetry : 6/mmm, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Uniform portion:
@@ -101,7 +101,7 @@ A = Quaternion
   0 0 0 1
  
 odf = ODF  
-  crystal symmetry : 6/mmm, X||a*, Y||b, Z||c
+  crystal symmetry : 6/mmm, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Bingham portion:
@@ -114,7 +114,7 @@ rot = rotation(<span class="string">'axis'</span>,yvector,<span class="string">'
 odf = rotate(odf,rot)
 plotPDF(odf,Miller(1,0,0,CS))</pre><pre class="codeoutput"> 
 ans = ODF  
-  crystal symmetry : 6/mmm, X||a*, Y||b, Z||c
+  crystal symmetry : 6/mmm, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Fibre symmetric portion:
@@ -127,7 +127,7 @@ ans = ODF
  
  
 odf = ODF  
-  crystal symmetry : 6/mmm, X||a*, Y||b, Z||c
+  crystal symmetry : 6/mmm, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Bingham portion:
@@ -147,14 +147,16 @@ fibreVolume(odf2,h,r,5*degree) <span class="comment">% the volume of a fibre</sp
 
 textureindex(odf)              <span class="comment">% the texture index</span>
 entropy(odf)                   <span class="comment">% the entropy</span>
-f_hat = calcFourier(odf2,16);  <span class="comment">% the C-coefficients up to order 16</span></pre><pre class="codeoutput">ans =
+f_hat = calcFourier(odf2,16);  <span class="comment">% the C-coefficients up to order 16</span></pre><pre class="codeoutput">Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
+ans =
     0.2030
 maxODF =
     3.3783
  
 centerODF = orientation  
   size: 1 x 1
-  crystal symmetry : 6/mmm, X||a*, Y||b, Z||c
+  crystal symmetry : 6/mmm, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Bunge Euler angles in degree
@@ -165,12 +167,12 @@ centerODF = orientation
  
 ans = orientation  
   size: 1 x 1
-  crystal symmetry : 6/mmm, X||a*, Y||b, Z||c
+  crystal symmetry : 6/mmm, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
-  150.028 4.32361 179.984       0
+  149.994 4.22565 180.016       0
  
  
 ans =
@@ -203,7 +205,7 @@ ans =
 odf = 0.5 * fibreODF(Miller(0,0,0,1,cs),yvector) + <span class="keyword">...</span>
       0.5 * fibreODF(Miller(1,0,-1,0,cs),xvector)</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : -31m, X||a*, Y||b, Z||c
+  crystal symmetry : -31m, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Fibre symmetric portion:
@@ -219,12 +221,12 @@ odf = ODF
 </pre><p>f) What is the modal orientation of the ODF?</p><pre class="codeinput">mod = calcModes(odf)</pre><pre class="codeoutput"> 
 mod = orientation  
   size: 1 x 1
-  crystal symmetry : -31m, X||a*, Y||b, Z||c
+  crystal symmetry : -31m, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
-   180   90   60    0
+   180   90   30    0
  
  
 </pre><p>g) Plot the ODF in sigma and phi2 - sections. How many fibre do you observe?</p><pre class="codeinput">close <span class="string">all</span>;plot(odf,<span class="string">'sections'</span>,6)

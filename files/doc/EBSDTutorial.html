@@ -44,27 +44,21 @@
          </div>
          <h2>Data import<a name="2"> </a></h2>
          <p>EBSD data may be imported by the import_wizard by typing</p><pre class="codeinput">import_wizard</pre><img src="EBSDTutorial_01.png"> <p>or by the command</p><pre class="codeinput">fileName = [mtexDataPath filesep <span class="string">'EBSD'</span> filesep <span class="string">'Forsterite.ctf'</span>];
-ebsd = loadEBSD(fileName)</pre><pre class="codeoutput">Warning: .ctf files have usualy inconsistent
-conventions for spatial coordinates and Euler
-angles. You may want to use one of the options
-'convertSpatial2EulerReferenceFrame' or
-'convertEuler2SpatialReferenceFrame' to correct
-for this 
- 
+ebsd = loadEBSD(fileName)</pre><pre class="codeoutput"> 
 ebsd = EBSD  
  
  Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
      0   58485 (24%)  notIndexed                                                
      1  152345 (62%)  Forsterite   light blue       mmm                         
      2   26058 (11%)   Enstatite  light green       mmm                         
-     3   9064 (3.7%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+     3   9064 (3.7%)    Diopside    light red     12/m1        X||a, Y||b, Z||c*
  
  Properties: bands, bc, bs, error, mad, x, y
  Scan unit : um
  
-</pre><p>A quick overview of the phases within your data set gives the plot</p><pre class="codeinput">plot(ebsd)</pre><img src="EBSDTutorial_02.png"> <p>MTEX supports a wide varity of EBSD file formats. Recommended are text base file formats like <tt>.ang</tt> and <tt>.ctf</tt> over binary file formats like <tt>.osc</tt>. Special attention has to be paid to the alignment of sample reference frame X Y Z. Different vendors use different conventions.
-            Even the reference frame for the Euler angles and for the spatial coordinates do not nee to coincide. How to deal with this
-            is discussed in a seperate <a href="ImportEBSDData.html">section</a>.
+</pre><p>A quick overview of the phases within your data set gives the plot</p><pre class="codeinput">plot(ebsd)</pre><img src="EBSDTutorial_02.png"> <p>MTEX supports a wide variety of EBSD file formats. Recommended are text- base file formats like <tt>.ang</tt> and <tt>.ctf</tt> over binary file formats like <tt>.osc</tt>. Special attention has to be paid to the alignment of sample reference frame X Y Z. Different vendors use different conventions.
+            Even the reference frame for the Euler angles and for the spatial coordinates do not need to coincide. How to deal with this
+            is discussed in a separate <a href="ImportEBSDData.html">section</a>.
          </p>
          <h2>Visualize EBSD data<a name="6"> </a></h2>
          <p>The alignment of the Euler reference frame can be verified by plotting pole figures and comparing them with the pole figures

@@ -64,7 +64,7 @@
          <h2>Bingham Distribution<a name="3"> </a></h2>
          <p>The quaternionic Bingham distribution has the density</p>
          <p><img src="EBSDBingham_eq05340943576548919889.png"> </p>
-         <p>where <img src="EBSDBingham_eq02619125812656254059.png">  is a <img src="EBSDBingham_eq17452142193152507074.png">  orthogonal matrix with unit quaternions <img src="EBSDBingham_eq16547169682649117252.png">  in column and <img src="EBSDBingham_eq03845174387838694102.png">  is a <img src="EBSDBingham_eq17452142193152507074.png">  diagonal matrix with the entries <img src="EBSDBingham_eq10077891534842131870.png">  describing the shape of the distribution. <img src="EBSDBingham_eq17454643056377931030.png">  is the hypergeometric function with matrix argument normalizing the density.
+         <p>where <img src="EBSDBingham_eq02619125812656254059.png">  are an <img src="EBSDBingham_eq17452142193152507074.png">  orthogonal matrix with unit quaternions <img src="EBSDBingham_eq16547169682649117252.png">  in the column and <img src="EBSDBingham_eq03845174387838694102.png">   a <img src="EBSDBingham_eq17452142193152507074.png">  diagonal matrix with the entries <img src="EBSDBingham_eq10077891534842131870.png">  describing the shape of the distribution. <img src="EBSDBingham_eq17454643056377931030.png">  is the hypergeometric function with matrix argument normalizing the density.
          </p>
          <p>The shape parameters <img src="EBSDBingham_eq17406183697768129620.png">  give
          </p>
@@ -76,11 +76,11 @@
                </li>
                <li>a <i>spherical</i> distribution, if <img src="EBSDBingham_eq07201422564525560515.png"> ,
                </li>
-               <li>an <i>uniform</i>  distribution, if <img src="EBSDBingham_eq16083675247562721536.png"> ,
+               <li>a <i>uniform</i>  distribution, if <img src="EBSDBingham_eq16083675247562721536.png"> ,
                </li>
             </ul>
          </div>
-         <p>in unit quaternion space. Since the quaternion +g and -g describes the same rotation, the <i>bipolar</i> distribution corresponds to an unimodal distribution in orientation space. Moreover we would call the <i>circular</i> distribution a fibre in orientation space.
+         <p>in unit quaternion space. Since the quaternion +g and -g describes the same rotation, the <i>bipolar</i> distribution corresponds to an unimodal distribution in orientation space. Moreover, we would call the <i>circular</i> distribution a fibre in orientation space.
          </p>
          <p>The general setup of the Bingham distribution in MTEX is done as follows</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'1'</span>);
 
@@ -100,9 +100,9 @@ odf = ODF
 plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>);
 
 
-<span class="comment">% plot(odf,'sections',10)</span></pre><img src="EBSDBingham_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<span class="comment">% plot(odf,'sections',10)</span></pre><img src="EBSDBingham_01.png"> <img src="EBSDBingham_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The bipolar case and unimodal distribution<a name="6"> </a></h2>
-         <p>First we define some unimodal odf</p><pre class="codeinput">odf_spherical = unimodalODF(idquaternion,crystalSymmetry,specimenSymmetry,<span class="string">'halfwidth'</span>,20*degree)</pre><pre class="codeoutput"> 
+         <p>First, we define some unimodal odf</p><pre class="codeinput">odf_spherical = unimodalODF(idquaternion,crystalSymmetry,specimenSymmetry,<span class="string">'halfwidth'</span>,20*degree)</pre><pre class="codeoutput"> 
 odf_spherical = ODF  
   crystal symmetry : 1, X||a, Y||b, Z||c
   specimen symmetry: 1
@@ -112,17 +112,17 @@ odf_spherical = ODF
     center: (0&deg;,0&deg;,0&deg;)
     weight: 1
  
-</pre><pre class="codeinput">plotPDF(odf_spherical,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><img src="EBSDBingham_02.png"> <p>Next we simulate individual orientations from this odf, in a scattered axis/angle plot in which the simulated data looks like
-            a sphere
+</pre><pre class="codeinput">plotPDF(odf_spherical,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><img src="EBSDBingham_03.png"> <p>Next, we simulate individual orientations from this odf, in a scattered axis/angle plot in which the simulated data looks
+            like a sphere
          </p><pre class="codeinput">ori_spherical = calcOrientations(odf_spherical,1000);
 close <span class="string">all</span>
-scatter(ori_spherical)</pre><img src="EBSDBingham_03.png"> <p>From this simulated ebsd data, we can estimate the parameters of the bingham distribution,</p><pre class="codeinput">calcBinghamODF(ori_spherical)</pre><pre class="codeoutput"> 
+scatter(ori_spherical)</pre><img src="EBSDBingham_04.png"> <p>From this simulated EBSD data, we can estimate the parameters of the Bingham distribution,</p><pre class="codeinput">calcBinghamODF(ori_spherical)</pre><pre class="codeoutput"> 
 ans = ODF  
   crystal symmetry : 1, X||a, Y||b, Z||c
   specimen symmetry: 1
  
   Bingham portion:
-     kappa: 0 2.2596 3.4026 26.5756
+     kappa: 0 3.4228 4.4842 27.1807
     weight: 1
  
 </pre><p>where <tt>U</tt> is the orthogonal matrix of eigenvectors of the orientation tensor and <tt>kappa</tt> the shape parameters associated with the <tt>U</tt>.
@@ -132,7 +132,7 @@ T_oblate    = bingham_test(ori_spherical,<span class="string">'prolate'</span>, 
 T_prolate   = bingham_test(ori_spherical,<span class="string">'oblate'</span>,   <span class="string">'approximated'</span>);
 
 t = [T_spherical T_oblate T_prolate]</pre><pre class="codeoutput">t =
-    0.5639    0.6275    0.2516
+    0.8829    0.8965    0.2298
 </pre><p>The spherical test case failed to reject it for some level of significance, hence we would dismiss the hypothesis prolate
             and oblate.
          </p><pre class="codeinput">odf_spherical = BinghamODF(kappa,U,crystalSymmetry,specimenSymmetry)</pre><pre class="codeoutput"> 
@@ -144,7 +144,7 @@ odf_spherical = ODF
      kappa: 100 90 80 0
     weight: 1
  
-</pre><pre class="codeinput">plotPDF(odf_spherical,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><img src="EBSDBingham_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><pre class="codeinput">plotPDF(odf_spherical,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><img src="EBSDBingham_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Prolate case and fibre distribution<a name="13"> </a></h2>
          <p>The prolate case correspondes to a fibre.</p><pre class="codeinput">odf_prolate = fibreODF(Miller(0,0,1,crystalSymmetry(<span class="string">'1'</span>)),zvector,<span class="keyword">...</span>
   <span class="string">'halfwidth'</span>,20*degree)</pre><pre class="codeoutput"> 
@@ -157,15 +157,15 @@ odf_prolate = ODF
     fibre: (001) - 0,0,1
     weight: 1
  
-</pre><pre class="codeinput">plotPDF(odf_prolate,h,<span class="string">'upper'</span>,<span class="string">'silent'</span>)</pre><img src="EBSDBingham_05.png"> <p>As before, we generate some random orientations from an model odf. The shape in a axis/angle scatter plot reminds of a cigar</p><pre class="codeinput">ori_prolate = calcOrientations(odf_prolate,1000);
+</pre><pre class="codeinput">plotPDF(odf_prolate,h,<span class="string">'upper'</span>,<span class="string">'silent'</span>)</pre><img src="EBSDBingham_06.png"> <p>As before, we generate some random orientations from a model odf. The shape in an axis/angle scatter plot reminds of a cigar</p><pre class="codeinput">ori_prolate = calcOrientations(odf_prolate,1000);
 close <span class="string">all</span>
-scatter(ori_prolate)</pre><img src="EBSDBingham_06.png"> <p>We estimate the parameters of the bingham distribution</p><pre class="codeinput">calcBinghamODF(ori_prolate)</pre><pre class="codeoutput"> 
+scatter(ori_prolate)</pre><img src="EBSDBingham_07.png"> <p>We estimate the parameters of the Bingham distribution</p><pre class="codeinput">calcBinghamODF(ori_prolate)</pre><pre class="codeoutput"> 
 ans = ODF  
   crystal symmetry : 1, X||a, Y||b, Z||c
   specimen symmetry: 1
  
   Bingham portion:
-     kappa: 0 6.3631 54.5265 55.5961
+     kappa: 0 5.7463 53.7655 54.7978
     weight: 1
  
 </pre><p>and test on the three cases</p><pre class="codeinput">T_spherical = bingham_test(ori_prolate,<span class="string">'spherical'</span>,<span class="string">'approximated'</span>);
@@ -173,8 +173,8 @@ T_oblate    = bingham_test(ori_prolate,<span class="string">'prolate'</span>,  <
 T_prolate   = bingham_test(ori_prolate,<span class="string">'oblate'</span>,   <span class="string">'approximated'</span>);
 
 t = [T_spherical T_oblate T_prolate]</pre><pre class="codeoutput">t =
-    1.0000    0.8426    1.0000
-</pre><p>The test clearly rejects the spherical and prolate case, but not the prolate. We construct the bingham distribution from the
+    1.0000    0.7847    1.0000
+</pre><p>The test clearly rejects the spherical and prolate case, but not the prolate. We construct the Bingham distribution from the
             parameters, it might show some skewness
          </p><pre class="codeinput">odf_prolate = BinghamODF(kappa,U,crystalSymmetry,specimenSymmetry)</pre><pre class="codeoutput"> 
 odf_prolate = ODF  
@@ -185,9 +185,9 @@ odf_prolate = ODF
      kappa: 100 90 80 0
     weight: 1
  
-</pre><pre class="codeinput">plotPDF(odf_prolate,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><img src="EBSDBingham_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><pre class="codeinput">plotPDF(odf_prolate,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><img src="EBSDBingham_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Oblate case<a name="20"> </a></h2>
-         <p>The oblate case of the bingham distribution has no direct counterpart in terms of texture components, thus we can construct
+         <p>The oblate case of the Bingham distribution has no direct counterpart in terms of texture components, thus we can construct
             it straightforward
          </p><pre class="codeinput">odf_oblate = BinghamODF([50 50 50 0],eye(4),crystalSymmetry,specimenSymmetry)</pre><pre class="codeoutput"> 
 odf_oblate = ODF  
@@ -198,15 +198,15 @@ odf_oblate = ODF
      kappa: 50 50 50 0
     weight: 1
  
-</pre><pre class="codeinput">plotPDF(odf_oblate,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><img src="EBSDBingham_08.png"> <p>The oblate cases in axis/angle space reminds on a disk</p><pre class="codeinput">ori_oblate = calcOrientations(odf_oblate,1000);
+</pre><pre class="codeinput">plotPDF(odf_oblate,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><img src="EBSDBingham_09.png"> <p>The oblate cases in axis/angle space remind on a disk</p><pre class="codeinput">ori_oblate = calcOrientations(odf_oblate,1000);
 close <span class="string">all</span>
-scatter(ori_oblate)</pre><img src="EBSDBingham_09.png"> <p>We estimate the parameters again</p><pre class="codeinput">calcBinghamODF(ori_oblate)</pre><pre class="codeoutput"> 
+scatter(ori_oblate)</pre><img src="EBSDBingham_10.png"> <p>We estimate the parameters again</p><pre class="codeinput">calcBinghamODF(ori_oblate)</pre><pre class="codeoutput"> 
 ans = ODF  
   crystal symmetry : 1, X||a, Y||b, Z||c
   specimen symmetry: 1
  
   Bingham portion:
-     kappa: 0 48.823 48.9598 50.4433
+     kappa: 0 48.1239 48.2037 49.7144
     weight: 1
  
 </pre><p>and do the tests</p><pre class="codeinput">T_spherical = bingham_test(ori_oblate,<span class="string">'spherical'</span>,<span class="string">'approximated'</span>);
@@ -214,7 +214,7 @@ T_oblate    = bingham_test(ori_oblate,<span class="string">'prolate'</span>,  <s
 T_prolate   = bingham_test(ori_oblate,<span class="string">'oblate'</span>,   <span class="string">'approximated'</span>);
 
 t = [T_spherical T_oblate T_prolate]</pre><pre class="codeoutput">t =
-    1.0000    1.0000    0.6220
+    1.0000    1.0000    0.2819
 </pre><p>the spherical and oblate case are clearly rejected, the prolate case failed to reject for some level of significance</p><pre class="codeinput">odf_oblate = BinghamODF(kappa, U,crystalSymmetry,specimenSymmetry)</pre><pre class="codeoutput"> 
 odf_oblate = ODF  
   crystal symmetry : 1, X||a, Y||b, Z||c
@@ -224,7 +224,7 @@ odf_oblate = ODF
      kappa: 100 90 80 0
     weight: 1
  
-</pre><pre class="codeinput">plotPDF(odf_oblate,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><img src="EBSDBingham_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><pre class="codeinput">plotPDF(odf_oblate,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><img src="EBSDBingham_11.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

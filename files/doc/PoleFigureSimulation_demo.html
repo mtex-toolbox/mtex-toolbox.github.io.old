@@ -40,7 +40,7 @@
       <div class="container">
          <h1>Simulating Pole Figure data</h1>
          <div class="subheading">
-            <p>Simulate arbitary pole figure data</p>
+            <p>Simulate arbitrary pole figure data</p>
          </div>
          <div>
             <table class="content">
@@ -62,7 +62,7 @@
             </table>
          </div>
          <h2>Introduction<a name="3"> </a></h2>
-         <p>MTEX allows to to <i>simulate</i> an arbitary number of pole figure data from any ODF. This is quit helpfull if you want to analyse the pole figure to ODF
+         <p>MTEX allows to <i>simulate</i> an arbitrary number of pole figure data from any ODF. This is quite helpful if you want to analyze the pole figure to ODF
             estimation routine. Let us start with a model ODF given as the superposition of 6 components.
          </p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'orthorhombic'</span>);
 mod1 = orientation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,45*degree,cs);
@@ -74,7 +74,7 @@ model_odf = 0.5*uniformODF(cs) + <span class="keyword">...</span>
   0.05*unimodalODF(mod1,<span class="string">'halfwidth'</span>,15*degree) + <span class="keyword">...</span>
   0.3*unimodalODF(mod2,<span class="string">'halfwidth'</span>,25*degree);</pre><pre class="codeinput">plot(model_odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><img src="PoleFigureSimulation_demo_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Simulate Pole Figure Data<a name="5"> </a></h2>
-         <p>In order to simulate pole figure data the following parameters has to be specified</p>
+         <p>In order to simulate pole figure data, the following parameters have to be specified</p>
          <div>
             <ol>
                <li>an arbitrary <a href="ODF_index.html">ODF</a></li>
@@ -99,42 +99,44 @@ pf = PoleFigure
   h = (100), r = 72 x 37 points
   h = (010), r = 72 x 37 points
   h = (001), r = 72 x 37 points
-</pre><p>Add some noise to the data. Here assume that the mean intensity is 1000.</p><pre class="codeinput">pf = noisepf(pf,1000);</pre><p>Plot the simulated pole figures.</p><pre class="codeinput">plot(pf)</pre><img src="PoleFigureSimulation_demo_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><p>Add some noise to the data. Here we assume that the mean intensity is 1000.</p><pre class="codeinput">pf = noisepf(pf,1000);</pre><p>Plot the simulated pole figures.</p><pre class="codeinput">plot(pf)</pre><img src="PoleFigureSimulation_demo_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>ODF Estimation from Pole Figure Data<a name="11"> </a></h2>
          <p>From these simulated pole figures we can now estimate an ODF,</p><pre class="codeinput">odf = calcODF(pf)</pre><pre class="codeoutput">initialize solver
 start iteration
-error: 2.0835E-01 1.6408E-02 4.5497E-03 2.4390E-03 1.6160E-03 1.2651E-03 1.0636E-03 9.4651E-04 8.6898E-04 8.1700E-04 7.7913E-04 
+error: 2.0827E-01 1.6285E-02 4.4977E-03 2.4011E-03 1.5631E-03 1.2185E-03 1.0059E-03 8.9256E-04 8.2189E-04 7.7374E-04 7.4104E-04 
 Finished PDF-ODF inversion.
-error: 7.7913E-04
-alpha: 9.9997E+02 1.0007E+03 9.9841E+02 1.0019E+03 9.9647E+02 1.0027E+03 1.0054E+03 
+error: 7.4104E-04
+alpha: 9.9944E+02 1.0000E+03 9.9796E+02 1.0016E+03 9.9629E+02 1.0013E+03 1.0063E+03 
 initialize solver
 start iteration
-error: 4.8772E-01 1.7113E-01 3.3453E-02 1.4153E-02 9.4170E-03 6.9252E-03 5.6698E-03 4.8711E-03 4.2978E-03 3.8225E-03 3.4726E-03 
+error: 4.9406E-01 1.7580E-01 3.5783E-02 1.4975E-02 9.7435E-03 6.9135E-03 5.6893E-03 4.8938E-03 4.3325E-03 3.8945E-03 3.5512E-03 
 Finished PDF-ODF inversion.
-error: 3.4726E-03
-alpha: 9.9329E+02 9.9108E+02 1.0050E+03 9.9704E+02 1.0113E+03 1.0216E+03 1.0212E+03 
+error: 3.5512E-03
+alpha: 9.9244E+02 9.9035E+02 1.0050E+03 9.9603E+02 1.0124E+03 1.0206E+03 1.0228E+03 
  
 odf = ODF  
   crystal symmetry : 222
   specimen symmetry: 1
  
   Uniform portion:
-    weight: 0.46277
+    weight: 0.4694
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
     center: 29772 orientations, resolution: 5&deg;
-    weight: 0.53723
+    weight: 0.5306
  
 </pre><p>which can be plotted,</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput">progress: 100%
-</pre><img src="PoleFigureSimulation_demo_03.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,model_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">progress: 100%
+</pre><img src="PoleFigureSimulation_demo_03.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,model_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
+progress: 100%
 ans =
-    0.0738
+    0.0734
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Exploration of the relationship between estimation error and number of single orientations<a name="14"> </a></h2>
-         <p>For a more systematic analysis of the estimation error we vary the number of pole figures used for ODF estimation from 1 to
-            7 and calculate for any number of pole figures the approximation error. Furthermore, we also apply ghost correction and compare
-            the approximation error to the previous reconstructions.
+         <p>For a more systematic analysis of the estimation error, we vary the number of pole figures used for ODF estimation from 1
+            to 7 and calculate for any number of pole figures the approximation error. Furthermore, we also apply ghost correction and
+            compare the approximation error to the previous reconstructions.
          </p><pre class="codeinput">e = [];
 <span class="keyword">for</span> i = 1:pf.numPF
 
@@ -143,19 +145,47 @@ ans =
   odf = calcODF(pf({1:i}),<span class="string">'silent'</span>);
   e(i,2) = calcError(odf,model_odf,<span class="string">'resolution'</span>,2.5*degree);
 
-<span class="keyword">end</span></pre><pre class="codeoutput">progress: 100%
+<span class="keyword">end</span></pre><pre class="codeoutput">Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
+progress: 100%
+Warning: NARGCHK will be removed in a future
+release. Use NARGINCHK or NARGOUTCHK instead. 
 progress: 100%
 </pre><p>Plot the error in dependency of the number of single orientations.</p><pre class="codeinput">close <span class="string">all</span>;
 plot(1:pf.numPF,e)

@@ -123,21 +123,6 @@
             </td>
             <td>
             <p>use fourier coefficents as objective function</p>
-            <p>mple: rting with an synthetic odf with orthorhombic symmetry</p>
-            <pre>  CS = crystalSymmetry('cubic')
-            SS = specimenSymmetry('orthorhombic')
-            h = [Miller(0,0,1),Miller(0,1,1),Miller(1,1,1)];
-            r = [ rotation('euler', 90*degree,35*degree,30*degree) ...
-            rotation('euler', 90*degree,35*degree,0*degree)]</pre>
-            <pre>  sr = SS*r;
-            odf = unimodalODF(sr,CS);</pre>
-            <p>define a rotational displacement</p>
-            <pre>  r2 = rotation('euler', 6*degree,4*degree,0*degree)
-            odf = rotate(odf,r2);</pre>
-            <pre>  plotPDF(odf,h,'antipodal');</pre>
-            <pre>now retrive the rotation back</pre>
-            <pre>  [odr,r,v1,v2] = centerSpecimen(odf);
-            plotPDF(odr,h,'antipodal')</pre>
             </td>
             </tr>
             </table>
@@ -176,7 +161,42 @@
             </table>
             
          </p>
-         <p style="font-size:1px;"></p>
+         <h2>Example<a name="6"> </a></h2><pre class="codeinput"><span class="comment">%Starting with an synthetic odf with orthorhombic symmetry</span>
+CS = crystalSymmetry(<span class="string">'cubic'</span>)
+SS = specimenSymmetry(<span class="string">'orthorhombic'</span>)
+ori = [orientation(<span class="string">'euler'</span>,135*degree,45*degree,120*degree,CS,SS) <span class="keyword">...</span>
+orientation(<span class="string">'euler'</span>, 60*degree, 54.73*degree, 45*degree,CS,SS) <span class="keyword">...</span>
+orientation(<span class="string">'euler'</span>,70*degree,90*degree,45*degree,CS,SS)<span class="keyword">...</span>
+orientation(<span class="string">'euler'</span>,0*degree,0*degree,0*degree,CS,SS)];</pre><pre class="codeoutput"> 
+CS = crystalSymmetry  
+ 
+  symmetry: m-3m   
+  a, b, c : 1, 1, 1
+ 
+ 
+SS = orthorhombic specimenSymmetry  
+ 
+</pre><pre class="codeinput">odf = unimodalODF(SS*ori);</pre><pre class="codeinput"><span class="comment">%we define a rotational displacement</span>
+r2 = rotation(<span class="string">'euler'</span>, 6*degree,4*degree,0*degree)
+odf = rotate(odf,r2);
+h = [Miller(0,0,1,CS),Miller(0,1,1,CS),Miller(1,1,1,CS)];
+plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'complete'</span>);</pre><pre class="codeoutput"> 
+r2 = rotation  
+  size: 1 x 1
+ 
+  Bunge Euler angles in degree
+  phi1  Phi phi2 Inv.
+     6    4    0    0
+ 
+ 
+Warning: Rotation does not respect symmetry! 
+</pre><img src="ODF.centerSpecimen_01.png"> <pre class="codeinput"><span class="comment">%and now retrive the rotation back</span>
+[odr,r,v1,v2] = centerSpecimen(odf);
+plotPDF(odr,h,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">progress: 100%
+progress: 100%
+progress: 100%
+progress: 100%
+</pre><img src="ODF.centerSpecimen_02.png"> <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

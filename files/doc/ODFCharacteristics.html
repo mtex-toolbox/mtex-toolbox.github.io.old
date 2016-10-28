@@ -115,7 +115,7 @@ error: 1.4060E-01
 alpha: 7.7442E+01 7.4101E+00 1.0345E+02 9.4669E+01 5.0735E+01 6.6847E+01 1.4137E+02 
  
 odf3 = ODF  
-  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
+  crystal symmetry : Quartz (321, X||a, Y||b*, Z||c)
   specimen symmetry: 1
  
   Radially symmetric portion:
@@ -132,18 +132,18 @@ odf3 = ODF
  
 center = orientation  
   size: 1 x 1
-  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
+  crystal symmetry : Quartz (321, X||a, Y||b*, Z||c)
   specimen symmetry: 1
  
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
-  135.938 35.7181 203.179       0
+  135.975 35.7379 173.161       0
  
  
 </pre><p>Lets mark this prefered orientation in the pole figures</p><pre class="codeinput">plotPDF(odf3,h,<span class="string">'antipodal'</span>,<span class="string">'superposition'</span>,c);
 annotate(center,<span class="string">'marker'</span>,<span class="string">'s'</span>,<span class="string">'MarkerFaceColor'</span>,<span class="string">'black'</span>)</pre><img src="ODFCharacteristics_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Texture Characteristics<a name="10"> </a></h2>
-         <p>Texture characteristics are used for a rough classification of ODF into sharp and weak ones. The two most common texture characteristcs
+         <p>Texture characteristics are used for a rough classification of ODF into sharp and weak ones. The two most common texture characteristics
             are the <a href="ODF.entropy.html">entropy</a> and the <a href="ODF.textureindex.html">texture index</a>.
          </p>
          <p>Compute the texture index:</p><pre class="codeinput">textureindex(odf1)</pre><pre class="codeoutput">ans =
@@ -156,10 +156,10 @@ annotate(center,<span class="string">'marker'</span>,<span class="string">'s'</s
             a orientation close to a given orientation is computed by the command <a href="ODF.volume.html">volume</a> and the relative volume of crystals having a orientation close to a given fibre is computed by the command <a href="ODF.fibreVolume.html">fibreVolume</a></p>
          <p>The relative volume in percent of crystals with missorientation maximum 30 degree from the modal orientation:</p><pre class="codeinput">volume(odf3,calcModes(odf3),30*degree)*100</pre><pre class="codeoutput">progress: 100%
 ans =
-   59.5860
+   59.5682
 </pre><p>The relative volume of crystals with missorientation maximum 20 degree from the prefered fibre in percent: TODO</p><pre class="codeinput"><span class="comment">%fibreVolume(odf2,Miller(0,0,1),xvector,20*degree) * 100</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Fourier Coefficients<a name="16"> </a></h2>
-         <p>The Fourier coefficients allow for a complete characterization of the ODF. The are of particular importance for the calcuation
+         <p>The Fourier coefficients allow for a complete characterization of the ODF. The are of particular importance for the calculation
             of mean macroscopic properties e.g. the second order Fourier coefficients characterize thermal expansion, optical refraction
             index, and electrical conductivity whereas the fourth order Fourier coefficients characterize the elastic properties of the
             specimen. Moreover, the decay of the Fourier coefficients is directly related to the smoothness of the ODF. The decay of the
@@ -167,7 +167,7 @@ ans =
          </p>
          <p>transform into an odf given by Fourier coefficients</p><pre class="codeinput">fodf = FourierODF(odf3,32)</pre><pre class="codeoutput"> 
 fodf = ODF  
-  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
+  crystal symmetry : Quartz (321, X||a, Y||b*, Z||c)
   specimen symmetry: 1
  
   Harmonic portion:
@@ -176,16 +176,16 @@ fodf = ODF
  
 </pre><p>The Fourier coefficients of order 2:</p><pre class="codeinput">reshape(fodf.components{1}.f_hat(11:35),5,5)</pre><pre class="codeoutput">ans =
   Columns 1 through 4
-  -0.0000 - 0.0000i  -0.0000 + 0.0000i   0.2099 - 0.5496i  -0.0000 + 0.0000i
-   0.0000 + 0.0000i  -0.0000 - 0.0000i   2.0170 - 1.0994i  -0.0000 - 0.0000i
-   0.0000 - 0.0000i   0.0000 + 0.0000i   2.5810 - 0.0000i   0.0000 - 0.0000i
-  -0.0000 - 0.0000i  -0.0000 + 0.0000i   2.0170 + 1.0994i  -0.0000 + 0.0000i
-  -0.0000 + 0.0000i  -0.0000 - 0.0000i   0.2099 + 0.5496i  -0.0000 - 0.0000i
+  -0.0000 - 0.0000i  -0.0000 + 0.0000i   0.2099 - 0.5496i   0.0000 - 0.0000i
+  -0.0000 + 0.0000i  -0.0000 - 0.0000i   2.0170 - 1.0994i   0.0000 - 0.0000i
+   0.0000 - 0.0000i  -0.0000 + 0.0000i   2.5810 + 0.0000i  -0.0000 - 0.0000i
+  -0.0000 - 0.0000i   0.0000 + 0.0000i   2.0170 + 1.0994i  -0.0000 + 0.0000i
+   0.0000 + 0.0000i   0.0000 + 0.0000i   0.2099 + 0.5496i  -0.0000 - 0.0000i
   Column 5
-  -0.0000 - 0.0000i
+   0.0000 - 0.0000i
   -0.0000 + 0.0000i
    0.0000 + 0.0000i
-   0.0000 - 0.0000i
+  -0.0000 - 0.0000i
   -0.0000 + 0.0000i
 </pre><p>The decay of the Fourier coefficients:</p><pre class="codeinput">close <span class="string">all</span>;
 plotFourier(fodf)</pre><img src="ODFCharacteristics_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -195,12 +195,13 @@ plotFourier(fodf)</pre><img src="ODFCharacteristics_02.png"> <p class="pagenavli
    24.0869
 </pre><p>For a more complex example let us define a fibre and plot the ODF there.</p><pre class="codeinput">fibre = orientation(<span class="string">'fibre'</span>,Miller(1,0,0,cs),yvector);
 
-plot(odf2.eval(fibre))</pre><img src="ODFCharacteristics_03.png"> <p>Evaluation of the corresponding pole figure or inverse pole figure is done using the command <a href="ODF.calcPDF.html">calcPDF</a>.
+plot(odf2.eval(fibre))</pre><pre class="codeoutput">Warning: symmetry missmatch 
+</pre><img src="ODFCharacteristics_03.png"> <p>Evaluation of the corresponding pole figure or inverse pole figure is done using the command <a href="ODF.calcPDF.html">calcPDF</a>.
          </p><pre class="codeinput">odf2.calcPDF(Miller(1,0,0,cs),xvector)</pre><pre class="codeoutput">ans =
    2.3345e-04
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Extract Internal Representation<a name="23"> </a></h2>
-         <p>The internal representation of the ODF can be adressed by the command</p><pre class="codeinput">properties(odf3.components{1})</pre><pre class="codeoutput">Properties for class unimodalComponent:
+         <p>The internal representation of the ODF can be addressed by the command</p><pre class="codeinput">properties(odf3.components{1})</pre><pre class="codeoutput">Properties for class unimodalComponent:
     center
     psi
     weights

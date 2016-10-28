@@ -184,8 +184,8 @@ hold <span class="string">off</span></pre><img src="CSLBoundaries_06.png"> <p cl
          </p><pre class="codeinput">oM = patalaOrientationMapping(gB)</pre><pre class="codeoutput">oM = 
   patalaOrientationMapping with properties:
 
-    CS1: [24x2 crystalSymmetry]
-    CS2: [24x2 crystalSymmetry]
+    CS1: [24&times;2 crystalSymmetry]
+    CS2: [24&times;2 crystalSymmetry]
 </pre><p>Colorizing the grain boundaries is now straight forward</p><pre class="codeinput">plot(ebsd,log(ebsd.prop.iq),<span class="string">'figSize'</span>,<span class="string">'large'</span>)
 mtexColorMap <span class="string">black2white</span>
 CLim(gcm,[.5,5])
@@ -230,7 +230,7 @@ hold <span class="string">off</span></pre><img src="CSLBoundaries_09.png"> <p cl
          <h2>Analyzing the misorientation distribution function<a name="13"> </a></h2>
          <p>In order to analyze more quantitatively the boundary misorientation distribution we can compute the so called misorientation
             distribution function. The option <tt>antipodal</tt> is applied since we want to identify <tt>mori</tt> and <tt>inv(mori)</tt>.
-         </p><pre class="codeinput">mdf = calcMDF(gB.misorientation,<span class="string">'halfwidth'</span>,2.5*degree,<span class="string">'bandwidth'</span>,54)</pre><pre class="codeoutput"> 
+         </p><pre class="codeinput">mdf = calcMDF(gB.misorientation,<span class="string">'halfwidth'</span>,2.5*degree,<span class="string">'bandwidth'</span>,32)</pre><pre class="codeoutput"> 
 mdf = MDF  
   crystal symmetry : iron (m-3m)
   crystal symmetry : iron (m-3m)
@@ -255,7 +255,7 @@ mori = misorientation
  
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
-  63.4003 48.2376 333.257       0
+  206.812   48.42 116.713       0
   45.2962 38.7291 315.013       0
  
  

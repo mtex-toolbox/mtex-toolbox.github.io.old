@@ -52,13 +52,39 @@
             </div>
             
          </p>
-         <h2>Example<a name="4"> </a></h2>
-         <p>cs = crystalSymmetry('mmm') oS = axisAngleSections(cs,cs) ori = oS.makeGrid('resolution'); oM = patalaOrientationMapping(cs,cs)
-            rgb = oM.orientation2color(ori); plot(oS,rgb,'surf')
-         </p>
-         <p>plot(oS,ori)</p>
-         <p>ori = orientation(randq(100),cs,cs) plot(oS,ori)</p>
-         <p style="font-size:1px;"></p>
+         <h2>Example<a name="4"> </a></h2><pre class="codeinput">cs = crystalSymmetry(<span class="string">'mmm'</span>)
+oS = axisAngleSections(cs,cs)
+ori = oS.makeGrid(<span class="string">'resolution'</span>);
+oM = patalaOrientationMapping(cs,cs)
+rgb = oM.orientation2color(ori);
+plot(oS,rgb,<span class="string">'surf'</span>)</pre><pre class="codeoutput"> 
+cs = crystalSymmetry  
+ 
+  symmetry: mmm    
+  a, b, c : 1, 1, 1
+ 
+oS = 
+  axisAngleSections with properties:
+
+           angles: [1&times;12 double]
+      axesSectors: {1&times;12 cell}
+          jointCS: [4&times;1 crystalSymmetry]
+               oR: [1&times;1 orientationRegion]
+    volumeScaling: 1
+              CS1: [4&times;1 crystalSymmetry]
+              CS2: [4&times;1 crystalSymmetry]
+              tol: 0.0873
+         plotGrid: []
+         gridSize: []
+               CS: [4&times;1 crystalSymmetry]
+               SS: [4&times;1 crystalSymmetry]
+oM = 
+  patalaOrientationMapping with properties:
+
+    CS1: [4&times;2 crystalSymmetry]
+    CS2: [4&times;2 crystalSymmetry]
+</pre><img src="ODFSections.ODFSections_01.png"> <pre class="codeinput">plot(oS,ori)</pre><pre class="codeoutput">  plotting 2000 random orientations out of 170242 given orientations
+</pre><img src="ODFSections.ODFSections_02.png"> <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

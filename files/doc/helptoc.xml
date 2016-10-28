@@ -36,7 +36,7 @@
             <tocitem target="FAQ.html#8">MTEX fails to import EBSD OSC files</tocitem>
          </tocitem>
          <tocitem target="compilation.html">Compiling MTEX<tocitem target="compilation.html#1">Introduction</tocitem>
-            <tocitem target="compilation.html#2">Pre-requisits</tocitem>
+            <tocitem target="compilation.html#2">Pre-requisites</tocitem>
             <tocitem target="compilation.html#3">Compiling MTEX</tocitem>
             <tocitem target="compilation.html#4">Checking Your Installation</tocitem>
          </tocitem>
@@ -242,6 +242,30 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.transformReferenceFrame.html">transformReferenceFrame</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.unique.html">unique</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.volume.html">volume</tocitem>
+            </tocitem>
+            <tocitem target="fibre_index.html">Fibres in orientation space (The Class @fibre)<tocitem target="fibre_index.html#2">Defining a Fibre</tocitem>
+               <tocitem target="fibre_index.html#11">Visualize an ODF along a fibre</tocitem>
+               <tocitem target="fibre_index.html#12">Compute volume of fibre portions</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.angle.html">angle</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.cat.html">cat</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.display.html">display</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.end.html">end</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.eq.html">eq</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.fibre.html">fibre</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.horzcat.html">horzcat</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.isempty.html">isempty</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.length.html">length</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.ne.html">ne</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.orientation.html">orientation</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.plot.html">plot</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.plotIPDF.html">plotIPDF</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.plotPDF.html">plotPDF</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.size.html">size</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.subSet.html">subSet</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.subsref.html">subsref</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.symmetrise.html">symmetrise</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.transpose.html">transpose</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.vertcat.html">vertcat</tocitem>
             </tocitem>
             <tocitem target="quaternion_index.html">Quaternions (The Class @quaternion)<tocitem target="quaternion_index.html#2">Class Description</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.Euler.html">Euler</tocitem>
@@ -650,10 +674,34 @@
             <tocitem target="CrystalOrientations.html#26">Plotting Orientations</tocitem>
          </tocitem>
          <tocitem target="Misorientations.html">Misorientations<tocitem target="Misorientations.html#3">Misorientations between grains</tocitem>
-            <tocitem target="Misorientations.html#7">Coinsident lattice planes</tocitem>
+            <tocitem target="Misorientations.html#7">Coincident lattice planes</tocitem>
             <tocitem target="Misorientations.html#9">Twinning misorientations</tocitem>
             <tocitem target="Misorientations.html#11">Highlight twinning boundaries</tocitem>
             <tocitem target="Misorientations.html#12">Phase transitions</tocitem>
+         </tocitem>
+         <tocitem target="fibre_index.html">Fibres in orientation space (The Class @fibre)<tocitem target="fibre_index.html#2">Defining a Fibre</tocitem>
+            <tocitem target="fibre_index.html#11">Visualize an ODF along a fibre</tocitem>
+            <tocitem target="fibre_index.html#12">Compute volume of fibre portions</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.angle.html">angle</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.cat.html">cat</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.display.html">display</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.end.html">end</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.eq.html">eq</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.fibre.html">fibre</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.horzcat.html">horzcat</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.isempty.html">isempty</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.length.html">length</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.ne.html">ne</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.orientation.html">orientation</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.plot.html">plot</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.plotIPDF.html">plotIPDF</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.plotPDF.html">plotPDF</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.size.html">size</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.subSet.html">subSet</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.subsref.html">subsref</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.symmetrise.html">symmetrise</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.transpose.html">transpose</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre.vertcat.html">vertcat</tocitem>
          </tocitem>
          <tocitem target="AxialDirectional.html">Antipodal Symmetry<tocitem target="AxialDirectional.html#3">Directions vs. Axes</tocitem>
             <tocitem target="AxialDirectional.html#7">The Angle between Directions and Axes</tocitem>
@@ -752,14 +800,14 @@
             <tocitem target="ModifyPoleFigureData.html#13">Rotate pole figures</tocitem>
          </tocitem>
          <tocitem target="PoleFigure2odf.html">ODF Estimation from Pole Figure Data<tocitem target="PoleFigure2odf.html#5">ODF Estimation</tocitem>
-            <tocitem target="PoleFigure2odf.html#8">Error analyis</tocitem>
+            <tocitem target="PoleFigure2odf.html#8">Error analysis</tocitem>
             <tocitem target="PoleFigure2odf.html#11">Discretization</tocitem>
             <tocitem target="PoleFigure2odf.html#13">Zero Range Method</tocitem>
             <tocitem target="PoleFigure2odf.html#14">Ghost Corrections</tocitem>
             <tocitem target="PoleFigure2odf.html#15">Theory</tocitem>
          </tocitem>
          <tocitem target="PF2ODFAmbiguity.html">Ambiguity of the Pole Figure to ODF Reconstruction Problem<tocitem target="PF2ODFAmbiguity.html#3">The ambiguity due to too few pole figures</tocitem>
-            <tocitem target="PF2ODFAmbiguity.html#14">The ambiguity due to too Fridel's law</tocitem>
+            <tocitem target="PF2ODFAmbiguity.html#14">The ambiguity due to too Friedel's law</tocitem>
             <tocitem target="PF2ODFAmbiguity.html#19">The inherent ambiguity of the pole figure - ODF relationship</tocitem>
          </tocitem>
          <tocitem target="ghost_demo.html">Ghost Effect Analysis<tocitem target="ghost_demo.html#3">Introduction</tocitem>
@@ -796,7 +844,7 @@
             <tocitem target="EBSDModifyData.html#9">Restricting to a region of interest</tocitem>
             <tocitem target="EBSDModifyData.html#16">Remove Inaccurate Orientation Measurements</tocitem>
          </tocitem>
-         <tocitem target="EBSDSmoothing.html">Smoothing of EBSD Data<tocitem target="EBSDSmoothing.html#3">Smoothing a single grains</tocitem>
+         <tocitem target="EBSDSmoothing.html">Smoothing of EBSD Data<tocitem target="EBSDSmoothing.html#3">Smoothing a single grain</tocitem>
             <tocitem target="EBSDSmoothing.html#11">Interpolating Missing Data</tocitem>
          </tocitem>
          <tocitem target="AnalyzeEBSDData.html">Analyze EBSD Data<tocitem target="AnalyzeEBSDData.html#4">Data import</tocitem>
@@ -838,7 +886,7 @@
          <tocitem target="GrainReconstruction.html">Grain Reconstruction<tocitem target="GrainReconstruction.html#4">Basic grain reconstruction</tocitem>
             <tocitem target="GrainReconstruction.html#6">The grainId and how to select EBSD inside specific grains</tocitem>
             <tocitem target="GrainReconstruction.html#9">Misorientation to mean orientation</tocitem>
-            <tocitem target="GrainReconstruction.html#11">Filling not indexed holes</tocitem>
+            <tocitem target="GrainReconstruction.html#11">Filling notindexed holes</tocitem>
             <tocitem target="GrainReconstruction.html#18">Grain smoothing</tocitem>
             <tocitem target="GrainReconstruction.html#20">Grain reconstruction by the multiscale clustering method</tocitem>
          </tocitem>
@@ -920,7 +968,7 @@
          <tocitem target="SeismicsMultiplot.html">Seismic velocities and anisotropy<tocitem target="SeismicsMultiplot.html#3">Crystal Symmetry and definition of the elastic stiffness tensor</tocitem>
             <tocitem target="SeismicsMultiplot.html#5">compute maximum and minimum velocities</tocitem>
             <tocitem target="SeismicsMultiplot.html#6">Plotting section</tocitem>
-            <tocitem target="SeismicsMultiplot.html#8">AVS : Plot S-wave anisotropy percentage for each proppagation direction</tocitem>
+            <tocitem target="SeismicsMultiplot.html#8">AVS : Plot S-wave anisotropy percentage for each propagation direction</tocitem>
             <tocitem target="SeismicsMultiplot.html#9">S1 Polarization: Plot fastest S-wave (Vs1) polarization directions</tocitem>
             <tocitem target="SeismicsMultiplot.html#10">Vs1 : Plot Vs1 velocities (km/s)</tocitem>
             <tocitem target="SeismicsMultiplot.html#11">Vs2 : Plot Vs2 velocities (km/s)</tocitem>
@@ -931,7 +979,7 @@
          <tocitem target="SlipSystems.html">Slip Systems<tocitem target="SlipSystems.html#4">Burgers vector and normal directions</tocitem>
             <tocitem target="SlipSystems.html#11">Rotating slip systems</tocitem>
          </tocitem>
-         <tocitem target="SlipTransmition.html">Slip Transmition<tocitem target="SlipTransmition.html#4">Import Titanium data</tocitem>
+         <tocitem target="SlipTransmition.html">Slip Transmission<tocitem target="SlipTransmition.html#4">Import Titanium data</tocitem>
             <tocitem target="SlipTransmition.html#5">Schmid Factor</tocitem>
             <tocitem target="SlipTransmition.html#9">Resolved shear stress</tocitem>
             <tocitem target="SlipTransmition.html#10">Compatibility of slip systems</tocitem>
@@ -945,7 +993,7 @@
          </tocitem>
          <tocitem target="TaylorModel.html">Taylor Model<tocitem target="TaylorModel.html#5">Set up</tocitem>
             <tocitem target="TaylorModel.html#6">The orientation dependence of the Taylor factor</tocitem>
-            <tocitem target="TaylorModel.html#7">The orientation dependency of the rotation value</tocitem>
+            <tocitem target="TaylorModel.html#7">The orientation dependence of the rotation value</tocitem>
             <tocitem target="TaylorModel.html#9">Most active slip direction</tocitem>
             <tocitem target="TaylorModel.html#13">Texture evolution during rolling</tocitem>
             <tocitem target="TaylorModel.html#15">restore MTEX preferences</tocitem>
@@ -964,7 +1012,7 @@
             <tocitem target="Annotations_demo.html#6">Annotating Directions, Orientations, Fibres</tocitem>
             <tocitem target="Annotations_demo.html#11">Legends</tocitem>
          </tocitem>
-         <tocitem target="CombinedPlots_demo.html">Combinded Plots<tocitem target="CombinedPlots_demo.html#3">General Principle</tocitem>
+         <tocitem target="CombinedPlots_demo.html">Combined Plots<tocitem target="CombinedPlots_demo.html#3">General Principle</tocitem>
             <tocitem target="CombinedPlots_demo.html#4">Combine Different EBSD Data</tocitem>
             <tocitem target="CombinedPlots_demo.html#8">Combine countoured pole figures (smooth ODF plots) with EBSD Data Scatter Plots</tocitem>
             <tocitem target="CombinedPlots_demo.html#10">Add Miller Indices to an Inverse Pole Figure Plot</tocitem>
@@ -978,19 +1026,19 @@
             <tocitem target="PlotTypes_demo.html#13">Line Plots</tocitem>
          </tocitem>
          <tocitem target="SphericalProjection_demo.html">Spherical Projections<tocitem target="SphericalProjection_demo.html#3">Introduction</tocitem>
-            <tocitem target="SphericalProjection_demo.html#4">Alignment of the Hemishpheres</tocitem>
+            <tocitem target="SphericalProjection_demo.html#4">Alignment of the Hemispheres</tocitem>
             <tocitem target="SphericalProjection_demo.html#7">Alignment of the Coordinate Axes</tocitem>
             <tocitem target="SphericalProjection_demo.html#9">Equal Area Projection (Schmidt Projection)</tocitem>
             <tocitem target="SphericalProjection_demo.html#10">Equal Distance Projection</tocitem>
             <tocitem target="SphericalProjection_demo.html#11">Stereographic Projection (Equal Angle Projection)</tocitem>
             <tocitem target="SphericalProjection_demo.html#12">Plain Projection</tocitem>
-            <tocitem target="SphericalProjection_demo.html#13">Three Dimensional Plots</tocitem>
+            <tocitem target="SphericalProjection_demo.html#13">Three-dimensional Plots</tocitem>
          </tocitem>
          <tocitem target="ColorCoding_demo.html">Pole Figure Color Coding<tocitem target="ColorCoding_demo.html#4">A sample ODFs and Simulated Pole Figure Data</tocitem>
             <tocitem target="ColorCoding_demo.html#5">Setting a Colormap</tocitem>
             <tocitem target="ColorCoding_demo.html#9">Tight Colorcoding</tocitem>
             <tocitem target="ColorCoding_demo.html#10">Equal Colorcoding</tocitem>
-            <tocitem target="ColorCoding_demo.html#11">Setting an Explicite Colorrange</tocitem>
+            <tocitem target="ColorCoding_demo.html#11">Setting an Explicit Colorrange</tocitem>
             <tocitem target="ColorCoding_demo.html#12">Setting the Contour Levels</tocitem>
             <tocitem target="ColorCoding_demo.html#13">Modifying the Color range After Plotting</tocitem>
             <tocitem target="ColorCoding_demo.html#14">Logarithmic Plots</tocitem>

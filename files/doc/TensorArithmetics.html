@@ -42,8 +42,8 @@
          <div class="subheading">
             <p>how to calculate with tensors in MTEX</p>
          </div>
-         <p>MTEX offers some basic functionality to calculate with tensors as they occur in material sciense. It allows to define tensors
-            of arbitrary rank, e.g., stress, strain, elasticity or piezoelectric tensors, to visuallize them and to perform various transformations.
+         <p>MTEX offers some basic functionality to calculate with tensors as they occur in material sciense. It allows defining tensors
+            of arbitrary rank, e.g., stress, strain, elasticity or piezoelectric tensors, to visualize them and to perform various transformations.
          </p>
          <div>
             <table class="content">
@@ -71,9 +71,9 @@
             </table>
          </div>
          <h2>Defining a Tensor<a name="4"> </a></h2>
-         <p>A tensor is defined by its entries and a crystal symmetry. Let us consider a simple example. First we define some crystal
+         <p>A tensor is defined by its entries and a crystal symmetry. Let us consider a simple example. First, we define some crystal
             symmetry
-         </p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'1'</span>);</pre><p>Next we define a two rank tensor by its matrix</p><pre class="codeinput">M = [[10 3 0];[3 1 0];[0 0 1]];
+         </p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'1'</span>);</pre><p>Next, we define a two rank tensor by its matrix</p><pre class="codeinput">M = [[10 3 0];[3 1 0];[0 0 1]];
 T = tensor(M,cs)</pre><pre class="codeoutput"> 
 T = tensor  
   rank   : 2 (3 x 3)          
@@ -82,7 +82,7 @@ T = tensor
  10  3  0
   3  1  0
   0  0  1
-</pre><p>In case the two rank tensor is diagonal the syntax simplifies to</p><pre class="codeinput">T = tensor(diag([10 3 1]),cs)</pre><pre class="codeoutput"> 
+</pre><p>In case the two rank tensor is diagonal the syntax simplifies to</p><pre class="codeinput">T = tensor.diag([10 3 1],cs)</pre><pre class="codeoutput"> 
 T = tensor  
   rank   : 2 (3 x 3)          
   mineral: 1, X||a, Y||b, Z||c
@@ -92,7 +92,7 @@ T = tensor
   0  0  1
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Importing a Tensor from a File<a name="7"> </a></h2>
-         <p>Especially for higher order tensors it is more convinient to import the tensor entries from a file. As an example we load
+         <p>Especially for higher order tensors, it is more convenient to import the tensor entries from a file. As an example, we load
             the following elastic stiffness tensor
          </p><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'tensor'</span>,<span class="string">'Olivine1997PC.GPa'</span>);
 
@@ -115,11 +115,12 @@ C = stiffness tensor
          <p>The default plot for each tensor is its directional magnitude, i.e. for each direction x it is plotted Q(x) = T_ijkl x_i x_j
             x_k x_l
          </p><pre class="codeinput">setMTEXpref(<span class="string">'defaultColorMap'</span>,blue2redColorMap);
-plot(C,<span class="string">'complete'</span>)</pre><img src="TensorArithmetics_01.png"> <p>There are more specialized visuallition possibilities for specific tensors, e.g., for the elasticity tensor. See section <a href="ElasticityTensor.html">Elasticity Tensor</a>.
+plot(C,<span class="string">'complete'</span>,<span class="string">'upper'</span>)</pre><img src="TensorArithmetics_01.png"> <p>There are more specialized visualization possibilities for specific tensors, e.g., for the elasticity tensor. See section
+            <a href="ElasticityTensor.html">Elasticity Tensor</a>.
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Rotating a Tensor<a name="10"> </a></h2>
-         <p>Rotation a tensor is done by the command <a href="tensor.rotate.html">rotate</a>. Lets define a rotation
+         <p>Rotation a tensor is done by the command <a href="tensor.rotate.html">rotate</a>. Let's define a rotation
          </p><pre class="codeinput">r = rotation(<span class="string">'Euler'</span>,45*degree,0*degree,0*degree)</pre><pre class="codeoutput"> 
 r = rotation  
   size: 1 x 1
@@ -181,16 +182,17 @@ S = compliance tensor
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Tensor Products<a name="14"> </a></h2>
          <p>In MTEX tensor products are specifies according to Einsteins summation convention, i.e. a tensor product of the form T_ij
-            = E_ijkl S_kl has to be interpreted as a sum over the indice k and l. In MTEX this sum can be computed using the command <a href="tensor.EinsteinSum.html">EinsteinSum</a></p><pre class="codeinput">S = EinsteinSum(C,[-1 -2 1 2],T,[-1 -2])</pre><pre class="codeoutput"> 
+            = E_ijkl S_kl has to be interpreted as a sum over the indices k and l. In MTEX this sum can be computed using the command
+            <a href="tensor.EinsteinSum.html">EinsteinSum</a></p><pre class="codeinput">S = EinsteinSum(C,[-1 -2 1 2],T,[-1 -2])</pre><pre class="codeoutput"> 
 S = tensor  
   size   : 3 x 1        
   rank   : 2 (3 x 3)    
   mineral: olivine (mmm)
-</pre><p>here the negative numbers indicates the indices which are summend up. Each pair of equal negative numbers correspondes to
-            one sum. The positive numbers indicate the order of the dimensions of the resulting tensor.
+</pre><p>here the negative numbers indicate the indices which are summed up. Each pair of equal negative numbers corresponds to one
+            sum. The positive numbers indicate the order of the dimensions of the resulting tensor.
          </p>
-         <p>Let us consider a second example. The linear compressibility in a certain directiom v of a specimen can be computed from it
-            mean elasticity tensor E by the formula, c = S_ijkk v_i v_j where S is the complience, i.e. the inverse of the elasticity
+         <p>Let us consider the second example. The linear compressibility in a certain direction v of a specimen can be computed from
+            it mean elasticity tensor E by the formula, c = S_ijkk v_i v_j where S is the compliance, i.e. the inverse of the elasticity
             tensor
          </p><pre class="codeinput">v = xvector;
 c = EinsteinSum(C,[-1 -2 -3 -3],v,-1,v,-2)</pre><pre class="codeoutput"> 

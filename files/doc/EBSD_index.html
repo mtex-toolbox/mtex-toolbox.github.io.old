@@ -107,7 +107,7 @@ ebsd = EBSD
          <p>EBSD data are plotted using the command <a href="EBSD.plot.html,plot">EBSD.plot.html,plot</a>. It assigns a color to each orientation and plots a map of these colors. There are several options to specify the way the
             colors are assigned.
          </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd);
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSD_index_02.png"> <p>In order to understand the color coding one can plot the coloring of the corresponding inverse pole figure via</p><pre class="codeinput">plot(oM)
+plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSD_index_02.png"> <p>In order to understand the color coding, one can plot the coloring of the corresponding inverse pole figure via</p><pre class="codeinput">plot(oM)
 hold <span class="string">on</span>
 plotIPDF(ebsd(<span class="string">'Fe'</span>).orientations,xvector,<span class="string">'markerSize'</span>,3,<span class="string">'points'</span>,500,<span class="string">'marker'</span>,<span class="string">'o'</span>,<span class="string">'markerfacecolor'</span>,<span class="string">'none'</span>,<span class="string">'markeredgecolor'</span>,<span class="string">'k'</span>)
 hold <span class="string">off</span></pre><pre class="codeoutput">  I'm plotting 500 random orientations out of 48184 given orientations
@@ -120,11 +120,11 @@ hold <span class="string">off</span></pre><pre class="codeoutput">  I'm plotting
                <li>rotate EBSD data</li>
                <li>find outliers</li>
                <li>remove specific measurements</li>
-               <li>combine EBSD data from several meassurements</li>
+               <li>combine EBSD data from several measurements</li>
                <li>compute an ODF</li>
             </ul>
          </div>
-         <p>An exhausive introduction how to analyze and modify EBSD data can be found <a href="EBSDModifyData.html">here</a></p>
+         <p>An exhaustive introduction how to analyze and modify EBSD data can be found <a href="EBSDModifyData.html">here</a></p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Calculate an ODF from EBSD Data<a name="8"> </a></h3>
          <p>The command <a href="EBSD.calcODF.html">calcODF</a>  performs an ODF calculation from EBSD data using kernel density estimation EBSD data. For a precise explanation of the algorithm
@@ -155,7 +155,7 @@ ori = orientation
   The option "all" ensures that all data are plotted
 </pre><img src="EBSD_index_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Demo<a name="10"> </a></h3>
-         <p>For a more exaustive description of the EBSD class have a look at the <a href="ebsd_demo.html">EBSD demo</a>!
+         <p>For a more exhaustive description of the EBSD class have a look at the <a href="ebsd_demo.html">EBSD demo</a>!
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Complete Function list<a name="11"> </a></h2>

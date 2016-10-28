@@ -40,7 +40,7 @@
       <div class="container">
          <h1>Seismic velocities and anisotropy</h1>
          <div class="subheading">
-            <p>Calculalating and plotting elastic velocities from elastic stiffness Cijkl tensor and density (by David Mainprice).</p>
+            <p>Calculating and plotting elastic velocities from elastic stiffness Cijkl tensor and density (by David Mainprice).</p>
          </div>
          <div>
             <table class="content">
@@ -57,7 +57,7 @@
                   <td><a href="#6">Plotting section</a></td>
                </tr>
                <tr>
-                  <td><a href="#8">AVS : Plot S-wave anisotropy percentage for each proppagation direction</a></td>
+                  <td><a href="#8">AVS : Plot S-wave anisotropy percentage for each propagation direction</a></td>
                </tr>
                <tr>
                   <td><a href="#9">S1 Polarization: Plot fastest S-wave (Vs1) polarization directions</a></td>
@@ -264,47 +264,46 @@ mtexFig = mtexFigure(<span class="string">'position'</span>,[0 0 1000 1000]);
 <span class="comment">%**************************************************************************</span>
 
 <span class="comment">% Plot P-wave velocity (km/s)</span>
-plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vp'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca)
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vp'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 
 mtexTitle(<span class="string">'Vp (km/s)'</span>,titleOpt{:})
 <span class="comment">% percentage anisotropy</span>
 AVpS = [<span class="string">'Vp Anisotropy = '</span>,num2str(AVp,<span class="string">'%6.1f'</span>)];
-<span class="comment">% N.B. x and y reversed in subplot</span>
-ylabel(AVpS,titleOpt{:})
+xlabel(AVpS,titleOpt{:})
 
 <span class="comment">% mark maximum with black square and minimum with white circle</span>
 hold <span class="string">on</span>
-plot(Vp_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(Vp_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(Vp_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 hold <span class="string">off</span></pre><img src="SeismicsMultiplot_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>AVS : Plot S-wave anisotropy percentage for each proppagation direction<a name="8"> </a></h2>
+         <h2>AVS : Plot S-wave anisotropy percentage for each propagation direction<a name="8"> </a></h2>
          <p>defined as AVs = 200*(Vs1-Vs2)/(Vs1+Vs2)</p><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
 <span class="comment">% Plot S-wave anisotropy (percent)</span>
 plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'200*(vs1-vs2)./(vs1+vs2)'</span>,<span class="keyword">...</span>
-  <span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+  <span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>);
 mtexTitle(<span class="string">'S-wave anisotropy (%)'</span>,titleOpt{:})
 
 <span class="comment">% Max percentage anisotropy</span>
 AVsS = [<span class="string">'Max Vs Anisotropy = '</span>,num2str(AVs_max_value,<span class="string">'%6.1f'</span>)];
-ylabel(AVsS,titleOpt{:})
+xlabel(AVsS,titleOpt{:})
 
 <span class="comment">% mark crystal axes</span>
 hold <span class="string">on</span>
 text([xvector,yvector,zvector],{<span class="string">'[100] '</span>,<span class="string">'[010] '</span>,<span class="string">'[001]'</span>},<span class="keyword">...</span>
-  <span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+  <span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>,<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>);
 
 <span class="comment">% mark maximum with black square and minimum with white circle</span>
 hold <span class="string">on</span>
-plot(AVs_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(AVs_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(AVs_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 hold <span class="string">off</span></pre><img src="SeismicsMultiplot_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>S1 Polarization: Plot fastest S-wave (Vs1) polarization directions<a name="9"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
 plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'200*(vs1-vs2)./(vs1+vs2)'</span>,<span class="string">'complete'</span>,<span class="keyword">...</span>
-  <span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+  <span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>);
 mtexTitle(<span class="string">'Vs1 polarization'</span>,titleOpt{:})
 
 hold <span class="string">on</span>
@@ -314,88 +313,87 @@ hold <span class="string">off</span></pre><img src="SeismicsMultiplot_04.png"> <
          <h2>Vs1 : Plot Vs1 velocities (km/s)<a name="10"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
-plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vs1'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vs1'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>);
 mtexTitle(<span class="string">'Vs1 (km/s)'</span>,titleOpt{:})
 
 <span class="comment">% Percentage anisotropy</span>
 AVs1S = [<span class="string">'Vs1 Anisotropy = '</span>,num2str(AVs1,<span class="string">'%6.1f'</span>)];
-ylabel(AVs1S,titleOpt{:})
+xlabel(AVs1S,titleOpt{:})
 
 hold <span class="string">on</span>
 plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'ps1'</span>,<span class="keyword">...</span>
-<span class="string">'complete'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'color'</span>,<span class="string">'black'</span>,<span class="string">'parent'</span>,mtexFig.gca)
+<span class="string">'complete'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'color'</span>,<span class="string">'black'</span>,<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 
 <span class="comment">% mark maximum with black square and minimum with white circle</span>
 hold <span class="string">on</span>
-plot(Vs1_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(Vs1_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(Vs1_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 hold <span class="string">off</span></pre><img src="SeismicsMultiplot_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Vs2 : Plot Vs2 velocities (km/s)<a name="11"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
-plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vs2'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vs2'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>);
 mtexTitle(<span class="string">'Vs2 (km/s)'</span>,titleOpt{:})
 
 <span class="comment">% Percentage anisotropy</span>
 AVs2S = [<span class="string">'Vs2 Anisotropy = '</span>,num2str(AVs2,<span class="string">'%6.1f'</span>)];
-ylabel(AVs2S,titleOpt{:})
+xlabel(AVs2S,titleOpt{:})
 hold <span class="string">on</span>
 
 plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'ps2'</span>,<span class="keyword">...</span>
-  <span class="string">'complete'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'color'</span>,<span class="string">'black'</span>,<span class="string">'parent'</span>,mtexFig.gca)
+  <span class="string">'complete'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'color'</span>,<span class="string">'black'</span>,<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 
 <span class="comment">% mark maximum with black square and minimum with white circle</span>
 hold <span class="string">on</span>
-plot(Vs2_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(Vs2_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(Vs2_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 hold <span class="string">off</span></pre><img src="SeismicsMultiplot_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>dVs : Plot Velocity difference Vs1-Vs2 (km/s) plus Vs1 polarizations<a name="12"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
-plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vs1-vs2'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vs1-vs2'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>);
 mtexTitle(<span class="string">'dVs=Vs1-Vs2 (km/s)'</span>,titleOpt{:})
 
 <span class="comment">% Max percentage anisotropy</span>
 AdVsS = [<span class="string">'Max dVs (km/s) = '</span>,num2str(dVs_max_value,<span class="string">'%6.2f'</span>)];
-ylabel(AdVsS,titleOpt{:})
+xlabel(AdVsS,titleOpt{:})
 
 <span class="comment">% mark maximum with black square and minimum with white circle</span>
 hold <span class="string">on</span>
-plot(dVs_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(dVs_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(dVs_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 hold <span class="string">off</span></pre><img src="SeismicsMultiplot_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Vp/Vs1 : Plot Vp/Vs1 ratio (no units)<a name="13"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
-plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vp./vs1'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vp./vs1'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>);
 mtexTitle(<span class="string">'Vp/Vs1'</span>,titleOpt{:})
 
 <span class="comment">% Percentage anisotropy</span>
 AVpVs1S = [<span class="string">'Vp/Vs1 Anisotropy = '</span>,num2str(AVpVs1,<span class="string">'%6.1f'</span>)];
-ylabel(AVpVs1S,titleOpt{:})
+xlabel(AVpVs1S,titleOpt{:})
 
 <span class="comment">% mark maximum with black square and minimum with white circle</span>
 hold <span class="string">on</span>
-plot(VpVs1_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(VpVs1_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(VpVs1_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 hold <span class="string">off</span></pre><img src="SeismicsMultiplot_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Vp/Vs2 : Plot Vp/Vs2 ratio (no units)<a name="14"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
-plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vp./vs2'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca);
+plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'vp./vs2'</span>,<span class="string">'complete'</span>,<span class="string">'contourf'</span>,<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>);
 mtexTitle(<span class="string">'Vp/Vs2'</span>,titleOpt{:})
 
 <span class="comment">% Percentage anisotropy</span>
 AVpVs2S = [<span class="string">'Vp/Vs2 Anisotropy = '</span>,num2str(AVpVs2,<span class="string">'%6.1f'</span>)];
-ylabel(AVpVs2S,titleOpt{:})
+xlabel(AVpVs2S,titleOpt{:})
 
 <span class="comment">% mark maximum with black square and minimum with white circle</span>
 hold <span class="string">on</span>
-plot(VpVs2_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
+plot(VpVs2_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(VpVs2_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
 hold <span class="string">off</span></pre><img src="SeismicsMultiplot_09.png"> <pre class="codeinput"><span class="comment">% add colorbars to all plots</span>
-mtexColorbar
-drawNow(gcm,<span class="string">'figSize'</span>,<span class="string">'large'</span>)</pre><img src="SeismicsMultiplot_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="SeismicsMultiplot_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

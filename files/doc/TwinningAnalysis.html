@@ -90,7 +90,7 @@ CS = grains.CS;</pre><pre class="codeoutput">
 grains = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1     126   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1     126   22833  Magnesium     6/mmm        X||a, Y||b*, Z||c
  
  Properties: GOS, meanRotation
  
@@ -99,7 +99,7 @@ ebsd = EBSD
  
  Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
      0     46 (0.2%)  notIndexed                                               
-     1  22833 (100%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
+     1  22833 (100%)   Magnesium  light blue     6/mmm        X||a, Y||b*, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -109,7 +109,7 @@ ebsd = EBSD
  
  Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
      0     46 (0.2%)  notIndexed                                               
-     1  22833 (100%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
+     1  22833 (100%)   Magnesium  light blue     6/mmm        X||a, Y||b*, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -118,7 +118,7 @@ ebsd = EBSD
 grains = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1      91   22794  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1      91   22794  Magnesium     6/mmm        X||a, Y||b*, Z||c
  
  Properties: GOS, meanRotation
  
@@ -127,7 +127,7 @@ ebsd = EBSD
  
  Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
      0     46 (0.2%)  notIndexed                                               
-     1  22794 (100%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
+     1  22794 (100%)   Magnesium  light blue     6/mmm        X||a, Y||b*, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -137,7 +137,7 @@ ebsd = EBSD
  
  Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
      0     46 (0.2%)  notIndexed                                               
-     1  22794 (100%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
+     1  22794 (100%)   Magnesium  light blue     6/mmm        X||a, Y||b*, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -146,7 +146,7 @@ ebsd = EBSD
 grains = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1      91   22794  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1      91   22794  Magnesium     6/mmm        X||a, Y||b*, Z||c
  
  Properties: GOS, meanRotation
  
@@ -155,14 +155,14 @@ grains = grain2d
  
   oM = ipdfHSVOrientationMapping(ori_variable_name)
   plot(oM)
-</pre><img src="TwinningAnalysis_01.png"> <p>Now we can extract from the grains its boundary and save it to a seperate variable</p><pre class="codeinput">gB = grains.boundary</pre><pre class="codeoutput"> 
+</pre><img src="TwinningAnalysis_01.png"> <p>Now we can extract from the grains its boundary and save it to a separate variable</p><pre class="codeinput">gB = grains.boundary</pre><pre class="codeoutput"> 
 gB = grainBoundary  
  
  Segments   mineral 1  mineral 2
       600  notIndexed  Magnesium
      3164   Magnesium  Magnesium
 </pre><p>The output tells us that we have 3219 Magnesium to Magnesium boundary segments and 606 boundary segements where the grains
-            are cutted by the scanning boundary. To restrict the grain boundaries to a specific phase transistion you shall do
+            are cut by the scanning boundary. To restrict the grain boundaries to a specific phase transistion you shall do
          </p><pre class="codeinput">gB_MgMg = gB(<span class="string">'Magnesium'</span>,<span class="string">'Magnesium'</span>)</pre><pre class="codeoutput"> 
 gB_MgMg = grainBoundary  
  
@@ -178,22 +178,22 @@ gB_MgMg = grainBoundary
                <li>segLength</li>
             </ul>
          </div>
-         <p>These can be used to colorize the grain boundaries. By the following command we plot the grain boundaries colorized by the
+         <p>These can be used to colorize the grain boundaries. By the following command, we plot the grain boundaries colorized by the
             misorientation angle
          </p><pre class="codeinput">plot(gB_MgMg,gB_MgMg.misorientation.angle./degree,<span class="string">'linewidth'</span>,2)
-mtexColorbar</pre><img src="TwinningAnalysis_02.png"> <p>We observe many grain boundaries with a large misorientation angle of about 86 degree. Those grain boundaries are most likely
+mtexColorbar</pre><img src="TwinningAnalysis_02.png"> <p>We observe many grain boundaries with a large misorientation angle of about 86 degrees. Those grain boundaries are most likely
             twin boundaries. To detect them more precisely we define first the twinning as a misorientation, which is reported in literature
             by  (1,1,-2,0) parallel to (2,-1,-1,0) and (-1,0,1,1) parallel to (1,0,-1,1). In MTEX it is defined by
          </p><pre class="codeinput">twinning = orientation(<span class="string">'map'</span>,Miller(1,1,-2,0,CS),Miller(2,-1,-1,0,CS),<span class="keyword">...</span>
   Miller(-1,0,1,1,CS),Miller(1,0,-1,1,CS))</pre><pre class="codeoutput"> 
 twinning = misorientation  
   size: 1 x 1
-  crystal symmetry : Magnesium (6/mmm, X||a*, Y||b, Z||c)
-  crystal symmetry : Magnesium (6/mmm, X||a*, Y||b, Z||c)
+  crystal symmetry : Magnesium (6/mmm, X||a, Y||b*, Z||c)
+  crystal symmetry : Magnesium (6/mmm, X||a, Y||b*, Z||c)
  
   Bunge Euler angles in degree
   phi1     Phi    phi2    Inv.
-   330 93.7008     330       0
+     0 93.7008     300       0
  
  
 </pre><p>The followin lines show that the twinning is actually a rotation about axis (-2110) and angle 86.3 degree</p><pre class="codeinput"><span class="comment">% the rotational axis</span>
@@ -203,14 +203,14 @@ round(twinning.axis)
 twinning.angle / degree</pre><pre class="codeoutput"> 
 ans = Miller  
  size: 1 x 1
- mineral: Magnesium (6/mmm, X||a*, Y||b, Z||c)
+ mineral: Magnesium (6/mmm, X||a, Y||b*, Z||c)
   h -1
   k  2
   i -1
   l  0
 ans =
    86.2992
-</pre><p>Next we check for each boundary segment whether it is a twinning boundary, i.e., whether boundary misorientation is close
+</pre><p>Next, we check for each boundary segment whether it is a twinning boundary, i.e., whether boundary misorientation is close
             to the twinning.
          </p><pre class="codeinput"><span class="comment">% restrict to twinnings with threshold 5 degree</span>
 isTwinning = angle(gB_MgMg.misorientation,twinning) &lt; 5*degree;
@@ -224,9 +224,7 @@ hold <span class="string">on</span>
 plot(twinBoundary,<span class="string">'linecolor'</span>,<span class="string">'w'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'displayName'</span>,<span class="string">'twin boundary'</span>)
 hold <span class="string">off</span></pre><pre class="codeoutput"> 
 twinBoundary = grainBoundary  
- 
- Segments  mineral 1  mineral 2
-     1649  Magnesium  Magnesium
+  grain boundary is empty!
   I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
@@ -234,7 +232,7 @@ twinBoundary = grainBoundary
   plot(oM)
 </pre><img src="TwinningAnalysis_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Merge twins along twin boundaries<a name="10"> </a></h2>
-         <p>Grains that have a common twin boundary are assumed to inherite from one common grain. To reconstruct those inital grains
+         <p>Grains that have a common twin boundary are assumed to inherite from one common grain. To reconstruct those initial grains
             we merge grains together which have a common twin boundary. This is done by the command <a href="grain2d.merge.html">merge</a>.
          </p><pre class="codeinput">[mergedGrains,parentId] = merge(grains,twinBoundary);
 
@@ -245,25 +243,18 @@ plot(mergedGrains.boundary,<span class="string">'linecolor'</span>,<span class="
   <span class="string">'displayName'</span>,<span class="string">'merged grains'</span>)
 hold <span class="string">off</span></pre><img src="TwinningAnalysis_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Grain relationships<a name="11"> </a></h2>
-         <p>The second output argument <tt>paraentId</tt> of <a href="grain2d.merge.html">merge</a> is a list with the same size as grains which indicates for each grains into which common grain it has been merged. The id
-            of the commong grain is usually different from the ids of the merged grains and can be found by
+         <p>The second output argument <tt>paraentId</tt> of <a href="grain2d.merge.html">merge</a> is a list with the same size as grains which indicates for each grain into which common grain it has been merged. The id
+            of the common grain is usually different from the ids of the merged grains and can be found by
          </p><pre class="codeinput">mergedGrains(16).id</pre><pre class="codeoutput">ans =
     16
 </pre><p>Hence, we can find all childs of common grain 16 by</p><pre class="codeinput">childs = grains(parentId == mergedGrains(16).id)</pre><pre class="codeoutput"> 
 childs = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1       8    1698  Magnesium     6/mmm        X||a*, Y||b, Z||c
+     1       1    1427  Magnesium     6/mmm        X||a, Y||b*, Z||c
  
- Id   Phase   Pixels          GOS   phi1   Phi   phi2
-  6       1       40   0.00755032    178    90    236
- 14       1      254    0.0113603     81    25    187
- 17       1        4    0.0135723     80    26    189
- 19       1       38   0.00600972     95   145    186
- 24       1      774    0.0102946    178    90    235
- 28       1       45    0.0108147     80    25    188
- 29       1      293   0.00913161     94   145    185
- 33       1      250    0.0107569    179    89    235
+ Id   Phase   Pixels         GOS   phi1   Phi   phi2
+ 16       1     1427   0.0111674      4    80    195
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Calculate the twinned area<a name="13"> </a></h2>
@@ -271,15 +262,15 @@ childs = grain2d
 
 <span class="comment">% compute the area fraction</span>
 sum(area(grains(twinId))) / sum(area(grains)) * 100</pre><pre class="codeoutput">ans =
-   73.6009
+     0
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Setting Up the EBSD Data for the Merged Grains<a name="14"> </a></h2>
-         <p>Note that the Id's of the merged grains does not fit to the grainIds stored in the initial ebsd variable. As a consequence,
-            the following command will not give the right result
+         <p>Note that the Id's of the merged grains does not fit the grainIds stored in the initial ebsd variable. As a consequence, the
+            following command will not give the right result
          </p><pre class="codeinput">plot(mergedGrains(16).boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>
 plot(ebsd(mergedGrains(16)),ebsd(mergedGrains(16)).orientations)
-hold <span class="string">off</span></pre><img src="TwinningAnalysis_05.png"> <p>In order to update the grainId in the ebsd variable to the merged grains we proceed as follows.</p><pre class="codeinput"><span class="comment">% copy ebsd data into a new variable to not change the old data</span>
+hold <span class="string">off</span></pre><img src="TwinningAnalysis_05.png"> <p>In order to update the grainId in the ebsd variable to the merged grains, we proceed as follows.</p><pre class="codeinput"><span class="comment">% copy ebsd data into a new variable to not change the old data</span>
 ebsd_merged = ebsd;
 
 <span class="comment">% update the grainIds to the parentIds</span>
@@ -288,7 +279,7 @@ ebsd_merged = EBSD
  
  Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
      0     46 (0.2%)  notIndexed                                               
-     1  22794 (100%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
+     1  22794 (100%)   Magnesium  light blue     6/mmm        X||a, Y||b*, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um

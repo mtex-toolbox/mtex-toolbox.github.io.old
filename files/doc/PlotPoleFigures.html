@@ -40,7 +40,7 @@
       <div class="container">
          <h1>Plotting of Pole Figures</h1>
          <div class="subheading">
-            <p>Described various possibilities to visualize pole figure data.</p>
+            <p>Describes various possibilities to visualize pole figure data.</p>
          </div>
          <div>
             <table class="content">
@@ -65,15 +65,15 @@
          <h2>Import of Pole Figures<a name="3"> </a></h2>
          <p>Let us start by loading some pole figures.</p><pre class="codeinput">mtexdata <span class="string">ptx</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Visualize the Data<a name="4"> </a></h2>
-         <p>By default MTEX plots pole figures by drawing a circly at every measurement position of a pole figure an coloring it corresponding
+         <p>By default MTEX plots pole figures by drawing a circle at every measurement position of a pole figure and coloring it corresponding
             to the measured intensity.
          </p><pre class="codeinput">plot(pf)
-mtexColorbar</pre><img src="PlotPoleFigures_01.png"> <p>MTEX tries to guess the right size of circle in order to produce a pleasing result. However, you can adjust this size using
-            the option <b>MarkerSize</b>.
+mtexColorbar</pre><img src="PlotPoleFigures_01.png"> <p>MTEX tries to guess the right size of the circle in order to produce a pleasing result. However, you can adjust this size
+            using the option <b>MarkerSize</b>.
          </p><pre class="codeinput">plot(pf,<span class="string">'MarkerSize'</span>,4)
 mtexColorbar</pre><img src="PlotPoleFigures_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Contour Plots<a name="6"> </a></h2>
-         <p>Some people like to have there raw pole figures to be drawn as contour plots. This feature is not yet generally supported
+         <p>Some people like to have their raw pole figures to be drawn as contour plots. This feature is not yet generally supported
             by MTEX. Note that measured pole figure may be given at a very irregular grid which would make it necessary to interpolate
             before drawing contours. In this case, however, it seems to be more reasonable to first compute an ODF and than to draw contour
             plots of the recalculated pole figures.

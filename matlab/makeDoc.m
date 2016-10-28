@@ -7,6 +7,7 @@ if check_option(varargin,'clear')
   mtexdata clear
 end
 
+mtex_settings
 clear
 close all
 setMTEXpref('FontSize',12)
@@ -16,7 +17,8 @@ setMTEXpref('figSize',0.5)
 %%
 plotx2east
 
-
+global mtex_progress;
+mtex_progress = false;
 setMTEXpref('generatingHelpMode',true);
 set(0,'FormatSpacing','compact')
 
@@ -119,5 +121,6 @@ deadlink(mtexDocFiles,options.outputDir);
 %% set back mtex options
 
 setMTEXpref('generatingHelpMode',false);
+mtex_progress = true;
 
 end

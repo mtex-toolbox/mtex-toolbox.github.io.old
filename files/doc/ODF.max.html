@@ -87,8 +87,6 @@
             </td>
             <td>
             <p>in radians</p>
-            <p>mple nd the local maxima of the <a href="SantaFe.html">SantaFe</a> ODF</p>
-            <p>[m,ori] = max(SantaFe) plotPDF(SantaFe,Miller(0,0,1)) annotate(ori)</p>
             </td>
             </tr>
             </table>
@@ -119,7 +117,10 @@
             </table>
             
          </p>
-         <h3 class="seealso">See also</h3>
+         <h2>Example<a name="6"> </a></h2><pre>%find the local maxima of the <a href="SantaFe.html">SantaFe</a> ODF
+[m,ori] = max(SantaFe)
+plotPDF(SantaFe,Miller(0,0,1,ori.CS))
+annotate(ori)</pre><h3 class="seealso">See also</h3>
          <p><a href="ODF.calcModes.html">ODF/calcModes</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

@@ -119,16 +119,6 @@ theta_M rho_M intensity_M</pre><p>The actual order of the columns in the file ca
             </td>
             <td>
             <p>number of header lines</p>
-            <p>mple</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'fname = [mtexDataPath '/PoleFigure/nja/seifert'</tt>
-            </td>
-            <td>
-            <p>11.nja']; f = loadPoleFigure_generic(fname,'HEADER',21,'degree',...     'ColumnNames',{'polar angle','azimuth angle','intensity'},...
-            'Columns',[1 2 3])</p>
             </td>
             </tr>
             </table>
@@ -137,7 +127,16 @@ theta_M rho_M intensity_M</pre><p>The actual order of the columns in the file ca
             </table>
             
          </p>
-         <h3 class="seealso">See also</h3>
+         <h2>Example<a name="5"> </a></h2><pre class="codeinput">fname = [mtexDataPath <span class="string">'/PoleFigure/nja/seifert-111.nja'</span>];
+pf = loadPoleFigure_generic(fname,<span class="string">'HEADER'</span>,21,<span class="string">'degree'</span>,<span class="keyword">...</span>
+<span class="string">'ColumnNames'</span>,{<span class="string">'polar angle'</span>,<span class="string">'azimuth angle'</span>,<span class="string">'intensity'</span>},<span class="keyword">...</span>
+<span class="string">'Columns'</span>,[1 2 3])</pre><pre class="codeoutput"> 
+pf = PoleFigure  
+  crystal symmetry : m-3m
+  specimen symmetry: 1
+ 
+  h = (111), r = 2120 x 1 points
+</pre><h3 class="seealso">See also</h3>
          <p><a href="ImportPoleFigureData.html">ImportPoleFigureData</a>, <a href="loadPoleFigure.html">loadPoleFigure</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

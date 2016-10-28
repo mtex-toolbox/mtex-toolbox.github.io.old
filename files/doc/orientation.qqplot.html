@@ -44,7 +44,7 @@
             </p>
          </div>
          <p>quantile-quantile of misorientation angle against random angular misorientation</p>
-         <p>Example</p><pre>   qqplot(SO3Grid(2.5*degree,crystalSymmetry('m-3m')))</pre><h2>Syntax<a name="3"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2>
          <p>
             <div class="syntax" width="100%">
             <div>
@@ -53,7 +53,10 @@
             </div>
             
          </p>
-         <p style="font-size:1px;"></p>
+         <h2>Example<a name="4"> </a></h2><pre class="codeinput">cs = crystalSymmetry(<span class="string">'-43m'</span>);
+odf1 = unimodalODF(orientation.id(cs),<span class="string">'halfwidth'</span>,20*degree);
+odf2 = unimodalODF(orientation.id(cs),<span class="string">'halfwidth'</span>,50*degree);</pre><pre class="codeinput">qqplot(odf1.calcOrientations(1000))
+qqplot(odf2.calcOrientations(1000))</pre><img src="orientation.qqplot_01.png"> <img src="orientation.qqplot_02.png"> <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

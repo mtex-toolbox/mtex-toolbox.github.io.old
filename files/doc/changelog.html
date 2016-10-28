@@ -52,8 +52,8 @@
             </ul>
          </div>
          <p><b>Fibres</b></p>
-         <p>MTEX 4.4 has experimental support for fibres in orientation space. A an example the alpha fibre in cubic materials can be
-            defined in the following ways
+         <p>MTEX 4.4 adds support for fibres in orientation space. As an example the alpha fibre in cubic materials can be defined in
+            the following ways
          </p>
          <div>
             <ol>
@@ -69,7 +69,7 @@ f  = fibre.alpha(cs)</pre><div>
                <li>by two orientations</li>
             </ol>
          </div><pre class="codeinput">ori1 = orientation(<span class="string">'Miller'</span>,[0 0 1],[1 1 0],cs);
-ori2 = orientation(<span class="string">'Miller'</span>,[1 1 1],[1 1 0],cs);</pre><pre class="codeinput">f = fibre.fit(ori1,ori2)</pre><div>
+ori2 = orientation(<span class="string">'Miller'</span>,[1 1 1],[1 1 0],cs);</pre><pre class="codeinput">f = fibre(ori1,ori2)</pre><div>
             <ol>
                <li>by a list of orientations</li>
             </ol>
@@ -79,11 +79,10 @@ ori2 = orientation(<span class="string">'Miller'</span>,[1 1 1],[1 1 0],cs);</pr
                <li>plot to Rodrigues space</li>
             </ul>
          </div><pre>  oR = fundamentalRegion(cs,cs)
-  v = orientation(oR.V,cs,cs)
-  f = fibre.fit(v(1),v(2))
+  f = fibre(oR.V(1),oR.V(2))
   plot(oR)
   hold on
-  plot(fibre,'restrict2fundamentalRegion')
+  plot(fibre,'color','r','linewidth',2)
   hold off</pre><div>
             <ul type="square">
                <li>rotate a fibre</li>
@@ -120,17 +119,17 @@ plotb2north, plotb2east, plotb2south, plotb2west</pre><p>This might also be spec
                <li><a href="grainBoundary.quiver.html">quiver(grains.boundary,dir)</a></li>
             </ul>
          </div>
-         <p>that allow to visualize directions for EBSD data, grains and at grain boundaries. The input argument <tt>dir</tt> should be a list of <tt>vector3d</tt> and may represent e.g. slip directions, polarization direction, etc.
+         <p>that allow visualizing directions for EBSD data, grains and at grain boundaries. The input argument <tt>dir</tt> should be a list of <tt>vector3d</tt> and may represent e.g. slip directions, polarization direction, etc.
          </p>
          <p><b>EBSD data in raster format</b></p>
-         <p>Until MTEX 4.2 EBSD data have been always considered as a one dimensional list of data, i.e., the often present structure
+         <p>Until MTEX 4.2 EBSD data have been always considered as a one-dimensional list of data, i.e., the often present structure
             of a regular grid was completely ignored. Starting with MTEX 4.3 EBSD data can be converted in a regular grid by
          </p><pre class="codeinput">ebsd = ebsd.gridify</pre><p>Missing data are represented as NaN in the regular representation. Gridified EBSD data may be addressed analogously like matrixes,
             i.e.,
-         </p><pre class="codeinput">ebsd(100,200)</pre><p>will give pixel 100 in y direction and 200 in x direction. Analogously.</p><pre class="codeinput">ebsd(50:100,:)</pre><p>will give the stripe if pixels with y coordinate between 50 and 100.</p>
+         </p><pre class="codeinput">ebsd(100,200)</pre><p>will give pixel 100 in the y-direction and 200 in the x-direction. Analogously.</p><pre class="codeinput">ebsd(50:100,:)</pre><p>will give the stripe if pixels with y coordinate between 50 and 100.</p>
          <p><b>Orientation gradients and GND</b></p>
-         <p>Gridified EBSD data allows also to compture orientation gradients by</p><pre class="codeinput">ebsd.gradientX
-ebsd.gradientY</pre><p>as well as an estimate of the gemeometrically neccessary dislocation density (GND) using the command <a href="EBSDSquare.calcGND.html">calcGND</a></p><pre class="codeinput">ebsd.calcGND</pre><p><b>Auxilary new functionality</b></p>
+         <p>Gridified EBSD data allows also to compute orientation gradients by</p><pre class="codeinput">ebsd.gradientX
+ebsd.gradientY</pre><p>as well as an estimate of the geometrically necessary dislocation density (GND) using the command <a href="EBSDSquare.calcGND.html">calcGND</a></p><pre class="codeinput">ebsd.calcGND</pre><p><b>Auxilary new functionality</b></p>
          <div>
             <ul type="square">
                <li>grain2d.calcParis - Percentile Average Relative Indented Surface</li>
@@ -146,18 +145,18 @@ ebsd.gradientY</pre><p>as well as an estimate of the gemeometrically neccessary 
 grains.boundary.triplePoints</pre><p>More details on how to work with triple points can be found <a href="TriplePoints.html">here</a>.
          </p>
          <p><b>large EBSD data sets</b></p>
-         <p>Analyzing large EBSD data sets may be quite anoying due to memory consumption and slow plottin. As a work around MTEX includes
-            a new function <a href="EBSD.reduce.html">reduce</a> which allows to reduce the data set to each n-th pixel, i.e.,
-         </p><pre class="codeinput">ebsd_small = reduce(ebsd,2)</pre><p>contains only 25 percent of the data of the origina data set. This functionality is assumed to be used for experimenting around
-            with the data set and setting up a proper analysis script. The finaly analysis should, if possible, done with the entire data
-            set.
+         <p>Analyzing large EBSD data sets may be quite annoying due to memory consumption and slow plotting. As a work around MTEX includes
+            a new function <a href="EBSD.reduce.html">reduce</a> which allows reducing the data set to each n-th pixel, i.e.,
+         </p><pre class="codeinput">ebsd_small = reduce(ebsd,2)</pre><p>contains only 25 percent of the data of the original data set. This functionality is assumed to be used for experimenting
+            around with the data set and setting up a proper analysis script. The final analysis should, if possible, be done with the
+            entire data set.
          </p>
          <p><b>New option to ignore symmetry</b></p>
          <p>When computing the angle between crystal directions, the misorientation angle between orientations and the misorientation
             axis symmetry can be ignored with the flag <tt>noSymmetry</tt></p><pre class="codeinput">angle(Miller(1,0,0,cs),Miller(0,1,0,cs),<span class="string">'noSymmetry'</span>)
 angle(mori,<span class="string">'noSymmetry'</span>)
 axis(mori,<span class="string">'noSymmetry'</span>)</pre><p><b>Axis distributions in specimen coordinates</b></p>
-         <p>In order to plot axis distributions in specimen coordinates you can now do</p><pre class="codeinput">[ori1,ori2] = calcMisorientation(ebsd(<span class="string">'phaseName'</span>))
+         <p>In order to plot axis distributions in specimen coordinates, you can now do</p><pre class="codeinput">[ori1,ori2] = calcMisorientation(ebsd(<span class="string">'phaseName'</span>))
 plotAxisDistribution(ori1,ori2,<span class="string">'contourf'</span>)</pre><p>or</p><pre class="codeinput">ori = ebsd(grains.boundary(<span class="string">'indexed'</span>).ebsdId).orientations
 plotAxisDistribution(ori(:,1),ori(:,2),<span class="string">'contourf'</span>)</pre><p><b>New option to work around Matlab opengl bug</b></p>
          <p>In <a href="matlab:edit">mtex_settings.m mtex_settings</a> there is a new option that may help to work around the Matlab opengl bug. Switching it of may give nicer graphics.
@@ -175,35 +174,35 @@ plotAxisDistribution(ori(:,1),ori(:,2),<span class="string">'contourf'</span>)</
                <li>omega</li>
             </ul>
          </div>
-         <p>Along with the old syntax there is now a new syntax that allow for more fine control of the ODF secions.</p><pre class="codeinput">oS = phi2Sections(odf.CS,odf.SS)
+         <p>Along with the old syntax, there is now a new syntax that allows for more fine control of the ODF sections.</p><pre class="codeinput">oS = phi2Sections(odf.CS,odf.SS)
 oS.phi2 = [ 10*degree, 30*degree, 90*degree ];</pre><pre class="codeinput">plot(odf,oS)</pre><p><b>Ordering of crystal symmetries</b></p>
          <p>One can now check whether a crystal symmetry <tt>cs1</tt> is a subgroup of crystal symmetry <tt>cs2</tt> by
-         </p><pre class="codeinput">cs1 <= cs2</pre><p>Further, the largest proper subgroup of some crystal symmetry <tt>cs</tt> is now accessable by
+         </p><pre class="codeinput">cs1 <= cs2</pre><p>Further, the largest proper subgroup of some crystal symmetry <tt>cs</tt> is now accessible by
          </p><pre>cs.properSubGroup</pre><h2>MTEX 4.1 - 09/2015<a name="5"> </a></h2>
-         <p>MTEX 4.1 introduces new possibilities to the analysis of misorientations. For the first time it covers all geometric aspects
+         <p>MTEX 4.1 introduces new possibilities to the analysis of misorientations. For the first time, it covers all geometric aspects
             of misorientations between arbitrary crystal symmetries. Furthermore, MTEX 4.1 introduces filters to smooth EBSD data.
          </p>
          <p><b>Smoothing of EBSD Data</b></p>
-         <p>Smoothing of EBSD data might be necesarry if the orientation data are corrupted by noise which influences the estimation of
+         <p>Smoothing of EBSD data might be necessary if the orientation data are corrupted by noise which influences the estimation of
             orientation dependent properties like KAM or GND. The general syntax for smoothing EBSD data is
-         </p><pre class="codeinput">ebsd = smooth(ebsd)</pre><p>This applies the spline filter to the orientation data. Beside the spline filter many other filters are available. A general
-            discussion on this topic can be found <a href="EBSDSmoothing.html">here</a>. To make use of a different then the dafault filter use the syntax
+         </p><pre class="codeinput">ebsd = smooth(ebsd)</pre><p>This applies the spline filter to the orientation data. Beside the spline filter, many other filters are available. A general
+            discussion on this topic can be found <a href="EBSDSmoothing.html">here</a>. To make use of a different than the dafault filter use the syntax
          </p><pre class="codeinput">F = medianFilter
 F.numNeighbours = 2 <span class="comment">% this way options for the filter can be set</span>
-ebsd = smooth(ebsd,F)</pre><p>The command smooth can also be used to fill not indexed measurement points. This behaviour is enabled by the option <tt>fill</tt></p><pre class="codeinput">ebsd = smooth(ebsd,F,<span class="string">'fill'</span>)</pre><p><b>Support for antipodal symmetry for misorientations</b></p>
-         <p>When working with boundary misorientations between the same phase one can not distinguish between an misorientation <tt>mori</tt> and its inverse |inv(mori). Starting with MTEX 4.1 this symmetry is supported for misorientations and misorientation distribution
+ebsd = smooth(ebsd,F)</pre><p>The command smooth can also be used to fill not indexed measurement points. This behavior is enabled by the option <tt>fill</tt></p><pre class="codeinput">ebsd = smooth(ebsd,F,<span class="string">'fill'</span>)</pre><p><b>Support for antipodal symmetry for misorientations</b></p>
+         <p>When working with boundary misorientations between the same phase one can not distinguish between a misorientation <tt>mori</tt> and its inverse |inv(mori). Starting with MTEX 4.1 this symmetry is supported for misorientations and misorientation distribution
             functions.
          </p><pre class="codeinput">mori = inv(ori1) * ori2;
-mori.antipodal = true;</pre><pre class="codeinput">mdf = calcMDF(odf1,odf2,<span class="string">'antipodal'</span>)</pre><p>Antipodal symmetry effects the asymetric region in orientation space as described below, as well as the distanc between misorientations.
-            Boundary misorientations between the same phase have set the flag <tt>antipodal</tt> by default.
+mori.antipodal = true;</pre><pre class="codeinput">mdf = calcMDF(odf1,odf2,<span class="string">'antipodal'</span>)</pre><p>Antipodal symmetry effects the asymmetric region in orientation space as described below, as well as the distance between
+            misorientations. Boundary misorientations between the same phase have set the flag <tt>antipodal</tt> by default.
          </p>
-         <p><b>Asymetric regions in orientation space</b></p>
+         <p><b>Asymmetric regions in orientation space</b></p>
          <p>MTEX 4.1 has now full support of asymmetric regions in orientation space. For any combination of crystal symmetries they can
             be defined by
-         </p><pre class="codeinput">oR = fundamentalRegion(cs1,cs2)</pre><p>and visualized by</p><pre class="codeinput">plot(oR)</pre><p>One can check, whether an orientation is within the fundamental region by</p><pre class="codeinput">oR.checkInside(ori)</pre><p>similarly as for a sphericalRegion. The fundamental region with antipodal symmetry is defined by.</p><pre class="codeinput">oR = fundamentalRegion(cs1,cs2,<span class="string">'antipodal'</span>)</pre><p>For a fixed rotational angle <tt>omega</tt> the intersection of the fundamental region with the sphere with radius omega gives the fundamental sector for the corresponding
+         </p><pre class="codeinput">oR = fundamentalRegion(cs1,cs2)</pre><p>and visualized by</p><pre class="codeinput">plot(oR)</pre><p>One can check, whether an orientation is within the fundamental region by</p><pre class="codeinput">oR.checkInside(ori)</pre><p>similarly as for a sphericalRegion. The fundamental region with antipodal symmetry is defined by.</p><pre class="codeinput">oR = fundamentalRegion(cs1,cs2,<span class="string">'antipodal'</span>)</pre><p>For a fixed rotational angle <tt>omega</tt>, the intersection of the fundamental region with the sphere with radius omega gives the fundamental sector for the corresponding
             rotational axes. The axis sector can be computed by
          </p><pre class="codeinput">sR = oR.axisSector(omega)</pre><p><b>Axis and angle distributions</b></p>
-         <p>Thanks to the implementation of the asymetric region <tt>plotAxisDistribution</tt> and <tt>plotAngleDistribution</tt> works in MTEX 4.1 for any combination of crystal symmetries.
+         <p>Thanks to the implementation of the asymmetric region <tt>plotAxisDistribution</tt> and <tt>plotAngleDistribution</tt> works in MTEX 4.1 for any combination of crystal symmetries.
          </p>
          <p>The following syntax is obsolete</p><pre class="codeinput">plotAxisDistribution(grains.boundary(<span class="string">'phase1'</span>,<span class="string">'phase2'</span>))
 plotAngleDistribution(grains.boundary(<span class="string">'phase1'</span>,<span class="string">'phase2'</span>))
@@ -211,18 +210,18 @@ plotAngleDistribution(ebsd)</pre><p>As replacement use the more verbose syntax</
 plotAngleDistribution(grains.boundary(<span class="string">'phase1'</span>,<span class="string">'phase2'</span>).misorientation)</pre><pre class="codeinput">mori = calcMisorientation(ebsd(<span class="string">'phase1'</span>),ebsd(<span class="string">'phase2'</span>))
 plotAngleDistribution(mori)
 plotAxisDistribution(mori)</pre><p><b>Rotational axis in specimen coordinates</b></p>
-         <p>It is now possible to compute the misorientaion axis between two orientations in specimen coordinate system. This is done
+         <p>It is now possible to compute the misorientation axis between two orientations in specimen coordinate system. This is done
             by
          </p><pre class="codeinput">axis(ori1,ori2)</pre><p>To do so with random misorientations from an EBSD data set do</p><pre class="codeinput">[ori1,ori2] = calcMisorientation(ebsd(<span class="string">'phase1'</span>),ebsd(<span class="string">'phase2'</span>))
 plot(axis(ori1,ori2))</pre><p><b>Axis angle plots</b></p>
-         <p>(Mis)Orientation, ODFs and MDFs can now be plotted in axis angles sections. Those plots respect the fundamental sector depending
+         <p>(Mis)Orientation, ODFs, and MDFs can now be plotted in axis angles sections. Those plots respect the fundamental sector depending
             on the misorientation angle and for all combinations of crystal symmetries. The angle sections are scaled such that they represent
-            the corrsponding volume in orientation space. This can be switch of as described below
+            the corresponding volume in orientation space. This can be switch off as described below
          </p><pre class="codeinput">plotSection(mori,<span class="string">'axisAngle'</span>,55*degree)
 plotSection(mdf,<span class="string">'axisAngle'</span>,(15:10:55)*degree)
 plotSection(mdf,<span class="string">'axisAngle'</span>,(15:10:55)*degree,<span class="string">'volumeScaling'</span>,false)
-plotSection(mdf,<span class="string">'axisAngle'</span>,(15:10:55)*degree,<span class="string">'antipodal'</span>)</pre><p><b>Replace plotODF by plotSection</b></p>
-         <p>In most cases you can replace <tt>plotODF</tt> by <tt>plot</tt>. Only for misorientations the default plot is <tt>scatter</tt>.
+plotSection(mdf,<span class="string">'axisAngle'</span>,(15:10:55)*degree,<span class="string">'antipodal'</span>)</pre><p><b>Replace plotODF by a plotSection</b></p>
+         <p>In most cases, you can replace <tt>plotODF</tt> by a|plot|. Only for misorientations, the default plot is <tt>scattered</tt>.
          </p>
          <p><b>More default settings for EBSD maps and pole figure plots</b></p>
          <div>
@@ -243,7 +242,7 @@ plotSection(mdf,<span class="string">'axisAngle'</span>,(15:10:55)*degree,<span 
          </div><pre class="codeinput">pfAnnotations = @(varargin) text([vector3d.X,vector3d.Y],{<span class="string">'RD'</span>,<span class="string">'ND'</span>},<span class="keyword">...</span>
  <span class="string">'BackgroundColor'</span>,<span class="string">'w'</span>,<span class="string">'tag'</span>,<span class="string">'axesLabels'</span>,varargin{:});
 setMTEXpref(<span class="string">'pfAnnotations'</span>,pfAnnotations);</pre><p><b>Other improvements since MTEX 4.0.0</b></p>
-         <p>During the minor revisions of MTEX also several minor improvments has been added which are summarized below</p>
+         <p>During the minor revisions of MTEX also several minor improvements have been added which are summarized below</p>
          <div>
             <ul type="square">
                <li>check for inclusions in grains: the following command returns a list of true/false depending whether a grain in <tt>grainList</tt> is an inclusion in <tt>hostGrain</tt></li>
@@ -315,24 +314,24 @@ cs.AaxisRec</pre><div>
             </ul>
          </div>
          <h2>MTEX 4.0.0 - 10/2014<a name="6"> </a></h2>
-         <p>MTEX 4 is a complete rewrite of the internal class system which was required to keep MTEX compatible with upcomming Matlab
-            releases. Note that MTEX 3.5 will not work on Matlab versions later then 2014a. As a positive side effect the syntax has been
-            made more consisent and powerfull. On the bad side MTEX 3.5. code will need some adaption to run on MTEX 4. There are two
-            general principles to consider
+         <p>MTEX 4 is a complete rewrite of the internal class system which was required to keep MTEX compatible with upcoming Matlab
+            releases. Note that MTEX 3.5 will not work on Matlab versions later than 2014a. As a positive side effect, the syntax has
+            been made more consistent and powerful. On the bad side MTEX 3.5. code will need some adaption to run on MTEX 4. There are
+            two general principles to consider
          </p>
-         <p><b>Use dot indexing instead of get and set methods</b></p>
+         <p><b>Use dot indexing instead of getting and setting methods</b></p>
          <p>The syntax</p><pre class="codeinput">h = get(m,<span class="string">'h'</span>)
 m = set(m,<span class="string">'h'</span>,h+1)</pre><p>is obsolete. <tt>set</tt> and <tt>get</tt> methods are not longer supported by any MTEX class. Instead use dot indexing
          </p><pre class="codeinput">h = m.h
-m.h = h + 1</pre><p>Note, that this syntax can be nested, i.e., one can write</p><pre class="codeinput">ebsd(<span class="string">'Forsterite'</span>).orientations.angle</pre><p>to get the rotational angle of all Forsterite orientations, or,</p><pre class="codeinput">cs.axes(1).x</pre><p>to get the x coordinate of the first crystallographic coordinate axis - the a-axis. As an nice bonus you can now use TAB completion
+m.h = h + 1</pre><p>Note, that this syntax can be nested, i.e., one can write</p><pre class="codeinput">ebsd(<span class="string">'Forsterite'</span>).orientations.angle</pre><p>to get the rotational angle of all Forsterite orientations, or,</p><pre class="codeinput">cs.axes(1).x</pre><p>to get the x coordinate of the first crystallographic coordinate axis - the a-axis. As a nice bonus, you can now use TAB completion
             to cycle through all possible properties and methods of a class.
          </p>
          <p><b>Use camelCaseCommands instead of under_score_commands</b></p>
          <p>Formerly, MTEX used different naming conventions for functions. Starting with MTEX 4.0 all function names consisting of several
-            words, have the first word spelled with lowercase latters and the consecutive words starting with a capital letter. Most notable
+            words, have the first word spelled with lowercase letters and the consecutive words starting with a capital letter. Most notable
             changes are  * <tt>plotPDF</tt>  * <tt>plotIPDF</tt>  * <tt>plotODF</tt>  * <tt>calcError</tt></p>
-         <p><b>Grain boundaries are now directly accessable</b></p>
-         <p>MTEX 4.0 introduces a new type of variables called <tt>grainBoundary</tt> which allows to represent arbitary grain boundaries and to to work with them as with grains. The following lines give some
+         <p><b>Grain boundaries are now directly accessible</b></p>
+         <p>MTEX 4.0 introduces a new type of variables called <tt>grainBoundary</tt> which allows to represent arbitrary grain boundaries and to work with them as with grains. The following lines give some
             examples. Much more is possible.
          </p><pre class="codeinput"><span class="comment">% select boundary from specific grains</span>
 grains.boundary</pre><pre class="codeinput"><span class="comment">% select boundary by phase transistion</span>
@@ -346,8 +345,8 @@ plot(ebsd,ebsd.mad)</pre><pre class="codeinput"><span class="comment">% colorize
 plot(grains,grains.area)</pre><pre class="codeinput"><span class="comment">% colorize grain boundary according to misorientation angle</span>
 gB = grains.boundary(<span class="string">'Forsterite'</span>,<span class="string">'Enstatite'</span>)
 plot(gB,gB.misorientation.angle)</pre><p>Colorization according to phase or phase transition is the new default when calling <tt>plot</tt> without data argument, i.e., the following results in a phase plot
-         </p><pre class="codeinput">plot(ebsd)</pre><p>In order to colorize ebsd data according to orientations one has first to define an orientationMapping by</p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'Forsterite'</span>))</pre><p>Then one can use the command <tt>oM.orientation2color</tt> to compute RGB values for the orientations
-         </p><pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),oM.orientation2color(ebsd(<span class="string">'Forsterite'</span>).orientations))</pre><p>The orientation mapping can be visualized by</p><pre class="codeinput">plot(oM)</pre><p><b>EBSD data are alway spatialy indexed</b></p>
+         </p><pre class="codeinput">plot(ebsd)</pre><p>In order to colorize ebsd data according to orientations, one has first to define an orientationMapping by</p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'Forsterite'</span>))</pre><p>Then one can use the command <tt>oM.orientation2color</tt> to compute RGB values for the orientations
+         </p><pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),oM.orientation2color(ebsd(<span class="string">'Forsterite'</span>).orientations))</pre><p>The orientation mapping can be visualized by</p><pre class="codeinput">plot(oM)</pre><p><b>EBSD data are always spatially indexed</b></p>
          <p>Starting with MTEX 4.0 EBSD data alway have to have x and y coordinates. EBSD data without spatial coordinates are imported
             simply as orientations. As a consequence, all orientation related functionalities of EBSD data have been moved to <tt>orientations</tt>, i.e., you can not do anymore
          </p><pre class="codeinput">plotpdf(ebsd(<span class="string">'Fo'</span>),Miller(1,0,0,CS))
@@ -356,25 +355,25 @@ volume((ebsd(<span class="string">'Fo'</span>))</pre><p>But instead you have to 
 calcODF(ebsd(<span class="string">'Fo'</span>).orientations)
 volume((ebsd(<span class="string">'Fo'</span>).orientations)</pre><p>This makes it more easy to apply the same functions to misorientations to grain mean orientations <tt>grains.meanOrientation</tt>, ebsd misorientation to mean <tt>mean |ebsd.mis2mean</tt> or boundary misorientations <tt>grains.boundary.misorientation</tt></p>
          <p><b>Different syntax for reconstructing grains from EBSD data</b></p>
-         <p>In MTEX 3.5 the command</p><pre class="codeinput">grains = calcGrains(ebsd)</pre><p>duplicates the ebsd data into the grain variable allowing to acces the EBSD data belonging to a specific grain by</p><pre class="codeinput">get(grains(1),<span class="string">'EBSD'</span>)</pre><p>In MTEX 4.0 the command <tt>calcGrains</tt> returns as an additional output the a list of grainIds that is associated to the EBSD data. When storing these grainIds directly
+         <p>In MTEX 3.5 the command</p><pre class="codeinput">grains = calcGrains(ebsd)</pre><p>duplicates the ebsd data into the grain variable allowing to access the EBSD data belonging to a specific grain by</p><pre class="codeinput">get(grains(1),<span class="string">'EBSD'</span>)</pre><p>In MTEX 4.0 the command <tt>calcGrains</tt> returns as an additional output the list of grainIds that is associated with the EBSD data. When storing these grainIds directly
             inside the EBSD data, i.e., by
-         </p><pre class="codeinput">[grains,ebsd.grainId] calcGrains(ebsd)</pre><p>one can access the EBSD data belonging to a specific grain by the command</p><pre class="codeinput">ebsd(grains(1))</pre><p><b>MTEX 4.0 distingueshes between crystal and specimen symmetry</b></p>
-         <p>In MTEX 4.0 two new variable types <tt>specimenSymmetry</tt> and <tt>crystalSymmetry</tt> have been introduced to clearly distinguesh between these two types of symmetry. Calling
+         </p><pre class="codeinput">[grains,ebsd.grainId] calcGrains(ebsd)</pre><p>one can access the EBSD data belonging to a specific grain by the command</p><pre class="codeinput">ebsd(grains(1))</pre><p><b>MTEX 4.0 distinguishes between crystal and specimen symmetry</b></p>
+         <p>In MTEX 4.0 two new variable types <tt>specimenSymmetry</tt> and <tt>crystalSymmetry</tt> have been introduced to distinguish clearly between these two types of symmetry. Calling
          </p><pre class="codeinput">cs = symmetry(<span class="string">'m-3m'</span>)
 ss = symmetry(<span class="string">'triclinic'</span>)</pre><p>is not allowed anymore! Please use instead</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'m-3m'</span>,<span class="string">'mineral'</span>,<span class="string">'phaseName'</span>)
 ss = specimenSymmetry(<span class="string">'triclinic'</span>)</pre><p><b>Pole figure indexing is now analogously to EBSD data</b></p>
-         <p>You can now index pole figure data by conditions in the same manner as EBSD data. E.g. the condition</p><pre class="codeinput">condition = pf.r.theta < 80 * degree</pre><p>is a index to all pole figure data with polar angle smaller then 80 degree. To restrict the pole figure variable <tt>pf</tt> to the data write
-         </p><pre class="codeinput">pf_restrcited = pf(condition)</pre><p>In the same manner we can also remove all negative intensities</p><pre class="codeinput">condition = pf.intensities < 0
+         <p>You can now index pole figure data by conditions in the same manner as EBSD data. E.g. the condition</p><pre class="codeinput">condition = pf.r.theta < 80 * degree</pre><p>is an index to all pole figure data with a polar angle smaller than 80 degree. To restrict the pole figure variable <tt>pf</tt> to the data write
+         </p><pre class="codeinput">pf_restrcited = pf(condition)</pre><p>In the same manner, we can also remove all negative intensities</p><pre class="codeinput">condition = pf.intensities < 0
 pf(condition) = []</pre><p>In order to address individuell pole figures within a array of pole figures <tt>pf</tt> use the syntax
          </p><pre class="codeinput">pf(<span class="string">'111'</span>)</pre><p>or</p><pre class="codeinput">pf(Miller(1,1,1,cs))</pre><p>The old syntax</p><pre class="codeinput">pf(1)</pre><p>for accessing the first pole figure will not work anymore as it now refers to the first pole figure measurement. The direct
             replacement for the above command is
          </p><pre class="codeinput">pf({1})</pre><p><b>MTEX 4.0 supports all 32 point groups</b></p>
-         <p>In MTEX 4.0 it is for the first time possible to calculate with reflections and inversions. As a consequence all 32 point
-            groups are supported. This is particularly important when working with piezoellectric tensors and symmetries like 4mm. Moreover,
-            MTEX distingueshes between the point groups 112, 121, 112 up to -3m1 and -31m.
+         <p>In MTEX 4.0 it is for the first time possible to calculate with reflections and inversions. As a consequence, all 32 point
+            groups are supported. This is particularly important when working with piezoelectric tensors and symmetries like 4mm. Moreover,
+            MTEX distinguishes between the point groups 112, 121, 112 up to -3m1 and -31m.
          </p>
-         <p>Care should be taken, when using non Laue groups for pole figure or EBSD data.</p>
-         <p><b>Support for three digit notation for Miller indices of trigonal symmetries</b></p>
+         <p>Care should be taken, when using non-Laue groups for pole figure or EBSD data.</p>
+         <p><b>Support for three-digit notation for Miller indices of trigonal symmetries</b></p>
          <p>MTEX 4.0 understands now uvw and UVTW notation for trigonal symmetries. The following two commands define the same crystallographic
             direction, namely the a1-axis
          </p><pre class="codeinput">Miller(1,0,0,crystalSymmetry(<span class="string">'-3m'</span>),<span class="string">'uvw'</span>)</pre><pre class="codeinput">Miller(2,-1,-1,0,crystalSymmetry(<span class="string">'-3m'</span>),<span class="string">'UVTW'</span>)</pre><p><b>Improved graphics</b></p>
@@ -386,7 +385,7 @@ pf(condition) = []</pre><p>In order to address individuell pole figures within a
          <div>
             <ul type="square">
                <li>3d EBSD data handling + 3d grains</li>
-               <li>some grain functions like aspectRatio, equivalent diamter</li>
+               <li>some grain functions like aspectRatio, equivalent diameter</li>
                <li>logarithmic scaling of plots</li>
                <li>3d plot of ODFs</li>
                <li>some of the orientation color maps</li>
@@ -396,9 +395,9 @@ pf(condition) = []</pre><p>In order to address individuell pole figures within a
                <li>v.x = 0</li>
                <li>misorientation analysis is not yet complete</li>
                <li>some colormaps, e.g. blue2red switched</li>
-               <li>histogram of valume fractions of CSL boundaries</li>
+               <li>histogram of volume fractions of CSL boundaries</li>
                <li>remove id from EBSD?</li>
-               <li>changing the phase of a grain should change phases in boundary</li>
+               <li>changing the phase of a grain should change phases in the boundary</li>
                <li>KAM and GOSS may be improved</li>
                <li>write import wizard for orientations, vectors, tensors.</li>
             </ul>
@@ -409,7 +408,7 @@ pf(condition) = []</pre><p>In order to address individuell pole figures within a
             <ul type="square">
                <li>Patala colormap for misorientations</li>
                <li>publication:  S. Patala, J. K. Mason, and C. A. Schuh, Improved representations of misorientation information for grain boundary,
-                  science and engineering, Prog. Mater. Sci., vol. 57, no. 8, pp. 1383-1425, 2012.
+                  science, and engineering, Prog. Mater. Sci., vol. 57, no. 8, pp. 1383-1425, 2012.
                </li>
                <li>implementation: Oliver Johnson</li>
                <li>syntax:</li>
@@ -432,7 +431,7 @@ pf(condition) = []</pre><p>In order to address individuell pole figures within a
          </div><pre class="codeinput">get(grains,<span class="string">'id'</span>)</pre><div>
             <ul type="square">
                <li>the flags <tt>'north'</tt> and <tt>'south'</tt> are obsolete and have been replaced by <tt>'upper'</tt> and <tt>'lower'</tt></li>
-               <li>you can specify the outer boundary for grain reconstruction in non convex EBSD data set by the option <tt>'boundary'</tt></li>
+               <li>you can specify the outer boundary for grain reconstruction in nonconvex EBSD data set by the option <tt>'boundary'</tt></li>
             </ul>
          </div><pre class="codeinput">poly = [ [x1,y1];[x2,y2];[xn,yn];[x1,y1] ]
 grains = calcGrains(ebsd,<span class="string">'boundary'</span>,poly)</pre><div>
@@ -459,11 +458,11 @@ grains = calcGrains(ebsd,<span class="string">'boundary'</span>,poly)</pre><div>
                <li>option south is working again in pole figure plots</li>
                <li>geometric mean in tensor averagin, thanks to Julian Mecklenburgh</li>
                <li>improved support of osc EBSD format</li>
-               <li>tensor symmetry check error can be turned of and has more detailed error message</li>
+               <li>tensor symmetry check error can be turned of and has a more detailed error message</li>
                <li>improved syntax for Miller   Miller(x,y,z,'xyz',CS)   Miller('polar',theta,rho,CS)</li>
                <li>ensure same marker size in EBSD pole figure plots</li>
                <li>allow plotting Schmid factor for grains and EBSD data</li>
-               <li>allow to anotate Miller to AxisDistribution plots</li>
+               <li>allow to annotate Miller to AxisDistribution plots</li>
                <li>improved figure export</li>
                <li>allow for negative phase indices in EBSD data</li>
                <li>bug fix: https://code.google.com/p/mtex/issues/detail?id=115</li>
@@ -485,17 +484,17 @@ grains = calcGrains(ebsd,<span class="string">'boundary'</span>,poly)</pre><div>
          </div>
          <h2>MTEX 3.4.0 - 03/2013<a name="10"> </a></h2>
          <p><b>New plotting engine</b></p>
-         <p>MTEX 3.4 features a completely rewritten plotting engine. New features includes</p>
+         <p>MTEX 3.4 features a completely rewritten plotting engine. New features include</p>
          <div>
             <ul type="square">
-               <li>The alignment of the axes in the plot is now described by the options <tt>xAxisDirection</tt> which can be <tt>north</tt>, <tt>west</tt>, <tt>south</tt>, or <tt>east</tt>, and <tt>zAxisDirection</tt> which can be <tt>outOfPlane</tt> or <tt>intoPlane</tt>. Accordinly, there are now the commands
+               <li>The alignment of the axes in the plot is now described by the options <tt>xAxisDirection</tt> which can be <tt>north</tt>, <tt>west</tt>, <tt>south</tt>, or <tt>east</tt>, and <tt>zAxisDirection</tt> which can be <tt>outOfPlane</tt> or <tt>intoPlane</tt>. Accordingly, there are now the commands
                </li>
             </ul>
          </div><pre class="codeinput">plotzOutOfPlane, plotzIntoPlane</pre><div>
             <ul type="square">
                <li>The alignment of the axes can be changed interactively using the new MTEX menu which is located in the menubar of each figure.</li>
                <li>northern and southern hemisphere are now separate axes that can be stacked arbitrarily and are marked as north and south.</li>
-               <li>Arbitary plots can be combined in one figure. The syntax is</li>
+               <li>Arbitrary plots can be combined in one figure. The syntax is</li>
             </ul>
          </div><pre class="codeinput">ax = subplot(2,2,1)
 plot(ax,xvector)</pre><div>
@@ -519,15 +518,15 @@ plot(ax,xvector)</pre><div>
          </div><pre class="codeinput">mtexColorMap <span class="string">red2blue</span></pre><p><b>ODF</b></p>
          <div>
             <ul type="square">
-               <li>The default ODF plot are now phi2 sections with plain projection and (0,0) beeing at the top left corner. This can be changed
-                  interactivly in the new MTEX menu.
+               <li>The default ODF plot is now phi2 sections with plain projection and (0,0) being at the top left corner. This can be changed
+                  interactively in the new MTEX menu.
                </li>
-               <li>The computation of more then one maximum is back. Use the command</li>
+               <li>The computation of more than one maximum is back. Use the command</li>
             </ul>
          </div><pre class="codeinput">[modes, values] = calcModes(odf,n)</pre><p><b>EBSD data</b></p>
          <div>
             <ul type="square">
-               <li>MTEX is now aware about inconsistent coordinate system used in CTF and HKL EBSD files for Euler angles and spatial coordinates.
+               <li>MTEX is now aware about the inconsistent coordinate system used in CTF and HKL EBSD files for Euler angles and spatial coordinates.
                   The user can now convert either the spatial coordinates or the Euler angles such that they become consistent. This can be
                   easily done by the import wizard or via the commands
                </li>
@@ -542,7 +541,7 @@ loadEBSD(<span class="string">'filename'</span>,<span class="string">'convertEul
             </ul>
          </div><pre class="codeinput">CS = symmetry(<span class="string">'cubic'</span>,<span class="string">'mineral'</span>,<span class="string">'Mg'</span>,<span class="string">'color'</span>,<span class="string">'red'</span>)</pre><div>
             <ul type="square">
-               <li>Better rule of thumb for the kernel width when computing an ODF from individual orientations via kernel density estimation.</li>
+               <li>A better rule of thumb for the kernel width when computing an ODF from individual orientations via kernel density estimation.</li>
                <li>inpolygon can be called as</li>
             </ul>
          </div><pre class="codeinput">inpolygon(ebsd,[xmin ymin xmax ymax])</pre><p><b>Tensors</b></p>
@@ -564,7 +563,7 @@ loadEBSD(<span class="string">'filename'</span>,<span class="string">'convertEul
          <div>
             <ul type="square">
                <li>faster, more stable tensor implementation</li>
-               <li>new syntax in tensor indexing to be compatible with other MTEX classes. For a 4 rank thensor <tt>C</tt> we have now
+               <li>new syntax in tensor indexing to be compatible with other MTEX classes. For a 4 rank thensor <tt>C</tt>, we have now
                </li>
             </ul>
          </div><pre class="codeinput"><span class="comment">% extract entry 1,1,1,1 in tensor notation</span>
@@ -635,7 +634,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>The classes @grain, @polygon, @polyeder do not exist any longer. The functionality of the classes is mainly replaced by the
                   classes @GrainSet, @Grain2d and @Grain3d
                </li>
-               <li>The class @GrainSet explicitely stores <a href="EBSD_index.html">EBSD</a>. To access <a href="EBSD_index.html">EBSD</a> data within a single grain or a set of grains use
+               <li>The class @GrainSet explicitly stores <a href="EBSD_index.html">EBSD</a>. To access <a href="EBSD_index.html">EBSD</a> data within a single grain or a set of grains use
                </li>
             </ul>
          </div><pre class="codeinput">get(grains,<span class="string">'EBSD'</span>)</pre><div>
@@ -643,23 +642,19 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>the grain selector tool for spatial grain plots was removed, nevertheless, grains still can be <a href="GrainSingleAnalysis.html">selected spatially</a>.
                </li>
                <li>scripts using the old grain engine may not work properly, for more details of the functionalities and functioning of the @GrainSet
-                  please see the documention.
+                  please see the documentation.
                </li>
                <li>new functionalities: merge grains with certain boundary.</li>
             </ul>
          </div>
          <p><b>EBSD</b></p>
-         <div>
-            <ul type="square">
-               <li>Behavior of the <tt>'ignorePhase'</tt> changed. Now it is called in general <tt>'not indexed'</tt> and the not indexed data <a href="ImportEBSDData.html">is imported generally</a>. If the crystal symmetry of an <a href="EBSD_index.html">EBSD</a> phase is set to a string value, it will be treated as not indexed. e.g. mark the first phase as <tt>'not indexed'</tt></li>
-            </ul>
-         </div><pre class="codeinput">CS = {<span class="string">'not indexed'</span>,<span class="keyword">...</span>
+         <p>The behavior of the <tt>'ignorePhase'</tt> changed. Now it is called in general <tt>'not indexed'</tt> and the not indexed data <a href="ImportEBSDData.html">is imported generally</a>. If the crystal symmetry of an <a href="EBSD_index.html">EBSD</a> phase is set to a string value, it will be treated as not indexed. e.g. mark the first phase as <tt>'not indexed'</tt></p><pre class="codeinput">CS = {<span class="string">'not indexed'</span>,<span class="keyword">...</span>
       symmetry(<span class="string">'cubic'</span>,<span class="string">'mineral'</span>,<span class="string">'Fe'</span>),<span class="keyword">...</span>
       symmetry(<span class="string">'cubic'</span>,<span class="string">'mineral'</span>,<span class="string">'Mg'</span>)};</pre><p>By default, <tt>calcGrains</tt> does also use the <tt>'not Indexed'</tt> phase.
          </p>
          <div>
             <ul type="square">
-               <li>create custemized orientation colormaps</li>
+               <li>create customized orientation colormaps</li>
             </ul>
          </div>
          <p><b>Other</b></p>
@@ -688,7 +683,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>export EBSD data with all properties</li>
                <li>improved ODF calculation from pole figures by using quadrature weights for the pole figure grid</li>
                <li>implemented spherical Voronoi decomposition and computation of spherical quadrature weights</li>
-               <li>plot odf-space in omega-sections, i.e. generalization of sigma-sections</li>
+               <li>plot odf-space in omega-sections, the i.e. generalization of sigma-sections</li>
             </ul>
          </div>
          <p><b>Bug Fixes</b></p>
@@ -697,7 +692,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>S2Grid behaves more like vector3d</li>
                <li>vector3d/eq takes antipodal symmetry into account</li>
                <li>Euler angle conversion was sometimes wrong</li>
-               <li>tensors multipliaction was sometimes wrong</li>
+               <li>tensors multiplication was sometimes wrong</li>
                <li>rank 3 tensors get options 'doubleConvention' and 'singleConvention' for the conversion into the Voigt matrix representation</li>
                <li>documentation fixes</li>
                <li>Miller('[100]') gives not the correct result</li>
@@ -713,7 +708,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>import 3d EBSD data from stacked files</li>
                <li>visualize 3d EBSD data by plotting interactive slices through the specimen</li>
                <li>3d grain detection</li>
-               <li>topology of 3d grains, i.e. boundaries, neighbouring grains, etc.</li>
+               <li>the topology of 3d grains, i.e. boundaries, neighboring grains, etc.</li>
             </ul>
          </div>
          <p><b>Misorientation Analysis</b></p>
@@ -726,7 +721,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
          </div>
          <p><b>New Syntax for EBSD and grain variables</b></p>
          <p>EBSD and grain variables can now be indexed by phase, region or grain / ebsd variables. Let us assume we have a two phase
-            ebsd variable containing 'Fe' and 'Mg' then can restrict our dataset to the Fe - phase only be writting
+            ebsd variable containing 'Fe' and 'Mg' then can restrict our dataset to the Fe - phase only by writing
          </p><pre>ebsd('Fe')</pre><p>The same works with grains and also with more than one phase. Please have a look into the documentation for information how
             to index ebsd and grain variables.
          </p>
@@ -734,7 +729,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
          <div>
             <ul type="square">
                <li>better import and export of pole figures, odfs and EBSD data</li>
-               <li>automatic centering of a specimen with repsect to its specimen symmetry</li>
+               <li>automatic centering of a specimen with respect to its specimen symmetry</li>
                <li>download and import tensors from <a href="http://www.materialproperties.org/">http://www.materialproperties.org/</a></li>
                <li>new interfaces for Rigaku, Siemens, Bruker and many other X-ray devices and formats</li>
                <li>support for rank three tensors, i.e, for piezo electricity tensors</li>
@@ -750,13 +745,13 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>import of tensors via the import wizard</li>
                <li>basic tensor operations: multiplication, rotation, inversion</li>
                <li>advanced visualization</li>
-               <li>computation of avaraged tensors from EBSD data and ODFs</li>
+               <li>computation of averaged tensors from EBSD data and ODFs</li>
                <li>computation of standard elasticity tensors like: Youngs modulus, linear compressibility, Christoffel tensor, elastic wave
                   velocities
                </li>
             </ul>
          </div>
-         <p><b>Other Enhangments</b></p>
+         <p><b>Other Enhancements</b></p>
          <div>
             <ul type="square">
                <li>support for different crystal reference frame conventions</li>
@@ -771,27 +766,27 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
          <h2>MTEX 3.0 - 10/2010<a name="18"> </a></h2>
          <p><b>Crystal Geometry</b></p>
          <p>This release contains a completely redesigned crystal geometry engine which is thought to be much more intuitive and flexible.
-            In particular, it introduces two new classes <a href="rotation_index.html">rotation</a> and <a href="orientation_index.html">orientation</a> which make it much more easier to work with crystal orientations. Resulting features are
+            In particular, it introduces two new classes <a href="rotation_index.html">rotation</a> and <a href="orientation_index.html">orientation</a> which make it much easier to work with crystal orientations. Resulting features are
          </p>
          <div>
             <ul type="square">
                <li>no more need for quaternions</li>
                <li>support for Bunge, Roe, Matthies, Kocks, and Canova Euler angle convention</li>
-               <li>simple definition of fibres</li>
-               <li>simple check whether two orientations are symmetrically equivalent</li>
+               <li>a simple definition of fibres</li>
+               <li>simply check whether two orientations are symmetrically equivalent</li>
             </ul>
          </div>
-         <p><b>Other Enhangments</b></p>
+         <p><b>Other Enhancements</b></p>
          <div>
             <ul type="square">
                <li>automatic kernel selection in ODF estimation from EBSD data</li>
                <li>support for Bingham model ODFs</li>
-               <li>esimation of Bingham parameters from EBSD data</li>
+               <li>estimation of Bingham parameters from EBSD data</li>
                <li>faster and more accurate EBSD simulation</li>
                <li>faster grain reconstruction</li>
                <li>improved documentation</li>
-               <li>impoved output</li>
-               <li>MTEX is now compatibel with NFFT 3.1.3</li>
+               <li>improved output</li>
+               <li>MTEX is now compatible with NFFT 3.1.3</li>
             </ul>
          </div>
          <h2>MTEX 2.0 - 10/2009<a name="19"> </a></h2>
@@ -839,7 +834,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
          <p><b>Improved EBSD import</b></p>
          <div>
             <ul type="square">
-               <li>import weighted EBSD (e.g. from odf modeling)</li>
+               <li>import-weighted EBSD (e.g. from odf modeling)</li>
                <li>new HKL and Chanel interfaces (.ang and .ctf files)</li>
                <li>import of multiple phases</li>
                <li>import of arbitrary properties as MAD, detection error, etc.</li>
@@ -884,7 +879,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
          <p><b>Improved Pole Figure Analysis</b></p>
          <div>
             <ul type="square">
-               <li>Background correction and defocussing</li>
+               <li>Background correction and defocusing</li>
                <li>Outlier detection and elimination</li>
             </ul>
          </div>
@@ -927,7 +922,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
          <p><b>New ODF Class</b></p>
          <div>
             <ul type="square">
-               <li>The new function <a href="FourierODF.html">FourierODF</a> provides an easy way to define ODFs via their Fourier coefficients. In particular MTEX allows now to calculate with those
+               <li>The new function <a href="FourierODF.html">FourierODF</a> provides an easy way to define ODFs via their Fourier coefficients. In particular, MTEX allows now to calculate with those
                   ODFs in the same manner as with any other ODFs.
                </li>
             </ul>
@@ -941,8 +936,8 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
          <p><b>Improved Plotting</b></p>
          <div>
             <ul type="square">
-               <li>Plot EBSD data and continious ODFs into one plot</li>
-               <li>Miller indeces and specimen directions can now be plotted directly into pole figures or inverse pole figures.</li>
+               <li>Plot EBSD data and continuous ODFs into one plot</li>
+               <li>Miller indices and specimen directions can now be plotted directly into pole figures or inverse pole figures.</li>
                <li>New plotting option north, south for spherical plots</li>
                <li>Improved colorbar handling</li>
                <li>Spherical grids</li>
@@ -952,12 +947,12 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
          <p><b>Incompatible Changes With Previous Releases</b></p>
          <div>
             <ul type="square">
-               <li>The flag <b>hemishpere</b> in <a href="S2Grid.S2Grid.html">S2Grid</a> has been replaced by <b>north</b>, <b>south</b>, and <b>antipodal</b> making it more consistent with the plotting routine.
+               <li>The flag <b>hemisphere</b> in <a href="S2Grid.S2Grid.html">S2Grid</a> has been replaced by <b>north</b>, <b>south</b>, and <b>antipodal</b> making it more consistent with the plotting routine.
                </li>
             </ul>
          </div>
          <p><b>Improved Documentation</b></p>
-         <p>MTEX comes now with over 500 help pages explaining the mathematical concepts, the philisophy behing MTEX and the syntax and
+         <p>MTEX comes now with over 500 help pages explaining the mathematical concepts, the philosophy behind MTEX and the syntax and
             usage of all 300 functions available in MTEX. Furthermore, you find numerous examples and tutorials on ODF estimation, data
             import, calculation of texture characteristics, ODF and pole figure plotting, etc.
          </p>
@@ -971,10 +966,10 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
             </ul>
          </div>
          <h2>MTEX 0.4 - 04/2008<a name="23"> </a></h2>
-         <p><b>Speed Improvments</b></p>
+         <p><b>Speed Improvements</b></p>
          <div>
             <ul type="square">
-               <li>ODF reconstruction and PDF calculation is about <b>10 times faster</b> now (thanks to the new NFFT 4.0 library)
+               <li>ODF reconstruction and PDF calculation are about <b>10 times faster</b> now (thanks to the new NFFT 4.0 library)
                </li>
                <li>ODF plotting and the calculation of <a href="ODF.volume.html">volume fractions</a>, the <a href="ODF.textureindex.html">texture index</a>, the <a href="ODF.entropy.html">entropy</a> and <a href="ODF.calcFourier.html">Fourier coefficients</a> is about <b>100 times faster</b></li>
             </ul>
@@ -1016,10 +1011,10 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
          <p><b>Incompatible Changes With Previous Releases</b></p>
          <div>
             <ul type="square">
-               <li>New, more flexibel syntax for the generation of <a href="S2Grid_index.html">S2Grids</a></li>
-               <li>Slightly changed syntax of <a href="unimodalODF.html">unimodalODF</a> and <a href="fibreODF.html">fibreODF</a>.
+               <li>New, more flexible syntax for the generation of <a href="S2Grid_index.html">S2Grids</a></li>
+               <li>Slightly changed the syntax of <a href="unimodalODF.html">unimodalODF</a> and <a href="fibreODF.html">fibreODF</a>.
                </li>
-               <li>Default plotting options are set to {}, i.e. 'antipodal' has to add manualy if desired</li>
+               <li>Default plotting options are set to {}, i.e. 'antipodal' has to add manually if desired</li>
                <li>Crystal symmetry <b>triclinic</b> is not called <b>tricline</b> anymore.
                </li>
             </ul>
@@ -1027,7 +1022,7 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
          <h2>MTEX 0.3 - 10/2007<a name="24"> </a></h2>
          <div>
             <ul type="square">
-               <li>new function <a href="ODF.Fourier.html">fourier</a> to calculate the Fouriercoefficents of an arbitrary ODF
+               <li>new function <a href="ODF.Fourier.html">fourier</a> to calculate the Fourier coefficents of an arbitrary ODF
                </li>
                <li>new option <tt>ghost correction</tt> in function <a href="PoleFigure.calcODF.html">calcODF</a></li>
                <li>new option <tt>zero range</tt> in function <a href="PoleFigure.calcODF.html">calcODF</a></li>
@@ -1038,9 +1033,9 @@ v = loadVector3d(<span class="string">'fname'</span>,<span class="string">'Colum
                <li>support of triclinic crystal <a href="symmetry_index.html">symmetry</a> with arbitrary angles between the axes
                </li>
                <li>default plotting options may now be specified in mtex_settings.m</li>
-               <li>new plot option <i>3d</i> for a three dimensional spherical plot of pole figures
+               <li>new plot option <i>3d</i> for a three-dimensional spherical plot of pole figures
                </li>
-               <li>contour levels may be specified explicitely in all plot functions <a href="ODF.plotodf.html">plotodf</a>,<ODF.plotpdf.html plotpdf> and <a href="ODF.plotipdf.html,plotipdf">ODF.plotipdf.html,plotipdf</a></li>
+               <li>contour levels may be specified explicitly in all plot functions <a href="ODF.plotodf.html">plotodf</a>,<ODF.plotpdf.html plotpdf> and <a href="ODF.plotipdf.html,plotipdf">ODF.plotipdf.html,plotipdf</a></li>
                <li>new plot option <i>logarithmic</i></li>
                <li>many bugfixes</li>
             </ul>

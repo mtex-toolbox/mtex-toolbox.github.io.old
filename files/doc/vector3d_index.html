@@ -67,8 +67,8 @@
             </table>
          </div>
          <h2>Class Description<a name="3"> </a></h2>
-         <p>Specimen directions are three dimensional vectors in the Euclidean space represented by coordinates with respect to a outer
-            specimen coordinate system x, y, z. Im MTEX Specimen directions are represented by variables of the class <b>vector3d</b>.
+         <p>Specimen directions are three-dimensional vectors in the Euclidean space represented by coordinates with respect to an outer
+            specimen coordinate system x, y, z. In MTEX Specimen directions are represented by variables of the class <b>vector3d</b>.
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Defining Specimen Directions<a name="4"> </a></h3>
@@ -77,7 +77,7 @@
             option <b>polar</b>.
          </p><pre class="codeinput">polar_angle = 60*degree;
 azimuth_angle = 45*degree;
-v = vector3d(<span class="string">'polar'</span>,polar_angle,azimuth_angle);</pre><p>Finally one can also define a vector as a linear combination of the predefined vectors <a href="xvector.html">xvector</a>, <a href="yvector.html">yvector</a>, and <a href="zvector.html">zvector</a></p><pre class="codeinput">v = xvector + 2*yvector;</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+v = vector3d(<span class="string">'polar'</span>,polar_angle,azimuth_angle);</pre><p>Finally, one can also define a vector as a linear combination of the predefined vectors <a href="xvector.html">xvector</a>, <a href="yvector.html">yvector</a>, and <a href="zvector.html">zvector</a></p><pre class="codeinput">v = xvector + 2*yvector;</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Calculating with Specimen Directions<a name="7"> </a></h3>
          <p>As we have seen in the last example. One can calculate with specimen directions as with ordinary number. Moreover, all basic
             vector operation as <a href="vector3d.plus.html">"+"</a>, <a href="vector3d.minus.html">"-"</a>, <a href="vector3d.times.html">"*"</a>, <a href="vector3d.dot.html">inner product</a>, <a href="vector3d.cross.html">cross product</a> are implemented.
@@ -94,13 +94,13 @@ ans = vector3d
  size: 1 x 1
   x  y  z
   4 -1  0
-</pre><p>When calculating with concatenated specimen directions all operations are performed componentwise for each specimen direction.</p><pre class="codeinput">w = w + v;</pre><p>Beside the standard linear algebra operations there are also the following functions available in MTEX.</p><pre><a href="vector3d.angle.html&#34;&gt;angle(v1">v2)</a> % angle between two specimen  directions
+</pre><p>When calculating with concatenated specimen directions all operations are performed componentwise for each specimen direction.</p><pre class="codeinput">w = w + v;</pre><p>Besides the standard linear algebra operations, there are also the following functions available in MTEX.</p><pre><a href="vector3d.angle.html&#34;&gt;angle(v1">v2)</a> % angle between two specimen  directions
 <a href="vector3d.dot.html">dot(v1,v2)</a>   % inner product
 <a href="vector3d.cross.html">cross(v1,v2)</a> % cross product
 <a href="vector3d.norm.html">norm(v)</a>      % length of the specimen directions
 <a href="vector3d.sum.html">sum(v)</a>       % sum over all specimen directions in v
 <a href="vector3d.mean.html">mean(v)</a>      % mean over all specimen directions in v
-<a href="vector3d.polar.html">polar(v)</a>     % conversion to spherical coordinates</pre><pre class="codeinput"><span class="comment">% A simple example for apply the norm function is to normalize a set of</span>
+<a href="vector3d.polar.html">polar(v)</a>     % conversion to spherical coordinates</pre><pre class="codeinput"><span class="comment">% A simple example for applying the norm function is to normalize a set of</span>
 <span class="comment">% specimen directions</span>
 
 w = w ./ norm(w)</pre><pre class="codeoutput"> 

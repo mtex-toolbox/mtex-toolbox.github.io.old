@@ -40,7 +40,7 @@
       <div class="container">
          <h1>Visualizing EBSD data with sharp textures</h1>
          <div class="subheading">
-            <p>How visualize texturgradients within grains</p>
+            <p>How visualize texture gradients within grains</p>
          </div>
          <div>
             <table class="content">
@@ -52,8 +52,8 @@
                </tr>
             </table>
          </div>
-         <p>Using spezialized orientation mappings is particularly usefull when visualizing sharp data. Let us consider the following
-            data set which restrict to the calcite phase
+         <p>Using specialized orientation mappings is particularly useful when visualizing sharp data. Let us consider the following data
+            set which restricts to the calcite phase
          </p><pre class="codeinput">plotx2east
 mtexdata <span class="string">sharp</span>
 
@@ -62,18 +62,18 @@ ebsd = ebsd(<span class="string">'calcite'</span>);
 oM = ipdfHSVOrientationMapping(ebsd);
 
 close <span class="string">all</span>;
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_01.png"> <p>and have a look into the 001 inverse pole figure.</p><pre class="codeinput"><span class="comment">% compute the positions in the inverse pole figure</span>
-h = ebsd.orientations .\ zvector;
+plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_01.png"> <p>and have a look into the 100 inverse pole figure.</p><pre class="codeinput"><span class="comment">% compute the positions in the inverse pole figure</span>
+h = ebsd.orientations .\ vector3d.X;
 h = project2FundamentalRegion(h);
 
 <span class="comment">% compute the azimuth angle in degree</span>
 color = h.rho ./ degree;
 
-plotIPDF(ebsd.orientations,zvector,<span class="string">'property'</span>,color,<span class="string">'MarkerSize'</span>,3,<span class="string">'grid'</span>)
+plotIPDF(ebsd.orientations,vector3d.X,<span class="string">'property'</span>,color,<span class="string">'MarkerSize'</span>,3,<span class="string">'grid'</span>)
 mtexColorbar</pre><pre class="codeoutput">  I'm plotting 8333 random orientations out of 20119 given orientations
-</pre><img src="EBSDSharpPlot_02.png"> <p>We see that all individual orientations are clustered around azimuth angle 25 degree with some outliers at 90 and 120 degree.
-            In order to increase the contrast for the main group we restrict the colorrange from 20 degree to 29 degree.
-         </p><pre class="codeinput">caxis([90 100]);
+</pre><img src="EBSDSharpPlot_02.png"> <p>We see that all individual orientations are clustered around azimuth angle 115 degrees with some outliers at 125 and 130 degree.
+            In order to increase the contrast for the main group, we restrict the color range from 110 degree to 120 degree.
+         </p><pre class="codeinput">caxis([110 120]);
 
 <span class="comment">% by the following lines we colorcode the outliers in purple.</span>
 cmap = colormap;
@@ -82,8 +82,8 @@ cmap(1,:) = [1 0 1];   <span class="comment">% make first color purple</span>
 colormap(cmap)</pre><img src="EBSDSharpPlot_03.png"> <p>The same colorcoding we can now apply to the EBSD map.</p><pre class="codeinput"><span class="comment">% plot the data with the customized color</span>
 plot(ebsd,color)
 
-<span class="comment">% set scaling of the angles to 20 - 29 degree</span>
-caxis([90 100]);
+<span class="comment">% set scaling of the angles to 110 - 120 degree</span>
+caxis([110 120]);
 
 <span class="comment">% colorize outliers in purple.</span>
 cmap = colormap;
@@ -91,26 +91,28 @@ cmap(end,:) = [1 0 1];
 cmap(1,:) = [1 0 1];
 colormap(cmap)</pre><img src="EBSDSharpPlot_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Sharpening the default colorcoding<a name="7"> </a></h2>
-         <p>Next we want to apply the same ideas as above to the default MTEX color mapping, i.e. we want to stretch the colors such that
-            they cover just the orientations of interest.
+         <p>Next, we want to apply the same ideas as above to the default MTEX color mapping, i.e. we want to stretch the colors such
+            that they cover just the orientations of interest.
          </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd.CS.properGroup);
 
 <span class="comment">% To this end, we first compute the inverse pole figure direction such that</span>
 <span class="comment">% the mean orientation is just at the gray spot of the inverse pole figure</span>
-oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
+oM.inversePoleFigureDirection = mean(ebsd.orientations,<span class="string">'robust'</span>) * oM.whiteCenter;
 
 close <span class="string">all</span>;
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_05.png"> <p>We observe that the orientation map is almost completly gray. Next we use the option <tt>colorStretching</tt> to increase contrast.
-         </p><pre class="codeinput">oM.maxAngle = 5*degree;
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_06.png"> <p>You may play around with the option <tt>colorStretching</tt> to obtain better results. As for interpretation keep in mind that white color represents the mean orientation and the color
+plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_05.png"> <p>We observe that the orientation map is almost completely gray, except for the  outliers which appears black. Next, we use
+            the option <tt>maxAngle</tt> to increase contrast in the grayish part
+         </p><pre class="codeinput">oM.maxAngle = 7.5*degree;
+plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_06.png"> <p>You may play around with the option <tt>maxAngle</tt> to obtain better results. As for interpretation keep in mind that white color represents the mean orientation and the color
             becomes more saturated and later dark as the orientation to color diverges from the mean orientation.
          </p>
-         <p>Lets have a look at the corresponding color map.</p><pre class="codeinput">plot(oM,<span class="string">'resolution'</span>,0.25*degree)
+         <p>Let's have a look at the corresponding color map.</p><pre class="codeinput">plot(oM,<span class="string">'resolution'</span>,0.25*degree)
 
+<span class="comment">% TODO: Check this!!!</span>
 <span class="comment">%hold on</span>
 <span class="comment">%plotIPDF(ebsd.orientations,'points',10,'MarkerSize',1,'MarkerFaceColor','w','MarkerEdgeColor','w')</span>
 <span class="comment">%hold off</span></pre><img src="EBSDSharpPlot_07.png"> <p>observe how in the inverse pole figure the orientations are scattered closely around the white center. Together with the fact
-            that the transition from white to color is quite rappidly this gives a high contrast.
+            that the transition from white to color is quite rapidly, this gives a high contrast.
          </p>
          <p>Another example is when analyzing the orientation distribution within grains</p><pre class="codeinput">mtexdata <span class="string">forsterite</span>
 ebsd = ebsd(<span class="string">'indexed'</span>);
@@ -145,7 +147,7 @@ plot(largeGrains(1).boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>
 plot(ebsd,ebsd.orientations)
 hold <span class="string">off</span></pre><img src="EBSDSharpPlot_08.png"> <p>when applying the option sharp MTEX colors the mean orientation as white and scales the maximum saturation to fit the maximum
-            misorientation angle. This way deviations of the orientation within one grain can be visualised.
+            misorientation angle. This way deviations of the orientation within one grain can be visualized.
          </p><pre class="codeinput"><span class="comment">% plot a grain</span>
 plot(largeGrains(1).boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>

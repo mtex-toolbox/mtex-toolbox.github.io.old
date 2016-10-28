@@ -42,7 +42,7 @@
          <div class="subheading">
             <p>Schmid factor, active slip systems</p>
          </div>
-         <p>In this section we describe how to analyze the plastic deformation of crystals using MTEX.</p>
+         <p>In this section, we describe how to analyze the plastic deformation of crystals using MTEX.</p>
          <div>
             <table class="content">
                <tr>
@@ -77,23 +77,27 @@ m = Miller
   h 1
   k 1
   l 1
-</pre><p>a certain slip direction orthognal to it</p><pre class="codeinput">n = Miller(0,-1,1,CS)</pre><pre class="codeoutput"> 
+</pre><p>a certain slip direction orthogonal to it</p><pre class="codeinput">n = Miller(0,-1,1,CS)</pre><pre class="codeoutput"> 
 n = Miller  
  size: 1 x 1
  mineral: Nickel (m-3m)
   h  0
   k -1
   l  1
-</pre><p>and a simple shear in direction</p><pre class="codeinput">r = vector3d(0,0,1)</pre><pre class="codeoutput"> 
+</pre><p>and a simple shear in the direction</p><pre class="codeinput">r = vector3d(0,0,1)</pre><pre class="codeoutput"> 
 r = vector3d  
  size: 1 x 1
   x y z
   0 0 1
-</pre><p>the Schmid factor is defined by</p><pre class="codeinput">tau = dot(m,r) * dot(n,r)</pre><pre class="codeoutput">tau =
+</pre><p>the Schmid factor is defined by</p><pre class="codeinput">tau = dot(m,r) * dot(n,r)</pre><pre class="codeoutput">Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+tau =
     0.4082
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The Schmid tensor<a name="9"> </a></h2>
-         <p>In tensor notation the simple shear in direction r can be expressed by the stress tensor</p><pre class="codeinput">sigma = EinsteinSum(tensor(r),1,tensor(r),2,<span class="string">'name'</span>,<span class="string">'stress'</span>)</pre><pre class="codeoutput"> 
+         <p>In tensor notation, the simple shear in direction r can be expressed by the stress tensor</p><pre class="codeinput">sigma = EinsteinSum(tensor(r),1,tensor(r),2,<span class="string">'name'</span>,<span class="string">'stress'</span>)</pre><pre class="codeoutput"> 
 sigma = stress tensor  
   rank: 2 (3 x 3)
  
@@ -165,7 +169,7 @@ nSym = Miller
   h  0  0  1  1 -1 -1 -1 -1 -1 -1  0  0
   k -1 -1  0  0  1  1  0  0 -1 -1 -1 -1
   l  1  1 -1 -1  0  0 -1 -1  0  0 -1 -1
-</pre><img src="PlasticDeformation_02.png"> <p>Next we compute the Schmid factors for  all these slip systems</p><pre class="codeinput"><span class="comment">% define a simple shear stress tensor in 001 direction</span>
+</pre><img src="PlasticDeformation_02.png"> <p>Next, we compute the Schmid factors for  all these slip systems</p><pre class="codeinput"><span class="comment">% define a simple shear stress tensor in 001 direction</span>
 M = zeros(3);M(3,3) = 1;
 sigma001 = tensor(M,<span class="string">'name'</span>,<span class="string">'stress'</span>)
 
@@ -202,7 +206,7 @@ tau =
   Columns 8 through 12
    -0.2163    0.0418    0.1150    0.2888   -0.3479
 </pre><p>we observe that the Schmid factor is always between -0.5 and 0.5. The largest value indicates the active slip system. In the
-            above case this would be the slip system 4
+            above case, this would be the slip system 4
          </p><pre class="codeinput">mSym(4)
 nSym(4)</pre><pre class="codeoutput"> 
 ans = Miller  
@@ -229,7 +233,7 @@ ans = Miller
                <li>find the corresponding slip system</li>
             </ul>
          </div>
-         <p>can be preformed by the single command <a href="tensor.calcShearStress.html">calcShearStress</a></p><pre class="codeinput">[tauMax,mActive,nActive,tau,ind] = calcShearStress(sigmaRot,m,n,<span class="string">'symmetrise'</span>)</pre><pre class="codeoutput">tauMax =
+         <p>can be performed by the single command <a href="tensor.calcShearStress.html">calcShearStress</a></p><pre class="codeinput">[tauMax,mActive,nActive,tau,ind] = calcShearStress(sigmaRot,m,n,<span class="string">'symmetrise'</span>)</pre><pre class="codeoutput">tauMax =
     0.4936
  
 mActive = Miller  
@@ -266,7 +270,7 @@ ind =
 sigma = stress tensor tensor  
   size: 130501 x 1
   rank: 2 (3 x 3) 
-</pre><p>Then we can compute the maximum Schmidt factor and the active slip system for all these stress tensors by the singe command</p><pre class="codeinput">[tauMax,mActive,nActive,tau,ind] = calcShearStress(sigma,m,n,<span class="string">'symmetrise'</span>);
+</pre><p>Then we can compute the maximum Schmidt factor and the active slip system for all these stress tensors by the single command</p><pre class="codeinput">[tauMax,mActive,nActive,tau,ind] = calcShearStress(sigma,m,n,<span class="string">'symmetrise'</span>);
 
 <span class="comment">% pot the maximum Schmidt factor</span>
 contourf(r,abs(tauMax));
@@ -282,6 +286,7 @@ sigma = EinsteinSum(tensor(r),1,r,2)
 
 <span class="comment">% plot active slip plane in red</span>
 hold <span class="string">on</span>
+mActive.antipodal = true;
 quiver(r,mActive,<span class="string">'ArrowSize'</span>,0.2,<span class="string">'LineWidth'</span>,2,<span class="string">'Color'</span>,<span class="string">'r'</span>);
 
 <span class="comment">% plot active slip direction in green</span>
@@ -291,8 +296,10 @@ hold <span class="string">off</span></pre><pre class="codeoutput">
 sigma = tensor  
   size: 48 x 1   
   rank: 2 (3 x 3)
-</pre><img src="PlasticDeformation_05.png"> <p>So far we have always assumed that the stress tensor is already given relatively to the crystal coordinate system. Next we
-            want to examine the case where the stress is given in specimen coordinates and we know the orientation of the crystal. Lets
+Warning: Symmetry mismatch 
+Warning: Symmetry mismatch 
+</pre><img src="PlasticDeformation_05.png"> <p>So far we have always assumed that the stress tensor is already given relatively to the crystal coordinate system. Next, we
+            want to examine the case where the stress is given in specimen coordinates and we know the orientation of the crystal. Let's
             assume we have simple shear stress tensor in 001 direction
          </p><pre class="codeinput">M = zeros(3);M(3,3) = 1;
 sigma001 = tensor(M,<span class="string">'name'</span>,<span class="string">'stress'</span>)</pre><pre class="codeoutput"> 
@@ -318,7 +325,7 @@ sigmaCS = stress tensor
   size   : 152345 x 1      
   rank   : 2 (3 x 3)       
   mineral: Forsterite (mmm)
-</pre><p>Next we compute maximum Schmidt factor and the active slip system for every orientation in the ebsd data set</p><pre class="codeinput"><span class="comment">% define the slip directions and slip plane normals</span>
+</pre><p>Next, we compute maximum Schmidt factor and the active slip system for every orientation in the EBSD data set</p><pre class="codeinput"><span class="comment">% define the slip directions and slip plane normals</span>
 <span class="comment">% (010)[100]</span>
 <span class="comment">% slip direction [100]</span>
 b = Miller(1,0,0,CS_Forsterite,<span class="string">'uvw'</span>);
@@ -352,7 +359,7 @@ grains = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1    1080  152345  Forsterite       mmm                         
      2     515   26058   Enstatite       mmm                         
-     3    1496    9064    Diopside     12/m1        X||a*, Y||b, Z||c
+     3    1496    9064    Diopside     12/m1        X||a, Y||b, Z||c*
  
  Properties: GOS, meanRotation
  

@@ -90,19 +90,19 @@
          <p><b>Robust Mean Computation</b></p>
          <p>Find and implement an algorithm that finds under certain conditions the true mean orientation for a given set of orientations!</p>
          <p><b>Bingham Distribution</b></p>
-         <p>compute Fouriercoefficients of Bingham ODFs.</p>
+         <p>compute Fourier coefficients of Bingham ODFs.</p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Future<a name="5"> </a></h2>
          <p><b>EBSD Statistics</b></p>
          <p>Implement results of K. G. v.d. Boogaart dissertation. i.e. allow MTEX to answer the following questions:</p>
          <div>
             <ul type="square">
-               <li>is a EBSD data set a random sample of a certain ODF</li>
+               <li>is an EBSD data set a random sample of a certain ODF</li>
                <li>are two EBSD data sets random sample of the same ODF</li>
             </ul>
          </div>
          <p><b>Misorientation Analysis</b></p>
-         <p>Allow to compute an misorientation ODF from EBSD data. Therefore, a new class MODF is needed which differs from an ordinary
+         <p>Allow to compute a misorientation ODF from EBSD data. Therefore, a new class MODF is needed which differs from an ordinary
             ODF by the fact that the specimen symmetry is replaced by the crystal symmetry of the second phase.
          </p>
          <p>This requires a better find functionality in SO3Grid</p>
@@ -113,7 +113,7 @@
             </ul>
          </div>
          <p><b>ODF Analysis</b></p>
-         <p>Provide a function that is able to approximate an ODF by a small number of simple components, i.e. unimodal components and
+         <p>Provide a function that is able to approximate an ODF by a small number of simple components, i.e. unimodal components, and
             fibres.
          </p>
          <p><b>Joined Counts</b></p>
@@ -121,7 +121,7 @@
          <p><b>Grain Simulation</b></p>
          <p>Allow to simulate grains under certain assumptions. To be used for joined counts statistics and ODF -> MODF analysis.</p>
          <p><b>Voronoi Decomposition of the Orientation Space</b></p>
-         <p>Use the Rodriguez representation to compute an Voronoi neighborhood graph of a set of orientations. This can be used for faster
+         <p>Use the Rodriguez representation to compute a Voronoi neighborhood graph of a set of orientations. This can be used for faster
             searching in SO3Grids and for the decomposition of ODFs into components.
          </p>
          <p><b>New Class Fibre</b></p>
@@ -132,7 +132,7 @@
                <li>EBSD colorcoding</li>
                <li>fix crystal coordinate system for symmetry 2/m</li>
                <li>improve template files</li>
-               <li>say explicetly in generic wizard which columns has to be specified</li>
+               <li>say explicitly in generic wizard which columns has to be specified</li>
                <li>implement grain/rotate, grain/flipud, grain/fliplr</li>
                <li>better ODF import / export</li>
                <li>add kernel names by Matthies</li>
@@ -144,20 +144,20 @@
          <div>
             <ul type="square">
                <li>Detect polar, oblate and spherical grains.</li>
-               <li>Profiles thourgh grains</li>
+               <li>Profiles through grains</li>
             </ul>
          </div>
          <p><b>Topological Grain Data Structure</b> (Florian Bachmann)
          </p>
-         <p>The function segment2d should provide a grain class that allows to answer questions like:</p>
+         <p>The function segment2d should provide a grain class that allows answering questions like:</p>
          <div>
             <ul type="square">
                <li>give me all phase one to phase two grain boundaries</li>
-               <li>give me all grain boundaries between grains with a certain missorientation</li>
+               <li>give me all grain boundaries between grains with a certain misorientation</li>
             </ul>
          </div>
-         <p>Therefore not only the neigbouring grains has to be stored in the grain object but also the line segment representing the
-            grain boundary.
+         <p>Therefore not only the neigboring grains has to be stored in the grain object but also the line segment representing the grain
+            boundary.
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Supported/Implemented since MTEX 3.1<a name="7"> </a></h2>

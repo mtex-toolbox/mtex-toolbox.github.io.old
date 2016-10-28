@@ -87,7 +87,7 @@ cs = crystalSymmetry
   a, b, c : 1, 1, 1
  
 </pre><img src="CrystalSymmetries_02.png"> <p><b>Defining a Crystal Symmetry by the Name of its Point Group or its Space Group</b></p>
-         <p>If not the name of a point group was specified but the name of a space group MTEX auomatically determines the corresponding
+         <p>If not the name of a point group was specified but the name of a space group MTEX automatically determines the corresponding
             point group and assigns it to the variable.
          </p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'Td'</span>);
 plot(cs,<span class="string">'upper'</span>)</pre><img src="CrystalSymmetries_03.png"> <p><b>Defining a Crystal Symmetry by a CIF and PHL Files</b></p>
@@ -97,12 +97,12 @@ cs = crystalSymmetry
   mineral        : Quartz           
   symmetry       : 321              
   a, b, c        : 4.9, 4.9, 5.4    
-  reference frame: X||a*, Y||b, Z||c
+  reference frame: X||a, Y||b*, Z||c
  
 </pre><p>or a Bruker phl file. As a phl file contains usually many phases the output is a list of crystal symmetries</p><pre class="codeinput"><span class="comment">% import a list of crystal symmetries</span>
 cs_list = loadPHL(<span class="string">'crystal.phl'</span>);
 
-<span class="comment">% acces the first symmetry in list</span>
+<span class="comment">% access the first symmetry in list</span>
 cs_list{1}</pre><pre class="codeoutput"> 
 ans = crystalSymmetry  
  
@@ -125,7 +125,7 @@ ans = crystalSymmetry
   symmetry: m-3m   
   a, b, c : 1, 1, 1
  
-</pre><p>Furthermore, the purely rotational part of the corresponding Laue group can extracted by the command</p><pre class="codeinput">cs.properGroup</pre><pre class="codeoutput"> 
+</pre><p>Furthermore, the purely rotational part of the corresponding Laue group can be extracted by the command</p><pre class="codeinput">cs.properGroup</pre><pre class="codeoutput"> 
 ans = crystalSymmetry  
  
   symmetry: 432    
@@ -137,36 +137,36 @@ ans = rotation
   size: 6 x 4
  
   Bunge Euler angles in degree
-  phi1  Phi phi2 Inv.
-     0    0    0    0
-    90   90    0    0
-   180   90   90    0
-    45  180  315    1
-   270   90   90    1
-     0   90    0    1
-    90    0    0    1
-    90   90   90    1
-   180   90  180    1
-    45  180   45    0
-   270   90  180    0
-   360   90   90    0
-   180    0    0    0
-    90   90  180    0
-   180   90  270    0
-    45  180  135    1
-   270   90  270    1
-   360   90  180    1
-   270    0    0    1
-    90   90  270    1
-   180   90    0    1
-    45  180  225    0
-   270   90    0    0
-   360   90  270    0
+     phi1     Phi    phi2    Inv.
+        0       0       0       0
+       90      90       0       0
+      180      90      90       0
+       45     180     315       1
+      270      90      90       1
+        0      90       0       1
+       90       0       0       1
+       90      90      90       1
+      180      90     180       1
+    112.5     180   112.5       0
+      270      90     180       0
+      360      90      90       0
+      180       0       0       0
+       90      90     180       0
+      180      90     270       0
+  99.7356     180 189.736       1
+      270      90     270       1
+      360      90     180       1
+      270       0       0       1
+       90      90     270       1
+      180      90       0       1
+     67.5     180   247.5       0
+      270      90       0       0
+      360      90     270       0
  
  
 </pre><p><b>Alignment of the Two Fold Axes and the Mirroring Planes</b></p>
          <p>MTEX supports different alignments of two fold axes and mirroring planes. Look at the difference between the following plots.
-            The red dot marks allways the a-axis
+            The red dot always marks the a-axis
          </p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'2mm'</span>);
 plot(cs)
 annotate(cs.aAxis,<span class="string">'MarkerFaceColor'</span>,<span class="string">'r'</span>,<span class="string">'label'</span>,<span class="string">'a'</span>,<span class="string">'backgroundColor'</span>,<span class="string">'w'</span>)
@@ -180,8 +180,8 @@ plot(crystalSymmetry(<span class="string">'mm2'</span>))
 annotate(cs.aAxis,<span class="string">'MarkerFaceColor'</span>,<span class="string">'r'</span>,<span class="string">'label'</span>,<span class="string">'a'</span>,<span class="string">'backgroundColor'</span>,<span class="string">'w'</span>)</pre><img src="CrystalSymmetries_04.png"> <img src="CrystalSymmetries_05.png"> <img src="CrystalSymmetries_06.png"> <p>The same differences can be found between the symmetry groups 112, 121, 211; 11m, 1m1, m11; 321, 312; 3m1, 31m and -3m1, -31m.</p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The Crystal Coordinate System<a name="14"> </a></h2>
-         <p>Beside the symmetry group a variable of type <a href="crystalSymmetry_index.html">crystalSymmetry</a> also contain information about the crystal coordinate system. It is specified by the a list [a,b,c] of axes length and a
-            list [alpha,beta,gamma] of angles between the axes. For crystal symmetries with fixed angles the last argument can be ommited.
+         <p>Beside the symmetry group a variable of type <a href="crystalSymmetry_index.html">crystalSymmetry</a> also contains information about the crystal coordinate system. It is specified by a list [a,b,c] of axes length and a list
+            [alpha,beta,gamma] of angles between the axes. For crystal symmetries with fixed angles the last argument can be ommitted.
             The syntax for a triclinic crystal system is
          </p><pre class="codeinput">close <span class="string">all</span>
 cs = crystalSymmetry(<span class="string">'triclinic'</span>,[1,2.2,3.1],[80*degree,85*degree,95*degree])</pre><pre class="codeoutput"> 
@@ -190,12 +190,12 @@ cs = crystalSymmetry
   symmetry          : -1           
   a, b, c           : 1, 2.2, 3.1  
   alpha, beta, gamma: 80&deg;, 85&deg;, 95&deg;
-  reference frame   : X||a*, Z||c  
+  reference frame   : X||a, Z||c*  
  
 </pre><p><b>Aligning the Orthogonal Crystal Reference Frame to the Crystal Axes</b></p>
-         <p>As Euler angles and tensors are usually specified not with respect to a skew crystal coordiante frame but with respect to
+         <p>As Euler angles and tensors are usually specified not with respect to a skew crystal coordinate frame but with respect to
             a orthogonal reference frame the relationship between the latter one to the crystal coordinate system has to be specified.
-            In the case of orthorhombic and cubic crystal frames no choise has to be made. In the case of triclinic, monoclinic, trigonal
+            In the case of orthorhombic and cubic crystal frames no choice has to be made. In the case of triclinic, monoclinic, trigonal
             and hexagonal symmetries one should explicitly define which of the crystal axes a, b, c is parallel to X, Y, Z of the orthogonal
             reference frame. For the axes of the dual crystal frame the notation a*, b*, c* is used. In order to specify that X is parallel
             a and Z is parallel to c* the syntax is

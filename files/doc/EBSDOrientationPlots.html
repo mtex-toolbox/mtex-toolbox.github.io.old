@@ -40,9 +40,9 @@
       <div class="container">
          <h1>Plotting Individual Orientations</h1>
          <div class="subheading">
-            <p>Basics to the plot types for individual orientations data</p>
+            <p>Basics of the plot types for individual orientations data</p>
          </div>
-         <p>This sections gives an overview over the possibilities that MTEX offers to visualize orientation data.</p>
+         <p>This section gives an overview over the possibilities that MTEX offers to visualize orientation data.</p>
          <div>
             <table class="content">
                <tr>
@@ -83,8 +83,8 @@ ans = orientation
          </p><pre class="codeinput">plotIPDF(ebsd(<span class="string">'Fo'</span>).orientations,xvector)</pre><pre class="codeoutput">  I'm plotting 12500 random orientations out of 152345 given orientations
 </pre><img src="EBSDOrientationPlots_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Scatter Plot in ODF Sections<a name="8"> </a></h2>
-         <p>The plotting og scatter points in sections of the orientation space is carried out by the command <a href="orientation.plotSection.html">plotSection</a>. In the above examples the number of plotted orientations was chosen automatically such that the plots not to become too
-            crowed with points. The number of randomly chosen orientations can be specified by the option <b>points</b>.
+         <p>The plotting of scatter points in sections of the orientation space is carried out by the command <a href="orientation.plotSection.html">plotSection</a>. In the above examples, the number of plotted orientations was chosen automatically such that the plots not to become too
+            crowded with points. The number of randomly chosen orientations can be specified by the option <b>points</b>.
          </p><pre class="codeinput">plotSection(ebsd(<span class="string">'Fo'</span>).orientations,<span class="string">'points'</span>,1000,<span class="string">'sigma'</span>,<span class="string">'sections'</span>,9)</pre><pre class="codeoutput">  plotting 1000 random orientations out of 152345 given orientations
 </pre><img src="EBSDOrientationPlots_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Scatter Plot in Axis Angle or Rodrigues Space<a name="9"> </a></h2>
@@ -97,7 +97,7 @@ ans = orientation
          <p>Since EBSD and grain data involves single orientations, the above plotting commands are also applicable for those objects.</p>
          <p>Let us consider some grains <a href="EBSD.calcGrains.html">detected</a> from the EBSD data
          </p><pre class="codeinput">grains = calcGrains(ebsd);</pre><p>Then the scatter plot of the individual orientations of the Iron phase in the inverse pole figure is achieved by</p><pre class="codeinput">plotIPDF(ebsd(<span class="string">'Fo'</span>).orientations,xvector,<span class="string">'points'</span>,1000, <span class="string">'MarkerSize'</span>,3);</pre><pre class="codeoutput">  I'm plotting 1000 random orientations out of 152345 given orientations
-</pre><img src="EBSDOrientationPlots_05.png"> <p>In the same way the mean orientations of grains can be visualized</p><pre class="codeinput">hold <span class="string">all</span>
+</pre><img src="EBSDOrientationPlots_05.png"> <p>In the same way, the mean orientations of grains can be visualized</p><pre class="codeinput">hold <span class="string">all</span>
 plotIPDF(grains(<span class="string">'Fo'</span>).meanOrientation,xvector,<span class="string">'points'</span>,500, <span class="string">'MarkerSize'</span>,3);
 hold <span class="string">off</span></pre><pre class="codeoutput">  I'm plotting 500 random orientations out of 4092 given orientations
 </pre><img src="EBSDOrientationPlots_06.png"> <p>One can also use different colors on the scatter points</p><pre class="codeinput">h = [Miller(1,0,0,ebsd(<span class="string">'Fo'</span>).CS),Miller(1,1,0,ebsd(<span class="string">'Fo'</span>).CS)];

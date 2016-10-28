@@ -73,7 +73,7 @@
             </table>
          </div>
          <h2>Introduction<a name="3"> </a></h2>
-         <p>MTEX provides a very simple way to define model ODFs. Generally, there are five types to descripe an ODF in MTEX:</p>
+         <p>MTEX provides a very simple way to define model ODFs. Generally, there are five types to describe an ODF in MTEX:</p>
          <div>
             <ul type="square">
                <li>uniform ODF</li>
@@ -83,8 +83,8 @@
                <li>Fourier ODF</li>
             </ul>
          </div>
-         <p>The central idea is that MTEX allows you to calculate mixture models, by adding and subtracting arbitary ODFs. Model ODFs
-            may be used as references for ODFs estimated from pole figure data or EBSD data and are instrumental for <a href="PoleFigureSimulation_demo.html">pole figure simulations</a> and <a href="EBSDSimulation_demo.html">sinle orientation simulations</a>. These relationships are visualized in the following chart.
+         <p>The central idea is that MTEX allows you to calculate mixture models, by adding and subtracting arbitrary ODFs. Model ODFs
+            may be used as references for ODFs estimated from pole figure data or EBSD data and are instrumental for <a href="PoleFigureSimulation_demo.html">pole figure simulations</a> and <a href="EBSDSimulation_demo.html">single orientation simulations</a>. These relationships are visualized in the following chart.
          </p>
          <p><img src="odf.png"> </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -131,17 +131,17 @@ odf = ODF
     center: (297&deg;,48&deg;,27&deg;)
     weight: 1
  
-</pre><img src="ModelODFs_01.png"> <p>For simplicity one can also ommit the kernel function. In this case the default de la Vallee Poussin kernel is choosen with
-            halfwidth of 10 degree.
+</pre><img src="ModelODFs_01.png"> <p>For simplicity one can also omit the kernel function. In this case the default de la Vallee Poussin kernel is chosen with
+            half width of 10 degree.
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Fibre ODFs<a name="7"> </a></h2>
          <p>A fibre is a rotation mapping a <a href="Miller_index.html">crystal direction</a> <img src="ModelODFs_eq00550090756836454139.png">  onto a <a href="vector3d_index.html">specimen direction</a> <img src="ModelODFs_eq14671577809090874299.png"> , i.e.
          </p>
          <p><img src="ModelODFs_eq15087468051727872136.png"> </p>
-         <p>A fibre ODF may be writte as</p>
+         <p>A fibre ODF may be written as</p>
          <p><img src="ModelODFs_eq11205394958442011750.png"> </p>
-         <p>with an arbitary <a href="kernel_index.html">radially symmetrial function</a> <img src="ModelODFs_eq01982406464486259838.png"> . In order to define a fibre ODF one needs
+         <p>with an arbitrary <a href="kernel_index.html">radially symmetrial function</a> <img src="ModelODFs_eq01982406464486259838.png"> . In order to define a fibre ODF one needs
          </p>
          <div>
             <ul type="square">
@@ -167,7 +167,7 @@ odf = ODF
  
 </pre><img src="ModelODFs_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>ODFs given by Fourier coefficients<a name="8"> </a></h2>
-         <p>In order to define a ODF by it <b>Fourier coefficients</b> the Fourier coefficients <b>C</b> has to be give as a literaly ordered, complex valued vector of the form
+         <p>In order to define a ODF by it <b>Fourier coefficients</b> the Fourier coefficients <b>C</b> has to be given as a literally ordered, complex valued vector of the form
          </p>
          <p><img src="ModelODFs_eq03059004171824837318.png"> </p>
          <p>where <img src="ModelODFs_eq07539466353696451391.png">  denotes the order of the Fourier coefficients.
@@ -212,7 +212,7 @@ odf = BinghamODF(20,mod,cs)
 
 plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'contourf'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
+  crystal symmetry : -3m1, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Bingham portion:
@@ -223,7 +223,7 @@ odf = ODF
 
 plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
+  crystal symmetry : -3m1, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Bingham portion:
@@ -234,7 +234,7 @@ odf = ODF
 
 plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>);</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
+  crystal symmetry : -3m1, X||a, Y||b*, Z||c
   specimen symmetry: 1
  
   Bingham portion:
@@ -243,7 +243,7 @@ odf = ODF
  
 </pre><img src="ModelODFs_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Combining model ODFs<a name="14"> </a></h2>
-         <p>All the above can be arbitrarily rotated and combinend. For instance, the classical Santafe example can be defined by commands</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'cubic'</span>);
+         <p>All the above can be arbitrarily rotated and combined. For instance, the classical Santafe example can be defined by commands</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'cubic'</span>);
 ss = specimenSymmetry(<span class="string">'orthorhombic'</span>);
 
 psi = vonMisesFisherKernel(<span class="string">'halfwidth'</span>,10*degree);

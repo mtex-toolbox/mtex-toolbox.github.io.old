@@ -40,7 +40,7 @@
       <div class="container">
          <h1>Misorientations</h1>
          <div class="subheading">
-            <p>Misorientation describe the relative orientation of two grains with respect to each other. Important concepts are are twinnings
+            <p>Misorientation describes the relative orientation of two grains with respect to each other. Important concepts are twinnings
                and CSL (coincidence site lattice),
             </p>
          </div>
@@ -53,7 +53,7 @@
                   <td><a href="#3">Misorientations between grains</a></td>
                </tr>
                <tr>
-                  <td><a href="#7">Coinsident lattice planes</a></td>
+                  <td><a href="#7">Coincident lattice planes</a></td>
                </tr>
                <tr>
                   <td><a href="#9">Twinning misorientations</a></td>
@@ -67,7 +67,7 @@
             </table>
          </div>
          <h2>Misorientations between grains<a name="3"> </a></h2>
-         <p>Let us import some EBSD data set, compute grains and plot the colorized according to their meanorientation and lets highlight
+         <p>Let us import some EBSD data set, compute grains and plot and colorize according to their meanorientation and lets highlight
             grain 70 and grain 80
          </p><pre class="codeinput">mtexdata <span class="string">twins</span>
 grains = calcGrains(ebsd(<span class="string">'indexed'</span>))
@@ -104,8 +104,8 @@ mori = misorientation
  
  
 </pre><p>In the present case the misorientation describes the coordinate transform from the reference frame of grain 80 into the reference
-            frame of crystal 70. Take as an expample the plane {11-20} with respect to the grain 80. Then the plane in grain 70 which
-            aligned parallel to this plane can be computed by
+            frame of crystal 70. Take as an example the plane {11-20} with respect to the grain 80. Then the plane in grain 70 which aligned
+            parallel to this plane can be computed by
          </p><pre class="codeinput">round(mori * Miller(1,1,-2,0,CS))</pre><pre class="codeoutput"> 
 ans = Miller  
  size: 1 x 1
@@ -123,29 +123,29 @@ ans = Miller
   i -2
   l  0
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Coinsident lattice planes<a name="7"> </a></h2>
+         <h2>Coincident lattice planes<a name="7"> </a></h2>
          <p>The coincidence between major lattice planes may suggest that the misorientation is a twinning misorientation. Lets analyse
             whether there are some more alignments between major lattice planes.
-         </p><pre class="codeinput">m = Miller({1,0,-1,0},{1,1,-2,0},{1,0,-1,1},{1,1,-2,1},{1,1,-2,2},{0,0,0,1},CS);
+         </p><pre class="codeinput">m = Miller({1,-1,0,0},{1,1,-2,0},{1,-1,0,1},{0,0,0,1},CS);
 
-close <span class="string">all</span>
 <span class="comment">% cycle through all major lattice planes</span>
+close <span class="string">all</span>
 <span class="keyword">for</span> im = 1:length(m)
-
   <span class="comment">% plot the lattice planes of grains 80 with respect to the</span>
   <span class="comment">% reference frame of grain 70</span>
-  plot(mori * symmetrise(m(im)),<span class="string">'symmetrised'</span>,<span class="string">'MarkerSize'</span>,10,<span class="keyword">...</span>
-    <span class="string">'DisplayName'</span>,char(m(im)),<span class="string">'fundamentalRegion'</span>,<span class="string">'figSize'</span>,<span class="string">'normal'</span>)
+  plot(mori * m(im).symmetrise,<span class="string">'MarkerSize'</span>,10,<span class="keyword">...</span>
+    <span class="string">'DisplayName'</span>,char(m(im)),<span class="string">'figSize'</span>,<span class="string">'large'</span>,<span class="string">'noLabel'</span>,<span class="string">'upper'</span>)
   hold <span class="string">all</span>
 <span class="keyword">end</span>
 hold <span class="string">off</span>
-annotate(m,<span class="string">'labeled'</span>)
+
+<span class="comment">% mark the corresponding lattice planes in the twin</span>
+mm = round(unique(mori*m.symmetrise,<span class="string">'noSymmetry'</span>),<span class="string">'maxHKL'</span>,6);
+annotate(mm,<span class="string">'labeled'</span>,<span class="string">'MarkerSize'</span>,5,<span class="string">'figSize'</span>,<span class="string">'large'</span>)
 
 <span class="comment">% show legend</span>
-legend({},<span class="string">'location'</span>,<span class="string">'NorthWest'</span>,<span class="string">'FontSize'</span>,13);</pre><pre class="codeoutput">Warning: Plot empty. 
-</pre><img src="Misorientations_02.png"> <p>we observe an almost perfect math between the {11-20} lattice planes and the {10-11} lattice planes and good coincidences
-            for the lattice plane {10-10} to {0001} and {11-22}; and for the lattice plane {10-10} to {11-22}. Lets compute the angles
-            explicitly
+legend({},<span class="string">'location'</span>,<span class="string">'SouthEast'</span>,<span class="string">'FontSize'</span>,13);</pre><img src="Misorientations_02.png"> <p>we observe an almost perfect match for the lattice planes {11-20} to {-2110} and {1-101} to {-1101} and good coincidences
+            for the lattice plane {1-100} to {0001} and {0001} to {0-661}. Lets compute the angles explicitly
          </p><pre class="codeinput">angle(mori * Miller(1,1,-2,0,CS),Miller(1,1,-2,0,CS)) / degree
 angle(mori * Miller(-1,0,1,1,CS),Miller(1,0,-1,1,CS)) / degree
 angle(mori * Miller(0,0,0,1,CS) ,Miller(1,0,-1,0,CS)) / degree
@@ -153,13 +153,13 @@ angle(mori * Miller(1,1,-2,2,CS),Miller(1,0,-1,0,CS)) / degree
 angle(mori * Miller(1,0,-1,0,CS),Miller(1,1,-2,2,CS)) / degree</pre><pre class="codeoutput">ans =
     0.4592
 ans =
-    0.1766
+    0.1864
 ans =
     4.2919
 ans =
-    2.6341
+    2.6238
 ans =
-    2.5686
+    2.5531
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Twinning misorientations<a name="9"> </a></h2>
          <p>Lets define a misorientation that makes a perfect fit between the {11-20} lattice planes and between the {10-11} lattice planes</p><pre class="codeinput">mori = orientation(<span class="string">'map'</span>,Miller(1,1,-2,0,CS),Miller(2,-1,-1,0,CS),<span class="keyword">...</span>
@@ -177,7 +177,7 @@ mori = misorientation
  
   Bunge Euler angles in degree
   phi1     Phi    phi2    Inv.
-   330 93.7008     330       0
+   330 93.6529     330       0
  
  
  
@@ -189,21 +189,27 @@ ans = Miller
   i -1
   l  0
 ans =
-   86.2992
-</pre><p>Lets plot the same figure as before with the exact twinning misorientation.</p><pre class="codeinput"><span class="keyword">for</span> im = 1:length(m)
-  plot(mori * symmetrise(m(im)),<span class="string">'symmetrised'</span>,<span class="string">'MarkerSize'</span>,10,<span class="keyword">...</span>
-    <span class="string">'DisplayName'</span>,char(m(im)),<span class="string">'fundamentalRegion'</span>)
+   86.3471
+</pre><p>Lets plot the same figure as before with the exact twinning misorientation.</p><pre class="codeinput"><span class="comment">% cycle through all major lattice planes</span>
+close <span class="string">all</span>
+<span class="keyword">for</span> im = 1:length(m)
+  <span class="comment">% plot the lattice planes of grains 80 with respect to the</span>
+  <span class="comment">% reference frame of grain 70</span>
+  plot(mori * m(im).symmetrise,<span class="string">'MarkerSize'</span>,10,<span class="keyword">...</span>
+    <span class="string">'DisplayName'</span>,char(m(im)),<span class="string">'figSize'</span>,<span class="string">'large'</span>,<span class="string">'noLabel'</span>,<span class="string">'upper'</span>)
   hold <span class="string">all</span>
 <span class="keyword">end</span>
 hold <span class="string">off</span>
-annotate(m,<span class="string">'labeled'</span>)
+
+<span class="comment">% mark the corresponding lattice planes in the twin</span>
+mm = round(unique(mori*m.symmetrise,<span class="string">'noSymmetry'</span>),<span class="string">'maxHKL'</span>,6);
+annotate(mm,<span class="string">'labeled'</span>,<span class="string">'MarkerSize'</span>,5,<span class="string">'figSize'</span>,<span class="string">'large'</span>)
 
 <span class="comment">% show legend</span>
-legend({},<span class="string">'location'</span>,<span class="string">'NorthWest'</span>,<span class="string">'FontSize'</span>,13);</pre><pre class="codeoutput">Warning: Plot empty. 
-</pre><img src="Misorientations_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+legend({},<span class="string">'location'</span>,<span class="string">'NorthWest'</span>,<span class="string">'FontSize'</span>,13);</pre><img src="Misorientations_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Highlight twinning boundaries<a name="11"> </a></h2>
-         <p>It turns out that in the previous EBSD map many grain boudaries have a misorientation close to the twinning misorientation
-            we just defined. Lets Lets higlight those twinning boundaries
+         <p>It turns out that in the previous EBSD map many grain boundaries have a misorientation close to the twinning misorientation
+            we just defined. Lets Lets highlight those twinning boundaries
          </p><pre class="codeinput"><span class="comment">% consider only Magnesium to Magnesium grain boundaries</span>
 gB = grains.boundary(<span class="string">'Mag'</span>,<span class="string">'Mag'</span>);
 <span class="comment">% check for small deviation from the twinning misorientation</span>
@@ -234,7 +240,7 @@ CS_Hem = crystalSymmetry
   mineral        : Hematite         
   symmetry       : -3m1             
   a, b, c        : 5, 5, 14         
-  reference frame: X||a*, Y||b, Z||c
+  reference frame: X||a, Y||b*, Z||c
  
 </pre><p>The phase transition from Magnetite to Hematite is described in literature by {111}_m parallel {0001}_h and {-101}_m parallel
             {10-10}_h The corresponding misorientation is defined in MTEX by
@@ -244,11 +250,11 @@ CS_Hem = crystalSymmetry
 Mag2Hem = misorientation  
   size: 1 x 1
   crystal symmetry : Magnetite (m-3m)
-  crystal symmetry : Hematite (-3m1, X||a*, Y||b, Z||c)
+  crystal symmetry : Hematite (-3m1, X||a, Y||b*, Z||c)
  
   Bunge Euler angles in degree
   phi1     Phi    phi2    Inv.
-   120 54.7356      45       0
+   150 54.7356      45       0
  
  
 </pre><p>Assume a Magnetite grain with orientation</p><pre class="codeinput">ori_Mag = orientation(<span class="string">'Euler'</span>,0,0,0,CS_Mag)</pre><pre class="codeoutput"> 
@@ -265,7 +271,7 @@ ori_Mag = orientation
 </pre><p>Then we can compute all variants of the phase transition by</p><pre class="codeinput">symmetrise(ori_Mag) * inv(Mag2Hem)</pre><pre class="codeoutput"> 
 ans = orientation  
   size: 48 x 1
-  crystal symmetry : Hematite (-3m1, X||a*, Y||b, Z||c)
+  crystal symmetry : Hematite (-3m1, X||a, Y||b*, Z||c)
   specimen symmetry: 1
  
 </pre><p>and the corresponding pole figures by</p><pre class="codeinput">plotPDF(symmetrise(ori_Mag) * inv(Mag2Hem),<span class="keyword">...</span>
