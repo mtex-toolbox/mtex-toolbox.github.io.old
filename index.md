@@ -8,9 +8,9 @@ textures by means of EBSD or pole figure data.
 
 ### News
 
+* MTEX 4.4.0 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.4.0/mtex-4.4.0.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
 * Chemnitz MTEX Workshop 2017: ・[Announcement](https://groups.google.com/forum/#!topic/mtexmail/nl9d2o5VdVg) ・[Homepage](http://www-user.tu-chemnitz.de/~rahi/mtexWorkshop17)・[Registration](http://www-user.tu-chemnitz.de/~rahi/mtexWorkshop17/registration.php)・
 * New paper: [Orientations - perfectly colored](https://www-user.tu-chemnitz.de/~rahi/paper/so3Colors.pdf)
-* MTEX 4.4.beta.1 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.4.beta.1/mtex-4.4.beta.1.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
 * MTEX 4.3.2 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.3.2/mtex-4.3.2.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
 * MTEX 4.2.1 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.2.1/mtex-4.2.1.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
 
