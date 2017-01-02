@@ -17,6 +17,7 @@ In case you experience any problems have a look at our [trouble shooting page]()
 
 File Name  |||  Release Date||| Comments ||| Downloads
 :-|-|-|:-|-|-|:-|-|-|-
+[**mtex-4.5.1.zip**](https://github.com/ralfHielscher/mtex/releases/download/mtex-4.5.beta.1/mtex-4.5.beta.1.zip) ||| January 2017 ||| 3d orientation and ODF plots, [changelog](files/doc/changelog.html) ||| 0
 [**mtex-4.4.0.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.4.0/mtex-4.4.0.zip) ||| January 2017 ||| Slip Systems, Taylor calculation, [changelog](files/doc/changelog.html) ||| 913
 [**mtex-4.3.2.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.3.2/mtex-4.3.2.zip) ||| July 2016 ||| GND calculation, [changelog](files/doc/changelog.html) ||| 1028
 [**mtex-4.2.1.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.2.1/mtex-4.2.1.zip) ||| November 2015 ||| introduces triple points, [changelog](files/doc/changelog.html) ||| 1451
