@@ -28,6 +28,9 @@ be up and running in seconds.
   -- Questions, Discussions, Announcements.
  * [report issues](https://github.com/mtex-toolbox/mtex/issues) -- Every bug
    report is welcome.
+ * [community scripts](https://gist.github.com/search?utf8=%E2%9C%93&q=%23mtexScript)
+   -- see how other MTEX users have utilized MTEX. Click [here](scripts) to see how
+   you can share your scripts.
  * [contribute](https://github.com/mtex-toolbox/mtex) -- MTEX is open
    source and adding new features is more simple then you might think.
 
