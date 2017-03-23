@@ -43,15 +43,58 @@
             <p>(method of <a href="Miller_index.html">Miller</a>)
             </p>
          </div>
-         <h2>Syntax<a name="3"> </a></h2>
+         <p>define a crystal direction by Miller indice</p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">m = Miller(h,k,l,cs) -
+m = Miller(h,k,l,cs,<span class="string">'hkl'</span>) -
+m = Miller(h,k,l,cs,<span class="string">'pole'</span>) -
+m = Miller(h,k,i,l,cs) -
+m = Miller(<span class="string">'(hkl)'</span>,cs) -
+m = Miller(u,v,w,cs,<span class="string">'uvw'</span>) -
+m = Miller(u,v,t,w,cs,<span class="string">'uvw'</span>) -
+m = Miller(u,v,w,cs,<span class="string">'direction'</span>) -
+m = Miller(<span class="string">'[uvw]'</span>,cs) -
+m = Miller(<span class="untermstring">'[uvw]\[uvw],cs) -</span>
+m = Miller(<span class="untermstring">'(hkl)\(hkl),cs) -</span>
+m = Miller(x,cs) -</pre><h2>Input<a name="4"> </a></h2>
          <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>m = Miller('param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>h,k,l,i(optional)</tt>
+            </td>
+            <td>
+            <p>Miller indice of the plane normal</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>uw,v,w,t(optional)</tt>
+            </td>
+            <td>
+            <p>Miller indice of a direction</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>x</tt>
+            </td>
+            <td>
+            <p><a href="vector3d_index.html">vector3d</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>cs</tt>
+            </td>
+            <td>
+            <p>crystal <a href="symmetry_index.html">symmetry</a></p>
+            </td>
+            </tr>
+            </table>
             
          </p>
+         <h3 class="seealso">See also</h3>
+         <p><a href="vector3d_index.html">vector3d_index</a>, <a href="symmetry_index.html">symmetry_index</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

@@ -43,7 +43,7 @@
             <p>(method of <a href="symmetry_index.html">symmetry</a>)
             </p>
          </div>
-         <p>get the fundamental sector for a symmetry in the inverse pole figure</p>
+         <p>fundamental region in orientation space for a (pair) of symmetries</p>
          <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">oR = fundamentalRegion(cs)
 oR = fundamentalRegion(cs1,cs2)</pre><h2>Input<a name="4"> </a></h2>
          <p>
@@ -76,10 +76,26 @@ oR = fundamentalRegion(cs1,cs2)</pre><h2>Input<a name="4"> </a></h2>
             </tr>
             <tr>
             <td width="150px">
-            <tt>'invSymmetry'</tt>
+            <tt>'antipodal'</tt>
             </td>
             <td>
             <p>wheter mori == inv(mori)</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'LaueGroup'</tt>
+            </td>
+            <td>
+            <p>consider only Laue groups (default)</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'pointGroup'</tt>
+            </td>
+            <td>
+            <p>consider point groups</p>
             </td>
             </tr>
             </table>

@@ -97,7 +97,7 @@
             
          </p>
          <h2>Example<a name="6"> </a></h2><pre class="codeinput"><span class="comment">% define 10 percent strain</span>
-eps = 0.1 * tensor.diag([1 -0.75 -0.25],<span class="string">'name'</span>,<span class="string">'strain'</span>)</pre><pre class="codeoutput"> 
+eps = 0.1 * tensor(diag([1 -0.75 -0.25]),<span class="string">'name'</span>,<span class="string">'strain'</span>)</pre><pre class="codeoutput"> 
 eps = strain tensor  
   rank: 2 (3 x 3)
  
@@ -137,13 +137,13 @@ sS = slipSystem
     0.2719
 b =
   Columns 1 through 7
-    0.0000    0.0000    0.0152    0.0345    0.0000    0.0000    0.0200
+    0.0000    0.0000    0.0142    0.0332    0.0000    0.0000    0.0198
   Columns 8 through 14
-    0.0000    0.0000    0.0000    0.0191    0.0000    0.0000    0.0000
+    0.0000    0.0000    0.0000    0.0204    0.0000    0.0000    0.0000
   Columns 15 through 21
-    0.0000    0.0322    0.0104    0.0000    0.0000    0.0272    0.0000
+    0.0000    0.0345    0.0093    0.0000    0.0000    0.0296    0.0000
   Columns 22 through 24
-    0.0000    0.0000    0.1132
+    0.0000    0.0000    0.1110
  
 mori = misorientation  
   size: 1 x 1
@@ -152,7 +152,7 @@ mori = misorientation
  
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
-  60.8632 2.13282 300.268       0
+  64.4732  2.0184 296.717       0
  
  
 </pre><p style="font-size:1px;"></p>

@@ -5,7 +5,7 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
    
-      <title>Fibres in orientation space (The Class fibre) (DocHelp Toolbox)
+      <title>Fibres (DocHelp Toolbox)
          
       </title>
       <!-- DOCNAME: DocHelp Toolbox -->
@@ -38,17 +38,46 @@
          </div>
       </div>
       <div class="container">
-         <h1>Fibres in orientation space (The Class <a href="fibre_index.html">fibre</a>)
-         </h1>
+         <h1>Fibres</h1>
          <div class="subheading">
-            <p>This sections describes the class <b>fibre</b> and gives an overview how to work with fibres in MTEX.
+            <p>This sections describes the class <a href="fibre_index.html">fibre</a> and gives an overview how to work with fibres in MTEX.
             </p>
          </div>
          <h2>Defining a Fibre<a name="2"> </a></h2>
-         <p>A fibre in orientation space can be seen as a line connecting two orientations. Since, the orientation space has no boundary
-            a full fibre is best thought of as a circle that passes trough two fixed orientations.
-         </p>
-         <h3> by two orientations<a name="3"> </a></h3><pre class="codeinput"><span class="comment">% define a crystal symmetry</span>
+         <p>A fibre in orientation space can be seen as a line connecting two orientations.</p><pre class="codeinput"><span class="comment">% define a crystal symmetry</span>
+cs = crystalSymmetry(<span class="string">'432'</span>)
+ss = specimenSymmetry(<span class="string">'222'</span>)
+
+<span class="comment">% and two orientations</span>
+ori1 = orientation.cube(cs,ss);
+ori2 = orientation.goss(cs,ss);
+
+<span class="comment">% the connecting fibre</span>
+f = fibre(ori1,ori2)
+
+<span class="comment">% lets plot the two orientations together with the fibre</span>
+plot(ori1,<span class="string">'MarkerSize'</span>,10,<span class="string">'MarkerFaceColor'</span>,<span class="string">'r'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'k'</span>)
+hold <span class="string">on</span>
+plot(ori2,<span class="string">'MarkerSize'</span>,10,<span class="string">'MarkerFaceColor'</span>,<span class="string">'b'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'k'</span>)
+plot(f)
+hold <span class="string">off</span></pre><pre class="codeoutput"> 
+cs = crystalSymmetry  
+ 
+  symmetry: 432    
+  a, b, c : 1, 1, 1
+ 
+ 
+ss = orthorhombic specimenSymmetry  
+ 
+ 
+f = fibre  
+ size: 1 x 1
+ crystal symmetry:  432
+ specimen symmetry: 222
+ o1: (0&deg;,0&deg;,0&deg;)
+ o2: (0&deg;,45&deg;,0&deg;)
+</pre><img src="fibre_index_01.png"> <pre class="codeinput"><span class="comment">%Since, the orientation space has no boundary a full fibre</span>
+<span class="comment">% is best thought of as a circle that passes trough two fixed orientations.</span></pre><h3> by two orientations<a name="4"> </a></h3><pre class="codeinput"><span class="comment">% define a crystal symmetry</span>
 cs = crystalSymmetry(<span class="string">'432'</span>)
 
 <span class="comment">% the corresponding fundamental region</span>
@@ -72,9 +101,9 @@ cs = crystalSymmetry
  
 oR = orientationRegion  
  crystal symmetry:  432
- &lt;a href="matlab:display(oR.N)"&gt;face normales&lt;/a&gt;: 1 x 14
- &lt;a href="matlab:display(oR.V)"&gt;vertices&lt;/a&gt;: 1 x 24
-</pre><img src="fibre_index_01.png"> <p>Now we can define the partial fibre connecting the cube orientation with the goss orientation by</p><pre class="codeinput">f = fibre(ori1,ori2)
+ face normales: 1 x 14
+ vertices: 1 x 24
+</pre><img src="fibre_index_02.png"> <p>Now we can define the partial fibre connecting the cube orientation with the goss orientation by</p><pre class="codeinput">f = fibre(ori1,ori2)
 
 hold <span class="string">on</span>
 plot(f,<span class="string">'linecolor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2)
@@ -84,7 +113,7 @@ f = fibre
  crystal symmetry:  432
  o1: (0&deg;,0&deg;,0&deg;)
  o2: (0&deg;,45&deg;,0&deg;)
-</pre><img src="fibre_index_02.png"> <p>In order to define the full fibre us the option <tt>full</tt></p><pre class="codeinput">f = fibre(ori1,ori2,<span class="string">'full'</span>)
+</pre><img src="fibre_index_03.png"> <p>In order to define the full fibre us the option <tt>full</tt></p><pre class="codeinput">f = fibre(ori1,ori2,<span class="string">'full'</span>)
 
 hold <span class="string">on</span>
 plot(f,<span class="string">'linecolor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'project2FundamentalRegion'</span>)
@@ -94,7 +123,7 @@ f = fibre
  crystal symmetry:  432
  o1: (0&deg;,0&deg;,0&deg;)
  h: (100)
-</pre><img src="fibre_index_03.png"> <h3> by two directions<a name="7"> </a></h3>
+</pre><img src="fibre_index_04.png"> <h3> by two directions<a name="8"> </a></h3>
          <p>Alternatively, a fibre can also be defined by a crystal direction and a specimen direction. In this case it consists of all
             orientations that alignes the crystal direction parallel to the specimen direction. As an example we can define the fibre
             of all orientations such that the c-axis (001) is parallel to the z-axis by
@@ -109,8 +138,8 @@ f = fibre
  crystal symmetry:  432
  o1: (0&deg;,0&deg;,0&deg;)
  h: (001)
-</pre><img src="fibre_index_04.png"> <p>If the second argument is a of type Miller as well the fibre defines a set of misorientations which have one direcetion aligned.</p>
-         <h3> by one orientation and an orientation gradient<a name="9"> </a></h3>
+</pre><img src="fibre_index_05.png"> <p>If the second argument is a of type Miller as well the fibre defines a set of misorientations which have one direcetion aligned.</p>
+         <h3> by one orientation and an orientation gradient<a name="10"> </a></h3>
          <p>Finally, a fibre can be defined by an initial orientation <tt>ori1</tt> and a direction <tt>h</tt>, i.e., all orientations of this fibre satisfy
          </p>
          <p>ori = ori1 * rot(h,omega)</p>
@@ -126,7 +155,7 @@ f = fibre
  crystal symmetry:  432
  o1: (0&deg;,0&deg;,0&deg;)
  h: (111)
-</pre><img src="fibre_index_05.png"> <h3> predefined fibres<a name="10"> </a></h3>
+</pre><img src="fibre_index_06.png"> <h3> predefined fibres<a name="11"> </a></h3>
          <p>There exist a list of predefined fibres in MTEX which include alpha-, beta-, gamma-, epsilon-, eta- and tau fibre. Those can
             be defined by
          </p><pre class="codeinput">beta = fibre.beta(cs,<span class="string">'full'</span>);</pre><p>Note, that it is now straight forward to define a corresponding fibre ODF by</p><pre class="codeinput">odf = fibreODF(beta,<span class="string">'halfwidth'</span>,10*degree)
@@ -147,9 +176,9 @@ odf = ODF
     fibre: (---) - -0.23141,-0.23141,0.94494
     weight: 1
  
-</pre><img src="fibre_index_06.png"> <h2>Visualize an ODF along a fibre<a name="12"> </a></h2><pre class="codeinput">plot(odf,fibre.gamma(cs))</pre><img src="fibre_index_07.png"> <h2>Compute volume of fibre portions<a name="13"> </a></h2><pre class="codeinput">100 * volume(odf,beta,10*degree)</pre><pre class="codeoutput">ans =
+</pre><img src="fibre_index_07.png"> <h2>Visualize an ODF along a fibre<a name="13"> </a></h2><pre class="codeinput">plot(odf,fibre.gamma(cs))</pre><img src="fibre_index_08.png"> <h2>Compute volume of fibre portions<a name="14"> </a></h2><pre class="codeinput">100 * volume(odf,beta,10*degree)</pre><pre class="codeoutput">ans =
    54.3433
-</pre><h2>Complete Function list<a name="15"> </a></h2>
+</pre><h2>Complete Function list<a name="16"> </a></h2>
          <p><table width="90%"><tr><td width="200px"><a href="fibre.angle.html"><tt>angle</tt></a></td><td>fibre to orientation or fibre
             to fibre</td></tr><tr><td width="200px"><a href="fibre.display.html"><tt>display</tt></a></td><td>standard output</td></tr><tr><td
             width="200px"><a href="fibre.end.html"><tt>end</tt></a></td><td>overloaded end function</td></tr><tr><td width="200px"><a

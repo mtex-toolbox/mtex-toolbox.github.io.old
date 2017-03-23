@@ -77,6 +77,9 @@ grain_selected = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1      32   62262  Forsterite       mmm                         
  
+ boundary segments: 11070
+ triple points: 782
+ 
  Properties: GOS, meanRotation
  
  
@@ -94,6 +97,9 @@ grain_selected = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1       1    1208  Forsterite       mmm                         
  
+ boundary segments: 238
+ triple points: 18
+ 
   Id   Phase   Pixels          GOS   phi1   Phi   phi2
  640       1     1208   0.00808162    153    68    237
  
@@ -108,6 +114,9 @@ grain_selected = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1       1    2614  Forsterite       mmm                         
  
+ boundary segments: 458
+ triple points: 28
+ 
    Id   Phase   Pixels        GOS   phi1   Phi   phi2
  1856       1     2614   0.170049    153   109    246
  
@@ -120,7 +129,13 @@ plot(grain_selected.boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>
 plot(ebsd(grain_selected),ebsd(grain_selected).mis2mean.angle./degree)
 hold <span class="string">off</span>
-mtexColorbar</pre><img src="GrainSingleAnalysis_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="GrainSingleAnalysis_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Testing on Bingham distribution for a single grain<a name="10"> </a></h2>
          <p>Although the orientations of an individual grain are highly concentrated, they may vary in the shape. In particular, if the
             grain was deformed by some process, we are interested in quantifications.
@@ -175,7 +190,13 @@ xlabel(<span class="string">'y'</span>); ylabel(<span class="string">'misorienta
 legend(<span class="string">'to reference orientation'</span>,<span class="string">'orientation gradient'</span>)</pre><img src="GrainSingleAnalysis_05.png"> <p>We can also plot the orientations along this line into inverse pole figures and colorize them according to their y-coordinate</p><pre class="codeinput">close, plotIPDF(ebsd_line.orientations,[xvector,yvector,zvector],<span class="keyword">...</span>
   <span class="string">'property'</span>,ebsd_line.y,<span class="string">'markersize'</span>,3,<span class="string">'antipodal'</span>)
 
-mtexColorbar</pre><img src="GrainSingleAnalysis_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="GrainSingleAnalysis_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

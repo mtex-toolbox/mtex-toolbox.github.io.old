@@ -43,17 +43,8 @@
             <p>(method of <a href="ODF_index.html">ODF</a>)
             </p>
          </div>
-         <p>compute the axis distribution of an ODF or MDF</p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>v = calcAxisVolume(odf,axis,radius,'param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="4"> </a></h2>
+         <p>amount of orientations with a specific misorientation axis</p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">vol = calcAxisVolume(odf,axis,radius)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -80,42 +71,6 @@
             <p>double</p>
             </td>
             </tr>
-            <tr>
-            <td width="100px">
-            <tt>param</tt>
-            </td>
-            <td>Options that control the calcAxisVolume behavior<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
-            <tr>
-            <td class="header" width="100px">Parameter</td>
-            <td class="header">Description</td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'smallesAngle'</tt>
-            </td>
-            <td>
-            <p>use axis corresponding to the smalles angle</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'largestAngle'</tt>
-            </td>
-            <td>
-            <p>use axis corresponding to the largest angle</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'allAngles'</tt>
-            </td>
-            <td>
-            <p>use all axes</p>
-            </td>
-            </tr>
-            </table>
-            </td>
-            </tr>
             </table>
             
          </p>
@@ -124,7 +79,7 @@
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>v</tt>
+            <tt>vol</tt>
             </td>
             <td>
             <p>volumeportion of all axes within the specified radius around axis</p>

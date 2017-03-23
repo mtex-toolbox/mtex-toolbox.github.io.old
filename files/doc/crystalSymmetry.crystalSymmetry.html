@@ -83,7 +83,9 @@ crystalSymmetry(<span class="string">'cubic'</span>)
 crystalSymmetry(<span class="string">'2/m'</span>,[8.6 13 7.2],[90 116, 90]*degree,<span class="string">'mineral'</span>,<span class="string">'orthoclase'</span>)
 crystalSymmetry(<span class="string">'O'</span>)
 crystalSymmetry(<span class="string">'LaueId'</span>,9)
-crystalSymmetry(<span class="string">'SpaceId'</span>,153)</pre><h2>Input<a name="5"> </a></h2>
+crystalSymmetry(<span class="string">'SpaceId'</span>,153)
+rot = rotation(<span class="string">'map'</span>,vector3d(1,1,1),vector3d.Z,vector3d(0,-1,1),vector3d.X)
+crystalSymmetry(<span class="string">'432'</span>,<span class="string">'rotAxes'</span>,rot)</pre><h2>Input<a name="5"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>

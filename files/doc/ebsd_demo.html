@@ -84,7 +84,8 @@ odf2 = ODF
 </pre><h2>Plot pole figures<a name="7"> </a></h2><pre class="codeinput">plotPDF(odf1,h,<span class="string">'antipodal'</span>)
 figure
 plotPDF(odf2,h,<span class="string">'antipodal'</span>)</pre><img src="ebsd_demo_03.png"> <img src="ebsd_demo_04.png"> <h2>Plot ODF<a name="8"> </a></h2><pre class="codeinput">plot(odf2,<span class="string">'sections'</span>,9,<span class="string">'resolution'</span>,2*degree,<span class="keyword">...</span>
-  <span class="string">'FontSize'</span>,10,<span class="string">'silent'</span>)</pre><img src="ebsd_demo_05.png"> <h2>Estimation of Fourier Coefficients<a name="9"> </a></h2>
+  <span class="string">'FontSize'</span>,10,<span class="string">'silent'</span>)</pre><pre class="codeoutput">progress: 100%
+</pre><img src="ebsd_demo_05.png"> <h2>Estimation of Fourier Coefficients<a name="9"> </a></h2>
          <p>Once, a ODF has been estimated from EBSD data it is straight forward to calculate Fourier coefficients. E.g. by</p><pre class="codeinput">close <span class="string">all</span>
 odf2 = FourierODF(odf2);
 imagesc(abs(odf2.calcFourier(<span class="string">'order'</span>,10)))
@@ -116,10 +117,8 @@ odf = ODF
     degree: 28
     weight: 1
  
-</pre><p>plot the estimated ODF</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><img src="ebsd_demo_10.png"> <p>calculate estimation error</p><pre class="codeinput">calcError(odf,fibre_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">Warning: NARGCHK will be removed in a future
-release. Use NARGINCHK or NARGOUTCHK instead. 
-ans =
-    0.0917
+</pre><p>plot the estimated ODF</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><img src="ebsd_demo_10.png"> <p>calculate estimation error</p><pre class="codeinput">calcError(odf,fibre_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">ans =
+    0.0964
 </pre><p>For a more exhausive example see the <a href="EBSDSimulation_demo.html">EBSD Simulation demo</a>!
          </p>
          <h2>Exercises<a name="17"> </a></h2>

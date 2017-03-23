@@ -72,11 +72,24 @@ grains = grains.smooth
 plot(grains,grains.meanOrientation)
 
 <span class="comment">% extract the grain boundaries</span>
-gB = grains.boundary</pre><pre class="codeoutput"> 
+gB = grains.boundary</pre><pre class="codeoutput"> loading data ...
+ 
+CS = crystalSymmetry  
+ 
+  mineral        : Magnesium        
+  symmetry       : 6/mmm            
+  a, b, c        : 3.2, 3.2, 5.2    
+  reference frame: X||a*, Y||b, Z||c
+ 
+ saving data to /home/hielscher/mtex/master/data/twins.mat
+ 
 grains = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1     121   22833  Magnesium     6/mmm        X||a, Y||b*, Z||c
+     1     121   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
+ 
+ boundary segments: 3825
+ triple points: 114
  
  Properties: GOS, meanRotation
  
@@ -85,7 +98,7 @@ ebsd = EBSD
  
  Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
      0     46 (0.2%)  notIndexed                                               
-     1  22833 (100%)   Magnesium  light blue     6/mmm        X||a, Y||b*, Z||c
+     1  22833 (100%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -95,7 +108,7 @@ ebsd = EBSD
  
  Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
      0     46 (0.2%)  notIndexed                                               
-     1  22833 (100%)   Magnesium  light blue     6/mmm        X||a, Y||b*, Z||c
+     1  22833 (100%)   Magnesium  light blue     6/mmm        X||a*, Y||b, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -104,7 +117,10 @@ ebsd = EBSD
 grains = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1     121   22833  Magnesium     6/mmm        X||a, Y||b*, Z||c
+     1     121   22833  Magnesium     6/mmm        X||a*, Y||b, Z||c
+ 
+ boundary segments: 3825
+ triple points: 114
  
  Properties: GOS, meanRotation
  
@@ -132,7 +148,13 @@ gB = grainBoundary
          <p>These can be used to colorize the grain boundaries. By the following command we plot the grain boundaries colorized by the
             misorientation angle
          </p><pre class="codeinput">plot(gB(<span class="string">'indexed'</span>),gB(<span class="string">'indexed'</span>).misorientation.angle./degree,<span class="string">'linewidth'</span>,2)
-mtexColorbar</pre><img src="BoundaryGeometry_02.png"> <p>The output tells us that we have 3219 Magnesium to Magnesium boundary segments and 606 boundary segements where the grains
+mtexColorbar</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="BoundaryGeometry_02.png"> <p>The output tells us that we have 3219 Magnesium to Magnesium boundary segments and 606 boundary segements where the grains
             are cutted by the scanning boundary. To restrict the grain boundaries to a specific phase transistion you shall do
          </p><pre class="codeinput">plot(gB,gB.direction.rho,<span class="string">'linewidth'</span>,2)</pre><img src="BoundaryGeometry_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Line intersections<a name="6"> </a></h2>

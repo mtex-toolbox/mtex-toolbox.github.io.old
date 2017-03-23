@@ -87,6 +87,9 @@ grains = grain2d
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
     -1     885  154107     iron      m-3m                         
  
+ boundary segments: 21982
+ triple points: 1451
+ 
  Properties: GOS, meanRotation
  
  
@@ -103,6 +106,9 @@ grains = grain2d
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
     -1     885  154107     iron      m-3m                         
+ 
+ boundary segments: 21982
+ triple points: 1451
  
  Properties: GOS, meanRotation
  
@@ -184,8 +190,9 @@ hold <span class="string">off</span></pre><img src="CSLBoundaries_06.png"> <p cl
          </p><pre class="codeinput">oM = patalaOrientationMapping(gB)</pre><pre class="codeoutput">oM = 
   patalaOrientationMapping with properties:
 
-    CS1: [24&times;2 crystalSymmetry]
-    CS2: [24&times;2 crystalSymmetry]
+          CS1: [24&times;2 crystalSymmetry]
+          CS2: [24&times;2 crystalSymmetry]
+    antipodal: 1
 </pre><p>Colorizing the grain boundaries is now straight forward</p><pre class="codeinput">plot(ebsd,log(ebsd.prop.iq),<span class="string">'figSize'</span>,<span class="string">'large'</span>)
 mtexColorMap <span class="string">black2white</span>
 CLim(gcm,[.5,5])
@@ -213,6 +220,7 @@ hold <span class="string">off</span></pre><pre class="codeoutput">  plotting 300
          <h2>Misorientations in the 3d fundamental zone<a name="12"> </a></h2>
          <p>We can also look at the boundary misorienations in the 3 dimensional fundamental orientation zone.</p><pre class="codeinput"><span class="comment">% compute the boundary of the fundamental zone</span>
 oR = fundamentalRegion(oM.CS1,oM.CS2,<span class="string">'antipodal'</span>);
+close <span class="string">all</span>
 plot(oR)
 
 <span class="comment">% plot 500 random misorientations in the 3d fundamenal zone</span>
@@ -237,17 +245,17 @@ mdf = MDF
   antipodal:         true
  
   Harmonic portion:
-    degree: 54
+    degree: 32
     weight: 1
  
-</pre><p>Next we can visualize the misorientation distribution function in axis angle sections.</p><pre class="codeinput">plot(mdf,<span class="string">'axisAngle'</span>,(25:5:60)*degree,<span class="string">'colorRange'</span>,[0 15])
+</pre><img src="CSLBoundaries_10.png"> <p>Next we can visualize the misorientation distribution function in axis angle sections.</p><pre class="codeinput">plot(mdf,<span class="string">'axisAngle'</span>,(25:5:60)*degree,<span class="string">'colorRange'</span>,[0 15])
 
 annotate(CSL(3,ebsd.CS),<span class="string">'label'</span>,<span class="string">'$CSL_3$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
 annotate(CSL(5,ebsd.CS),<span class="string">'label'</span>,<span class="string">'$CSL_5$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
 annotate(CSL(7,ebsd.CS),<span class="string">'label'</span>,<span class="string">'$CSL_7$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
 annotate(CSL(9,ebsd.CS),<span class="string">'label'</span>,<span class="string">'$CSL_9$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
 
-drawNow(gcm)</pre><img src="CSLBoundaries_10.png"> <p>The MDF can be now used to compute prefered misorientations</p><pre class="codeinput">mori = mdf.calcModes(2)</pre><pre class="codeoutput"> 
+drawNow(gcm)</pre><img src="CSLBoundaries_11.png"> <p>The MDF can be now used to compute prefered misorientations</p><pre class="codeinput">mori = mdf.calcModes(2)</pre><pre class="codeoutput"> 
 mori = misorientation  
   size: 1 x 2
   crystal symmetry : iron (m-3m)
@@ -256,7 +264,7 @@ mori = misorientation
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
   206.812   48.42 116.713       0
-  45.2962 38.7291 315.013       0
+   260.19  36.967 134.676       0
  
  
 </pre><p>and their volumes in percent</p><pre class="codeinput">100 * volume(gB.misorientation,CSL(3,ebsd.CS),2*degree)
@@ -294,7 +302,7 @@ fibre101 = misorientation
   crystal symmetry : iron (m-3m)
   crystal symmetry : iron (m-3m)
  
-</pre><img src="CSLBoundaries_11.png"> <p>or to evaluate it in an misorientation directly</p><pre class="codeinput">mori = orientation(<span class="string">'Euler'</span>,15*degree,28*degree,14*degree,mdf.CS,mdf.CS)
+</pre><img src="CSLBoundaries_12.png"> <p>or to evaluate it in an misorientation directly</p><pre class="codeinput">mori = orientation(<span class="string">'Euler'</span>,15*degree,28*degree,14*degree,mdf.CS,mdf.CS)
 
 mdf.eval(mori)</pre><pre class="codeoutput"> 
 mori = misorientation  
@@ -308,7 +316,7 @@ mori = misorientation
  
  
 ans =
-    5.7758
+    5.6826
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

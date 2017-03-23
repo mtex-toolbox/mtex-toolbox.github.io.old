@@ -59,6 +59,9 @@ grains = grain2d
      2    1866   26058   Enstatite       mmm                         
      3    2012    9064    Diopside     12/m1        X||a, Y||b, Z||c*
  
+ boundary segments: 148741
+ triple points: 12065
+ 
  Properties: GOS, meanRotation
  
  
@@ -98,6 +101,9 @@ grains = grain2d
      1    1256  152345  Forsterite       mmm                         
      2     518   26058   Enstatite       mmm                         
      3    1526    9064    Diopside     12/m1        X||a, Y||b, Z||c*
+ 
+ boundary segments: 45832
+ triple points: 3863
  
  Properties: GOS, meanRotation
  
@@ -426,7 +432,13 @@ hold <span class="string">off</span></pre><img src="GrainReconstructionDemo_04.p
             
          </p>
          <p>Those grain properties can be used for colorization. E.g. we may colorize grains according to their area.</p><pre class="codeinput">plot(grains,grains.area)</pre><img src="GrainReconstructionDemo_05.png"> <p>or a little bit more advanced according to the log quotient between grain size and boundary size.</p><pre class="codeinput">plot(grains,log(grains.grainSize ./ grains.boundarySize))
-mtexColorbar</pre><img src="GrainReconstructionDemo_06.png"> <p>Note that some properties are available for single phase lists of grains, e.g.</p><pre class="codeinput"><span class="comment">% colorize the Forsterite Phase according to its mean orientation</span>
+mtexColorbar</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="GrainReconstructionDemo_06.png"> <p>Note that some properties are available for single phase lists of grains, e.g.</p><pre class="codeinput"><span class="comment">% colorize the Forsterite Phase according to its mean orientation</span>
 plot(grains(<span class="string">'Fo'</span>),grains(<span class="string">'Fo'</span>).meanOrientation)</pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
@@ -445,6 +457,9 @@ largeGrains = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1      37   58902  Forsterite       mmm                         
      2       1    1038   Enstatite       mmm                         
+ 
+ boundary segments: 10886
+ triple points: 816
  
  Properties: GOS, meanRotation
  

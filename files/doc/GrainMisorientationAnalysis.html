@@ -99,7 +99,13 @@ mtexColorMap <span class="string">WhiteJet</span>
 mtexColorbar
 hold <span class="string">on</span>
 plot(grains.boundary,<span class="string">'edgecolor'</span>,<span class="string">'k'</span>,<span class="string">'linewidth'</span>,.5)
-hold <span class="string">off</span></pre><img src="GrainMisorientationAnalysis_02.png"> <p>In order to visualize the misorientation by an ipdf colorcoding, we first define an orientation to colormapping and set the
+hold <span class="string">off</span></pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="GrainMisorientationAnalysis_02.png"> <p>In order to visualize the misorientation by an ipdf colorcoding, we first define an orientation to colormapping and set the
             <tt>colorStretching</tt> to increase the contrast around the white center. Note that the inversPoleFigureDirection of the ipdf map is automatically
             set to the white center to colorize grains with a small texture gradient with light colors.
          </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(mori)
@@ -111,6 +117,7 @@ plot(oM,<span class="string">'noTitle'</span>)</pre><pre class="codeoutput">oM =
     inversePoleFigureDirection: [1&times;1 Miller]
                            CS1: [4&times;2 crystalSymmetry]
                            CS2: [4&times;2 crystalSymmetry]
+                     antipodal: 0
              colorPostRotation: [1&times;1 rotation]
                colorStretching: 1
                    whiteCenter: [1&times;1 vector3d]
@@ -155,7 +162,13 @@ plot(grains.boundary)
 plot(bnd_FoFo,bnd_FoFo.misorientation.angle./degree,<span class="string">'linewidth'</span>,2)
 mtexColorMap <span class="string">blue2red</span>
 mtexColorbar
-hold <span class="string">off</span></pre><img src="GrainMisorientationAnalysis_06.png"> <p>In order to visualize the misorientation between any two adjacent grains, there are two possibilities in MTEX.</p>
+hold <span class="string">off</span></pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="GrainMisorientationAnalysis_06.png"> <p>In order to visualize the misorientation between any two adjacent grains, there are two possibilities in MTEX.</p>
          <div>
             <ul type="square">
                <li>plot the angle distribution for all phase combinations</li>
@@ -235,7 +248,19 @@ mtexTitle(<span class="string">'uncorrelated axis distribution'</span>)
 mtexFig.drawNow(<span class="string">'figSize'</span>,<span class="string">'normal'</span>)</pre><img src="GrainMisorientationAnalysis_11.png"> <p>We may plot the axes of the boundary misorientations directly into this plot</p><pre class="codeinput">mtexFig.nextAxis
 plotAxisDistribution(bnd_FoFo.misorientation,<span class="string">'smooth'</span>,<span class="string">'parent'</span>,mtexFig.gca)
 mtexTitle(<span class="string">'boundary axis distribution'</span>)
-mtexColorbar</pre><img src="GrainMisorientationAnalysis_12.png"> <p>This shows a much stronger preference of the (1,1,1) axis in comparison to the uncorrelated distribution.</p>
+mtexColorbar</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="GrainMisorientationAnalysis_12.png"> <p>This shows a much stronger preference of the (1,1,1) axis in comparison to the uncorrelated distribution.</p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

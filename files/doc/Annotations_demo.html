@@ -70,15 +70,45 @@ odf = 0.7*unimodalODF(mod1) + 0.3*unimodalODF(mod2);
 plotPDF(odf,Miller({1,0,0},{1,1,1},cs))
 
 <span class="comment">% and add a colorbar to each pole figure</span>
-mtexColorbar</pre><img src="Annotations_demo_01.png"> <p>Executing the command <a href="mtexColorbar.html">mtexColorbar</a> twice deletes the colorbar. You can also have a horizontal colorbar at the bottom of the figure by setting the option <tt>location</tt> to <tt>southOutside</tt>. Further, we can set a title to the colorbar to describe the unit.
+mtexColorbar</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="Annotations_demo_01.png"> <p>Executing the command <a href="mtexColorbar.html">mtexColorbar</a> twice deletes the colorbar. You can also have a horizontal colorbar at the bottom of the figure by setting the option <tt>location</tt> to <tt>southOutside</tt>. Further, we can set a title to the colorbar to describe the unit.
          </p><pre class="codeinput"><span class="comment">% delete vertical colorbar</span>
 mtexColorbar
 
 <span class="comment">% add horizontal colorbars</span>
-mtexColorbar(<span class="string">'location'</span>,<span class="string">'southOutSide'</span>,<span class="string">'title'</span>,<span class="string">'mrd'</span>)</pre><img src="Annotations_demo_02.png"> <p>If color range is set to equal in an MTEX figure only one colorbar is added (see. <a href="ColorCoding_demo.html">Color Coding</a>).
+mtexColorbar(<span class="string">'location'</span>,<span class="string">'southOutSide'</span>,<span class="string">'title'</span>,<span class="string">'mrd'</span>)</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="Annotations_demo_02.png"> <p>If color range is set to equal in an MTEX figure only one colorbar is added (see. <a href="ColorCoding_demo.html">Color Coding</a>).
          </p><pre class="codeinput">mtexColorbar       <span class="comment">% delete colorbar</span>
 CLim(gcm,<span class="string">'equal'</span>); <span class="comment">% set equal color range to all plots</span>
-mtexColorbar       <span class="comment">% create a new colorbar</span></pre><img src="Annotations_demo_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar       <span class="comment">% create a new colorbar</span></pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="Annotations_demo_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Annotating Directions, Orientations, Fibres<a name="6"> </a></h2>
          <p>Pole figures and inverse pole figures are much better readable if they include specimen or crystal directions. Using the MTEX
             command <a href="annotate.html">annotate</a> one can easily add <a href="vector3d_index.html">specimen coordinate axes</a> to a pole figure plot.

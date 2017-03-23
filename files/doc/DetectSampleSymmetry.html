@@ -104,8 +104,7 @@ ori = rot * calcOrientations(odf,1000)
 odf_est = calcODF(ori,<span class="string">'halfwidth'</span>,10*degree)
 
 <span class="comment">% and visualize it</span>
-figure, plotPDF(odf_est,h,<span class="string">'antipodal'</span>,8,<span class="string">'silent'</span>);</pre><pre class="codeoutput">Warning: Rotation does not respect symmetry! 
- 
+figure, plotPDF(odf_est,h,<span class="string">'antipodal'</span>,8,<span class="string">'silent'</span>);</pre><pre class="codeoutput"> 
 ori = orientation  
   size: 1 x 1000
   crystal symmetry : m-3m
@@ -136,7 +135,7 @@ progress: 100%
 progress: 100%
 progress: 100%
 ans =
-    0.7904
+    0.5615
 </pre><img src="DetectSampleSymmetry_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Sample symmetry in an ODF computed from pole figure data<a name="6"> </a></h2>
          <p>In the next example we apply the function <tt>centerSpecimen</tt> to an ODF estimated from pole figure data. Lets start by importing them

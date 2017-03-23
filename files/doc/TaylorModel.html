@@ -83,7 +83,7 @@ sS = slipSystem.fcc(cs);
 
 <span class="comment">% some strain</span>
 q = 0;
-epsilon = tensor.diag([1 -q -(1-q)],<span class="string">'name'</span>,<span class="string">'strain'</span>)
+epsilon = tensor(diag([1 -q -(1-q)]),<span class="string">'name'</span>,<span class="string">'strain'</span>)
 
 <span class="comment">% define a crystal orientation</span>
 ori = orientation(<span class="string">'Euler'</span>,0,30*degree,15*degree,cs)
@@ -126,16 +126,32 @@ toc
 <span class="comment">% plot the taylor factor</span>
 sP.plot(M,<span class="string">'smooth'</span>)
 
-mtexColorbar</pre><pre class="codeoutput"> computing Taylor factor: 100%
-Elapsed time is 60.759868 seconds.
+mtexColorbar</pre><pre class="codeoutput">Elapsed time is 61.598161 seconds.
+e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
 </pre><img src="TaylorModel_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The orientation dependence of the rotation value<a name="7"> </a></h2>
          <p>Compare Fig. 8 of the above paper</p><pre class="codeinput">sP.plot(mori.angle./degree,<span class="string">'smooth'</span>)
-mtexColorbar</pre><img src="TaylorModel_02.png"> <pre class="codeinput">sP = sigmaSections(cs,specimenSymmetry);
+mtexColorbar</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="TaylorModel_02.png"> <pre class="codeinput">sP = sigmaSections(cs,specimenSymmetry);
 oriGrid = sP.makeGrid(<span class="string">'resolution'</span>,2.5*degree);
 [M,~,mori] = calcTaylor(inv(oriGrid)*epsilon,sS.symmetrise);
 sP.plot(mori.angle./degree,<span class="string">'smooth'</span>)
-mtexColorbar</pre><pre class="codeoutput"> computing Taylor factor: 100%
+mtexColorbar</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
 </pre><img src="TaylorModel_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Most active slip direction<a name="9"> </a></h2><pre class="codeinput">mtexdata <span class="string">csl</span>
 
@@ -148,11 +164,14 @@ grains = grain2d
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
     -1     527  153693     iron      m-3m                         
  
+ boundary segments: 21937
+ triple points: 1451
+ 
  Properties: GOS, meanRotation
  
 </pre><pre class="codeinput"><span class="comment">% some strain</span>
 q = 0;
-epsilon = tensor.diag([1 -q -(1-q)],<span class="string">'name'</span>,<span class="string">'strain'</span>)
+epsilon = tensor(diag([1 -q -(1-q)]),<span class="string">'name'</span>,<span class="string">'strain'</span>)
 
 sS = symmetrise(slipSystem.fcc(grains.CS));
 
@@ -163,7 +182,6 @@ epsilon = strain tensor
   1  0  0
   0  0  0
   0  0 -1
- computing Taylor factor: 100%
 </pre><pre class="codeinput"><span class="comment">% colorize grains according to Taylor factor</span>
 plot(grains,M)
 mtexColorbar
@@ -179,7 +197,13 @@ hold <span class="string">on</span>
 quiver(grains,sSGrains.b,<span class="string">'autoScaleFactor'</span>,0.5,<span class="string">'displayName'</span>,<span class="string">'Burgers vector'</span>)
 hold <span class="string">on</span>
 quiver(grains,sSGrains.n,<span class="string">'autoScaleFactor'</span>,0.5,<span class="string">'displayName'</span>,<span class="string">'slip plane trace'</span>)
-hold <span class="string">off</span></pre><img src="TaylorModel_04.png"> <p>plot the most active slip directions observe that they point all towards the lower hemisphere - why? they do change if q is
+hold <span class="string">off</span></pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="TaylorModel_04.png"> <p>plot the most active slip directions observe that they point all towards the lower hemisphere - why? they do change if q is
             changed
          </p><pre class="codeinput">figure(2)
 plot(sSGrains.b)</pre><img src="TaylorModel_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -188,7 +212,7 @@ ori = orientation.rand(10000,cs);
 
 <span class="comment">% 30 percent strain</span>
 q = 0;
-epsilon = 0.3 * tensor.diag([1 -q -(1-q)],<span class="string">'name'</span>,<span class="string">'strain'</span>);
+epsilon = 0.3 * tensor(diag([1 -q -(1-q)]),<span class="string">'name'</span>,<span class="string">'strain'</span>);
 
 <span class="comment">%</span>
 numIter = 10;
@@ -201,20 +225,30 @@ progress(0,numIter);
   <span class="comment">% rotate the individual orientations</span>
   ori = ori .* mori;
   progress(sas,numIter);
-<span class="keyword">end</span></pre><pre class="codeoutput">progress: 0%
-Warning: Symmetryprogress: 100%
+<span class="keyword">end</span></pre><pre class="codeoutput">Warning: Symmetry missmatch! 
 </pre><pre class="codeinput"><span class="comment">% plot the resulting pole figures</span>
 
 plotPDF(ori,Miller({0,0,1},{1,1,1},cs),<span class="string">'contourf'</span>)
-mtexColorbar</pre><img src="TaylorModel_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="TaylorModel_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>restore MTEX preferences<a name="15"> </a></h2><pre class="codeinput">setMTEXpref(<span class="string">'pfAnnotations'</span>,storepfA);</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Inverse Taylor<a name="16"> </a></h2><pre class="codeinput">oS = axisAngleSections(cs,cs,<span class="string">'antipodal'</span>);
 oS.angles = 10*degree;
 
 mori = oS.makeGrid;
 
-[M,b,eps] = calcInvTaylor(mori,sS.symmetrise);</pre><pre class="codeoutput"> computing Taylor factor: 100%
-</pre><pre class="codeinput">plot(oS,M,<span class="string">'contourf'</span>)</pre><img src="TaylorModel_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+[M,b,eps] = calcInvTaylor(mori,sS.symmetrise);</pre><pre class="codeinput">plot(oS,M,<span class="string">'contourf'</span>)</pre><img src="TaylorModel_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

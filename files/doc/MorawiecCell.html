@@ -62,10 +62,10 @@
                   <td><a href="#11">Fundamental regions of misorientations</a></td>
                </tr>
                <tr>
-                  <td><a href="#12">Fundamental regions of misorientations with antipodal symmetry</a></td>
+                  <td><a href="#13">Fundamental regions of misorientations with antipodal symmetry</a></td>
                </tr>
                <tr>
-                  <td><a href="#14">Axis angle sections</a></td>
+                  <td><a href="#16">Axis angle sections</a></td>
                </tr>
             </table>
          </div>
@@ -127,23 +127,17 @@ cs = crystalSymmetry
   symmetry: 222    
   a, b, c : 1, 1, 1
  
-</pre><img src="MorawiecCell_04.png"> <p>As an example consider the following EBSD data set</p><pre class="codeinput">mtexdata <span class="string">forsterite</span></pre><p>we can visualize the Forsterite orientations by</p><pre class="codeinput">hold <span class="string">on</span>
-plot(ebsd(<span class="string">'Fo'</span>).orientations)
-hold <span class="string">off</span></pre><pre class="codeoutput">plot 2000 random orientations out of 152345 given orientations
-</pre><img src="MorawiecCell_05.png"> <p>We see that not all orientations are inside the fundamental region. However, as there is for each orientation exactly one
-            represent inside the fundamental region we can project the orientations inside this region. This is done by
-         </p><pre class="codeinput">ori =  ebsd(<span class="string">'Fo'</span>).orientations.project2FundamentalRegion
-
-hold <span class="string">on</span>
-plot(ori,<span class="string">'MarkerColor'</span>,<span class="string">'g'</span>)
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
+Warning: Possible symmetry mismach! 
+</pre><img src="MorawiecCell_04.png"> <p>As an example consider the following EBSD data set</p><pre class="codeinput">mtexdata <span class="string">forsterite</span></pre><p>we can visualize the Forsterite orientations by</p><pre class="codeinput">plot(ebsd(<span class="string">'Fo'</span>).orientations,<span class="string">'axisAngle'</span>)</pre><pre class="codeoutput">plot 2000 random orientations out of 152345 given orientations
+</pre><img src="MorawiecCell_05.png"> <p>We see that all orientations are automatically projected inside the fundamental region. In order to compute explicitly the
+            represent inside the fundamental region we can do
+         </p><pre class="codeinput">ori =  ebsd(<span class="string">'Fo'</span>).orientations.project2FundamentalRegion</pre><pre class="codeoutput"> 
 ori = orientation  
   size: 152345 x 1
   crystal symmetry : Forsterite (mmm)
   specimen symmetry: 1
  
-plot 2000 random orientations out of 152345 given orientations
-</pre><img src="MorawiecCell_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Change the center of the fundamental region<a name="10"> </a></h2>
          <p>There is no necessity that the fundamental region has to be centered in the origin - it can be centered at any orientation,
             e.g. at the mean orientation of a grain.
@@ -162,13 +156,15 @@ plot(rotate(oR,largeGrain.meanOrientation))
 <span class="comment">% orientation</span>
 ori = ori.project2FundamentalRegion(largeGrain.meanOrientation)
 
-hold <span class="string">on</span>
-plot(ori)
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
+
+plot(ori,<span class="string">'axisAngle'</span>)</pre><pre class="codeoutput"> 
 largeGrain = grain2d  
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1       1    2683  Forsterite       mmm                         
+ 
+ boundary segments: 714
+ triple points: 44
  
   Id   Phase   Pixels         GOS   phi1   Phi   phi2
  931       1     2683   0.0441043    171    55    261
@@ -186,30 +182,23 @@ ori = orientation
   specimen symmetry: 1
  
 plot 2000 random orientations out of 2683 given orientations
-</pre><img src="MorawiecCell_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><img src="MorawiecCell_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Fundamental regions of misorientations<a name="11"> </a></h2>
          <p>Misorientations are characterised by two crystal symmetries. A corresponding fundamental region is defined by</p><pre class="codeinput">oR = fundamentalRegion(ebsd(<span class="string">'Fo'</span>).CS,ebsd(<span class="string">'En'</span>).CS);
 
-plot(oR)
-
-<span class="comment">% Let plot grain boundary misorientations within this fundamental region</span>
-hold <span class="string">on</span>
-plot(grains.boundary(<span class="string">'fo'</span>,<span class="string">'En'</span>).misorientation.project2FundamentalRegion)
-hold <span class="string">off</span></pre><pre class="codeoutput">plot 2000 random orientations out of 11814 given orientations
+plot(oR)</pre><img src="MorawiecCell_07.png"> <p>Let plot grain boundary misorientations within this fundamental region</p><pre class="codeinput">plot(grains.boundary(<span class="string">'fo'</span>,<span class="string">'En'</span>).misorientation)</pre><pre class="codeoutput">plot 2000 random orientations out of 11814 given orientations
 </pre><img src="MorawiecCell_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Fundamental regions of misorientations with antipodal symmetry<a name="12"> </a></h2>
+         <h2>Fundamental regions of misorientations with antipodal symmetry<a name="13"> </a></h2>
          <p>Note that for boundary misorientations between the same phase we can <b>not</b> distinguish between a misorientation and its inverse. This is not the case for misorientations between different phases or
             the misorientation between the mean orientation of a grain and all other orientations. The inverse of a misorientation is
             axis - angle representation is simply the one with the same angle but antipodal axis. Accordingly this additional symmetry
             is handled in MTEX by the keyword <b>antipodal</b>.
          </p><pre class="codeinput">oR = fundamentalRegion(ebsd(<span class="string">'Fo'</span>).CS,ebsd(<span class="string">'Fo'</span>).CS,<span class="string">'antipodal'</span>);
 
-plot(oR)</pre><img src="MorawiecCell_09.png"> <p>We see that the fundamental region with antipodal symmetry has only half the size as without. In order to project into this
-            fundamental region use
-         </p><pre class="codeinput">hold <span class="string">on</span>
-mori = grains.boundary(<span class="string">'Fo'</span>,<span class="string">'Fo'</span>).misorientation
-plot(mori.project2FundamentalRegion(<span class="string">'antipodal'</span>))
-hold <span class="string">off</span></pre><pre class="codeoutput"> 
+plot(oR)</pre><img src="MorawiecCell_09.png"> <p>We see that the fundamental region with antipodal symmetry has only half the size as without. In the case of misorientations
+            between the same phase MTEX automatically sets the antipodal flag to the misorientations and plots them accordingly.
+         </p><pre class="codeinput">mori = grains.boundary(<span class="string">'Fo'</span>,<span class="string">'Fo'</span>).misorientation
+plot(mori)</pre><pre class="codeoutput"> 
 mori = misorientation  
   size: 15974 x 1
   crystal symmetry : Forsterite (mmm)
@@ -217,12 +206,15 @@ mori = misorientation
   antipodal:         true
  
 plot 2000 random orientations out of 15974 given orientations
-</pre><img src="MorawiecCell_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Axis angle sections<a name="14"> </a></h2>
+</pre><img src="MorawiecCell_10.png"> <p>If you want to avoid this you can remove the anitpodal flag by</p><pre class="codeinput">mori.antipodal = false;
+
+plot(mori)</pre><pre class="codeoutput">plot 2000 random orientations out of 15974 given orientations
+</pre><img src="MorawiecCell_11.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Axis angle sections<a name="16"> </a></h2>
          <p>Again we can plot constant angle sections through the fundamental region. This is done by</p><pre class="codeinput">plotSection(mori,<span class="string">'axisAngle'</span>)</pre><pre class="codeoutput">  plotting 2000 random orientations out of 15974 given orientations
-</pre><img src="MorawiecCell_11.png"> <p>Note that in the previous plot we distinguish between <tt>mori</tt> and <tt>inv(mori)</tt>. Adding antipodal symmetry those are considered as equivalent
+</pre><img src="MorawiecCell_12.png"> <p>Note that in the previous plot we distinguish between <tt>mori</tt> and <tt>inv(mori)</tt>. Adding antipodal symmetry those are considered as equivalent
          </p><pre class="codeinput">plotSection(mori,<span class="string">'axisAngle'</span>,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">  plotting 2000 random orientations out of 15974 given orientations
-</pre><img src="MorawiecCell_12.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><img src="MorawiecCell_13.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

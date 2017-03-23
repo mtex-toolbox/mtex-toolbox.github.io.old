@@ -119,8 +119,14 @@ mtexColorbar
 f = fibre(Miller(0,1,0,cs),rOrth);
 
 <span class="comment">% compute the volume along the fibre</span>
-100 * volume(ebsd(<span class="string">'Forsterite'</span>).orientations,f,10*degree)</pre><pre class="codeoutput">ans =
-   10.0968
+100 * volume(ebsd(<span class="string">'Forsterite'</span>).orientations,f,10*degree)</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+ans =
+   27.9806
 </pre><img src="AnalyzeEBSDData_04.png"> <p>Surprisingly this value is significantly lower than the value we obtained we looking only at the 100 pole figure. Finally,
             let's plot the ODF along this fibre
          </p><pre class="codeinput">odf = calcODF(ebsd(<span class="string">'Forsterite'</span>).orientations)

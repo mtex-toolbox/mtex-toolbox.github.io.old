@@ -86,13 +86,13 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5.7&deg;
-    center: 7216 orientations, resolution: 2.9&deg;
+    center: 7295 orientations, resolution: 2.9&deg;
     weight: 1
  
 </pre><p>which can be plotted,</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><pre class="codeoutput">progress: 100%
 </pre><img src="EBSDSimulation_demo_02.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,fibre_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.0917
+    0.0924
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Exploration of the relationship between estimation error and number of single orientations<a name="11"> </a></h2>
          <p>For a more systematic analysis of the estimation error, we simulate 10, 100, ..., 1000000 single orientations of the model
@@ -119,17 +119,17 @@ ans =
     <span class="string">' magicRule: '</span> int2str(psi3.halfwidth/degree) mtexdegchar <span class="keyword">...</span>
     ]);
 
-<span class="keyword">end</span></pre><pre class="codeoutput">RuleOfThumb: 83&deg; KLCV: 24&deg; magicRule: 31&deg;
+<span class="keyword">end</span></pre><pre class="codeoutput">RuleOfThumb: 37&deg; KLCV: 24&deg; magicRule: 31&deg;
 progress: 100%
 progress: 100%
-RuleOfThumb: 35&deg; KLCV: 15&deg; magicRule: 22&deg;
+RuleOfThumb: 37&deg; KLCV: 15&deg; magicRule: 22&deg;
 RuleOfThumb: 18&deg; KLCV: 9&deg; magicRule: 16&deg;
 progress: 100%
 RuleOfThumb: 10&deg; KLCV: 6&deg; magicRule: 11&deg;
 progress: 100%
 progress: 100%
 progress: 100%
-RuleOfThumb: 8&deg; KLCV: 5&deg; magicRule: 8&deg;
+RuleOfThumb: 9&deg; KLCV: 5&deg; magicRule: 8&deg;
 progress: 100%
 progress: 100%
 progress: 100%

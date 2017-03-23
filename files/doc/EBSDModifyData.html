@@ -94,6 +94,7 @@ plot(oM)</pre><pre class="codeoutput">oM =
     inversePoleFigureDirection: [1&times;1 vector3d]
                            CS1: [4&times;2 crystalSymmetry]
                            CS2: [1&times;1 specimenSymmetry]
+                     antipodal: 0
              colorPostRotation: [1&times;1 rotation]
                colorStretching: 1
                    whiteCenter: [1&times;1 vector3d]
@@ -132,9 +133,21 @@ plot(ebsd)</pre><img src="EBSDModifyData_05.png"> <p>Note, that you can also sel
          </p>
          <p>Most EBSD measurements contain quantities indicating inaccurate measurements.</p><pre class="codeinput">close <span class="string">all</span>
 plot(ebsd,ebsd.mad)
-mtexColorbar</pre><img src="EBSDModifyData_06.png"> <p>or</p><pre class="codeinput">close <span class="string">all</span>
+mtexColorbar</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="EBSDModifyData_06.png"> <p>or</p><pre class="codeinput">close <span class="string">all</span>
 plot(ebsd,ebsd.bc)
-mtexColorbar</pre><img src="EBSDModifyData_07.png"> <p>Here we will use the MAD to identify and eliminate inaccurate measurements.</p><pre class="codeinput"><span class="comment">% plot a histogram</span>
+mtexColorbar</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="EBSDModifyData_07.png"> <p>Here we will use the MAD to identify and eliminate inaccurate measurements.</p><pre class="codeinput"><span class="comment">% plot a histogram</span>
 close <span class="string">all</span>
 hist(ebsd.mad)</pre><img src="EBSDModifyData_08.png"> <pre class="codeinput"><span class="comment">% take only those measurements with MAD smaller then one</span>
 ebsd_corrected = ebsd(ebsd.mad&lt;0.8)</pre><pre class="codeoutput"> 

@@ -1,0 +1,303 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title> (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: grainBoundary.work -->
+      <!-- HEADSTUFF: grainBoundary.work -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:grainBoundary.work">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/documentation.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container"><pre class="codeinput">h1a = plot(1:5,(1:5).^2, <span class="string">'.-'</span>, <span class="string">'LineWidth'</span>,20, <span class="string">'DisplayName'</span>,<span class="string">' 0.5'</span>);</pre><img src="grainBoundary.work_01.png"> <pre class="codeinput">clf
+p = patch([0 1 0.5],[0 0 1],1,<span class="string">'linewidth'</span>,10);
+pause(0.01)
+p.Edge.LineJoin = <span class="string">'round'</span>;
+axis <span class="string">off</span></pre><img src="grainBoundary.work_02.png"> <pre class="codeinput">n = 10;
+A = delsq(numgrid(<span class="string">'L'</span>,n+2));
+G = graph(A,<span class="string">'OmitSelfLoops'</span>)</pre><pre class="codeoutput">G = 
+  graph with properties:
+
+    Edges: [130&times;2 table]
+    Nodes: [75&times;0 table]
+</pre><pre class="codeinput">plot(G,<span class="string">'linewidth'</span>,10)</pre><img src="grainBoundary.work_03.png"> <pre class="codeinput">clf
+x = [0 1 2 3 4];
+y = [0 1 0 1 0];
+
+alpha = 0.025;
+x = repelem(x,1,2)
+x(1) = []; x(end)=[];
+xx = x;
+<span class="comment">%x = x+0.01*rand(size(x));</span>
+x(2:2:end-1) = (1-alpha)*xx(2:2:end-1) + alpha*xx(1:2:end-2)
+x(3:2:end-1) = (1-alpha)*xx(3:2:end-1) + alpha*xx(4:2:end)
+
+
+y = repelem(y,1,2)
+y(1) = []; y(end)=[];
+yy = y;
+y(2:2:end-1) = (1-alpha)*yy(2:2:end-1) + alpha*yy(1:2:end-2)
+y(3:2:end-1) = (1-alpha)*yy(3:2:end-1) + alpha*yy(4:2:end)
+
+
+cdata = uint8(50*[[0 5 2 3];[5 1 2 5];[0 1 5 3];[0 1 2 3]]);
+
+cdata = repelem(cdata,1,2)
+
+l = line(x,y,<span class="string">'linewidth'</span>,10)
+
+pause(0.1)
+e = l.Edge;
+
+
+set(e,<span class="string">'ColorData'</span>,cdata,<span class="string">'Colorbinding'</span>,<span class="string">'interpolated'</span>)</pre><pre class="codeoutput">x =
+     0     0     1     1     2     2     3     3     4     4
+x =
+  Columns 1 through 7
+         0    0.9750    1.0000    1.9750    2.0000    2.9750    3.0000
+  Column 8
+    4.0000
+x =
+  Columns 1 through 7
+         0    0.9750    1.0250    1.9750    2.0250    2.9750    3.0250
+  Column 8
+    4.0000
+y =
+     0     0     1     1     0     0     1     1     0     0
+y =
+  Columns 1 through 7
+         0    0.9750    1.0000    0.0250         0    0.9750    1.0000
+  Column 8
+         0
+y =
+  Columns 1 through 7
+         0    0.9750    0.9750    0.0250    0.0250    0.9750    0.9750
+  Column 8
+         0
+cdata =
+  4&times;8 uint8 matrix
+     0     0   250   250   100   100   150   150
+   250   250    50    50   100   100   250   250
+     0     0    50    50   250   250   150   150
+     0     0    50    50   100   100   150   150
+l = 
+  Line with properties:
+
+              Color: [0 0.4470 0.7410]
+          LineStyle: '-'
+          LineWidth: 10
+             Marker: 'none'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+              XData: [0 0.9750 1.0250 1.9750 2.0250 2.9750 3.0250 4]
+              YData: [0 0.9750 0.9750 0.0250 0.0250 0.9750 0.9750 0]
+              ZData: [1&times;0 double]
+
+  Use GET to show all properties
+</pre><img src="grainBoundary.work_04.png"> <pre class="codeinput">clf
+
+alpha = 0.025;
+
+x = [0 1 2 3 4 NaN 1 2 1 1];
+y = [0 1 0 1 0 NaN 3 4 4 3];
+c = [1 2 3 4 3 1 2];
+
+x = repelem(x,1,2)
+x(1) = []; x(end)=[];
+xx = x;
+x(2:2:end-1) = (1-alpha)*xx(2:2:end-1) + alpha*xx(1:2:end-2)
+x(3:2:end-1) = (1-alpha)*xx(3:2:end-1) + alpha*xx(4:2:end)
+
+y = repelem(y,1,2)
+y(1) = []; y(end)=[];
+yy = y;
+y(2:2:end-1) = (1-alpha)*yy(2:2:end-1) + alpha*yy(1:2:end-2)
+y(3:2:end-1) = (1-alpha)*yy(3:2:end-1) + alpha*yy(4:2:end)
+
+
+c = repelem(c,1,2);
+cdata = nan(size(y));
+cdata(~isnan(y)) = c;
+
+p = patch([x,nan],[y,nan],[cdata,nan],<span class="string">'linewidth'</span>,10,<span class="string">'facecolor'</span>,<span class="string">'none'</span>)
+
+pause(0.1)
+p.EdgeColor = <span class="string">'interp'</span>
+e = p.Edge;
+e.LineJoin = <span class="string">'round'</span>;
+
+p.CData</pre><pre class="codeoutput">x =
+  Columns 1 through 13
+     0     0     1     1     2     2     3     3     4     4   NaN   NaN     1
+  Columns 14 through 20
+     1     2     2     1     1     1     1
+x =
+  Columns 1 through 7
+         0    0.9750    1.0000    1.9750    2.0000    2.9750    3.0000
+  Columns 8 through 14
+    3.9750    4.0000       NaN       NaN       NaN    1.0000    1.9750
+  Columns 15 through 18
+    2.0000    1.0250    1.0000    1.0000
+x =
+  Columns 1 through 7
+         0    0.9750    1.0250    1.9750    2.0250    2.9750    3.0250
+  Columns 8 through 14
+    3.9750       NaN       NaN       NaN       NaN    1.0250    1.9750
+  Columns 15 through 18
+    1.9750    1.0250    1.0000    1.0000
+y =
+  Columns 1 through 13
+     0     0     1     1     0     0     1     1     0     0   NaN   NaN     3
+  Columns 14 through 20
+     3     4     4     4     4     3     3
+y =
+  Columns 1 through 7
+         0    0.9750    1.0000    0.0250         0    0.9750    1.0000
+  Columns 8 through 14
+    0.0250         0       NaN       NaN       NaN    3.0000    3.9750
+  Columns 15 through 18
+    4.0000    4.0000    4.0000    3.0000
+y =
+  Columns 1 through 7
+         0    0.9750    0.9750    0.0250    0.0250    0.9750    0.9750
+  Columns 8 through 14
+    0.0250       NaN       NaN       NaN       NaN    3.0250    3.9750
+  Columns 15 through 18
+    4.0000    4.0000    3.9750    3.0000
+p = 
+  Patch with properties:
+
+    FaceColor: 'none'
+    FaceAlpha: 1
+    EdgeColor: [0 0 0]
+    LineStyle: '-'
+        Faces: [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19]
+     Vertices: [19&times;2 double]
+
+  Use GET to show all properties
+p = 
+  Patch with properties:
+
+    FaceColor: 'none'
+    FaceAlpha: 1
+    EdgeColor: 'interp'
+    LineStyle: '-'
+        Faces: [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19]
+     Vertices: [19&times;2 double]
+
+  Use GET to show all properties
+ans =
+     1
+     1
+     2
+     2
+     3
+     3
+     4
+     4
+   NaN
+   NaN
+   NaN
+   NaN
+     3
+     3
+     1
+     1
+     2
+     2
+   NaN
+</pre><img src="grainBoundary.work_05.png"> <pre class="codeinput">clf
+p = patch([0 1 2 3 4 NaN],0.1*[-1 1 -1 1 0 NaN],<span class="string">'r'</span>,<span class="string">'linewidth'</span>,20)
+
+pause(0.1)
+p.FaceColor = <span class="string">'none'</span>;
+e = p.Edge;
+e.LineJoin = <span class="string">'round'</span>;
+
+axis <span class="string">equal</span></pre><pre class="codeoutput">p = 
+  Patch with properties:
+
+    FaceColor: [1 0 0]
+    FaceAlpha: 1
+    EdgeColor: [0 0 0]
+    LineStyle: '-'
+        Faces: [1 2 3 4 5 6]
+     Vertices: [6&times;2 double]
+
+  Use GET to show all properties
+</pre><img src="grainBoundary.work_06.png"> <pre class="codeinput">p.CData = [1 2 3 4 5 6]
+p.EdgeColor = <span class="string">'flat'</span>
+e.LineCap = <span class="string">'none'</span></pre><pre class="codeoutput">p = 
+  Patch with properties:
+
+    FaceColor: 'none'
+    FaceAlpha: 1
+    EdgeColor: [0 0 0]
+    LineStyle: '-'
+        Faces: [1 2 3 4 5 6]
+     Vertices: [6&times;2 double]
+
+  Use GET to show all properties
+p = 
+  Patch with properties:
+
+    FaceColor: 'none'
+    FaceAlpha: 1
+    EdgeColor: 'flat'
+    LineStyle: '-'
+        Faces: [1 2 3 4 5 6]
+     Vertices: [6&times;2 double]
+
+  Use GET to show all properties
+e = 
+    LineStrip
+</pre><img src="grainBoundary.work_07.png"> <pre class="codeinput">e.NormalBinding = <span class="string">'interpolated'</span>
+e.WideLineRenderingHint = <span class="string">'software'</span></pre><pre class="codeoutput">e = 
+    LineStrip
+e = 
+    LineStrip
+</pre><img src="grainBoundary.work_08.png"> <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
+   </body>
+</html>

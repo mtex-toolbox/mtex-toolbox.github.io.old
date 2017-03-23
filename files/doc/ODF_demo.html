@@ -57,7 +57,7 @@ odf1 = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: (318&deg;,37&deg;,9.5&deg;)
+    center: (317.58439&deg;,37.24737&deg;,9.46232&deg;)
     weight: 1
  
 </pre><p><b>Fibre ODFs</b></p><pre class="codeinput">CS = crystalSymmetry(<span class="string">'hexagonal'</span>);
@@ -147,9 +147,7 @@ fibreVolume(odf2,h,r,5*degree) <span class="comment">% the volume of a fibre</sp
 
 textureindex(odf)              <span class="comment">% the texture index</span>
 entropy(odf)                   <span class="comment">% the entropy</span>
-f_hat = calcFourier(odf2,16);  <span class="comment">% the C-coefficients up to order 16</span></pre><pre class="codeoutput">Warning: NARGCHK will be removed in a future
-release. Use NARGINCHK or NARGOUTCHK instead. 
-ans =
+f_hat = calcFourier(odf2,16);  <span class="comment">% the C-coefficients up to order 16</span></pre><pre class="codeoutput">ans =
     0.2030
 maxODF =
     3.3783

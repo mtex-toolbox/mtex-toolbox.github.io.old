@@ -75,7 +75,6 @@ odf = 0.2*unimodalODF(mod1) <span class="keyword">...</span>
   + 0.3*unimodalODF(mod2) <span class="keyword">...</span>
   + 0.5*fibreODF(Miller(0,0,1,cs),vector3d(1,0,0),<span class="string">'halfwidth'</span>,10*degree)
 
-
 <span class="comment">%odf = 0.2*unimodalODF(mod2)</span></pre><pre class="codeoutput"> 
 odf = ODF  
   crystal symmetry : 321, X||a, Y||b*, Z||c
@@ -172,6 +171,7 @@ fodf = ODF
 mdf = MDF  
   crystal symmetry : 321, X||a, Y||b*, Z||c
   crystal symmetry : 321, X||a, Y||b*, Z||c
+  antipodal:         true
  
   Harmonic portion:
     degree: 23

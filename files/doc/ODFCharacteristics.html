@@ -80,7 +80,7 @@ odf1 = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: (2.5e-14&deg;,0&deg;,0&deg;)
+    center: (0&deg;,0&deg;,0&deg;)
     weight: 1
  
   Radially symmetric portion:
@@ -195,8 +195,7 @@ plotFourier(fodf)</pre><img src="ODFCharacteristics_02.png"> <p class="pagenavli
    24.0869
 </pre><p>For a more complex example let us define a fibre and plot the ODF there.</p><pre class="codeinput">fibre = orientation(<span class="string">'fibre'</span>,Miller(1,0,0,cs),yvector);
 
-plot(odf2.eval(fibre))</pre><pre class="codeoutput">Warning: symmetry missmatch 
-</pre><img src="ODFCharacteristics_03.png"> <p>Evaluation of the corresponding pole figure or inverse pole figure is done using the command <a href="ODF.calcPDF.html">calcPDF</a>.
+plot(odf2.eval(fibre))</pre><img src="ODFCharacteristics_03.png"> <p>Evaluation of the corresponding pole figure or inverse pole figure is done using the command <a href="ODF.calcPDF.html">calcPDF</a>.
          </p><pre class="codeinput">odf2.calcPDF(Miller(1,0,0,cs),xvector)</pre><pre class="codeoutput">ans =
    2.3345e-04
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

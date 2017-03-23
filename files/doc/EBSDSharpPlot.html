@@ -71,6 +71,12 @@ color = h.rho ./ degree;
 
 plotIPDF(ebsd.orientations,vector3d.X,<span class="string">'property'</span>,color,<span class="string">'MarkerSize'</span>,3,<span class="string">'grid'</span>)
 mtexColorbar</pre><pre class="codeoutput">  I'm plotting 8333 random orientations out of 20119 given orientations
+e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
 </pre><img src="EBSDSharpPlot_02.png"> <p>We see that all individual orientations are clustered around azimuth angle 115 degrees with some outliers at 125 and 130 degree.
             In order to increase the contrast for the main group, we restrict the color range from 110 degree to 120 degree.
          </p><pre class="codeinput">caxis([110 120]);
@@ -103,7 +109,15 @@ close <span class="string">all</span>;
 plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_05.png"> <p>We observe that the orientation map is almost completely gray, except for the  outliers which appears black. Next, we use
             the option <tt>maxAngle</tt> to increase contrast in the grayish part
          </p><pre class="codeinput">oM.maxAngle = 7.5*degree;
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_06.png"> <p>You may play around with the option <tt>maxAngle</tt> to obtain better results. As for interpretation keep in mind that white color represents the mean orientation and the color
+plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_06.png"> <pre class="codeinput">ebsd = ebsd.gridify;
+
+F = infimalConvolutionFilter;
+F.lambda = 0.02; <span class="comment">%smoothing parameter for the gradient</span>
+F.mu = 0.01;<span class="comment">% smoothing parameter for the hessian</span>
+
+ebsd_smoothed = smooth(ebsd,F);
+
+plot(ebsd_smoothed,oM.orientation2color(ebsd_smoothed.orientations))</pre><img src="EBSDSharpPlot_07.png"> <p>You may play around with the option <tt>maxAngle</tt> to obtain better results. As for interpretation keep in mind that white color represents the mean orientation and the color
             becomes more saturated and later dark as the orientation to color diverges from the mean orientation.
          </p>
          <p>Let's have a look at the corresponding color map.</p><pre class="codeinput">plot(oM,<span class="string">'resolution'</span>,0.25*degree)
@@ -111,7 +125,7 @@ plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_
 <span class="comment">% TODO: Check this!!!</span>
 <span class="comment">%hold on</span>
 <span class="comment">%plotIPDF(ebsd.orientations,'points',10,'MarkerSize',1,'MarkerFaceColor','w','MarkerEdgeColor','w')</span>
-<span class="comment">%hold off</span></pre><img src="EBSDSharpPlot_07.png"> <p>observe how in the inverse pole figure the orientations are scattered closely around the white center. Together with the fact
+<span class="comment">%hold off</span></pre><img src="EBSDSharpPlot_08.png"> <p>observe how in the inverse pole figure the orientations are scattered closely around the white center. Together with the fact
             that the transition from white to color is quite rapidly, this gives a high contrast.
          </p>
          <p>Another example is when analyzing the orientation distribution within grains</p><pre class="codeinput">mtexdata <span class="string">forsterite</span>
@@ -130,6 +144,9 @@ largeGrains = grain2d
      1      56   85514  Forsterite       mmm                         
      2       2    1969   Enstatite       mmm                         
  
+ boundary segments: 17507
+ triple points: 1247
+ 
  Properties: GOS, meanRotation
  
  
@@ -146,7 +163,7 @@ close <span class="string">all</span>
 plot(largeGrains(1).boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>
 plot(ebsd,ebsd.orientations)
-hold <span class="string">off</span></pre><img src="EBSDSharpPlot_08.png"> <p>when applying the option sharp MTEX colors the mean orientation as white and scales the maximum saturation to fit the maximum
+hold <span class="string">off</span></pre><img src="EBSDSharpPlot_09.png"> <p>when applying the option sharp MTEX colors the mean orientation as white and scales the maximum saturation to fit the maximum
             misorientation angle. This way deviations of the orientation within one grain can be visualized.
          </p><pre class="codeinput"><span class="comment">% plot a grain</span>
 plot(largeGrains(1).boundary,<span class="string">'linewidth'</span>,2)
@@ -155,20 +172,22 @@ oM = ipdfHSVOrientationMapping(ebsd);
 oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
 oM.maxAngle = 2*degree;
 plot(ebsd,oM.orientation2color(ebsd.orientations))
-hold <span class="string">off</span></pre><img src="EBSDSharpPlot_09.png"> <pre class="codeinput">ebsd = ebsd.gridify
+hold <span class="string">off</span></pre><img src="EBSDSharpPlot_10.png"> <pre class="codeinput">ebsd = ebsd.gridify
 
 plot(ebsd,abs(ebsd.gradientX))
 plot(ebsd,abs(ebsd.gradientY))</pre><pre class="codeoutput"> 
 ebsd = EBSD  
  
  Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
-     1    1453 (71%)  Forsterite  light blue       mmm                         
+     1  1453 (2344%)  Forsterite  light blue       mmm                         
  
  Properties: bands, bc, bs, error, mad, x, y, grainId
  Scan unit : um
  Grid size : 33 x 62
  
-</pre><img src="EBSDSharpPlot_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+Warning: Symmetry missmatch! 
+Warning: Symmetry missmatch! 
+</pre><img src="EBSDSharpPlot_11.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

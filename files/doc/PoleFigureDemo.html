@@ -64,7 +64,25 @@ c = {1,[0.52 ,1.23],1};
 pf = loadPoleFigure(fname,h,CS,SS,<span class="string">'interface'</span>,<span class="string">'dubna'</span>,<span class="string">'superposition'</span>,c);
 
 plot(pf)
-mtexColorbar</pre><img src="PoleFigureDemo_01.png"> <h2>Extract information from imported pole figure data<a name="3"> </a></h2>
+mtexColorbar</pre><pre class="codeoutput">e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+</pre><img src="PoleFigureDemo_01.png"> <h2>Extract information from imported pole figure data<a name="3"> </a></h2>
          <p><b>get raw data</b> Data stored in a <a href="PoleFigure_index.html">PoleFigure</a> variable can be extracted by
          </p><pre class="codeinput">I = pf.intensities; <span class="comment">% intensities</span>
 h = pf.h;            <span class="comment">% Miller indice</span>
@@ -116,6 +134,30 @@ rec = ODF
     center: 2472 orientations, resolution: 10&deg;
     weight: 1
  
+e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
+e = 
+  PropertyEvent with properties:
+
+    AffectedObject: [1&times;1 ColorBar]
+            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
+         EventName: 'PostSet'
 </pre><img src="PoleFigureDemo_04.png"> <pre class="codeinput">odf = SantaFe
 
 <span class="comment">% define specimen directions</span>
@@ -129,7 +171,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: (297&deg;,48&deg;,27&deg;)
+    center: (296.56505&deg;,48.18969&deg;,26.56505&deg;)
     weight: 0.27
  
  
@@ -189,12 +231,8 @@ ans =
     0.0301    0.0316    0.0297
 </pre><p><b>Difference plot</b></p><pre class="codeinput">plotDiff(pf_SantaFe,rec)</pre><pre class="codeoutput">progress: 100%
 </pre><img src="PoleFigureDemo_07.png"> <p><b>ODF error</b></p><pre class="codeinput">calcError(SantaFe,rec)
-calcError(SantaFe,rec_ng)</pre><pre class="codeoutput">Warning: NARGCHK will be removed in a future
-release. Use NARGINCHK or NARGOUTCHK instead. 
-ans =
+calcError(SantaFe,rec_ng)</pre><pre class="codeoutput">ans =
     0.0271
-Warning: NARGCHK will be removed in a future
-release. Use NARGINCHK or NARGOUTCHK instead. 
 ans =
     0.0859
 </pre><h2>Exercises<a name="17"> </a></h2>

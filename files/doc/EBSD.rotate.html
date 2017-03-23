@@ -46,8 +46,9 @@
          <p>rotate EBSD orientations or spatial data around point of origin</p>
          <h2>Syntax<a name="3"> </a></h2><pre class="codeinput"><span class="comment">% roate the whoole data set about the z-axis by 90*degree</span>
 ebsd = rotate(ebsd,10*degree)</pre><pre class="codeinput"><span class="comment">% rotate about the x-axis</span>
-ebsd = rotate(ebsd,rotation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,180*degree))</pre><pre class="codeinput"><span class="comment">% roate only the spatial data</span>
-ebsd = rotate(ebsd,180*degree,<span class="string">'keepEuler'</span>)</pre><h2>Input<a name="4"> </a></h2>
+ebsd = rotate(ebsd,rotation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,180*degree))</pre><pre class="codeinput"><span class="comment">% rotate only the spatial data</span>
+ebsd = rotate(ebsd,180*degree,<span class="string">'keepEuler'</span>)</pre><pre class="codeinput"><span class="comment">% rotate about a specific point</span>
+ebsd = rotate(ebsd,180*degree,<span class="string">'center'</span>,[0,0])</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -72,6 +73,26 @@ ebsd = rotate(ebsd,180*degree,<span class="string">'keepEuler'</span>)</pre><h2>
             </td>
             <td>
             <p><a href="quaternion_index.html">quaternion</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>param,val</tt>
+            </td>
+            <td>Parameters and values that control rotate<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
+            <tr>
+            <td class="header" width="100px">Parameter</td>
+            <td class="header">Description</td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'center'</tt>
+            </td>
+            <td>
+            <p>[x,y] center of rotation, default is center of the map</p>
+            </td>
+            </tr>
+            </table>
             </td>
             </tr>
             <tr>

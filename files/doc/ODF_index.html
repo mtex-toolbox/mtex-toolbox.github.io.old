@@ -74,8 +74,8 @@
             from another ODF</td></tr><tr><td width="200px"><a href="ODF.bandwidth.html"><tt>bandwidth</tt></a></td><td>of the ODF</td></tr><tr><td
             width="200px"><a href="ODF.calcAngleDistribution.html"><tt>calcAngleDistribution</tt></a></td><td>compute the angle distribution
             of an ODF or an MDF </td></tr><tr><td width="200px"><a href="ODF.calcAxisDistribution.html"><tt>calcAxisDistribution</tt></a></td><td>compute
-            the axis distribution of an ODF or MDF</td></tr><tr><td width="200px"><a href="ODF.calcAxisVolume.html"><tt>calcAxisVolume</tt></a></td><td>compute
-            the axis distribution of an ODF or MDF</td></tr><tr><td width="200px"><a href="ODF.calcError.html"><tt>calcError</tt></a></td><td>calculate
+            the axis distribution of an ODF or MDF</td></tr><tr><td width="200px"><a href="ODF.calcAxisVolume.html"><tt>calcAxisVolume</tt></a></td><td>amount
+            of orientations with a specific misorientation axis </td></tr><tr><td width="200px"><a href="ODF.calcError.html"><tt>calcError</tt></a></td><td>calculate
             approximation error between two ODFs</td></tr><tr><td width="200px"><a href="ODF.calcFourier.html"><tt>calcFourier</tt></a></td><td>compute
             Fourier coefficients of odf</td></tr><tr><td width="200px"><a href="ODF.calcMDF.html"><tt>calcMDF</tt></a></td><td>calculate
             the uncorrelated misorientation distribution function (MDF) from one or two ODF</td></tr><tr><td width="200px"><a href="ODF.calcMIndex.html"><tt>calcMIndex</tt></a></td><td>Mindex
@@ -100,18 +100,19 @@
             href="ODF.isFourier.html"><tt>isFourier</tt></a></td><td>check whether odf is given by Fourier coefficients</td></tr><tr><td
             width="200px"><a href="ODF.max.html"><tt>max</tt></a></td><td>heuristic to find local modal orientations</td></tr><tr><td
             width="200px"><a href="ODF.maxpdf.html"><tt>maxpdf</tt></a></td><td>returns the maximum orientation in a polefigure</td></tr><tr><td
-            width="200px"><a href="ODF.mean.html"><tt>mean</tt></a></td><td>returns mean, kappas</td></tr><tr><td width="200px"><a href="ODF.minus.html"><tt>minus</tt></a></td><td>superposeing
-            two ODFs</td></tr><tr><td width="200px"><a href="ODF.mrdivide.html"><tt>mrdivide</tt></a></td><td>scaling of the ODF</td></tr><tr><td
-            width="200px"><a href="ODF.mtimes.html"><tt>mtimes</tt></a></td><td>scaling of the ODF</td></tr><tr><td width="200px"><a href="ODF.neuralgas.html"><tt>neuralgas</tt></a></td><td>attempt
-            to distribute measuresites equally according to invers polefigure density (experimental)</td></tr><tr><td width="200px"><a
-            href="ODF.norm.html"><tt>norm</tt></a></td><td>caclulate texture index of ODF</td></tr><tr><td width="200px"><a href="ODF.plot.html"><tt>plot</tt></a></td><td>s
-            odf</td></tr><tr><td width="200px"><a href="ODF.plot3d.html"><tt>plot3d</tt></a></td><td>plots odf</td></tr><tr><td width="200px"><a
-            href="ODF.plotDiff.html"><tt>plotDiff</tt></a></td><td>difference plot between two odfs or an odf and a pole figure</td></tr><tr><td
-            width="200px"><a href="ODF.plotFibre.html"><tt>plotFibre</tt></a></td><td>plot odf along a fibre</td></tr><tr><td width="200px"><a
-            href="ODF.plotFourier.html"><tt>plotFourier</tt></a></td><td>plots Fourier coefficients of the odf</td></tr><tr><td width="200px"><a
-            href="ODF.plotIPDF.html"><tt>plotIPDF</tt></a></td><td>plot inverse pole figures</td></tr><tr><td width="200px"><a href="ODF.plotPDF.html"><tt>plotPDF</tt></a></td><td>plot
-            pole figures</td></tr><tr><td width="200px"><a href="ODF.plotSection.html"><tt>plotSection</tt></a></td><td>plot ODF sections</td></tr><tr><td
-            width="200px"><a href="ODF.plus.html"><tt>plus</tt></a></td><td>superposeing two ODFs</td></tr><tr><td width="200px"><a href="ODF.quantile.html"><tt>quantile</tt></a></td><td>orientations
+            width="200px"><a href="ODF.mean.html"><tt>mean</tt></a></td><td>expected value of an ODF</td></tr><tr><td width="200px"><a
+            href="ODF.minus.html"><tt>minus</tt></a></td><td>superposeing two ODFs</td></tr><tr><td width="200px"><a href="ODF.mrdivide.html"><tt>mrdivide</tt></a></td><td>scaling
+            of the ODF</td></tr><tr><td width="200px"><a href="ODF.mtimes.html"><tt>mtimes</tt></a></td><td>scaling of the ODF</td></tr><tr><td
+            width="200px"><a href="ODF.neuralgas.html"><tt>neuralgas</tt></a></td><td>attempt to distribute measuresites equally according
+            to invers polefigure density (experimental)</td></tr><tr><td width="200px"><a href="ODF.norm.html"><tt>norm</tt></a></td><td>caclulate
+            texture index of ODF</td></tr><tr><td width="200px"><a href="ODF.plot.html"><tt>plot</tt></a></td><td>s odf</td></tr><tr><td
+            width="200px"><a href="ODF.plot3d.html"><tt>plot3d</tt></a></td><td>plots odf</td></tr><tr><td width="200px"><a href="ODF.plotDiff.html"><tt>plotDiff</tt></a></td><td>difference
+            plot between two odfs or an odf and a pole figure</td></tr><tr><td width="200px"><a href="ODF.plotFibre.html"><tt>plotFibre</tt></a></td><td>plot
+            odf along a fibre</td></tr><tr><td width="200px"><a href="ODF.plotFourier.html"><tt>plotFourier</tt></a></td><td>plots Fourier
+            coefficients of the odf</td></tr><tr><td width="200px"><a href="ODF.plotIPDF.html"><tt>plotIPDF</tt></a></td><td>plot inverse
+            pole figures</td></tr><tr><td width="200px"><a href="ODF.plotPDF.html"><tt>plotPDF</tt></a></td><td>plot pole figures</td></tr><tr><td
+            width="200px"><a href="ODF.plotSection.html"><tt>plotSection</tt></a></td><td>plot ODF sections</td></tr><tr><td width="200px"><a
+            href="ODF.plus.html"><tt>plus</tt></a></td><td>superposeing two ODFs</td></tr><tr><td width="200px"><a href="ODF.quantile.html"><tt>quantile</tt></a></td><td>orientations
             of an ODF</td></tr><tr><td width="200px"><a href="ODF.rdivide.html"><tt>rdivide</tt></a></td><td>scaling of the ODF</td></tr><tr><td
             width="200px"><a href="ODF.rotate.html"><tt>rotate</tt></a></td><td>ODF</td></tr><tr><td width="200px"><a href="ODF.slope.html"><tt>slope</tt></a></td><td>|
             grad(r) |</td></tr><tr><td width="200px"><a href="ODF.smooth.html"><tt>smooth</tt></a></td><td>ODF</td></tr><tr><td width="200px"><a

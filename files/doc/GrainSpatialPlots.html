@@ -53,6 +53,9 @@
                <tr>
                   <td><a href="#11">Visualizing grain boundaries</a></td>
                </tr>
+               <tr>
+                  <td><a href="#14">Visualizing directions</a></td>
+               </tr>
             </table>
          </div>
          <p>One of the central issues analyzing grains is the visualization by spatial maps. Therefore, let us first reconstruct some
@@ -70,6 +73,9 @@ grains = grain2d
      1    1080  152345  Forsterite       mmm                         
      2     515   26058   Enstatite       mmm                         
      3    1496    9064    Diopside     12/m1        X||a, Y||b, Z||c*
+ 
+ boundary segments: 43912
+ triple points: 3417
  
  Properties: GOS, meanRotation
  
@@ -128,6 +134,30 @@ mtexColorMap <span class="string">white2black</span></pre><img src="GrainSpatial
 
 hold <span class="string">on</span>
 plot(grains_selection.boundary,<span class="string">'linecolor'</span>,<span class="string">'r'</span>,<span class="string">'linewidth'</span>,2)</pre><img src="GrainSpatialPlots_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Visualizing directions<a name="14"> </a></h2>
+         <p>We may also visualize directions by arrows placed at the center of the grains.</p><pre class="codeinput"><span class="comment">% load some single phase data set</span>
+mtexdata <span class="string">csl</span>
+
+<span class="comment">% compute and plot grains</span>
+[grains,ebsd.grainId] = calcGrains(ebsd);
+plot(grains,grains.meanOrientation)
+
+<span class="comment">% next we want to visualize the direction of the 100 axis</span>
+dir = grains.meanOrientation * Miller(1,0,0,grains.CS);
+
+<span class="comment">% the lenght of the vectors should depend on the grain diameter</span>
+len = 0.25*grains.diameter;
+
+<span class="comment">% arrows are plotted using the command quiver. We need to switch of auto</span>
+<span class="comment">% scaling of the arrow length</span>
+hold <span class="string">on</span>
+quiver(grains,len.*dir,<span class="string">'autoScale'</span>,<span class="string">'off'</span>)
+hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
+  standard MTEX colorkey. To view the colorkey do:
+ 
+  oM = ipdfHSVOrientationMapping(ori_variable_name)
+  plot(oM)
+</pre><img src="GrainSpatialPlots_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
