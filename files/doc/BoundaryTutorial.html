@@ -139,13 +139,7 @@ gB_MgMg = grainBoundary
          <p>These can be used to colorize the grain boundaries. By the following command we plot the grain boundaries colorized by the
             misorientation angle
          </p><pre class="codeinput">plot(gB_MgMg,gB_MgMg.misorientation.angle./degree,<span class="string">'linewidth'</span>,2)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="BoundaryTutorial_02.png"> <pre class="codeinput">hold <span class="string">on</span>
+mtexColorbar</pre><img src="BoundaryTutorial_02.png"> <pre class="codeinput">hold <span class="string">on</span>
 plot(gB(<span class="string">'notIndexed'</span>),<span class="string">'lineColor'</span>,<span class="string">'blue'</span>,<span class="string">'linewith'</span>,5)
 hold <span class="string">off</span></pre><img src="BoundaryTutorial_03.png"> <pre class="codeinput">grains.innerBoundary</pre><pre class="codeoutput"> 
 ans = grainBoundary  

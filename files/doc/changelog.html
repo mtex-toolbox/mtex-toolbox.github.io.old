@@ -63,8 +63,15 @@
          </div><pre class="codeinput">orientation.Bain(cs)
 orientation.KurdjumovSachs(cs)
 orientation.NishiyamaWassermann(cs)
-orientation.Pitch(cs)</pre><p>*Grain Reconstruction</p>
-         <p>New option to handle non convex other shapes of EBSD data sets</p><pre class="codeinput">calcGrains(ebsd,<span class="string">'boundary'</span>,<span class="string">'tight'</span>)</pre><p><b>Tensors</b></p>
+orientation.Pitch(cs)</pre><p><b>Grain Reconstruction</b></p>
+         <p>New option to handle non convex other shapes of EBSD data sets</p><pre class="codeinput">calcGrains(ebsd,<span class="string">'boundary'</span>,<span class="string">'tight'</span>)</pre><div>
+            <ul type="square">
+               <li>Grain boundary indexing* The commands   gB('phase1','phase2').misorientation returns now always a misorientation from phase1
+                  to phase2
+               </li>
+            </ul>
+         </div>
+         <p><b>Tensors</b></p>
          <p>New functions <a href="tensor.diag.html">diag</a>, <a href="tensor.trace.html">trace</a>,
          </p>
          <p><b>EBSD</b></p>

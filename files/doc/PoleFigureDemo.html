@@ -64,25 +64,7 @@ c = {1,[0.52 ,1.23],1};
 pf = loadPoleFigure(fname,h,CS,SS,<span class="string">'interface'</span>,<span class="string">'dubna'</span>,<span class="string">'superposition'</span>,c);
 
 plot(pf)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="PoleFigureDemo_01.png"> <h2>Extract information from imported pole figure data<a name="3"> </a></h2>
+mtexColorbar</pre><img src="PoleFigureDemo_01.png"> <h2>Extract information from imported pole figure data<a name="3"> </a></h2>
          <p><b>get raw data</b> Data stored in a <a href="PoleFigure_index.html">PoleFigure</a> variable can be extracted by
          </p><pre class="codeinput">I = pf.intensities; <span class="comment">% intensities</span>
 h = pf.h;            <span class="comment">% Miller indice</span>
@@ -98,7 +80,7 @@ ans =
 
 plot(pf_modified)</pre><pre class="codeoutput"> 
 pf_modified = PoleFigure  
-  crystal symmetry : -3m1, X||a, Y||b*, Z||c
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c
   specimen symmetry: 1
  
   h = (10-10), r = 1 x 1224 points
@@ -109,7 +91,7 @@ pf_modified = rotate(pf,rot)
 
 plot(pf_modified)</pre><pre class="codeoutput"> 
 pf_modified = PoleFigure  
-  crystal symmetry : -3m1, X||a, Y||b*, Z||c
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c
   specimen symmetry: 1
  
   h = (10-10), r = 72 x 19 points
@@ -126,7 +108,7 @@ error: 1.5645E-01
 alpha: 6.8114E+00 1.0320E+02 1.4255E+02 
  
 rec = ODF  
-  crystal symmetry : 321, X||a, Y||b*, Z||c
+  crystal symmetry : 321, X||a*, Y||b, Z||c
   specimen symmetry: 1
  
   Radially symmetric portion:
@@ -134,30 +116,6 @@ rec = ODF
     center: 2472 orientations, resolution: 10&deg;
     weight: 1
  
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
 </pre><img src="PoleFigureDemo_04.png"> <pre class="codeinput">odf = SantaFe
 
 <span class="comment">% define specimen directions</span>

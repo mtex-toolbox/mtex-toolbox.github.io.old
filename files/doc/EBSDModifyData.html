@@ -121,7 +121,7 @@ ebsd = EBSD
      0    4052 (20%)  notIndexed                                                
      1   14093 (69%)  Forsterite   light blue       mmm                         
      2   1397 (6.9%)   Enstatite  light green       mmm                         
-     3    759 (3.7%)    Diopside    light red     12/m1        X||a, Y||b, Z||c*
+     3    759 (3.7%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y
  Scan unit : um
@@ -133,21 +133,9 @@ plot(ebsd)</pre><img src="EBSDModifyData_05.png"> <p>Note, that you can also sel
          </p>
          <p>Most EBSD measurements contain quantities indicating inaccurate measurements.</p><pre class="codeinput">close <span class="string">all</span>
 plot(ebsd,ebsd.mad)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="EBSDModifyData_06.png"> <p>or</p><pre class="codeinput">close <span class="string">all</span>
+mtexColorbar</pre><img src="EBSDModifyData_06.png"> <p>or</p><pre class="codeinput">close <span class="string">all</span>
 plot(ebsd,ebsd.bc)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="EBSDModifyData_07.png"> <p>Here we will use the MAD to identify and eliminate inaccurate measurements.</p><pre class="codeinput"><span class="comment">% plot a histogram</span>
+mtexColorbar</pre><img src="EBSDModifyData_07.png"> <p>Here we will use the MAD to identify and eliminate inaccurate measurements.</p><pre class="codeinput"><span class="comment">% plot a histogram</span>
 close <span class="string">all</span>
 hist(ebsd.mad)</pre><img src="EBSDModifyData_08.png"> <pre class="codeinput"><span class="comment">% take only those measurements with MAD smaller then one</span>
 ebsd_corrected = ebsd(ebsd.mad&lt;0.8)</pre><pre class="codeoutput"> 
@@ -157,7 +145,7 @@ ebsd_corrected = EBSD
      0    4052 (21%)  notIndexed                                                
      1   13359 (69%)  Forsterite   light blue       mmm                         
      2   1333 (6.9%)   Enstatite  light green       mmm                         
-     3    676 (3.5%)    Diopside    light red     12/m1        X||a, Y||b, Z||c*
+     3    676 (3.5%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y
  Scan unit : um

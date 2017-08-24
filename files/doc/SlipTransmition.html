@@ -81,9 +81,7 @@ gB = grains.boundary(<span class="string">'indexed'</span>);
 plot(ebsd,ebsd.orientations)
 hold <span class="string">on</span>
 plot(grains.boundary)
-hold <span class="string">off</span></pre><pre class="codeoutput"> loading data ...
- saving data to /home/hielscher/mtex/master/data/titanium.mat
-</pre><img src="SlipTransmition_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="SlipTransmition_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Schmid Factor<a name="5"> </a></h2><pre class="codeinput"><span class="comment">% consider Basal slip</span>
 sSBasal = slipSystem.basal(ebsd.CS)
 
@@ -105,12 +103,6 @@ sSBasal = slipSystem
  size: 1 x 1
   U   V   T   W | H   K   I   L
   1   1  -2   0   0   0   0   1
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
 </pre><img src="SlipTransmition_02.png"> <p>The variable <tt>id</tt> contains now for each grain the id of the slip system with the largest Schmidt factor. In order to visualize it, we first
             rotate for each grain the slip system with largest Schmid factor in specimen coordinates
          </p><pre class="codeinput">sSGrain = grains.meanOrientation .* sSBasal(id)
@@ -152,13 +144,7 @@ hold <span class="string">on</span>
 quiver(grains,cross(sSGrain.n,zvector),<span class="string">'displayName'</span>,<span class="string">'slip plane'</span>)
 hold <span class="string">on</span>
 quiver(grains,sSGrain.b,<span class="string">'displayName'</span>,<span class="string">'slip direction'</span>)
-hold <span class="string">off</span></pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
- 
+hold <span class="string">off</span></pre><pre class="codeoutput"> 
 sSGrain = slipSystem  
  CRSS: 1
  size: 85 x 1
@@ -182,13 +168,7 @@ hold <span class="string">on</span>
 quiver(grains,cross(sSGrain.n,zvector),<span class="string">'displayName'</span>,<span class="string">'slip plane'</span>)
 hold <span class="string">on</span>
 quiver(grains,sSGrain.b,<span class="string">'displayName'</span>,<span class="string">'slip direction'</span>)
-hold <span class="string">off</span></pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="SlipTransmition_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="SlipTransmition_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Plot m' in misorientation space<a name="11"> </a></h2>
          <p>Since m' depends on the misorientation only why may plot it directly in misorientation space</p><pre class="codeinput"><span class="comment">% set up an axis angle plot</span>
 sP = axisAngleSections(sSBasal.CS,sSBasal.CS);
@@ -203,13 +183,7 @@ mP = max(mPrime(sSBasal,moriGrid*sSBasal.symmetrise),[],2);
 
 <span class="comment">% plot mPrime</span>
 sP.plot(mP,<span class="string">'smooth'</span>)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="SlipTransmition_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="SlipTransmition_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

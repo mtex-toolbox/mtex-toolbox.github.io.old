@@ -97,25 +97,13 @@ hold <span class="string">off</span></pre><img src="EBSDSpatialPlots_03.png"> <p
 
 colormap <span class="string">gray</span> <span class="comment">% this makes the image grayscale</span>
 
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="EBSDSpatialPlots_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="EBSDSpatialPlots_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Visualizing orientations<a name="10"> </a></h2>
          <p>Actually, we can pass any list of numbers or colors as a second input argument to be visualized together with the ebsd data.
             In order to visualize orientations in an EBSD map, we have first to compute a color for each orientation. The most simple
             way is to assign to each orientation its rotational angle. This is done by the command
          </p><pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),ebsd(<span class="string">'Forsterite'</span>).orientations.angle./degree)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="EBSDSpatialPlots_05.png"> <p>Let's make things a bit more formal. Therefore we define first an orientation mapping that assigns to each orientation its
+mtexColorbar</pre><img src="EBSDSpatialPlots_05.png"> <p>Let's make things a bit more formal. Therefore we define first an orientation mapping that assigns to each orientation its
             rotational angle
          </p><pre class="codeinput">oM = angleOrientationMapping(ebsd(<span class="string">'Fo'</span>))</pre><pre class="codeoutput">oM = 
   angleOrientationMapping with properties:
@@ -124,13 +112,7 @@ mtexColorbar</pre><pre class="codeoutput">e =
           CS2: [1&times;1 specimenSymmetry]
     antipodal: 0
 </pre><p>now the color, which is actually the rotational angle, is computed by the command</p><pre class="codeinput">color = oM.orientation2color(ebsd(<span class="string">'Fo'</span>).orientations);</pre><p>and we can visualize it by</p><pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),color)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="EBSDSpatialPlots_06.png"> <p>While for the previous case this seems to be unnecessarily complicated it allows us to define the arbitrary complex color
+mtexColorbar</pre><img src="EBSDSpatialPlots_06.png"> <p>While for the previous case this seems to be unnecessarily complicated it allows us to define the arbitrary complex color
             mapping. Consider for example the following standard color mapping that uses a colorization of the fundamental sector in the
             inverse pole figure to assign a color to each orientation
          </p><pre class="codeinput"><span class="comment">% this defines a color mapping for the Forsterite phase</span>
@@ -244,13 +226,7 @@ plot(oM,<span class="string">'sections'</span>,9,<span class="string">'sigma'</s
 </pre><p>actually, the colored measurements stress a peak in the ODF</p><pre class="codeinput">close <span class="string">all</span>
 odf = calcODF(ebsd(<span class="string">'fo'</span>).orientations,<span class="string">'halfwidth'</span>,10*degree,<span class="string">'silent'</span>);
 plot(odf,<span class="string">'sections'</span>,9,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="EBSDSpatialPlots_18.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="EBSDSpatialPlots_18.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Combining different plots<a name="29"> </a></h2>
          <p>Combining different plots can be done either by plotting only subsets of the EBSD data or via the option <tt>'faceAlpha'</tt>. Note that the option <tt>'faceAlpha'</tt> requires the renderer of the figure to be set to <tt>'opengl'</tt>.
          </p><pre class="codeinput">close <span class="string">all</span>;

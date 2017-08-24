@@ -97,7 +97,7 @@ grains = grain2d
      0    1139    4052  notIndexed                                   
      1     244   14093  Forsterite       mmm                         
      2     177    1397   Enstatite       mmm                         
-     3     104     759    Diopside     12/m1        X||a, Y||b, Z||c*
+     3     104     759    Diopside     12/m1        X||a*, Y||b, Z||c
  
  boundary segments: 10422
  triple points: 905
@@ -127,7 +127,7 @@ grains = grain2d
      0    1139    4052  notIndexed                                   
      1     245   14093  Forsterite       mmm                         
      2     177    1397   Enstatite       mmm                         
-     3     105     759    Diopside     12/m1        X||a, Y||b, Z||c*
+     3     105     759    Diopside     12/m1        X||a*, Y||b, Z||c
  
  boundary segments: 10430
  triple points: 911
@@ -141,7 +141,7 @@ ebsd = EBSD
      0    4052 (20%)  notIndexed                                                
      1   14093 (69%)  Forsterite   light blue       mmm                         
      2   1397 (6.9%)   Enstatite  light green       mmm                         
-     3    759 (3.7%)    Diopside    light red     12/m1        X||a, Y||b, Z||c*
+     3    759 (3.7%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -153,7 +153,7 @@ ebsd = EBSD
 ans = EBSD  
  
  Phase  Orientations   Mineral      Color  Symmetry  Crystal reference frame
-     3      5 (100%)  Diopside  light red     12/m1        X||a, Y||b, Z||c*
+     3      5 (100%)  Diopside  light red     12/m1        X||a*, Y||b, Z||c
  
     Id   Phase   phi1   Phi   phi2   bands    bc    bs   error   mad      x      y   grainId   phi1   Phi   phi2
  29476       3    170    80     42       7   140   255       0     1   9750   2000        33    346     0     14
@@ -167,7 +167,7 @@ ans = EBSD
 ans = EBSD  
  
  Phase  Orientations   Mineral      Color  Symmetry  Crystal reference frame
-     3      5 (100%)  Diopside  light red     12/m1        X||a, Y||b, Z||c*
+     3      5 (100%)  Diopside  light red     12/m1        X||a*, Y||b, Z||c
  
     Id   Phase   phi1   Phi   phi2   bands    bc    bs   error   mad      x      y   grainId   phi1   Phi   phi2
  29476       3    170    80     42       7   140   255       0     1   9750   2000        33    346     0     14
@@ -187,13 +187,7 @@ hold <span class="string">on</span>
 plot(grains.boundary)
 hold <span class="string">off</span>
 
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="GrainReconstruction_03.png"> <p>We can examine the misorientation to mean for one specific grain as follows</p><pre class="codeinput"><span class="comment">% select a grain by coordinates</span>
+mtexColorbar</pre><img src="GrainReconstruction_03.png"> <p>We can examine the misorientation to mean for one specific grain as follows</p><pre class="codeinput"><span class="comment">% select a grain by coordinates</span>
 myGrain = grains(9075,3275)
 plot(myGrain.boundary,<span class="string">'linewidth'</span>,2)
 
@@ -213,12 +207,6 @@ myGrain = grain2d
   Id   Phase   Pixels         GOS   phi1   Phi   phi2
  762       1      497   0.0443014    131    64    248
  
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
 </pre><img src="GrainReconstruction_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Filling notindexed holes<a name="11"> </a></h2>
          <p>It is important to understand that MTEX distinguishes the following two situations</p>
@@ -263,7 +251,7 @@ grains = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1     103   14093  Forsterite       mmm                         
      2      32    1397   Enstatite       mmm                         
-     3      71     759    Diopside     12/m1        X||a, Y||b, Z||c*
+     3      71     759    Diopside     12/m1        X||a*, Y||b, Z||c
  
  boundary segments: 3784
  triple points: 240
@@ -293,13 +281,7 @@ notIndexed = grain2d
          </p><pre class="codeinput"><span class="comment">% plot the not indexed regions colorcoded according the the quotient between</span>
 <span class="comment">% number of measurements and number of boundary segments</span>
 plot(notIndexed,log(notIndexed.grainSize ./ notIndexed.boundarySize))
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="GrainReconstruction_07.png"> <p>Regions with a high quotient are blocks which can be hardly correctly assigned to a grain. Hence, we should keep these regions
+mtexColorbar</pre><img src="GrainReconstruction_07.png"> <p>Regions with a high quotient are blocks which can be hardly correctly assigned to a grain. Hence, we should keep these regions
             as not indexed and only remove the not indexed information from locations with a low quotient.
          </p><pre class="codeinput"><span class="comment">% the "not indexed grains" we want to remove</span>
 toRemove = notIndexed(notIndexed.grainSize ./ notIndexed.boundarySize&lt;0.8)
@@ -328,7 +310,7 @@ ebsd = EBSD
      0    610 (3.6%)  notIndexed                                                
      1   14093 (84%)  Forsterite   light blue       mmm                         
      2   1397 (8.3%)   Enstatite  light green       mmm                         
-     3    759 (4.5%)    Diopside    light red     12/m1        X||a, Y||b, Z||c*
+     3    759 (4.5%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -383,7 +365,7 @@ ebsdP = EBSD
      0      107 (3%)  notIndexed                                                
      1    2756 (78%)  Forsterite   light blue       mmm                         
      2     452 (13%)   Enstatite  light green       mmm                         
-     3    231 (6.5%)    Diopside    light red     12/m1        X||a, Y||b, Z||c*
+     3    231 (6.5%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -394,7 +376,7 @@ grains = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1      26    2756  Forsterite       mmm                         
      2       8     452   Enstatite       mmm                         
-     3      22     231    Diopside     12/m1        X||a, Y||b, Z||c*
+     3      22     231    Diopside     12/m1        X||a*, Y||b, Z||c
  
  boundary segments: 1024
  triple points: 66
@@ -418,7 +400,7 @@ grains = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1      28    2756  Forsterite       mmm                         
      2       9     452   Enstatite       mmm                         
-     3      22     231    Diopside     12/m1        X||a, Y||b, Z||c*
+     3      22     231    Diopside     12/m1        X||a*, Y||b, Z||c
  
  boundary segments: 1252
  triple points: 61
@@ -440,13 +422,7 @@ plot(grains.boundary,angle(grains.boundary.direction,xvector)./degree,<span clas
 mtexColorbar
 
 <span class="comment">% stop overide mode</span>
-hold <span class="string">off</span></pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="GrainReconstruction_12.png"> <p>We see that the angle between the grain boundary direction and the x-axis takes only values 0, 45 and 90 degrees. After applying
+hold <span class="string">off</span></pre><img src="GrainReconstruction_12.png"> <p>We see that the angle between the grain boundary direction and the x-axis takes only values 0, 45 and 90 degrees. After applying
             smoothing we obtain a much better result
          </p><pre class="codeinput"><span class="comment">% smooth the grain boundaries</span>
 grains = smooth(grains)
@@ -468,19 +444,13 @@ grains = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1      28    2756  Forsterite       mmm                         
      2       9     452   Enstatite       mmm                         
-     3      22     231    Diopside     12/m1        X||a, Y||b, Z||c*
+     3      22     231    Diopside     12/m1        X||a*, Y||b, Z||c
  
  boundary segments: 1252
  triple points: 61
  
  Properties: GOS, meanRotation
  
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
 </pre><img src="GrainReconstruction_13.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Grain reconstruction by the multiscale clustering method<a name="22"> </a></h2>
          <p>When analyzing grains with gradual and subtle boundaries the threshold based method may not lead to the desired result.</p>

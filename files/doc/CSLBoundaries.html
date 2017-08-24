@@ -248,14 +248,14 @@ mdf = MDF
     degree: 32
     weight: 1
  
-</pre><img src="CSLBoundaries_10.png"> <p>Next we can visualize the misorientation distribution function in axis angle sections.</p><pre class="codeinput">plot(mdf,<span class="string">'axisAngle'</span>,(25:5:60)*degree,<span class="string">'colorRange'</span>,[0 15])
+</pre><p>Next we can visualize the misorientation distribution function in axis angle sections.</p><pre class="codeinput">plot(mdf,<span class="string">'axisAngle'</span>,(25:5:60)*degree,<span class="string">'colorRange'</span>,[0 15])
 
 annotate(CSL(3,ebsd.CS),<span class="string">'label'</span>,<span class="string">'$CSL_3$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
 annotate(CSL(5,ebsd.CS),<span class="string">'label'</span>,<span class="string">'$CSL_5$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
 annotate(CSL(7,ebsd.CS),<span class="string">'label'</span>,<span class="string">'$CSL_7$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
 annotate(CSL(9,ebsd.CS),<span class="string">'label'</span>,<span class="string">'$CSL_9$'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
 
-drawNow(gcm)</pre><img src="CSLBoundaries_11.png"> <p>The MDF can be now used to compute prefered misorientations</p><pre class="codeinput">mori = mdf.calcModes(2)</pre><pre class="codeoutput"> 
+drawNow(gcm)</pre><img src="CSLBoundaries_10.png"> <p>The MDF can be now used to compute prefered misorientations</p><pre class="codeinput">mori = mdf.calcModes(2)</pre><pre class="codeoutput"> 
 mori = misorientation  
   size: 1 x 2
   crystal symmetry : iron (m-3m)
@@ -263,8 +263,8 @@ mori = misorientation
  
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
-  206.812   48.42 116.713       0
-   260.19  36.967 134.676       0
+  206.659 48.4404 117.001       0
+  35.5941  47.343 306.581       0
  
  
 </pre><p>and their volumes in percent</p><pre class="codeinput">100 * volume(gB.misorientation,CSL(3,ebsd.CS),2*degree)
@@ -302,7 +302,7 @@ fibre101 = misorientation
   crystal symmetry : iron (m-3m)
   crystal symmetry : iron (m-3m)
  
-</pre><img src="CSLBoundaries_12.png"> <p>or to evaluate it in an misorientation directly</p><pre class="codeinput">mori = orientation(<span class="string">'Euler'</span>,15*degree,28*degree,14*degree,mdf.CS,mdf.CS)
+</pre><img src="CSLBoundaries_11.png"> <p>or to evaluate it in an misorientation directly</p><pre class="codeinput">mori = orientation(<span class="string">'Euler'</span>,15*degree,28*degree,14*degree,mdf.CS,mdf.CS)
 
 mdf.eval(mori)</pre><pre class="codeoutput"> 
 mori = misorientation  

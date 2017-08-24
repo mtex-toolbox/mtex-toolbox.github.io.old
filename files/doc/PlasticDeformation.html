@@ -182,12 +182,6 @@ r = vector3d
  region: upper hemisphere
  theta: 181 x 721 double 
  rho: 181 x 721 double   
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
 </pre><img src="PlasticDeformation_01.png"> <p>We may also plot the index of the active slip system</p><pre class="codeinput">pcolor(r,id)
 
 mtexColorMap <span class="string">black2white</span></pre><img src="PlasticDeformation_02.png"> <p>and observe that within the fundamental sectors the active slip system remains the same. We can even visualize the the plane
@@ -282,13 +276,7 @@ SF = sSLocal.SchmidFactor(sigma);
 
 <span class="comment">% plot the maximum Schmid factor</span>
 plot(grains,SFMax)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="PlasticDeformation_05.png"> <p>Next we want to visualize the active slip systems.</p><pre class="codeinput"><span class="comment">% take the active slip system and rotate it in specimen coordinates</span>
+mtexColorbar</pre><img src="PlasticDeformation_05.png"> <p>Next we want to visualize the active slip systems.</p><pre class="codeinput"><span class="comment">% take the active slip system and rotate it in specimen coordinates</span>
 sSactive = grains.meanOrientation .* sS(active);
 
 hold <span class="string">on</span>
@@ -328,13 +316,7 @@ quiver(grains,sSactive.trace,<span class="string">'color'</span>,<span class="st
 
 <span class="comment">% and the slip direction</span>
 quiver(grains,sSactive.b,<span class="string">'color'</span>,<span class="string">'r'</span>)
-hold <span class="string">off</span></pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="PlasticDeformation_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="PlasticDeformation_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

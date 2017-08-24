@@ -71,12 +71,6 @@ color = h.rho ./ degree;
 
 plotIPDF(ebsd.orientations,vector3d.X,<span class="string">'property'</span>,color,<span class="string">'MarkerSize'</span>,3,<span class="string">'grid'</span>)
 mtexColorbar</pre><pre class="codeoutput">  I'm plotting 8333 random orientations out of 20119 given orientations
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
 </pre><img src="EBSDSharpPlot_02.png"> <p>We see that all individual orientations are clustered around azimuth angle 115 degrees with some outliers at 125 and 130 degree.
             In order to increase the contrast for the main group, we restrict the color range from 110 degree to 120 degree.
          </p><pre class="codeinput">caxis([110 120]);
@@ -179,7 +173,7 @@ plot(ebsd,abs(ebsd.gradientY))</pre><pre class="codeoutput">
 ebsd = EBSD  
  
  Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
-     1  1453 (2344%)  Forsterite  light blue       mmm                         
+     1    1453 (71%)  Forsterite  light blue       mmm                         
  
  Properties: bands, bc, bs, error, mad, x, y, grainId
  Scan unit : um

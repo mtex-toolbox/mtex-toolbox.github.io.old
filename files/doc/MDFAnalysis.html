@@ -79,7 +79,7 @@ grains = grain2d
      0   16334   58485  notIndexed                                   
      1    4092  152345  Forsterite       mmm                         
      2    1864   26058   Enstatite       mmm                         
-     3    1991    9064    Diopside     12/m1        X||a, Y||b, Z||c*
+     3    1991    9064    Diopside     12/m1        X||a*, Y||b, Z||c
  
  boundary segments: 147957
  triple points: 11456
@@ -100,7 +100,7 @@ mdf_boundary = MDF
 </pre><p>The misorientation distribution function can be processed as any other ODF. E.g. we can compute the prefered misorientation
             via
          </p><pre class="codeinput">[v,mori] = max(mdf_boundary)</pre><pre class="codeoutput">v =
-   37.6800
+   38.9278
  
 mori = misorientation  
   size: 1 x 1
@@ -109,7 +109,7 @@ mori = misorientation
  
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
-  129.317 2.51258 140.791       0
+  82.4065 1.06577 187.671       0
  
  
 </pre><p>or plot the pole figure corresponding to the crystal axis (1,0,0)</p><pre class="codeinput">plotPDF(mdf_boundary,Miller(1,0,0,ebsd(<span class="string">'Fo'</span>).CS))</pre><img src="MDFAnalysis_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -117,7 +117,7 @@ mori = misorientation
          <p>Alternatively the uncorrelated misorientation distribution function can be computed by providing the option <b>uncorrelated</b></p><pre class="codeinput">mori = calcMisorientation(ebsd(<span class="string">'En'</span>),ebsd(<span class="string">'Fo'</span>))
 mdf_uncor = calcODF(mori)</pre><pre class="codeoutput"> 
 mori = misorientation  
-  size: 98607 x 1
+  size: 98527 x 1
   crystal symmetry : Forsterite (mmm)
   crystal symmetry : Enstatite (mmm)
  

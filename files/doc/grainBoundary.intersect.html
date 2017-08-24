@@ -73,19 +73,21 @@
             </table>
             
          </p>
-         <h2>Example<a name="6"> </a></h2><pre>mtexdata csl
-grains = calcGrains(ebsd)
-plot(grains.boundary)
+         <h2>Example<a name="6"> </a></h2><pre>mtexdata small
+grains = calcGrains(ebsd('indexed'))
+grains = smooth(grains,4)
+plot(grains.boundary,'micronbar','off')
 % define some line
-xy1 = [0,10];  % staring point
-xy2 = [31,41]; % end point
+xy1 = [33500,4500];  % staring point
+xy2 = [36000,7500]; % end point
 line([xy1(1);xy2(1)],[xy1(2);xy2(2)],'linewidth',1.5,'color','g')
 [x,y] = grains.boundary.intersect(xy1,xy2);
 hold on
-scatter(x,y,'red')
-hold off
-% find the number of intersection points
-sum(~isnan(x))</pre><p style="font-size:1px;"></p>
+scatter(x,y,'red')</pre><pre>% find the number of intersection points
+sum(~isnan(x))
+% mark the intersected boundary segments
+plot(grains.boundary(~isnan(x)),'lineColor','b','linewidth',2)
+hold off</pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

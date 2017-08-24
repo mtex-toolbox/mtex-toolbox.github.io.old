@@ -235,7 +235,6 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.project2EulerFR.html">project2EulerFR</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.project2FundamentalRegion.html">project2FundamentalRegion</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.qqplot.html">qqplot</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.rVariant.html">rVariant</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.round2Miller.html">round2Miller</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.scatter.html">scatter</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="orientation.sphereVolume.html">sphereVolume</tocitem>
@@ -613,6 +612,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="euler2quat.html">euler2quat</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="expquat.html">expquat</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre2quat.html">fibre2quat</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fit_ellipse.html">fit_ellipse</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="gossOrientation.html">gossOrientation</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="guessfibre.html">guessfibre</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="hr2quat.html">hr2quat</tocitem>

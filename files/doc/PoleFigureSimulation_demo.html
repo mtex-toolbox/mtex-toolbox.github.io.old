@@ -103,33 +103,33 @@ pf = PoleFigure
          <h2>ODF Estimation from Pole Figure Data<a name="11"> </a></h2>
          <p>From these simulated pole figures we can now estimate an ODF,</p><pre class="codeinput">odf = calcODF(pf)</pre><pre class="codeoutput">initialize solver
 start iteration
-error: 2.0886E-01 1.6124E-02 4.5159E-03 2.4220E-03 1.5818E-03 1.2370E-03 1.0376E-03 9.2317E-04 8.4275E-04 7.8976E-04 7.5475E-04 
+error: 2.0863E-01 1.6300E-02 4.5224E-03 2.4214E-03 1.6081E-03 1.2589E-03 1.0539E-03 9.3636E-04 8.5517E-04 8.0423E-04 7.6511E-04 
 Finished PDF-ODF inversion.
-error: 7.5475E-04
-alpha: 9.9931E+02 9.9974E+02 9.9843E+02 1.0011E+03 9.9676E+02 1.0040E+03 1.0043E+03 
+error: 7.6511E-04
+alpha: 1.0021E+03 1.0014E+03 9.9897E+02 1.0021E+03 9.9637E+02 1.0025E+03 1.0048E+03 
 initialize solver
 start iteration
-error: 4.8970E-01 1.7141E-01 3.4161E-02 1.4413E-02 9.6315E-03 6.9978E-03 5.7455E-03 4.7525E-03 4.0607E-03 3.4745E-03 3.0879E-03 
+error: 4.9511E-01 1.7654E-01 3.5986E-02 1.5144E-02 9.8540E-03 7.0043E-03 5.6398E-03 4.7001E-03 4.0326E-03 3.3774E-03 2.9571E-03 
 Finished PDF-ODF inversion.
-error: 3.0879E-03
-alpha: 9.9305E+02 9.9116E+02 1.0045E+03 9.9725E+02 1.0097E+03 1.0210E+03 1.0179E+03 
+error: 2.9571E-03
+alpha: 9.9608E+02 9.9334E+02 1.0052E+03 9.9760E+02 1.0087E+03 1.0191E+03 1.0168E+03 
  
 odf = ODF  
   crystal symmetry : 222
   specimen symmetry: 1
  
   Uniform portion:
-    weight: 0.46415
+    weight: 0.46981
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
     center: 29772 orientations, resolution: 5&deg;
-    weight: 0.53585
+    weight: 0.53019
  
 </pre><p>which can be plotted,</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput">progress: 100%
 </pre><img src="PoleFigureSimulation_demo_03.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,model_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.0703
+    0.0671
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Exploration of the relationship between estimation error and number of single orientations<a name="14"> </a></h2>
          <p>For a more systematic analysis of the estimation error, we vary the number of pole figures used for ODF estimation from 1

@@ -190,13 +190,7 @@ gB_MgMg = grainBoundary
          <p>These can be used to colorize the grain boundaries. By the following command, we plot the grain boundaries colorized by the
             misorientation angle
          </p><pre class="codeinput">plot(gB_MgMg,gB_MgMg.misorientation.angle./degree,<span class="string">'linewidth'</span>,2)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="TwinningAnalysis_02.png"> <p>We observe many grain boundaries with a large misorientation angle of about 86 degrees. Those grain boundaries are most likely
+mtexColorbar</pre><img src="TwinningAnalysis_02.png"> <p>We observe many grain boundaries with a large misorientation angle of about 86 degrees. Those grain boundaries are most likely
             twin boundaries. To detect them more precisely we define first the twinning as a misorientation, which is reported in literature
             by  (1,1,-2,0) parallel to (2,-1,-1,0) and (-1,0,1,1) parallel to (1,0,-1,1). In MTEX it is defined by
          </p><pre class="codeinput">twinning = orientation(<span class="string">'map'</span>,Miller(1,1,-2,0,CS),Miller(2,-1,-1,0,CS),<span class="keyword">...</span>
@@ -218,7 +212,7 @@ round(twinning.axis)
 twinning.angle / degree</pre><pre class="codeoutput"> 
 ans = Miller  
  size: 1 x 1
- mineral: Magnesium (6/mmm, X||a*, Y||b, Z||c)
+ mineral: Magnesium (622, X||a*, Y||b, Z||c)
   h -1
   k  2
   i -1

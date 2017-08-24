@@ -91,7 +91,7 @@ grains = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1      46   12891  Forsterite       mmm                         
      2      11    1287   Enstatite       mmm                         
-     3      10     448    Diopside     12/m1        X||a, Y||b, Z||c*
+     3      10     448    Diopside     12/m1        X||a*, Y||b, Z||c
  
  boundary segments: 2957
  triple points: 95
@@ -123,13 +123,7 @@ plotOrdered(gB_FoFo,gB_FoFo.misorientation.angle./degree,<span class="string">'l
 <span class="comment">%plot(gB_FoFo,gB_FoFo.misorientation.angle./degree,'linewidth',5);</span>
 hold <span class="string">off</span>
 mtexColorMap <span class="string">jet</span>
-mtexColorbar(<span class="string">'title'</span>,<span class="string">'misorientation angle'</span>)</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="BoundaryMisorientations_03.png"> <h2>Visualize the misorientation axes in specimen coordinates<a name="5"> </a></h2>
+mtexColorbar(<span class="string">'title'</span>,<span class="string">'misorientation angle'</span>)</pre><img src="BoundaryMisorientations_03.png"> <h2>Visualize the misorientation axes in specimen coordinates<a name="5"> </a></h2>
          <p>Computing the misorientation axes in specimen coordinates can not be done using the boundary misorientations only. In fact,
             we require the orientations on both sides of the grain boundary. Lets extract them first.
          </p><pre class="codeinput"><span class="comment">% do only consider every third boundary segment</span>

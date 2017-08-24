@@ -80,21 +80,9 @@ P = tensor
 setMTEXpref(<span class="string">'defaultColorMap'</span>,blue2redColorMap);
 
 plot(P)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="PiezoElectricity_01.png"> <p>but also, we can plot the whole crystal behavior</p><pre class="codeinput">close <span class="string">all</span>
+mtexColorbar</pre><img src="PiezoElectricity_01.png"> <p>but also, we can plot the whole crystal behavior</p><pre class="codeinput">close <span class="string">all</span>
 plot(P,<span class="string">'complete'</span>,<span class="string">'smooth'</span>,<span class="string">'upper'</span>)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="PiezoElectricity_02.png"> <p>Most often, the polarization is illustrated as surface magnitude</p><pre class="codeinput">close <span class="string">all</span>
+mtexColorbar</pre><img src="PiezoElectricity_02.png"> <p>Most often, the polarization is illustrated as surface magnitude</p><pre class="codeinput">close <span class="string">all</span>
 plot(P,<span class="string">'3d'</span>)</pre><img src="PiezoElectricity_03.png"> <p>Note, that for directions of negative polarization the surface is mapped onto the axis of positive, which then let the surface
             appear as a double coverage
          </p>
@@ -127,23 +115,11 @@ Pm = tensor
  -10.48   34.2 -23.72 -32.75 -64.24 -26.18
  -18.02  -3.15  21.17  62.42  29.67  44.39
  -41.35  40.44   0.91  32.48 -23.42   6.47
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
 </pre><img src="PiezoElectricity_06.png"> <pre class="codeinput">close <span class="string">all</span>
 plot(Pm,<span class="string">'complete'</span>,<span class="string">'upper'</span>)
 mtexColorbar
 
-setMTEXpref(<span class="string">'defaultColorMap'</span>,WhiteJetColorMap)</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="PiezoElectricity_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+setMTEXpref(<span class="string">'defaultColorMap'</span>,WhiteJetColorMap)</pre><img src="PiezoElectricity_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

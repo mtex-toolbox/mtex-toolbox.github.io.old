@@ -73,6 +73,9 @@
                <tr>
                   <td><a href="#11">Changing the Colormap</a></td>
                </tr>
+               <tr>
+                  <td><a href="#12">Multiple Colormaps</a></td>
+               </tr>
             </table>
          </div>
          <h2>A sample ODFs and Simulated Pole Figure Data<a name="4"> </a></h2>
@@ -82,7 +85,7 @@ odf = fibreODF(Miller(1,1,0,cs),zvector)
 pf = calcPoleFigure(odf,[Miller(1,0,0,cs),Miller(1,1,1,cs)],<span class="keyword">...</span>
   equispacedS2Grid(<span class="string">'points'</span>,500,<span class="string">'antipodal'</span>));</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : -3m1, X||a, Y||b*, Z||c
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c
   specimen symmetry: 1
  
   Fibre symmetric portion:
@@ -96,30 +99,12 @@ odf = ODF
             color coding and in principle cannot be compared to each other.
          </p><pre class="codeinput">close <span class="string">all</span>
 plot(pf)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="ColorCoding_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="ColorCoding_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Equal Colorcoding<a name="6"> </a></h2>
          <p>The <b>tight</b> colorcoding can make the reading and comparison of two pole figures a bit hard. If you want to have one colorcoding for all
             plots within one figure use the option <b>colorrange</b> to <b>equal</b>.
          </p><pre class="codeinput">plot(pf,<span class="string">'colorRange'</span>,<span class="string">'equal'</span>)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="ColorCoding_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="ColorCoding_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Setting an Explicite Colorrange<a name="7"> </a></h2>
          <p>If you want to have a unified colorcoding for several figures you can set the colorrange directly in the <a href="ODF.plotPDF.html">plot command</a></p><pre class="codeinput">close <span class="string">all</span>
 plotPDF(odf,[Miller(1,0,0,cs),Miller(1,1,1,cs)],<span class="keyword">...</span>
@@ -129,31 +114,13 @@ mtexColorbar
 figure
 plotPDF(.5*odf+.5*uniformODF(cs),[Miller(1,0,0,cs),Miller(1,1,1,cs)],<span class="keyword">...</span>
   <span class="string">'colorrange'</span>,[0 4],<span class="string">'antipodal'</span>);
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="ColorCoding_03.png"> <img src="ColorCoding_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="ColorCoding_03.png"> <img src="ColorCoding_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Setting the Contour Levels<a name="8"> </a></h2>
          <p>In the case of contour plots you can also specify the <b>contour levels</b> directly
          </p><pre class="codeinput">close <span class="string">all</span>
 plotPDF(odf,[Miller(1,0,0,cs),Miller(1,1,1,cs)],<span class="keyword">...</span>
   <span class="string">'contourf'</span>,0:1:5,<span class="string">'antipodal'</span>)
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="ColorCoding_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="ColorCoding_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Modifying the Colorrange After Plotting<a name="9"> </a></h2>
          <p>The color range of the figures can also be adjusted afterwards using the command <a href="mtexFigure.CLim.html">CLim</a></p><pre class="codeinput">CLim(gcm,[0.38,3.9])</pre><img src="ColorCoding_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Logarithmic Plots<a name="10"> </a></h2>
@@ -161,29 +128,30 @@ mtexColorbar</pre><pre class="codeoutput">e =
          </p><pre class="codeinput">close <span class="string">all</span>;
 plotPDF(odf,[Miller(1,0,0,cs),Miller(1,1,1,cs)],<span class="string">'antipodal'</span>,<span class="string">'logarithmic'</span>)
 CLim(gcm,[0.01 12]);
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
-
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="ColorCoding_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="ColorCoding_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Changing the Colormap<a name="11"> </a></h2>
          <p>The colormap can be changed by the command mtexColorMap, e.g., in order to set a white to black colormap one has the commands</p><pre class="codeinput">plotPDF(odf,[Miller(1,0,0,cs),Miller(1,1,1,cs)],<span class="string">'antipodal'</span>)
 mtexColorMap <span class="string">white2black</span>
-mtexColorbar</pre><pre class="codeoutput">e = 
-  PropertyEvent with properties:
+mtexColorbar</pre><img src="ColorCoding_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Multiple Colormaps<a name="12"> </a></h2>
+         <p>One can even use different colormaps within one figure</p><pre class="codeinput"><span class="comment">% initialize an MTEXFigure</span>
+mtexFig = newMtexFigure;
 
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-e = 
-  PropertyEvent with properties:
+<span class="comment">% for three different colormaps</span>
+<span class="keyword">for</span> cm = {<span class="string">'hot'</span>, <span class="string">'cool'</span>, <span class="string">'parula'</span>}
 
-    AffectedObject: [1&times;1 ColorBar]
-            Source: [1&times;1 matlab.graphics.internal.GraphicsMetaProperty]
-         EventName: 'PostSet'
-</pre><img src="ColorCoding_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+  <span class="comment">% plot some random data in different axis</span>
+  plot(vector3d.rand(100),<span class="string">'smooth'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis,<span class="string">'grid'</span>,<span class="string">'grid_res'</span>,90*degree);
+
+  <span class="comment">% and apply an individual colormap</span>
+  mtexColorMap(gca,char(cm))
+
+  <span class="comment">% set the title to be the name of the colormap</span>
+  mtexTitle(char(cm))
+<span class="keyword">end</span>
+
+<span class="comment">% plot a color for each plot</span>
+mtexColorbar(<span class="string">'multiple'</span>)</pre><img src="ColorCoding_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

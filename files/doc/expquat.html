@@ -42,23 +42,49 @@
          <div class="subheading">
             <p>matrix exponential to convert skew symmetric matrices into quaternions</p>
          </div>
-         <h2>Description<a name="2"> </a></h2>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">q = expquat(tq,q)
-q = expquat(tq)</pre><h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="2"> </a></h2><pre class="codeinput">q = expquat(M)
+q = expquat(T)
+q = expquat(tq)
+q = expquat(tq)
+q = expquat(tq,q) <span class="comment">% exponential map relative to quaternion q</span></pre><h2>Input<a name="3"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>a12,a13,a23</tt>
+            <tt>M</tt>
             </td>
             <td>
-            <p>the matrix entries of the skew symmetric matrix</p>
+            <p>skew symmetric matrix ~ element of the Lie algebra</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>T</tt>
+            </td>
+            <td>
+            <p>skew symmetric rank 2 tensor</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>tq</tt>
+            </td>
+            <td>
+            <p><a href="vector3d_index.html">vector3d</a> element of the tangential space</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>a</tt>
+            </td>
+            <td>
+            <p>[a12, a13, a23] matrix entries of the skew symmetric matrix</p>
             </td>
             </tr>
             </table>
             
          </p>
-         <h2>Output<a name="5"> </a></h2>
+         <h2>Output<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>

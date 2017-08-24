@@ -125,7 +125,7 @@ ori2 = orientation
    85.7299
 </pre><p>Note that the misorientation angle is computed by default modulo crystal symmetry, i.e., the angle is always the smallest
             angles between all possible pairs of symmetrically equivalent orientations. In our example this means that symmetrisation
-            of one orienation has no impact on the angle
+            of one orientation has no impact on the angle
          </p><pre class="codeinput">angle(ori1, ori2.symmetrise) ./ degree</pre><pre class="codeoutput">ans =
    85.7299
    85.7299
@@ -152,10 +152,10 @@ ori2 = orientation
   101.4708
   140.3882
    85.7299
-</pre><p>We see that smallest angle indeed coincides with the angle computed before.</p>
+</pre><p>We see that the smallest angle indeed coincides with the angle computed before.</p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Misorientations<a name="9"> </a></h2>
-         <p>Remember that both orientations ori1 and ori2 map crystal coordinates into specimen coordinates. Hence, the product of an
+         <p>Remember that both orientations ori1 and ori2 map crystal coordinates onto specimen coordinates. Hence, the product of an
             inverse orientation with another orientation transfers crystal coordinates from one crystal reference frame into crystal coordinates
             with respect to another crystal reference frame. This transformation is called misorientation
          </p><pre class="codeinput">mori = inv(ori1) * ori2</pre><pre class="codeoutput"> 
@@ -170,7 +170,7 @@ mori = misorientation
  
  
 </pre><p>In the present case the misorientation describes the coordinate transform from the reference frame of grain 80 into the reference
-            frame of crystal 70. Take as an example the plane {11-20} with respect to the grain 80. Then the plane in grain 70 which aligned
+            frame of crystal 70. Take as an example the plane {11-20} with respect to the grain 80. Then the plane in grain 70 which alignes
             parallel to this plane can be computed by
          </p><pre class="codeinput">round(mori * Miller(1,1,-2,0,CS))</pre><pre class="codeoutput"> 
 ans = Miller  
@@ -192,7 +192,8 @@ ans = Miller
          <h2>Coincident lattice planes<a name="12"> </a></h2>
          <p>The coincidence between major lattice planes may suggest that the misorientation is a twinning misorientation. Lets analyse
             whether there are some more alignments between major lattice planes.
-         </p><pre class="codeinput">m = Miller({1,-1,0,0},{1,1,-2,0},{1,-1,0,1},{0,0,0,1},CS);
+         </p><pre class="codeinput"><span class="comment">%m = Miller({1,-1,0,0},{1,1,-2,0},{1,-1,0,1},{0,0,0,1},CS);</span>
+m = Miller({1,-1,0,0},{1,1,-2,0},{-1,0,1,1},{0,0,0,1},CS);
 
 <span class="comment">% cycle through all major lattice planes</span>
 close <span class="string">all</span>
@@ -212,16 +213,16 @@ annotate(mm,<span class="string">'labeled'</span>,<span class="string">'MarkerSi
 <span class="comment">% show legend</span>
 legend({},<span class="string">'location'</span>,<span class="string">'SouthEast'</span>,<span class="string">'FontSize'</span>,13);</pre><img src="Misorientations_02.png"> <p>we observe an almost perfect match for the lattice planes {11-20} to {-2110} and {1-101} to {-1101} and good coincidences
             for the lattice plane {1-100} to {0001} and {0001} to {0-661}. Lets compute the angles explicitly
-         </p><pre class="codeinput">angle(mori * Miller(1,1,-2,0,CS),Miller(1,1,-2,0,CS)) / degree
-angle(mori * Miller(-1,0,1,1,CS),Miller(1,0,-1,1,CS)) / degree
-angle(mori * Miller(0,0,0,1,CS) ,Miller(1,0,-1,0,CS)) / degree
+         </p><pre class="codeinput">angle(mori * Miller(1,1,-2,0,CS),Miller(2,-1,-1,0,CS)) / degree
+angle(mori * Miller(1,0,-1,-1,CS),Miller(1,-1,0,1,CS)) / degree
+angle(mori * Miller(0,0,0,1,CS) ,Miller(1,0,-1,0,CS),<span class="string">'noSymmetry'</span>) / degree
 angle(mori * Miller(1,1,-2,2,CS),Miller(1,0,-1,0,CS)) / degree
 angle(mori * Miller(1,0,-1,0,CS),Miller(1,1,-2,2,CS)) / degree</pre><pre class="codeoutput">ans =
     0.4592
 ans =
     0.1864
 ans =
-    4.2919
+   59.6768
 ans =
     2.6238
 ans =
@@ -312,7 +313,7 @@ CS_Hem = crystalSymmetry
   mineral        : Hematite         
   symmetry       : -3m1             
   a, b, c        : 5, 5, 14         
-  reference frame: X||a, Y||b*, Z||c
+  reference frame: X||a*, Y||b, Z||c
  
 </pre><p>The phase transition from Magnetite to Hematite is described in literature by {111}_m parallel {0001}_h and {-101}_m parallel
             {10-10}_h The corresponding misorientation is defined in MTEX by
@@ -322,11 +323,11 @@ CS_Hem = crystalSymmetry
 Mag2Hem = misorientation  
   size: 1 x 1
   crystal symmetry : Magnetite (m-3m)
-  crystal symmetry : Hematite (-3m1, X||a, Y||b*, Z||c)
+  crystal symmetry : Hematite (-3m1, X||a*, Y||b, Z||c)
  
   Bunge Euler angles in degree
   phi1     Phi    phi2    Inv.
-   150 54.7356      45       0
+   120 54.7356      45       0
  
  
 </pre><p>Assume a Magnetite grain with orientation</p><pre class="codeinput">ori_Mag = orientation(<span class="string">'Euler'</span>,0,0,0,CS_Mag)</pre><pre class="codeoutput"> 
@@ -343,7 +344,7 @@ ori_Mag = orientation
 </pre><p>Then we can compute all variants of the phase transition by</p><pre class="codeinput">symmetrise(ori_Mag) * inv(Mag2Hem)</pre><pre class="codeoutput"> 
 ans = orientation  
   size: 48 x 1
-  crystal symmetry : Hematite (-3m1, X||a, Y||b*, Z||c)
+  crystal symmetry : Hematite (-3m1, X||a*, Y||b, Z||c)
   specimen symmetry: 1
  
 </pre><p>and the corresponding pole figures by</p><pre class="codeinput">plotPDF(symmetrise(ori_Mag) * inv(Mag2Hem),<span class="keyword">...</span>

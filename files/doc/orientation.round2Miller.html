@@ -43,10 +43,14 @@
             <p>(method of <a href="orientation_index.html">orientation</a>)
             </p>
          </div>
-         <p>find h1,h2,d1,d2 such that ori * h1 = h2 and ori*d1=d2</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">[h1,h2,d1,d2] = round2Miller(mori)
-[h1,h2,d1,d2] = round2Miller(mori,<span class="string">'penalty'</span>,0.01)
-[h1,h2,d1,d2] = round2Miller(mori,<span class="string">'maxIndex'</span>,6)</pre><h2>Input<a name="4"> </a></h2>
+         <p>find lattice alignements for arbitrary misorientations</p>
+         <h2>Description<a name="3"> </a></h2>
+         <p>Given a misorientation mori find corresponding face normals n1, n2 and crystal directions d1, d2, i.e., such that mori * n1
+            = n2 and mori * d1 = d2.
+         </p>
+         <h2>Syntax<a name="4"> </a></h2><pre class="codeinput">[n1,n2,d1,d2] = round2Miller(mori)
+[n1,n2,d1,d2] = round2Miller(mori,<span class="string">'penalty'</span>,0.01)
+[n1,n2,d1,d2] = round2Miller(mori,<span class="string">'maxIndex'</span>,6)</pre><h2>Input<a name="5"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -60,12 +64,12 @@
             </table>
             
          </p>
-         <h2>Output<a name="5"> </a></h2>
+         <h2>Output<a name="6"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>h1,h2,d1,d2</tt>
+            <tt>n1,n2,d1,d2</tt>
             </td>
             <td>
             <p><a href="Miller_index.html">Miller</a></p>
@@ -74,8 +78,80 @@
             </table>
             
          </p>
-         <h3 class="seealso">See also</h3>
-         <p><a href=".html"></a></p>
+         <h2>Example<a name="7"> </a></h2><pre class="codeinput"><span class="comment">% revert sigma3 misorientation relationship</span>
+[n1,n2,d1,d2] = round2Miller(CSL(3,crystalSymmetry(<span class="string">'432'</span>)))</pre><pre class="codeoutput"> 
+n1 = Miller  
+ size: 1 x 1
+ symmetry: 432
+  h 1
+  k 1
+  l 1
+ 
+n2 = Miller  
+ size: 1 x 1
+ symmetry: 432
+  h 1
+  k 1
+  l 1
+ 
+d1 = Miller  
+ size: 1 x 1
+ symmetry: 432
+  u  0
+  v  1
+  w -1
+ 
+d2 = Miller  
+ size: 1 x 1
+ symmetry: 432
+  u -1
+  v  1
+  w  0
+</pre><pre class="codeinput"><span class="comment">% revert back Bain misorientation ship</span>
+cs_alpha = crystalSymmetry(<span class="string">'m-3m'</span>, [2.866 2.866 2.866], <span class="string">'mineral'</span>, <span class="string">'Ferrite'</span>);
+cs_gamma = crystalSymmetry(<span class="string">'m-3m'</span>, [3.66 3.66 3.66], <span class="string">'mineral'</span>, <span class="string">'Austenite'</span>);
+mori = orientation.Bain(cs_alpha,cs_gamma)
+[n_gamma,n_alpha,d_gamma,d_alpha] = round2Miller(mori)</pre><pre class="codeoutput"> 
+mori = misorientation  
+  size: 1 x 1
+  crystal symmetry : Austenite (m-3m)
+  crystal symmetry : Ferrite (m-3m)
+ 
+  Bunge Euler angles in degree
+  phi1  Phi phi2 Inv.
+     0   45    0    0
+ 
+ 
+ 
+n_gamma = Miller  
+ size: 1 x 1
+ mineral: Austenite (m-3m)
+  h 1
+  k 0
+  l 0
+ 
+n_alpha = Miller  
+ size: 1 x 1
+ mineral: Ferrite (m-3m)
+  h 1
+  k 0
+  l 0
+ 
+d_gamma = Miller  
+ size: 1 x 1
+ mineral: Austenite (m-3m)
+  u  0
+  v -1
+  w -1
+ 
+d_alpha = Miller  
+ size: 1 x 1
+ mineral: Ferrite (m-3m)
+  u  0
+  v  0
+  w -1
+</pre><h3 class="seealso">See also</h3>
+         <p><a href="CSL.html">CSL</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

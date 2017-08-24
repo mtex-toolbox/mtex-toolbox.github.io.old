@@ -115,7 +115,7 @@ error: 1.4060E-01
 alpha: 7.7442E+01 7.4101E+00 1.0345E+02 9.4669E+01 5.0735E+01 6.6847E+01 1.4137E+02 
  
 odf3 = ODF  
-  crystal symmetry : Quartz (321, X||a, Y||b*, Z||c)
+  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
   specimen symmetry: 1
  
   Radially symmetric portion:
@@ -132,12 +132,12 @@ odf3 = ODF
  
 center = orientation  
   size: 1 x 1
-  crystal symmetry : Quartz (321, X||a, Y||b*, Z||c)
+  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
   specimen symmetry: 1
  
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
-  135.975 35.7379 173.161       0
+  135.938 35.7181 203.179       0
  
  
 </pre><p>Lets mark this prefered orientation in the pole figures</p><pre class="codeinput">plotPDF(odf3,h,<span class="string">'antipodal'</span>,<span class="string">'superposition'</span>,c);
@@ -156,7 +156,7 @@ annotate(center,<span class="string">'marker'</span>,<span class="string">'s'</s
             a orientation close to a given orientation is computed by the command <a href="ODF.volume.html">volume</a> and the relative volume of crystals having a orientation close to a given fibre is computed by the command <a href="ODF.fibreVolume.html">fibreVolume</a></p>
          <p>The relative volume in percent of crystals with missorientation maximum 30 degree from the modal orientation:</p><pre class="codeinput">volume(odf3,calcModes(odf3),30*degree)*100</pre><pre class="codeoutput">progress: 100%
 ans =
-   59.5682
+   59.5860
 </pre><p>The relative volume of crystals with missorientation maximum 20 degree from the prefered fibre in percent: TODO</p><pre class="codeinput"><span class="comment">%fibreVolume(odf2,Miller(0,0,1),xvector,20*degree) * 100</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Fourier Coefficients<a name="16"> </a></h2>
          <p>The Fourier coefficients allow for a complete characterization of the ODF. The are of particular importance for the calculation
@@ -167,7 +167,7 @@ ans =
          </p>
          <p>transform into an odf given by Fourier coefficients</p><pre class="codeinput">fodf = FourierODF(odf3,32)</pre><pre class="codeoutput"> 
 fodf = ODF  
-  crystal symmetry : Quartz (321, X||a, Y||b*, Z||c)
+  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
   specimen symmetry: 1
  
   Harmonic portion:
@@ -176,16 +176,16 @@ fodf = ODF
  
 </pre><p>The Fourier coefficients of order 2:</p><pre class="codeinput">reshape(fodf.components{1}.f_hat(11:35),5,5)</pre><pre class="codeoutput">ans =
   Columns 1 through 4
-  -0.0000 - 0.0000i  -0.0000 + 0.0000i   0.2099 - 0.5496i   0.0000 - 0.0000i
-  -0.0000 + 0.0000i  -0.0000 - 0.0000i   2.0170 - 1.0994i   0.0000 - 0.0000i
-   0.0000 - 0.0000i  -0.0000 + 0.0000i   2.5810 + 0.0000i  -0.0000 - 0.0000i
-  -0.0000 - 0.0000i   0.0000 + 0.0000i   2.0170 + 1.0994i  -0.0000 + 0.0000i
-   0.0000 + 0.0000i   0.0000 + 0.0000i   0.2099 + 0.5496i  -0.0000 - 0.0000i
+  -0.0000 - 0.0000i  -0.0000 + 0.0000i   0.2099 - 0.5496i  -0.0000 + 0.0000i
+   0.0000 + 0.0000i  -0.0000 - 0.0000i   2.0170 - 1.0994i  -0.0000 - 0.0000i
+   0.0000 - 0.0000i   0.0000 + 0.0000i   2.5810 - 0.0000i   0.0000 - 0.0000i
+  -0.0000 - 0.0000i  -0.0000 + 0.0000i   2.0170 + 1.0994i  -0.0000 + 0.0000i
+  -0.0000 + 0.0000i  -0.0000 - 0.0000i   0.2099 + 0.5496i  -0.0000 - 0.0000i
   Column 5
-   0.0000 - 0.0000i
+  -0.0000 - 0.0000i
   -0.0000 + 0.0000i
    0.0000 + 0.0000i
-  -0.0000 - 0.0000i
+   0.0000 - 0.0000i
   -0.0000 + 0.0000i
 </pre><p>The decay of the Fourier coefficients:</p><pre class="codeinput">close <span class="string">all</span>;
 plotFourier(fodf)</pre><img src="ODFCharacteristics_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

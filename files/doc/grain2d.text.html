@@ -44,7 +44,8 @@
             </p>
          </div>
          <p>plot directions at grain centers</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">text(grains(29),<span class="string">'A'</span>)</pre><h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">text(grains(29),<span class="string">'A'</span>)</pre><pre class="codeinput"><span class="comment">% plot grains with grainId</span>
+text(grains,arrayfun(@num2str,grains.id,<span class="string">'uniformOutput'</span>,false))</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
