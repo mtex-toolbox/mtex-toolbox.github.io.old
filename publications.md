@@ -8,6 +8,15 @@ layout: main
 If you are using MTEX for your research, please cite one of the
 following paper that best fits your application.
 
+#### 2017
+
+* **On three-dimensional misorientation spaces**, Robert Krakow, Robbie
+J. Bennett, Duncan N. Johnstone, Zoja Vukmanovic, Wilberth Solano-Alvarez,
+Steven J. Laine, Joshua F. Einsle, Paul A. Midgley, Catherine M. F. Rae, Ralf
+Hielscher: [Proceedings of the Royal Society A, 473, 2017](https://doi.org/10.1098/rspa.2017.0274).
+[![PDF](./files/pic/icon_pdf_32x32.png "Download PDF
+  file")](https://www-user.tu-chemnitz.de/~rahi/paper/misori.pdf)
+
 #### 2016
 
 * **Orientations - perfectly colored**, G. Nolze, R. Hielscher:
