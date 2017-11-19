@@ -97,7 +97,7 @@ grains = grain2d
      0    1139    4052  notIndexed                                   
      1     244   14093  Forsterite       mmm                         
      2     177    1397   Enstatite       mmm                         
-     3     104     759    Diopside     12/m1        X||a*, Y||b, Z||c
+     3     104     759    Diopside     12/m1       X||a*, Y||b*, Z||c
  
  boundary segments: 10422
  triple points: 905
@@ -127,7 +127,7 @@ grains = grain2d
      0    1139    4052  notIndexed                                   
      1     245   14093  Forsterite       mmm                         
      2     177    1397   Enstatite       mmm                         
-     3     105     759    Diopside     12/m1        X||a*, Y||b, Z||c
+     3     105     759    Diopside     12/m1       X||a*, Y||b*, Z||c
  
  boundary segments: 10430
  triple points: 911
@@ -141,7 +141,7 @@ ebsd = EBSD
      0    4052 (20%)  notIndexed                                                
      1   14093 (69%)  Forsterite   light blue       mmm                         
      2   1397 (6.9%)   Enstatite  light green       mmm                         
-     3    759 (3.7%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+     3    759 (3.7%)    Diopside    light red     12/m1       X||a*, Y||b*, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -153,28 +153,28 @@ ebsd = EBSD
 ans = EBSD  
  
  Phase  Orientations   Mineral      Color  Symmetry  Crystal reference frame
-     3      5 (100%)  Diopside  light red     12/m1        X||a*, Y||b, Z||c
+     3      5 (100%)  Diopside  light red     12/m1       X||a*, Y||b*, Z||c
  
     Id   Phase   phi1   Phi   phi2   bands    bc    bs   error   mad      x      y   grainId   phi1   Phi   phi2
- 29476       3    170    80     42       7   140   255       0     1   9750   2000        33    346     0     14
- 29477       3    171    80     42       7   137   234       0     1   9800   2000        33    189     1    170
+ 29476       3    170    80     42       7   140   255       0     1   9750   2000        33     38     0    322
+ 29477       3    171    80     42       7   137   234       0     1   9800   2000        33    173     1    187
  29478       3    171    79     41       7   152   245       0   1.1   9850   2000        33    302     1     59
- 29479       3    170    81     42       7   105   153       0   0.8   9900   2000        33    122     1    239
- 30208       3    170    79     42       7   110   211       0   0.8   9750   2050        33    331     1     29
+ 29479       3    170    81     42       7   105   153       0   0.8   9900   2000        33    122     2    239
+ 30208       3    170    79     42       7   110   211       0   0.8   9750   2050        33    341     1     20
  Scan unit : um
  
 </pre><p>and is equivalent to the command</p><pre class="codeinput">ebsd(ebsd.grainId == 33)</pre><pre class="codeoutput"> 
 ans = EBSD  
  
  Phase  Orientations   Mineral      Color  Symmetry  Crystal reference frame
-     3      5 (100%)  Diopside  light red     12/m1        X||a*, Y||b, Z||c
+     3      5 (100%)  Diopside  light red     12/m1       X||a*, Y||b*, Z||c
  
     Id   Phase   phi1   Phi   phi2   bands    bc    bs   error   mad      x      y   grainId   phi1   Phi   phi2
- 29476       3    170    80     42       7   140   255       0     1   9750   2000        33    346     0     14
- 29477       3    171    80     42       7   137   234       0     1   9800   2000        33    189     1    170
+ 29476       3    170    80     42       7   140   255       0     1   9750   2000        33     38     0    322
+ 29477       3    171    80     42       7   137   234       0     1   9800   2000        33    173     1    187
  29478       3    171    79     41       7   152   245       0   1.1   9850   2000        33    302     1     59
- 29479       3    170    81     42       7   105   153       0   0.8   9900   2000        33    122     1    239
- 30208       3    170    79     42       7   110   211       0   0.8   9750   2050        33    331     1     29
+ 29479       3    170    81     42       7   105   153       0   0.8   9900   2000        33    122     2    239
+ 30208       3    170    79     42       7   110   211       0   0.8   9750   2050        33    341     1     20
  Scan unit : um
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -205,7 +205,7 @@ myGrain = grain2d
  triple points: 32
  
   Id   Phase   Pixels         GOS   phi1   Phi   phi2
- 762       1      497   0.0443014    131    64    248
+ 762       1      497   0.0400864    131    64    249
  
 </pre><img src="GrainReconstruction_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Filling notindexed holes<a name="11"> </a></h2>
@@ -251,7 +251,7 @@ grains = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1     103   14093  Forsterite       mmm                         
      2      32    1397   Enstatite       mmm                         
-     3      71     759    Diopside     12/m1        X||a*, Y||b, Z||c
+     3      71     759    Diopside     12/m1       X||a*, Y||b*, Z||c
  
  boundary segments: 3784
  triple points: 240
@@ -310,7 +310,19 @@ ebsd = EBSD
      0    610 (3.6%)  notIndexed                                                
      1   14093 (84%)  Forsterite   light blue       mmm                         
      2   1397 (8.3%)   Enstatite  light green       mmm                         
-     3    759 (4.5%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+     3    759 (4.5%)    Diopside    light red     12/m1       X||a*, Y||b*, Z||c
+ 
+ Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
+ Scan unit : um
+ 
+ 
+ebsd = EBSD  
+ 
+ Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
+     0    610 (3.6%)  notIndexed                                                
+     1   14093 (84%)  Forsterite   light blue       mmm                         
+     2   1397 (8.3%)   Enstatite  light green       mmm                         
+     3    759 (4.5%)    Diopside    light red     12/m1       X||a*, Y||b*, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -365,7 +377,7 @@ ebsdP = EBSD
      0      107 (3%)  notIndexed                                                
      1    2756 (78%)  Forsterite   light blue       mmm                         
      2     452 (13%)   Enstatite  light green       mmm                         
-     3    231 (6.5%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+     3    231 (6.5%)    Diopside    light red     12/m1       X||a*, Y||b*, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -376,7 +388,7 @@ grains = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1      26    2756  Forsterite       mmm                         
      2       8     452   Enstatite       mmm                         
-     3      22     231    Diopside     12/m1        X||a*, Y||b, Z||c
+     3      22     231    Diopside     12/m1       X||a*, Y||b*, Z||c
  
  boundary segments: 1024
  triple points: 66
@@ -400,7 +412,7 @@ grains = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1      28    2756  Forsterite       mmm                         
      2       9     452   Enstatite       mmm                         
-     3      22     231    Diopside     12/m1        X||a*, Y||b, Z||c
+     3      22     231    Diopside     12/m1       X||a*, Y||b*, Z||c
  
  boundary segments: 1252
  triple points: 61
@@ -444,7 +456,7 @@ grains = grain2d
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1      28    2756  Forsterite       mmm                         
      2       9     452   Enstatite       mmm                         
-     3      22     231    Diopside     12/m1        X||a*, Y||b, Z||c
+     3      22     231    Diopside     12/m1       X||a*, Y||b*, Z||c
  
  boundary segments: 1252
  triple points: 61
@@ -496,23 +508,23 @@ grains_FMC = grain2d
  triple points: 14
  
  Id   Phase   Pixels          GOS   phi1   Phi   phi2
-  1       1        7    0.0084358    317   128    159
-  2       1     1120     0.025113    239    74    319
-  3       1      517    0.0100267    238    75    320
-  4       1     1783    0.0220658     56   103     40
-  5       1       11   0.00744635     57   104    220
+  1       1        7   0.00851854    318   128    159
+  2       1     1120    0.0238482    239    75    320
+  3       1      517    0.0100044    238    76    320
+  4       1     1783    0.0220796     56   103     40
+  5       1       11   0.00748579     57   104    221
   6       1        2   0.00276888    237    79    322
-  7       1        7   0.00797851    343    43    249
-  8       1      989    0.0126827    236    79    322
-  9       1     1060    0.0197615    239    75    320
- 10       1       76   0.00793592    238    75    320
- 11       1     1556    0.0219625    238    77    320
- 12       1      349     0.011464    237    77    320
- 13       1      401    0.0103684    342    41    251
- 14       1      402    0.0121173    238    77    320
- 15       1      184    0.0128468    237    77    319
- 16       1      957    0.0176069    316   129     74
- 17       1      780    0.0123911    238    78    321
+  7       1        7   0.00810474    343    43    249
+  8       1      989    0.0126317    236    79    322
+  9       1     1060    0.0197436    239    75    320
+ 10       1       76   0.00792457    238    75    320
+ 11       1     1556    0.0218341    238    77    320
+ 12       1      349    0.0114275    237    77    320
+ 13       1      401    0.0103653    342    41    252
+ 14       1      402     0.012066    238    77    320
+ 15       1      184    0.0128148    237    77    319
+ 16       1      957    0.0175949    316   129     74
+ 17       1      780    0.0122539    238    78    321
  
  
 grains = grain2d  
@@ -524,7 +536,7 @@ grains = grain2d
  triple points: 0
  
  Id   Phase   Pixels         GOS   phi1   Phi   phi2
-  1       1    10201   0.0344807    237    77    320
+  1       1    10201   0.0343764    237    77    320
  
 </pre><p>We observe how this method nicely splits the measurements into clusters of similar orientation</p><pre class="codeinput"><span class="comment">%plot(ebsd,oM.orientation2color(ebsd.orientations))</span>
 plot(ebsd,oM.orientation2color(ebsd.orientations))

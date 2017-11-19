@@ -47,12 +47,8 @@
             defined by a crystal direction h of type <a href="Miller_index.html">Miller</a> and a specimen direction of type <a href="vector3d_index.html">vector3d</a>.
          </p>
          <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">cs = crystalSymmetry(<span class="string">'432'</span>)
-f = fibre.alpha(cs,<span class="string">'full'</span>) <span class="comment">% the alpha fibre</span></pre><pre class="codeinput">plotPDF(f,Miller(1,0,0,cs))</pre><p><b>Predefined fibres</b></p><pre>* fibre.alpha
-* fibre.beta
-* fibre.gamma
-* fibre.tau
-* fibre.eta
-* fibre.epsion</pre><p style="font-size:1px;"></p>
+f = fibre.alpha(cs,<span class="string">'full'</span>) <span class="comment">% the alpha fibre</span></pre><pre class="codeinput">plotPDF(f,Miller(1,0,0,cs))</pre><pre class="codeinput">f = fibre(o1,o2) <span class="comment">% the fibre from o1 to o2</span>
+f=  fibre(h,r)   <span class="comment">% the fibre mapping h to r</span></pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

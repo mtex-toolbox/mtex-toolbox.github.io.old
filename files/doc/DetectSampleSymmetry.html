@@ -135,26 +135,14 @@ progress: 100%
 progress: 100%
 progress: 100%
 ans =
-    1.6563
+    0.8195
 </pre><img src="DetectSampleSymmetry_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Sample symmetry in an ODF computed from pole figure data<a name="6"> </a></h2>
          <p>In the next example we apply the function <tt>centerSpecimen</tt> to an ODF estimated from pole figure data. Lets start by importing them
          </p><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'PoleFigure'</span>,<span class="string">'aachen_exp.EXP'</span>);
 pf = loadPoleFigure(fname);
 
-plot(pf,<span class="string">'silent'</span>)</pre><pre class="codeoutput">************************************************************
-* /home/hielscher/mtex/master/data/PoleFigure/aachen_exp.EXP
-* read mode: line
-* 153 data lines analysed
-* 471 header line(s)
-* 9 data column(s)
-* 0 string replacement(s)
-************************************************************
-Row length info:
-  17  row(s) found with 9 values                                                                  
-  136 row(s) found with less values (row no. 472  473  474  475  476  477  478  479  481  482 ...)
-  0   row(s) found with more values                                                               
-</pre><img src="DetectSampleSymmetry_04.png"> <p>In a second step we compute an ODF from the pole figure data</p><pre class="codeinput">odf = calcODF(pf,<span class="string">'silent'</span>)
+plot(pf,<span class="string">'silent'</span>)</pre><img src="DetectSampleSymmetry_04.png"> <p>In a second step we compute an ODF from the pole figure data</p><pre class="codeinput">odf = calcODF(pf,<span class="string">'silent'</span>)
 
 plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
@@ -163,13 +151,14 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 4958 orientations, resolution: 5&deg;
+    center: 4790 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><img src="DetectSampleSymmetry_05.png"> <p>Finally, we detect the orthotropic symmetry axes a1, a2, a3 by</p><pre class="codeinput">[~,~,a1,a2] = centerSpecimen(odf,yvector)
 a3 = cross(a1,a2)
 
 annotate([a1,a2,a3],<span class="string">'label'</span>,{<span class="string">'RD'</span>,<span class="string">'TD'</span>,<span class="string">'ND'</span>},<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>,<span class="string">'MarkerSize'</span>,8)</pre><pre class="codeoutput">progress: 100%
+progress: 100%
 progress: 100%
 progress: 100%
 progress: 100%

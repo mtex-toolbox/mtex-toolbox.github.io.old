@@ -45,7 +45,8 @@
          </div>
          <p>disjoint list of vectors</p>
          <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">v = unique(v) <span class="comment">% find disjoined elements of the vector v</span>
-[v,m,n] = unique(v,varargin)] <span class="comment">%</span></pre><h2>Input<a name="4"> </a></h2>
+v = unique(v,<span class="string">'tolerance'</span>,0.01) <span class="comment">% use tolerance 0.01</span>
+[v,m,n] = unique(v,varargin)]</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>

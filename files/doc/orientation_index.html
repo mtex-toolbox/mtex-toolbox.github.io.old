@@ -198,7 +198,7 @@ axis(o1)</pre><pre class="codeoutput">ans =
  
 ans = Miller  
  size: 1 x 1
- symmetry: 1, X||a, Y||b, Z||c
+ symmetry: 1, X||a, Y||b*, Z||c*
   h -1
   k  0
   l  0
@@ -252,7 +252,8 @@ oR = orientationRegion
             width="200px"><a href="orientation.bingham_test.html"><tt>bingham_test</tt></a></td><td>bingham test for spherical/prolat/oblat
             case</td></tr><tr><td width="200px"><a href="orientation.calcAngleDistribution.html"><tt>calcAngleDistribution</tt></a></td><td>calculate
             angle distribution</td></tr><tr><td width="200px"><a href="orientation.calcBinghamODF.html"><tt>calcBinghamODF</tt></a></td><td>calculate
-            ODF from individuel orientations via kernel density estimation</td></tr><tr><td width="200px"><a href="orientation.calcFourierODF.html"><tt>calcFourierODF</tt></a></td><td>calculate
+            ODF from individuel orientations via kernel density estimation</td></tr><tr><td width="200px"><a href="orientation.calcCluster.html"><tt>calcCluster</tt></a></td><td>sort
+            orientations into clusters</td></tr><tr><td width="200px"><a href="orientation.calcFourierODF.html"><tt>calcFourierODF</tt></a></td><td>calculate
             ODF from individuel orientations via kernel density estimation</td></tr><tr><td width="200px"><a href="orientation.calcInvTaylor.html"><tt>calcInvTaylor</tt></a></td><td>Taylor
             factor from orientation gradient</td></tr><tr><td width="200px"><a href="orientation.calcKernel.html"><tt>calcKernel</tt></a></td><td>compute
             an optimal kernel function for ODF estimation</td></tr><tr><td width="200px"><a href="orientation.calcKernelODF.html"><tt>calcKernelODF</tt></a></td><td>calculate
@@ -260,13 +261,14 @@ oR = orientationRegion
             an MDF from individuel orientations or misorientations</td></tr><tr><td width="200px"><a href="orientation.calcMIndex.html"><tt>calcMIndex</tt></a></td><td>TODO!!!</td></tr><tr><td
             width="200px"><a href="orientation.calcODF.html"><tt>calcODF</tt></a></td><td>computes an ODF from individuel orientations</td></tr><tr><td
             width="200px"><a href="orientation.calcTensor.html"><tt>calcTensor</tt></a></td><td>compute the average tensor for a vector
-            of orientations</td></tr><tr><td width="200px"><a href="orientation.cluster.html"><tt>cluster</tt></a></td><td>sort orientations
-            into clusters</td></tr><tr><td width="200px"><a href="orientation.crossCorrelation.html"><tt>crossCorrelation</tt></a></td><td>computes
+            of orientations</td></tr><tr><td width="200px"><a href="orientation.crossCorrelation.html"><tt>crossCorrelation</tt></a></td><td>computes
             the cross correlation for the kernel density estimator</td></tr><tr><td width="200px"><a href="orientation.ctranspose.html"><tt>ctranspose</tt></a></td><td>inverse
             orientation</td></tr><tr><td width="200px"><a href="orientation.display.html"><tt>display</tt></a></td><td>standart output</td></tr><tr><td
+            width="200px"><a href="orientation.doHClustering.html"><tt>doHClustering</tt></a></td><td>sort orientations into clusters</td></tr><tr><td
             width="200px"><a href="orientation.dot.html"><tt>dot</tt></a></td><td>compute minimum dot(o1,o2) modulo symmetry</td></tr><tr><td
-            width="200px"><a href="orientation.dot_outer.html"><tt>dot_outer</tt></a></td><td/></tr><tr><td width="200px"><a href="orientation.export_VPSC.html"><tt>export_VPSC</tt></a></td><td>export
-            individual orientations to the VPSC format</td></tr><tr><td width="200px"><a href="orientation.fibreVolume.html"><tt>fibreVolume</tt></a></td><td>ratio
+            width="200px"><a href="orientation.dot_outer.html"><tt>dot_outer</tt></a></td><td/></tr><tr><td width="200px"><a href="orientation.exp.html"><tt>exp</tt></a></td><td>onential
+            function</td></tr><tr><td width="200px"><a href="orientation.export_VPSC.html"><tt>export_VPSC</tt></a></td><td>export individual
+            orientations to the VPSC format</td></tr><tr><td width="200px"><a href="orientation.fibreVolume.html"><tt>fibreVolume</tt></a></td><td>ratio
             of orientations close to a certain fibre</td></tr><tr><td width="200px"><a href="orientation.getFundamentalRegion.html"><tt>getFundamentalRegion</tt></a></td><td>projects
             orientations to a fundamental region</td></tr><tr><td width="200px"><a href="orientation.isMisorientation.html"><tt>isMisorientation</tt></a></td><td>check
             whether o is a misorientation</td></tr><tr><td width="200px"><a href="orientation.ldivide.html"><tt>ldivide</tt></a></td><td>o
@@ -276,7 +278,8 @@ oR = orientationRegion
             \ v </td></tr><tr><td width="200px"><a href="orientation.mtimes.html"><tt>mtimes</tt></a></td><td>orientation times Miller
             and orientation times orientation</td></tr><tr><td width="200px"><a href="orientation.niceEuler.html"><tt>niceEuler</tt></a></td><td>orientation
             to euler angle</td></tr><tr><td width="200px"><a href="orientation.orientation.html"><tt>orientation</tt></a></td><td>class
-            representing orientations</td></tr><tr><td width="200px"><a href="orientation.plot.html"><tt>plot</tt></a></td><td>annotate
+            representing orientations</td></tr><tr><td width="200px"><a href="orientation.parents.html"><tt>parents</tt></a></td><td>variants
+            of an orientation relationship</td></tr><tr><td width="200px"><a href="orientation.plot.html"><tt>plot</tt></a></td><td>annotate
             a orientation to an existing plot</td></tr><tr><td width="200px"><a href="orientation.plotIPDF.html"><tt>plotIPDF</tt></a></td><td>plot
             orientations into inverse pole figures</td></tr><tr><td width="200px"><a href="orientation.plotPDF.html"><tt>plotPDF</tt></a></td><td>plot
             orientations into pole figures</td></tr><tr><td width="200px"><a href="orientation.plotSection.html"><tt>plotSection</tt></a></td><td>plot
@@ -291,8 +294,9 @@ oR = orientationRegion
             crystallographically equivalent orientations</td></tr><tr><td width="200px"><a href="orientation.times.html"><tt>times</tt></a></td><td>vec
             = ori .* Miller</td></tr><tr><td width="200px"><a href="orientation.transformReferenceFrame.html"><tt>transformReferenceFrame</tt></a></td><td>change
             reference frame of an orientation</td></tr><tr><td width="200px"><a href="orientation.unique.html"><tt>unique</tt></a></td><td>disjoint
-            list of quaternions</td></tr><tr><td width="200px"><a href="orientation.volume.html"><tt>volume</tt></a></td><td>ratio of
-            orientations with a certain orientation</td></tr></table>
+            list of quaternions</td></tr><tr><td width="200px"><a href="orientation.variants.html"><tt>variants</tt></a></td><td>of an
+            orientation relationship</td></tr><tr><td width="200px"><a href="orientation.volume.html"><tt>volume</tt></a></td><td>ratio
+            of orientations with a certain orientation</td></tr></table>
          </p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

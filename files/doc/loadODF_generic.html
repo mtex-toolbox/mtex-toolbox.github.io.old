@@ -138,17 +138,18 @@ alpha_M beta_M gamma_M weight_m</pre><p>The assoziation of the columns as Euler 
 odf = loadODF_generic(fname,<span class="string">'cs'</span>,crystalSymmetry(<span class="string">'cubic'</span>),<span class="string">'header'</span>,5,<span class="keyword">...</span>
 <span class="string">'ColumnNames'</span>,{<span class="string">'Euler 1'</span> <span class="string">'Euler 2'</span> <span class="string">'Euler 3'</span> <span class="string">'weight'</span>},<span class="keyword">...</span>
 <span class="string">'Columns'</span>,[1,2,3,4])</pre><pre class="codeoutput">  Interpolating the ODF. This might take some time...
-   maximum error during interpolating ODF: 0.1
-   mean error during interpolating ODF   : 0.0051
  
 odf = ODF  
   crystal symmetry : m-3m
   specimen symmetry: 1
  
+  Uniform portion:
+    weight: 0.51746
+ 
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 3&deg;
-    center: 22892 orientations, resolution: 3&deg;
-    weight: 1
+    center: 22875 orientations, resolution: 3&deg;
+    weight: 0.48254
  
 </pre><h3 class="seealso">See also</h3>
          <p><a href="import_wizard.html">import_wizard</a>, <a href="loadODF.html">loadODF</a>, <a href="ODF_demo.html">ODF_demo</a></p>

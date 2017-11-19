@@ -121,7 +121,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29772 orientations, resolution: 5&deg;
+    center: 29770 orientations, resolution: 5&deg;
     weight: 1
  
 progress: 100%
@@ -143,7 +143,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29772 orientations, resolution: 5&deg;
+    center: 29768 orientations, resolution: 5&deg;
     weight: 1
  
 progress: 100%
@@ -162,7 +162,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29772 orientations, resolution: 5&deg;
+    center: 29768 orientations, resolution: 5&deg;
     weight: 1
  
 progress: 100%
@@ -237,7 +237,7 @@ odf1 = 2/3 * uniformODF(cs) + 1/3 * unimodalODF(orientation.id(cs),<span class="
 
 plotPDF(odf1,Miller({1,0,0},{0,1,0},{0,0,1},cs),<span class="string">'antipodal'</span>)</pre><pre class="codeoutput"> 
 odf1 = ODF  
-  crystal symmetry : -1, X||a, Y||b, Z||c
+  crystal symmetry : -1, X||a, Y||b*, Z||c*
   specimen symmetry: 1
  
   Uniform portion:
@@ -254,7 +254,7 @@ odf1 = ODF
 
 plotPDF(odf1,Miller({1,0,0},{0,1,0},{0,0,1},cs))</pre><pre class="codeoutput"> 
 odf1 = ODF  
-  crystal symmetry : -1, X||a, Y||b, Z||c
+  crystal symmetry : -1, X||a, Y||b*, Z||c*
   specimen symmetry: 1
  
   Harmonic portion:
@@ -276,7 +276,7 @@ plotFourier(odf2,<span class="string">'linewidth'</span>,2)
 hold <span class="string">off</span>
 legend(<span class="string">'odf1'</span>,<span class="string">'odf2'</span>)</pre><pre class="codeoutput"> 
 odf2 = ODF  
-  crystal symmetry : -1, X||a, Y||b, Z||c
+  crystal symmetry : -1, X||a, Y||b*, Z||c*
   specimen symmetry: 1
  
   Harmonic portion:
@@ -318,7 +318,7 @@ plot(pf)</pre><img src="PF2ODFAmbiguity_19.png"> <p>When reconstruction an ODF f
             called automatic ghost correction
          </p><pre class="codeinput">odf_rec1 = calcODF(pf,<span class="string">'silent'</span>)</pre><pre class="codeoutput"> 
 odf_rec1 = ODF  
-  crystal symmetry : 1, X||a, Y||b, Z||c
+  crystal symmetry : 1, X||a, Y||b*, Z||c*
   specimen symmetry: 1
  
   Uniform portion:
@@ -326,12 +326,12 @@ odf_rec1 = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 119088 orientations, resolution: 5&deg;
+    center: 118901 orientations, resolution: 5&deg;
     weight: 0.20021
  
 </pre><p>This method can be switched off by the following command</p><pre class="codeinput">odf_rec2 = calcODF(pf,<span class="string">'noGhostCorrection'</span>,<span class="string">'silent'</span>)</pre><pre class="codeoutput"> 
 odf_rec2 = ODF  
-  crystal symmetry : 1, X||a, Y||b, Z||c
+  crystal symmetry : 1, X||a, Y||b*, Z||c*
   specimen symmetry: 1
  
   Radially symmetric portion:
@@ -380,7 +380,7 @@ rec = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 1232 orientations, resolution: 5&deg;
+    center: 1222 orientations, resolution: 5&deg;
     weight: 0.27027
  
  
@@ -390,7 +390,7 @@ rec2 = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 1232 orientations, resolution: 5&deg;
+    center: 1231 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><p>For both reconstruction recalculated pole figures look the same as the initial pole figures</p><pre class="codeinput">figure(1)

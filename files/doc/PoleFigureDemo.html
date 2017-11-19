@@ -80,7 +80,7 @@ ans =
 
 plot(pf_modified)</pre><pre class="codeoutput"> 
 pf_modified = PoleFigure  
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
   h = (10-10), r = 1 x 1224 points
@@ -91,7 +91,7 @@ pf_modified = rotate(pf,rot)
 
 plot(pf_modified)</pre><pre class="codeoutput"> 
 pf_modified = PoleFigure  
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
   h = (10-10), r = 72 x 19 points
@@ -108,12 +108,12 @@ error: 1.5645E-01
 alpha: 6.8114E+00 1.0320E+02 1.4255E+02 
  
 rec = ODF  
-  crystal symmetry : 321, X||a*, Y||b, Z||c
+  crystal symmetry : 321, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: 2472 orientations, resolution: 10&deg;
+    center: 2426 orientations, resolution: 10&deg;
     weight: 1
  
 </pre><img src="PoleFigureDemo_04.png"> <pre class="codeinput">odf = SantaFe
@@ -129,7 +129,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: (296.56505&deg;,48.18969&deg;,26.56505&deg;)
+    center: (297&deg;,48&deg;,27&deg;)
     weight: 0.27
  
  
@@ -159,7 +159,7 @@ rec = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: 150 orientations, resolution: 10&deg;
+    center: 98 orientations, resolution: 10&deg;
     weight: 0.27046
  
 </pre><img src="PoleFigureDemo_05.png"> <p>without ghost correction</p><pre class="codeinput">rec_ng = calcODF(pf_SantaFe,<span class="string">'RESOLUTION'</span>,10*degree,<span class="string">'background'</span>,10,<span class="string">'NoGhostCorrection'</span>)
@@ -177,7 +177,7 @@ rec_ng = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: 150 orientations, resolution: 10&deg;
+    center: 148 orientations, resolution: 10&deg;
     weight: 1
  
 </pre><img src="PoleFigureDemo_06.png"> <h2>Error Analysis<a name="14"> </a></h2><pre class="codeinput">calcError(pf_SantaFe,rec)

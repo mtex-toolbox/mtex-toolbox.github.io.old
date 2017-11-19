@@ -128,7 +128,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: van Mises Fisher, halfwidth 10&deg;
-    center: (296.56505&deg;,48.18969&deg;,26.56505&deg;)
+    center: (297&deg;,48&deg;,27&deg;)
     weight: 1
  
 </pre><img src="ModelODFs_01.png"> <p>For simplicity one can also omit the kernel function. In this case the default de la Vallee Poussin kernel is chosen with
@@ -178,7 +178,7 @@ odf = FourierODF(C,cs)
 plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)
 mtexColorMap <span class="string">LaboTeX</span></pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : 1, X||a, Y||b, Z||c
+  crystal symmetry : 1, X||a, Y||b*, Z||c*
   specimen symmetry: 1
  
   Harmonic portion:
@@ -212,7 +212,7 @@ odf = BinghamODF(20,mod,cs)
 
 plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'contourf'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
   Bingham portion:
@@ -223,7 +223,7 @@ odf = ODF
 
 plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
   Bingham portion:
@@ -234,7 +234,7 @@ odf = ODF
 
 plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>);</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
   Bingham portion:
@@ -262,7 +262,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: van Mises Fisher, halfwidth 10&deg;
-    center: (296.56505&deg;,48.18969&deg;,26.56505&deg;)
+    center: (297&deg;,48&deg;,27&deg;)
     weight: 0.27
  
 </pre><img src="ModelODFs_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

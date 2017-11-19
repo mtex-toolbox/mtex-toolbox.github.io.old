@@ -275,7 +275,20 @@ xlabel(AVpS,titleOpt{:})
 hold <span class="string">on</span>
 plot(Vp_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(Vp_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><pre class="codeoutput">ans = 
+  Text (\bf{Vp (km/s)}) with properties:
+
+                 String: '\bf{Vp (km/s)}'
+               FontSize: 13
+             FontWeight: 'bold'
+               FontName: 'Helvetica'
+                  Color: [0 0 0]
+    HorizontalAlignment: 'center'
+               Position: [2.5834e-06 1.5010 -1.4211e-14]
+                  Units: 'data'
+
+  Use GET to show all properties
+</pre><img src="SeismicsMultiplot_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>AVS : Plot S-wave anisotropy percentage for each propagation direction<a name="8"> </a></h2>
          <p>defined as AVs = 200*(Vs1-Vs2)/(Vs1+Vs2)</p><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
@@ -298,7 +311,20 @@ text([xvector,yvector,zvector],{<span class="string">'[100] '</span>,<span class
 hold <span class="string">on</span>
 plot(AVs_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(AVs_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><pre class="codeoutput">ans = 
+  Text (\bf{S-wave anisotropy (\%)}) with properties:
+
+                 String: '\bf{S-wave anisotropy (\%)}'
+               FontSize: 13
+             FontWeight: 'bold'
+               FontName: 'Helvetica'
+                  Color: [0 0 0]
+    HorizontalAlignment: 'center'
+               Position: [1.8816e-06 1.5174 0]
+                  Units: 'data'
+
+  Use GET to show all properties
+</pre><img src="SeismicsMultiplot_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>S1 Polarization: Plot fastest S-wave (Vs1) polarization directions<a name="9"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
@@ -309,7 +335,20 @@ mtexTitle(<span class="string">'Vs1 polarization'</span>,titleOpt{:})
 hold <span class="string">on</span>
 plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</span>,<span class="string">'ps1'</span>,<span class="keyword">...</span>
 <span class="string">'complete'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'color'</span>,<span class="string">'black'</span>,<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><pre class="codeoutput">ans = 
+  Text (\bf{Vs1 polarization}) with properties:
+
+                 String: '\bf{Vs1 polarization}'
+               FontSize: 13
+             FontWeight: 'bold'
+               FontName: 'Helvetica'
+                  Color: [0 0 0]
+    HorizontalAlignment: 'center'
+               Position: [3.3194e-06 1.5089 -1.4211e-14]
+                  Units: 'data'
+
+  Use GET to show all properties
+</pre><img src="SeismicsMultiplot_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Vs1 : Plot Vs1 velocities (km/s)<a name="10"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
@@ -328,7 +367,20 @@ plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</s
 hold <span class="string">on</span>
 plot(Vs1_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(Vs1_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><pre class="codeoutput">ans = 
+  Text (\bf{Vs1 (km/s)}) with properties:
+
+                 String: '\bf{Vs1 (km/s)}'
+               FontSize: 13
+             FontWeight: 'bold'
+               FontName: 'Helvetica'
+                  Color: [0 0 0]
+    HorizontalAlignment: 'center'
+               Position: [3.3194e-06 1.5089 -1.4211e-14]
+                  Units: 'data'
+
+  Use GET to show all properties
+</pre><img src="SeismicsMultiplot_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Vs2 : Plot Vs2 velocities (km/s)<a name="11"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
@@ -347,7 +399,20 @@ plot(C,<span class="string">'PlotType'</span>,<span class="string">'velocity'</s
 hold <span class="string">on</span>
 plot(Vs2_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(Vs2_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><pre class="codeoutput">ans = 
+  Text (\bf{Vs2 (km/s)}) with properties:
+
+                 String: '\bf{Vs2 (km/s)}'
+               FontSize: 13
+             FontWeight: 'bold'
+               FontName: 'Helvetica'
+                  Color: [0 0 0]
+    HorizontalAlignment: 'center'
+               Position: [6.8959e-06 1.5089 -1.4211e-14]
+                  Units: 'data'
+
+  Use GET to show all properties
+</pre><img src="SeismicsMultiplot_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>dVs : Plot Velocity difference Vs1-Vs2 (km/s) plus Vs1 polarizations<a name="12"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
@@ -362,7 +427,20 @@ xlabel(AdVsS,titleOpt{:})
 hold <span class="string">on</span>
 plot(dVs_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(dVs_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><pre class="codeoutput">ans = 
+  Text (\bf{dVs=Vs1-Vs2 (km/s)}) with properties:
+
+                 String: '\bf{dVs=Vs1-Vs2 (km/s)}'
+               FontSize: 13
+             FontWeight: 'bold'
+               FontName: 'Helvetica'
+                  Color: [0 0 0]
+    HorizontalAlignment: 'center'
+               Position: [7.3898e-06 1.5080 0]
+                  Units: 'data'
+
+  Use GET to show all properties
+</pre><img src="SeismicsMultiplot_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Vp/Vs1 : Plot Vp/Vs1 ratio (no units)<a name="13"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
@@ -377,7 +455,20 @@ xlabel(AVpVs1S,titleOpt{:})
 hold <span class="string">on</span>
 plot(VpVs1_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(VpVs1_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><pre class="codeoutput">ans = 
+  Text (\bf{Vp/Vs1}) with properties:
+
+                 String: '\bf{Vp/Vs1}'
+               FontSize: 13
+             FontWeight: 'bold'
+               FontName: 'Helvetica'
+                  Color: [0 0 0]
+    HorizontalAlignment: 'center'
+               Position: [8.4878e-06 1.5116 0]
+                  Units: 'data'
+
+  Use GET to show all properties
+</pre><img src="SeismicsMultiplot_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Vp/Vs2 : Plot Vp/Vs2 ratio (no units)<a name="14"> </a></h2><pre class="codeinput"><span class="comment">% create a new axis</span>
 mtexFig.nextAxis
 
@@ -392,7 +483,20 @@ xlabel(AVpVs2S,titleOpt{:})
 hold <span class="string">on</span>
 plot(VpVs2_max_vector,blackMarker{:},<span class="string">'parent'</span>,mtexFig.gca,<span class="string">'doNotDraw'</span>)
 plot(VpVs2_min_vector,whiteMarker{:},<span class="string">'parent'</span>,mtexFig.gca)
-hold <span class="string">off</span></pre><img src="SeismicsMultiplot_09.png"> <pre class="codeinput"><span class="comment">% add colorbars to all plots</span>
+hold <span class="string">off</span></pre><pre class="codeoutput">ans = 
+  Text (\bf{Vp/Vs2}) with properties:
+
+                 String: '\bf{Vp/Vs2}'
+               FontSize: 13
+             FontWeight: 'bold'
+               FontName: 'Helvetica'
+                  Color: [0 0 0]
+    HorizontalAlignment: 'center'
+               Position: [2.9359e-06 1.4920 -1.4211e-14]
+                  Units: 'data'
+
+  Use GET to show all properties
+</pre><img src="SeismicsMultiplot_09.png"> <pre class="codeinput"><span class="comment">% add colorbars to all plots</span>
 mtexColorbar
 drawNow(gcm,<span class="string">'figSize'</span>,<span class="string">'large'</span>)
 

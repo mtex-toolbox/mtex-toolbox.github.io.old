@@ -62,11 +62,11 @@ fname = fullfile(mtexDataPath,<span class="string">'tensor'</span>, <span class=
 
 P = loadTensor(fname,CS,<span class="string">'propertyname'</span>,<span class="string">'piecoelectricity'</span>,<span class="string">'unit'</span>,<span class="string">'C/N'</span>,<span class="string">'interface'</span>,<span class="string">'P'</span>,<span class="string">'DoubleConvention'</span>)</pre><pre class="codeoutput"> 
 P = tensor  
-  propertyname    : piecoelectricity               
-  unit            : C/N                            
-  rank            : 3 (3 x 3 x 3)                  
-  doubleConvention: true                           
-  mineral         : Quartz (321, X||a*, Y||b, Z||c)
+  propertyname    : piecoelectricity                
+  unit            : C/N                             
+  rank            : 3 (3 x 3 x 3)                   
+  doubleConvention: true                            
+  mineral         : Quartz (321, X||a*, Y||b, Z||c*)
  
   tensor in compact matrix form:
      0     0     0 -0.67     0   4.6
@@ -99,7 +99,7 @@ ori = loadOrientation(fname,CS,<span class="string">'interface'</span>,<span cla
   , <span class="string">'ColumnNames'</span>, { <span class="string">'Euler 1'</span> <span class="string">'Euler 2'</span> <span class="string">'Euler 3'</span>}, <span class="string">'Bunge'</span>, <span class="string">'active rotation'</span>)</pre><pre class="codeoutput"> 
 ori = orientation  
   size: 382 x 1
-  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
+  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c*)
   specimen symmetry: 1
  
 </pre><p>The figure on p.1184 of the publication</p><pre class="codeinput">Pm = ori.calcTensor(P)

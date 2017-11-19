@@ -44,7 +44,9 @@
             </p>
          </div>
          <p>mean of a list of quaternions, principle axes and moments of inertia</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">[m, lambda, V] = mean(q,varargin)</pre><h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">[m, lambda, V] = mean(q)
+[m, lambda, V] = mean(q,<span class="string">'robust'</span>)
+[m, lambda, V] = mean(q,<span class="string">'weights'</span>,weights)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -57,22 +59,10 @@
             </tr>
             <tr>
             <td width="100px">
-            <tt>param,val</tt>
-            </td>
-            <td>Parameters and values that control mean<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
-            <tr>
-            <td class="header" width="100px">Parameter</td>
-            <td class="header">Description</td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'weights'</tt>
+            <tt>weights</tt>
             </td>
             <td>
             <p>list of weights</p>
-            </td>
-            </tr>
-            </table>
             </td>
             </tr>
             </table>

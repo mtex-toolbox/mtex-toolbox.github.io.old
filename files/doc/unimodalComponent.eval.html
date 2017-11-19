@@ -43,44 +43,27 @@
             <p>(method of <a href="unimodalComponent_index.html">unimodalComponent</a>)
             </p>
          </div>
-         <p>evaluate an odf at orientation g</p>
-         <p>sum up kernels modulo symmetries</p>
+         <p>evaluate sum of unimodal components at orientation g</p>
          <h2>Description<a name="3"> </a></h2>
          <p>general formula:</p>
          <p><img src="unimodalComponent.eval_eq10147853025512602563.png"> </p>
-         <h2>Syntax<a name="4"> </a></h2><pre class="codeinput">w = sum_K(kk,g1,g2,CS,SS,c,<options>)</pre><h2>Input<a name="5"> </a></h2>
+         <h2>Syntax<a name="4"> </a></h2><pre class="codeinput">w = eval(component,g)</pre><h2>Input<a name="5"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>kk</tt>
+            <tt>component</tt>
             </td>
             <td>
-            <p><a href="kernel_index.html">kernel</a></p>
+            <p><a href="unimodalComponent_index.html">unimodalComponent</a></p>
             </td>
             </tr>
             <tr>
             <td width="100px">
-            <tt>g1, g2</tt>
+            <tt>g</tt>
             </td>
             <td>
-            <p><a href="quaternion_index.html">quaternion</a>(s)</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="100px">
-            <tt>CS, SS</tt>
-            </td>
-            <td>
-            <p>crystal , specimen <a href="symmetry_index.html">symmetry</a></p>
-            </td>
-            </tr>
-            <tr>
-            <td width="100px">
-            <tt>c</tt>
-            </td>
-            <td>
-            <p>double</p>
+            <p><a href="orientation_index.html">orientation</a></p>
             </td>
             </tr>
             <tr>
@@ -94,7 +77,7 @@
             </tr>
             <tr>
             <td width="150px">
-            <tt>'EXACT'</tt>
+            <tt>'exact'</tt>
             </td>
             </tr>
             <tr>

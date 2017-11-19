@@ -72,29 +72,38 @@ mtexdata <span class="string">forsterite</span>
 plotx2east
 
 ebsd = ebsd(<span class="string">'indexed'</span>);
-[grains,ebsd.grainId] = calcGrains(ebsd)</pre><pre class="codeoutput"> 
-grains = grain2d  
- 
- Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
-     1    1080  152345  Forsterite       mmm                         
-     2     515   26058   Enstatite       mmm                         
-     3    1496    9064    Diopside     12/m1        X||a*, Y||b, Z||c
- 
- boundary segments: 43912
- triple points: 3417
- 
- Properties: GOS, meanRotation
- 
- 
+[grains,ebsd.grainId] = calcGrains(ebsd);
+
+<span class="comment">% remove very small grains</span>
+ebsd(grains(grains.grainSize&lt;=5)) = [];
+
+<span class="comment">% and recompute grains</span>
+[grains,ebsd.grainId] = calcGrains(ebsd);
+
+<span class="comment">% smooth the grains a bit</span>
+grains =smooth(grains,4)</pre><pre class="codeoutput"> 
 ebsd = EBSD  
  
  Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
-     1  152345 (81%)  Forsterite   light blue       mmm                         
-     2   26058 (14%)   Enstatite  light green       mmm                         
-     3   9064 (4.8%)    Diopside    light red     12/m1        X||a*, Y||b, Z||c
+     1  151466 (82%)  Forsterite   light blue       mmm                         
+     2   25635 (14%)   Enstatite  light green       mmm                         
+     3     7306 (4%)    Diopside    light red     12/m1       X||a*, Y||b*, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y, grainId
  Scan unit : um
+ 
+ 
+grains = grain2d  
+ 
+ Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
+     1     426  151466  Forsterite       mmm                         
+     2     200   25635   Enstatite       mmm                         
+     3     142    7306    Diopside     12/m1       X||a*, Y||b*, Z||c
+ 
+ boundary segments: 33636
+ triple points: 1347
+ 
+ Properties: GOS, meanRotation
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The grain boundary<a name="4"> </a></h2>
@@ -104,31 +113,31 @@ plot(gB)</pre><pre class="codeoutput">
 gB = grainBoundary  
  
  Segments   mineral 1   mineral 2
-     1363  notIndexed  Forsterite
-      205  notIndexed   Enstatite
-       68  notIndexed    Diopside
-    15974  Forsterite  Forsterite
-    11814  Forsterite   Enstatite
-     8185  Forsterite    Diopside
-      663   Enstatite   Enstatite
-     4235   Enstatite    Diopside
-     1405    Diopside    Diopside
-</pre><img src="BoundaryPlots_01.png"> <p>Accordingly, we can access the grain boundary of a specific grain by</p><pre class="codeinput">grains(931).boundary
+     1355  notIndexed  Forsterite
+      198  notIndexed   Enstatite
+       36  notIndexed    Diopside
+    13890  Forsterite  Forsterite
+    10857  Forsterite   Enstatite
+     5167  Forsterite    Diopside
+      598   Enstatite   Enstatite
+     1259   Enstatite    Diopside
+      276    Diopside    Diopside
+</pre><img src="BoundaryPlots_01.png"> <p>Accordingly, we can access the grain boundary of a specific grain by</p><pre class="codeinput">grains(267).boundary
 
-plot(grains(931).boundary)</pre><pre class="codeoutput"> 
+plot(grains(267).boundary)</pre><pre class="codeoutput"> 
 ans = grainBoundary  
  
  Segments   mineral 1   mineral 2
-      330  Forsterite  Forsterite
-      147  Forsterite   Enstatite
-      237  Forsterite    Diopside
+      304  Forsterite  Forsterite
+      126  Forsterite   Enstatite
+       97  Forsterite    Diopside
 </pre><img src="BoundaryPlots_02.png"> <p>let's combine it with the orientation measurements inside</p><pre class="codeinput"><span class="comment">% define the colorcoding such that the meanorientation becomes white</span>
-oM = ipdfHSVOrientationMapping(grains(931));
-oM.inversePoleFigureDirection = grains(931).meanOrientation * oM.whiteCenter;
+oM = ipdfHSVOrientationMapping(grains(267));
+oM.inversePoleFigureDirection = grains(267).meanOrientation * oM.whiteCenter;
 oM.maxAngle = 5*degree;
 
-<span class="comment">% get the ebsd data of grain 931</span>
-ebsd_931 = ebsd(grains(931));
+<span class="comment">% get the ebsd data of grain 267</span>
+ebsd_931 = ebsd(grains(267));
 
 <span class="comment">% plot the orientation data</span>
 hold <span class="string">on</span>
@@ -166,23 +175,23 @@ plot(grains,<span class="string">'translucent'</span>,.3,<span class="string">'m
 legend <span class="string">off</span>
 hold <span class="string">on</span>
 
+<span class="comment">% this reorders the boundary segement a a connected graph which results in</span>
+<span class="comment">% a smoother plot</span>
 gB_Fo = gB_Fo.reorder;
 
 oM = patalaOrientationMapping(gB_Fo);
 
-plotOrdered(gB_Fo,<span class="string">'linewidth'</span>,4)
+plot(gB_Fo,<span class="string">'linewidth'</span>,4)
 <span class="comment">% on my computer setting the renderer to painters gives a much more</span>
 <span class="comment">% pleasent result</span>
 set(gcf,<span class="string">'Renderer'</span>,<span class="string">'painters'</span>)
 hold <span class="string">on</span>
 
-plotOrdered(gB_Fo,oM.orientation2color(gB_Fo.misorientation),<span class="string">'linewidth'</span>,2)
+plot(gB_Fo,oM.orientation2color(gB_Fo.misorientation),<span class="string">'linewidth'</span>,2)
 
 hold <span class="string">off</span></pre><img src="BoundaryPlots_07.png"> <p>Lets visualize the color key as axis angle sections through the misorientation space</p><pre class="codeinput">plot(oM)</pre><img src="BoundaryPlots_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Classifying special boundaries<a name="13"> </a></h3>
-         <p>Actually, it might be more informative, if we classify the grain boundaries after some special property. This is done by the
-            command <a href="GrainSet.specialBoundary.html">specialBoundary</a>, which will be invoked by the plotting routine.
-         </p>
+         <p>Actually, it might be more informative, if we classify the grain boundaries after some special property.</p>
          <p>We can mark grain boundaries after its misorientation angle is in a certain range</p><pre class="codeinput">close <span class="string">all</span>
 
 mAngle = gB_Fo.misorientation.angle./ degree;</pre><pre class="codeinput">hist(mAngle)
@@ -213,7 +222,8 @@ plot(gB)
 hold <span class="string">on</span>
 plot(gB_Fo(ind),<span class="string">'lineWidth'</span>,1.5,<span class="string">'lineColor'</span>,<span class="string">'r'</span>)
 
-legend(<span class="string">'&gt;2^\circ'</span>,<span class="string">'60^\circ/[001]'</span>)</pre><pre class="codeoutput">Warning: Ignoring extra legend entries. 
+legend(<span class="string">'&gt;2^\circ'</span>,<span class="string">'60^\circ/[001]'</span>)</pre><pre class="codeoutput">Warning: Ignoring extra legend
+entries. 
 </pre><img src="BoundaryPlots_12.png"> <p>Another kind of special boundaries is tilt and twist boundaries. We can find a tilt boundary by specifying the crystal form,
             which is tilted, i.e. the misorientation maps a lattice plane <img src="BoundaryPlots_eq08062630503172331818.png">   of on grain onto the others grain lattice plane.
          </p>

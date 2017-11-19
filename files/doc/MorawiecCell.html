@@ -83,10 +83,10 @@ oR_all = fundamentalRegion(cs);
 plot(oR_all)</pre><pre class="codeoutput"> 
 cs = crystalSymmetry  
  
-  symmetry          : -1              
-  a, b, c           : 1, 1, 1         
-  alpha, beta, gamma: 90&deg;, 90&deg;, 90&deg;   
-  reference frame   : X||a, Y||b, Z||c
+  symmetry          : -1                
+  a, b, c           : 1, 1, 1           
+  alpha, beta, gamma: 90&deg;, 90&deg;, 90&deg;     
+  reference frame   : X||a, Y||b*, Z||c*
  
 </pre><img src="MorawiecCell_01.png"> <p>Next we plot some orientations into this space</p><pre class="codeinput"><span class="comment">% rotation about the z-axis about 180 degree</span>
 rotZ = orientation(<span class="string">'axis'</span>,zvector,<span class="string">'angle'</span>,180*degree,cs);
@@ -167,7 +167,7 @@ largeGrain = grain2d
  triple points: 44
  
   Id   Phase   Pixels         GOS   phi1   Phi   phi2
- 931       1     2683   0.0441043    171    55    261
+ 931       1     2683   0.0425468    171    55    262
  
  
 ori = orientation  

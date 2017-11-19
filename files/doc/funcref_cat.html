@@ -310,6 +310,9 @@
             <td width="250px"><a href="vector3d.smooth.html"><tt>smooth</tt></a></td>
             <td>Syntax</td>
             <tr></tr>
+            <td width="250px"><a href="vector3d.sparse.html"><tt>sparse</tt></a></td>
+            <td></td>
+            <tr></tr>
             <td width="250px"><a href="vector3d.subSet.html"><tt>subSet</tt></a></td>
             <td>subindex vector3d</td>
             <tr></tr>
@@ -601,6 +604,9 @@
             <td width="250px"><a href="orientation.calcBinghamODF.html"><tt>calcBinghamODF</tt></a></td>
             <td>calculate ODF from individuel orientations via kernel density estimation</td>
             <tr></tr>
+            <td width="250px"><a href="orientation.calcCluster.html"><tt>calcCluster</tt></a></td>
+            <td>sort orientations into clusters</td>
+            <tr></tr>
             <td width="250px"><a href="orientation.calcFourierODF.html"><tt>calcFourierODF</tt></a></td>
             <td>calculate ODF from individuel orientations via kernel density estimation</td>
             <tr></tr>
@@ -625,9 +631,6 @@
             <td width="250px"><a href="orientation.calcTensor.html"><tt>calcTensor</tt></a></td>
             <td>compute the average tensor for a vector of orientations</td>
             <tr></tr>
-            <td width="250px"><a href="orientation.cluster.html"><tt>cluster</tt></a></td>
-            <td>sort orientations into clusters</td>
-            <tr></tr>
             <td width="250px"><a href="orientation.crossCorrelation.html"><tt>crossCorrelation</tt></a></td>
             <td>computes the cross correlation for the kernel density estimator</td>
             <tr></tr>
@@ -637,11 +640,17 @@
             <td width="250px"><a href="orientation.display.html"><tt>display</tt></a></td>
             <td>standart output</td>
             <tr></tr>
+            <td width="250px"><a href="orientation.doHClustering.html"><tt>doHClustering</tt></a></td>
+            <td>sort orientations into clusters</td>
+            <tr></tr>
             <td width="250px"><a href="orientation.dot.html"><tt>dot</tt></a></td>
             <td>compute minimum dot(o1,o2) modulo symmetry</td>
             <tr></tr>
             <td width="250px"><a href="orientation.dot_outer.html"><tt>dot_outer</tt></a></td>
             <td>dot_outer</td>
+            <tr></tr>
+            <td width="250px"><a href="orientation.exp.html"><tt>exp</tt></a></td>
+            <td>exponential function</td>
             <tr></tr>
             <td width="250px"><a href="orientation.export_VPSC.html"><tt>export_VPSC</tt></a></td>
             <td>export individual orientations to the VPSC format</td>
@@ -675,6 +684,9 @@
             <tr></tr>
             <td width="250px"><a href="orientation.orientation.html"><tt>orientation</tt></a></td>
             <td>orientation - class representing orientations</td>
+            <tr></tr>
+            <td width="250px"><a href="orientation.parents.html"><tt>parents</tt></a></td>
+            <td>variants of an orientation relationship</td>
             <tr></tr>
             <td width="250px"><a href="orientation.plot.html"><tt>plot</tt></a></td>
             <td>annotate a orientation to an existing plot</td>
@@ -720,6 +732,9 @@
             <tr></tr>
             <td width="250px"><a href="orientation.unique.html"><tt>unique</tt></a></td>
             <td>disjoint list of quaternions</td>
+            <tr></tr>
+            <td width="250px"><a href="orientation.variants.html"><tt>variants</tt></a></td>
+            <td>variants of an orientation relationship</td>
             <tr></tr>
             <td width="250px"><a href="orientation.volume.html"><tt>volume</tt></a></td>
             <td>ratio of orientations with a certain orientation</td>
@@ -911,9 +926,6 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.permute.html"><tt>permute</tt></a></td>
             <td>overloads permute</td>
-            <tr></tr>
-            <td width="250px"><a href="quaternion.pertube.html"><tt>pertube</tt></a></td>
-            <td>pertube data randomly by epsilon</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.perturbe.html"><tt>perturbe</tt></a></td>
             <td>pertube data randomly by epsilon</td>
@@ -1193,6 +1205,9 @@
             <td width="250px"><a href="ODF.calcAxisVolume.html"><tt>calcAxisVolume</tt></a></td>
             <td>amount of orientations with a specific misorientation axis</td>
             <tr></tr>
+            <td width="250px"><a href="ODF.calcComponents.html"><tt>calcComponents</tt></a></td>
+            <td>heuristic to find modal orientations</td>
+            <tr></tr>
             <td width="250px"><a href="ODF.calcError.html"><tt>calcError</tt></a></td>
             <td>calculate approximation error between two ODFs</td>
             <tr></tr>
@@ -1226,6 +1241,9 @@
             <td width="250px"><a href="ODF.centerSpecimen.html"><tt>centerSpecimen</tt></a></td>
             <td>rotatates an odf with specimen symmetry into its symmetry axes</td>
             <tr></tr>
+            <td width="250px"><a href="ODF.char.html"><tt>char</tt></a></td>
+            <td>odf -&gt; char</td>
+            <tr></tr>
             <td width="250px"><a href="ODF.concentration.html"><tt>concentration</tt></a></td>
             <td>not yet implemeted</td>
             <tr></tr>
@@ -1258,6 +1276,9 @@
             <tr></tr>
             <td width="250px"><a href="ODF.fibreVolume.html"><tt>fibreVolume</tt></a></td>
             <td>ratio of orientations with a certain orientation</td>
+            <tr></tr>
+            <td width="250px"><a href="ODF.grad.html"><tt>grad</tt></a></td>
+            <td>gradient of odf at orientation ori</td>
             <tr></tr>
             <td width="250px"><a href="ODF.hist.html"><tt>hist</tt></a></td>
             <td>calcualtes a histogram of ODF</td>
@@ -1330,6 +1351,12 @@
             <tr></tr>
             <td width="250px"><a href="ODF.smooth.html"><tt>smooth</tt></a></td>
             <td>smooth ODF</td>
+            <tr></tr>
+            <td width="250px"><a href="ODF.steepestDescent.html"><tt>steepestDescent</tt></a></td>
+            <td>find maximum with steepest descent</td>
+            <tr></tr>
+            <td width="250px"><a href="ODF.steepestDescentX.html"><tt>steepestDescentX</tt></a></td>
+            <td>find maximum with steepest descent</td>
             <tr></tr>
             <td width="250px"><a href="ODF.textureindex.html"><tt>textureindex</tt></a></td>
             <td>caclulate texture index of ODF</td>
@@ -1528,7 +1555,7 @@
             <td>perform an affine transformation on spatial ebsd data</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.calcGrains.html"><tt>calcGrains</tt></a></td>
-            <td>2d and 3d construction of GrainSets from spatially indexed EBSD data</td>
+            <td>grains reconstruction from 2d EBSD data</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.calcMisorientation.html"><tt>calcMisorientation</tt></a></td>
             <td>calculate uncorrelated misorientations between two ebsd phases</td>
@@ -1564,7 +1591,7 @@
             <td>select EBSD data by spatial coordinates</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.findByOrientation.html"><tt>findByOrientation</tt></a></td>
-            <td>select grains by orientation</td>
+            <td>select ebsd data by orientation</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.fliplr.html"><tt>fliplr</tt></a></td>
             <td>flip spatial ebsd-data from left to right</td>
@@ -2097,7 +2124,7 @@
             <td>Syntax regularS2Grid('points',[72 19]) regularS2Grid('resolution',[5*degree 2.5*degree]) regularS2Grid('theta',theta,'rho',rho)</td>
             <tr></tr>
             <td width="250px"><a href="regularSO3Grid.html"><tt>regularSO3Grid</tt></a></td>
-            <td>give a regular grid in orientation space</td>
+            <td>regular grid in Euler orientation space</td>
             <tr></tr>
             <td width="250px"><a href="rodrigues2quat.html"><tt>rodrigues2quat</tt></a></td>
             <td></td>
@@ -2143,7 +2170,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right"> MTEX 4.5.0</td>
+               <td valign="baseline" align="right"> MTEX 4.5.2</td>
             </tr>
          </table>
       </div>

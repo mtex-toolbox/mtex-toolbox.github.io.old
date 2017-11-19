@@ -40,7 +40,7 @@
       <div class="container">
          <h1>Analyzing Individual Grains</h1>
          <div class="subheading">
-            <p>Explanation how to extract and work with single grains from EBSD data</p>
+            <p>how to work with single grains</p>
          </div>
          <div>
             <table class="content">
@@ -62,14 +62,15 @@
             </table>
          </div>
          <h2>Connection between grains and EBSD data<a name="3"> </a></h2>
-         <p>As usual, let us first import some EBSD data construct some grains</p><pre class="codeinput">close <span class="string">all</span>
+         <p>As usual, we start by importing some EBSD data and computing grains</p><pre class="codeinput">close <span class="string">all</span>
 mtexdata <span class="string">forsterite</span>
 plotx2east
 
 <span class="comment">% consider only indexed data for grain segmentation</span>
 ebsd = ebsd(<span class="string">'indexed'</span>);
-<span class="comment">% perform grain segmentation</span>
-[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd);</pre><p>The <a href="GrainSet_index.html">GrainSet</a> contains the EBSD data it was reconstructed from. We can access these data by
+
+<span class="comment">% compute the grains</span>
+[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd);</pre><p>The <a href="grain2d_index.html">grains</a> contain. We can access these data by
          </p><pre class="codeinput">grain_selected = grains( grains.grainSize &gt;=  1160)
 ebsd_selected = ebsd(grain_selected)</pre><pre class="codeoutput"> 
 grain_selected = grain2d  
@@ -101,7 +102,7 @@ grain_selected = grain2d
  triple points: 18
  
   Id   Phase   Pixels          GOS   phi1   Phi   phi2
- 640       1     1208   0.00808162    153    68    237
+ 640       1     1208   0.00806772    153    68    237
  
 </pre><p>you can get the id of this grain by</p><pre class="codeinput">grain_selected.id</pre><pre class="codeoutput">ans =
    640
@@ -118,7 +119,7 @@ grain_selected = grain2d
  triple points: 28
  
    Id   Phase   Pixels        GOS   phi1   Phi   phi2
- 1856       1     2614   0.170049    153   109    246
+ 1856       1     2614   0.170662    153   109    247
  
 </pre><pre class="codeinput">plot(grain_selected.boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>

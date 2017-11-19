@@ -59,21 +59,9 @@ h = {Miller(1,0,-1,0,cs),[Miller(0,1,-1,1,cs),Miller(1,0,-1,1,cs)],Miller(1,1,-2
 c = {1,[0.52 ,1.23],1};
 
 <span class="comment">% import pole figure data</span>
-pf = loadPoleFigure(fname,h,cs,<span class="string">'superposition'</span>,c)</pre><pre class="codeoutput">********************************************************************
-* /home/hielscher/mtex/master/data/PoleFigure/dubna/Q(10-10)_amp.cnv
-* read mode: line
-* 247 data lines analysed
-* 0 header line(s)
-* 6 data column(s)
-* 0 string replacement(s)
-********************************************************************
-Row length info:
-  228 row(s) found with 6 values                                                                 
-  18  row(s) found with less values (row no. 13   26   39   52   65   78   91  104  117  130 ...)
-  0   row(s) found with more values                                                              
- 
+pf = loadPoleFigure(fname,h,cs,<span class="string">'superposition'</span>,c)</pre><pre class="codeoutput"> 
 pf = PoleFigure  
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
   h = (10-10), r = 72 x 19 points
@@ -97,12 +85,12 @@ error: 3.9371E-02
 alpha: 9.4713E+00 1.0746E+02 1.4885E+02 
  
 odf = ODF  
-  crystal symmetry : 321, X||a*, Y||b, Z||c
+  crystal symmetry : 321, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 3524 orientations, resolution: 5&deg;
+    center: 3521 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><h2>Error analysis<a name="7"> </a></h2><pre class="codeinput"><span class="comment">% calc RP1 error</span>
@@ -123,7 +111,7 @@ annotate(calcModes(odfrotated),<span class="string">'marker'</span>,<span class=
 progress: 100%
 </pre><img src="dubna_demo_08.png"> <h2>volume analysis<a name="12"> </a></h2><pre class="codeinput">volume(odf,calcModes(odf),20*degree)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.4289
+    0.4290
 </pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

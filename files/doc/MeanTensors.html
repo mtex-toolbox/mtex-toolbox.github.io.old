@@ -76,10 +76,10 @@ ebsd = EBSD
  
  Phase  Orientations      Mineral        Color  Symmetry  Crystal reference frame
      0   28015 (56%)   notIndexed                                                
-     1   13855 (28%)  Glaucophane   light blue     12/m1        X||a*, Y||b, Z||c
-     2   4603 (9.2%)      Epidote  light green     12/m1        X||a*, Y||b, Z||c
+     1   13855 (28%)  Glaucophane   light blue     12/m1       X||a*, Y||b*, Z||c
+     2   4603 (9.2%)      Epidote  light green     12/m1       X||a*, Y||b*, Z||c
      3   3213 (6.4%)       Pyrope    light red      m-3m                         
-     4   295 (0.59%)    omphacite         cyan     12/m1        X||a*, Y||b, Z||c
+     4   295 (0.59%)    omphacite         cyan     12/m1       X||a*, Y||b*, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y
  Scan unit : um
@@ -97,10 +97,23 @@ ebsd = EBSD
  
  Phase  Orientations      Mineral        Color  Symmetry  Crystal reference frame
      0   28015 (56%)   notIndexed                                                
-     1   13779 (28%)  Glaucophane   light blue     12/m1        X||a*, Y||b, Z||c
-     2   4510 (9.1%)      Epidote  light green     12/m1        X||a*, Y||b, Z||c
+     1   13779 (28%)  Glaucophane   light blue     12/m1       X||a*, Y||b*, Z||c
+     2   4510 (9.1%)      Epidote  light green     12/m1       X||a*, Y||b*, Z||c
      3   3212 (6.5%)       Pyrope    light red      m-3m                         
-     4   218 (0.44%)    omphacite         cyan     12/m1        X||a*, Y||b, Z||c
+     4   218 (0.44%)    omphacite         cyan     12/m1       X||a*, Y||b*, Z||c
+ 
+ Properties: bands, bc, bs, error, mad, x, y
+ Scan unit : um
+ 
+ 
+ebsd = EBSD  
+ 
+ Phase  Orientations      Mineral        Color  Symmetry  Crystal reference frame
+     0   28015 (56%)   notIndexed                                                
+     1   13779 (28%)  Glaucophane   light blue     12/m1       X||a*, Y||b*, Z||c
+     2   4510 (9.1%)      Epidote  light green     12/m1       X||a*, Y||b*, Z||c
+     3   3212 (6.5%)       Pyrope    light red      m-3m                         
+     4   218 (0.44%)    omphacite         cyan     12/m1       X||a*, Y||b*, Z||c
  
  Properties: bands, bc, bs, error, mad, x, y
  Scan unit : um
@@ -126,8 +139,8 @@ csGlaucophane = crystalSymmetry(<span class="string">'2/m'</span>,[9.5334,17.734
 <span class="comment">% define the tensor</span>
 CGlaucophane = tensor(MGlaucophane,csGlaucophane)</pre><pre class="codeoutput"> 
 CGlaucophane = tensor  
-  rank   : 4 (3 x 3 x 3 x 3)                     
-  mineral: Glaucophane (12/m1, X||a*, Y||b, Z||c)
+  rank   : 4 (3 x 3 x 3 x 3)                      
+  mineral: Glaucophane (12/m1, X||a*, Y||b*, Z||c)
  
   tensor in Voigt matrix representation:
  122.28  45.69  37.24      0   2.35      0
@@ -155,8 +168,8 @@ csEpidote= crystalSymmetry(<span class="string">'2/m'</span>,[8.8877,5.6275,10.1
 <span class="comment">% define the tensor</span>
 CEpidote = tensor(MEpidote,csEpidote)</pre><pre class="codeoutput"> 
 CEpidote = tensor  
-  rank   : 4 (3 x 3 x 3 x 3)                 
-  mineral: Epidote (12/m1, X||a*, Y||b, Z||c)
+  rank   : 4 (3 x 3 x 3 x 3)                  
+  mineral: Epidote (12/m1, X||a*, Y||b*, Z||c)
  
   tensor in Voigt matrix representation:
  211.5  65.6  43.2     0  -6.5     0
@@ -237,7 +250,7 @@ CHillEpidote = tensor
          <h2>ODF Estimation<a name="12"> </a></h2>
          <p>Next, we estimate an ODF for the Epidote phase</p><pre class="codeinput">odfEpidote = calcODF(ebsd(<span class="string">'Epidote'</span>).orientations,<span class="string">'halfwidth'</span>,10*degree)</pre><pre class="codeoutput"> 
 odfEpidote = ODF  
-  crystal symmetry : Epidote (12/m1, X||a*, Y||b, Z||c)
+  crystal symmetry : Epidote (12/m1, X||a*, Y||b*, Z||c)
   specimen symmetry: 1
  
   Harmonic portion:

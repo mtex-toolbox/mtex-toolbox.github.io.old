@@ -129,15 +129,15 @@ m = Miller
 m = Miller(2,1,-3,1,cs,<span class="string">'UVTW'</span>)</pre><pre class="codeoutput"> 
 cs = crystalSymmetry  
  
-  mineral        : Quartz           
-  symmetry       : 321              
-  a, b, c        : 4.9, 4.9, 5.4    
-  reference frame: X||a*, Y||b, Z||c
+  mineral        : Quartz            
+  symmetry       : 321               
+  a, b, c        : 4.9, 4.9, 5.4     
+  reference frame: X||a*, Y||b, Z||c*
  
  
 m = Miller  
  size: 1 x 1
- mineral: Quartz (321, X||a*, Y||b, Z||c)
+ mineral: Quartz (321, X||a*, Y||b, Z||c*)
   U  2
   V  1
   T -3
@@ -147,7 +147,7 @@ m = Miller
          <p>A simple way to compute all symmetrically equivalent directions to a given crystal direction is provided by the command <a href="Miller.symmetrise.html">symmetrise</a></p><pre class="codeinput">symmetrise(m)</pre><pre class="codeoutput"> 
 ans = Miller  
  size: 6 x 1
- mineral: Quartz (321, X||a*, Y||b, Z||c)
+ mineral: Quartz (321, X||a*, Y||b, Z||c*)
   U  2  2 -3 -3  1  1
   V  1 -3  2  1 -3  2
   T -3  1  1  2  2 -3
@@ -156,7 +156,7 @@ ans = Miller
          </p><pre class="codeinput">symmetrise(m,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput"> 
 ans = Miller  
  size: 12 x 1
- mineral: Quartz (321, X||a*, Y||b, Z||c)
+ mineral: Quartz (321, X||a*, Y||b, Z||c*)
   U  2  2 -3 -3  1  1 -2 -2  3  3 -1 -1
   V  1 -3  2  1 -3  2 -1  3 -2 -1  3 -2
   T -3  1  1  2  2 -3  3 -1 -1 -2 -2  3
@@ -197,7 +197,7 @@ rho =
          </p><pre class="codeinput">o = orientation(<span class="string">'Euler'</span>,10*degree,20*degree,30*degree,cs)</pre><pre class="codeoutput"> 
 o = orientation  
   size: 1 x 1
-  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c)
+  crystal symmetry : Quartz (321, X||a*, Y||b, Z||c*)
   specimen symmetry: 1
  
   Bunge Euler angles in degree

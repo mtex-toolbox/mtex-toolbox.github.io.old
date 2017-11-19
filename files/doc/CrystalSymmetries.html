@@ -94,10 +94,10 @@ plot(cs,<span class="string">'upper'</span>)</pre><img src="CrystalSymmetries_03
          <p>Finally, MTEX allows to define a crystal symmetry by importing a crystallographic information file (*.cif)</p><pre class="codeinput">cs = loadCIF(<span class="string">'quartz'</span>)</pre><pre class="codeoutput"> 
 cs = crystalSymmetry  
  
-  mineral        : Quartz           
-  symmetry       : 321              
-  a, b, c        : 4.9, 4.9, 5.4    
-  reference frame: X||a*, Y||b, Z||c
+  mineral        : Quartz            
+  symmetry       : 321               
+  a, b, c        : 4.9, 4.9, 5.4     
+  reference frame: X||a*, Y||b, Z||c*
  
 </pre><p>or a Bruker phl file. As a phl file contains usually many phases the output is a list of crystal symmetries</p><pre class="codeinput"><span class="comment">% import a list of crystal symmetries</span>
 cs_list = loadPHL(<span class="string">'crystal.phl'</span>);
@@ -213,7 +213,7 @@ ss = specimenSymmetry(<span class="string">'mmm'</span>);
 ss * orientation(<span class="string">'euler'</span>,0,0,pi/4,cs,ss) * cs</pre><pre class="codeoutput"> 
 ans = orientation  
   size: 8 x 12
-  crystal symmetry : -3m1, X||a*, Y||b, Z||c
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c*
   specimen symmetry: mmm
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
