@@ -56,7 +56,7 @@ layout: main
 	  <td width="140">
 	    <img src='files/pic/unknown.jpg' alt='Picture of Florian Bachmann' height='160' width='120' border='0'/>
 	    <a id="contact:memd"></a>
-	  </td><td valign="top" width="3*">
+	  </td><td valign="top">
 	    <b>Florian Bachmann</b> contributed to grain analysis, the import wizard and
 	    the documentation center.<br /><br />
 	    <table border='0' cellpadding='3'><tr>
@@ -67,7 +67,10 @@ layout: main
       </tr></table>
     </td><td valign="top" width="50%">
       <table border='0' cellpadding='10'><tr>
-	  <td valign="top" width="4*">
+	  <td width="140">
+	    <img src='files/pic/unknown.jpg' alt='Picture of Florian Bachmann' height='160' width='120' border='0'/>
+	    <a id="contact:memd"></a>
+	  </td><td valign="top">
 	    <b>Rüdiger Kilian</b> contributed to EBSD and grain analysis <br /><br />
 	    <table border='0' cellpadding='3'><tr>
 		<td> Affiliation: </td>
@@ -78,25 +81,32 @@ layout: main
     </td>
 </tr></table>
 
-<table border='0' cellpadding='10'><tr>
-  <td valign="top" width="140">
-    <img src='files/pic/unknown.jpg' alt='Picture of David Mainprice' height='160' width='120' border='0'/>
-    <a id="contact:p2nfft"></a>
-  </td><td valign="top" width="2*">
-    <b>Felix Bartel</b> implemented spherical functions.<br /><br />
-    <table border='0' cellpadding='3'><tr>
-      <td> Affiliation: </td>
-      <td> Institute of Mathematics, TU Chemnitz, Germany</td>
-    </tr></table>
-  </td>
-  <td width="140">
-    <img src='files/pic/Oliver_Johnson.jpg' alt='Picture of Oliver Kent Johnson' height='160' width='120' border='0'/>
-    <a id="contact:p2nfft"></a>
-  </td><td valign="top" width="3*">
-    <b>Oliver Kent Johnson</b> contributed the misorientation color coding.  <br/><br />
-    <table border='0' cellpadding='3'><tr>
-      <td> Affiliation: </td>
-      <td> Department of Materials Science and Engineering, Massachusetts Institute of Technology, USA</td>
-    </tr></table>
-  </td>
+<table border='0' cellpadding='0'><tr>
+    <td valign="top" width="50%">
+      <table border='0' cellpadding='10'><tr>
+	  <td width="140">
+	    <img src='files/pic/unknown.jpg' alt='Picture of Felix Bartel' height='160' width='120' border='0'/>
+	    <a id="contact:memd"></a>
+	  </td><td valign="top">
+	    <b>Felix Bartel</b> implemented spherical functions.<br /><br />
+	    <table border='0' cellpadding='3'><tr>
+		<td> Affiliation: </td>
+		<td> Institute of Mathematics, TU Chemnitz, Germany</td>
+	    </tr></table>
+	  </td>
+      </tr></table>
+    </td><td valign="top" width="50%">
+      <table border='0' cellpadding='10'><tr>
+	  <td width="140">
+	    <img src='files/pic/Oliver_Johnson.jpg' alt='Picture of Oliver Kent Johnson' height='160' width='120' border='0'/>
+	    <a id="contact:p2nfft"></a>
+	  </td><td valign="top" width="3*">
+	    <b>Oliver Kent Johnson</b> contributed the misorientation color coding.  <br/><br />
+	    <table border='0' cellpadding='3'><tr>
+		<td> Affiliation: </td>
+		<td> Department of Materials Science and Engineering, Massachusetts Institute of Technology, USA</td>
+	    </tr></table>
+	  </td>
+      </tr></table>
+    </td>
 </tr></table>
