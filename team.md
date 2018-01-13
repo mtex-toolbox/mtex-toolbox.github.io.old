@@ -9,7 +9,7 @@ layout: main
   <td width="140">
     <img src='files/pic/hielscher2.jpg' alt='Picture of Ralf Hielscher' height='160' width='120' border='0'/>
     <a id="contact:fmm"></a>
-  </td><td valign="top" width="30%">
+  </td><td valign="top" width="1*">
     <b>Ralf Hielscher</b> invented MTEX in 2002 by implementing the pole
     figure to ODF inversion algorithm and leads since then the development.<br /><br />
     <table border='0' cellpadding='3'><tr>
@@ -26,7 +26,7 @@ layout: main
     <td valign="top" width="140">
     <img src='files/pic/mainprice.jpg' alt='Picture of David Mainprice' height='160' width='120' border='0'/>
     <a id="contact:p2nfft"></a>
-  </td><td valign="top" width="30%" >
+  </td><td valign="top" width="1*" >
     <b>David Mainprice</b> contributed to the tensor functionality of MTEX.<br /><br />
     <table border='0' cellpadding='3'><tr>
       <td> Affiliation: </td>
@@ -83,13 +83,13 @@ layout: main
 
 <table border='0' cellpadding='10'><tr>
   <td width="140">
-    <img src='files/pic/mainprice.jpg' alt='Picture of David Mainprice' height='160' width='120' border='0'/>
+    <img src='files/pic/unknown.jpg' alt='Picture of David Mainprice' height='160' width='120' border='0'/>
     <a id="contact:p2nfft"></a>
   </td><td valign="top">
-    <b>David Mainprice</b> contributed to the tensor functionality of MTEX.<br /><br />
+    <b>Felix Bartel</b> implemented spherical functions.<br /><br />
     <table border='0' cellpadding='3'><tr>
       <td> Affiliation: </td>
-      <td> Geosciences Montpellier, France</td>
+      <td> Institute of Mathematics, TU Chemnitz, Germany</td>
     </tr><tr>
       <td> Email: </td>
       <td> <a href="mailto:David.Mainprice@gm.univ-montp2.fr"></a>David.Mainprice@gm.univ-montp2.fr</td>
