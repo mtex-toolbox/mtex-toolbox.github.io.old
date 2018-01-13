@@ -11,7 +11,7 @@ layout: main
 			<td valign="top" width="140">
 				<img src='files/pic/hielscher2.jpg' alt='Picture of Ralf Hielscher' height='160' width='120' border='0'/>
 				<a id="contact:fmm"></a>
-			</td><td valign="top" width="1*">
+			</td><td valign="top">
 				<b>Ralf Hielscher</b> invented MTEX in 2002 by implementing the pole
 				figure to ODF inversion algorithm and leads since then the development.<br /><br />
 				<table border='0' cellpadding='3'><tr>
@@ -31,7 +31,7 @@ layout: main
 			<td valign="top" width="140">
 				<img src='files/pic/mainprice.jpg' alt='Picture of David Mainprice' height='160' width='120' border='0'/>
 				<a id="contact:p2nfft"></a>
-			</td><td valign="top" width="2*" >
+			</td><td valign="top">
 				<b>David Mainprice</b> contributed to the tensor functionality of MTEX.<br /><br />
 				<table border='0' cellpadding='3'><tr>
 					<td> Affiliation: </td>
