@@ -27,26 +27,26 @@ layout: main
 			</td>
 		</tr></table>
 	</td><td valign="top" width="1*">
-	<table border='0' cellpadding='10'><tr>
-    <td valign="top" width="140">
-    <img src='files/pic/mainprice.jpg' alt='Picture of David Mainprice' height='160' width='120' border='0'/>
-    <a id="contact:p2nfft"></a>
-  </td><td valign="top" width="2*" >
-    <b>David Mainprice</b> contributed to the tensor functionality of MTEX.<br /><br />
-    <table border='0' cellpadding='3'><tr>
-      <td> Affiliation: </td>
-      <td> Geosciences Montpellier, France</td>
-    </tr><tr>
-      <td> Email: </td>
-      <td> <a href="mailto:David.Mainprice@gm.univ-montp2.fr"></a>David.Mainprice@gm.univ-montp2.fr</td>
-    </tr><tr>
-      <td> Homepage: </td>
-	  <td> <a href="http://www.gm.univ-montp2.fr/PERSO/mainprice/">http://www.gm.univ-montp2.fr/PERSO/mainprice/</a>
-      </td>
-    </tr></table>
-  </td>
-  </tr></table>
-  </td>
+		<table border='0' cellpadding='10'><tr>
+			<td valign="top" width="140">
+				<img src='files/pic/mainprice.jpg' alt='Picture of David Mainprice' height='160' width='120' border='0'/>
+				<a id="contact:p2nfft"></a>
+			</td><td valign="top" width="2*" >
+				<b>David Mainprice</b> contributed to the tensor functionality of MTEX.<br /><br />
+				<table border='0' cellpadding='3'><tr>
+					<td> Affiliation: </td>
+					<td> Geosciences Montpellier, France</td>
+					</tr><tr>
+					<td> Email: </td>
+					<td> <a href="mailto:David.Mainprice@gm.univ-montp2.fr"></a>David.Mainprice@gm.univ-montp2.fr</td>
+					</tr><tr>
+					<td> Homepage: </td>
+					<td> <a href="http://www.gm.univ-montp2.fr/PERSO/mainprice/">http://www.gm.univ-montp2.fr/PERSO/mainprice/</a>
+					</td>
+				</tr></table>
+			</td>
+		</tr></table>
+	</td>
 </tr></table>
 
 <table border='0' cellpadding='10'><tr>
