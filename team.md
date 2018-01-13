@@ -26,7 +26,7 @@ layout: main
 				</tr></table>
 			</td>
 		</tr></table>
-	</td>
+	</td><td valign="top" width="1*">
 	<table border='0' cellpadding='10'><tr>
   <td valign="top" width="140">
     <img src='files/pic/hielscher2.jpg' alt='Picture of Ralf Hielscher' height='160' width='120' border='0'/>
@@ -46,6 +46,7 @@ layout: main
     </tr></table>
   </td>
   </tr></table>
+  </td>
 </tr></table>
 
 <table border='0' cellpadding='10'><tr>
