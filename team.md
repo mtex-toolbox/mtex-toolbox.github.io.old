@@ -10,27 +10,24 @@ layout: main
   <td width="140">
     <img src='files/pic/unknown.jpg' alt='Picture of Florian Bachmann' height='160' width='120' border='0'/>
     <a id="contact:memd"></a>
-  </td><td valign="top" width="50%">
-    <b>Florian Bachmann</b> wrote most of the grain analysis
-    functionality. Furthermore, he is responsible for the import wizard and
+  </td><td valign="top" width="1*">
+    <b>Florian Bachmann</b> contributed to grain analysis, the import wizard and
     the documentation center.<br /><br />
     <table border='0' cellpadding='3'><tr>
       <td> Affiliation: </td>
-      <td> Institute of Geoinformatics, TU Freiberg, Germany </td>
+      <td> Xnovo Technology ApS, Denmark </td>
     </tr></table>
-  </td>
-  <td width="140">
+  </td> <td valign="top"  width="140">
     <img src='files/pic/unknown.jpg' alt='Picture of Kilian' height='160' width='120' border='0'/>
     <a id="contact:memd"></a>
-  </td><td valign="top" width="50%">
-    <b>Rüdiger Kilian</b> <br /><br />
+  </td><td valign="top" width="1*">
+    <b>Rüdiger Kilian</b> contributed to EBSD and grain analysis <br /><br />
     <table border='0' cellpadding='3'><tr>
       <td> Affiliation: </td>
-      <td> University of Basel, Schweiz </td>
+      <td> University of Basel, Switzerland </td>
     </tr></table>
   </td>
 </tr></table>
-
 
 <table border='0' cellpadding='10'><tr>
   <td width="140">
