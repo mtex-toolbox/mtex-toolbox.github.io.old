@@ -5,8 +5,8 @@ layout: main
 
 ## People that have contributed to MTEX
 
-<table border='0' cellpadding='10'><tr>
-    <td valign="top">
+<table border='0' cellpadding='0'><tr>
+    <td valign="top" width="50%">
       <table border='0' cellpadding='10'><tr>
 	  <td valign="top" width="140">
 	    <img src='files/pic/hielscher2.jpg' alt='Picture of Ralf Hielscher' height='160' width='120' border='0'/>
@@ -26,13 +26,13 @@ layout: main
 	    </tr></table>
 	  </td>
       </tr></table>
-    </td><td valign="top">
+    </td><td valign="top" width="50%">
       <table border='0' cellpadding='10'><tr>
 	  <td valign="top" width="140">
 	    <img src='files/pic/mainprice.jpg' alt='Picture of David Mainprice' height='160' width='120' border='0'/>
 	    <a id="contact:p2nfft"></a>
 	  </td><td valign="top">
-	    <b>David Mainprice2</b> contributed to the tensor functionality of MTEX.<br /><br />
+	    <b>David Mainprice4</b> contributed to the tensor functionality of MTEX.<br /><br />
 	    <table border='0' cellpadding='3'><tr>
 		<td> Affiliation: </td>
 		<td> Geosciences Montpellier, France</td>
