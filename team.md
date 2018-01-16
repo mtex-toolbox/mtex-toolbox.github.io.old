@@ -100,7 +100,7 @@ layout: main
 	  <td width="140">
 	    <img src='files/pic/Oliver_Johnson.jpg' alt='Picture of Oliver Kent Johnson' height='160' width='120' border='0'/>
 	    <a id="contact:p2nfft"></a>
-	  </td><td valign="top" width="3*">
+	  </td><td valign="top">
 	    <b>Oliver Kent Johnson</b> contributed the misorientation color coding.  <br/><br />
 	    <table border='0' cellpadding='3'><tr>
 		<td valign="top"> Affiliation: </td>
