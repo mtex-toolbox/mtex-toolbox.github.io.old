@@ -32,7 +32,7 @@ layout: main
 	    <img src='files/pic/mainprice.jpg' alt='Picture of David Mainprice' height='160' width='120' border='0'/>
 	    <a id="contact:p2nfft"></a>
 	  </td><td valign="top">
-	    <b>David Mainprice</b> contributed to the tensor functionality of MTEX.<br /><br />
+	    <b>David Mainprice</b> contributes to the tensor functionality of MTEX.<br /><br />
 	    <table border='0' cellpadding='3'><tr>
 		<td> Affiliation: </td>
 		<td> Geosciences Montpellier, France</td>
@@ -71,7 +71,7 @@ layout: main
 	    <img src='files/pic/kilian.jpg' alt='Picture of Rüdiger Kilian' height='160' width='120' border='0'/>
 	    <a id="contact:memd"></a>
 	  </td><td valign="top">
-	    <b>Rüdiger Kilian</b> contributed to EBSD and grain analysis <br /><br />
+	    <b>Rüdiger Kilian</b> contributes to EBSD and grain analysis <br /><br />
 	    <table border='0' cellpadding='3'><tr>
 		<td> Affiliation: </td>
 		<td> University of Basel, Switzerland </td>
@@ -88,7 +88,7 @@ layout: main
 	    <img src='files/pic/unknown.jpg' alt='Picture of Felix Bartel' height='160' width='120' border='0'/>
 	    <a id="contact:memd"></a>
 	  </td><td valign="top">
-	    <b>Felix Bartel</b> implemented spherical functions.<br /><br />
+	    <b>Felix Bartel</b> contributes to spherical functions.<br /><br />
 	    <table border='0' cellpadding='3'><tr>
 		<td valign="top"> Affiliation: </td>
 		<td valign="top"> Institute of Mathematics, TU Chemnitz, Germany</td>
