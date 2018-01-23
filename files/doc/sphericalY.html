@@ -43,19 +43,10 @@
             <p>spherical harmonics of degree l</p>
          </div>
          <h2>Description<a name="2"> </a></h2>
-         <p>Y = sphericalY(l,theta,rho) return a vector Y = (Y_l^-l,...,Y_l^l) of the spherical harmonics of degree l using the Condon-Shortley
+         <p>Y = sphericalY(l,vs) return a vector Y = (Y_l^-l,...,Y_l^l) of the spherical harmonics of degree l using the Condon-Shortley
             phase convention
          </p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>Y = sphericalY(l, theta, rho,'param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">Y = sphericalY(l, v)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -63,23 +54,15 @@
             <tt>l</tt>
             </td>
             <td>
-            <p>degree</p>
+            <p>harmonic degree</p>
             </td>
             </tr>
             <tr>
             <td width="100px">
-            <tt>theta</tt>
+            <tt>v</tt>
             </td>
             <td>
-            <p>polar angle</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="100px">
-            <tt>rho</tt>
-            </td>
-            <td>
-            <p>azimuth angle</p>
+            <p><a href="vector3d_index.html">vector3d</a></p>
             </td>
             </tr>
             </table>
@@ -93,7 +76,7 @@
             <tt>Y</tt>
             </td>
             <td>
-            <p>(2l+1) x numel(theta,rho) matrix of function values</p>
+            <p>(2l+1) x length(v) matrix of function values</p>
             </td>
             </tr>
             </table>

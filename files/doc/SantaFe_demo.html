@@ -60,35 +60,35 @@ pf = noisepf(pf,100);
 plot(pf,<span class="string">'MarkerSize'</span>,5)
 mtexColorMap <span class="string">LaboTeX</span></pre><img src="SantaFe_demo_01.png"> <h2>ODF Estimation with Ghost Correction<a name="3"> </a></h2><pre class="codeinput">rec = calcODF(pf)</pre><pre class="codeoutput">initialize solver
 start iteration
-error: 7.2552E-02 2.7957E-02 9.1619E-03 6.8885E-03 6.0744E-03 5.7192E-03 5.5193E-03 5.3866E-03 5.2948E-03 5.2155E-03 5.1545E-03 
+error: 6.4537E-02 1.7303E-02 7.1447E-03 5.2169E-03 4.5642E-03 4.3006E-03 4.1509E-03 4.0557E-03 3.9830E-03 3.9274E-03 3.8793E-03 
 Finished PDF-ODF inversion.
-error: 5.1545E-03
-alpha: 9.9688E+01 9.9603E+01 1.0002E+02 1.0047E+02 
+error: 3.8793E-03
+alpha: 9.9683E+01 1.0012E+02 1.0006E+02 9.9762E+01 
 initialize solver
 start iteration
-error: 3.6188E-01 2.2136E-01 1.2875E-01 6.0527E-02 3.3608E-02 3.0563E-02 2.9920E-02 2.9513E-02 2.9175E-02 2.8888E-02 2.8620E-02 
+error: 3.1376E-01 1.8309E-01 9.8145E-02 5.2105E-02 2.9508E-02 2.4108E-02 2.2992E-02 2.2295E-02 2.1820E-02 2.1435E-02 2.1128E-02 
 Finished PDF-ODF inversion.
-error: 2.8620E-02
-alpha: 9.9723E+01 9.9564E+01 9.9933E+01 1.0055E+02 
+error: 2.1128E-02
+alpha: 9.9875E+01 1.0019E+02 1.0013E+02 9.9719E+01 
  
 rec = ODF  
   crystal symmetry : 432
   specimen symmetry: 222
  
   Uniform portion:
-    weight: 0.6149
+    weight: 0.61194
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 1227 orientations, resolution: 5&deg;
-    weight: 0.3851
+    center: 1226 orientations, resolution: 5&deg;
+    weight: 0.38806
  
 </pre><h2>ODF Estimation without Ghost Correction<a name="4"> </a></h2><pre class="codeinput">rec2 = calcODF(pf,<span class="string">'NoGhostCorrection'</span>)</pre><pre class="codeoutput">initialize solver
 start iteration
-error: 7.2552E-02 2.7957E-02 9.1619E-03 6.8885E-03 6.0744E-03 5.7192E-03 5.5193E-03 5.3866E-03 5.2948E-03 5.2155E-03 5.1545E-03 
+error: 6.4537E-02 1.7303E-02 7.1447E-03 5.2169E-03 4.5642E-03 4.3006E-03 4.1509E-03 4.0557E-03 3.9830E-03 3.9274E-03 3.8793E-03 
 Finished PDF-ODF inversion.
-error: 5.1545E-03
-alpha: 9.9688E+01 9.9603E+01 1.0002E+02 1.0047E+02 
+error: 3.8793E-03
+alpha: 9.9683E+01 1.0012E+02 1.0006E+02 9.9762E+01 
  
 rec2 = ODF  
   crystal symmetry : 432
@@ -104,7 +104,7 @@ calcError(rec,SantaFe)
 
 <span class="comment">% difference plot between meassured and recalculated pole figures</span>
 plotDiff(pf,rec)</pre><pre class="codeoutput">ans =
-    0.0374
+    0.0364
 progress: 100%
 </pre><img src="SantaFe_demo_02.png"> <h2>Plot estimated pole figures<a name="6"> </a></h2><pre class="codeinput">plotPDF(rec,pf.h,<span class="string">'antipodal'</span>)</pre><img src="SantaFe_demo_03.png"> <h2>Plot estimated ODF (Ghost Corrected)<a name="7"> </a></h2><pre class="codeinput">plot(rec,<span class="string">'sections'</span>,18,<span class="string">'resolution'</span>,5*degree,<span class="keyword">...</span>
   <span class="string">'contourf'</span>,<span class="string">'FontSize'</span>,10,<span class="string">'silent'</span>,<span class="string">'figSize'</span>,<span class="string">'large'</span>,<span class="string">'minmax'</span>)

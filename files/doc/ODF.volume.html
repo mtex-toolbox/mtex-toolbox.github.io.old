@@ -48,7 +48,8 @@
          <p>The function 'volume' returns the ratio of an orientation that is close to an orientation (center) by a misorientation tolerance
             (radius) to the volume of the entire odf.
          </p>
-         <h2>Syntax<a name="4"> </a></h2><pre class="codeinput">v = volume(odf,center,radius)</pre><h2>Input<a name="5"> </a></h2>
+         <h2>Syntax<a name="4"> </a></h2><pre class="codeinput">v = volume(odf,center,radius)
+v = volume(odf,fibre,radius) <span class="comment">% gives the volume with a fibre</span></pre><h2>Input<a name="5"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -65,6 +66,14 @@
             </td>
             <td>
             <p><a href="orientation_index.html">orientation</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>fibre</tt>
+            </td>
+            <td>
+            <p><a href="fibre_index.html">fibre</a></p>
             </td>
             </tr>
             <tr>

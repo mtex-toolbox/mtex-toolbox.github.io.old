@@ -472,7 +472,9 @@ oM = ipdfHSVOrientationMapping(ebsd);
 oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
 oM.maxAngle = 5*degree;
 
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="GrainReconstruction_14.png"> <p>We obeserve that the are no rapid changes in the orientation which would allow for applying the threshold based algorithm.
+plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><pre class="codeoutput"> loading data ...
+ saving data to /home/hielscher/mtex/master/data/single.mat
+</pre><img src="GrainReconstruction_14.png"> <p>We obeserve that the are no rapid changes in the orientation which would allow for applying the threshold based algorithm.
             Setting the threshold angle to a very small value would include many irrelevant or false regions.
          </p><pre class="codeinput">grains_high = calcGrains(ebsd,<span class="string">'angle'</span>,1*degree);
 grains_low  = calcGrains(ebsd,<span class="string">'angle'</span>,0.5*degree);

@@ -35,11 +35,11 @@
                         <td valign="top" width="75%"></td></a></td>
                </tr>
                <tr>
-                  <td valign="top" width="250px"><a href="#13"> Classes for Quantitative Texture Analysis
+                  <td valign="top" width="250px"><a href="#12"> Classes for Quantitative Texture Analysis
                         <td valign="top" width="75%"></td></a></td>
                </tr>
                <tr>
-                  <td valign="top" width="250px"><a href="#20"> Auxiliary Functions
+                  <td valign="top" width="250px"><a href="#19"> Auxiliary Functions
                         <td valign="top" width="75%">Helper functions making life easier
                            
                             Below you can find a series of powerful all purpose tools provided by 
@@ -63,47 +63,43 @@
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#4">specimenSymmetry
-                     <td valign="top" width="75%">defines a specimen symmetry</td></a></td>
-            </tr>
-            <tr>
-               <td valign="top" width="250px"><a href="#5"> Rotations (The Class @rotation)
+               <td valign="top" width="250px"><a href="#4"> Rotations (The Class @rotation)
                      <td valign="top" width="75%">This section describes the class  &lt;rotation.rotation.html *rotation*&gt; and
                          gives an overview on how to work with rotations in MTEX.
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#6"> Crystal and Specimen Symmetries (The Class @symmetry)
+               <td valign="top" width="250px"><a href="#5"> Crystal and Specimen Symmetries (The Class @symmetry)
                      <td valign="top" width="75%">This section describes the class *symmetry* and gives an overview how to
                          deal with crystal symmetries in MTEX.
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#7"> Crystal Orientations (The Class @orientation)
+               <td valign="top" width="250px"><a href="#6"> Crystal Orientations (The Class @orientation)
                      <td valign="top" width="75%">This sections describes the class *orientation* and gives an overview how
                          to work with crystal orientation in MTEX.
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#8"> Fibres
+               <td valign="top" width="250px"><a href="#7"> Fibres
                      <td valign="top" width="75%">This sections describes the class &lt;fibre_index.html fibre&gt; and gives an
                          overview how to work with fibres in MTEX.
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#9"> Quaternions (The Class @quaternion)
+               <td valign="top" width="250px"><a href="#8"> Quaternions (The Class @quaternion)
                      <td valign="top" width="75%">class representing orientations</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#10"> Discretisation of 1-Sphere (The Class @S1Grid)
+               <td valign="top" width="250px"><a href="#9"> Discretisation of 1-Sphere (The Class @S1Grid)
                      <td valign="top" width="75%">S1Grid is a class of purely internal use</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#11"> Discretisation of 2 - Sphere (The Class @S2Grid)
+               <td valign="top" width="250px"><a href="#10"> Discretisation of 2 - Sphere (The Class @S2Grid)
                      <td valign="top" width="75%">represents a grid of nodes on the sphere</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#12"> Discretisation of Orientation Space (The Class SO3Grid)
+               <td valign="top" width="250px"><a href="#11"> Discretisation of Orientation Space (The Class SO3Grid)
                      <td valign="top" width="75%">represents a set of orientations</td></a></td>
             </tr>
          </table>
@@ -146,6 +142,9 @@
             <td width="250px"><a href="vector3d.calcDelaunay.html"><tt>calcDelaunay</tt></a></td>
             <td>compute the Delaynay triangulation for a spherical grid</td>
             <tr></tr>
+            <td width="250px"><a href="vector3d.calcDensity.html"><tt>calcDensity</tt></a></td>
+            <td>calculate a density function out of (weighted) unit vectors</td>
+            <tr></tr>
             <td width="250px"><a href="vector3d.calcQuadratureWeights.html"><tt>calcQuadratureWeights</tt></a></td>
             <td>compute the area of the Voronoi decomposition</td>
             <tr></tr>
@@ -179,6 +178,9 @@
             <td width="250px"><a href="vector3d.ctranspose.html"><tt>ctranspose</tt></a></td>
             <td>transpose vector</td>
             <tr></tr>
+            <td width="250px"><a href="vector3d.det.html"><tt>det</tt></a></td>
+            <td>pointwise determinant or triple product of three vector3d</td>
+            <tr></tr>
             <td width="250px"><a href="vector3d.display.html"><tt>display</tt></a></td>
             <td>standard output</td>
             <tr></tr>
@@ -207,16 +209,13 @@
             <td>overloads [v1,v2,v3..]</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.interp.html"><tt>interp</tt></a></td>
-            <td>dirty spherical interpolation - including some smoothing</td>
+            <td>spherical interpolation - including some smoothing</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.isPerp.html"><tt>isPerp</tt></a></td>
             <td>check whether v1 and v2 are orthogonal</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.isempty.html"><tt>isempty</tt></a></td>
             <td>overloads isempty</td>
-            <tr></tr>
-            <td width="250px"><a href="vector3d.kernelDensityEstimation.html"><tt>kernelDensityEstimation</tt></a></td>
-            <td>calculates a density function out of (weighted) unit vectors</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.length.html"><tt>length</tt></a></td>
             <td>overloads length</td>
@@ -254,8 +253,11 @@
             <td width="250px"><a href="vector3d.perp.html"><tt>perp</tt></a></td>
             <td>conmpute an vector best orthogonal to a list of directions</td>
             <tr></tr>
+            <td width="250px"><a href="vector3d.planeIntersect.html"><tt>planeIntersect</tt></a></td>
+            <td>pointwise determinant or triple product of three vector3d</td>
+            <tr></tr>
             <td width="250px"><a href="vector3d.plot.html"><tt>plot</tt></a></td>
-            <td>plot three dimensional vector</td>
+            <td>plot vectors as two dimensional projections on the sphere</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.plot3d.html"><tt>plot3d</tt></a></td>
             <td>plot spherical data</td>
@@ -273,6 +275,9 @@
             <td>projects vectors to the fundamental sector of the inverse pole figure</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.quiver.html"><tt>quiver</tt></a></td>
+            <td>Syntax quiver(v,d)</td>
+            <tr></tr>
+            <td width="250px"><a href="vector3d.quiver3.html"><tt>quiver3</tt></a></td>
             <td>Syntax quiver(v,d)</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.rdivide.html"><tt>rdivide</tt></a></td>
@@ -417,9 +422,7 @@
             <td>disjoint list of Miller indices</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2>no title<a name="4"> </a></h2>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Rotations (The Class @rotation)<a name="5"> </a></h2>
+         <h2> Rotations (The Class @rotation)<a name="4"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="rotation.cat.html"><tt>cat</tt></a></td>
@@ -495,7 +498,7 @@
             <td>disjoint list of rotations</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Crystal and Specimen Symmetries (The Class @symmetry)<a name="6"> </a></h2>
+         <h2> Crystal and Specimen Symmetries (The Class @symmetry)<a name="5"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="symmetry.Laue.html"><tt>Laue</tt></a></td>
@@ -577,7 +580,7 @@
             <td>returns the union of two symmetry groups</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Crystal Orientations (The Class @orientation)<a name="7"> </a></h2>
+         <h2> Crystal Orientations (The Class @orientation)<a name="6"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="orientation.BCV.html"><tt>BCV</tt></a></td>
@@ -740,7 +743,7 @@
             <td>ratio of orientations with a certain orientation</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Fibres<a name="8"> </a></h2>
+         <h2> Fibres<a name="7"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="fibre.angle.html"><tt>angle</tt></a></td>
@@ -807,7 +810,7 @@
             <td>overloads [v1,v2,v3..]</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Quaternions (The Class @quaternion)<a name="9"> </a></h2>
+         <h2> Quaternions (The Class @quaternion)<a name="8"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="quaternion.Euler.html"><tt>Euler</tt></a></td>
@@ -1009,7 +1012,7 @@
             <td>implements [q1;q2;q3..]</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Discretisation of 1-Sphere (The Class @S1Grid)<a name="10"> </a></h2>
+         <h2> Discretisation of 1-Sphere (The Class @S1Grid)<a name="9"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="S1Grid.GridLength.html"><tt>GridLength</tt></a></td>
@@ -1067,7 +1070,7 @@
             <td>epsilon - neighborhood of a point in the grid</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Discretisation of 2 - Sphere (The Class @S2Grid)<a name="11"> </a></h2>
+         <h2> Discretisation of 2 - Sphere (The Class @S2Grid)<a name="10"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="S2Grid.S2Grid.html"><tt>S2Grid</tt></a></td>
@@ -1109,7 +1112,7 @@
             <td>overloads subsref</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Discretisation of Orientation Space (The Class SO3Grid)<a name="12"> </a></h2>
+         <h2> Discretisation of Orientation Space (The Class SO3Grid)<a name="11"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="SO3Grid.SO3Grid.html"><tt>SO3Grid</tt></a></td>
@@ -1149,42 +1152,42 @@
             <td>overloads subsref</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Classes for Quantitative Texture Analysis<a name="13"> </a></h2>
+         <h2> Classes for Quantitative Texture Analysis<a name="12"> </a></h2>
          <table class="ref" width="90%">
             <tr>
-               <td valign="top" width="250px"><a href="#14"> Orientation Density Functions (The Class @ODF)
+               <td valign="top" width="250px"><a href="#13"> Orientation Density Functions (The Class @ODF)
                      <td valign="top" width="75%">This sections describes the class *ODF* and gives an overview how to work
                          with orientation density functions in MTEX.
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#15"> Standard ODFs
+               <td valign="top" width="250px"><a href="#14"> Standard ODFs
                      <td valign="top" width="75%">predefined ODFs</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#16"> ODF Shapes (The class @kernel) 
+               <td valign="top" width="250px"><a href="#15"> ODF Shapes (The class @kernel) 
                      <td valign="top" width="75%">standard distributions on SO(3)</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#17"> Pole Figure Data (The Class @PoleFigure)
+               <td valign="top" width="250px"><a href="#16"> Pole Figure Data (The Class @PoleFigure)
                      <td valign="top" width="75%">This section describes the class *PoleFigure* and gives an overview of
                          the functionality MTEX offers to analyze pole figure data.
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#18"> Electron Backscatter Diffraction Data (The Class @EBSD)
+               <td valign="top" width="250px"><a href="#17"> Electron Backscatter Diffraction Data (The Class @EBSD)
                      <td valign="top" width="75%">This section describes the class *EBSD* and gives an overview over the
                          functionality that MTEX offers to analyze EBSD data.
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#19"> Material Tensors (The Class @tensor)
+               <td valign="top" width="250px"><a href="#18"> Material Tensors (The Class @tensor)
                      <td valign="top" width="75%"></td></a></td>
             </tr>
          </table>
          <table width="95%"></table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2> Orientation Density Functions (The Class @ODF)<a name="14"> </a></h2>
+         <h2> Orientation Density Functions (The Class @ODF)<a name="13"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="ODF.FourierODF.html"><tt>FourierODF</tt></a></td>
@@ -1227,7 +1230,7 @@
             <td>draw random orientations from ODF</td>
             <tr></tr>
             <td width="250px"><a href="ODF.calcPDF.html"><tt>calcPDF</tt></a></td>
-            <td>calculate pdf</td>
+            <td>calcPDF computed the PDF corresponding to an ODF</td>
             <tr></tr>
             <td width="250px"><a href="ODF.calcPoleFigure.html"><tt>calcPoleFigure</tt></a></td>
             <td>simulate pole figures from an ODF</td>
@@ -1370,8 +1373,8 @@
             <td width="250px"><a href="ODF.volume.html"><tt>volume</tt></a></td>
             <td>ratio of orientations with a certain orientation</td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
-         <h2> Standard ODFs<a name="15"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("12");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#12">Back to Top of Section</a></p>
+         <h2> Standard ODFs<a name="14"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="BinghamODF.html"><tt>BinghamODF</tt></a></td>
@@ -1398,8 +1401,8 @@
             <td width="250px"><a href="unimodalODF.html"><tt>unimodalODF</tt></a></td>
             <td>define a unimodal ODF</td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
-         <h2> ODF Shapes (The class @kernel) <a name="16"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("12");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#12">Back to Top of Section</a></p>
+         <h2> ODF Shapes (The class @kernel) <a name="15"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="kernel.K_symmetrised.html"><tt>K_symmetrised</tt></a></td>
@@ -1423,8 +1426,8 @@
             <td width="250px"><a href="kernel.volume.html"><tt>volume</tt></a></td>
             <td></td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
-         <h2> Pole Figure Data (The Class @PoleFigure)<a name="17"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("12");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#12">Back to Top of Section</a></p>
+         <h2> Pole Figure Data (The Class @PoleFigure)<a name="16"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="PoleFigure.PoleFigure.html"><tt>PoleFigure</tt></a></td>
@@ -1541,8 +1544,8 @@
             <td width="250px"><a href="PoleFigure.zeroRange.html"><tt>zeroRange</tt></a></td>
             <td>implements the zero range method</td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
-         <h2> Electron Backscatter Diffraction Data (The Class @EBSD)<a name="18"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("12");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#12">Back to Top of Section</a></p>
+         <h2> Electron Backscatter Diffraction Data (The Class @EBSD)<a name="17"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="EBSD.EBSD.html"><tt>EBSD</tt></a></td>
@@ -1647,8 +1650,8 @@
             <td width="250px"><a href="EBSD.updateUnitCell.html"><tt>updateUnitCell</tt></a></td>
             <td>this function should be called after the spatial coordinates of an EBSD data set have been modified</td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
-         <h2> Material Tensors (The Class @tensor)<a name="19"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("12");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#12">Back to Top of Section</a></p>
+         <h2> Material Tensors (The Class @tensor)<a name="18"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="tensor.ChristoffelTensor.html"><tt>ChristoffelTensor</tt></a></td>
@@ -1756,17 +1759,11 @@
             <td width="250px"><a href="tensor.plot.html"><tt>plot</tt></a></td>
             <td>plot a tensor T</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.plotS2Grid.html"><tt>plotS2Grid</tt></a></td>
-            <td>define a plotting grid suitable for tensor plots</td>
-            <tr></tr>
             <td width="250px"><a href="tensor.plus.html"><tt>plus</tt></a></td>
             <td>add two tensors</td>
             <tr></tr>
             <td width="250px"><a href="tensor.quadric.html"><tt>quadric</tt></a></td>
             <td>quadric</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.quiverGrid.html"><tt>quiverGrid</tt></a></td>
-            <td></td>
             <tr></tr>
             <td width="250px"><a href="tensor.rdivide.html"><tt>rdivide</tt></a></td>
             <td></td>
@@ -1831,26 +1828,26 @@
             <td width="250px"><a href="tensor.volumeCompressibility.html"><tt>volumeCompressibility</tt></a></td>
             <td>computes the volume compressibility of an elasticity tensor</td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
-         <h2> Auxiliary Functions<a name="20"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("12");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#12">Back to Top of Section</a></p>
+         <h2> Auxiliary Functions<a name="19"> </a></h2>
          <table class="ref" width="90%">
             <tr>
-               <td valign="top" width="250px"><a href="#21"> Plotting Tools 
+               <td valign="top" width="250px"><a href="#20"> Plotting Tools 
                      <td valign="top" width="75%">Below you find a list of tools to work with data given in the Dubna format</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#22"> Geometry Tools
+               <td valign="top" width="250px"><a href="#21"> Geometry Tools
                      <td valign="top" width="75%">This section of geometry tools especially contains methods to convert
                          directions and rotations from one parametrization into another.
                          Additionally, some basic geometrical objects are predefined.
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#23"> Statistics
+               <td valign="top" width="250px"><a href="#22"> Statistics
                      <td valign="top" width="75%">Below you find a list of statistical tools included in the MTEX toolbox.</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#24"> Plotting
+               <td valign="top" width="250px"><a href="#23"> Plotting
                      <td valign="top" width="75%">Below you find a list of plotting tools included in the MTEX toolbox. Of
                          special importance is the command [[savefigure.html,savefigure]] which
                          allows saving plots in any kinds of image files.
@@ -1923,6 +1920,9 @@
             <tr></tr>
             <td width="250px"><a href="plotEllipse.html"><tt>plotEllipse</tt></a></td>
             <td>plot multiple ellipses</td>
+            <tr></tr>
+            <td width="250px"><a href="plotEmptySphere.html"><tt>plotEmptySphere</tt></a></td>
+            <td>plots white sphere</td>
             <tr></tr>
             <td width="250px"><a href="plota2east.html"><tt>plota2east</tt></a></td>
             <td>set the default plot direction of the x-axis</td>
@@ -2024,10 +2024,35 @@
             <td>zip mtex for publishing (on website)</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2> Plotting Tools <a name="21"> </a></h2>
-         <table width="95%"></table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("20");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#20">Back to Top of Section</a></p>
-         <h2> Geometry Tools<a name="22"> </a></h2>
+         <h2> Plotting Tools <a name="20"> </a></h2>
+         <table width="95%">
+            <tr></tr>
+            <td width="250px"><a href="DubnaGrid.html"><tt>DubnaGrid</tt></a></td>
+            <td>construct specimen grid of the Dubna goniometer</td>
+            <tr></tr>
+            <td width="250px"><a href="DubnaPoleFigure.html"><tt>DubnaPoleFigure</tt></a></td>
+            <td>construct pole figure using Dubna struct file</td>
+            <tr></tr>
+            <td width="250px"><a href="calc_background.html"><tt>calc_background</tt></a></td>
+            <td>background of spectra</td>
+            <tr></tr>
+            <td width="250px"><a href="loadallspectra.html"><tt>loadallspectra</tt></a></td>
+            <td>load all spectra files of a Dubna meassurement cycle</td>
+            <tr></tr>
+            <td width="250px"><a href="loadspectra.html"><tt>loadspectra</tt></a></td>
+            <td>load a single spectrum o a Dubna meassurement</td>
+            <tr></tr>
+            <td width="250px"><a href="plot_spectra.html"><tt>plot_spectra</tt></a></td>
+            <td>plot spectra of the Dubna goniometer</td>
+            <tr></tr>
+            <td width="250px"><a href="proceed_spectra.html"><tt>proceed_spectra</tt></a></td>
+            <td>procede Dubna spectra</td>
+            <tr></tr>
+            <td width="250px"><a href="work.html"><tt>work</tt></a></td>
+            <td>import spectra</td>
+         </table>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("19");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#19">Back to Top of Section</a></p>
+         <h2> Geometry Tools<a name="21"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="CSL.html"><tt>CSL</tt></a></td>
@@ -2111,6 +2136,11 @@
             <td width="250px"><a href="plotSO3Grid.html"><tt>plotSO3Grid</tt></a></td>
             <td>give a regular grid in orientation space</td>
             <tr></tr>
+            <td width="250px"><a href="quadratureS2Grid.html"><tt>quadratureS2Grid</tt></a></td>
+            <td>Syntax [S2G, W, M2] = quadratureS2Grid(M) quadrature grid of type gauss [S2G, W, M2] = quadratureS2Grid(M, 'chebyshev') quadrature
+               grid of type chebyshev
+            </td>
+            <tr></tr>
             <td width="250px"><a href="randq.html"><tt>randq</tt></a></td>
             <td>returns random quaternions</td>
             <tr></tr>
@@ -2141,8 +2171,8 @@
             <td width="250px"><a href="zvector.html"><tt>zvector</tt></a></td>
             <td>vector (0,0,1)</td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("20");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#20">Back to Top of Section</a></p>
-         <h2> Statistics<a name="23"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("19");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#19">Back to Top of Section</a></p>
+         <h2> Statistics<a name="22"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="c_hat.html"><tt>c_hat</tt></a></td>
@@ -2163,14 +2193,14 @@
                operates along the first non-singleton dimension.
             </td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("20");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#20">Back to Top of Section</a></p>
-         <h2> Plotting<a name="24"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("19");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#19">Back to Top of Section</a></p>
+         <h2> Plotting<a name="23"> </a></h2>
          <table width="95%"></table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("20");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#20">Back to Top of Section</a></p>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("19");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#19">Back to Top of Section</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right"> MTEX 4.5.2</td>
+               <td valign="baseline" align="right"> MTEX 5.0.beta.2</td>
             </tr>
          </table>
       </div>

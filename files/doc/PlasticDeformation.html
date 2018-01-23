@@ -69,7 +69,7 @@ CS = crystalSymmetry
   symmetry: m-3m         
   a, b, c : 3.5, 3.5, 3.5
  
-</pre><p>Since Nickel is fcc a dominat slip system is given by the slip plane normal</p><pre class="codeinput">n = Miller(1,1,1,CS,<span class="string">'hkl'</span>)</pre><pre class="codeoutput"> 
+</pre><p>Since Nickel is fcc a dominant slip system is given by the slip plane normal</p><pre class="codeinput">n = Miller(1,1,1,CS,<span class="string">'hkl'</span>)</pre><pre class="codeoutput"> 
 n = Miller  
  size: 1 x 1
  mineral: Nickel (m-3m)
@@ -83,7 +83,7 @@ d = Miller
   u  0
   v -1
   w  1
-</pre><p>For a simple shear in the z - direction</p><pre class="codeinput">r = normalize(vector3d(1,2,3))</pre><pre class="codeoutput"> 
+</pre><p>For tension in direction 123</p><pre class="codeinput">r = normalize(vector3d(1,2,3))</pre><pre class="codeoutput"> 
 r = vector3d  
  size: 1 x 1
          x        y        z
@@ -100,14 +100,14 @@ sS = slipSystem
 </pre><p>and using the command <a href="slipSystem_SchmidFactor.html">SchmidFactor</a></p><pre class="codeinput">sS.SchmidFactor(r)</pre><pre class="codeoutput">ans =
     0.1750
 </pre><p>Ommiting the tension direction r the command <a href="slipSystem_SchmidFactor.html">SchmidFactor</a> returns the Schmid factor as a spherical function
-         </p><pre class="codeinput"><span class="comment">%will be part of MTEX 4.5</span>
+         </p><pre class="codeinput"><span class="comment">%will be part of MTEX 4.6</span>
 <span class="comment">% SF = sS.SchmidFactor</span>
 
 <span class="comment">% plot the Schmid factor in dependency of the tension direction</span>
-<span class="comment">%will be part of MTEX 4.5</span>
+<span class="comment">%will be part of MTEX 4.6</span>
 <span class="comment">%plot(SF)</span>
 
-<span class="comment">%will be part of MTEX 4.5</span>
+<span class="comment">%will be part of MTEX 4.6</span>
 <span class="comment">%[SFMax,pos] = max(SF)</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Stress Tensor<a name="11"> </a></h2>
          <p>Instead by the tension direction the stress might be specified by a stress tensor</p><pre class="codeinput">sigma = tensor([0 0 0; 0 0 0; 0 0 1],<span class="string">'name'</span>,<span class="string">'stress'</span>)</pre><pre class="codeoutput"> 
@@ -316,6 +316,7 @@ quiver(grains,sSactive.trace,<span class="string">'color'</span>,<span class="st
 
 <span class="comment">% and the slip direction</span>
 quiver(grains,sSactive.b,<span class="string">'color'</span>,<span class="string">'r'</span>)
+
 hold <span class="string">off</span></pre><img src="PlasticDeformation_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

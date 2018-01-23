@@ -147,7 +147,7 @@ annotate(center,<span class="string">'marker'</span>,<span class="string">'s'</s
             are the <a href="ODF.entropy.html">entropy</a> and the <a href="ODF.textureindex.html">texture index</a>.
          </p>
          <p>Compute the texture index:</p><pre class="codeinput">textureindex(odf1)</pre><pre class="codeoutput">ans =
-   72.1701
+  288.6806
 </pre><p>Compute the entropy:</p><pre class="codeinput">entropy(odf2)</pre><pre class="codeoutput">ans =
    -2.8402
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -176,17 +176,17 @@ fodf = ODF
  
 </pre><p>The Fourier coefficients of order 2:</p><pre class="codeinput">reshape(fodf.components{1}.f_hat(11:35),5,5)</pre><pre class="codeoutput">ans =
   Columns 1 through 4
-  -0.0000 - 0.0000i  -0.0000 + 0.0000i   0.2099 - 0.5496i  -0.0000 + 0.0000i
-   0.0000 + 0.0000i  -0.0000 - 0.0000i   2.0170 - 1.0994i  -0.0000 - 0.0000i
-   0.0000 - 0.0000i   0.0000 + 0.0000i   2.5810 - 0.0000i   0.0000 - 0.0000i
-  -0.0000 - 0.0000i  -0.0000 + 0.0000i   2.0170 + 1.0994i  -0.0000 + 0.0000i
-  -0.0000 + 0.0000i  -0.0000 - 0.0000i   0.2099 + 0.5496i  -0.0000 - 0.0000i
+   0.0000 - 0.0000i  -0.0000 - 0.0000i   0.2099 - 0.5496i  -0.0000 + 0.0000i
+   0.0000 - 0.0000i  -0.0000 - 0.0000i   2.0170 - 1.0994i  -0.0000 + 0.0000i
+   0.0000 + 0.0000i  -0.0000 + 0.0000i   2.5810 - 0.0000i  -0.0000 - 0.0000i
+   0.0000 + 0.0000i  -0.0000 - 0.0000i   2.0170 + 1.0994i  -0.0000 + 0.0000i
+   0.0000 + 0.0000i  -0.0000 - 0.0000i   0.2099 + 0.5496i  -0.0000 + 0.0000i
   Column 5
-  -0.0000 - 0.0000i
-  -0.0000 + 0.0000i
-   0.0000 + 0.0000i
    0.0000 - 0.0000i
-  -0.0000 + 0.0000i
+   0.0000 - 0.0000i
+   0.0000 - 0.0000i
+   0.0000 + 0.0000i
+   0.0000 + 0.0000i
 </pre><p>The decay of the Fourier coefficients:</p><pre class="codeinput">close <span class="string">all</span>;
 plotFourier(fodf)</pre><img src="ODFCharacteristics_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Pole Figures and Values at Specific Orientations<a name="20"> </a></h2>

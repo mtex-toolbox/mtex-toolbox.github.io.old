@@ -81,7 +81,9 @@ plotx2east
 grains = smooth(grains,2)
 
 <span class="comment">% plot the result</span>
-plot(grains,grains.meanOrientation)</pre><pre class="codeoutput"> 
+plot(grains,grains.meanOrientation)</pre><pre class="codeoutput"> loading data ...
+ saving data to /home/hielscher/mtex/master/data/csl.mat
+ 
 grains = grain2d  
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
@@ -263,8 +265,8 @@ mori = misorientation
  
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
-  206.659 48.4404 117.001       0
-  35.5941  47.343 306.581       0
+  61.1127 49.0581  334.56       0
+  215.186 47.7701  127.52       0
  
  
 </pre><p>and their volumes in percent</p><pre class="codeinput">100 * volume(gB.misorientation,CSL(3,ebsd.CS),2*degree)

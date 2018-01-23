@@ -139,34 +139,34 @@ r = S2Grid
 
 plot(rec,<span class="string">'sections'</span>,6)</pre><pre class="codeoutput">initialize solver
 start iteration
-error: 9.0080E-02 2.5254E-02 1.1496E-02 8.9331E-03 7.1991E-03 5.9732E-03 5.1861E-03 4.4359E-03 3.8397E-03 3.2372E-03 2.7825E-03 
+error: 9.0080E-02 2.5254E-02 1.1496E-02 8.9331E-03 7.1991E-03 5.9732E-03 5.1861E-03 4.4359E-03 3.8397E-03 3.2371E-03 2.7825E-03 
 Finished PDF-ODF inversion.
 error: 2.7825E-03
 alpha: 1.0006E+00 9.9733E-01 9.9459E-01 
 initialize solver
 start iteration
-error: 5.4173E-01 3.3935E-01 2.3711E-01 1.8011E-01 1.3962E-01 1.0473E-01 7.6948E-02 5.2699E-02 3.6109E-02 2.5846E-02 1.9807E-02 1.6550E-02 
+error: 5.4159E-01 3.3921E-01 2.3699E-01 1.8000E-01 1.3952E-01 1.0463E-01 7.6851E-02 5.2611E-02 3.6249E-02 2.5957E-02 2.0053E-02 1.6698E-02 
 Finished PDF-ODF inversion.
-error: 1.6550E-02
-alpha: 9.8659E-01 1.0024E+00 1.0096E+00 
+error: 1.6698E-02
+alpha: 9.8654E-01 1.0024E+00 1.0097E+00 
  
 rec = ODF  
   crystal symmetry : 432
   specimen symmetry: 222
  
   Uniform portion:
-    weight: 0.72954
+    weight: 0.72947
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: 98 orientations, resolution: 10&deg;
-    weight: 0.27046
+    center: 99 orientations, resolution: 10&deg;
+    weight: 0.27053
  
 </pre><img src="PoleFigureDemo_05.png"> <p>without ghost correction</p><pre class="codeinput">rec_ng = calcODF(pf_SantaFe,<span class="string">'RESOLUTION'</span>,10*degree,<span class="string">'background'</span>,10,<span class="string">'NoGhostCorrection'</span>)
 
 plot(rec_ng,<span class="string">'sections'</span>,6)</pre><pre class="codeoutput">initialize solver
 start iteration
-error: 9.0080E-02 2.5254E-02 1.1496E-02 8.9331E-03 7.1991E-03 5.9732E-03 5.1861E-03 4.4359E-03 3.8397E-03 3.2372E-03 2.7825E-03 
+error: 9.0080E-02 2.5254E-02 1.1496E-02 8.9331E-03 7.1991E-03 5.9732E-03 5.1861E-03 4.4359E-03 3.8397E-03 3.2371E-03 2.7825E-03 
 Finished PDF-ODF inversion.
 error: 2.7825E-03
 alpha: 1.0006E+00 9.9733E-01 9.9459E-01 
@@ -183,14 +183,14 @@ rec_ng = ODF
 </pre><img src="PoleFigureDemo_06.png"> <h2>Error Analysis<a name="14"> </a></h2><pre class="codeinput">calcError(pf_SantaFe,rec)
 calcError(pf_SantaFe,rec_ng)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.0165    0.0249    0.0227
+    0.0166    0.0250    0.0228
 progress: 100%
 ans =
     0.0301    0.0316    0.0297
 </pre><p><b>Difference plot</b></p><pre class="codeinput">plotDiff(pf_SantaFe,rec)</pre><pre class="codeoutput">progress: 100%
 </pre><img src="PoleFigureDemo_07.png"> <p><b>ODF error</b></p><pre class="codeinput">calcError(SantaFe,rec)
 calcError(SantaFe,rec_ng)</pre><pre class="codeoutput">ans =
-    0.0271
+    0.0273
 ans =
     0.0859
 </pre><h2>Exercises<a name="17"> </a></h2>

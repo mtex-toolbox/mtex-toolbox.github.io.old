@@ -43,13 +43,29 @@
             <p>(method of <a href="grain2d_index.html">grain2d</a>)
             </p>
          </div>
-         <h2>Syntax<a name="3"> </a></h2>
+         <p>plot a grain size histogram</p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">hist(grains)
+hist(grains,n) <span class="comment">% specify the number of bins</span></pre><pre class="codeinput"><span class="comment">% use an arbitrary property for the histogramm</span>
+hist(grains,grains.equivalentRadius)</pre><pre class="codeinput">binId = hist(grains) <span class="comment">% returns the bin for each grain</span></pre><h2>Input<a name="4"> </a></h2>
          <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>hist(grains,'param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>grains</tt>
+            </td>
+            <td>
+            <p><a href="grain2d_index.html">grain2d</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>n</tt>
+            </td>
+            <td>
+            <p>number of bins, default ist 15</p>
+            </td>
+            </tr>
+            </table>
             
          </p>
          <p style="font-size:1px;"></p>

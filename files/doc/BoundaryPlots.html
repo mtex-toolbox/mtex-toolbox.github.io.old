@@ -210,9 +210,7 @@ hold <span class="string">on</span>
 
 ind = angle(gB_Fo.misorientation.axis,xvector)&lt;5*degree;
 
-plot(gB_Fo(ind),<span class="string">'linecolor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'[100]'</span>)</pre><pre class="codeoutput">Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-</pre><img src="BoundaryPlots_11.png"> <p>Or we mark a special rotation between neighboured grains. If a linecolor is not specified, then the boundary is colorcoded
+plot(gB_Fo(ind),<span class="string">'linecolor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'[100]'</span>)</pre><img src="BoundaryPlots_11.png"> <p>Or we mark a special rotation between neighboured grains. If a linecolor is not specified, then the boundary is colorcoded
             after its angular difference to the given rotation.
          </p><pre class="codeinput">rot = rotation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,60*degree);
 ind = angle(gB_Fo.misorientation,rot)&lt;10*degree;
@@ -222,9 +220,7 @@ plot(gB)
 hold <span class="string">on</span>
 plot(gB_Fo(ind),<span class="string">'lineWidth'</span>,1.5,<span class="string">'lineColor'</span>,<span class="string">'r'</span>)
 
-legend(<span class="string">'&gt;2^\circ'</span>,<span class="string">'60^\circ/[001]'</span>)</pre><pre class="codeoutput">Warning: Ignoring extra legend
-entries. 
-</pre><img src="BoundaryPlots_12.png"> <p>Another kind of special boundaries is tilt and twist boundaries. We can find a tilt boundary by specifying the crystal form,
+legend(<span class="string">'&gt;2^\circ'</span>,<span class="string">'60^\circ/[001]'</span>)</pre><img src="BoundaryPlots_12.png"> <p>Another kind of special boundaries is tilt and twist boundaries. We can find a tilt boundary by specifying the crystal form,
             which is tilted, i.e. the misorientation maps a lattice plane <img src="BoundaryPlots_eq08062630503172331818.png">   of on grain onto the others grain lattice plane.
          </p>
          <p><img src="BoundaryPlots_eq17903004170913562749.png"> </p>

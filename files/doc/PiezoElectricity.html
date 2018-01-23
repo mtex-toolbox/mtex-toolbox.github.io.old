@@ -83,12 +83,12 @@ plot(P)
 mtexColorbar</pre><img src="PiezoElectricity_01.png"> <p>but also, we can plot the whole crystal behavior</p><pre class="codeinput">close <span class="string">all</span>
 plot(P,<span class="string">'complete'</span>,<span class="string">'smooth'</span>,<span class="string">'upper'</span>)
 mtexColorbar</pre><img src="PiezoElectricity_02.png"> <p>Most often, the polarization is illustrated as surface magnitude</p><pre class="codeinput">close <span class="string">all</span>
-plot(P,<span class="string">'3d'</span>)</pre><img src="PiezoElectricity_03.png"> <p>Note, that for directions of negative polarization the surface is mapped onto the axis of positive, which then let the surface
+surf(P.directionalMagnitude)</pre><img src="PiezoElectricity_03.png"> <p>Note, that for directions of negative polarization the surface is mapped onto the axis of positive, which then let the surface
             appear as a double coverage
          </p>
          <p>Quite a famous example in various standard literature is a section through the surface because it can easily be described
             as an analytical solution. We just specify the plane normal vector
-         </p><pre class="codeinput">plot(P,<span class="string">'section'</span>,zvector)</pre><img src="PiezoElectricity_04.png"> <p>so we are plotting the polarization in the xy-plane, or the yz-plane with</p><pre class="codeinput">plot(P,<span class="string">'section'</span>,xvector)</pre><img src="PiezoElectricity_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         </p><pre class="codeinput">plotSection(P.directionalMagnitude,vector3d.Z)</pre><img src="PiezoElectricity_04.png"> <p>so we are plotting the polarization in the xy-plane, or the yz-plane with</p><pre class="codeinput">plotSection(P.directionalMagnitude,vector3d.X)</pre><img src="PiezoElectricity_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Mean Tensor Calculation<a name="11"> </a></h2>
          <p>Let us import some data, which was originally published by Mainprice, D., Lloyd, G.E. and Casey , M. (1993) Individual orientation
             measurements in quartz polycrystals: advantages and limitations for texture and petrophysical property determinations. J.
@@ -116,7 +116,7 @@ Pm = tensor
  -18.02  -3.15  21.17  62.42  29.67  44.39
  -41.35  40.44   0.91  32.48 -23.42   6.47
 </pre><img src="PiezoElectricity_06.png"> <pre class="codeinput">close <span class="string">all</span>
-plot(Pm,<span class="string">'complete'</span>,<span class="string">'upper'</span>)
+plot(Pm)
 mtexColorbar
 
 setMTEXpref(<span class="string">'defaultColorMap'</span>,WhiteJetColorMap)</pre><img src="PiezoElectricity_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

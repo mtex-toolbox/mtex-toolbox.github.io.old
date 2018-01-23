@@ -269,8 +269,7 @@ ans = orientation
  
 </pre><p>Alternatively the list can be computed by multiplying with the specimen and the crystal symmetry from the left and from the
             right.
-         </p><pre class="codeinput">ss * o * cs</pre><pre class="codeoutput">Warning: Symmetry missmatch! 
- 
+         </p><pre class="codeinput">ss * o * cs</pre><pre class="codeoutput"> 
 ans = orientation  
   size: 8 x 48
   crystal symmetry : m-3m
@@ -328,9 +327,12 @@ oR = fundamentalRegion(ori.CS,ori.SS)
 plot(oR,<span class="string">'color'</span>,[1 0.5 0.5]),
 hold <span class="string">off</span></pre><pre class="codeoutput"> 
 oR = orientationRegion  
+ 
  crystal symmetry:  432
- face normales: 1 x 14
- vertices: 1 x 24
+ max angle: 62.7994&deg;
+ face normales: 14
+ vertices: 24
+ 
 </pre><img src="CrystalOrientations_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> in (inverse) pole figures<a name="30"> </a></h3><pre class="codeinput"><span class="comment">% a pole figure plot</span>
 plotPDF(ori,Miller({1,0,0},{1,1,1},ori.CS))</pre><img src="CrystalOrientations_05.png"> <p>an inverse pole figure plot</p><pre class="codeinput">plotIPDF(ori,[vector3d.X,vector3d.Z])</pre><img src="CrystalOrientations_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

@@ -3,7 +3,7 @@ function makeDoc(varargin)
 %
 
 if check_option(varargin,'clear')
-  !find doc/UsersGuide -exec touch {} \;
+  !find ../../master/doc -exec touch {} \;
   mtexdata clear
 end
 
@@ -24,8 +24,8 @@ set(0,'FormatSpacing','compact')
 
 set(0,'DefaultFigureColor','white');
 
-addpath(fullfile(pwd,'..','..','doc'))
-addpath(fullfile(pwd,'..','..','doc','tools'))
+addpath(fullfile(pwd,'..','..','makeDoc'))
+addpath(fullfile(pwd,'..','..','makeDoc','tools'))
 
 %% DocFiles
 %

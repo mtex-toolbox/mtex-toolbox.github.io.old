@@ -43,16 +43,17 @@
             <p>load pole figure data from (alpha,beta,gamma) files</p>
          </div>
          <h2>Description<a name="2"> </a></h2>
-         <p><b>loadEBSD_txt</b> is a generic function that reads any txt or exel files of diffraction intensities that are of the following format
+         <p><b>loadEBSD_txt</b> loads an ODF from any txt or exel files are of the following format
          </p><pre>alpha_1 beta_1 gamma_1 weight_1
 alpha_2 beta_2 gamma_2 weight_2
 alpha_3 beta_3 gamma_3 weight_3
 .      .       .       .
 .      .       .       .
 .      .       .       .
-alpha_M beta_M gamma_M weight_m</pre><p>The assoziation of the columns as Euler angles, phase informationl, etc. is specified by the options <tt>ColumnNames</tt> and <tt>Columns</tt>. The files can be contain any number of header lines.
+alpha_M beta_M gamma_M weight_m</pre><p>The assoziation of the columns as Euler angles, phase informationl, etc. is specified by the options <tt>ColumnNames</tt> and <tt>Columns</tt>. The file can contain any number of header lines.
          </p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">odf   = loadODF_generic(fname,<options>)</pre><h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">cs = crystalSymmetry(<span class="string">'432'</span>)
+odf   = loadODF_generic(fname,<span class="string">'cs'</span>,cs,<span class="string">'ColumnNames'</span>,{<span class="string">'Euler 1'</span> <span class="string">'Euler 2'</span> <span class="string">'Euler 3'</span> <span class="string">'weight'</span>})</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -90,7 +91,7 @@ alpha_M beta_M gamma_M weight_m</pre><p>The assoziation of the columns as Euler 
             </tr>
             <tr>
             <td width="150px">
-            <tt>'RADIANS'</tt>
+            <tt>'radians'</tt>
             </td>
             <td>
             <p>treat input in radiand</p>
@@ -98,7 +99,7 @@ alpha_M beta_M gamma_M weight_m</pre><p>The assoziation of the columns as Euler 
             </tr>
             <tr>
             <td width="150px">
-            <tt>'DELIMITER'</tt>
+            <tt>'delimiter'</tt>
             </td>
             <td>
             <p>delimiter between numbers</p>
@@ -106,7 +107,7 @@ alpha_M beta_M gamma_M weight_m</pre><p>The assoziation of the columns as Euler 
             </tr>
             <tr>
             <td width="150px">
-            <tt>'HEADER'</tt>
+            <tt>'header'</tt>
             </td>
             <td>
             <p>number of header lines</p>
@@ -131,27 +132,41 @@ alpha_M beta_M gamma_M weight_m</pre><p>The assoziation of the columns as Euler 
             </table>
             </td>
             </tr>
+            <tr>
+            <td width="100px">
+            <tt>param</tt>
+            </td>
+            <td>Options that control the loadODF_generic behavior<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
+            <tr>
+            <td class="header" width="100px">Parameter</td>
+            <td class="header">Description</td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'interp'</tt>
+            </td>
+            <td>
+            <p>determine the ODF by interpolation the weights</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'density'</tt>
+            </td>
+            <td>
+            <p>determine the ODF as the density of the orientations</p>
+            <p>mple</p>
+            <p>fname = fullfile(mtexDataPath,'ODF','odf.txt'); odf = loadODF_generic(fname,'cs',crystalSymmetry('cubic'),'header',5,...
+            'ColumnNames',{'Euler 1' 'Euler 2' 'Euler 3' 'weight'},...   'Columns',[1,2,3,4])</p>
+            </td>
+            </tr>
+            </table>
+            </td>
+            </tr>
             </table>
             
          </p>
-         <h2>Example<a name="5"> </a></h2><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'ODF'</span>,<span class="string">'odf.txt'</span>);
-odf = loadODF_generic(fname,<span class="string">'cs'</span>,crystalSymmetry(<span class="string">'cubic'</span>),<span class="string">'header'</span>,5,<span class="keyword">...</span>
-<span class="string">'ColumnNames'</span>,{<span class="string">'Euler 1'</span> <span class="string">'Euler 2'</span> <span class="string">'Euler 3'</span> <span class="string">'weight'</span>},<span class="keyword">...</span>
-<span class="string">'Columns'</span>,[1,2,3,4])</pre><pre class="codeoutput">  Interpolating the ODF. This might take some time...
- 
-odf = ODF  
-  crystal symmetry : m-3m
-  specimen symmetry: 1
- 
-  Uniform portion:
-    weight: 0.51746
- 
-  Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 3&deg;
-    center: 22875 orientations, resolution: 3&deg;
-    weight: 0.48254
- 
-</pre><h3 class="seealso">See also</h3>
+         <h3 class="seealso">See also</h3>
          <p><a href="import_wizard.html">import_wizard</a>, <a href="loadODF.html">loadODF</a>, <a href="ODF_demo.html">ODF_demo</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

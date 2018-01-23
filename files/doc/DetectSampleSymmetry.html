@@ -135,7 +135,7 @@ progress: 100%
 progress: 100%
 progress: 100%
 ans =
-    0.8195
+    0.5512
 </pre><img src="DetectSampleSymmetry_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Sample symmetry in an ODF computed from pole figure data<a name="6"> </a></h2>
          <p>In the next example we apply the function <tt>centerSpecimen</tt> to an ODF estimated from pole figure data. Lets start by importing them
@@ -151,7 +151,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 4790 orientations, resolution: 5&deg;
+    center: 4780 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><img src="DetectSampleSymmetry_05.png"> <p>Finally, we detect the orthotropic symmetry axes a1, a2, a3 by</p><pre class="codeinput">[~,~,a1,a2] = centerSpecimen(odf,yvector)

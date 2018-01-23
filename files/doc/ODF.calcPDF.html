@@ -43,18 +43,11 @@
             <p>(method of <a href="ODF_index.html">ODF</a>)
             </p>
          </div>
-         <p>calculate pdf</p>
-         <p>pdf is a lowlevel function to evaluate the PDF corresponding to an ODF at a list of crystal and specimen directions</p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>Z = calcPDF(odf,h,r,'param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="4"> </a></h2>
+         <p>calcPDF computed the PDF corresponding to an ODF</p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">pdf = calcPDF(odf,h)
+pdf = calcPDF(odf,h,<span class="string">'superposition'</span>,c)
+value = calcPDF(odf,h,r)
+ipdf = calcPDF(odf,[],r)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -119,6 +112,28 @@
             </td>
             </tr>
             </table>
+            </td>
+            </tr>
+            </table>
+            
+         </p>
+         <h2>Output<a name="5"> </a></h2>
+         <p>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>pdf</tt>
+            </td>
+            <td>
+            <p>pole density function <a href="S2Fun_index.html">S2Fun</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>ipdf</tt>
+            </td>
+            <td>
+            <p>inverse pole density function <a href="S2Fun_index.html">S2Fun</a> lue</p>
             </td>
             </tr>
             </table>

@@ -195,6 +195,9 @@ equispacedS2Grid(<span class="keyword">...</span><span class="comment">)  % cons
             </td>
             <td>
             <p>restrict margins to min / max</p>
+            <p>mples egularS2Grid('points',[72 19])</p>
+            <p>egularS2Grid('resolution',[5*degree 2.5*degree])</p>
+            <p>quispacedS2Grid('resolution',5*degree,'maxrho',pi) lot(ans)</p>
             </td>
             </tr>
             </table>
@@ -203,18 +206,7 @@ equispacedS2Grid(<span class="keyword">...</span><span class="comment">)  % cons
             </table>
             
          </p>
-         <h2>Example<a name="4"> </a></h2><pre class="codeinput">regularS2Grid(<span class="string">'points'</span>,[72 19])</pre><pre class="codeoutput"> 
-ans = S2Grid  
- size: 72 x 19
-</pre><pre class="codeinput">regularS2Grid(<span class="string">'resolution'</span>,[5*degree 2.5*degree])</pre><pre class="codeoutput"> 
-ans = S2Grid  
- size: 72 x 73
-</pre><pre class="codeinput">equispacedS2Grid(<span class="string">'resolution'</span>,5*degree,<span class="string">'maxrho'</span>,pi)
-plot(ans)</pre><pre class="codeoutput"> 
-ans = S2Grid  
- size: 1 x 824
- resolution: 5&deg;
-</pre><img src="S2Grid.S2Grid_01.png"> <h3 class="seealso">See also</h3>
+         <h3 class="seealso">See also</h3>
          <p><a href="vector3d.vector3d.html">vector3d/vector3d</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

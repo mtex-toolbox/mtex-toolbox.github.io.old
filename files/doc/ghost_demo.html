@@ -121,18 +121,18 @@ plot(pf)</pre><img src="ghost_demo_01.png"> <p class="pagenavlink"><script langu
          <h2>Compare RP Errors<a name="8"> </a></h2>
          <p>without ghost correction:</p><pre class="codeinput">calcError(pf,rec,<span class="string">'RP'</span>)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.0081    0.0440    0.0599
+    0.0094    0.0088    0.0110
 </pre><p>with ghost correction:</p><pre class="codeinput">calcError(pf,rec_cor,<span class="string">'RP'</span>)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.0142    0.0267    0.0282
+    0.0267    0.0257    0.0272
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Compare Reconstruction Errors<a name="11"> </a></h2>
          <p>without ghost correction:</p><pre class="codeinput">calcError(rec,odf)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.1019
+    0.1263
 </pre><p>with ghost correction:</p><pre class="codeinput">calcError(rec_cor,odf)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.0051
+    0.0053
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Plot the ODFs<a name="14"> </a></h2>
          <p>without ghost correction:</p><pre class="codeinput">plot(rec,<span class="string">'sections'</span>,9,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput">progress: 100%
@@ -178,9 +178,9 @@ rec_cor = ODF
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Calculate Reconstruction Errors from Fourier Coefficients<a name="21"> </a></h2>
          <p>without ghost correction:</p><pre class="codeinput">calcError(rec,odf,<span class="string">'L2'</span>)</pre><pre class="codeoutput">ans =
-    0.3391
+   -0.3688
 </pre><p>with ghost correction:</p><pre class="codeinput">calcError(rec_cor,odf,<span class="string">'L2'</span>)</pre><pre class="codeoutput">ans =
-   1.2245e+08
+   -0.0316
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Plot Fourier Coefficients<a name="24"> </a></h2>
          <p>Plotting the Fourier coefficients of the recalculated ODFs shows that the Fourier coefficients without ghost correction oscillates

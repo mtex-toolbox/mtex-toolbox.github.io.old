@@ -108,10 +108,10 @@ oM.maxAngle = 1.5*degree;
 
 <span class="comment">% plot the colormap</span>
 plot(oM,<span class="string">'resolution'</span>,0.5*degree)</pre><img src="EBSDSmoothing_02.png"> <p>With the new colormap, we can clearly see the noise overlapping the texture gradient within the grain.</p><pre class="codeinput"><span class="comment">% plot the grain</span>
-plot(ebsd,oM.orientation2color(ebsd.orientations))
+plot(ebsd,oM.orientation2color(ebsd.orientations),<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
 
 hold <span class="string">on</span>
-plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
+plot(oneGrain.boundary)
 hold <span class="string">off</span></pre><img src="EBSDSmoothing_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> The Mean Filter<a name="6"> </a></h3>
          <p>The simplest filter to apply to the orientation data is the <tt>meanFilter</tt> which simply takes the mean of all orientations within a certain neighborhood.
@@ -123,10 +123,10 @@ ebsd_smoothed = smooth(ebsd,F);
 
 <span class="comment">% plot the smoothed data</span>
 plot(ebsd_smoothed(<span class="string">'indexed'</span>),<span class="keyword">...</span>
-  oM.orientation2color(ebsd_smoothed(<span class="string">'indexed'</span>).orientations))
+  oM.orientation2color(ebsd_smoothed(<span class="string">'indexed'</span>).orientations),<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
 
 hold <span class="string">on</span>
-plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
+plot(oneGrain.boundary)
 hold <span class="string">off</span></pre><img src="EBSDSmoothing_04.png"> <p>As an additional option, one can specify the size of the neighborhood and weights for the averaging. Let's define a 5x5 window
             with weights coming from the Gaussian distribution.
          </p><pre class="codeinput">[x,y] = meshgrid(-2:2);
@@ -137,15 +137,16 @@ ebsd_smoothed = smooth(ebsd,F)
 
 <span class="comment">% plot the smoothed data</span>
 plot(ebsd_smoothed(<span class="string">'indexed'</span>),<span class="keyword">...</span>
-  oM.orientation2color(ebsd_smoothed(<span class="string">'indexed'</span>).orientations))
+  oM.orientation2color(ebsd_smoothed(<span class="string">'indexed'</span>).orientations),<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
 
 hold <span class="string">on</span>
-plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
+plot(oneGrain.boundary)
 hold <span class="string">off</span></pre><pre class="codeoutput"> 
 ebsd_smoothed = EBSD  
  
- Phase  Orientations    Mineral       Color  Symmetry  Crystal reference frame
-     1   2016 (100%)  Magnesium  light blue     6/mmm       X||a*, Y||b, Z||c*
+ Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
+     0    1264 (39%)  notIndexed                                               
+     1    2016 (61%)   Magnesium  light blue     6/mmm       X||a*, Y||b, Z||c*
  
  Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
  Scan unit : um
@@ -190,10 +191,10 @@ ebsd_smoothed = smooth(ebsd,F);
 
 <span class="comment">% plot the smoothed data</span>
 plot(ebsd_smoothed(<span class="string">'indexed'</span>),<span class="keyword">...</span>
-  oM.orientation2color(ebsd_smoothed(<span class="string">'indexed'</span>).orientations))
+  oM.orientation2color(ebsd_smoothed(<span class="string">'indexed'</span>).orientations),<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
 
 hold <span class="string">on</span>
-plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
+plot(oneGrain.boundary)
 hold <span class="string">off</span>
 
 <span class="comment">% the smoothing parameter determined during smoothing is</span>
@@ -211,10 +212,10 @@ ebsd_smoothed = smooth(ebsd,F);
 
 <span class="comment">% plot the smoothed data</span>
 plot(ebsd_smoothed(<span class="string">'indexed'</span>),<span class="keyword">...</span>
-  oM.orientation2color(ebsd_smoothed(<span class="string">'indexed'</span>).orientations))
+  oM.orientation2color(ebsd_smoothed(<span class="string">'indexed'</span>).orientations),<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
 
 hold <span class="string">on</span>
-plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
+plot(oneGrain.boundary)
 hold <span class="string">off</span></pre><img src="EBSDSmoothing_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> The Infimal Convolution Filter<a name="12"> </a></h3>
          <p>The infimal convolution filter differs from the smoothing spline filter by the fact that it better preserves inner grain boundaries.
@@ -228,10 +229,10 @@ ebsd_smoothed = smooth(ebsd,F);
 
 <span class="comment">% plot the smoothed data</span>
 plot(ebsd_smoothed(<span class="string">'indexed'</span>),<span class="keyword">...</span>
-  oM.orientation2color(ebsd_smoothed(<span class="string">'indexed'</span>).orientations))
+  oM.orientation2color(ebsd_smoothed(<span class="string">'indexed'</span>).orientations),<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
 
 hold <span class="string">on</span>
-plot(oneGrain.boundary,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
+plot(oneGrain.boundary)
 hold <span class="string">off</span></pre><img src="EBSDSmoothing_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Interpolating Missing Data<a name="13"> </a></h2>
          <p>The filters above can also be used to interpolate missindexed orientations.</p>

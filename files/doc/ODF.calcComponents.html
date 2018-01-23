@@ -44,7 +44,8 @@
             </p>
          </div>
          <p>heuristic to find modal orientations</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">[modes, volume] = calcComponents(odf)</pre><h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">[modes, volume] = calcComponents(odf)
+[modes, weights,centerId] = calcComponents(odf,<span class="string">'seed'</span>,ori)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -53,6 +54,14 @@
             </td>
             <td>
             <p><a href="ODF_index.html">ODF</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>ori</tt>
+            </td>
+            <td>
+            <p>initial list of <a href="orientation_index.html">orientation</a></p>
             </td>
             </tr>
             <tr>
@@ -70,6 +79,8 @@
             </td>
             <td>
             <p>search-grid resolution</p>
+            <p>mple</p>
+            <p>ind the local maxima of the <a href="SantaFe.html">SantaFe</a> ODF ode = calcModes(SantaFe) lotPDF(SantaFe,Miller(0,0,1,mode.CS)) nnotate(mode)</p>
             </td>
             </tr>
             </table>
@@ -97,24 +108,18 @@
             <p>volume of the component</p>
             </td>
             </tr>
+            <tr>
+            <td width="100px">
+            <tt>centerId</tt>
+            </td>
+            <td>
+            <p>list of ids to which each initial ori converged to</p>
+            </td>
+            </tr>
             </table>
             
          </p>
-         <h2>Example<a name="6"> </a></h2><pre class="codeinput"><span class="comment">%find the local maxima of the [[SantaFe.html,SantaFe]] ODF</span>
-mode = calcModes(SantaFe)
-plotPDF(SantaFe,Miller(0,0,1,mode.CS))
-annotate(mode)</pre><pre class="codeoutput"> 
-mode = orientation  
-  size: 1 x 1
-  crystal symmetry : m-3m
-  specimen symmetry: 222
- 
-  Bunge Euler angles in degree
-     phi1     Phi    phi2    Inv.
-  296.565 48.1897 26.5651       0
- 
- 
-</pre><img src="ODF.calcComponents_01.png"> <h3 class="seealso">See also</h3>
+         <h3 class="seealso">See also</h3>
          <p><a href="ODF.max.html">ODF/max</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

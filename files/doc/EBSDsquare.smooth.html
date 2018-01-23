@@ -63,69 +63,19 @@
             </td>
             <td>
             <p><a href="EBSD_index.html">EBSD</a></p>
+            <p>mple texdata forsterite bsd = ebsd('indexed'); segment grains grains,ebsd.grainId] = calcGrains(ebsd)</p>
+            <p>find largest grains argeGrains = grains(grains.grainSize&gt;800) bsd = ebsd(largeGrains(1))</p>
+            <p>igure lot(largeGrains(1).boundary,'linewidth',2) old on M = ipdfHSVOrientationMapping(ebsd); M.inversePoleFigureDirection
+            = mean(ebsd.orientations) * oM.whiteCenter; M.maxAngle = 1.5*degree; lot(ebsd,oM.orientation2color(ebsd.orientations)) old
+            off</p>
+            <p>bsd_smoothed = smooth(ebsd.gridify) lot(ebsd_smoothed('indexed'),oM.orientation2color(ebsd_smoothed('indexed').orientations))
+            old on lot(largeGrains(1).boundary,'linewidth',2) old off</p>
             </td>
             </tr>
             </table>
             
          </p>
-         <h2>Example<a name="5"> </a></h2><pre class="codeinput">mtexdata <span class="string">forsterite</span>
-ebsd = ebsd(<span class="string">'indexed'</span>);
-<span class="comment">% segment grains</span>
-[grains,ebsd.grainId] = calcGrains(ebsd)</pre><pre class="codeoutput"> 
-grains = grain2d  
- 
- Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
-     1    1080  152345  Forsterite       mmm                         
-     2     515   26058   Enstatite       mmm                         
-     3    1496    9064    Diopside     12/m1        X||a, Y||b, Z||c*
- 
- boundary segments: 43912
- triple points: 3417
- 
- Properties: GOS, meanRotation
- 
- 
-ebsd = EBSD  
- 
- Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
-     1  152345 (81%)  Forsterite   light blue       mmm                         
-     2   26058 (14%)   Enstatite  light green       mmm                         
-     3   9064 (4.8%)    Diopside    light red     12/m1        X||a, Y||b, Z||c*
- 
- Properties: bands, bc, bs, error, mad, x, y, grainId
- Scan unit : um
- 
-</pre><pre class="codeinput"><span class="comment">% find largest grains</span>
-largeGrains = grains(grains.grainSize&gt;800)
-ebsd = ebsd(largeGrains(1))</pre><pre class="codeoutput"> 
-largeGrains = grain2d  
- 
- Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
-     1      56   85514  Forsterite       mmm                         
-     2       2    1969   Enstatite       mmm                         
- 
- boundary segments: 17507
- triple points: 1247
- 
- Properties: GOS, meanRotation
- 
- 
-ebsd = EBSD  
- 
- Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
-     1   1453 (100%)  Forsterite  light blue       mmm                         
- 
- Properties: bands, bc, bs, error, mad, x, y, grainId
- Scan unit : um
- 
-</pre><pre class="codeinput">figure
-plot(largeGrains(1).boundary,<span class="string">'linewidth'</span>,2)
-hold <span class="string">on</span>
-oM = ipdfHSVOrientationMapping(ebsd);
-oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
-oM.maxAngle = 1.5*degree;
-plot(ebsd,oM.orientation2color(ebsd.orientations))
-hold <span class="string">off</span></pre><img src="EBSDsquare.smooth_01.png"> <p style="font-size:1px;"></p>
+         <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>
