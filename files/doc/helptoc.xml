@@ -142,6 +142,27 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.transformReferenceFrame.html">transformReferenceFrame</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="Miller.unique.html">unique</tocitem>
             </tocitem>
+            <tocitem target="crystalShape_index.html">Crystal Shapes (The Class @crystalShape)<tocitem target="crystalShape_index.html#3">Simple Crystal Shapes</tocitem>
+               <tocitem target="crystalShape_index.html#5">Calculating with crystal shapes</tocitem>
+               <tocitem target="crystalShape_index.html#7">Plotting crystal shapes</tocitem>
+               <tocitem target="crystalShape_index.html#10">Twinning relationships</tocitem>
+               <tocitem target="crystalShape_index.html#11">Defining complicated crystal shapes</tocitem>
+               <tocitem target="crystalShape_index.html#18">Defining complicated crystals more simple</tocitem>
+               <tocitem target="crystalShape_index.html#21">Select Faces</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.crystalShape.html">crystalShape</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.display.html">display</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.length.html">length</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.mtimes.html">mtimes</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.plot.html">plot</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.plus.html">plus</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.repmat.html">repmat</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.reshape.html">reshape</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.rotate.html">rotate</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.rotate_outer.html">rotate_outer</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.size.html">size</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.subsref.html">subsref</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.times.html">times</tocitem>
+            </tocitem>
             <tocitem target="rotation_index.html">Rotations (The Class @rotation)<tocitem target="rotation_index.html#3">Class Description</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.cat.html">cat</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.char.html">char</tocitem>
@@ -694,6 +715,27 @@
             <tocitem target="CrystalOrientations.html#22">Symmetric equivalence</tocitem>
             <tocitem target="CrystalOrientations.html#24">Conversion into Euler angles, matrix, quaternion or Rodrigues vector</tocitem>
             <tocitem target="CrystalOrientations.html#25">Plotting Orientations</tocitem>
+         </tocitem>
+         <tocitem target="crystalShape_index.html">Crystal Shapes (The Class @crystalShape)<tocitem target="crystalShape_index.html#3">Simple Crystal Shapes</tocitem>
+            <tocitem target="crystalShape_index.html#5">Calculating with crystal shapes</tocitem>
+            <tocitem target="crystalShape_index.html#7">Plotting crystal shapes</tocitem>
+            <tocitem target="crystalShape_index.html#10">Twinning relationships</tocitem>
+            <tocitem target="crystalShape_index.html#11">Defining complicated crystal shapes</tocitem>
+            <tocitem target="crystalShape_index.html#18">Defining complicated crystals more simple</tocitem>
+            <tocitem target="crystalShape_index.html#21">Select Faces</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.crystalShape.html">crystalShape</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.display.html">display</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.length.html">length</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.mtimes.html">mtimes</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.plot.html">plot</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.plus.html">plus</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.repmat.html">repmat</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.reshape.html">reshape</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.rotate.html">rotate</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.rotate_outer.html">rotate_outer</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.size.html">size</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.subsref.html">subsref</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="crystalShape.times.html">times</tocitem>
          </tocitem>
          <tocitem target="Misorientations.html">Misorientations<tocitem target="Misorientations.html#3">The misorientation angle</tocitem>
             <tocitem target="Misorientations.html#9">Misorientations</tocitem>

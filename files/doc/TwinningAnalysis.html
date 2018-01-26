@@ -80,7 +80,7 @@ ebsd(grains(grains.grainSize&lt;=2)) = [];
 
 
 <span class="comment">% smooth them</span>
-grains = grains.smooth
+grains = grains.smooth(5)
 
 <span class="comment">% visualize the grains</span>
 plot(grains,grains.meanOrientation)
@@ -268,7 +268,7 @@ hold <span class="string">off</span></pre><img src="TwinningAnalysis_04.png"> <p
             of the common grain is usually different from the ids of the merged grains and can be found by
          </p><pre class="codeinput">mergedGrains(16).id</pre><pre class="codeoutput">ans =
     16
-</pre><p>Hence, we can find all childs of common grain 16 by</p><pre class="codeinput">childs = grains(parentId == mergedGrains(16).id)</pre><pre class="codeoutput"> 
+</pre><p>Hence, we can find all childs of grain 16 by</p><pre class="codeinput">childs = grains(parentId == mergedGrains(16).id)</pre><pre class="codeoutput"> 
 childs = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
@@ -293,7 +293,7 @@ childs = grain2d
 
 <span class="comment">% compute the area fraction</span>
 sum(area(grains(twinId))) / sum(area(grains)) * 100</pre><pre class="codeoutput">ans =
-   73.6003
+   73.5716
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Setting Up the EBSD Data for the Merged Grains<a name="14"> </a></h2>
          <p>Note that the Id's of the merged grains does not fit the grainIds stored in the initial ebsd variable. As a consequence, the
