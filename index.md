@@ -7,12 +7,11 @@ MTEX is a free Matlab toolbox for analyzing and modeling crystallographic
 textures by means of EBSD or pole figure data.
 
 ### News
+* MTEX 5.0.beta2 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.0.beta2/mtex-5.0.beta.2.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
 * MTEX 4.5.2 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.5.2/mtex-4.5.2.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
 * Chemnitz MTEX Workshop 2018: ・[Announcement](https://groups.google.com/forum/#!topic/mtexmail/5nazGpu-HLY)・[Homepage](http://www-user.tu-chemnitz.de/~rahi/mtexWorkshop18)・[Registration](http://www-user.tu-chemnitz.de/~rahi/mtexWorkshop18/registration.php)・
 * MTEX Workshop at ICOTOM 18: ・[Announcement](http://event.registerat.com/site/icotom2017/Registration.aspx)・
 * New paper: [Orientations - perfectly colored](https://www-user.tu-chemnitz.de/~rahi/paper/so3Colors.pdf)
-* MTEX 4.3.2 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.3.2/mtex-4.3.2.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
-* MTEX 4.2.1 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.2.1/mtex-4.2.1.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
 
 ### Requirements and Licensing
 
