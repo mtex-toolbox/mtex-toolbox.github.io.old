@@ -18,7 +18,7 @@ textures by means of EBSD or pole figure data.
 
 * MTEX is free and runs in standard Matlab with no toolboxes required. You will
 be up and running in seconds.
-* MTEX comes with binaries from the [<img src="files/pic/nfft_logo.png" alt="NFFT" style="width: 200px;"/>](www.nfft.org) which build up the core of MTEX
+* MTEX comes with binaries from the [<img src="files/pic/nfft_logo.png" alt="NFFT" style="width: 100px;"/>](https://www.nfft.org) which build up the core of MTEX
 
 ### Troubleshooting, Bugs, Contact and Mailing List
 
