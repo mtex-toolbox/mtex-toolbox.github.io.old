@@ -102,9 +102,8 @@ E.eval(vector3d.X)
 
 <span class="comment">%</span></pre><pre class="codeoutput"> 
 E = S2FunHarmonic  
- size: 1 x 1
- bandwidth: 8
  mineral: Olivin (mmm)
+ bandwidth: 8
 ans =
   286.1748
 </pre><img src="ElasticityTensor_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -119,9 +118,8 @@ plot(beta,<span class="string">'complete'</span>,<span class="string">'upper'</s
 <span class="comment">%</span>
 beta.eval(vector3d.X)</pre><pre class="codeoutput"> 
 beta = S2FunHarmonic  
- size: 1 x 1
- bandwidth: 2
  mineral: Olivin (mmm)
+ bandwidth: 2
  antipodal: true
 ans =
     0.0018
@@ -166,21 +164,18 @@ C = tensor
      0     0     0     0     0  78.7
 </pre><p>Then the velocities are computed by the command <a href="tensor.velocity.html">velocity</a></p><pre class="codeinput">[vp,vs1,vs2,pp,ps1,ps2] = velocity(C)</pre><pre class="codeoutput"> 
 vp = S2FunHarmonic  
- size: 1 x 1
- bandwidth: 48
  mineral: Olivin (mmm)
+ bandwidth: 48
  antipodal: true
  
 vs1 = S2FunHarmonic  
- size: 1 x 1
- bandwidth: 48
  mineral: Olivin (mmm)
+ bandwidth: 48
  antipodal: true
  
 vs2 = S2FunHarmonic  
- size: 1 x 1
- bandwidth: 48
  mineral: Olivin (mmm)
+ bandwidth: 48
  antipodal: true
  
 pp = S2AxisFieldHarmonic  

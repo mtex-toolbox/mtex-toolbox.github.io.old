@@ -74,23 +74,14 @@ plot(pf_rotated,<span class="string">'antipodal'</span>)</pre><img src="dubna_de
          <p>We use here the option 'background' to specify the approximative background radiation and to increase the accuracy of the
             reconstruction. Furthermore, we have seen from the pole figures that the ODF is quit sharp and hence using the zero range
             method reduces the computational time.
-         </p><pre class="codeinput">odf = calcODF(pf_corrected,<span class="string">'background'</span>,10,<span class="string">'zero_range'</span>)</pre><pre class="codeoutput">applying zero range method to (10-10)...... - reduction: 4402 / 19848
-applying zero range method to (01-11)(10-11)...... - reduction: 4402 / 19848
-applying zero range method to (11-22)...... - reduction: 3524 / 19848
-initialize solver
-start iteration
-error: 4.1369E-01 2.2588E-01 9.3618E-02 5.6047E-02 4.7622E-02 4.4211E-02 4.2735E-02 4.1667E-02 4.0753E-02 4.0005E-02 3.9371E-02 
-Finished PDF-ODF inversion.
-error: 3.9371E-02
-alpha: 9.4713E+00 1.0746E+02 1.4885E+02 
- 
+         </p><pre class="codeinput">odf = calcODF(pf_corrected,<span class="string">'background'</span>,10,<span class="string">'zero_range'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : 321, X||a*, Y||b, Z||c*
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 3521 orientations, resolution: 5&deg;
+    center: 19826 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><h2>Error analysis<a name="7"> </a></h2><pre class="codeinput"><span class="comment">% calc RP1 error</span>
@@ -101,7 +92,7 @@ plotDiff(pf,odf)
 
 mtexColorbar</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.3214    0.2620    0.2816
+    0.5673    0.2651    0.3071
 progress: 100%
 </pre><img src="dubna_demo_04.png"> <h2>Recalculate c-axis pole figures<a name="8"> </a></h2><pre class="codeinput">plotPDF(odf,Miller(0,0,1,cs),<span class="string">'antipodal'</span>)</pre><img src="dubna_demo_05.png"> <h2>Plot inverse pole figure<a name="9"> </a></h2><pre class="codeinput">plotIPDF(odf,vector3d(1,1,2))</pre><img src="dubna_demo_06.png"> <h2>plot recalculated ODF<a name="10"> </a></h2><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput">progress: 100%
 </pre><img src="dubna_demo_07.png"> <h2>rotate ODF back<a name="11"> </a></h2><pre class="codeinput">odfrotated = rotate(odf,axis2quat(xvector,45*degree));
@@ -111,7 +102,7 @@ annotate(calcModes(odfrotated),<span class="string">'marker'</span>,<span class=
 progress: 100%
 </pre><img src="dubna_demo_08.png"> <h2>volume analysis<a name="12"> </a></h2><pre class="codeinput">volume(odf,calcModes(odf),20*degree)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.4290
+    0.3355
 </pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

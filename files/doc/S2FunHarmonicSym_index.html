@@ -1,0 +1,94 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>S2FunHarmonicSym (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: S2FunHarmonicSym_index -->
+      <!-- HEADSTUFF: S2FunHarmonicSym_index -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:S2FunHarmonicSym_index">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/documentation.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1><b><tt>S2FunHarmonicSym</tt></b></h1>
+         <div class="subheading">
+            <p>This site only covers on top differences to <a href="S2FunHarmonic_index"><tt>S2FunHarmonic</tt></a>. For a introduction to the essentials have a look <a href="S2FunHarmonic_index.html">here</a>.
+            </p>
+         </div>
+         <h2>Defining a <tt>S2FunHarmonic</tt><a name="1"> </a></h2>
+         <p><b>Definition via symmetrisation</b></p>
+         <p>The simplest way to define a <tt>S2FunHarmonicSym</tt> is through the symmetrisation of an ordinary <a href="S2FunHarmonic_index"><tt>S2FunHarmonic</tt></a>.
+         </p><pre class="codeinput">sF = S2FunHarmonic.quadrature(@(v) smiley(v))
+cs = crystalSymmetry(<span class="string">'432'</span>);
+
+sFs1 = symmetrise(sF, cs);
+
+<span class="comment">% * this symmetrises the function and gives back the result with the symmetry attached</span></pre><pre class="codeoutput"> 
+sF = S2FunHarmonic  
+ bandwidth: 128
+ antipodal: true
+</pre><p><b>Definition via function handle</b></p>
+         <p>If you have a function handle for the function you could create a <tt>S2FunHarmonicSym</tt> via quadrature. At first lets define a symmetry and a function handle which takes <a href="vector3d_index.html"><tt>vector3d</tt></a> as an argument and returns double:
+         </p><pre class="codeinput">f = @(v) 0.1*(v.theta+sin(8*v.x).*sin(8*v.y));
+cs = crystalSymmetry(<span class="string">'6/m'</span>);</pre><p>Now you can call the quadrature command to get <tt>sFs2</tt> of type <tt>S2FunHarmonicSym</tt></p><pre class="codeinput">sFs2 = S2FunHarmonicSym.quadrature(f, cs)</pre><pre class="codeoutput"> 
+sFs2 = S2FunHarmonic  
+ symmetry: 6/m, X||a*, Y||b, Z||c*
+ bandwidth: 128
+ antipodal: true
+</pre><h2>Visualization<a name="5"> </a></h2>
+         <p>The plot commands for a <tt>S2FunHarmonicSym</tt> by default plot the function only on the fundamenta Sector of the symmetry. E.g. the default <tt>plot</tt>-command look as follows
+         </p><pre class="codeinput">plot(sFs1);</pre><img src="S2FunHarmonicSym_index_01.png"> <p>Another Example is the contour plot</p><pre class="codeinput">contour(sFs2);</pre><img src="S2FunHarmonicSym_index_02.png"> <h2>Complete Function list<a name="7"> </a></h2>
+         <p><table width="90%"><tr><td width="200px"><a href="S2FunHarmonicSym.S2FunHarmonicSym.html"><tt>S2FunHarmonicSym</tt></a></td><td>a
+            class represeneting a symmetrised function on the sphere</td></tr><tr><td width="200px"><a href="S2FunHarmonicSym.display.html"><tt>display</tt></a></td><td>standard
+            output</td></tr><tr><td width="200px"><a href="S2FunHarmonicSym.plot.html"><tt>plot</tt></a></td><td>Syntax</td></tr><tr><td
+            width="200px"><a href="S2FunHarmonicSym.plus.html"><tt>plus</tt></a></td><td>Syntax</td></tr><tr><td width="200px"><a href="S2FunHarmonicSym.power.html"><tt>power</tt></a></td><td>Syntax</td></tr><tr><td
+            width="200px"><a href="S2FunHarmonicSym.quadrature.html"><tt>quadrature</tt></a></td><td>Syntax</td></tr><tr><td width="200px"><a
+            href="S2FunHarmonicSym.rdivide.html"><tt>rdivide</tt></a></td><td>Syntax</td></tr><tr><td width="200px"><a href="S2FunHarmonicSym.steepestDescent.html"><tt>steepestDescent</tt></a></td><td>calculates
+            the minimum of a spherical harminc</td></tr><tr><td width="200px"><a href="S2FunHarmonicSym.times.html"><tt>times</tt></a></td><td>overloads
+            sF1 .* sF2</td></tr></table>
+         </p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
+   </body>
+</html>

@@ -1121,8 +1121,8 @@
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="S2Grid.S2Grid.html"><tt>S2Grid</tt></a></td>
-            <td>Syntax S2Grid(theta,rho)      % fills a Sphere with N--nodes regularS2Grid(...)     % construct regular polar and azimuthal
-               spacing equispacedS2Grid(...)  % construct equispaced nodes
+            <td>Syntax S2Grid(theta,rho)      % fills a Sphere with N--nodes regularS2Grid('resolution',5*degree)     % construct regular
+               polar and azimuthal spacing equispacedS2Grid('resolution',5*degree)  % construct equispaced nodes
             </td>
             <tr></tr>
             <td width="250px"><a href="S2Grid.cat.html"><tt>cat</tt></a></td>
@@ -1552,9 +1552,6 @@
             <td width="250px"><a href="PoleFigure.plotDiff.html"><tt>plotDiff</tt></a></td>
             <td>difference plot between two pole figures or an odf and a pole figure</td>
             <tr></tr>
-            <td width="250px"><a href="PoleFigure.plot_zero_range.html"><tt>plot_zero_range</tt></a></td>
-            <td>implements the zero range method</td>
-            <tr></tr>
             <td width="250px"><a href="PoleFigure.plus.html"><tt>plus</tt></a></td>
             <td>implements pf1 + pf2</td>
             <tr></tr>
@@ -1587,9 +1584,6 @@
             <tr></tr>
             <td width="250px"><a href="PoleFigure.unique.html"><tt>unique</tt></a></td>
             <td>remove dublicated points in a polefigure</td>
-            <tr></tr>
-            <td width="250px"><a href="PoleFigure.zeroRange.html"><tt>zeroRange</tt></a></td>
-            <td>implements the zero range method</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
          <h2> Electron Backscatter Diffraction Data (The Class @EBSD)<a name="18"> </a></h2>
@@ -1903,11 +1897,8 @@
          </table>
          <table width="95%">
             <tr></tr>
-            <td width="250px"><a href="fft_rho.html"><tt>fft_rho</tt></a></td>
-            <td>project rho to interval [-1,1)</td>
-            <tr></tr>
-            <td width="250px"><a href="fft_theta.html"><tt>fft_theta</tt></a></td>
-            <td>project theta to interval [0,0.5]</td>
+            <td width="250px"><a href="smiley.html"><tt>smiley</tt></a></td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="annotate.html"><tt>annotate</tt></a></td>
             <td>annotate to a existing figure</td>
@@ -1926,6 +1917,9 @@
             <tr></tr>
             <td width="250px"><a href="getCamera.html"><tt>getCamera</tt></a></td>
             <td>get xAxis and zAxis position from axis</td>
+            <tr></tr>
+            <td width="250px"><a href="getColormaps.html"><tt>getColormaps</tt></a></td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="getHoldState.html"><tt>getHoldState</tt></a></td>
             <td></td>
@@ -2141,6 +2135,9 @@
             <td width="250px"><a href="expquat.html"><tt>expquat</tt></a></td>
             <td>matrix exponential to convert skew symmetric matrices into quaternions</td>
             <tr></tr>
+            <td width="250px"><a href="extractSphericalRegion.html"><tt>extractSphericalRegion</tt></a></td>
+            <td>TODO: maybe consider option 'antipodal'</td>
+            <tr></tr>
             <td width="250px"><a href="fibre2quat.html"><tt>fibre2quat</tt></a></td>
             <td>arbitrary quaternion q with q * h = r</td>
             <tr></tr>
@@ -2250,7 +2247,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right"> MTEX 5.0.beta.2</td>
+               <td valign="baseline" align="right"> MTEX 5.0.beta.3</td>
             </tr>
          </table>
       </div>

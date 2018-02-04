@@ -79,7 +79,7 @@ odf = calcODF(pf,<span class="string">'resolution'</span>,2.5*degree)</pre><h2>I
             </tr>
             <tr>
             <td width="150px">
-            <tt>'kernelwidth', 'halfwidth'</tt>
+            <tt>'halfwidth'</tt>
             </td>
             <td>
             <p>halfwidth of the ansatz functions (default = 2/3 * resolution)</p>
@@ -91,14 +91,6 @@ odf = calcODF(pf,<span class="string">'resolution'</span>,2.5*degree)</pre><h2>I
             </td>
             <td>
             <p>localization grid for the ansatz fucntions (default = 3/2 resolution(pf))</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'bandwidth'</tt>
-            </td>
-            <td>
-            <p>bandwidth of the ansatz functions (default = max)</p>
             </td>
             </tr>
             <tr>
@@ -115,22 +107,6 @@ odf = calcODF(pf,<span class="string">'resolution'</span>,2.5*degree)</pre><h2>I
             </td>
             <td>
             <p>minimum number of iterations (default = 5)</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'regularization'</tt>
-            </td>
-            <td>
-            <p>weighting coefficient lambda (default = 0)</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'odf_SAVE'</tt>
-            </td>
-            <td>
-            <p>save ODF simultanously</p>
             </td>
             </tr>
             <tr>
@@ -155,7 +131,7 @@ odf = calcODF(pf,<span class="string">'resolution'</span>,2.5*degree)</pre><h2>I
             </tr>
             <tr>
             <td width="150px">
-            <tt>'zero_RANGE'</tt>
+            <tt>'zeroRange'</tt>
             </td>
             <td>
             <p>apply zero range method (default = )</p>
@@ -163,7 +139,7 @@ odf = calcODF(pf,<span class="string">'resolution'</span>,2.5*degree)</pre><h2>I
             </tr>
             <tr>
             <td width="150px">
-            <tt>'noghostcorrection'</tt>
+            <tt>'noGhostCorrection'</tt>
             </td>
             <td>
             <p>omit ghost correction</p>
@@ -183,22 +159,6 @@ odf = calcODF(pf,<span class="string">'resolution'</span>,2.5*degree)</pre><h2>I
             </td>
             <td>
             <p>allway go until ITER_MAX</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'rp_values'</tt>
-            </td>
-            <td>
-            <p>calculate RP values during iteration</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'odf_test'</tt>
-            </td>
-            <td>
-            <p>for testing only</p>
             </td>
             </tr>
             <tr>

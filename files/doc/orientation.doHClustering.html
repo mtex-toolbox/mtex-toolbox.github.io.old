@@ -112,14 +112,18 @@ odf = ODF
     weight: 1
  
 </pre><pre class="codeinput"><span class="comment">% find the clusters and its centers</span>
-tic; [c,centerRec] = calcCluster(ori,<span class="string">'method'</span>,<span class="string">'hierarchical'</span>,<span class="string">'numCluster'</span>,5); toc</pre><pre class="codeoutput">Elapsed time is 11.972529 seconds.
+tic; [c,centerRec] = calcCluster(ori,<span class="string">'method'</span>,<span class="string">'hierarchical'</span>,<span class="string">'numCluster'</span>,5); toc</pre><pre class="codeoutput">progress: 100%
+Elapsed time is 5.745685 seconds.
 </pre><pre class="codeinput"><span class="comment">% visualize result</span>
 oR = fundamentalRegion(cs)
 plot(oR)</pre><pre class="codeoutput"> 
 oR = orientationRegion  
+ 
  crystal symmetry:  432
- face normales: 1 x 14
- vertices: 1 x 24
+ max angle: 62.7994&deg;
+ face normales: 14
+ vertices: 24
+ 
 </pre><img src="orientation.doHClustering_01.png"> <pre class="codeinput">hold <span class="string">on</span>
 plot(ori,c)
 caxis([1,5])
@@ -128,7 +132,7 @@ plot(centerRec,<span class="string">'MarkerSize'</span>,10,<span class="string">
 hold <span class="string">off</span></pre><pre class="codeoutput">plot 2000 random orientations out of 3000 given orientations
 </pre><img src="orientation.doHClustering_02.png"> <pre class="codeinput"><span class="comment">%check the accuracy of the recomputed centers</span>
 min(angle_outer(center,centerRec)./degree)</pre><pre class="codeoutput">ans =
-    0.3924    0.4360    0.4438    0.2564    0.1023
+    6.2338    6.8301    0.1982    0.1457    0.3231
 </pre><pre class="codeinput">odfRec = calcODF(ori)
 [~,centerRec2] = max(odfRec,5)
 min(angle_outer(center,centerRec2)./degree)</pre><pre class="codeoutput"> 
@@ -148,15 +152,15 @@ centerRec2 = orientation
  
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
-  76.7735 38.3888 264.145       0
-  74.2891 43.7762 326.335       0
-  52.0156 21.4761 288.417       0
-   177.94 41.1346 199.096       0
-  239.237 29.2118 152.197       0
+  61.4289 40.9339 284.395       0
+  202.769 47.7641 135.058       0
+  1.60337 42.6827 28.5701       0
+  76.6523 37.4652 276.459       0
+  76.3825 31.9825  276.93       0
  
  
 ans =
-    1.1397    0.1583    1.4984    0.2038    0.3854
+    7.2459    6.3310    0.4949    6.5973    8.4792
 </pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

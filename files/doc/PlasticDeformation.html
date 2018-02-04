@@ -57,7 +57,7 @@
                   <td><a href="#13">Active Slip System</a></td>
                </tr>
                <tr>
-                  <td><a href="#19">The Schmid factor for EBSD data</a></td>
+                  <td><a href="#20">The Schmid factor for EBSD data</a></td>
                </tr>
             </table>
          </div>
@@ -99,16 +99,27 @@ sS = slipSystem
   0  -1   1   1   1   1
 </pre><p>and using the command <a href="slipSystem_SchmidFactor.html">SchmidFactor</a></p><pre class="codeinput">sS.SchmidFactor(r)</pre><pre class="codeoutput">ans =
     0.1750
-</pre><p>Ommiting the tension direction r the command <a href="slipSystem_SchmidFactor.html">SchmidFactor</a> returns the Schmid factor as a spherical function
-         </p><pre class="codeinput"><span class="comment">%will be part of MTEX 4.6</span>
-<span class="comment">% SF = sS.SchmidFactor</span>
+</pre><p>Ommiting the tension direction r the command <a href="slipSystem_SchmidFactor.html">SchmidFactor</a> returns the Schmid factor as a <a href="S2FunHarmonic_index.html">spherical function</a></p><pre class="codeinput">SF = sS.SchmidFactor
 
 <span class="comment">% plot the Schmid factor in dependency of the tension direction</span>
-<span class="comment">%will be part of MTEX 4.6</span>
-<span class="comment">%plot(SF)</span>
+plot(SF)
 
-<span class="comment">%will be part of MTEX 4.6</span>
-<span class="comment">%[SFMax,pos] = max(SF)</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<span class="comment">% find the tension directions with the maximum Schmid factor</span>
+[SFMax,pos] = max(SF)
+
+<span class="comment">% and annotate them</span>
+annotate(pos)</pre><pre class="codeoutput"> 
+SF = S2FunHarmonic  
+ bandwidth: 64
+SFMax =
+    0.5000
+ 
+pos = vector3d  
+ size: 2 x 1
+          x         y         z
+  -0.404659 -0.908993 0.0999143
+   0.404239 -0.101265   0.90903
+</pre><img src="PlasticDeformation_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Stress Tensor<a name="11"> </a></h2>
          <p>Instead by the tension direction the stress might be specified by a stress tensor</p><pre class="codeinput">sigma = tensor([0 0 0; 0 0 0; 0 0 1],<span class="string">'name'</span>,<span class="string">'stress'</span>)</pre><pre class="codeoutput"> 
 sigma = stress tensor  
@@ -162,7 +173,7 @@ ans = slipSystem
    u   v   w | h   k   l
   -1   0  -1  -1   1   1
 </pre><p>The above computation can be easily extended to a list of tension directions</p><pre class="codeinput"><span class="comment">% define a grid of tension directions</span>
-r = plotS2Grid(<span class="string">'resolution'</span>,0.5*degree,<span class="string">'upper'</span>)
+r = plotS2Grid(<span class="string">'resolution'</span>,0.5*degree,<span class="string">'upper'</span>);
 
 <span class="comment">% compute the Schmid factors for all slip systems and all tension</span>
 <span class="comment">% directions</span>
@@ -174,17 +185,9 @@ tau = sSAll.SchmidFactor(r);
 
 <span class="comment">% vizualize the maximum Schmid factor</span>
 contourf(r,tauMax)
-mtexColorbar</pre><pre class="codeoutput"> 
-r = vector3d  
- size: 181 x 721
- resolution: 0.5&deg;
- plot: true              
- region: upper hemisphere
- theta: 181 x 721 double 
- rho: 181 x 721 double   
-</pre><img src="PlasticDeformation_01.png"> <p>We may also plot the index of the active slip system</p><pre class="codeinput">pcolor(r,id)
+mtexColorbar</pre><img src="PlasticDeformation_02.png"> <p>We may also plot the index of the active slip system</p><pre class="codeinput">pcolor(r,id)
 
-mtexColorMap <span class="string">black2white</span></pre><img src="PlasticDeformation_02.png"> <p>and observe that within the fundamental sectors the active slip system remains the same. We can even visualize the the plane
+mtexColorMap <span class="string">black2white</span></pre><img src="PlasticDeformation_03.png"> <p>and observe that within the fundamental sectors the active slip system remains the same. We can even visualize the the plane
             normal and the slip direction
          </p><pre class="codeinput"><span class="comment">% if we ommit the option antipodal we can distinguish</span>
 <span class="comment">% between the oposite burger vectors</span>
@@ -237,8 +240,17 @@ sSAll = slipSystem
    1   1   0   1  -1   1
    0   1   1   1  -1   1
   -1   0   1   1  -1   1
-</pre><img src="PlasticDeformation_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>The Schmid factor for EBSD data<a name="19"> </a></h2>
+</pre><img src="PlasticDeformation_04.png"> <p>If we perform this computation in terms of spherical functions we obtain</p><pre class="codeinput"><span class="comment">% ommiting |r| gives us a list of 12 spherical functions</span>
+tau = sSAll.SchmidFactor
+
+<span class="comment">% now we take the max of the absolute value over all these functions</span>
+contourf(max(abs(tau),[],1))
+mtexColorbar</pre><pre class="codeoutput"> 
+tau = S2FunHarmonic  
+ size: 24 x 1
+ bandwidth: 64
+</pre><img src="PlasticDeformation_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>The Schmid factor for EBSD data<a name="20"> </a></h2>
          <p>So far we have always assumed that the stress tensor is already given relatively to the crystal coordinate system. Next, we
             want to examine the case where the stress is given in specimen coordinates and we know the orientation of the crystal. Lets
             import some EBSD data and computet the grains
@@ -249,7 +261,7 @@ grains = calcGrains(ebsd);
 plot(ebsd,ebsd.orientations)
 hold <span class="string">on</span>
 plot(grains.boundary)
-hold <span class="string">off</span></pre><img src="PlasticDeformation_04.png"> <p>We want to consider the following slip systems</p><pre class="codeinput">sS = slipSystem.fcc(ebsd.CS)
+hold <span class="string">off</span></pre><img src="PlasticDeformation_06.png"> <p>We want to consider the following slip systems</p><pre class="codeinput">sS = slipSystem.fcc(ebsd.CS)
 sS = sS.symmetrise;</pre><pre class="codeoutput"> 
 sS = slipSystem  
  mineral: iron (m-3m)
@@ -276,7 +288,7 @@ SF = sSLocal.SchmidFactor(sigma);
 
 <span class="comment">% plot the maximum Schmid factor</span>
 plot(grains,SFMax)
-mtexColorbar</pre><img src="PlasticDeformation_05.png"> <p>Next we want to visualize the active slip systems.</p><pre class="codeinput"><span class="comment">% take the active slip system and rotate it in specimen coordinates</span>
+mtexColorbar</pre><img src="PlasticDeformation_07.png"> <p>Next we want to visualize the active slip systems.</p><pre class="codeinput"><span class="comment">% take the active slip system and rotate it in specimen coordinates</span>
 sSactive = grains.meanOrientation .* sS(active);
 
 hold <span class="string">on</span>
@@ -285,7 +297,7 @@ quiver(grains,sSactive.trace,<span class="string">'color'</span>,<span class="st
 
 <span class="comment">% and the slip direction</span>
 quiver(grains,sSactive.b,<span class="string">'color'</span>,<span class="string">'r'</span>)
-hold <span class="string">off</span></pre><img src="PlasticDeformation_06.png"> <p>We observe that the Burgers vector is in most case aligned with the trace. In those cases where trace and Burgers vector are
+hold <span class="string">off</span></pre><img src="PlasticDeformation_08.png"> <p>We observe that the Burgers vector is in most case aligned with the trace. In those cases where trace and Burgers vector are
             not aligned the slip plane is not perpendicular to the surface and the Burgers vector sticks out of the surface.
          </p>
          <p>Next we want to demonstrate the alternative route</p><pre class="codeinput"><span class="comment">% rotate the stress tensor into crystal coordinates</span>
@@ -317,7 +329,7 @@ quiver(grains,sSactive.trace,<span class="string">'color'</span>,<span class="st
 <span class="comment">% and the slip direction</span>
 quiver(grains,sSactive.b,<span class="string">'color'</span>,<span class="string">'r'</span>)
 
-hold <span class="string">off</span></pre><img src="PlasticDeformation_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="PlasticDeformation_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

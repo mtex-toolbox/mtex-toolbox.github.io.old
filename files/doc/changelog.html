@@ -48,9 +48,12 @@
          </p>
          <div>
             <ul type="square">
-               <li>better compatibility with MAC systems</li>
+               <li>better compatibility with MAC systems, no SIP disabled required</li>
                <li>increased preformance, e.g., due to multi core support</li>
                <li>better maintainability, as all MTEX code is now Matlab code</li>
+               <li>the pole figure to ODF inversion algorithm is now entirely implemented in Matlab making it simple to tweak it or add more
+                  suffisticated inversion algorithms
+               </li>
             </ul>
          </div>
          <p><b>Spherical functions</b></p>
@@ -67,7 +70,9 @@ sum(pdf) <span class="comment">% the integral of the pole figure</span>
 sum(pdf.^2) <span class="comment">% the integral of the pole figure squares - also called pole figure index</span></pre><pre class="codeinput"><span class="comment">% plotting</span>
 plot(pdf)
 plot3(pdf) <span class="comment">% plot in 3d</span></pre><pre class="codeinput"><span class="comment">% detect maximum value</span>
-[value,pos] = max(pdf)</pre><pre>For a complete list of functions read <S2FunHarmonic_index.html here>.</pre><p><b>Symmetry aware spherical functions</b></p>
+[value,pos] = max(pdf)</pre><p>For a complete list of functions read <a href="S2FunHarmonic_index.html">here</a>.
+         </p>
+         <p><b>Symmetry aware spherical functions</b></p>
          <p>Since most of the directional dependent properties obey additional symmetry properties the class <a href="S2FunHarmonic_index.html">S2FunHarmonic</a> has been extended to symmetry in the <a href="S2FunHarmonicSym_index.html">S2FunHarmonicSym</a> class.
          </p>
          <p><b>Multivariate spherical functions, vector fields and spherical axis fields</b></p>

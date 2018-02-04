@@ -135,17 +135,14 @@ plot(pf)</pre><img src="PoleFigure_index_02.png"> <p class="pagenavlink"><script
 plot(pf)</pre><img src="PoleFigure_index_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Calculate an ODF from pole figure data<a name="8"> </a></h3>
          <p>Calculating an ODF from pole figure data can be done using the command <a href="PoleFigure.calcODF.html">calcODF</a>. A precise description of the underlying algorithm as well as of the options can be found <a href="PoleFigure2odf.html">here</a></p><pre class="codeinput">odf = calcODF(pf,<span class="string">'zero_range'</span>,<span class="string">'silent'</span>)
-plotPDF(odf,h,<span class="string">'superposition'</span>,c,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">applying zero range method to (10-10)...... - reduction: 4344 / 19848
-applying zero range method to (01-11)(10-11)...... - reduction: 4344 / 19848
-applying zero range method to (11-22)...... - reduction: 3356 / 19848
- 
+plotPDF(odf,h,<span class="string">'superposition'</span>,c,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : 321, X||a*, Y||b, Z||c*
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 3353 orientations, resolution: 5&deg;
+    center: 19839 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><img src="PoleFigure_index_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -191,18 +188,17 @@ pf = PoleFigure
             diffraction counts</td></tr><tr><td width="200px"><a href="PoleFigure.normalize.html"><tt>normalize</tt></a></td><td>normalization
             of a meassured pole figure with respect to an ODF</td></tr><tr><td width="200px"><a href="PoleFigure.plot.html"><tt>plot</tt></a></td><td>pole
             figure</td></tr><tr><td width="200px"><a href="PoleFigure.plotDiff.html"><tt>plotDiff</tt></a></td><td>difference plot between
-            two pole figures or an odf and a pole figure</td></tr><tr><td width="200px"><a href="PoleFigure.plot_zero_range.html"><tt>plot_zero_range</tt></a></td><td>implements
-            the zero range method</td></tr><tr><td width="200px"><a href="PoleFigure.plus.html"><tt>plus</tt></a></td><td>implements pf1
-            + pf2</td></tr><tr><td width="200px"><a href="PoleFigure.rdivide.html"><tt>rdivide</tt></a></td><td>implements pf1 ./ b and
-            a ./ pf2</td></tr><tr><td width="200px"><a href="PoleFigure.rotate.html"><tt>rotate</tt></a></td><td>s pole figures by a certain
-            rotation</td></tr><tr><td width="200px"><a href="PoleFigure.scale.html"><tt>scale</tt></a></td><td>polefigure by a factor</td></tr><tr><td
-            width="200px"><a href="PoleFigure.select.html"><tt>select</tt></a></td><td>PoleFigures</td></tr><tr><td width="200px"><a href="PoleFigure.subsasgn.html"><tt>subsasgn</tt></a></td><td>overloads
-            subsasgn</td></tr><tr><td width="200px"><a href="PoleFigure.subsref.html"><tt>subsref</tt></a></td><td>overide polefigure()
-            and polefigure{}</td></tr><tr><td width="200px"><a href="PoleFigure.times.html"><tt>times</tt></a></td><td>implements pf1
-            .* b and a .* pf2</td></tr><tr><td width="200px"><a href="PoleFigure.uminus.html"><tt>uminus</tt></a></td><td>implements pf</td></tr><tr><td
-            width="200px"><a href="PoleFigure.union.html"><tt>union</tt></a></td><td>crytsallographic direction to one</td></tr><tr><td
-            width="200px"><a href="PoleFigure.unique.html"><tt>unique</tt></a></td><td>remove dublicated points in a polefigure</td></tr><tr><td
-            width="200px"><a href="PoleFigure.zeroRange.html"><tt>zeroRange</tt></a></td><td>implements the zero range method</td></tr></table>
+            two pole figures or an odf and a pole figure</td></tr><tr><td width="200px"><a href="PoleFigure.plus.html"><tt>plus</tt></a></td><td>implements
+            pf1 + pf2</td></tr><tr><td width="200px"><a href="PoleFigure.rdivide.html"><tt>rdivide</tt></a></td><td>implements pf1 ./
+            b and a ./ pf2</td></tr><tr><td width="200px"><a href="PoleFigure.rotate.html"><tt>rotate</tt></a></td><td>s pole figures
+            by a certain rotation</td></tr><tr><td width="200px"><a href="PoleFigure.scale.html"><tt>scale</tt></a></td><td>polefigure
+            by a factor</td></tr><tr><td width="200px"><a href="PoleFigure.select.html"><tt>select</tt></a></td><td>PoleFigures</td></tr><tr><td
+            width="200px"><a href="PoleFigure.subsasgn.html"><tt>subsasgn</tt></a></td><td>overloads subsasgn</td></tr><tr><td width="200px"><a
+            href="PoleFigure.subsref.html"><tt>subsref</tt></a></td><td>overide polefigure() and polefigure{}</td></tr><tr><td width="200px"><a
+            href="PoleFigure.times.html"><tt>times</tt></a></td><td>implements pf1 .* b and a .* pf2</td></tr><tr><td width="200px"><a
+            href="PoleFigure.uminus.html"><tt>uminus</tt></a></td><td>implements pf</td></tr><tr><td width="200px"><a href="PoleFigure.union.html"><tt>union</tt></a></td><td>crytsallographic
+            direction to one</td></tr><tr><td width="200px"><a href="PoleFigure.unique.html"><tt>unique</tt></a></td><td>remove dublicated
+            points in a polefigure</td></tr></table>
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>

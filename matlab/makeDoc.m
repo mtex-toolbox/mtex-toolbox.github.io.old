@@ -3,7 +3,8 @@ function makeDoc(varargin)
 %
 
 if check_option(varargin,'clear')
-  !find ../../master/doc -exec touch {} \;
+  !rm -r ../files/doc/*
+  !rm -r ./tmp/*
   mtexdata clear
 end
 
@@ -27,10 +28,10 @@ set(0,'DefaultFigureColor','white');
 addpath(fullfile(pwd,'..','..','makeDoc'))
 addpath(fullfile(pwd,'..','..','makeDoc','tools'))
 
-%% DocFiles
-%
+% DocFiles
 
 mtexFunctionFiles = [...
+  DocFile( fullfile(mtex_path,'S2Fun')) ...
   DocFile( fullfile(mtex_path,'EBSDAnalysis')) ...
   DocFile( fullfile(mtex_path,'ODFAnalysis')) ...
   DocFile( fullfile(mtex_path,'PoleFigureAnalysis')) ...
@@ -42,6 +43,7 @@ mtexFunctionFiles = [...
 %mtexFunctionFiles = exclude(mtexFunctionFiles,'Patala');
 
 mtexDocFiles = DocFile( fullfile(mtex_path,'doc'));
+mtexDocFiles = exclude(mtexDocFiles,'makeDoc','html');
 
 mtexHelpFiles = [mtexFunctionFiles,mtexDocFiles];
 
@@ -53,8 +55,6 @@ mtexGeneralFiles = [DocFile(fullfile(mtex_path,'COPYING.txt')) ...
 
 
 %%
-
-
 
 options.outputDir = fullfile(pwd,'..','files','doc');
 options.tempDir = fullfile(pwd,'tmp');
@@ -75,7 +75,7 @@ copy(mtexGeneralFiles,options.outputDir)
 
 %% Copy productpage
 
-productpage = DocFile(fullfile(mtex_path,'help','general','mtex_product_page.html'));
+productpage = DocFile(fullfile(mtex_path,'doc','makeDoc','general','mtex_product_page.html'));
 copy(productpage,fullfile(options.outputDir,'index.html'))
 
 %% make function reference overview pages

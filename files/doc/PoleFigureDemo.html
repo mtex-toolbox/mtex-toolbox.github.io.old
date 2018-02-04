@@ -100,20 +100,14 @@ pf_modified = PoleFigure
 </pre><img src="PoleFigureDemo_03.png"> <h2>PDF - to - ODF Reconstruction<a name="8"> </a></h2><pre class="codeinput">rec = calcODF(pf,<span class="string">'RESOLUTION'</span>,10*degree,<span class="string">'iter_max'</span>,6)
 
 plotPDF(rec,h)
-mtexColorbar</pre><pre class="codeoutput">initialize solver
-start iteration
-error: 6.6306E-01 5.1999E-01 3.9321E-01 2.8622E-01 2.1017E-01 1.7305E-01 1.5645E-01 
-Finished PDF-ODF inversion.
-error: 1.5645E-01
-alpha: 6.8114E+00 1.0320E+02 1.4255E+02 
- 
+mtexColorbar</pre><pre class="codeoutput"> 
 rec = ODF  
-  crystal symmetry : 321, X||a*, Y||b, Z||c*
+  crystal symmetry : -3m1, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: 2426 orientations, resolution: 10&deg;
+    center: 2427 orientations, resolution: 10&deg;
     weight: 1
  
 </pre><img src="PoleFigureDemo_04.png"> <pre class="codeinput">odf = SantaFe
@@ -137,62 +131,44 @@ r = S2Grid
  size: 72 x 19
 </pre><p>define crystal directions</p><pre class="codeinput">h = [Miller(1,0,0,odf.CS),Miller(1,1,0,odf.CS),Miller(1,1,1,odf.CS)];</pre><p>simulate pole figure data</p><pre class="codeinput">pf_SantaFe = calcPoleFigure(SantaFe,h,r);</pre><p>estimate an ODF with ghost correction</p><pre class="codeinput">rec = calcODF(pf_SantaFe,<span class="string">'RESOLUTION'</span>,10*degree,<span class="string">'background'</span>,10)
 
-plot(rec,<span class="string">'sections'</span>,6)</pre><pre class="codeoutput">initialize solver
-start iteration
-error: 9.0080E-02 2.5254E-02 1.1496E-02 8.9331E-03 7.1991E-03 5.9732E-03 5.1861E-03 4.4359E-03 3.8397E-03 3.2371E-03 2.7825E-03 
-Finished PDF-ODF inversion.
-error: 2.7825E-03
-alpha: 1.0006E+00 9.9733E-01 9.9459E-01 
-initialize solver
-start iteration
-error: 5.4159E-01 3.3921E-01 2.3699E-01 1.8000E-01 1.3952E-01 1.0463E-01 7.6851E-02 5.2611E-02 3.6249E-02 2.5957E-02 2.0053E-02 1.6698E-02 
-Finished PDF-ODF inversion.
-error: 1.6698E-02
-alpha: 9.8654E-01 1.0024E+00 1.0097E+00 
- 
+plot(rec,<span class="string">'sections'</span>,6)</pre><pre class="codeoutput"> 
 rec = ODF  
-  crystal symmetry : 432
+  crystal symmetry : m-3m
   specimen symmetry: 222
  
   Uniform portion:
-    weight: 0.72947
+    weight: 0.73201
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: 99 orientations, resolution: 10&deg;
-    weight: 0.27053
+    center: 125 orientations, resolution: 10&deg;
+    weight: 0.26799
  
 </pre><img src="PoleFigureDemo_05.png"> <p>without ghost correction</p><pre class="codeinput">rec_ng = calcODF(pf_SantaFe,<span class="string">'RESOLUTION'</span>,10*degree,<span class="string">'background'</span>,10,<span class="string">'NoGhostCorrection'</span>)
 
-plot(rec_ng,<span class="string">'sections'</span>,6)</pre><pre class="codeoutput">initialize solver
-start iteration
-error: 9.0080E-02 2.5254E-02 1.1496E-02 8.9331E-03 7.1991E-03 5.9732E-03 5.1861E-03 4.4359E-03 3.8397E-03 3.2371E-03 2.7825E-03 
-Finished PDF-ODF inversion.
-error: 2.7825E-03
-alpha: 1.0006E+00 9.9733E-01 9.9459E-01 
- 
+plot(rec_ng,<span class="string">'sections'</span>,6)</pre><pre class="codeoutput"> 
 rec_ng = ODF  
-  crystal symmetry : 432
+  crystal symmetry : m-3m
   specimen symmetry: 222
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: 148 orientations, resolution: 10&deg;
+    center: 150 orientations, resolution: 10&deg;
     weight: 1
  
 </pre><img src="PoleFigureDemo_06.png"> <h2>Error Analysis<a name="14"> </a></h2><pre class="codeinput">calcError(pf_SantaFe,rec)
 calcError(pf_SantaFe,rec_ng)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.0166    0.0250    0.0228
+    0.0213    0.0276    0.0251
 progress: 100%
 ans =
-    0.0301    0.0316    0.0297
+    0.0372    0.0306    0.0269
 </pre><p><b>Difference plot</b></p><pre class="codeinput">plotDiff(pf_SantaFe,rec)</pre><pre class="codeoutput">progress: 100%
 </pre><img src="PoleFigureDemo_07.png"> <p><b>ODF error</b></p><pre class="codeinput">calcError(SantaFe,rec)
 calcError(SantaFe,rec_ng)</pre><pre class="codeoutput">ans =
-    0.0273
+    0.0332
 ans =
-    0.0859
+    0.0934
 </pre><h2>Exercises<a name="17"> </a></h2>
          <p>3)</p>
          <p>a) Load the pole figure data of a quartz specimen from: data/dubna!</p>

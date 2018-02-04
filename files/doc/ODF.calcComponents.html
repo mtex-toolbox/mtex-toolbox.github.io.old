@@ -79,8 +79,6 @@
             </td>
             <td>
             <p>search-grid resolution</p>
-            <p>mple</p>
-            <p>ind the local maxima of the <a href="SantaFe.html">SantaFe</a> ODF ode = calcModes(SantaFe) lotPDF(SantaFe,Miller(0,0,1,mode.CS)) nnotate(mode)</p>
             </td>
             </tr>
             </table>
@@ -119,7 +117,21 @@
             </table>
             
          </p>
-         <h3 class="seealso">See also</h3>
+         <h2>Example<a name="6"> </a></h2><pre class="codeinput"><span class="comment">%find the local maxima of the [[SantaFe.html,SantaFe]] ODF</span>
+mode = calcModes(SantaFe)
+plotPDF(SantaFe,Miller(0,0,1,mode.CS))
+annotate(mode)</pre><pre class="codeoutput"> 
+mode = orientation  
+  size: 1 x 1
+  crystal symmetry : m-3m
+  specimen symmetry: 222
+ 
+  Bunge Euler angles in degree
+     phi1     Phi    phi2    Inv.
+  296.565 48.1897 26.5651       0
+ 
+ 
+</pre><img src="ODF.calcComponents_01.png"> <h3 class="seealso">See also</h3>
          <p><a href="ODF.max.html">ODF/max</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

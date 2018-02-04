@@ -89,12 +89,12 @@ mtexColorbar <span class="comment">% add a single colorbar</span></pre><img src=
          <h2>Plotting Recalculated Pole Figures<a name="8"> </a></h2>
          <p>In order to draw recalculated one first needs to compute an ODF.</p><pre class="codeinput">odf = calcODF(pf,<span class="string">'silent'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : 222
-  specimen symmetry: 1
+  crystal symmetry : mmm
+  specimen symmetry: -1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29240 orientations, resolution: 5&deg;
+    center: 29771 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><p>Now smooth pole figures can be plotted for arbitrary crystallographic directions.</p><pre class="codeinput">plotPDF(odf,pf.h,<span class="string">'antipodal'</span>)</pre><img src="PlotPoleFigures_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

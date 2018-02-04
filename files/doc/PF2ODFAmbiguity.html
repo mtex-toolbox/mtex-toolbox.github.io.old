@@ -116,12 +116,12 @@ plot(pf)</pre><img src="PF2ODFAmbiguity_05.png"> <p>2. step: reconstruct an ODF<
 
 plot(odf,<span class="string">'sigma'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : 222
+  crystal symmetry : mmm
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29770 orientations, resolution: 5&deg;
+    center: 29768 orientations, resolution: 5&deg;
     weight: 1
  
 progress: 100%
@@ -138,12 +138,12 @@ odf = calcODF(pf,<span class="string">'silent'</span>)
 
 plot(odf,<span class="string">'sigma'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : 222
+  crystal symmetry : mmm
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29768 orientations, resolution: 5&deg;
+    center: 29764 orientations, resolution: 5&deg;
     weight: 1
  
 progress: 100%
@@ -157,12 +157,12 @@ odf = calcODF(pf,<span class="string">'silent'</span>)
 
 plot(odf,<span class="string">'sigma'</span>)</pre><pre class="codeoutput"> 
 odf = ODF  
-  crystal symmetry : 222
+  crystal symmetry : mmm
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29768 orientations, resolution: 5&deg;
+    center: 29764 orientations, resolution: 5&deg;
     weight: 1
  
 progress: 100%
@@ -318,25 +318,25 @@ plot(pf)</pre><img src="PF2ODFAmbiguity_19.png"> <p>When reconstruction an ODF f
             called automatic ghost correction
          </p><pre class="codeinput">odf_rec1 = calcODF(pf,<span class="string">'silent'</span>)</pre><pre class="codeoutput"> 
 odf_rec1 = ODF  
-  crystal symmetry : 1, X||a, Y||b*, Z||c*
+  crystal symmetry : -1, X||a, Y||b*, Z||c*
   specimen symmetry: 1
  
   Uniform portion:
-    weight: 0.79979
+    weight: 0.7967
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 118901 orientations, resolution: 5&deg;
-    weight: 0.20021
+    center: 118720 orientations, resolution: 5&deg;
+    weight: 0.2033
  
 </pre><p>This method can be switched off by the following command</p><pre class="codeinput">odf_rec2 = calcODF(pf,<span class="string">'noGhostCorrection'</span>,<span class="string">'silent'</span>)</pre><pre class="codeoutput"> 
 odf_rec2 = ODF  
-  crystal symmetry : 1, X||a, Y||b*, Z||c*
+  crystal symmetry : -1, X||a, Y||b*, Z||c*
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 119088 orientations, resolution: 5&deg;
+    center: 119087 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><p>When comparing the reconstructed ODFs we observe that by using ghost correction we are able to recover odf1 quite nicely,
@@ -372,20 +372,20 @@ rec = calcODF(pf,<span class="string">'silent'</span>)
 <span class="comment">% one without Ghost Correction</span>
 rec2 = calcODF(pf,<span class="string">'NoGhostCorrection'</span>,<span class="string">'silent'</span>)</pre><pre class="codeoutput"> 
 rec = ODF  
-  crystal symmetry : 432
+  crystal symmetry : m-3m
   specimen symmetry: 222
  
   Uniform portion:
-    weight: 0.72965
+    weight: 0.73018
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 1222 orientations, resolution: 5&deg;
-    weight: 0.27035
+    center: 1221 orientations, resolution: 5&deg;
+    weight: 0.26982
  
  
 rec2 = ODF  
-  crystal symmetry : 432
+  crystal symmetry : m-3m
   specimen symmetry: 222
  
   Radially symmetric portion:
@@ -393,15 +393,15 @@ rec2 = ODF
     center: 1231 orientations, resolution: 5&deg;
     weight: 1
  
-</pre><p>For both reconstruction recalculated pole figures look the same as the initial pole figures</p><pre class="codeinput">figure(1)
+</pre><img src="PF2ODFAmbiguity_24.png"> <p>For both reconstruction recalculated pole figures look the same as the initial pole figures</p><pre class="codeinput">figure(1)
 plotPDF(rec,pf.h,<span class="string">'antipodal'</span>)
-mtexColorMap <span class="string">LaboTeX</span></pre><img src="PF2ODFAmbiguity_24.png"> <pre class="codeinput">figure(2)
+mtexColorMap <span class="string">LaboTeX</span></pre><img src="PF2ODFAmbiguity_25.png"> <pre class="codeinput">figure(2)
 plotPDF(rec2,pf.h,<span class="string">'antipodal'</span>)
-mtexColorMap <span class="string">LaboTeX</span></pre><img src="PF2ODFAmbiguity_25.png"> <p>However if we look at the ODF we see big differences. The so-called ghosts.</p><pre class="codeinput">figure(1)
+mtexColorMap <span class="string">LaboTeX</span></pre><img src="PF2ODFAmbiguity_26.png"> <p>However if we look at the ODF we see big differences. The so-called ghosts.</p><pre class="codeinput">figure(1)
 plot(rec,<span class="string">'gray'</span>,<span class="string">'contourf'</span>)
-mtexColorMap <span class="string">white2black</span></pre><img src="PF2ODFAmbiguity_26.png"> <pre class="codeinput">figure(2)
+mtexColorMap <span class="string">white2black</span></pre><img src="PF2ODFAmbiguity_27.png"> <pre class="codeinput">figure(2)
 plot(rec2,<span class="string">'gray'</span>,<span class="string">'contourf'</span>)
-mtexColorMap <span class="string">white2black</span></pre><img src="PF2ODFAmbiguity_27.png"> <p>Again we can see the source of the problem in the harmonic coefficients.</p><pre class="codeinput">close <span class="string">all</span>;
+mtexColorMap <span class="string">white2black</span></pre><img src="PF2ODFAmbiguity_28.png"> <p>Again we can see the source of the problem in the harmonic coefficients.</p><pre class="codeinput">close <span class="string">all</span>;
 <span class="comment">% the harmonic coefficients of the sample ODF</span>
 plotFourier(SantaFe,<span class="string">'bandwidth'</span>,32,<span class="string">'linewidth'</span>,2,<span class="string">'MarkerSize'</span>,10)
 
@@ -416,7 +416,7 @@ plotFourier(rec2,<span class="string">'bandwidth'</span>,32,<span class="string"
 
 legend({<span class="string">'true ODF'</span>,<span class="string">'with ghost correction'</span>,<span class="string">'without ghost correction'</span>})
 <span class="comment">% next plot command overwrites plot</span>
-hold <span class="string">off</span></pre><img src="PF2ODFAmbiguity_28.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="PF2ODFAmbiguity_29.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

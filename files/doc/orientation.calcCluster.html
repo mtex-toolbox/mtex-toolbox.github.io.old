@@ -113,7 +113,12 @@ odf = ODF
     weight: 1
  
 </pre><pre class="codeinput"><span class="comment">% find the clusters and its centers</span>
-[cId,centerRec] = calcCluster(ori);</pre><pre class="codeoutput">...................</pre><pre class="codeinput"><span class="comment">% visualize result</span>
+[cId,centerRec] = calcCluster(ori);</pre><pre class="codeoutput">progress: 100%
+progress: 100%
+progress: 100%
+progress: 100%
+progress: 100%
+.............................</pre><pre class="codeinput"><span class="comment">% visualize result</span>
 <span class="keyword">for</span> i = 1:length(centerRec)
 plot(ori(cId==i),<span class="string">'axisAngle'</span>)
 hold <span class="string">on</span>
@@ -122,9 +127,9 @@ plot(centerRec(i),<span class="string">'MarkerFaceColor'</span>,<span class="str
 hold <span class="string">off</span></pre><img src="orientation.calcCluster_01.png"> <pre class="codeinput"><span class="comment">%check the accuracy of the recomputed centers</span>
 min(angle_outer(center,centerRec)./degree)</pre><pre class="codeoutput">ans =
   Columns 1 through 7
-    0.4082    2.4728    2.5734    1.2912    2.4524   13.0929   13.4175
-  Columns 8 through 12
-   13.9899   16.2457   17.2651   15.2947   17.3677
+    3.2203    1.1889    0.5979    3.0359    3.7555   13.5038   14.7815
+  Columns 8 through 14
+   14.9227   16.7413   14.6035   16.3398   15.3425   16.6852   19.1749
 </pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

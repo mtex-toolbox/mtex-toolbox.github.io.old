@@ -116,17 +116,14 @@ pf = PoleFigure
 plot(pf)</pre><img src="PoleFigureAnalysisIntro_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Calculate an ODF from Pole Figure Data<a name="8"> </a></h2>
          <p>Calculating an ODF from pole figure data can be done using the command <a href="PoleFigure.calcODF.html">calcODF</a>. A precise description of the underlying algorithm as well as of the options can be found <a href="PoleFigure2odf.html">here</a></p><pre class="codeinput">odf = calcODF(pf,<span class="string">'zero_range'</span>,<span class="string">'silent'</span>)
-plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'superposition'</span>,c)</pre><pre class="codeoutput">applying zero range method to (10-10)...... - reduction: 4128 / 19848
-applying zero range method to (01-11)(10-11)...... - reduction: 4128 / 19848
-applying zero range method to (11-22)...... - reduction: 3170 / 19848
- 
+plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'superposition'</span>,c)</pre><pre class="codeoutput"> 
 odf = ODF  
   crystal symmetry : 321, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 3167 orientations, resolution: 5&deg;
+    center: 19842 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><img src="PoleFigureAnalysisIntro_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

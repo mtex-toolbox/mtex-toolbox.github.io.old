@@ -140,28 +140,6 @@ xM yM phi1_M Phi_M phi2_M phase_m</pre><p>The assoziation of the columns as Eule
             <td width="150px">
             <tt>'passive'</tt>
             </td>
-            <td>
-            <pre>Example</pre>
-            <pre>  fname = fullfile(mtexDataPath,'EBSD','85_829grad_07_09_06.txt');
-            CS = {'notIndexed',...</pre>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'crystalSymmetry('m'</tt>
-            </td>
-            <td>
-            <p>m','mineral','Fe'),...</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'crystalSymmetry('m'</tt>
-            </td>
-            <td>
-            <p>m','mineral','Mg')}; S = specimenSymmetry('triclinic'); bsd = loadEBSD_generic(fname,'CS',CS,'SS',SS, 'ColumnNames', ...
-            {'Index' 'Phase' 'x' 'y' 'Euler1' 'Euler2' 'Euler3' 'MAD' 'BC' 'BS'...  'Bands' 'Error' 'ReliabilityIndex'}, 'Bunge')</p>
-            </td>
             </tr>
             </table>
             </td>
@@ -169,7 +147,25 @@ xM yM phi1_M Phi_M phi2_M phase_m</pre><p>The assoziation of the columns as Eule
             </table>
             
          </p>
-         <h3 class="seealso">See also</h3>
+         <h2>Example<a name="5"> </a></h2><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'EBSD'</span>,<span class="string">'85_829grad_07_09_06.txt'</span>);
+CS = {<span class="string">'notIndexed'</span>,<span class="keyword">...</span>
+crystalSymmetry(<span class="string">'m-3m'</span>,<span class="string">'mineral'</span>,<span class="string">'Fe'</span>),<span class="keyword">...</span>
+crystalSymmetry(<span class="string">'m-3m'</span>,<span class="string">'mineral'</span>,<span class="string">'Mg'</span>)};
+SS = specimenSymmetry(<span class="string">'triclinic'</span>);
+ebsd = loadEBSD_generic(fname,<span class="string">'CS'</span>,CS,<span class="string">'SS'</span>,SS, <span class="string">'ColumnNames'</span>, <span class="keyword">...</span>
+{<span class="string">'Index'</span> <span class="string">'Phase'</span> <span class="string">'x'</span> <span class="string">'y'</span> <span class="string">'Euler1'</span> <span class="string">'Euler2'</span> <span class="string">'Euler3'</span> <span class="string">'MAD'</span> <span class="string">'BC'</span> <span class="string">'BS'</span><span class="keyword">...</span>
+<span class="string">'Bands'</span> <span class="string">'Error'</span> <span class="string">'ReliabilityIndex'</span>}, <span class="string">'Bunge'</span>)</pre><pre class="codeoutput"> 
+ebsd = EBSD  
+ 
+ Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
+     0   11411 (19%)  notIndexed                                                
+     1   48184 (79%)          Fe   light blue      m-3m                         
+     2   1180 (1.9%)          Mg  light green      m-3m                         
+ 
+ Properties: bands, bc, bs, error, index, mad, reliabilityindex, x, y
+ Scan unit : um
+ 
+</pre><h3 class="seealso">See also</h3>
          <p><a href="ImportEBSDData.html">ImportEBSDData</a>, <a href="loadEBSD.html">loadEBSD</a>, <a href="ebsd_demo.html">ebsd_demo</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

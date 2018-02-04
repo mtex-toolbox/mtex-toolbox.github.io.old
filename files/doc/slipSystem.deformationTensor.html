@@ -44,8 +44,7 @@
             </p>
          </div>
          <p>deformation tensor</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">SF = SchmidFactor(sS,v)
-SF = SchmidFactor(sS,sigma)</pre><h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">eps = deformationTensor(sS)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -56,22 +55,6 @@ SF = SchmidFactor(sS,sigma)</pre><h2>Input<a name="4"> </a></h2>
             <p>list of <a href="slipSystem_index.html">slipSystem</a></p>
             </td>
             </tr>
-            <tr>
-            <td width="100px">
-            <tt>v</tt>
-            </td>
-            <td>
-            <p><a href="vector3d_index.html">vector3d</a> list of tension direction</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="100px">
-            <tt>sigma</tt>
-            </td>
-            <td>
-            <p>stress <a href="tensor_index.html">tensor</a></p>
-            </td>
-            </tr>
             </table>
             
          </p>
@@ -80,10 +63,10 @@ SF = SchmidFactor(sS,sigma)</pre><h2>Input<a name="4"> </a></h2>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>SF</tt>
+            <tt>eps</tt>
             </td>
             <td>
-            <p>size(sS) x size(sigma) matrix of Schmid factors</p>
+            <p>deformationTensor</p>
             </td>
             </tr>
             </table>

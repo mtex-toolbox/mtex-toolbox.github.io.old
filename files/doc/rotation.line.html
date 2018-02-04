@@ -64,9 +64,9 @@ oR = fundamentalRegion(cs1,cs2)
 plot(oR)</pre><pre class="codeoutput"> 
 cs1 = crystalSymmetry  
  
-  symmetry       : 321              
-  a, b, c        : 1, 1, 1          
-  reference frame: X||a, Y||b*, Z||c
+  symmetry       : 321               
+  a, b, c        : 1, 1, 1           
+  reference frame: X||a*, Y||b, Z||c*
  
  
 cs2 = crystalSymmetry  
@@ -76,23 +76,26 @@ cs2 = crystalSymmetry
  
  
 oR = orientationRegion  
- crystal symmetry:  321, X||a, Y||b*, Z||c
+ 
+ crystal symmetry:  321, X||a*, Y||b, Z||c*
  crystal symmetry:  432
- face normales: 1 x 14
- vertices: 1 x 20
+ max angle: 56.6003&deg;
+ face normales: 14
+ vertices: 20
+ 
 </pre><img src="rotation.line_01.png"> <pre class="codeinput"><span class="comment">% connect to vertices of the fundamental region</span>
 f = fibre(oR.V(1),oR.V(2))</pre><pre class="codeoutput"> 
 f = fibre  
  size: 1 x 1
- crystal symmetry:  321, X||a, Y||b*, Z||c
+ crystal symmetry:  321, X||a*, Y||b, Z||c*
  crystal symmetry:  432
- o1: (225&deg;,54.73561&deg;,150&deg;)
- o2: (135&deg;,54.73561&deg;,240&deg;)
+ o1: (225&deg;,55&deg;,150&deg;)
+ o2: (135&deg;,55&deg;,240&deg;)
 </pre><pre class="codeinput"><span class="comment">% determine some orientations along the fibre</span>
 o = f.orientation</pre><pre class="codeoutput"> 
 o = misorientation  
   size: 1000 x 1
-  crystal symmetry : 321, X||a, Y||b*, Z||c
+  crystal symmetry : 321, X||a*, Y||b, Z||c*
   crystal symmetry : 432
  
 </pre><pre class="codeinput"><span class="comment">% plot the line</span>

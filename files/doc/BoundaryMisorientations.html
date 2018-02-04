@@ -65,9 +65,7 @@ rectangle(<span class="string">'position'</span>,region,<span class="string">'ed
 
 <span class="comment">% select EBSD data within region</span>
 condition = inpolygon(ebsd,region); <span class="comment">% select indices by polygon</span>
-ebsd = ebsd(condition);</pre><pre class="codeoutput"> loading data ...
- saving data to /home/hielscher/mtex/master/data/forsterite.mat
-</pre><img src="BoundaryMisorientations_01.png"> <h2>Grain modelling<a name="2"> </a></h2>
+ebsd = ebsd(condition);</pre><img src="BoundaryMisorientations_01.png"> <h2>Grain modelling<a name="2"> </a></h2>
          <p>Second step is the modelling of the grains and grain boundaries</p><pre class="codeinput"><span class="comment">% segmentation angle typically 10 to 15 degrees that seperates to grains</span>
 seg_angle = 10;
 

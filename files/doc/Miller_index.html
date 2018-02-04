@@ -126,7 +126,7 @@ ans = Miller
   k  1 -1  1  2 -2 -1
   i -2  2  1 -1  1 -1
   l  0  0  0  0  0  0
-</pre><p>As always the keyword <a href="AxialDirectional.html">antipodal</a> adds antipodal symmetry to this computation
+</pre><img src="Miller_index_03.png"> <p>As always the keyword <a href="AxialDirectional.html">antipodal</a> adds antipodal symmetry to this computation
          </p><pre class="codeinput">symmetrise(m,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput"> 
 ans = Miller  
  size: 6 x 1
@@ -183,7 +183,7 @@ ans = vector3d
 </pre><p>By applying a <a href="symmetry_index.html">crystal symmetry class</a> one obtains the coordinates with respect to the specimen coordinate system of all crystallographically equivalent specimen
             directions.
          </p><pre class="codeinput">p = o * symmetrise(m);
-plot(p)</pre><img src="Miller_index_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+plot(p)</pre><img src="Miller_index_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Complete Function list<a name="18"> </a></h2>
          <p><table width="90%"><tr><td width="200px"><a href="Miller.Miller.html"><tt>Miller</tt></a></td><td>define a crystal direction
             by Miller indice</td></tr><tr><td width="200px"><a href="Miller.cat.html"><tt>cat</tt></a></td><td>concatenate lists of Miller

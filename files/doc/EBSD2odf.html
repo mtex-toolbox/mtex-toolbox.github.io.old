@@ -80,7 +80,8 @@ odf = ODF
          <p>MTEX includes an automatic halfwidth selection algorithm which is called by the command <a href="EBSD.calcKernel.html">calcKernel</a>. To work properly, this algorithm needs spatially independent EBSD data as in the case of this dataset of very rough EBSD
             measurements (only one measurement per grain).
          </p><pre class="codeinput"><span class="comment">% try to compute an optimal kernel</span>
-psi = calcKernel(ebsd(<span class="string">'fo'</span>).orientations)</pre><pre class="codeoutput"> 
+psi = calcKernel(ebsd(<span class="string">'fo'</span>).orientations)</pre><pre class="codeoutput"> estimate optimal kernel halfwidth: 100%
+ 
 psi = deLaValeePoussinKernel  
   bandwidth: 130
   halfwidth: 2.3&deg;
@@ -97,7 +98,8 @@ grains = grains(grains.grainSize&gt;5);
 psi = calcKernel(grains(<span class="string">'fo'</span>).meanOrientation)
 
 <span class="comment">% compute the ODF with the kernel psi</span>
-odf = calcODF(ebsd(<span class="string">'fo'</span>).orientations,<span class="string">'kernel'</span>,psi)</pre><pre class="codeoutput"> 
+odf = calcODF(ebsd(<span class="string">'fo'</span>).orientations,<span class="string">'kernel'</span>,psi)</pre><pre class="codeoutput"> estimate optimal kernel halfwidth: 100%
+ 
 psi = deLaValeePoussinKernel  
   bandwidth: 48
   halfwidth: 6&deg;
@@ -113,7 +115,10 @@ odf = ODF
  
 </pre><p>Once an ODF is estimated all the functionality MTEX offers for <a href="ODFCalculations.html">ODF analysis</a> and <a href="ODFPlot.html">ODF visualization</a> is available.
          </p><pre class="codeinput">h = [Miller(1,0,0,odf.CS),Miller(1,1,0,odf.CS),Miller(1,1,1,odf.CS)];
-plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><img src="EBSD2odf_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><pre class="codeoutput">Warning: Colon operands cannot be logical. 
+Warning: Colon operands cannot be logical. 
+Warning: Colon operands cannot be logical. 
+</pre><img src="EBSD2odf_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Effect of halfwidth selection<a name="8"> </a></h2>
          <p>As mentioned above a proper halfwidth selection is crucial for ODF estimation. The following simple numerical experiment illustrates
             the dependency between the kernel halfwidth and the estimated error.

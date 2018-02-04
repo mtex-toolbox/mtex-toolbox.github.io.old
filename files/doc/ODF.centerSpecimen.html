@@ -189,7 +189,8 @@ r2 = rotation
      6    4    0    0
  
  
-Warning: Rotation does not respect symmetry! 
+Warning: Rotating an ODF with specimen symmetry will remove the specimen
+symmetry 
 </pre><img src="ODF.centerSpecimen_01.png"> <pre class="codeinput"><span class="comment">%and now retrive the rotation back</span>
 [odr,r,v1,v2] = centerSpecimen(odf);
 plotPDF(odr,h,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">progress: 100%

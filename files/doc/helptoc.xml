@@ -518,7 +518,6 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.normalize.html">normalize</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.plot.html">plot</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.plotDiff.html">plotDiff</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.plot_zero_range.html">plot_zero_range</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.plus.html">plus</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.rdivide.html">rdivide</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.rotate.html">rotate</tocitem>
@@ -530,7 +529,6 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.uminus.html">uminus</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.union.html">union</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.unique.html">unique</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="PoleFigure.zeroRange.html">zeroRange</tocitem>
             </tocitem>
             <tocitem target="EBSD_index.html">Electron Backscatter Diffraction Data (The Class @EBSD)<tocitem target="EBSD_index.html#2">Class Description</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.EBSD.html">EBSD</tocitem>
@@ -649,6 +647,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="equispacedSO3Grid.html">equispacedSO3Grid</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="euler2quat.html">euler2quat</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="expquat.html">expquat</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="extractSphericalRegion.html">extractSphericalRegion</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fibre2quat.html">fibre2quat</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="fit_ellipse.html">fit_ellipse</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="gossOrientation.html">gossOrientation</tocitem>
@@ -1036,7 +1035,7 @@
          <tocitem target="PlasticDeformation.html">Schmid Factor Analysis<tocitem target="PlasticDeformation.html#3">Geometric Definition</tocitem>
             <tocitem target="PlasticDeformation.html#11">Stress Tensor</tocitem>
             <tocitem target="PlasticDeformation.html#13">Active Slip System</tocitem>
-            <tocitem target="PlasticDeformation.html#19">The Schmid factor for EBSD data</tocitem>
+            <tocitem target="PlasticDeformation.html#20">The Schmid factor for EBSD data</tocitem>
          </tocitem>
          <tocitem target="PiezoElectricity.html">The Piezoelectricity Tensor<tocitem target="PiezoElectricity.html#5">Plotting the magnitude surface</tocitem>
             <tocitem target="PiezoElectricity.html#11">Mean Tensor Calculation</tocitem>

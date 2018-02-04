@@ -197,7 +197,7 @@ volume(uniformODF(CS,SS),ori,10*degree)</pre><pre class="codeoutput">ans =
     0.2939
 ans =
     0.0269
-</pre><p>e) Construct a trigonal ODF that consists of two fibres at h1 = (0,0,0,1), r1 = (0,1,0), h2 = (1,0,-1,0), r2 = (1,0,0). Do
+</pre><img src="ODF_demo_09.png"> <p>e) Construct a trigonal ODF that consists of two fibres at h1 = (0,0,0,1), r1 = (0,1,0), h2 = (1,0,-1,0), r2 = (1,0,0). Do
             the two fibres intersect?
          </p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'trigonal'</span>);
 odf = 0.5 * fibreODF(Miller(0,0,0,1,cs),yvector) + <span class="keyword">...</span>
@@ -229,7 +229,7 @@ mod = orientation
  
 </pre><p>g) Plot the ODF in sigma and phi2 - sections. How many fibre do you observe?</p><pre class="codeinput">close <span class="string">all</span>;plot(odf,<span class="string">'sections'</span>,6)
 mtexColorMap <span class="string">white2black</span>
-annotate(mod,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'Marker'</span>,<span class="string">'s'</span>)</pre><img src="ODF_demo_09.png"> <pre class="codeinput">plot(odf,<span class="string">'phi2'</span>,<span class="string">'sections'</span>,6)</pre><img src="ODF_demo_10.png"> <p>h) Compute the texture index of the ODF.</p><pre class="codeinput">textureindex(odf)</pre><pre class="codeoutput">ans =
+annotate(mod,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'Marker'</span>,<span class="string">'s'</span>)</pre><img src="ODF_demo_10.png"> <pre class="codeinput">plot(odf,<span class="string">'phi2'</span>,<span class="string">'sections'</span>,6)</pre><img src="ODF_demo_11.png"> <p>h) Compute the texture index of the ODF.</p><pre class="codeinput">textureindex(odf)</pre><pre class="codeoutput">ans =
     9.6325
 </pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

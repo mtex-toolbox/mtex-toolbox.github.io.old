@@ -84,12 +84,12 @@ csFo = crystalSymmetry
  
 </pre><p>By default, MTEX plots a phase map for EBSD data.</p><pre class="codeinput">plot(ebsd)</pre><img src="EBSDSpatialPlots_01.png"> <p>You can access the color of each phase by</p><pre class="codeinput">ebsd(<span class="string">'Diopside'</span>).color</pre><pre class="codeoutput">ans =
     1.0000    0.5000    0.5000
-</pre><p>These values are RGB values, e.g. to make the color for diopside even more red we can do</p><pre class="codeinput">ebsd(<span class="string">'Diopside'</span>).color = [1 0 0];
+</pre><img src="EBSDSpatialPlots_02.png"> <p>These values are RGB values, e.g. to make the color for diopside even more red we can do</p><pre class="codeinput">ebsd(<span class="string">'Diopside'</span>).color = [1 0 0];
 
-plot(ebsd(<span class="string">'indexed'</span>))</pre><img src="EBSDSpatialPlots_02.png"> <p>By default, not indexed phases are plotted as white. To directly specify a color for some EBSD data use the option <tt>FaceColor</tt>.
+plot(ebsd(<span class="string">'indexed'</span>))</pre><img src="EBSDSpatialPlots_03.png"> <p>By default, not indexed phases are plotted as white. To directly specify a color for some EBSD data use the option <tt>FaceColor</tt>.
          </p><pre class="codeinput">hold <span class="string">on</span>
 plot(ebsd(<span class="string">'notIndexed'</span>),<span class="string">'FaceColor'</span>,<span class="string">'black'</span>)
-hold <span class="string">off</span></pre><img src="EBSDSpatialPlots_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="EBSDSpatialPlots_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Visualizing arbitrary properties<a name="9"> </a></h2>
          <p>Apart from the phase information, we can use any other property to colorize the EBSD data. As an example, we may plot the
             band contrast
@@ -97,13 +97,13 @@ hold <span class="string">off</span></pre><img src="EBSDSpatialPlots_03.png"> <p
 
 colormap <span class="string">gray</span> <span class="comment">% this makes the image grayscale</span>
 
-mtexColorbar</pre><img src="EBSDSpatialPlots_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="EBSDSpatialPlots_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Visualizing orientations<a name="10"> </a></h2>
          <p>Actually, we can pass any list of numbers or colors as a second input argument to be visualized together with the ebsd data.
             In order to visualize orientations in an EBSD map, we have first to compute a color for each orientation. The most simple
             way is to assign to each orientation its rotational angle. This is done by the command
          </p><pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),ebsd(<span class="string">'Forsterite'</span>).orientations.angle./degree)
-mtexColorbar</pre><img src="EBSDSpatialPlots_05.png"> <p>Let's make things a bit more formal. Therefore we define first an orientation mapping that assigns to each orientation its
+mtexColorbar</pre><img src="EBSDSpatialPlots_06.png"> <p>Let's make things a bit more formal. Therefore we define first an orientation mapping that assigns to each orientation its
             rotational angle
          </p><pre class="codeinput">oM = angleOrientationMapping(ebsd(<span class="string">'Fo'</span>))</pre><pre class="codeoutput">oM = 
   angleOrientationMapping with properties:
@@ -112,7 +112,7 @@ mtexColorbar</pre><img src="EBSDSpatialPlots_05.png"> <p>Let's make things a bit
           CS2: [1&times;1 specimenSymmetry]
     antipodal: 0
 </pre><p>now the color, which is actually the rotational angle, is computed by the command</p><pre class="codeinput">color = oM.orientation2color(ebsd(<span class="string">'Fo'</span>).orientations);</pre><p>and we can visualize it by</p><pre class="codeinput">plot(ebsd(<span class="string">'Forsterite'</span>),color)
-mtexColorbar</pre><img src="EBSDSpatialPlots_06.png"> <p>While for the previous case this seems to be unnecessarily complicated it allows us to define the arbitrary complex color
+mtexColorbar</pre><img src="EBSDSpatialPlots_07.png"> <p>While for the previous case this seems to be unnecessarily complicated it allows us to define the arbitrary complex color
             mapping. Consider for example the following standard color mapping that uses a colorization of the fundamental sector in the
             inverse pole figure to assign a color to each orientation
          </p><pre class="codeinput"><span class="comment">% this defines a color mapping for the Forsterite phase</span>
@@ -136,24 +136,24 @@ plot(oM)</pre><pre class="codeoutput">oM =
                           refl: []
                            rot: [1&times;1 rotation]
                          alpha: 0
-</pre><img src="EBSDSpatialPlots_07.png"> <p>Now we can proceed as above</p><pre class="codeinput"><span class="comment">% compute the colors</span>
+</pre><img src="EBSDSpatialPlots_08.png"> <p>Now we can proceed as above</p><pre class="codeinput"><span class="comment">% compute the colors</span>
 color = oM.orientation2color(ebsd(<span class="string">'Fo'</span>).orientations);
 
 <span class="comment">% plot the colors</span>
 close <span class="string">all</span>
-plot(ebsd(<span class="string">'Forsterite'</span>),color)</pre><img src="EBSDSpatialPlots_08.png"> <p>Orientation mappings usually provide several options to alter the alignment of colors. Let's give some examples</p><pre class="codeinput"><span class="comment">% we may interchange green and blue by setting</span>
+plot(ebsd(<span class="string">'Forsterite'</span>),color)</pre><img src="EBSDSpatialPlots_09.png"> <p>Orientation mappings usually provide several options to alter the alignment of colors. Let's give some examples</p><pre class="codeinput"><span class="comment">% we may interchange green and blue by setting</span>
 oM.colorPostRotation = reflection(yvector);
 
-plot(oM)</pre><img src="EBSDSpatialPlots_09.png"> <p>or cycle of colors red, green, blue by</p><pre class="codeinput">oM.colorPostRotation = rotation(<span class="string">'axis'</span>,zvector,<span class="string">'angle'</span>,120*degree);
+plot(oM)</pre><img src="EBSDSpatialPlots_10.png"> <p>or cycle of colors red, green, blue by</p><pre class="codeinput">oM.colorPostRotation = rotation(<span class="string">'axis'</span>,zvector,<span class="string">'angle'</span>,120*degree);
 
-plot(oM)</pre><img src="EBSDSpatialPlots_10.png"> <p>Furthermore, we can explicitly set the inverse pole figure directions by</p><pre class="codeinput">oM.inversePoleFigureDirection = zvector;
+plot(oM)</pre><img src="EBSDSpatialPlots_11.png"> <p>Furthermore, we can explicitly set the inverse pole figure directions by</p><pre class="codeinput">oM.inversePoleFigureDirection = zvector;
 
 <span class="comment">% compute the colors again</span>
 color = oM.orientation2color(ebsd(<span class="string">'Forsterite'</span>).orientations);
 
 <span class="comment">% and plot them</span>
 close <span class="string">all</span>
-plot(ebsd(<span class="string">'Forsterite'</span>),color)</pre><img src="EBSDSpatialPlots_11.png"> <p>Besides the recommended orientation mapping, <a href="ipdfHSVOrientationMapping.html">ipdfHSVOrientationMapping</a> MTEX supports also a lot of other color mappings as summarized below
+plot(ebsd(<span class="string">'Forsterite'</span>),color)</pre><img src="EBSDSpatialPlots_12.png"> <p>Besides the recommended orientation mapping, <a href="ipdfHSVOrientationMapping.html">ipdfHSVOrientationMapping</a> MTEX supports also a lot of other color mappings as summarized below
          </p>
          <div>
             <ul type="square">
@@ -182,17 +182,17 @@ oM.center = f.h;
 oM.color = [0 0 1];
 oM.psi = deLaValeePoussinKernel(<span class="string">'halfwidth'</span>,7.5*degree);
 
-plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><img src="EBSDSpatialPlots_12.png"> <p>the option <tt>halfwidth</tt> controls half of the intensity of the color at a given distance. Here we have chosen the (111)[001] fibre to be drawn in
+plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><img src="EBSDSpatialPlots_13.png"> <p>the option <tt>halfwidth</tt> controls half of the intensity of the color at a given distance. Here we have chosen the (111)[001] fibre to be drawn in
             blue, and at 7.5 degrees, where the blue should be only lighter.
          </p><pre class="codeinput">plot(oM)
 hold <span class="string">on</span>
-circle(f.h.project2FundamentalRegion,15*degree,<span class="string">'linewidth'</span>,2)</pre><img src="EBSDSpatialPlots_13.png"> <p>the percentage of blue colored area in the map is equivalent to the fibre volume</p><pre class="codeinput">vol = volume(ebsd(<span class="string">'fo'</span>).orientations,f,15*degree)
+circle(f.h.project2FundamentalRegion,15*degree,<span class="string">'linewidth'</span>,2)</pre><img src="EBSDSpatialPlots_14.png"> <p>the percentage of blue colored area in the map is equivalent to the fibre volume</p><pre class="codeinput">vol = volume(ebsd(<span class="string">'fo'</span>).orientations,f,15*degree)
 
 plotIPDF(ebsd(<span class="string">'fo'</span>).orientations,zvector,<span class="string">'markercolor'</span>,<span class="string">'k'</span>,<span class="string">'marker'</span>,<span class="string">'x'</span>,<span class="string">'points'</span>,200)
 hold <span class="string">off</span></pre><pre class="codeoutput">vol =
     0.2480
   I'm plotting 200 random orientations out of 152345 given orientations
-</pre><img src="EBSDSpatialPlots_14.png"> <p>we can easily extend the colorcoding</p><pre class="codeinput">oM.center = [Miller(0,0,1,csFo),Miller(0,1,1,csFo),Miller(1,1,1,csFo),<span class="keyword">...</span>
+</pre><img src="EBSDSpatialPlots_15.png"> <p>we can easily extend the colorcoding</p><pre class="codeinput">oM.center = [Miller(0,0,1,csFo),Miller(0,1,1,csFo),Miller(1,1,1,csFo),<span class="keyword">...</span>
   Miller(11,4,4,csFo), Miller(5,0,2,csFo) , Miller(5,5,2,csFo)]
 
 oM.color = [[1 0 0];[0 1 0];[0 0 1];[1 0 1];[1 1 0];[0 1 1]];
@@ -208,7 +208,7 @@ plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span clas
                            CS1: [4&times;2 crystalSymmetry]
                            CS2: [1&times;1 specimenSymmetry]
                      antipodal: 0
-</pre><img src="EBSDSpatialPlots_15.png"> <pre class="codeinput">plot(oM,<span class="string">'complete'</span>)</pre><img src="EBSDSpatialPlots_16.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><img src="EBSDSpatialPlots_16.png"> <pre class="codeinput">plot(oM,<span class="string">'complete'</span>)</pre><img src="EBSDSpatialPlots_17.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Coloring certain orientations<a name="26"> </a></h3>
          <p>We might be interested in locating some special orientation in our orientation map. The definition of colors for certain orientations
             is carried out similarly as in the case of fibres
@@ -221,12 +221,12 @@ plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span clas
 
 <span class="comment">% and the correspoding colormap</span>
 figure(2)
-plot(oM,<span class="string">'sections'</span>,9,<span class="string">'sigma'</span>)</pre><img src="EBSDSpatialPlots_17.png"> <p>the area of the colored EBSD data in the map corresponds to the volume portion (in percent)</p><pre class="codeinput">vol = 100 * volume(ebsd(<span class="string">'fo'</span>).orientations,oM.center,20*degree)</pre><pre class="codeoutput">vol =
+plot(oM,<span class="string">'sections'</span>,9,<span class="string">'sigma'</span>)</pre><img src="EBSDSpatialPlots_18.png"> <p>the area of the colored EBSD data in the map corresponds to the volume portion (in percent)</p><pre class="codeinput">vol = 100 * volume(ebsd(<span class="string">'fo'</span>).orientations,oM.center,20*degree)</pre><pre class="codeoutput">vol =
    15.6277
 </pre><p>actually, the colored measurements stress a peak in the ODF</p><pre class="codeinput">close <span class="string">all</span>
 odf = calcODF(ebsd(<span class="string">'fo'</span>).orientations,<span class="string">'halfwidth'</span>,10*degree,<span class="string">'silent'</span>);
 plot(odf,<span class="string">'sections'</span>,9,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)
-mtexColorbar</pre><img src="EBSDSpatialPlots_18.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar</pre><img src="EBSDSpatialPlots_19.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Combining different plots<a name="29"> </a></h2>
          <p>Combining different plots can be done either by plotting only subsets of the EBSD data or via the option <tt>'faceAlpha'</tt>. Note that the option <tt>'faceAlpha'</tt> requires the renderer of the figure to be set to <tt>'opengl'</tt>.
          </p><pre class="codeinput">close <span class="string">all</span>;
@@ -241,13 +241,13 @@ oM.psi = deLaValeePoussinKernel(<span class="string">'halfwidth'</span>,7.5*degr
 
 hold <span class="string">on</span>
 plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span class="string">'fo'</span>).orientations),<span class="string">'FaceAlpha'</span>,0.5)
-hold <span class="string">off</span></pre><img src="EBSDSpatialPlots_19.png"> <p>another example</p><pre class="codeinput">close <span class="string">all</span>;
+hold <span class="string">off</span></pre><img src="EBSDSpatialPlots_20.png"> <p>another example</p><pre class="codeinput">close <span class="string">all</span>;
 plot(ebsd,ebsd.bc)
 mtexColorMap <span class="string">black2white</span>
 
 hold <span class="string">on</span>
 plot(ebsd(<span class="string">'fo'</span>),<span class="string">'FaceAlpha'</span>,0.5)
-hold <span class="string">off</span></pre><img src="EBSDSpatialPlots_20.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="EBSDSpatialPlots_21.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

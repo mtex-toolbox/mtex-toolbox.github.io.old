@@ -73,20 +73,14 @@
 plot(pf)</pre><img src="PoleFigure2odf_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>ODF Estimation<a name="5"> </a></h2>
          <p>ODF estimation from a pole figure object is done by the function <a href="PoleFigure.calcODF.html">calcODF</a>. The most simplest syntax is
-         </p><pre class="codeinput">odf = calcODF(pf)</pre><pre class="codeoutput">initialize solver
-start iteration
-error: 7.4639E-01 5.5949E-01 3.4031E-01 1.9644E-01 1.6575E-01 1.5709E-01 1.5039E-01 1.4653E-01 1.4328E-01 1.4087E-01 1.3834E-01 
-Finished PDF-ODF inversion.
-error: 1.3834E-01
-alpha: 7.6857E+01 7.2451E+00 1.0344E+02 9.5749E+01 4.9403E+01 6.5850E+01 1.4304E+02 
- 
+         </p><pre class="codeinput">odf = calcODF(pf)</pre><pre class="codeoutput"> 
 odf = ODF  
   crystal symmetry : Quartz (321, X||a*, Y||b, Z||c*)
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 19830 orientations, resolution: 5&deg;
+    center: 19843 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><p>There are a lot of options to the function <a href="PoleFigure.calcODF.html">calcODF</a>. You can specify the discretization, the functional to minimize, the number of iteration or regularization to be applied.
@@ -104,7 +98,7 @@ odf = ODF
             </ul>
          </div><pre class="codeinput">calcError(pf,odf,<span class="string">'RP'</span>,1)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.6739    0.7825    0.3147    0.2366    0.9153    0.7023    0.5614
+    0.7875    0.8849    0.3079    0.3186    0.9516    0.7732    0.6242
 </pre><p>In order to recognize bad pole figure intensities, it is often useful to plot difference pole figures between the normalized
             measured intensities and the recalculated ODF. This can be done by the command <a href="PoleFigure.plotDiff.html">PlotDiff</a>.
          </p><pre class="codeinput">plotDiff(pf,odf)</pre><pre class="codeoutput">progress: 100%
@@ -125,12 +119,12 @@ odf_model = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 15&deg;
-    center: (136&deg;,36&deg;,203&deg;)
+    center: (135&deg;,36&deg;,204&deg;)
     weight: 1
  
 progress: 100%
 ans =
-    0.4694
+    0.4945
 </pre><img src="PoleFigure2odf_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Discretization<a name="11"> </a></h2>
          <p>In MTEX the ODF is approximated by a superposition of up to 10,000,000 unimodal components. By exact number and position of
@@ -139,20 +133,14 @@ ans =
             the same halfwidth as the resolution of the positions.
          </p>
          <p>Next an example how to change the default resolution:</p><pre class="codeinput">odf = calcODF(pf,<span class="string">'resolution'</span>,15*degree)
-plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>,<span class="string">'superposition'</span>,c)</pre><pre class="codeoutput">initialize solver
-start iteration
-error: 7.4643E-01 6.1617E-01 4.9420E-01 4.0576E-01 3.4736E-01 3.1383E-01 2.9673E-01 2.8824E-01 2.8342E-01 2.8057E-01 2.7888E-01 
-Finished PDF-ODF inversion.
-error: 2.7888E-01
-alpha: 7.7752E+01 7.1992E+00 1.0146E+02 1.0111E+02 4.9956E+01 6.5328E+01 1.4054E+02 
- 
+plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>,<span class="string">'superposition'</span>,c)</pre><pre class="codeoutput"> 
 odf = ODF  
   crystal symmetry : Quartz (321, X||a*, Y||b, Z||c*)
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 15&deg;
-    center: 421 orientations, resolution: 15&deg;
+    center: 693 orientations, resolution: 15&deg;
     weight: 1
  
 </pre><img src="PoleFigure2odf_05.png"> <p>Beside the resolution you can use the following options to change the default discretization:</p>
@@ -173,27 +161,14 @@ odf = ODF
          <p>In the following example, the zero range method is applied with a threshold 100. For more options to control the zero range
             method see the documentation of <a href="PoleFigure.zero_range.html">zero_range</a> or <a href="PoleFigure.plot_zero_range.html">plot_zero_range</a>.
          </p><pre class="codeinput">odf = calcODF(pf,<span class="string">'zero_range'</span>)
-plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>,<span class="string">'superposition'</span>,c)</pre><pre class="codeoutput">applying zero range method to (02-21)...... - reduction: 4581 / 19848
-applying zero range method to (10-10)...... - reduction: 2616 / 19848
-applying zero range method to (01-11)(10-11)...... - reduction: 2616 / 19848
-applying zero range method to (10-12)...... - reduction: 2312 / 19848
-applying zero range method to (11-20)...... - reduction: 2222 / 19848
-applying zero range method to (11-21)...... - reduction: 2109 / 19848
-applying zero range method to (11-22)...... - reduction: 2026 / 19848
-initialize solver
-start iteration
-error: 4.3484E-01 2.2892E-01 1.6573E-01 1.5349E-01 1.4868E-01 1.4612E-01 1.4436E-01 1.4312E-01 1.4211E-01 1.4130E-01 1.4060E-01 
-Finished PDF-ODF inversion.
-error: 1.4060E-01
-alpha: 7.7442E+01 7.4101E+00 1.0345E+02 9.4669E+01 5.0735E+01 6.6847E+01 1.4137E+02 
- 
+plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>,<span class="string">'superposition'</span>,c)</pre><pre class="codeoutput"> 
 odf = ODF  
   crystal symmetry : Quartz (321, X||a*, Y||b, Z||c*)
   specimen symmetry: 1
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 2025 orientations, resolution: 5&deg;
+    center: 19843 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><img src="PoleFigure2odf_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

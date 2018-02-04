@@ -122,7 +122,7 @@ ans = ODF
   specimen symmetry: 1
  
   Bingham portion:
-     kappa: 0 2.0816 3.6967 26.5803
+     kappa: 0 2.8888 3.9286 26.6595
     weight: 1
  
 </pre><p>where <tt>U</tt> is the orthogonal matrix of eigenvectors of the orientation tensor and <tt>kappa</tt> the shape parameters associated with the <tt>U</tt>.
@@ -132,7 +132,7 @@ T_oblate    = bingham_test(ori_spherical,<span class="string">'prolate'</span>, 
 T_prolate   = bingham_test(ori_spherical,<span class="string">'oblate'</span>,   <span class="string">'approximated'</span>);
 
 t = [T_spherical T_oblate T_prolate]</pre><pre class="codeoutput">t =
-    0.6560    0.5647    0.4410
+    0.7619    0.8072    0.2213
 </pre><p>The spherical test case failed to reject it for some level of significance, hence we would dismiss the hypothesis prolate
             and oblate.
          </p><pre class="codeinput">odf_spherical = BinghamODF(kappa,U,crystalSymmetry,specimenSymmetry)</pre><pre class="codeoutput"> 
@@ -165,7 +165,7 @@ ans = ODF
   specimen symmetry: 1
  
   Bingham portion:
-     kappa: 0 3.8053 47.568 48.619
+     kappa: 0 7.1958 52.0183 53.0728
     weight: 1
  
 </pre><p>and test on the three cases</p><pre class="codeinput">T_spherical = bingham_test(ori_prolate,<span class="string">'spherical'</span>,<span class="string">'approximated'</span>);
@@ -173,7 +173,7 @@ T_oblate    = bingham_test(ori_prolate,<span class="string">'prolate'</span>,  <
 T_prolate   = bingham_test(ori_prolate,<span class="string">'oblate'</span>,   <span class="string">'approximated'</span>);
 
 t = [T_spherical T_oblate T_prolate]</pre><pre class="codeoutput">t =
-    1.0000    0.5643    1.0000
+    1.0000    0.9299    1.0000
 </pre><p>The test clearly rejects the spherical and prolate case, but not the prolate. We construct the Bingham distribution from the
             parameters, it might show some skewness
          </p><pre class="codeinput">odf_prolate = BinghamODF(kappa,U,crystalSymmetry,specimenSymmetry)</pre><pre class="codeoutput"> 
@@ -206,7 +206,7 @@ ans = ODF
   specimen symmetry: 1
  
   Bingham portion:
-     kappa: 0 46.2543 46.3248 47.8588
+     kappa: 0 48.4137 48.4916 50.022
     weight: 1
  
 </pre><p>and do the tests</p><pre class="codeinput">T_spherical = bingham_test(ori_oblate,<span class="string">'spherical'</span>,<span class="string">'approximated'</span>);
@@ -214,7 +214,7 @@ T_oblate    = bingham_test(ori_oblate,<span class="string">'prolate'</span>,  <s
 T_prolate   = bingham_test(ori_oblate,<span class="string">'oblate'</span>,   <span class="string">'approximated'</span>);
 
 t = [T_spherical T_oblate T_prolate]</pre><pre class="codeoutput">t =
-    1.0000    1.0000    0.2227
+    1.0000    1.0000    0.2652
 </pre><p>the spherical and oblate case are clearly rejected, the prolate case failed to reject for some level of significance</p><pre class="codeinput">odf_oblate = BinghamODF(kappa, U,crystalSymmetry,specimenSymmetry)</pre><pre class="codeoutput"> 
 odf_oblate = ODF  
   crystal symmetry : 1, X||a, Y||b*, Z||c*
