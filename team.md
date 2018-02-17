@@ -61,7 +61,7 @@ layout: main
 	    the documentation center.<br /><br />
 	    <table border='0' cellpadding='3'><tr>
 		<td> Affiliation: </td>
-		<td> Xnovo Technology ApS, Denmark </td>
+		<td> <a href="https://xnovotech.com/">Xnovo Technology ApS, Denmark</a> </td>
 	    </tr></table>
 	  </td>
       </tr></table>
