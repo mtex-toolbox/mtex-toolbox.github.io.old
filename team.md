@@ -54,7 +54,7 @@ layout: main
     <td valign="top" width="50%">
       <table border='0' cellpadding='10'><tr>
 	  <td width="140">
-	    <img src='files/pic/unknown.jpg' alt='Picture of Florian Bachmann' height='160' width='120' border='0'/>
+	    <img src='files/pic/FlorianBachmann.jpg' alt='Picture of Florian Bachmann' height='160' width='120' border='0'/>
 	    <a id="contact:memd"></a>
 	  </td><td valign="top">
 	    <b>Florian Bachmann</b> contributed to grain analysis, the import wizard and
