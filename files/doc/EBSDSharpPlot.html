@@ -63,9 +63,7 @@ ebsd = ebsd(<span class="string">'calcite'</span>);
 oM = ipdfHSVOrientationMapping(ebsd);
 
 close <span class="string">all</span>;
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><pre class="codeoutput"> loading data ...
- saving data to /home/hielscher/mtex/master/data/sharp.mat
-</pre><img src="EBSDSharpPlot_01.png"> <p>and have a look into the 100 inverse pole figure.</p><pre class="codeinput"><span class="comment">% compute the positions in the inverse pole figure</span>
+plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_01.png"> <p>and have a look into the 100 inverse pole figure.</p><pre class="codeinput"><span class="comment">% compute the positions in the inverse pole figure</span>
 h = ebsd.orientations .\ vector3d.X;
 h = project2FundamentalRegion(h);
 

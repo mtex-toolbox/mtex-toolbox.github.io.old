@@ -75,46 +75,13 @@
 plotx2east
 
 <span class="comment">% grain segementation</span>
-[grains,ebsd.grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>))
+[grains,ebsd.grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>));
 
 <span class="comment">% grain smoothing</span>
-grains = smooth(grains,2)
+grains = smooth(grains,2);
 
 <span class="comment">% plot the result</span>
-plot(grains,grains.meanOrientation)</pre><pre class="codeoutput"> loading data ...
- saving data to /home/hielscher/mtex/master/data/csl.mat
- 
-grains = grain2d  
- 
- Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
-    -1     885  154107     iron      m-3m                         
- 
- boundary segments: 21982
- triple points: 1451
- 
- Properties: GOS, meanRotation
- 
- 
-ebsd = EBSD  
- 
- Phase   Orientations  Mineral       Color  Symmetry  Crystal reference frame
-    -1  154107 (100%)     iron  light blue      m-3m                         
- 
- Properties: ci, error, iq, x, y, grainId
- Scan unit : um
- 
- 
-grains = grain2d  
- 
- Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
-    -1     885  154107     iron      m-3m                         
- 
- boundary segments: 21982
- triple points: 1451
- 
- Properties: GOS, meanRotation
- 
-  I'm going to colorize the orientation data with the 
+plot(grains,grains.meanOrientation)</pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
   oM = ipdfHSVOrientationMapping(ori_variable_name)
@@ -214,10 +181,8 @@ hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to
             that in this plot misorientations <tt>mori</tt> and <tt>inv(mori)</tt> are associated.
          </p><pre class="codeinput">plot(oM,<span class="string">'axisAngle'</span>,(5:5:60)*degree)
 
-hold <span class="string">on</span>
-plot(gB.misorientation,<span class="string">'points'</span>,300,<span class="keyword">...</span>
-  <span class="string">'MarkerFaceColor'</span>,<span class="string">'none'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'w'</span>)
-hold <span class="string">off</span></pre><pre class="codeoutput">  plotting 300 random orientations out of 20356 given orientations
+plot(gB.misorientation,<span class="string">'points'</span>,300,<span class="string">'add2all'</span>,<span class="keyword">...</span>
+  <span class="string">'MarkerFaceColor'</span>,<span class="string">'none'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'w'</span>)</pre><pre class="codeoutput">  plotting 300 random orientations out of 20356 given orientations
 </pre><img src="CSLBoundaries_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Misorientations in the 3d fundamental zone<a name="12"> </a></h2>
          <p>We can also look at the boundary misorienations in the 3 dimensional fundamental orientation zone.</p><pre class="codeinput"><span class="comment">% compute the boundary of the fundamental zone</span>
@@ -247,7 +212,7 @@ mdf = MDF
   antipodal:         true
  
   Harmonic portion:
-    degree: 32
+    degree: 33
     weight: 1
  
 </pre><p>Next we can visualize the misorientation distribution function in axis angle sections.</p><pre class="codeinput">plot(mdf,<span class="string">'axisAngle'</span>,(25:5:60)*degree,<span class="string">'colorRange'</span>,[0 15])

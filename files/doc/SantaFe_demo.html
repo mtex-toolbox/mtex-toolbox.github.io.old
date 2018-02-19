@@ -64,12 +64,12 @@ rec = ODF
   specimen symmetry: 222
  
   Uniform portion:
-    weight: 0.59003
+    weight: 0.55978
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
     center: 1230 orientations, resolution: 5&deg;
-    weight: 0.40997
+    weight: 0.44022
  
 </pre><h2>ODF Estimation without Ghost Correction<a name="4"> </a></h2><pre class="codeinput">rec2 = calcODF(pf,<span class="string">'NoGhostCorrection'</span>)</pre><pre class="codeoutput"> 
 rec2 = ODF  
@@ -78,7 +78,7 @@ rec2 = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 1231 orientations, resolution: 5&deg;
+    center: 1232 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><h2>Error analysis<a name="5"> </a></h2><pre class="codeinput"><span class="comment">% calculate RP error</span>
@@ -86,8 +86,7 @@ calcError(rec,SantaFe)
 
 <span class="comment">% difference plot between meassured and recalculated pole figures</span>
 plotDiff(pf,rec)</pre><pre class="codeoutput">ans =
-    0.0460
-progress: 100%
+    0.0510
 </pre><img src="SantaFe_demo_02.png"> <h2>Plot estimated pole figures<a name="6"> </a></h2><pre class="codeinput">plotPDF(rec,pf.h,<span class="string">'antipodal'</span>)</pre><img src="SantaFe_demo_03.png"> <h2>Plot estimated ODF (Ghost Corrected)<a name="7"> </a></h2><pre class="codeinput">plot(rec,<span class="string">'sections'</span>,18,<span class="string">'resolution'</span>,5*degree,<span class="keyword">...</span>
   <span class="string">'contourf'</span>,<span class="string">'FontSize'</span>,10,<span class="string">'silent'</span>,<span class="string">'figSize'</span>,<span class="string">'large'</span>,<span class="string">'minmax'</span>)
 mtexColorMap <span class="string">white2black</span></pre><img src="SantaFe_demo_04.png"> <h2>Plot odf<a name="8"> </a></h2><pre class="codeinput">plot(SantaFe,<span class="string">'sections'</span>,18,<span class="string">'contourf'</span>,<span class="string">'FontSize'</span>,10,<span class="string">'silent'</span>,<span class="keyword">...</span>

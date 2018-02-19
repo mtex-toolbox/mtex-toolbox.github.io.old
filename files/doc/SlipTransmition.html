@@ -120,8 +120,8 @@ sSGrain = slipSystem
  size: 85 x 1
 </pre><img src="SlipTransmition_03.png"> <p>We may also analyse the distribution of the slip directions in a pole figure plot</p><pre class="codeinput">plot(sSGrain.b)</pre><img src="SlipTransmition_04.png"> <p>The same as a contour plot. We see a clear trend towards the east.</p><pre class="codeinput">plot(sSGrain.b,<span class="string">'contourf'</span>)</pre><img src="SlipTransmition_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Resolved shear stress<a name="9"> </a></h2>
-         <p>We could do the same as above with a more general stress tensor. However, the result is a bit different. TODO: why do the
-            directions do not point towards east???
+         <p>We could do the same as above with a more general stress tensor. However, the result is a bit different. TODO: why the directions
+            do not point towards east???
          </p><pre class="codeinput"><span class="comment">% more general syntax for the same stress tensor</span>
 sigma = stressTensor.uniaxial(xvector);
 
@@ -172,7 +172,6 @@ hold <span class="string">off</span></pre><img src="SlipTransmition_07.png"> <p 
          <h2>Plot m' in misorientation space<a name="11"> </a></h2>
          <p>Since m' depends on the misorientation only why may plot it directly in misorientation space</p><pre class="codeinput"><span class="comment">% set up an axis angle plot</span>
 sP = axisAngleSections(sSBasal.CS,sSBasal.CS);
-
 
 <span class="comment">% generate a grid of misorientations</span>
 moriGrid = sP.makeGrid;

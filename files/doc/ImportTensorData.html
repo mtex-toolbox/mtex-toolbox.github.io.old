@@ -58,13 +58,14 @@
          <h2>Importing Tensor data using the import wizard<a name="2"> </a></h2>
          <p>The most simplest way to load Tensor data is to use the <a href="matlab:import_wizard('tensor')">import wizard</a>, which can be started either by typing into the command line
          </p><pre class="codeinput">import_wizard(<span class="string">'tensor'</span>);</pre><img src="ImportTensorData_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>The generic interface<a name="3"> </a></h2><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'tensor'</span>,<span class="string">'Olivine1997PC.GPa'</span>);
+         <h2>The generic interface<a name="3"> </a></h2>
+         <p>The most comfortable way to import a tensor is by using the command <tt>tensorName.load</tt></p><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'tensor'</span>,<span class="string">'Olivine1997PC.GPa'</span>);
 
 cs = crystalSymmetry(<span class="string">'mmm'</span>,[4.7646 10.2296 5.9942],<span class="string">'mineral'</span>,<span class="string">'Olivin'</span>);
 
-C = loadTensor(fname,cs,<span class="string">'name'</span>,<span class="string">'ellastic stiffness'</span>,<span class="string">'unit'</span>,<span class="string">'Pa'</span>,<span class="string">'interface'</span>,<span class="string">'generic'</span>)</pre><pre class="codeoutput"> 
-C = ellastic stiffness tensor  
-  unit   : Pa               
+C = stiffnessTensor.load(fname,cs)</pre><pre class="codeoutput"> 
+C = stiffness stiffnessTensor  
+  unit   : GPa              
   rank   : 4 (3 x 3 x 3 x 3)
   mineral: Olivin (mmm)     
  

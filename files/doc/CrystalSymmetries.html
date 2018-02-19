@@ -221,7 +221,7 @@ ans = orientation
          <p>One can also visualize crystal symmetries by plotting the main axes and the corresponding equivalent directions</p><pre class="codeinput">h = Miller({1,0,-1,0},{1,1,-2,0},{1,0,-1,1},{1,1,-2,1},{0,0,0,1},cs);
 
 <span class="keyword">for</span> i = 1:length(h)
-  plot(h(i),<span class="string">'symmetrised'</span>,<span class="string">'labeled'</span>,<span class="string">'backgroundColor'</span>,<span class="string">'w'</span>,<span class="string">'doNotDraw'</span>,<span class="string">'grid'</span>)
+  plot(h(i),<span class="string">'symmetrised'</span>,<span class="string">'labeled'</span>,<span class="string">'backgroundColor'</span>,<span class="string">'w'</span>,<span class="string">'doNotDraw'</span>,<span class="string">'grid'</span>,<span class="string">'upper'</span>)
   hold <span class="string">all</span>
 <span class="keyword">end</span>
 hold <span class="string">off</span>

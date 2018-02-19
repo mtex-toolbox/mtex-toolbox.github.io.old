@@ -140,18 +140,21 @@ mtexFig = newMtexFigure;
 <span class="comment">% for three different colormaps</span>
 <span class="keyword">for</span> cm = {<span class="string">'hot'</span>, <span class="string">'cool'</span>, <span class="string">'parula'</span>}
 
+  <span class="comment">% generate a new axis</span>
+  nextAxis
+
   <span class="comment">% plot some random data in different axis</span>
-  plot(vector3d.rand(100),<span class="string">'smooth'</span>,<span class="string">'parent'</span>,mtexFig.nextAxis,<span class="string">'grid'</span>,<span class="string">'grid_res'</span>,90*degree);
+  plot(vector3d.rand(100),<span class="string">'smooth'</span>,<span class="string">'grid'</span>,<span class="string">'grid_res'</span>,90*degree,<span class="string">'upper'</span>);
 
   <span class="comment">% and apply an individual colormap</span>
-  mtexColorMap(gca,char(cm))
+  mtexColorMap(mtexFig.gca,char(cm))
 
   <span class="comment">% set the title to be the name of the colormap</span>
   mtexTitle(char(cm))
 <span class="keyword">end</span>
 
-<span class="comment">% plot a color for each plot</span>
-mtexColorbar(<span class="string">'multiple'</span>)</pre><img src="ColorCoding_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<span class="comment">% plot a colorbar for each plot</span>
+mtexColorbar</pre><img src="ColorCoding_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

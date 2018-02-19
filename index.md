@@ -7,7 +7,7 @@ MTEX is a free Matlab toolbox for analyzing and modeling crystallographic
 textures by means of EBSD or pole figure data.
 
 ### News
-* MTEX 5.0.beta6 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.0.beta6/mtex-5.0.beta6.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
+* MTEX 5.0.0 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.0.0/mtex-5.0.0.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
 * New graphical user interface for analyzing EBSD data by J. Hiscocks ・[Download](https://groups.google.com/group/mtexmail/attach/e87c480486f4/MTEXannotateGUI.zip?part=0.1&authuser=0)・[Announcment](https://groups.google.com/forum/#!topic/mtexmail/wWPtidymgOo)・
 * New paper: [On three-dimensional misorientation spaces](https://www-user.tu-chemnitz.de/~rahi/paper/misori.pdf)
 * MTEX 4.5.2 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.5.2/mtex-4.5.2.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・

@@ -256,9 +256,10 @@ plotPDF(odf1,Miller({1,0,0},{0,1,0},{0,0,1},cs))</pre><pre class="codeoutput">
 odf1 = ODF  
   crystal symmetry : -1, X||a, Y||b*, Z||c*
   specimen symmetry: 1
+  antipodal:         true
  
   Harmonic portion:
-    degree: 9
+    degree: 10
     weight: 1
  
 </pre><img src="PF2ODFAmbiguity_13.png"> <p>We may look at the coefficients of this expansion and observe how the decay to zero rapidly. This justifies to cut the harmonic
@@ -278,9 +279,10 @@ legend(<span class="string">'odf1'</span>,<span class="string">'odf2'</span>)</p
 odf2 = ODF  
   crystal symmetry : -1, X||a, Y||b*, Z||c*
   specimen symmetry: 1
+  antipodal:         true
  
   Harmonic portion:
-    degree: 9
+    degree: 10
     weight: 1
  
 </pre><img src="PF2ODFAmbiguity_15.png"> <p>The point is that all pole figures of odf1 look exactly the same as the pole figures of odf2.</p><pre class="codeinput">plotPDF(odf2,Miller({1,0,0},{0,1,0},{0,0,1},cs),<span class="string">'antipodal'</span>)</pre><img src="PF2ODFAmbiguity_16.png"> <p>and hence, it is impossible for any reconstruction algorithm to decide whether odf1 or odf2 is the correct reconstruction.
@@ -380,7 +382,7 @@ rec = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 1221 orientations, resolution: 5&deg;
+    center: 1219 orientations, resolution: 5&deg;
     weight: 0.26982
  
  
@@ -393,15 +395,15 @@ rec2 = ODF
     center: 1231 orientations, resolution: 5&deg;
     weight: 1
  
-</pre><img src="PF2ODFAmbiguity_24.png"> <p>For both reconstruction recalculated pole figures look the same as the initial pole figures</p><pre class="codeinput">figure(1)
+</pre><p>For both reconstruction recalculated pole figures look the same as the initial pole figures</p><pre class="codeinput">figure(1)
 plotPDF(rec,pf.h,<span class="string">'antipodal'</span>)
-mtexColorMap <span class="string">LaboTeX</span></pre><img src="PF2ODFAmbiguity_25.png"> <pre class="codeinput">figure(2)
+mtexColorMap <span class="string">LaboTeX</span></pre><img src="PF2ODFAmbiguity_24.png"> <pre class="codeinput">figure(2)
 plotPDF(rec2,pf.h,<span class="string">'antipodal'</span>)
-mtexColorMap <span class="string">LaboTeX</span></pre><img src="PF2ODFAmbiguity_26.png"> <p>However if we look at the ODF we see big differences. The so-called ghosts.</p><pre class="codeinput">figure(1)
+mtexColorMap <span class="string">LaboTeX</span></pre><img src="PF2ODFAmbiguity_25.png"> <p>However if we look at the ODF we see big differences. The so-called ghosts.</p><pre class="codeinput">figure(1)
 plot(rec,<span class="string">'gray'</span>,<span class="string">'contourf'</span>)
-mtexColorMap <span class="string">white2black</span></pre><img src="PF2ODFAmbiguity_27.png"> <pre class="codeinput">figure(2)
+mtexColorMap <span class="string">white2black</span></pre><img src="PF2ODFAmbiguity_26.png"> <pre class="codeinput">figure(2)
 plot(rec2,<span class="string">'gray'</span>,<span class="string">'contourf'</span>)
-mtexColorMap <span class="string">white2black</span></pre><img src="PF2ODFAmbiguity_28.png"> <p>Again we can see the source of the problem in the harmonic coefficients.</p><pre class="codeinput">close <span class="string">all</span>;
+mtexColorMap <span class="string">white2black</span></pre><img src="PF2ODFAmbiguity_27.png"> <p>Again we can see the source of the problem in the harmonic coefficients.</p><pre class="codeinput">close <span class="string">all</span>;
 <span class="comment">% the harmonic coefficients of the sample ODF</span>
 plotFourier(SantaFe,<span class="string">'bandwidth'</span>,32,<span class="string">'linewidth'</span>,2,<span class="string">'MarkerSize'</span>,10)
 
@@ -416,7 +418,7 @@ plotFourier(rec2,<span class="string">'bandwidth'</span>,32,<span class="string"
 
 legend({<span class="string">'true ODF'</span>,<span class="string">'with ghost correction'</span>,<span class="string">'without ghost correction'</span>})
 <span class="comment">% next plot command overwrites plot</span>
-hold <span class="string">off</span></pre><img src="PF2ODFAmbiguity_29.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="PF2ODFAmbiguity_28.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

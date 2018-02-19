@@ -72,104 +72,20 @@
 mtexdata <span class="string">twins</span>
 
 <span class="comment">% segment grains</span>
-[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd(<span class="string">'indexed'</span>),<span class="string">'angle'</span>,5*degree)
+[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd(<span class="string">'indexed'</span>),<span class="string">'angle'</span>,5*degree);
 
 <span class="comment">% remove two pixel grains</span>
 ebsd(grains(grains.grainSize&lt;=2)) = [];
-[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd(<span class="string">'indexed'</span>),<span class="string">'angle'</span>,5*degree)
-
+[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd(<span class="string">'indexed'</span>),<span class="string">'angle'</span>,5*degree);
 
 <span class="comment">% smooth them</span>
-grains = grains.smooth(5)
+grains = grains.smooth(5);
 
 <span class="comment">% visualize the grains</span>
 plot(grains,grains.meanOrientation)
 
 <span class="comment">% store crystal symmetry of Magnesium</span>
-CS = grains.CS;</pre><pre class="codeoutput"> 
-grains = grain2d  
- 
- Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1     126   22833  Magnesium     6/mmm       X||a*, Y||b, Z||c*
- 
- boundary segments: 3892
- triple points: 122
- 
- Properties: GOS, meanRotation
- 
- 
-ebsd = EBSD  
- 
- Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
-     0     46 (0.2%)  notIndexed                                               
-     1  22833 (100%)   Magnesium  light blue     6/mmm       X||a*, Y||b, Z||c*
- 
- Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
- Scan unit : um
- 
- 
-ebsd = EBSD  
- 
- Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
-     0     46 (0.2%)  notIndexed                                               
-     1  22833 (100%)   Magnesium  light blue     6/mmm       X||a*, Y||b, Z||c*
- 
- Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
- Scan unit : um
- 
- 
-ebsd = EBSD  
- 
- Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
-     0     46 (0.2%)  notIndexed                                               
-     1  22794 (100%)   Magnesium  light blue     6/mmm       X||a*, Y||b, Z||c*
- 
- Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
- Scan unit : um
- 
- 
-grains = grain2d  
- 
- Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1      91   22794  Magnesium     6/mmm       X||a*, Y||b, Z||c*
- 
- boundary segments: 3764
- triple points: 122
- 
- Properties: GOS, meanRotation
- 
- 
-ebsd = EBSD  
- 
- Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
-     0     46 (0.2%)  notIndexed                                               
-     1  22794 (100%)   Magnesium  light blue     6/mmm       X||a*, Y||b, Z||c*
- 
- Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
- Scan unit : um
- 
- 
-ebsd = EBSD  
- 
- Phase  Orientations     Mineral       Color  Symmetry  Crystal reference frame
-     0     46 (0.2%)  notIndexed                                               
-     1  22794 (100%)   Magnesium  light blue     6/mmm       X||a*, Y||b, Z||c*
- 
- Properties: bands, bc, bs, error, mad, x, y, grainId, mis2mean
- Scan unit : um
- 
- 
-grains = grain2d  
- 
- Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1      91   22794  Magnesium     6/mmm       X||a*, Y||b, Z||c*
- 
- boundary segments: 3764
- triple points: 122
- 
- Properties: GOS, meanRotation
- 
-  I'm going to colorize the orientation data with the 
+CS = grains.CS;</pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
   oM = ipdfHSVOrientationMapping(ori_variable_name)

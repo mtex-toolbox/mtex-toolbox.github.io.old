@@ -42,14 +42,20 @@
          <div class="subheading"></div>
          <h2>Defining a <tt>S2FunHarmonic</tt><a name="1"> </a></h2>
          <p><b>Definition via function values</b></p>
-         <p>At first you need some vertices</p><pre class="codeinput">nodes = equispacedS2Grid(<span class="string">'points'</span>, 1e5);
-nodes = nodes(:);</pre><p>Next you define function values for the vertices</p><pre class="codeinput">y = smiley(nodes);</pre><p>Now the actual command to get <tt>sF1</tt> of type <tt>S2FunHarmonic</tt></p><pre class="codeinput">sF1 = interp(nodes, y, <span class="string">'harmonicApproximation'</span>)</pre><pre class="codeoutput"> 
+         <p>At first you need some vertices</p><pre class="codeinput">nodes = equispacedS2Grid(<span class="string">'resolution'</span>,3*degree,<span class="string">'antipodal'</span>);
+nodes = nodes(:);</pre><p>Next you define function values for the vertices</p><pre class="codeinput">y = smiley(nodes);
+
+<span class="comment">% plot the discrete data</span>
+plot(nodes,y)</pre><img src="S2FunHarmonic_uni_index_01.png"> <p>Now the actual command to get <tt>sF1</tt> of type <tt>S2FunHarmonic</tt></p><pre class="codeinput">sF1 = interp(nodes, y, <span class="string">'harmonicApproximation'</span>)
+
+<span class="comment">% plot the spherical function</span>
+plot(sF1)</pre><pre class="codeoutput"> 
 sF1 = S2FunHarmonic  
- bandwidth: 224
+ bandwidth: 48
  antipodal: true
-</pre><div>
+</pre><img src="S2FunHarmonic_uni_index_02.png"> <div>
             <ul type="square">
-               <li>The <tt>bandwidth</tt> property shows the maximal polynomial degree of the function.  Internally for a given bandwidth there are stored <img src="S2FunHarmonic_uni_index_eq07204186098443340480.png">  Fourier-coefficients.
+               <li>The <tt>bandwidth</tt> property shows the maximal polynomial degree of the function.Internally for a given bandwidth there are stored <img src="S2FunHarmonic_uni_index_eq07204186098443340480.png">  Fourier-coefficients.
                </li>
                <li>The <tt>antipodal</tt> flag shows that <img src="S2FunHarmonic_uni_index_eq05142536305060616777.png">  holds for all <img src="S2FunHarmonic_uni_index_eq03296369778268784901.png"> .
                </li>
@@ -59,10 +65,15 @@ sF1 = S2FunHarmonic
          </p>
          <p><b>Definition via function handle</b></p>
          <p>If you have a function handle for the function you could create a <tt>S2FunHarmonic</tt> via quadrature. At first lets define a function handle which takes <a href="vector3d_index.html"><tt>vector3d</tt></a> as an argument and returns double:
-         </p><pre class="codeinput">f = @(v) 0.1*(v.theta+sin(8*v.x).*sin(8*v.y));</pre><p>Now you can call the quadrature command to get <tt>sF2</tt> of type <tt>S2FunHarmonic</tt></p><pre class="codeinput">sF2 = S2FunHarmonic.quadrature(f, <span class="string">'bandwidth'</span>, 50)</pre><pre class="codeoutput"> 
+         </p><pre class="codeinput">f = @(v) 0.1*(v.theta+sin(8*v.x).*sin(8*v.y));
+
+<span class="comment">% plot the function at discrete points</span>
+plot(nodes,f(nodes))</pre><img src="S2FunHarmonic_uni_index_03.png"> <p>Now you can call the quadrature command to get <tt>sF2</tt> of type <tt>S2FunHarmonic</tt></p><pre class="codeinput">sF2 = S2FunHarmonic.quadrature(f, <span class="string">'bandwidth'</span>, 150)
+
+plot(sF2)</pre><pre class="codeoutput"> 
 sF2 = S2FunHarmonic  
- bandwidth: 50
-</pre><div>
+ bandwidth: 150
+</pre><img src="S2FunHarmonic_uni_index_04.png"> <div>
             <ul type="square">
                <li>If you would leave the <tt>'bandwidth'</tt> option empty the default bandwidth would be considered, which is 128.
                </li>
@@ -115,13 +126,13 @@ sFs = symmetrise(sF1, cs);</pre><div>
 grad(sF1, nodes);</pre><h2>Visualization<a name="30"> </a></h2>
          <p>There are different ways to visualize a <tt>S2FunHarmonic</tt></p>
          <p>The default <tt>plot</tt>-command be default plots the function on the upper hemisphere
-         </p><pre class="codeinput">plot(sF1);</pre><img src="S2FunHarmonic_uni_index_01.png"> <div>
+         </p><pre class="codeinput">plot(sF1);</pre><img src="S2FunHarmonic_uni_index_05.png"> <div>
             <ul type="square">
                <li><tt>plot(sF1)</tt> is the same as <tt>contourf(sF1)</tt></li>
             </ul>
          </div>
-         <p>nonfilled contour plot plots only the contour lines</p><pre class="codeinput">contour(sF1, <span class="string">'LineWidth'</span>, 2);</pre><img src="S2FunHarmonic_uni_index_02.png"> <p>color plot without the contour lines</p><pre class="codeinput">pcolor(sF1);</pre><img src="S2FunHarmonic_uni_index_03.png"> <p>3D plot of a sphere colored accordingly to the function values.</p><pre class="codeinput">plot3d(sF2);</pre><img src="S2FunHarmonic_uni_index_04.png"> <p>3D plot where the radius of the sphere is transformed according to the function values</p><pre class="codeinput">surf(sF2);</pre><img src="S2FunHarmonic_uni_index_05.png"> <p>Plot the intersection of the surf plot with a plane with normal vector <tt>v</tt></p><pre class="codeinput">plotSection(sF2, zvector);</pre><img src="S2FunHarmonic_uni_index_06.png"> <p>plotting the Fourier coefficients</p><pre class="codeinput">plotSpektra(sF1);
-set(gca,<span class="string">'FontSize'</span>, 20);</pre><img src="S2FunHarmonic_uni_index_07.png"> <p style="font-size:1px;"></p>
+         <p>nonfilled contour plot plots only the contour lines</p><pre class="codeinput">contour(sF1, <span class="string">'LineWidth'</span>, 2);</pre><img src="S2FunHarmonic_uni_index_06.png"> <p>color plot without the contour lines</p><pre class="codeinput">pcolor(sF1);</pre><img src="S2FunHarmonic_uni_index_07.png"> <p>3D plot of a sphere colored accordingly to the function values.</p><pre class="codeinput">plot3d(sF2);</pre><img src="S2FunHarmonic_uni_index_08.png"> <p>3D plot where the radius of the sphere is transformed according to the function values</p><pre class="codeinput">surf(sF2);</pre><img src="S2FunHarmonic_uni_index_09.png"> <p>Plot the intersection of the surf plot with a plane with normal vector <tt>v</tt></p><pre class="codeinput">plotSection(sF2, zvector);</pre><img src="S2FunHarmonic_uni_index_10.png"> <p>plotting the Fourier coefficients</p><pre class="codeinput">plotSpektra(sF1);
+set(gca,<span class="string">'FontSize'</span>, 20);</pre><img src="S2FunHarmonic_uni_index_11.png"> <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

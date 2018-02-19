@@ -89,22 +89,19 @@ hold <span class="string">off</span> <span class="comment">% next plot command d
          <h2>Combine countoured pole figures (smooth ODF plots) with EBSD Data Scatter Plots<a name="8"> </a></h2>
          <p>You can also combine a contour plot of a model ODF with a scatter plot of single orientations.</p><pre class="codeinput">plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'contourf'</span>,<span class="string">'grid'</span>)
 mtexColorMap <span class="string">white2black</span>
-hold <span class="string">all</span>
-plotPDF(ori,h,<span class="string">'antipodal'</span>,<span class="string">'DisplayName'</span>,<span class="string">'EBSD 1'</span>,<span class="keyword">...</span>
-  <span class="string">'MarkerSize'</span>,5,<span class="string">'MarkerColor'</span>,<span class="string">'b'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'w'</span>)
-hold <span class="string">all</span>
-plotPDF(ori_rotated,h,<span class="string">'DisplayName'</span>,<span class="string">'EBSD 2'</span>,<span class="keyword">...</span>
-  <span class="string">'MarkerSize'</span>,5,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'k'</span>);
-hold <span class="string">off</span>
 
-legend(<span class="string">'show'</span>,<span class="string">'location'</span>,<span class="string">'southeast'</span>)</pre><img src="CombinedPlots_demo_04.png"> <p>and, of course, you can do the same with ODF plots:</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,8,<span class="string">'contourf'</span>,<span class="string">'sigma'</span>)
+plot(ori,<span class="string">'DisplayName'</span>,<span class="string">'EBSD 1'</span>,<span class="keyword">...</span>
+  <span class="string">'MarkerSize'</span>,5,<span class="string">'MarkerColor'</span>,<span class="string">'b'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'w'</span>,<span class="string">'add2all'</span>)
+
+plot(ori_rotated,<span class="string">'DisplayName'</span>,<span class="string">'EBSD 2'</span>,<span class="keyword">...</span>
+  <span class="string">'MarkerSize'</span>,5,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'k'</span>,<span class="string">'add2all'</span>);
+
+legend(<span class="string">'show'</span>,<span class="string">'location'</span>,<span class="string">'northeast'</span>)</pre><img src="CombinedPlots_demo_04.png"> <p>and, of course, you can do the same with ODF plots:</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,8,<span class="string">'contourf'</span>,<span class="string">'sigma'</span>)
 mtexColorMap <span class="string">white2black</span>
-hold <span class="string">all</span>
-plot(ori,<span class="string">'MarkerSize'</span>,6,<span class="string">'MarkerColor'</span>,<span class="string">'b'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'w'</span>)
-plot(ori_rotated,<span class="string">'MarkerSize'</span>,6,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'k'</span>);
-hold <span class="string">off</span></pre><img src="CombinedPlots_demo_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+plot(ori,<span class="string">'MarkerSize'</span>,6,<span class="string">'MarkerColor'</span>,<span class="string">'b'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'w'</span>,<span class="string">'add2all'</span>)
+plot(ori_rotated,<span class="string">'MarkerSize'</span>,6,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'k'</span>,<span class="string">'add2all'</span>);</pre><img src="CombinedPlots_demo_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Add Miller Indices to an Inverse Pole Figure Plot<a name="10"> </a></h2>
-         <p>Next, we are going to add some Miller indices to an inverse pole figure plot.</p><pre class="codeinput">plotIPDF(odf,xvector);
+         <p>Next, we are going to add some Miller indices to an inverse pole figure plot.</p><pre class="codeinput">plotIPDF(odf,xvector,<span class="string">'noLabel'</span>);
 mtexColorMap <span class="string">white2black</span>
 
 hold <span class="string">all</span> <span class="comment">% keep plot</span>
@@ -122,7 +119,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 19843 orientations, resolution: 5&deg;
+    center: 19841 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><p>now we want to plot the original data alongsite with the recalculated pole figures and with a difference plot</p><pre class="codeinput">figure(<span class="string">'position'</span>,[50 50 1200 500])
@@ -143,8 +140,7 @@ plotPDF(odf,h{1},<span class="string">'antipodal'</span>,<span class="string">'p
 axesPos = subplot(1,3,3);
 
 <span class="comment">% plot the difference pole figure at this position</span>
-plotDiff(odf,pf({1}),<span class="string">'parent'</span>,axesPos)</pre><pre class="codeoutput">progress: 100%
-</pre><img src="CombinedPlots_demo_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+plotDiff(odf,pf({1}),<span class="string">'parent'</span>,axesPos)</pre><img src="CombinedPlots_demo_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

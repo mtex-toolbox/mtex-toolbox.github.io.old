@@ -116,7 +116,7 @@ odf_est = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 28
+    degree: 29
     weight: 1
  
 </pre><img src="DetectSampleSymmetry_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -135,7 +135,7 @@ progress: 100%
 progress: 100%
 progress: 100%
 ans =
-    0.7192
+   15.6088
 </pre><img src="DetectSampleSymmetry_03.png"> <img src="DetectSampleSymmetry_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Sample symmetry in an ODF computed from pole figure data<a name="6"> </a></h2>
          <p>In the next example we apply the function <tt>centerSpecimen</tt> to an ODF estimated from pole figure data. Lets start by importing them
@@ -151,7 +151,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 4955 orientations, resolution: 5&deg;
+    center: 4926 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><img src="DetectSampleSymmetry_06.png"> <p>Finally, we detect the orthotropic symmetry axes a1, a2, a3 by</p><pre class="codeinput">[~,~,a1,a2] = centerSpecimen(odf,yvector)
@@ -166,19 +166,19 @@ progress: 100%
 a1 = vector3d  
  size: 1 x 1
  resolution: 0.71&deg;
-          x         y         z
-  0.0373912  0.999301         0
+          x          y          z
+  0.0499876   0.998745 0.00325886
  
 a2 = vector3d  
  size: 1 x 1
-          x         y         z
-  -0.999301 0.0373912         0
+         x         y         z
+  -0.99875 0.0499879         0
  
 a3 = vector3d  
  size: 1 x 1
  resolution: 0.71&deg;
-  x y z
-  0 0 1
+             x            y            z
+  -0.000162903  -0.00325478     0.999995
 </pre><img src="DetectSampleSymmetry_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

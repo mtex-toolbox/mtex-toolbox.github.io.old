@@ -70,7 +70,10 @@
          </div><pre class="codeinput"><span class="comment">% display pole figure plots with RD on top and ND west</span>
 plotx2north
 
+<span class="comment">% store old annotation style</span>
 storepfA = getMTEXpref(<span class="string">'pfAnnotations'</span>);
+
+<span class="comment">% set new annotation style to display RD and ND</span>
 pfAnnotations = @(varargin) text(-[vector3d.X,vector3d.Y],{<span class="string">'RD'</span>,<span class="string">'ND'</span>},<span class="keyword">...</span>
   <span class="string">'BackgroundColor'</span>,<span class="string">'w'</span>,<span class="string">'tag'</span>,<span class="string">'axesLabels'</span>,varargin{:});
 
@@ -81,16 +84,16 @@ setMTEXpref(<span class="string">'pfAnnotations'</span>,pfAnnotations);</pre><p 
 <span class="comment">% define a family of slip systems</span>
 sS = slipSystem.fcc(cs);
 
-<span class="comment">% some strain</span>
+<span class="comment">% some plane strain</span>
 q = 0;
-epsilon = tensor(diag([1 -q -(1-q)]),<span class="string">'name'</span>,<span class="string">'strain'</span>)
+epsilon = strainTensor(diag([1 -q -(1-q)]))
 
 <span class="comment">% define a crystal orientation</span>
 ori = orientation(<span class="string">'Euler'</span>,0,30*degree,15*degree,cs)
 
 <span class="comment">% compute the Taylor factor</span>
 [M,b,mori] = calcTaylor(inv(ori)*epsilon,sS.symmetrise);</pre><pre class="codeoutput"> 
-epsilon = strain tensor  
+epsilon = strain strainTensor  
   rank: 2 (3 x 3)
  
   1  0  0
@@ -126,20 +129,21 @@ toc
 <span class="comment">% plot the taylor factor</span>
 sP.plot(M,<span class="string">'smooth'</span>)
 
-mtexColorbar</pre><pre class="codeoutput"> computing Taylor factor: 100%
-Elapsed time is 27.652574 seconds.
+mtexColorbar</pre><pre class="codeoutput">Elapsed time is 28.227985 seconds.
 </pre><img src="TaylorModel_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The orientation dependence of the rotation value<a name="7"> </a></h2>
          <p>Compare Fig. 8 of the above paper</p><pre class="codeinput">sP.plot(mori.angle./degree,<span class="string">'smooth'</span>)
-mtexColorbar</pre><img src="TaylorModel_02.png"> <pre class="codeinput">sP = sigmaSections(cs,specimenSymmetry);
+mtexColorbar</pre><img src="TaylorModel_02.png"> <p>Display the crystallographic spin in sigma sections</p><pre class="codeinput">sP = sigmaSections(cs,specimenSymmetry);
 oriGrid = sP.makeGrid(<span class="string">'resolution'</span>,2.5*degree);
 [M,~,mori] = calcTaylor(inv(oriGrid)*epsilon,sS.symmetrise);
 sP.plot(mori.angle./degree,<span class="string">'smooth'</span>)
-mtexColorbar</pre><pre class="codeoutput"> computing Taylor factor: 100%
-</pre><img src="TaylorModel_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Most active slip direction<a name="9"> </a></h2><pre class="codeinput">mtexdata <span class="string">csl</span>
+mtexColorbar</pre><img src="TaylorModel_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Most active slip direction<a name="9"> </a></h2>
+         <p>Next we consider a real world data set.</p><pre class="codeinput">mtexdata <span class="string">csl</span>
 
+<span class="comment">% compute grains</span>
 grains = calcGrains(ebsd(<span class="string">'indexed'</span>));
+grains = smooth(grains,5);
 
 <span class="comment">% remove small grains</span>
 grains(grains.grainSize &lt;= 2) = []</pre><pre class="codeoutput"> 
@@ -153,20 +157,21 @@ grains = grain2d
  
  Properties: GOS, meanRotation
  
-</pre><pre class="codeinput"><span class="comment">% some strain</span>
+</pre><p>Next we apply the Taylor model to each grain of our data set</p><pre class="codeinput"><span class="comment">% some strain</span>
 q = 0;
-epsilon = tensor(diag([1 -q -(1-q)]),<span class="string">'name'</span>,<span class="string">'strain'</span>)
+epsilon = strainTensor(diag([1 -q -(1-q)]))
 
+<span class="comment">% consider fcc slip systems</span>
 sS = symmetrise(slipSystem.fcc(grains.CS));
 
+<span class="comment">% apply Taylor model</span>
 [M,b,mori] = calcTaylor(inv(grains.meanOrientation)*epsilon,sS);</pre><pre class="codeoutput"> 
-epsilon = strain tensor  
+epsilon = strain strainTensor  
   rank: 2 (3 x 3)
  
   1  0  0
   0  0  0
   0  0 -1
- computing Taylor factor: 100%
 </pre><pre class="codeinput"><span class="comment">% colorize grains according to Taylor factor</span>
 plot(grains,M)
 mtexColorMap <span class="string">white2black</span>
@@ -190,9 +195,9 @@ plot(sSGrains.b)</pre><img src="TaylorModel_05.png"> <p class="pagenavlink"><scr
          <h2>Texture evolution during rolling<a name="13"> </a></h2><pre class="codeinput"><span class="comment">% define some random orientations</span>
 ori = orientation.rand(10000,cs);
 
-<span class="comment">% 30 percent strain</span>
+<span class="comment">% 30 percent plane strain</span>
 q = 0;
-epsilon = 0.3 * tensor(diag([1 -q -(1-q)]),<span class="string">'name'</span>,<span class="string">'strain'</span>);
+epsilon = 0.3 * strainTensor(diag([1 -q -(1-q)]));
 
 <span class="comment">%</span>
 numIter = 10;
@@ -205,19 +210,23 @@ progress(0,numIter);
   <span class="comment">% rotate the individual orientations</span>
   ori = ori .* mori;
   progress(sas,numIter);
-<span class="keyword">end</span></pre><pre class="codeoutput">progress: 100%
+<span class="keyword">end</span></pre><pre class="codeoutput">Warning: Symmetry missmatch! The following crystal frames
+seem to be different
+
+  432 and iron (m-3m)
+ 
 </pre><pre class="codeinput"><span class="comment">% plot the resulting pole figures</span>
 
 plotPDF(ori,Miller({0,0,1},{1,1,1},cs),<span class="string">'contourf'</span>)
 mtexColorbar</pre><img src="TaylorModel_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>restore MTEX preferences<a name="15"> </a></h2><pre class="codeinput">setMTEXpref(<span class="string">'pfAnnotations'</span>,storepfA);</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Inverse Taylor<a name="16"> </a></h2><pre class="codeinput">oS = axisAngleSections(cs,cs,<span class="string">'antipodal'</span>);
+         <h2>Inverse Taylor<a name="16"> </a></h2>
+         <p>Use with care!</p><pre class="codeinput">oS = axisAngleSections(cs,cs,<span class="string">'antipodal'</span>);
 oS.angles = 10*degree;
 
 mori = oS.makeGrid;
 
-[M,b,eps] = calcInvTaylor(mori,sS.symmetrise);</pre><pre class="codeoutput"> computing Taylor factor: 100%
-</pre><pre class="codeinput">plot(oS,M,<span class="string">'contourf'</span>)</pre><img src="TaylorModel_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+[M,b,eps] = calcInvTaylor(mori,sS.symmetrise);</pre><pre class="codeinput">plot(oS,M,<span class="string">'contourf'</span>)</pre><img src="TaylorModel_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

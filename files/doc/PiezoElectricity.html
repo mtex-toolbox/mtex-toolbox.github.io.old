@@ -60,7 +60,7 @@
 
 fname = fullfile(mtexDataPath,<span class="string">'tensor'</span>, <span class="string">'Single_RH_quartz_poly.P'</span>);
 
-P = loadTensor(fname,CS,<span class="string">'propertyname'</span>,<span class="string">'piecoelectricity'</span>,<span class="string">'unit'</span>,<span class="string">'C/N'</span>,<span class="string">'interface'</span>,<span class="string">'P'</span>,<span class="string">'DoubleConvention'</span>)</pre><pre class="codeoutput"> 
+P = tensor.load(fname,CS,<span class="string">'propertyname'</span>,<span class="string">'piecoelectricity'</span>,<span class="string">'unit'</span>,<span class="string">'C/N'</span>,<span class="string">'DoubleConvention'</span>)</pre><pre class="codeoutput"> 
 P = tensor  
   propertyname    : piecoelectricity                
   unit            : C/N                             
@@ -88,7 +88,13 @@ surf(P.directionalMagnitude)</pre><img src="PiezoElectricity_03.png"> <p>Note, t
          </p>
          <p>Quite a famous example in various standard literature is a section through the surface because it can easily be described
             as an analytical solution. We just specify the plane normal vector
-         </p><pre class="codeinput">plotSection(P.directionalMagnitude,vector3d.Z)</pre><img src="PiezoElectricity_04.png"> <p>so we are plotting the polarization in the xy-plane, or the yz-plane with</p><pre class="codeinput">plotSection(P.directionalMagnitude,vector3d.X)</pre><img src="PiezoElectricity_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         </p><pre class="codeinput">plotSection(P.directionalMagnitude,vector3d.Z)
+xlabel(<span class="string">'x'</span>)
+ylabel(<span class="string">'y'</span>)
+drawNow(gcm)</pre><img src="PiezoElectricity_04.png"> <p>so we are plotting the polarization in the xy-plane, or the yz-plane with</p><pre class="codeinput">plotSection(P.directionalMagnitude,vector3d.X)
+ylabel(<span class="string">'y'</span>)
+zlabel(<span class="string">'z'</span>)
+drawNow(gcm)</pre><img src="PiezoElectricity_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Mean Tensor Calculation<a name="11"> </a></h2>
          <p>Let us import some data, which was originally published by Mainprice, D., Lloyd, G.E. and Casey , M. (1993) Individual orientation
             measurements in quartz polycrystals: advantages and limitations for texture and petrophysical property determinations. J.

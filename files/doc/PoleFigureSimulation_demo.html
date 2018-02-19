@@ -107,12 +107,12 @@ odf = ODF
   specimen symmetry: 1
  
   Uniform portion:
-    weight: 0.46119
+    weight: 0.46319
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29758 orientations, resolution: 5&deg;
-    weight: 0.53881
+    center: 29756 orientations, resolution: 5&deg;
+    weight: 0.53681
  
 </pre><p>which can be plotted,</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput">progress: 100%
 </pre><img src="PoleFigureSimulation_demo_03.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,model_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">progress: 100%

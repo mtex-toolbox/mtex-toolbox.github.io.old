@@ -154,7 +154,7 @@ odf = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 25
+    degree: 26
     weight: 1
  
  
@@ -163,7 +163,7 @@ rec = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 25
+    degree: 26
     weight: 1
  
  
@@ -172,10 +172,10 @@ rec_cor = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 25
+    degree: 26
     weight: 1
  
-</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><img src="ghost_demo_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Calculate Reconstruction Errors from Fourier Coefficients<a name="21"> </a></h2>
          <p>without ghost correction:</p><pre class="codeinput">calcError(rec,odf,<span class="string">'L2'</span>)</pre><pre class="codeoutput">ans =
     0.3602
@@ -187,10 +187,10 @@ rec_cor = ODF
             much more than the Fourier coefficients with ghost correction
          </p>
          <p>true ODF</p><pre class="codeinput">close <span class="string">all</span>;
-plotFourier(odf,<span class="string">'linewidth'</span>,2)</pre><img src="ghost_demo_07.png"> <p>keep plotting windows and add next plots</p><pre class="codeinput">hold <span class="string">all</span></pre><p>Without ghost correction:</p><pre class="codeinput">plotFourier(rec,<span class="string">'linewidth'</span>,2)</pre><img src="ghost_demo_08.png"> <p>with ghost correction</p><pre class="codeinput">plotFourier(rec_cor,<span class="string">'linewidth'</span>,2)
+plotFourier(odf,<span class="string">'linewidth'</span>,2)</pre><img src="ghost_demo_08.png"> <p>keep plotting windows and add next plots</p><pre class="codeinput">hold <span class="string">all</span></pre><p>Without ghost correction:</p><pre class="codeinput">plotFourier(rec,<span class="string">'linewidth'</span>,2)</pre><img src="ghost_demo_09.png"> <p>with ghost correction</p><pre class="codeinput">plotFourier(rec_cor,<span class="string">'linewidth'</span>,2)
 legend({<span class="string">'true ODF'</span>,<span class="string">'without ghost correction'</span>,<span class="string">'with ghost correction'</span>})
 <span class="comment">% next plot command overwrites plot window</span>
-hold <span class="string">off</span></pre><img src="ghost_demo_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="ghost_demo_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

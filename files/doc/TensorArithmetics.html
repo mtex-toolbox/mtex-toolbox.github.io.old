@@ -98,8 +98,9 @@ T = tensor
 
 cs = crystalSymmetry(<span class="string">'mmm'</span>,[4.7646 10.2296 5.9942],<span class="string">'mineral'</span>,<span class="string">'olivine'</span>);
 
-C = loadTensor(fname,cs,<span class="string">'name'</span>,<span class="string">'stiffness'</span>)</pre><pre class="codeoutput"> 
-C = stiffness tensor  
+C = stiffnessTensor.load(fname,cs)</pre><pre class="codeoutput"> 
+C = stiffness stiffnessTensor  
+  unit   : GPa              
   rank   : 4 (3 x 3 x 3 x 3)
   mineral: olivine (mmm)    
  
@@ -167,7 +168,8 @@ T = tensor
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The Inverse Tensor<a name="13"> </a></h2>
          <p>The inverse of a 2 rank tensor or a 4 rank elasticity tensor is computed by the command <a href="tensor.inv.html">inv</a></p><pre class="codeinput">S = inv(C)</pre><pre class="codeoutput"> 
-S = compliance tensor  
+S = compliance complianceTensor  
+  unit            : 1/GPa            
   rank            : 4 (3 x 3 x 3 x 3)
   doubleConvention: true             
   mineral         : olivine (mmm)    
@@ -184,7 +186,7 @@ S = compliance tensor
          <p>In MTEX tensor products are specifies according to Einsteins summation convention, i.e. a tensor product of the form T_ij
             = E_ijkl S_kl has to be interpreted as a sum over the indices k and l. In MTEX this sum can be computed using the command
             <a href="tensor.EinsteinSum.html">EinsteinSum</a></p><pre class="codeinput">S = EinsteinSum(C,[-1 -2 1 2],T,[-1 -2])</pre><pre class="codeoutput"> 
-S = tensor  
+S = stiffnessTensor  
   size   : 3 x 1        
   rank   : 2 (3 x 3)    
   mineral: olivine (mmm)
@@ -196,7 +198,7 @@ S = tensor
             tensor
          </p><pre class="codeinput">v = xvector;
 c = EinsteinSum(C,[-1 -2 -3 -3],v,-1,v,-2)</pre><pre class="codeoutput"> 
-c = tensor  
+c = stiffnessTensor  
   rank   : 0 ()         
   mineral: olivine (mmm)
  

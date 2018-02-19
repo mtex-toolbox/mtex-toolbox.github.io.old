@@ -17,7 +17,7 @@ In case you experience any problems have a look at our [trouble shooting page]()
 
 File Name  |||  Release Date||| Comments ||| Downloads
 :-|-|-|:-|-|-|:-|-|-|-
-[**mtex-5.0.beta6.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.0.beta6/mtex-5.0.beta6.zip) ||| February 2018 ||| Crystal Shapes and spherical functions, [changelog](files/doc/changelog.html) ||| 2
+[**mtex-5.0.0.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.0.0/mtex-5.0.0.zip) ||| February 2018 ||| Crystal Shapes and spherical functions, [changelog](files/doc/changelog.html) ||| 2
 [**MTEXannotateGUI.zip**](https://groups.google.com/group/mtexmail/attach/e87c480486f4/MTEXannotateGUI.zip?part=0.1&authuser=0) ||| February 2018 ||| graphical user interface for analyzing EBSD data by J. Hiscocks |||
 [**mtex-4.5.2.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.5.2/mtex-4.5.2.zip) ||| November 2017 ||| 3d orientation and ODF plots, [changelog](files/doc/changelog.html) ||| 4420
 [**mtex-4.4.0.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.4.0/mtex-4.4.0.zip) ||| January 2017 ||| Slip Systems, Taylor calculation, [changelog](files/doc/changelog.html) ||| 678

@@ -107,7 +107,7 @@ odf3 = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 19843 orientations, resolution: 5&deg;
+    center: 19841 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -124,7 +124,7 @@ center = orientation
  
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
-  135.328 36.1936 203.571       0
+  135.745 35.7265 203.567       0
  
  
 </pre><p>Lets mark this prefered orientation in the pole figures</p><pre class="codeinput">plotPDF(odf3,h,<span class="string">'antipodal'</span>,<span class="string">'superposition'</span>,c);
@@ -143,7 +143,7 @@ annotate(center,<span class="string">'marker'</span>,<span class="string">'s'</s
             a orientation close to a given orientation is computed by the command <a href="ODF.volume.html">volume</a> and the relative volume of crystals having a orientation close to a given fibre is computed by the command <a href="ODF.fibreVolume.html">fibreVolume</a></p>
          <p>The relative volume in percent of crystals with missorientation maximum 30 degree from the modal orientation:</p><pre class="codeinput">volume(odf3,calcModes(odf3),30*degree)*100</pre><pre class="codeoutput">progress: 100%
 ans =
-   47.3422
+   52.8410
 </pre><p>The relative volume of crystals with missorientation maximum 20 degree from the prefered fibre in percent: TODO</p><pre class="codeinput"><span class="comment">%fibreVolume(odf2,Miller(0,0,1),xvector,20*degree) * 100</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Fourier Coefficients<a name="16"> </a></h2>
          <p>The Fourier coefficients allow for a complete characterization of the ODF. The are of particular importance for the calculation
@@ -158,21 +158,21 @@ fodf = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 32
+    degree: 33
     weight: 1
  
 </pre><p>The Fourier coefficients of order 2:</p><pre class="codeinput">reshape(fodf.components{1}.f_hat(11:35),5,5)</pre><pre class="codeoutput">ans =
   Columns 1 through 4
-   0.0000 - 0.0000i  -0.0000 + 0.0000i   0.1553 - 0.4411i  -0.0000 + 0.0000i
-   0.0000 - 0.0000i  -0.0000 + 0.0000i   1.5061 - 0.8726i  -0.0000 + 0.0000i
-   0.0000 + 0.0000i  -0.0000 + 0.0000i   2.1174 - 0.0000i  -0.0000 - 0.0000i
-   0.0000 + 0.0000i  -0.0000 - 0.0000i   1.5061 + 0.8726i  -0.0000 - 0.0000i
-   0.0000 + 0.0000i  -0.0000 - 0.0000i   0.1553 + 0.4411i  -0.0000 - 0.0000i
+   0.0000 - 0.0000i   0.0000 - 0.0000i   0.0000 + 0.0000i   0.0000 + 0.0000i
+  -0.0000 + 0.0000i  -0.0000 + 0.0000i  -0.0000 + 0.0000i  -0.0000 - 0.0000i
+   0.1490 - 0.4903i   1.6045 - 0.9786i   2.2457 + 0.0000i   1.6045 + 0.9786i
+  -0.0000 + 0.0000i  -0.0000 + 0.0000i  -0.0000 - 0.0000i  -0.0000 - 0.0000i
+   0.0000 - 0.0000i   0.0000 - 0.0000i   0.0000 - 0.0000i   0.0000 + 0.0000i
   Column 5
-   0.0000 - 0.0000i
-   0.0000 - 0.0000i
-   0.0000 - 0.0000i
    0.0000 + 0.0000i
+  -0.0000 - 0.0000i
+   0.1490 + 0.4903i
+  -0.0000 - 0.0000i
    0.0000 + 0.0000i
 </pre><p>The decay of the Fourier coefficients:</p><pre class="codeinput">close <span class="string">all</span>;
 plotFourier(fodf)</pre><img src="ODFCharacteristics_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -200,7 +200,7 @@ plot(odf2.eval(fibre))</pre><img src="ODFCharacteristics_03.png"> <p>Evaluation 
 odf3.components{1}.psi</pre><pre class="codeoutput"> 
 ans = SO3Grid  
   symmetry: "321" - "1"
-  grid    : 19843 orientations, resolution: 5&deg;
+  grid    : 19841 orientations, resolution: 5&deg;
  
 ans = deLaValeePoussinKernel  
   bandwidth: 58

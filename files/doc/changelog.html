@@ -70,7 +70,8 @@ sum(pdf) <span class="comment">% the integral of the pole figure</span>
 sum(pdf.^2) <span class="comment">% the integral of the pole figure squares - also called pole figure index</span></pre><pre class="codeinput"><span class="comment">% plotting</span>
 plot(pdf)
 plot3(pdf) <span class="comment">% plot in 3d</span></pre><pre class="codeinput"><span class="comment">% detect maximum value</span>
-[value,pos] = max(pdf)</pre><p>For a complete list of functions read <a href="S2FunHarmonic_index.html">here</a>.
+[value,pos] = max(pdf)</pre><pre class="codeinput"><span class="comment">% compute the eigen values and eigen vectors</span>
+[e,v] = eig(pdf)</pre><p>For a complete list of functions read <a href="S2FunHarmonic_index.html">here</a>.
          </p>
          <p><b>Symmetry aware spherical functions</b></p>
          <p>Since most of the directional dependent properties obey additional symmetry properties the class <a href="S2FunHarmonic_index.html">S2FunHarmonic</a> has been extended to symmetry in the <a href="S2FunHarmonicSym_index.html">S2FunHarmonicSym</a> class.
@@ -116,7 +117,36 @@ plotPDF(ori,ori*cS)</pre><p><b>ODF component analysis</b></p>
          <p>The ODF component analysis is used as the new default algorithm in <a href="orientation.calcCluster.html">calcCluster</a> for orientations. The idea is to compute an ODF out of the orientations and call <a href="ODF.calcComponents.html">calcComponents</a> with
          </p><pre class="codeinput">[center,~,centerId] = calcComponents(odf,<span class="string">'seed'</span>,ori)</pre><p>Then <tt>center</tt> are the clusters center and <tt>centerId</tt> gives for each orientation to which cluster it belongs. Substantional in this method is the choise of the kernel halfwidth
             used for ODF computation. This can be adjusted by
-         </p><pre class="codeinput">[c,center] = calcCluster(ori,<span class="string">'halfwidth'</span>,2.5*degree)</pre><p><b>Other new functions</b></p>
+         </p><pre class="codeinput">[c,center] = calcCluster(ori,<span class="string">'halfwidth'</span>,2.5*degree)</pre><p><b>New tensor classes</b></p>
+         <p>With MTEX 5.0 we start introducing specific tensor classes. So far we included the following classes</p>
+         <div>
+            <ul type="square">
+               <li><a href="stiffnessTensor_index.html">stiffnessTensor</a></li>
+               <li><a href="complianceTensor_index.html">complianceTensor</a></li>
+               <li><a href="strainTensor_index.html">strainTensor</a></li>
+               <li><a href="stressTensor_index.html">stressTensor</a></li>
+               <li><a href="ChristoffelTensor_index.html">ChristoffelTensor</a></li>
+            </ul>
+         </div>
+         <p>more tensors are supposed to be included in the future. The central advantage is that tensor specific behaviour and functions
+            can now better be implemented and documented, e.g., that the inverse of the compliance tensor is the stiffness tensor and
+            vice versa. For user the important change is that e.g. the stiffness tensor is now defined by
+         </p><pre class="codeinput">C = stiffnessTensor(M,cs)</pre><p>instead of the depreciated syntax</p><pre class="codeinput">C = tensor(M,cs,<span class="string">'name'</span>,<span class="string">'ellastic stiffness'</span>,<span class="string">'unit'</span>,<span class="string">'GPA'</span>)</pre><p><b>Improved spherical plotting</b></p>
+         <p>In MTEX 4.X it was not possible to display the upper and lower hemisphere in pole figure plots, inverse pole figure plots
+            or ODF section plots. This was a server restriction as for certain symmetries both hemispheres do not have to coincide. In
+            MTEX 5.0 this restriction has been overcome. MTEX automatically detects whether the upper and lower hemisphere are symmetrically
+            equivalent and decides whether both hemispheres needs to be plotted. As in the previous version of MTEX this can be controlled
+            by the options <tt>upper</tt>, <tt>lower</tt> and <tt>complete</tt>.
+         </p>
+         <p>As a consequence the behaviour of MTEX figures have changed slightly. By default MTEX now always plots into the last axis.
+            In order to annotate orintations or directions to all axes in a figure use the new option <tt>add2all</tt>.
+         </p><pre>plotIPDF(SantaFe,[xvector,yvector+zvector])
+[~,ori] = max(SantaFe)
+plot(ori,'add2all')</pre><p>We also introduced two new functions <a href="S2Fun/plotSection.html">plotSection</a> and <a href="S2Fun/quiverSection.html">quiverSection</a> to visualize spherical functions restricted to a plane. As an exaple one can now plot the slowness surfaceses of wave velocities
+            in the plane perpendicular to Y with
+         </p><pre class="codeinput">plotSection(1./vp,vector3d.Y)</pre><p>see <a href="ElasticityTensor.html">here</a> for more information.
+         </p>
+         <p><b>Other new functions</b></p>
          <div>
             <ul type="square">
                <li><a href="ODF.grad.html">odf.grad</a> computes the gradient of an ODF at some orientation

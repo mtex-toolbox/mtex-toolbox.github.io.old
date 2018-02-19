@@ -117,19 +117,10 @@
             <tr></tr>
             <td width="250px"><a href="plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a></td>
             <td>plot axis distribution</td>
-            <tr></tr>
-            <td width="250px"><a href="strainTensor.html"><tt>strainTensor</tt></a></td>
-            <td></td>
-            <tr></tr>
-            <td width="250px"><a href="stressTensor.html"><tt>stressTensor</tt></a></td>
-            <td></td>
          </table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2> Specimen Directions (The Class @vector3d)<a name="2"> </a></h2>
          <table width="95%">
-            <tr></tr>
-            <td width="250px"><a href="vector3d.SchmidTensor.html"><tt>SchmidTensor</tt></a></td>
-            <td>computes the Schmidt tensor</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.abs.html"><tt>abs</tt></a></td>
             <td>length of vector</td>
@@ -284,8 +275,11 @@
             <td width="250px"><a href="vector3d.quiver3.html"><tt>quiver3</tt></a></td>
             <td>Syntax quiver(v,d)</td>
             <tr></tr>
+            <td width="250px"><a href="vector3d.rank1prod.html"><tt>rank1prod</tt></a></td>
+            <td>pointwise inner product</td>
+            <tr></tr>
             <td width="250px"><a href="vector3d.rdivide.html"><tt>rdivide</tt></a></td>
-            <td>scalar division</td>
+            <td>scalar division v ./ s</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.refine.html"><tt>refine</tt></a></td>
             <td>refine vectors</td>
@@ -1396,6 +1390,9 @@
             <td width="250px"><a href="ODF.rotate.html"><tt>rotate</tt></a></td>
             <td>rotate ODF</td>
             <tr></tr>
+            <td width="250px"><a href="ODF.rotate_outer.html"><tt>rotate_outer</tt></a></td>
+            <td>rotate ODF</td>
+            <tr></tr>
             <td width="250px"><a href="ODF.slope.html"><tt>slope</tt></a></td>
             <td>| grad(r) |</td>
             <tr></tr>
@@ -1693,182 +1690,7 @@
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
          <h2> Material Tensors (The Class @tensor)<a name="19"> </a></h2>
-         <table width="95%">
-            <tr></tr>
-            <td width="250px"><a href="tensor.ChristoffelTensor.html"><tt>ChristoffelTensor</tt></a></td>
-            <td>Christoffel tensor of an elasticity tensor for a given direction</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.EinsteinSum.html"><tt>EinsteinSum</tt></a></td>
-            <td>tensor multiplication according to Einstein summation</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.Fourier.html"><tt>Fourier</tt></a></td>
-            <td>compute the Fourier coefficients of the tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.PoissonRatio.html"><tt>PoissonRatio</tt></a></td>
-            <td>computes the Poisson ratio of an elasticity tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.Voigt.html"><tt>Voigt</tt></a></td>
-            <td></td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.YoungsModulus.html"><tt>YoungsModulus</tt></a></td>
-            <td>Young's modulus for an elasticity tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.antiSym.html"><tt>antiSym</tt></a></td>
-            <td>the antisymmetric part A = 0.5(T - T.') of a tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.calcShearStress.html"><tt>calcShearStress</tt></a></td>
-            <td>shear stress</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.calcTaylor.html"><tt>calcTaylor</tt></a></td>
-            <td>compute Taylor factor and strain dependent orientation gradient</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.char.html"><tt>char</tt></a></td>
-            <td>tensor to char</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.checkSymmetry.html"><tt>checkSymmetry</tt></a></td>
-            <td></td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.conj.html"><tt>conj</tt></a></td>
-            <td>conjugate of a tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.ctranspose.html"><tt>ctranspose</tt></a></td>
-            <td>conjugate of a tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.diag.html"><tt>diag</tt></a></td>
-            <td>convert rank 1 or rank 0 tensor into diagonal rank 2 tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.directionalMagnitude.html"><tt>directionalMagnitude</tt></a></td>
-            <td>magnitude of a tensor in direction v</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.display.html"><tt>display</tt></a></td>
-            <td>standard output</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.double.html"><tt>double</tt></a></td>
-            <td>convert tensor values to matrix</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.eig.html"><tt>eig</tt></a></td>
-            <td>compute the eigenvalues and eigenvectors of a tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.end.html"><tt>end</tt></a></td>
-            <td>overloaded end function</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.eq.html"><tt>eq</tt></a></td>
-            <td>checks whether two tensors are equal</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.expm.html"><tt>expm</tt></a></td>
-            <td>matrix exponential of a tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.horzcat.html"><tt>horzcat</tt></a></td>
-            <td>overloads [T1,T2,T3..]</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.inv.html"><tt>inv</tt></a></td>
-            <td>inverse of a tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.length.html"><tt>length</tt></a></td>
-            <td>returns the number of tensors</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.linearCompressibility.html"><tt>linearCompressibility</tt></a></td>
-            <td>computes the linear compressibility of an elasticity tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.logm.html"><tt>logm</tt></a></td>
-            <td>matrix logarithm of a tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.matrix.html"><tt>matrix</tt></a></td>
-            <td>return tensor as a matrix</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.max.html"><tt>max</tt></a></td>
-            <td></td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.min.html"><tt>min</tt></a></td>
-            <td></td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.minus.html"><tt>minus</tt></a></td>
-            <td>add two tensors</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.mrdivide.html"><tt>mrdivide</tt></a></td>
-            <td>implements T / S</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.mtimes.html"><tt>mtimes</tt></a></td>
-            <td>implements T1 * T2</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.ne.html"><tt>ne</tt></a></td>
-            <td>checks whether two tensors are not equal</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.numel.html"><tt>numel</tt></a></td>
-            <td>returns the number of tensors</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.plot.html"><tt>plot</tt></a></td>
-            <td>plot a tensor T</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.plus.html"><tt>plus</tt></a></td>
-            <td>add two tensors</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.quadric.html"><tt>quadric</tt></a></td>
-            <td>quadric</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.rdivide.html"><tt>rdivide</tt></a></td>
-            <td></td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.real.html"><tt>real</tt></a></td>
-            <td></td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.rotate.html"><tt>rotate</tt></a></td>
-            <td>rotate a tensor by a list of rotations</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.rotate_outer.html"><tt>rotate_outer</tt></a></td>
-            <td>rotate a tensor by a list of rotations</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.shearModulus.html"><tt>shearModulus</tt></a></td>
-            <td>shear modulus for an elasticity tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.size.html"><tt>size</tt></a></td>
-            <td>overloads size</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.subsasgn.html"><tt>subsasgn</tt></a></td>
-            <td>overloads subsasgn</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.subsref.html"><tt>subsref</tt></a></td>
-            <td>overloads subsref</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.sum.html"><tt>sum</tt></a></td>
-            <td>sum over all tensors allong dimension 1</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.sym.html"><tt>sym</tt></a></td>
-            <td>the symmetric part S = 0.5(T + T.') of a tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.symmetrise.html"><tt>symmetrise</tt></a></td>
-            <td>symmetrise a tensor according to its crystal symmetry</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.tensor.html"><tt>tensor</tt></a></td>
-            <td></td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.tensorSize.html"><tt>tensorSize</tt></a></td>
-            <td>overloads size</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.times.html"><tt>times</tt></a></td>
-            <td>multiply a tensor by a scalar</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.trace.html"><tt>trace</tt></a></td>
-            <td>compute the trace of a rank 2 tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.transform.html"><tt>transform</tt></a></td>
-            <td>transform a tensor to a given crystal frame</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.transformReferenceFrame.html"><tt>transformReferenceFrame</tt></a></td>
-            <td>set properties of a tensor variable</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.transpose.html"><tt>transpose</tt></a></td>
-            <td>transpose a list of a tensors</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.velocity.html"><tt>velocity</tt></a></td>
-            <td>computes the elastic wave velocity(km/s) from the elastic stiffness Cijkl tensor and density (g/cm3)</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.vertcat.html"><tt>vertcat</tt></a></td>
-            <td>overloads [T1,T2,T3..]</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.volumeCompressibility.html"><tt>volumeCompressibility</tt></a></td>
-            <td>computes the volume compressibility of an elasticity tensor</td>
-         </table>
+         <table width="95%"></table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
          <h2> Auxiliary Functions<a name="20"> </a></h2>
          <table class="ref" width="90%">
@@ -1947,6 +1769,9 @@
             <tr></tr>
             <td width="250px"><a href="newSphericalPlot.html"><tt>newSphericalPlot</tt></a></td>
             <td>split plot in upper and lower hemisphere</td>
+            <tr></tr>
+            <td width="250px"><a href="nextAxis.html"><tt>nextAxis</tt></a></td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="nextstyle.html"><tt>nextstyle</tt></a></td>
             <td>NEXTSTYLE Get next plot linespec [L,C,M] = NEXTSTYLE(AX) gets the next line style, color and marker for plotting from the
@@ -2063,9 +1888,6 @@
             <tr></tr>
             <td width="250px"><a href="mtexdegchar.html"><tt>mtexdegchar</tt></a></td>
             <td>returns the degree character</td>
-            <tr></tr>
-            <td width="250px"><a href="zip_mtex.html"><tt>zip_mtex</tt></a></td>
-            <td>zip mtex for publishing (on website)</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2> Plotting Tools <a name="21"> </a></h2>
@@ -2247,7 +2069,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right"> MTEX 5.0.beta.3</td>
+               <td valign="baseline" align="right"> MTEX 5.0.0</td>
             </tr>
          </table>
       </div>

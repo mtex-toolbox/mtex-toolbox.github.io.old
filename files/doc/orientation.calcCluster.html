@@ -117,8 +117,7 @@ odf = ODF
 progress: 100%
 progress: 100%
 progress: 100%
-progress: 100%
-.............................</pre><pre class="codeinput"><span class="comment">% visualize result</span>
+.................................</pre><pre class="codeinput"><span class="comment">% visualize result</span>
 <span class="keyword">for</span> i = 1:length(centerRec)
 plot(ori(cId==i),<span class="string">'axisAngle'</span>)
 hold <span class="string">on</span>
@@ -127,9 +126,9 @@ plot(centerRec(i),<span class="string">'MarkerFaceColor'</span>,<span class="str
 hold <span class="string">off</span></pre><img src="orientation.calcCluster_01.png"> <pre class="codeinput"><span class="comment">%check the accuracy of the recomputed centers</span>
 min(angle_outer(center,centerRec)./degree)</pre><pre class="codeoutput">ans =
   Columns 1 through 7
-    3.2203    1.1889    0.5979    3.0359    3.7555   13.5038   14.7815
-  Columns 8 through 14
-   14.9227   16.7413   14.6035   16.3398   15.3425   16.6852   19.1749
+    0.5617    2.2752    1.2325    1.7042    2.1011    4.6745   14.8875
+  Columns 8 through 12
+   15.2075   14.7711   15.3253   14.7679   19.7468
 </pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

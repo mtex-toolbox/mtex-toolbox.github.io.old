@@ -65,7 +65,7 @@ odf = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 28
+    degree: 29
     weight: 1
  
 </pre><p>The function <a href="EBSD.calcODF.html">calcODF</a> implements the ODF estimation from EBSD data in MTEX. The underlying statistical method is called kernel density estimation,
@@ -110,15 +110,12 @@ odf = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 48
+    degree: 49
     weight: 1
  
 </pre><p>Once an ODF is estimated all the functionality MTEX offers for <a href="ODFCalculations.html">ODF analysis</a> and <a href="ODFPlot.html">ODF visualization</a> is available.
          </p><pre class="codeinput">h = [Miller(1,0,0,odf.CS),Miller(1,1,0,odf.CS),Miller(1,1,1,odf.CS)];
-plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><pre class="codeoutput">Warning: Colon operands cannot be logical. 
-Warning: Colon operands cannot be logical. 
-Warning: Colon operands cannot be logical. 
-</pre><img src="EBSD2odf_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'silent'</span>)</pre><img src="EBSD2odf_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Effect of halfwidth selection<a name="8"> </a></h2>
          <p>As mentioned above a proper halfwidth selection is crucial for ODF estimation. The following simple numerical experiment illustrates
             the dependency between the kernel halfwidth and the estimated error.

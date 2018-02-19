@@ -44,6 +44,9 @@
             <td width="250px"><a href="vector3d.abs.html"><tt>abs</tt></a><span>   (vector3d)</span></td>
             <td>length of vector</td>
             <tr></tr>
+            <td width="250px"><a href="S2FunHarmonic.acos.html"><tt>acos</tt></a><span>   (S2FunHarmonic)</span></td>
+            <td>cost of a function Syntax sF = acos(sF) sF = acos(sF, 'bandwidth', bandwidth)</td>
+            <tr></tr>
             <td width="250px"><a href="crystalSymmetry.add.html"><tt>add</tt></a><span>   (crystalSymmetry)</span></td>
             <td>add additional symmetry operations to a crystal symmetry</td>
             <tr></tr>
@@ -85,9 +88,6 @@
             <tr></tr>
             <td width="250px"><a href="annotate.html"><tt>annotate</tt></a></td>
             <td>annotate to a existing figure</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.antiSym.html"><tt>antiSym</tt></a><span>   (tensor)</span></td>
-            <td>the antisymmetric part A = 0.5(T - T.') of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="apply_recursivly.html"><tt>apply_recursivly</tt></a></td>
             <td>apply cmd recursively to all file in a directory</td>
@@ -390,9 +390,6 @@
             <td width="250px"><a href="unimodalComponent.calcPDF.html"><tt>calcPDF</tt></a><span>   (unimodalComponent)</span></td>
             <td>compute the pole density function for a given unimodal component</td>
             <tr></tr>
-            <td width="250px"><a href="FourierComponent.calcpdf_special.html"><tt>calcpdf_special</tt></a><span>   (FourierComponent)</span></td>
-            <td>compute the pdf for h = (theta,rhoh), r = (theta,rhor)</td>
-            <tr></tr>
             <td width="250px"><a href="ODF.calcpdf_special3.html"><tt>calcpdf_special3</tt></a><span>   (ODF)</span></td>
             <td>compute the pdf for h = (theta,rhoh), r = (theta,rhor)</td>
             <tr></tr>
@@ -407,12 +404,6 @@
             <tr></tr>
             <td width="250px"><a href="symmetry.calcQuat.html"><tt>calcQuat</tt></a><span>   (symmetry)</span></td>
             <td>calculate quaternions for Laue groups</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.calcShearStress.html"><tt>calcShearStress</tt></a><span>   (tensor)</span></td>
-            <td>shear stress</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.calcTaylor.html"><tt>calcTaylor</tt></a><span>   (tensor)</span></td>
-            <td>compute Taylor factor and strain dependent orientation gradient</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.calcTensor.html"><tt>calcTensor</tt></a><span>   (EBSD)</span></td>
             <td>compute the average tensor for an EBSD data set</td>
@@ -528,9 +519,6 @@
             <td width="250px"><a href="sphericalRegion.char.html"><tt>char</tt></a><span>   (sphericalRegion)</span></td>
             <td>convert spherical region to char</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.char.html"><tt>char</tt></a><span>   (tensor)</span></td>
-            <td>tensor to char</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.char.html"><tt>char</tt></a><span>   (vector3d)</span></td>
             <td>convert to char</td>
             <tr></tr>
@@ -570,14 +558,11 @@
             <td width="250px"><a href="checkOption.html"><tt>checkOption</tt></a></td>
             <td>check for option in option list</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.checkSymmetry.html"><tt>checkSymmetry</tt></a><span>   (tensor)</span></td>
-            <td></td>
-            <tr></tr>
             <td width="250px"><a href="zeroRangeMethod.checkZeroRange.html"><tt>checkZeroRange</tt></a><span>   (zeroRangeMethod)</span></td>
             <td>check for zero regions in experiementl pole figures</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.ChristoffelTensor.html"><tt>ChristoffelTensor</tt></a><span>   (tensor)</span></td>
-            <td>Christoffel tensor of an elasticity tensor for a given direction</td>
+            <td width="250px"><a href="choose.html"><tt>choose</tt></a></td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="vector3d.circle.html"><tt>circle</tt></a><span>   (vector3d)</span></td>
             <td>annotated a circle</td>
@@ -616,9 +601,6 @@
             <tr></tr>
             <td width="250px"><a href="S2FunHarmonic.conj.html"><tt>conj</tt></a><span>   (S2FunHarmonic)</span></td>
             <td>conjugate S2FunHarmonic</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.conj.html"><tt>conj</tt></a><span>   (tensor)</span></td>
-            <td>conjugate of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="connectedComponents.html"><tt>connectedComponents</tt></a></td>
             <td>label connected componentes in an graph (adjacency matrix)</td>
@@ -664,11 +646,17 @@
             <td width="250px"><a href="PoleFigure.correct.html"><tt>correct</tt></a><span>   (PoleFigure)</span></td>
             <td>corrects polfigures for background and defocussing</td>
             <tr></tr>
+            <td width="250px"><a href="S2FunHarmonic.cos.html"><tt>cos</tt></a><span>   (S2FunHarmonic)</span></td>
+            <td>cost of a function Syntax sF = cos(sF) sF = cos(sF, 'bandwidth', bandwidth)</td>
+            <tr></tr>
             <td width="250px"><a href="cprintf.html"><tt>cprintf</tt></a></td>
             <td>CPRINTF	convert an array of any data type to a 2D character array</td>
             <tr></tr>
             <td width="250px"><a href="cprproject_read.html"><tt>cprproject_read</tt></a></td>
             <td></td>
+            <tr></tr>
+            <td width="250px"><a href="S2AxisFieldHarmonic.cross.html"><tt>cross</tt></a><span>   (S2AxisFieldHarmonic)</span></td>
+            <td>syntax f = cross(sAF,v) f = cross(sAF1,sAF2) f = cross(sAF,sVF)</td>
             <tr></tr>
             <td width="250px"><a href="S2VectorFieldHarmonic.cross.html"><tt>cross</tt></a><span>   (S2VectorFieldHarmonic)</span></td>
             <td>pointwise cross product</td>
@@ -702,9 +690,6 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.ctranspose.html"><tt>ctranspose</tt></a><span>   (quaternion)</span></td>
             <td>transpose quaternion</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.ctranspose.html"><tt>ctranspose</tt></a><span>   (tensor)</span></td>
-            <td>conjugate of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.ctranspose.html"><tt>ctranspose</tt></a><span>   (vector3d)</span></td>
             <td>transpose vector</td>
@@ -755,17 +740,11 @@
             <td width="250px"><a href="vector3d.det.html"><tt>det</tt></a><span>   (vector3d)</span></td>
             <td>pointwise determinant or triple product of three vector3d</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.diag.html"><tt>diag</tt></a><span>   (tensor)</span></td>
-            <td>convert rank 1 or rank 0 tensor into diagonal rank 2 tensor</td>
-            <tr></tr>
             <td width="250px"><a href="grain2d.diameter.html"><tt>diameter</tt></a><span>   (grain2d)</span></td>
-            <td>diameter of a grain  longest distance between any two vertices of the grain boundary</td>
+            <td>diameter of a grain in measurement units longest distance between any two vertices of the grain boundary</td>
             <tr></tr>
             <td width="250px"><a href="dim2deg.html"><tt>dim2deg</tt></a></td>
             <td>dimension to harmonic degree of Wiegner D functions</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.directionalMagnitude.html"><tt>directionalMagnitude</tt></a><span>   (tensor)</span></td>
-            <td>magnitude of a tensor in direction v</td>
             <tr></tr>
             <td width="250px"><a href="DirichletKernel.html"><tt>DirichletKernel</tt></a></td>
             <td>the Dirichlet kernel in the orientation space</td>
@@ -893,9 +872,6 @@
             <td width="250px"><a href="sphericalRegion.display.html"><tt>display</tt></a><span>   (sphericalRegion)</span></td>
             <td>standard output</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.display.html"><tt>display</tt></a><span>   (tensor)</span></td>
-            <td>standard output</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.display.html"><tt>display</tt></a><span>   (vector3d)</span></td>
             <td>standard output</td>
             <tr></tr>
@@ -931,6 +907,12 @@
             <tr></tr>
             <td width="250px"><a href="MLSSolver.doIter.html"><tt>doIter</tt></a><span>   (MLSSolver)</span></td>
             <td>perform one iteration step of the modified least squares algorithm</td>
+            <tr></tr>
+            <td width="250px"><a href="S2AxisFieldHarmonic.dot.html"><tt>dot</tt></a><span>   (S2AxisFieldHarmonic)</span></td>
+            <td>syntax f = dot(sAF,v) f = dot(sAF1,sAF2) f = dot(sAF,sVF)</td>
+            <tr></tr>
+            <td width="250px"><a href="S2FunHarmonic.dot.html"><tt>dot</tt></a><span>   (S2FunHarmonic)</span></td>
+            <td>inner product</td>
             <tr></tr>
             <td width="250px"><a href="S2VectorFieldHarmonic.dot.html"><tt>dot</tt></a><span>   (S2VectorFieldHarmonic)</span></td>
             <td>pointwise inner product</td>
@@ -976,9 +958,6 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.double.html"><tt>double</tt></a><span>   (quaternion)</span></td>
             <td>quaternion to double</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.double.html"><tt>double</tt></a><span>   (tensor)</span></td>
-            <td>convert tensor values to matrix</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.double.html"><tt>double</tt></a><span>   (vector3d)</span></td>
             <td>converts vector3d to double Input v - @vector3d Output x, y, z - double</td>
@@ -1026,14 +1005,11 @@
             <td width="250px"><a href="efopen.html"><tt>efopen</tt></a></td>
             <td>file open with error message</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.eig.html"><tt>eig</tt></a><span>   (tensor)</span></td>
-            <td>compute the eigenvalues and eigenvectors of a tensor</td>
+            <td width="250px"><a href="S2FunHarmonic.eig.html"><tt>eig</tt></a><span>   (S2FunHarmonic)</span></td>
+            <td>eigen value of a spherical function</td>
             <tr></tr>
             <td width="250px"><a href="eig3.html"><tt>eig3</tt></a></td>
             <td>returns the largest eigenvalue of a symmetric 3x3 matrix</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.EinsteinSum.html"><tt>EinsteinSum</tt></a><span>   (tensor)</span></td>
-            <td>tensor multiplication according to Einstein summation</td>
             <tr></tr>
             <td width="250px"><a href="S2FunHarmonic.end.html"><tt>end</tt></a><span>   (S2FunHarmonic)</span></td>
             <td>overloaded end function</td>
@@ -1047,9 +1023,6 @@
             <td width="250px"><a href="slipSystem.end.html"><tt>end</tt></a><span>   (slipSystem)</span></td>
             <td>overloaded end function</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.end.html"><tt>end</tt></a><span>   (tensor)</span></td>
-            <td>overloaded end function</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.end.html"><tt>end</tt></a><span>   (vector3d)</span></td>
             <td>overloaded end function</td>
             <tr></tr>
@@ -1061,6 +1034,9 @@
             <tr></tr>
             <td width="250px"><a href="ensureNonNeg.html"><tt>ensureNonNeg</tt></a></td>
             <td>remove small negative values</td>
+            <tr></tr>
+            <td width="250px"><a href="S2FunHarmonic.entropy.html"><tt>entropy</tt></a><span>   (S2FunHarmonic)</span></td>
+            <td>entropy of a function</td>
             <tr></tr>
             <td width="250px"><a href="ODF.entropy.html"><tt>entropy</tt></a><span>   (ODF)</span></td>
             <td>caclulate entropy of ODF</td>
@@ -1091,9 +1067,6 @@
             <tr></tr>
             <td width="250px"><a href="symmetry.eq.html"><tt>eq</tt></a><span>   (symmetry)</span></td>
             <td>check S1 == S2</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.eq.html"><tt>eq</tt></a><span>   (tensor)</span></td>
-            <td>checks whether two tensors are equal</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.eq.html"><tt>eq</tt></a><span>   (vector3d)</span></td>
             <td>? v1 == v2</td>
@@ -1172,9 +1145,6 @@
             <tr></tr>
             <td width="250px"><a href="orientation.exp.html"><tt>exp</tt></a><span>   (orientation)</span></td>
             <td>exponential function</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.expm.html"><tt>expm</tt></a><span>   (tensor)</span></td>
-            <td>matrix exponential of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.export.html"><tt>export</tt></a><span>   (EBSD)</span></td>
             <td>export EBSD data to a ascii file</td>
@@ -1348,9 +1318,6 @@
             <td width="250px"><a href="FourierComponent.Fourier.html"><tt>Fourier</tt></a><span>   (FourierComponent)</span></td>
             <td>get Fourier coefficients of and ODF</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.Fourier.html"><tt>Fourier</tt></a><span>   (tensor)</span></td>
-            <td>compute the Fourier coefficients of the tensor</td>
-            <tr></tr>
             <td width="250px"><a href="FourierComponent.FourierComponent.html"><tt>FourierComponent</tt></a><span>   (FourierComponent)</span></td>
             <td>defines an ODF component by its Fourier coefficients</td>
             <tr></tr>
@@ -1442,8 +1409,17 @@
             <td width="250px"><a href="S2FunTri.grad.html"><tt>grad</tt></a><span>   (S2FunTri)</span></td>
             <td></td>
             <tr></tr>
+            <td width="250px"><a href="FourierComponent.grad.html"><tt>grad</tt></a><span>   (FourierComponent)</span></td>
+            <td>gradient at orientation g</td>
+            <tr></tr>
             <td width="250px"><a href="ODF.grad.html"><tt>grad</tt></a><span>   (ODF)</span></td>
             <td>gradient of odf at orientation ori</td>
+            <tr></tr>
+            <td width="250px"><a href="ODFComponent.grad.html"><tt>grad</tt></a><span>   (ODFComponent)</span></td>
+            <td>gradient at orientation g</td>
+            <tr></tr>
+            <td width="250px"><a href="fibreComponent.grad.html"><tt>grad</tt></a><span>   (fibreComponent)</span></td>
+            <td>evaluate an odf at orientation g</td>
             <tr></tr>
             <td width="250px"><a href="uniformComponent.grad.html"><tt>grad</tt></a><span>   (uniformComponent)</span></td>
             <td>gradient of the ODF at orientation g</td>
@@ -1509,9 +1485,6 @@
             <tr></tr>
             <td width="250px"><a href="sphericalRegion.horzcat.html"><tt>horzcat</tt></a><span>   (sphericalRegion)</span></td>
             <td></td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.horzcat.html"><tt>horzcat</tt></a><span>   (tensor)</span></td>
-            <td>overloads [T1,T2,T3..]</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.horzcat.html"><tt>horzcat</tt></a><span>   (vector3d)</span></td>
             <td>overloads [v1,v2,v3..]</td>
@@ -1583,9 +1556,6 @@
             <td width="250px"><a href="quaternion.inv.html"><tt>inv</tt></a><span>   (quaternion)</span></td>
             <td>quaternion of the inverse roation</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.inv.html"><tt>inv</tt></a><span>   (tensor)</span></td>
-            <td>inverse of a tensor</td>
-            <tr></tr>
             <td width="250px"><a href="inversion.html"><tt>inversion</tt></a></td>
             <td>the inversion - reflection at the origin</td>
             <tr></tr>
@@ -1593,7 +1563,10 @@
             <td>defines an orientation mapping based on a certain inverse pole figure Detailed explanation goes here</td>
             <tr></tr>
             <td width="250px"><a href="ipdfCenterOrientationMapping.html"><tt>ipdfCenterOrientationMapping</tt></a></td>
-            <td>Detailed explanation goes here</td>
+            <td>Maps an individual color to each given crystal directions being  parallel to a specimen direction (fibre) Properties: center
+                - List of crystal directions @Miller color   - n-by-3 list representing RGB values, one for each center psi     - @kernel
+               providing the width and brightness for colored fibre inversePoleFigureDirection - specimen direction @vector3d
+            </td>
             <tr></tr>
             <td width="250px"><a href="ipdfHSVOrientationMapping.html"><tt>ipdfHSVOrientationMapping</tt></a></td>
             <td>defines an orientation mapping based on a certain inverse pole figure Detailed explanation goes here</td>
@@ -1724,6 +1697,9 @@
             <td width="250px"><a href="orientation.ldivide.html"><tt>ldivide</tt></a><span>   (orientation)</span></td>
             <td>o .\ v</td>
             <tr></tr>
+            <td width="250px"><a href="S2FunHarmonic.le.html"><tt>le</tt></a><span>   (S2FunHarmonic)</span></td>
+            <td>overloads sF1 &lt;= sF2</td>
+            <tr></tr>
             <td width="250px"><a href="legendre0.html"><tt>legendre0</tt></a></td>
             <td>Legendrepolynome bis zur Odnung N und gibt sie als Matrix zur&#65533;ck erste Dimension -&gt; Ordnung zweite Dimension -&gt; x</td>
             <tr></tr>
@@ -1745,9 +1721,6 @@
             <td width="250px"><a href="symmetry.length.html"><tt>length</tt></a><span>   (symmetry)</span></td>
             <td>number of symmetry elements</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.length.html"><tt>length</tt></a><span>   (tensor)</span></td>
-            <td>returns the number of tensors</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.length.html"><tt>length</tt></a><span>   (vector3d)</span></td>
             <td>overloads length</td>
             <tr></tr>
@@ -1756,9 +1729,6 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.line.html"><tt>line</tt></a><span>   (vector3d)</span></td>
             <td>Syntax</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.linearCompressibility.html"><tt>linearCompressibility</tt></a><span>   (tensor)</span></td>
-            <td>computes the linear compressibility of an elasticity tensor</td>
             <tr></tr>
             <td width="250px"><a href="load_generic.html"><tt>load_generic</tt></a></td>
             <td>load file using import data and txt2mat</td>
@@ -1955,6 +1925,9 @@
             <td width="250px"><a href="localOrientationGrid.html"><tt>localOrientationGrid</tt></a></td>
             <td>define a equispaced grid localized to a center orientation</td>
             <tr></tr>
+            <td width="250px"><a href="S2FunHarmonic.log.html"><tt>log</tt></a><span>   (S2FunHarmonic)</span></td>
+            <td>log of a function</td>
+            <tr></tr>
             <td width="250px"><a href="orientation.log.html"><tt>log</tt></a><span>   (orientation)</span></td>
             <td>the inverse of the exponential map</td>
             <tr></tr>
@@ -1963,9 +1936,6 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.logm.html"><tt>logm</tt></a><span>   (quaternion)</span></td>
             <td>the dislocation tensor for a rotation</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.logm.html"><tt>logm</tt></a><span>   (tensor)</span></td>
-            <td>matrix logarithm of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="orientation.LSCV.html"><tt>LSCV</tt></a><span>   (orientation)</span></td>
             <td>least squares cross valiadation</td>
@@ -1989,9 +1959,6 @@
             <td width="250px"><a href="rotation.matrix.html"><tt>matrix</tt></a><span>   (rotation)</span></td>
             <td>quaternion to direction cosine matrix conversion converts direction cosine matrix to quaternion</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.matrix.html"><tt>matrix</tt></a><span>   (tensor)</span></td>
-            <td>return tensor as a matrix</td>
-            <tr></tr>
             <td width="250px"><a href="S2Fun.max.html"><tt>max</tt></a><span>   (S2Fun)</span></td>
             <td>global or local maximum of one; or the pointwise maximum of two spherical functions</td>
             <tr></tr>
@@ -2006,9 +1973,6 @@
             <tr></tr>
             <td width="250px"><a href="S1Grid.max.html"><tt>max</tt></a><span>   (S1Grid)</span></td>
             <td>return maximum value</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.max.html"><tt>max</tt></a><span>   (tensor)</span></td>
-            <td></td>
             <tr></tr>
             <td width="250px"><a href="orientationRegion.maxAngle.html"><tt>maxAngle</tt></a><span>   (orientationRegion)</span></td>
             <td>get the maximum angle of the fundamental region</td>
@@ -2076,9 +2040,6 @@
             <td width="250px"><a href="S1Grid.min.html"><tt>min</tt></a><span>   (S1Grid)</span></td>
             <td>return maximum value</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.min.html"><tt>min</tt></a><span>   (tensor)</span></td>
-            <td></td>
-            <tr></tr>
             <td width="250px"><a href="orientationRegion.minAngle.html"><tt>minAngle</tt></a><span>   (orientationRegion)</span></td>
             <td>get the minimum angle of the boundary of the fundamental region</td>
             <tr></tr>
@@ -2099,9 +2060,6 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.minus.html"><tt>minus</tt></a><span>   (quaternion)</span></td>
             <td>overloads minus</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.minus.html"><tt>minus</tt></a><span>   (tensor)</span></td>
-            <td>add two tensors</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.minus.html"><tt>minus</tt></a><span>   (vector3d)</span></td>
             <td>overload minus</td>
@@ -2135,9 +2093,6 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.mrdivide.html"><tt>mrdivide</tt></a><span>   (quaternion)</span></td>
             <td>scalar division</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.mrdivide.html"><tt>mrdivide</tt></a><span>   (tensor)</span></td>
-            <td>implements T / S</td>
             <tr></tr>
             <td width="250px"><a href="mtex_assert.html"><tt>mtex_assert</tt></a></td>
             <td></td>
@@ -2214,9 +2169,6 @@
             <td width="250px"><a href="rotation.mtimes.html"><tt>mtimes</tt></a><span>   (rotation)</span></td>
             <td>r = a * b</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.mtimes.html"><tt>mtimes</tt></a><span>   (tensor)</span></td>
-            <td>implements T1 * T2</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.mtimes.html"><tt>mtimes</tt></a><span>   (vector3d)</span></td>
             <td>scalar multiplication</td>
             <tr></tr>
@@ -2287,9 +2239,6 @@
             <td width="250px"><a href="sphericalRegion.ne.html"><tt>ne</tt></a><span>   (sphericalRegion)</span></td>
             <td></td>
             <tr></tr>
-            <td width="250px"><a href="tensor.ne.html"><tt>ne</tt></a><span>   (tensor)</span></td>
-            <td>checks whether two tensors are not equal</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.ne.html"><tt>ne</tt></a><span>   (vector3d)</span></td>
             <td>? v1 == v2</td>
             <tr></tr>
@@ -2319,6 +2268,9 @@
             <tr></tr>
             <td width="250px"><a href="mtexFigure.nextAxis.html"><tt>nextAxis</tt></a><span>   (mtexFigure)</span></td>
             <td>go to next plot</td>
+            <tr></tr>
+            <td width="250px"><a href="nextAxis.html"><tt>nextAxis</tt></a></td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="nextstyle.html"><tt>nextstyle</tt></a></td>
             <td>NEXTSTYLE Get next plot linespec [L,C,M] = NEXTSTYLE(AX) gets the next line style, color and marker for plotting from the
@@ -2352,6 +2304,9 @@
             <td width="250px"><a href="vector3d.norm.html"><tt>norm</tt></a><span>   (vector3d)</span></td>
             <td>vector norm</td>
             <tr></tr>
+            <td width="250px"><a href="S2VectorField.normalize.html"><tt>normalize</tt></a><span>   (S2VectorField)</span></td>
+            <td>Gives the normal vector of the tangential plane in v</td>
+            <tr></tr>
             <td width="250px"><a href="PoleFigure.normalize.html"><tt>normalize</tt></a><span>   (PoleFigure)</span></td>
             <td>normalization of a meassured pole figure with respect to an ODF</td>
             <tr></tr>
@@ -2360,9 +2315,6 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.normalize.html"><tt>normalize</tt></a><span>   (vector3d)</span></td>
             <td>normalize a vector</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.numel.html"><tt>numel</tt></a><span>   (tensor)</span></td>
-            <td>returns the number of tensors</td>
             <tr></tr>
             <td width="250px"><a href="NWSE.html"><tt>NWSE</tt></a></td>
             <td></td>
@@ -2557,9 +2509,6 @@
             <td width="250px"><a href="symmetry.plot.html"><tt>plot</tt></a><span>   (symmetry)</span></td>
             <td>visualize symmetry elements according to international table</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.plot.html"><tt>plot</tt></a><span>   (tensor)</span></td>
-            <td>plot a tensor T</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.plot.html"><tt>plot</tt></a><span>   (vector3d)</span></td>
             <td>plot vectors as two dimensional projections on the sphere</td>
             <tr></tr>
@@ -2722,14 +2671,8 @@
             <td width="250px"><a href="quaternion.plus.html"><tt>plus</tt></a><span>   (quaternion)</span></td>
             <td>pointwise addition</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.plus.html"><tt>plus</tt></a><span>   (tensor)</span></td>
-            <td>add two tensors</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.plus.html"><tt>plus</tt></a><span>   (vector3d)</span></td>
             <td>poitwise addition</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.PoissonRatio.html"><tt>PoissonRatio</tt></a><span>   (tensor)</span></td>
-            <td>computes the Poisson ratio of an elasticity tensor</td>
             <tr></tr>
             <td width="250px"><a href="S2Grid.polar.html"><tt>polar</tt></a><span>   (S2Grid)</span></td>
             <td>polar coordinates of S2Grid</td>
@@ -2839,9 +2782,6 @@
                grid of type chebyshev
             </td>
             <tr></tr>
-            <td width="250px"><a href="tensor.quadric.html"><tt>quadric</tt></a><span>   (tensor)</span></td>
-            <td>quadric</td>
-            <tr></tr>
             <td width="250px"><a href="ODF.quantile.html"><tt>quantile</tt></a><span>   (ODF)</span></td>
             <td>quantile orientations of an ODF</td>
             <tr></tr>
@@ -2881,6 +2821,9 @@
             <td width="250px"><a href="vector3d.quiver3.html"><tt>quiver3</tt></a><span>   (vector3d)</span></td>
             <td>Syntax quiver(v,d)</td>
             <tr></tr>
+            <td width="250px"><a href="S2Fun.quiverSection.html"><tt>quiverSection</tt></a><span>   (S2Fun)</span></td>
+            <td>Syntax quiverSection(sF,v,vector3d.Z) quiverSection(sF,sVF,vector3d.Z) quiverSection(sF,v,vector3d.Z,pi/3)</td>
+            <tr></tr>
             <td width="250px"><a href="qwarning.html"><tt>qwarning</tt></a></td>
             <td>warning with option to stop</td>
          </table>
@@ -2903,6 +2846,9 @@
                operates along the first non-singleton dimension.
             </td>
             <tr></tr>
+            <td width="250px"><a href="vector3d.rank1prod.html"><tt>rank1prod</tt></a><span>   (vector3d)</span></td>
+            <td>pointwise inner product</td>
+            <tr></tr>
             <td width="250px"><a href="S2FunHarmonic.rdivide.html"><tt>rdivide</tt></a><span>   (S2FunHarmonic)</span></td>
             <td>Syntax sF = sF1/sF2 sF = sF1/a sF = a/sF1</td>
             <tr></tr>
@@ -2913,7 +2859,7 @@
             <td></td>
             <tr></tr>
             <td width="250px"><a href="S2VectorFieldHarmonic.rdivide.html"><tt>rdivide</tt></a><span>   (S2VectorFieldHarmonic)</span></td>
-            <td>Syntax sVF = sVF1/a</td>
+            <td>Syntax</td>
             <tr></tr>
             <td width="250px"><a href="ODF.rdivide.html"><tt>rdivide</tt></a><span>   (ODF)</span></td>
             <td>scaling of the ODF</td>
@@ -2924,17 +2870,11 @@
             <td width="250px"><a href="quaternion.rdivide.html"><tt>rdivide</tt></a><span>   (quaternion)</span></td>
             <td>scalar division</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.rdivide.html"><tt>rdivide</tt></a><span>   (tensor)</span></td>
-            <td></td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.rdivide.html"><tt>rdivide</tt></a><span>   (vector3d)</span></td>
-            <td>scalar division</td>
+            <td>scalar division v ./ s</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.real.html"><tt>real</tt></a><span>   (quaternion)</span></td>
             <td>real-part of of quaternion</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.real.html"><tt>real</tt></a><span>   (tensor)</span></td>
-            <td></td>
             <tr></tr>
             <td width="250px"><a href="red2blueColorMap.html"><tt>red2blueColorMap</tt></a></td>
             <td>creates a colormap, ranging from dark blue via white to dark red.</td>
@@ -3095,11 +3035,11 @@
             <td width="250px"><a href="sphericalRegion.rotate.html"><tt>rotate</tt></a><span>   (sphericalRegion)</span></td>
             <td>rotate of a spherical region</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.rotate.html"><tt>rotate</tt></a><span>   (tensor)</span></td>
-            <td>rotate a tensor by a list of rotations</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.rotate.html"><tt>rotate</tt></a><span>   (vector3d)</span></td>
             <td>rotate vector3d by rotation or orientation</td>
+            <tr></tr>
+            <td width="250px"><a href="ODF.rotate_outer.html"><tt>rotate_outer</tt></a><span>   (ODF)</span></td>
+            <td>rotate ODF</td>
             <tr></tr>
             <td width="250px"><a href="Miller.rotate_outer.html"><tt>rotate_outer</tt></a><span>   (Miller)</span></td>
             <td>rotate crystal directions</td>
@@ -3109,9 +3049,6 @@
             <tr></tr>
             <td width="250px"><a href="slipSystem.rotate_outer.html"><tt>rotate_outer</tt></a><span>   (slipSystem)</span></td>
             <td>rotate slip system</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.rotate_outer.html"><tt>rotate_outer</tt></a><span>   (tensor)</span></td>
-            <td>rotate a tensor by a list of rotations</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.rotate_outer.html"><tt>rotate_outer</tt></a><span>   (vector3d)</span></td>
             <td>rotate vector3d by quaternion</td>
@@ -3208,9 +3145,6 @@
             <td width="250px"><a href="slipSystem.SchmidFactor.html"><tt>SchmidFactor</tt></a><span>   (slipSystem)</span></td>
             <td>compute the Schmid factor</td>
             <tr></tr>
-            <td width="250px"><a href="vector3d.SchmidTensor.html"><tt>SchmidTensor</tt></a><span>   (vector3d)</span></td>
-            <td>computes the Schmidt tensor</td>
-            <tr></tr>
             <td width="250px"><a href="sectionLabels.html"><tt>sectionLabels</tt></a></td>
             <td></td>
             <tr></tr>
@@ -3241,6 +3175,9 @@
             <td width="250px"><a href="set_option.html"><tt>set_option</tt></a></td>
             <td>set option in option list</td>
             <tr></tr>
+            <td width="250px"><a href="setappdata.html"><tt>setappdata</tt></a></td>
+            <td>make setappdata work with multiple handles</td>
+            <tr></tr>
             <td width="250px"><a href="setCamera.html"><tt>setCamera</tt></a></td>
             <td>set Camera according to xAxis and zAxis position</td>
             <tr></tr>
@@ -3261,9 +3198,6 @@
             <tr></tr>
             <td width="250px"><a href="grain2d.shapeFactor.html"><tt>shapeFactor</tt></a><span>   (grain2d)</span></td>
             <td>calculates the shapefactor of the grain-polygon, without Holes</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.shearModulus.html"><tt>shearModulus</tt></a><span>   (tensor)</span></td>
-            <td>shear modulus for an elasticity tensor</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.shift.html"><tt>shift</tt></a><span>   (EBSD)</span></td>
             <td>shift spatial ebsd-data about (x,y)</td>
@@ -3289,9 +3223,6 @@
             <td width="250px"><a href="slipSystem.size.html"><tt>size</tt></a><span>   (slipSystem)</span></td>
             <td>overloads size</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.size.html"><tt>size</tt></a><span>   (tensor)</span></td>
-            <td>overloads size</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.size.html"><tt>size</tt></a><span>   (vector3d)</span></td>
             <td>overloads size</td>
             <tr></tr>
@@ -3314,7 +3245,7 @@
             <td>smooth spatial EBSD data</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.smooth.html"><tt>smooth</tt></a><span>   (grain2d)</span></td>
-            <td>constraint laplacian smoothing of grains</td>
+            <td>constraint laplacian smoothing of grain boundaries  and inner boundaries.</td>
             <tr></tr>
             <td width="250px"><a href="BinghamComponent.smooth.html"><tt>smooth</tt></a><span>   (BinghamComponent)</span></td>
             <td>smooth ODF component</td>
@@ -3395,6 +3326,9 @@
             <td width="250px"><a href="SO3Grid.spy.html"><tt>spy</tt></a><span>   (SO3Grid)</span></td>
             <td>spy distance matrix</td>
             <tr></tr>
+            <td width="250px"><a href="S2FunHarmonic.sqrt.html"><tt>sqrt</tt></a><span>   (S2FunHarmonic)</span></td>
+            <td>square root of a function Syntax sF = sqrt(sF) sF = sqrt(sF, 'bandwidth', bandwidth)</td>
+            <tr></tr>
             <td width="250px"><a href="SquareSingularityKernel.html"><tt>SquareSingularityKernel</tt></a></td>
             <td></td>
             <tr></tr>
@@ -3409,12 +3343,6 @@
             <tr></tr>
             <td width="250px"><a href="ODF.steepestDescentX.html"><tt>steepestDescentX</tt></a><span>   (ODF)</span></td>
             <td>find maximum with steepest descent</td>
-            <tr></tr>
-            <td width="250px"><a href="strainTensor.html"><tt>strainTensor</tt></a></td>
-            <td></td>
-            <tr></tr>
-            <td width="250px"><a href="stressTensor.html"><tt>stressTensor</tt></a></td>
-            <td></td>
             <tr></tr>
             <td width="250px"><a href="string2Miller.html"><tt>string2Miller</tt></a></td>
             <td>converts string to Miller indece</td>
@@ -3462,9 +3390,6 @@
             <td>overloads subsasgn</td>
             <tr></tr>
             <td width="250px"><a href="slipSystem.subsasgn.html"><tt>subsasgn</tt></a><span>   (slipSystem)</span></td>
-            <td>overloads subsasgn</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.subsasgn.html"><tt>subsasgn</tt></a><span>   (tensor)</span></td>
             <td>overloads subsasgn</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.subsasgn.html"><tt>subsasgn</tt></a><span>   (vector3d)</span></td>
@@ -3548,9 +3473,6 @@
             <td width="250px"><a href="symmetry.subsref.html"><tt>subsref</tt></a><span>   (symmetry)</span></td>
             <td>overloads subsref</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.subsref.html"><tt>subsref</tt></a><span>   (tensor)</span></td>
-            <td>overloads subsref</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.subsref.html"><tt>subsref</tt></a><span>   (vector3d)</span></td>
             <td>overloads subsref</td>
             <tr></tr>
@@ -3559,9 +3481,6 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.sum.html"><tt>sum</tt></a><span>   (quaternion)</span></td>
             <td>overloads sum</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.sum.html"><tt>sum</tt></a><span>   (tensor)</span></td>
-            <td>sum over all tensors allong dimension 1</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.sum.html"><tt>sum</tt></a><span>   (vector3d)</span></td>
             <td>sum of vectors</td>
@@ -3577,9 +3496,6 @@
             <tr></tr>
             <td width="250px"><a href="switchUnit.html"><tt>switchUnit</tt></a></td>
             <td>returns the closest length to a known unit. For example, 10e3m will give 10km.</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.sym.html"><tt>sym</tt></a><span>   (tensor)</span></td>
-            <td>the symmetric part S = 0.5(T + T.') of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="S2FunHarmonic.symmetrise.html"><tt>symmetrise</tt></a><span>   (S2FunHarmonic)</span></td>
             <td>symmetrises a function with respect to a symmetry</td>
@@ -3602,9 +3518,6 @@
             <td width="250px"><a href="slipSystem.symmetrise.html"><tt>symmetrise</tt></a><span>   (slipSystem)</span></td>
             <td>find all symmetrically equivalent slips systems</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.symmetrise.html"><tt>symmetrise</tt></a><span>   (tensor)</span></td>
-            <td>symmetrise a tensor according to its crystal symmetry</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.symmetrise.html"><tt>symmetrise</tt></a><span>   (vector3d)</span></td>
             <td>symmetrcially equivalent directions and its multiple</td>
             <tr></tr>
@@ -3614,12 +3527,6 @@
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>T<a name="19"> </a></h2>
          <table width="95%">
-            <tr></tr>
-            <td width="250px"><a href="tensor.tensor.html"><tt>tensor</tt></a><span>   (tensor)</span></td>
-            <td></td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.tensorSize.html"><tt>tensorSize</tt></a><span>   (tensor)</span></td>
-            <td>overloads size</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.text.html"><tt>text</tt></a><span>   (grain2d)</span></td>
             <td>plot directions at grain centers</td>
@@ -3669,9 +3576,6 @@
             <td width="250px"><a href="rotation.times.html"><tt>times</tt></a><span>   (rotation)</span></td>
             <td>r = a .* b</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.times.html"><tt>times</tt></a><span>   (tensor)</span></td>
-            <td>multiply a tensor by a scalar</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.times.html"><tt>times</tt></a><span>   (vector3d)</span></td>
             <td>.* - componenwtise multiplication</td>
             <tr></tr>
@@ -3681,12 +3585,6 @@
             <td width="250px"><a href="slipSystem.trace.html"><tt>trace</tt></a><span>   (slipSystem)</span></td>
             <td>trace of the slip plane in the surface normal to n</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.trace.html"><tt>trace</tt></a><span>   (tensor)</span></td>
-            <td>compute the trace of a rank 2 tensor</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.transform.html"><tt>transform</tt></a><span>   (tensor)</span></td>
-            <td>transform a tensor to a given crystal frame</td>
-            <tr></tr>
             <td width="250px"><a href="crystalSymmetry.transformationMatrix.html"><tt>transformationMatrix</tt></a><span>   (crystalSymmetry)</span></td>
             <td>compute the transformation matrix from cs1 to cs2</td>
             <tr></tr>
@@ -3695,9 +3593,6 @@
             <tr></tr>
             <td width="250px"><a href="orientation.transformReferenceFrame.html"><tt>transformReferenceFrame</tt></a><span>   (orientation)</span></td>
             <td>change reference frame of an orientation</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.transformReferenceFrame.html"><tt>transformReferenceFrame</tt></a><span>   (tensor)</span></td>
-            <td>set properties of a tensor variable</td>
             <tr></tr>
             <td width="250px"><a href="S2FunHarmonic.transpose.html"><tt>transpose</tt></a><span>   (S2FunHarmonic)</span></td>
             <td>overloads transpose</td>
@@ -3713,9 +3608,6 @@
             <tr></tr>
             <td width="250px"><a href="slipSystem.transpose.html"><tt>transpose</tt></a><span>   (slipSystem)</span></td>
             <td>transpose list of slipSystem</td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.transpose.html"><tt>transpose</tt></a><span>   (tensor)</span></td>
-            <td>transpose a list of a tensors</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.transpose.html"><tt>transpose</tt></a><span>   (vector3d)</span></td>
             <td>transpose vector</td>
@@ -3827,9 +3719,6 @@
             <td width="250px"><a href="vector3d.vector3d.html"><tt>vector3d</tt></a><span>   (vector3d)</span></td>
             <td></td>
             <tr></tr>
-            <td width="250px"><a href="tensor.velocity.html"><tt>velocity</tt></a><span>   (tensor)</span></td>
-            <td>computes the elastic wave velocity(km/s) from the elastic stiffness Cijkl tensor and density (g/cm3)</td>
-            <tr></tr>
             <td width="250px"><a href="S2FunHarmonic.vertcat.html"><tt>vertcat</tt></a><span>   (S2FunHarmonic)</span></td>
             <td>overloads vertcat</td>
             <tr></tr>
@@ -3842,16 +3731,10 @@
             <td width="250px"><a href="slipSystem.vertcat.html"><tt>vertcat</tt></a><span>   (slipSystem)</span></td>
             <td>overloads [v1,v2,v3..]</td>
             <tr></tr>
-            <td width="250px"><a href="tensor.vertcat.html"><tt>vertcat</tt></a><span>   (tensor)</span></td>
-            <td>overloads [T1,T2,T3..]</td>
-            <tr></tr>
             <td width="250px"><a href="vector3d.vertcat.html"><tt>vertcat</tt></a><span>   (vector3d)</span></td>
             <td>overloads [v1,v2,v3..]</td>
             <tr></tr>
             <td width="250px"><a href="viridisColorMap.html"><tt>viridisColorMap</tt></a></td>
-            <td></td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.Voigt.html"><tt>Voigt</tt></a><span>   (tensor)</span></td>
             <td></td>
             <tr></tr>
             <td width="250px"><a href="S2FunHarmonic.volume.html"><tt>volume</tt></a><span>   (S2FunHarmonic)</span></td>
@@ -3883,9 +3766,6 @@
             <tr></tr>
             <td width="250px"><a href="kernel.volume.html"><tt>volume</tt></a><span>   (kernel)</span></td>
             <td></td>
-            <tr></tr>
-            <td width="250px"><a href="tensor.volumeCompressibility.html"><tt>volumeCompressibility</tt></a><span>   (tensor)</span></td>
-            <td>computes the volume compressibility of an elasticity tensor</td>
             <tr></tr>
             <td width="250px"><a href="vonMisesFisherKernel.html"><tt>vonMisesFisherKernel</tt></a></td>
             <td></td>
@@ -3938,9 +3818,6 @@
          <h2>Y<a name="24"> </a></h2>
          <table width="95%">
             <tr></tr>
-            <td width="250px"><a href="tensor.YoungsModulus.html"><tt>YoungsModulus</tt></a><span>   (tensor)</span></td>
-            <td>Young's modulus for an elasticity tensor</td>
-            <tr></tr>
             <td width="250px"><a href="yvector.html"><tt>yvector</tt></a></td>
             <td>vector (0,1,0)</td>
          </table>
@@ -3950,9 +3827,6 @@
             <tr></tr>
             <td width="250px"><a href="zeroRangeMethod.zeroRangeMethod.html"><tt>zeroRangeMethod</tt></a><span>   (zeroRangeMethod)</span></td>
             <td>calculate zero range</td>
-            <tr></tr>
-            <td width="250px"><a href="zip_mtex.html"><tt>zip_mtex</tt></a></td>
-            <td>zip mtex for publishing (on website)</td>
             <tr></tr>
             <td width="250px"><a href="zUpDown.html"><tt>zUpDown</tt></a></td>
             <td></td>
@@ -3964,7 +3838,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right"> MTEX 5.0.beta.3</td>
+               <td valign="baseline" align="right"> MTEX 5.0.0</td>
             </tr>
          </table>
       </div>

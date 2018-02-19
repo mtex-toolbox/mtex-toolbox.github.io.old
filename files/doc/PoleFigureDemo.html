@@ -141,7 +141,7 @@ rec = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: 125 orientations, resolution: 10&deg;
+    center: 129 orientations, resolution: 10&deg;
     weight: 0.26799
  
 </pre><img src="PoleFigureDemo_05.png"> <p>without ghost correction</p><pre class="codeinput">rec_ng = calcODF(pf_SantaFe,<span class="string">'RESOLUTION'</span>,10*degree,<span class="string">'background'</span>,10,<span class="string">'NoGhostCorrection'</span>)
@@ -159,14 +159,14 @@ rec_ng = ODF
 </pre><img src="PoleFigureDemo_06.png"> <h2>Error Analysis<a name="14"> </a></h2><pre class="codeinput">calcError(pf_SantaFe,rec)
 calcError(pf_SantaFe,rec_ng)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.0213    0.0276    0.0251
+    0.0218    0.0281    0.0256
 progress: 100%
 ans =
     0.0372    0.0306    0.0269
 </pre><p><b>Difference plot</b></p><pre class="codeinput">plotDiff(pf_SantaFe,rec)</pre><pre class="codeoutput">progress: 100%
 </pre><img src="PoleFigureDemo_07.png"> <p><b>ODF error</b></p><pre class="codeinput">calcError(SantaFe,rec)
 calcError(SantaFe,rec_ng)</pre><pre class="codeoutput">ans =
-    0.0332
+    0.0340
 ans =
     0.0934
 </pre><h2>Exercises<a name="17"> </a></h2>
