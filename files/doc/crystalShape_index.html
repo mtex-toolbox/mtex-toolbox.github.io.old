@@ -168,16 +168,15 @@ hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to
  
   oM = ipdfHSVOrientationMapping(ori_variable_name)
   plot(oM)
-</pre><img src="crystalShape_index_04.png"> <p>In the same manner we may visualize grain orientations and grains size within pole figures</p><pre class="codeinput">plotPDF(grains(isBig).meanOrientation,0.002*cSGrains,Miller({1,0,-1,0},{0,0,0,1},ebsd.CS))</pre><img src="crystalShape_index_05.png"> <p>or even within ODF sections</p><pre class="codeinput"><span class="comment">% compute the odf</span>
+</pre><img src="crystalShape_index_04.png"> <p>In the same manner we may visualize grain orientations and grains size within pole figures</p><pre class="codeinput">plotPDF(grains(isBig).meanOrientation,Miller({1,0,-1,0},{0,0,0,1},ebsd.CS),<span class="string">'contour'</span>)
+plot(grains(isBig).meanOrientation,0.002*cSGrains,<span class="string">'add2all'</span>)</pre><img src="crystalShape_index_05.png"> <p>or even within ODF sections</p><pre class="codeinput"><span class="comment">% compute the odf</span>
 odf = calcODF(ebsd.orientations);
 
 <span class="comment">% plot the odf in sigma sections</span>
 plotSection(odf,<span class="string">'sigma'</span>,<span class="string">'contour'</span>)
 
 <span class="comment">% and on top of it the crystal shapes</span>
-hold <span class="string">on</span>
-plot(grains(isBig).meanOrientation,0.002*cSGrains)
-hold <span class="string">off</span></pre><img src="crystalShape_index_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+plot(grains(isBig).meanOrientation,0.002*cSGrains,<span class="string">'add2all'</span>)</pre><img src="crystalShape_index_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Twinning relationships<a name="10"> </a></h2>
          <p>We may also you crystal shapes to illustrate twinning relation ships</p><pre class="codeinput"><span class="comment">% define some twinning misorientation</span>
 mori = orientation(<span class="string">'axis'</span>,Miller({1 0-1 0},ebsd.CS),<span class="string">'angle'</span>,34.9*degree)

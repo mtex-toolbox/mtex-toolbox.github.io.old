@@ -93,7 +93,6 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.project2FundamentalRegion.html">project2FundamentalRegion</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.quiver.html">quiver</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.quiver3.html">quiver3</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.rank1prod.html">rank1prod</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.rdivide.html">rdivide</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.refine.html">refine</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.region.html">region</tocitem>
