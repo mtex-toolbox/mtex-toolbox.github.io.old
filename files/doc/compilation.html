@@ -43,7 +43,7 @@
             <p>Explains how to compile MTEX on Mac, Linux, and Windows systems. This should not be necessary in most cases.</p>
          </div>
          <h2>Introduction<a name="1"> </a></h2>
-         <p>MTEX is shipped with precompiled binaries for Mac OSX, Windows, and Linux, 32 and 64-bits. However, if these binaries are
+         <p>MTEX is shipped with precompiled binaries for macOS, Windows, and Linux for 64-bit systems. However, if these binaries are
             for some reason not compatible with your system, you have to compile them by hand. Compiling MTEX is not that easy and you
             are encouraged to contact the author if you have any problem.
          </p>
@@ -57,42 +57,40 @@
             through your favorite package manager. The package is called fftw3 or similar. You will also need to install  the header (developer)
             files. Alternatively, you can download the latest source directly from <a href="http://www.fftw.org">http://www.fftw.org</a> and compile it on your computer. For Windows, this is the only way to go. Download the source code and compile it using MinGW.
          </p>
+         <h2>Compiling binaries<a name="3"> </a></h2>
          <p><b>NFFT</b></p>
-         <p>The NFFT is a C library for nonequispaced fast Fourier transforms including Fourier transforms on the sphere. It can be downloaded
-            at <a href="http://www-user.tu-chemnitz.de/~potts/nfft">http://www-user.tu-chemnitz.de/~potts/nfft</a> and has to be installed by the following steps:
+         <p>The NFFT is a C library for nonequispaced fast Fourier transforms including Fourier transforms on the sphere: <a href="http://www-user.tu-chemnitz.de/~potts/nfft">http://www-user.tu-chemnitz.de/~potts/nfft</a>. For now, you will need the current development version (<a href="https://github.com/NFFT/nfft">https://github.com/NFFT/nfft</a>). To build and install the nfft binaries, you can use the following steps:
          </p>
          <div>
             <ul type="square">
                <li><tt>cd nfft_download_directory</tt></li>
-               <li><tt>./configure --prefix=nfft_install_directory --enable-nfsft --enable-nfsoft --enable-fpt --enable-static</tt></li>
+               <li><tt>./bootstrap</tt></li>
+               <li><tt>./configure --with-matlab=MATLAB_DIR --enable-nfsoft --enable-nfsft --enable-portable-binary</tt></li>
                <li><tt>make</tt></li>
-               <li><tt>make install</tt></li>
-            </ul>
+			</ul>
          </div>
-         <h2>Compiling MTEX<a name="3"> </a></h2>
-         <p>Now you can compile the MTEX toolbox. This is done by</p>
+		 <p>Now copy the following files to your mtex/extern/nfft directory: <tt>nfft/matlab/nfsoft/nfsoftmex.mex* nfft/matlab/nfsoft/nfsftmex.mex* </tt> </p>
+		 <p>In case you want to use openMP support, install the openMP libraries for your operation system, make sure your compiler supports openMP and add <tt>--enable-openmp</tt> as a configure option. For additional configure options, have a look at <tt> ./configure --help </tt>. </p>
+         <p><b>Additional binaries</b></p>
+         <p>The following steps should usually happen automatically during <tt>startup_mtex</tt>, however in case this fails for any reason, this is done by:</p>
          <div>
             <ul type="square">
-               <li><tt>cd mtex_download_directory</tt></li>
-               <li>edit the file <a href="matlab:edit([mtexDataPath '/../Makefile'])">Makefile</a> and specify the FFTW3 and the NFFT3 installation directories
-               </li>
+               <li><tt>cd mtex_download_directory/mex</tt></li>
+               <li><tt>mex_install</tt> (from within Matlab) </li>
+               or
+               <li> edit the Makefile according to your operation system and run </li>
                <li><tt>make</tt></li>
             </ul>
          </div>
          <h2>Checking Your Installation<a name="4"> </a></h2>
-         <p>Before starting MATLAB you can check whether the C programs were compiled successfully by typing</p>
-         <div>
-            <ul type="square">
-               <li><tt>make check</tt></li>
-            </ul>
-         </div>
          <p>After the next start of MATLAB change to the MTEX path and enter</p>
          <div>
             <ul type="square">
                <li><tt>startup_mtex</tt></li>
             </ul>
          </div>
-         <p>This should startup the MTEX toolbox. You can check your installation under MATLAB by typing</p><pre class="codeinput">check_mtex</pre><pre class="codeoutput">checking MTEX installation
+         <p>This should startup the MTEX toolbox and usually everything is checked during startup. You can check your installation under MATLAB by typing</p><pre class="codeinput">check_mtex</pre><pre class="codeoutput">
+checking MTEX installation
 this might take some time
  
 simulating pole figures
@@ -106,6 +104,28 @@ pf = PoleFigure
   h = (111), r = 1 x 206 points
   h = (211), r = 1 x 206 points
  
+  0 |  0.33  0.23  0.28  0.11
+  1 |  0.15  0.14  0.12  0.07
+  2 |  0.11  0.10  0.08  0.05
+  3 |  0.10  0.08  0.07  0.04
+  4 |  0.08  0.07  0.06  0.03
+  5 |  0.07  0.06  0.05  0.03
+  6 |  0.06  0.05  0.04  0.02
+  7 |  0.05  0.04  0.04  0.02
+  8 |  0.05  0.04  0.04  0.02
+  9 |  0.04  0.03  0.03  0.02
+ 10 |  0.04  0.  I'm going to apply ghost correction. Uniform portion fixed to 0.73
+  0 |  0.77  0.63  0.71  0.36
+  1 |  0.58  0.54  0.55  0.30
+  2 |  0.47  0.47  0.44  0.25
+  3 |  0.39  0.40  0.37  0.22
+  4 |  0.33  0.35  0.31  0.19
+  5 |  0.28  0.29  0.25  0.16
+  6 |  0.23  0.24  0.20  0.13
+  7 |  0.19  0.20  0.17  0.11
+  8 |  0.16  0.17  0.14  0.09
+  9 |  0.14  0.15  0.12  0.08
+ 10 |  0.13  0.14  0.11  0.08
  
 rec = ODF  
   crystal symmetry : m-3m
@@ -115,15 +135,15 @@ rec = ODF
     weight: 0.73006
  
   Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 10&deg;
-    center: 94 orientations, resolution: 10&deg;
+    kernel: de la Vallee Poussin, halfwidth 10°
+    center: 95 orientations, resolution: 10°
     weight: 0.26994
  
  
 check reconstruction error: 
 progress: 100%
 everythink seems to be ok!
-Elapsed time is 0.943844 seconds.
+Elapsed time is 1.490837 seconds.
 </pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
