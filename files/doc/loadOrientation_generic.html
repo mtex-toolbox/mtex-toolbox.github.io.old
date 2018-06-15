@@ -138,7 +138,29 @@ phi1_M Phi_M phi2_M</pre><p>The assoziation of the columns as Euler angles, phas
             </table>
             
          </p>
-         <h2>Example<a name="5"> </a></h2><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'EBSD'</span>,<span class="string">'85_829grad_07_09_06.txt'</span>);
+         <h2>Output<a name="5"> </a></h2>
+         <p>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>ori</tt>
+            </td>
+            <td>
+            <p><a href="orientation_index.html">orientation</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>S</tt>
+            </td>
+            <td>
+            <p>struct with fields for the additional columns</p>
+            </td>
+            </tr>
+            </table>
+            
+         </p>
+         <h2>Example<a name="6"> </a></h2><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'EBSD'</span>,<span class="string">'85_829grad_07_09_06.txt'</span>);
 CS = crystalSymmetry(<span class="string">'m-3m'</span>,<span class="string">'mineral'</span>,<span class="string">'Mg'</span>);
 SS = specimenSymmetry(<span class="string">'triclinic'</span>);</pre><pre class="codeinput">ori = loadOrientation_generic(fname,<span class="string">'CS'</span>,CS,<span class="string">'SS'</span>,SS, <span class="string">'ColumnNames'</span>, <span class="keyword">...</span>
 {<span class="string">'Euler1'</span> <span class="string">'Euler2'</span> <span class="string">'Euler3'</span>},<span class="string">'Columns'</span>,[5,6,7],<span class="string">'Bunge'</span>)</pre><pre class="codeoutput"> 

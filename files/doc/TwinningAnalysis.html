@@ -88,7 +88,7 @@ plot(grains,grains.meanOrientation)
 CS = grains.CS;</pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
+  oM = ipfColorKey(ori_variable_name)
   plot(oM)
 </pre><img src="TwinningAnalysis_01.png"> <p>Now we can extract from the grains its boundary and save it to a separate variable</p><pre class="codeinput">gB = grains.boundary</pre><pre class="codeoutput"> 
 gB = grainBoundary  
@@ -130,7 +130,6 @@ twinning = misorientation
   phi1     Phi    phi2    Inv.
    330 93.6529     330       0
  
- 
 </pre><p>The followin lines show that the twinning is actually a rotation about axis (-2110) and angle 86.3 degree</p><pre class="codeinput"><span class="comment">% the rotational axis</span>
 round(twinning.axis)
 
@@ -165,7 +164,7 @@ twinBoundary = grainBoundary
   I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
+  oM = ipfColorKey(ori_variable_name)
   plot(oM)
 </pre><img src="TwinningAnalysis_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Merge twins along twin boundaries<a name="10"> </a></h2>

@@ -96,7 +96,7 @@ grains = grain2d
   I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
+  oM = ipfColorKey(ori_variable_name)
   plot(oM)
 </pre><img src="Misorientations_01.png"> <p>After extracting the mean orientation of grain 70 and 80</p><pre class="codeinput">ori1 = grains(74).meanOrientation
 ori2 = grains(85).meanOrientation</pre><pre class="codeoutput"> 
@@ -110,7 +110,6 @@ ori1 = orientation
   19.4774 78.0484 220.043       0
  
  
- 
 ori2 = orientation  
   size: 1 x 1
   crystal symmetry : Magnesium (622, X||a*, Y||b, Z||c*)
@@ -119,7 +118,6 @@ ori2 = orientation
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
   71.4509 167.781 200.741       0
- 
  
 </pre><p>we may compute the misorientation angle between both orientations by</p><pre class="codeinput">angle(ori1, ori2) ./ degree</pre><pre class="codeoutput">ans =
    85.7093
@@ -167,7 +165,6 @@ mori = misorientation
   Bunge Euler angles in degree
      phi1     Phi    phi2    Inv.
   149.581 94.2922 150.134       0
- 
  
 </pre><p>In the present case the misorientation describes the coordinate transform from the reference frame of grain 80 into the reference
             frame of crystal 70. Take as an example the plane {11-20} with respect to the grain 80. Then the plane in grain 70 which alignes
@@ -247,7 +244,6 @@ mori = misorientation
    330 93.6529     330       0
  
  
- 
 ans = Miller  
  size: 1 x 1
  mineral: Magnesium (622, X||a*, Y||b, Z||c*)
@@ -290,7 +286,7 @@ plot(gB(isTwinning),<span class="string">'edgecolor'</span>,<span class="string"
 hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
+  oM = ipfColorKey(ori_variable_name)
   plot(oM)
 </pre><img src="Misorientations_04.png"> <p>From this picture we see that large fraction of grain boudaries are twinning boundaries. To make this observation more evident
             we may plot the boundary misorientation angle distribution function. This is simply the angle distribution of all boundary
@@ -329,7 +325,6 @@ Mag2Hem = misorientation
   phi1     Phi    phi2    Inv.
    120 54.7356      45       0
  
- 
 </pre><p>Assume a Magnetite grain with orientation</p><pre class="codeinput">ori_Mag = orientation(<span class="string">'Euler'</span>,0,0,0,CS_Mag)</pre><pre class="codeoutput"> 
 ori_Mag = orientation  
   size: 1 x 1
@@ -339,7 +334,6 @@ ori_Mag = orientation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
      0    0    0    0
- 
  
 </pre><p>Then we can compute all variants of the phase transition by</p><pre class="codeinput">symmetrise(ori_Mag) * inv(Mag2Hem)</pre><pre class="codeoutput"> 
 ans = orientation  

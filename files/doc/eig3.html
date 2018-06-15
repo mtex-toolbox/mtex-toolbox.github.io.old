@@ -40,15 +40,50 @@
       <div class="container">
          <h1>eig3</h1>
          <div class="subheading">
-            <p>returns the largest eigenvalue of a symmetric 3x3 matrix</p>
+            <p>eigenvalue and vectors of a symmetric 3x3 matrix</p>
          </div>
-         <h2>Syntax<a name="2"> </a></h2>
+         <h2>Syntax<a name="2"> </a></h2><pre class="codeinput">lambda = eig3(M)</pre><pre class="codeinput">lambda = eig3(a11,a12,a13,a22,a23,a33)</pre><pre class="codeinput">[v,lambda] = eig3(a11,a12,a13,a22,a23,a33)</pre><h2>Input<a name="3"> </a></h2>
          <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>[lambda,v] = eig3(A)</tt>
-            </div>
-            </div>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>M</tt>
+            </td>
+            <td>
+            <p>array of symmetric 3x3 matrix</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>a11, a12,a13,a22,a23,a33</tt>
+            </td>
+            <td>
+            <p>vector of matrix elements</p>
+            </td>
+            </tr>
+            </table>
+            
+         </p>
+         <h2>Output<a name="4"> </a></h2>
+         <p>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>lambda</tt>
+            </td>
+            <td>
+            <p>eigen values</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>v</tt>
+            </td>
+            <td>
+            <p>eigen vectors</p>
+            </td>
+            </tr>
+            </table>
             
          </p>
          <p style="font-size:1px;"></p>

@@ -120,7 +120,7 @@ ebsd = EBSD
 </pre><pre class="codeinput">figure
 plot(largeGrains(1).boundary,<span class="string">'linewidth'</span>,2)
 hold <span class="string">on</span>
-oM = ipdfHSVOrientationMapping(ebsd);
+oM = ipfHSVKey(ebsd);
 oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
 oM.colorStretching = 50;
 plot(ebsd,oM.orientation2color(ebsd.orientations))

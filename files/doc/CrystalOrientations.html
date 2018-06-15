@@ -106,7 +106,6 @@ o = orientation
   phi1  Phi phi2 Inv.
     30   50   10    0
  
- 
 </pre><p>SUB: Matthies Euler angle convention</p>
          <p>In contrast to the Bunge convention here the three rotations are taken about the z-axis, the y-axis, and the z-axis.</p><pre class="codeinput">o = orientation(<span class="string">'Euler'</span>,30*degree,50*degree,10*degree,<span class="string">'ZYZ'</span>,cs,ss)</pre><pre class="codeoutput"> 
 o = orientation  
@@ -117,7 +116,6 @@ o = orientation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
    120   50  280    0
- 
  
 </pre><p>SUB: Axis angle parametrisation</p>
          <p>Another possibility to specify an rotation is to give its rotational axis and its rotational angle.</p><pre class="codeinput">o = orientation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,30*degree,cs,ss)</pre><pre class="codeoutput"> 
@@ -130,7 +128,6 @@ o = orientation
   phi1  Phi phi2 Inv.
      0   30    0    0
  
- 
 </pre><p>SUB: Miller indice</p>
          <p>There is also a Miller indice convention for defining crystal orientations.</p><pre class="codeinput">o = orientation(<span class="string">'Miller'</span>,[1 0 0],[0 1 1],cs,ss)</pre><pre class="codeoutput"> 
 o = orientation  
@@ -141,7 +138,6 @@ o = orientation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
    135   90   90    0
- 
  
 </pre><p>SUB: Four vectors defining a rotation</p>
          <p>Given four vectors u1, v1, u2, v2 there is a unique rotations q such that q u1 = v1 and q u2 = v2.</p><pre class="codeinput">o = orientation(<span class="string">'map'</span>,xvector,yvector,zvector,zvector,cs,ss)</pre><pre class="codeoutput"> 
@@ -154,7 +150,6 @@ o = orientation
   phi1  Phi phi2 Inv.
     90    0    0    0
  
- 
 </pre><p>SUB: Defining an orientation by a 3 times 3 matrix</p><pre class="codeinput">o = orientation(<span class="string">'matrix'</span>,eye(3),cs,ss)</pre><pre class="codeoutput"> 
 o = orientation  
   size: 1 x 1
@@ -164,7 +159,6 @@ o = orientation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
      0    0    0    0
- 
  
 </pre><p>SUB: Predefined orientations</p>
          <p>Below you find a list of orientations predefined in MTEX:</p><pre class="codeinput"><span class="comment">% the cube or identical orientation</span>
@@ -233,7 +227,6 @@ o = orientation
   phi1  Phi phi2 Inv.
     90   90    0    0
  
- 
 </pre><p>Then in specimen coordinates the direction <tt>h</tt> has the coordinates
          </p><pre class="codeinput">r = o * h</pre><pre class="codeoutput"> 
 r = vector3d  
@@ -257,7 +250,6 @@ o1 = orientation
   phi1  Phi phi2 Inv.
      0   60   90    0
  
- 
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Symmetric equivalence<a name="22"> </a></h2>
          <p>Crystal orientations always appear as a class of symmetrically equivalent orientations which are physicaly not distinguishable.
@@ -269,8 +261,7 @@ ans = orientation
  
 </pre><p>Alternatively the list can be computed by multiplying with the specimen and the crystal symmetry from the left and from the
             right.
-         </p><pre class="codeinput">ss * o * cs</pre><pre class="codeoutput">Warning: Symmetry missmatch! 
- 
+         </p><pre class="codeinput">ss * o * cs</pre><pre class="codeoutput"> 
 ans = orientation  
   size: 8 x 48
   crystal symmetry : m-3m

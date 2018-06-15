@@ -54,7 +54,7 @@
          <h2>Example<a name="3"> </a></h2><pre class="codeinput">cs = crystalSymmetry(<span class="string">'mmm'</span>)
 oS = axisAngleSections(cs,cs)
 ori = oS.makeGrid(<span class="string">'resolution'</span>);
-oM = patalaOrientationMapping(cs,cs)
+oM = PatalaColorKey(cs,cs)
 rgb = oM.orientation2color(ori);
 plot(oS,rgb,<span class="string">'surf'</span>)</pre><pre class="codeoutput"> 
 cs = crystalSymmetry  
@@ -78,7 +78,7 @@ oS =
                CS: [4&times;1 crystalSymmetry]
                SS: [4&times;1 crystalSymmetry]
 oM = 
-  patalaOrientationMapping with properties:
+  PatalaColorKey with properties:
 
           CS1: [4&times;2 crystalSymmetry]
           CS2: [4&times;2 crystalSymmetry]

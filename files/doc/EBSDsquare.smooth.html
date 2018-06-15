@@ -71,7 +71,15 @@
          <h2>Example<a name="5"> </a></h2><pre class="codeinput">mtexdata <span class="string">forsterite</span>
 ebsd = ebsd(<span class="string">'indexed'</span>);
 <span class="comment">% segment grains</span>
-[grains,ebsd.grainId] = calcGrains(ebsd)</pre><pre class="codeoutput"> 
+[grains,ebsd.grainId] = calcGrains(ebsd)</pre><pre class="codeoutput">Warning: P-file
+/opt/matlab-2018a/toolbox/matlab/datatypes/isprop.p is
+older than MATLAB file
+/opt/matlab-2018a/toolbox/matlab/datatypes/isprop.m.
+/opt/matlab-2018a/toolbox/matlab/datatypes/isprop.p may
+be obsolete and may need to be regenerated.
+Type "help pcode" for information about generating
+P-files. 
+ 
 grains = grain2d  
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
@@ -119,11 +127,10 @@ ebsd = EBSD
  Scan unit : um
  
 </pre><pre class="codeinput">figure
-plot(largeGrains(1).boundary,<span class="string">'linewidth'</span>,2)
+plot(largeGrains(1).boundary,<span class="string">'linewidth'</span>,2,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
 hold <span class="string">on</span>
-oM = ipdfHSVOrientationMapping(ebsd);
-oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
-oM.maxAngle = 1.5*degree;
+oM = axisAngleColorKey(ebsd);
+oM.oriRef = mean(ebsd.orientations);
 plot(ebsd,oM.orientation2color(ebsd.orientations))
 hold <span class="string">off</span></pre><img src="EBSDsquare.smooth_01.png"> <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

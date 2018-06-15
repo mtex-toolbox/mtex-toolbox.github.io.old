@@ -115,15 +115,15 @@ hold <span class="string">off</span></pre><img src="GrainSpatialPlots_03.png"> <
 plot(grains(<span class="string">'Fo'</span>),grains(<span class="string">'fo'</span>).meanOrientation)</pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
+  oM = ipfColorKey(ori_variable_name)
   plot(oM)
 </pre><img src="GrainSpatialPlots_04.png"> <p>This implicte way gives no control about how the color is computed from the meanorientation. When using the explicite way
             by defining a orientation to color map
          </p><pre class="codeinput"><span class="comment">% this defines a ipf color key</span>
-oM = ipdfHSVOrientationMapping(grains(<span class="string">'Fo'</span>));</pre><p>we can set the inverse pole figure direction and many other properties</p><pre class="codeinput">oM.inversePoleFigureDirection = xvector;
+ipfKey = ipfColorKey(grains(<span class="string">'Fo'</span>));</pre><p>we can set the inverse pole figure direction and many other properties</p><pre class="codeinput">ipfKey.inversePoleFigureDirection = xvector;
 
 <span class="comment">% compute the colors from the meanorientations</span>
-color = oM.orientation2color(grains(<span class="string">'Fo'</span>).meanOrientation);
+color = ipfKey.orientation2color(grains(<span class="string">'Fo'</span>).meanOrientation);
 
 <span class="comment">% and use them for plotting</span>
 plot(grains(<span class="string">'fo'</span>),color)</pre><img src="GrainSpatialPlots_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -177,7 +177,7 @@ ebsd_maxGrain = EBSD
  Scan unit : um
  
 </pre><pre class="codeinput"><span class="comment">% compute the color out of the orientations</span>
-color = oM.orientation2color(ebsd_maxGrain.orientations);
+color = ipfKey.orientation2color(ebsd_maxGrain.orientations);
 
 <span class="comment">% plot it</span>
 plot(ebsd_maxGrain, color,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
@@ -207,7 +207,7 @@ quiver(grains,len.*dir,<span class="string">'autoScale'</span>,<span class="stri
 hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
+  oM = ipfColorKey(ori_variable_name)
   plot(oM)
 </pre><img src="GrainSpatialPlots_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Labeling Grains<a name="17"> </a></h2>
@@ -221,7 +221,7 @@ plot(big_grains,big_grains.meanOrientation,<span class="string">'micronbar'</spa
 text(big_grains,int2str(big_grains.id))</pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
+  oM = ipfColorKey(ori_variable_name)
   plot(oM)
 </pre><img src="GrainSpatialPlots_11.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>

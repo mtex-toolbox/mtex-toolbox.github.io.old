@@ -95,7 +95,7 @@ rho=3.355;
 <span class="comment">% Define tensor object in MTEX</span>
 <span class="comment">% Cij -&gt; Cijkl - elastic stiffness tensor</span>
 C = stiffnessTensor(M,cs_tensor,<span class="string">'density'</span>,rho)</pre><pre class="codeoutput"> 
-C = stiffness stiffnessTensor  
+C = stiffnessTensor  
   density: 3.355            
   unit   : GPa              
   rank   : 4 (3 x 3 x 3 x 3)
@@ -108,7 +108,7 @@ C = stiffness stiffnessTensor
      0     0     0    64     0     0
      0     0     0     0    77     0
      0     0     0     0     0  78.7
-</pre><p>Compute seismic velocities as functions on the sphere</p><pre class="codeinput">[vp,vs1,vs2,pp,ps1,ps2] = C.velocity;</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><p>Compute seismic velocities as functions on the sphere</p><pre class="codeinput">[vp,vs1,vs2,pp,ps1,ps2] = C.velocity(<span class="string">'harmonic'</span>);</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Plotting section<a name="6"> </a></h2>
          <p>Here we set preference for a nice plot.</p><pre class="codeinput"><span class="comment">% plotting convention - plot a-axis to east</span>
 plota2east;

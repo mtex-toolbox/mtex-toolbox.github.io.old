@@ -99,7 +99,7 @@ T = tensor
 cs = crystalSymmetry(<span class="string">'mmm'</span>,[4.7646 10.2296 5.9942],<span class="string">'mineral'</span>,<span class="string">'olivine'</span>);
 
 C = stiffnessTensor.load(fname,cs)</pre><pre class="codeoutput"> 
-C = stiffness stiffnessTensor  
+C = stiffnessTensor  
   unit   : GPa              
   rank   : 4 (3 x 3 x 3 x 3)
   mineral: olivine (mmm)    
@@ -129,7 +129,6 @@ r = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     45    0    0    0
- 
  
 </pre><p>Then the rotated tensor is given by</p><pre class="codeinput">Trot = rotate(T,r)
 plot(Trot)</pre><pre class="codeoutput"> 
@@ -168,7 +167,7 @@ T = tensor
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The Inverse Tensor<a name="13"> </a></h2>
          <p>The inverse of a 2 rank tensor or a 4 rank elasticity tensor is computed by the command <a href="tensor.inv.html">inv</a></p><pre class="codeinput">S = inv(C)</pre><pre class="codeoutput"> 
-S = compliance complianceTensor  
+S = complianceTensor  
   unit            : 1/GPa            
   rank            : 4 (3 x 3 x 3 x 3)
   doubleConvention: true             
@@ -186,7 +185,7 @@ S = compliance complianceTensor
          <p>In MTEX tensor products are specifies according to Einsteins summation convention, i.e. a tensor product of the form T_ij
             = E_ijkl S_kl has to be interpreted as a sum over the indices k and l. In MTEX this sum can be computed using the command
             <a href="tensor.EinsteinSum.html">EinsteinSum</a></p><pre class="codeinput">S = EinsteinSum(C,[-1 -2 1 2],T,[-1 -2])</pre><pre class="codeoutput"> 
-S = stiffnessTensor  
+S = tensor  
   size   : 3 x 1        
   rank   : 2 (3 x 3)    
   mineral: olivine (mmm)
@@ -197,12 +196,8 @@ S = stiffnessTensor
             it mean elasticity tensor E by the formula, c = S_ijkk v_i v_j where S is the compliance, i.e. the inverse of the elasticity
             tensor
          </p><pre class="codeinput">v = xvector;
-c = EinsteinSum(C,[-1 -2 -3 -3],v,-1,v,-2)</pre><pre class="codeoutput"> 
-c = stiffnessTensor  
-  rank   : 0 ()         
-  mineral: olivine (mmm)
- 
- 460.3
+c = EinsteinSum(C,[-1 -2 -3 -3],v,-1,v,-2)</pre><pre class="codeoutput">c =
+  460.2500
 </pre><p>set back the default color map.</p><pre class="codeinput">setMTEXpref(<span class="string">'defaultColorMap'</span>,WhiteJetColorMap)</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

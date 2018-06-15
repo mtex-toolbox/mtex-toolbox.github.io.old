@@ -44,21 +44,15 @@
             </p>
          </div>
          <p>return indece and distance of all nodes within a eps neighborhood</p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>[ind,dist] = find(rotations,rotation,radius)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput"><span class="comment">% find for each quaternion in ref the closest quaternion in lookup</span>
+[ind,d] = find(table,ref,radius)</pre><pre class="codeinput"><span class="comment">% find for each quaternion in ref all quaternion in lookup that have</span>
+<span class="comment">% angle not larger then epsilon</span>
+[ind,d] = find(table,rotation,epsilon)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>quats</tt>
+            <tt>table</tt>
             </td>
             <td>
             <p><a href="quaternion_index.html">quaternion</a></p>
@@ -66,7 +60,7 @@
             </tr>
             <tr>
             <td width="100px">
-            <tt>quat</tt>
+            <tt>ref</tt>
             </td>
             <td>
             <p><a href="quaternion_index.html">quaternion</a></p>
@@ -74,7 +68,7 @@
             </tr>
             <tr>
             <td width="100px">
-            <tt>radius</tt>
+            <tt>epsilon</tt>
             </td>
             <td>
             <p>double</p>
@@ -88,7 +82,13 @@
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>[indece, distances]</tt>
+            <tt>ind</tt>
+            </td>
+            <td/>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>d</tt>
             </td>
             <td/>
             </tr>

@@ -35,11 +35,11 @@
                         <td valign="top" width="75%"></td></a></td>
                </tr>
                <tr>
-                  <td valign="top" width="250px"><a href="#13"> Classes for Quantitative Texture Analysis
+                  <td valign="top" width="250px"><a href="#14"> Classes for Quantitative Texture Analysis
                         <td valign="top" width="75%"></td></a></td>
                </tr>
                <tr>
-                  <td valign="top" width="250px"><a href="#20"> Auxiliary Functions
+                  <td valign="top" width="250px"><a href="#21"> Auxiliary Functions
                         <td valign="top" width="75%">Helper functions making life easier
                            
                             Below you can find a series of powerful all purpose tools provided by 
@@ -91,19 +91,23 @@
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#9"> Quaternions (The Class @quaternion)
+               <td valign="top" width="250px"><a href="#9"> Slip Systems (The Class @slipSystem)
+                     <td valign="top" width="75%">This section describes the class *slipSystem*.</td></a></td>
+            </tr>
+            <tr>
+               <td valign="top" width="250px"><a href="#10"> Quaternions (The Class @quaternion)
                      <td valign="top" width="75%">class representing orientations</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#10"> Discretisation of 1-Sphere (The Class @S1Grid)
+               <td valign="top" width="250px"><a href="#11"> Discretisation of 1-Sphere (The Class @S1Grid)
                      <td valign="top" width="75%">S1Grid is a class of purely internal use</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#11"> Discretisation of 2 - Sphere (The Class @S2Grid)
+               <td valign="top" width="250px"><a href="#12"> Discretisation of 2 - Sphere (The Class @S2Grid)
                      <td valign="top" width="75%">represents a grid of nodes on the sphere</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#12"> Discretisation of Orientation Space (The Class SO3Grid)
+               <td valign="top" width="250px"><a href="#13"> Discretisation of Orientation Space (The Class SO3Grid)
                      <td valign="top" width="75%">represents a set of orientations</td></a></td>
             </tr>
          </table>
@@ -124,6 +128,9 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.abs.html"><tt>abs</tt></a></td>
             <td>length of vector</td>
+            <tr></tr>
+            <td width="250px"><a href="vector3d.accumarray.html"><tt>accumarray</tt></a></td>
+            <td>accumarray for vector3d</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.angle.html"><tt>angle</tt></a></td>
             <td>angle between two vectors</td>
@@ -147,7 +154,7 @@
             <td>compute the area of the Voronoi decomposition</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.calcVoronoiArea.html"><tt>calcVoronoiArea</tt></a></td>
-            <td>compute the area of the Voronoi decomposition</td>
+            <td>compute the spherical area of the Voronoi decomposition</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.cat.html"><tt>cat</tt></a></td>
             <td></td>
@@ -188,6 +195,9 @@
             <td width="250px"><a href="vector3d.double.html"><tt>double</tt></a></td>
             <td>converts vector3d to double Input v - @vector3d Output x, y, z - double</td>
             <tr></tr>
+            <td width="250px"><a href="vector3d.dyad.html"><tt>dyad</tt></a></td>
+            <td>dyadic tensor product</td>
+            <tr></tr>
             <td width="250px"><a href="vector3d.end.html"><tt>end</tt></a></td>
             <td>overloaded end function</td>
             <tr></tr>
@@ -223,6 +233,9 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.minus.html"><tt>minus</tt></a></td>
             <td>overload minus</td>
+            <tr></tr>
+            <td width="250px"><a href="vector3d.mpower.html"><tt>mpower</tt></a></td>
+            <td>n-th dyadic product</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.mtimes.html"><tt>mtimes</tt></a></td>
             <td>scalar multiplication</td>
@@ -266,6 +279,9 @@
             <td width="250px"><a href="vector3d.polar.html"><tt>polar</tt></a></td>
             <td>cartesian to spherical coordinates Input v - @vector3d Output theta  - polar angle rho    - azimuthal angle  r      - radius</td>
             <tr></tr>
+            <td width="250px"><a href="vector3d.polyArea.html"><tt>polyArea</tt></a></td>
+            <td>area of a flat polygon given by vertices v1, v2, ..., v_n</td>
+            <tr></tr>
             <td width="250px"><a href="vector3d.project2FundamentalRegion.html"><tt>project2FundamentalRegion</tt></a></td>
             <td>projects vectors to the fundamental sector of the inverse pole figure</td>
             <tr></tr>
@@ -274,6 +290,9 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.quiver3.html"><tt>quiver3</tt></a></td>
             <td>Syntax quiver(v,d)</td>
+            <tr></tr>
+            <td width="250px"><a href="vector3d.rank.html"><tt>rank</tt></a></td>
+            <td>rank = 1</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.rdivide.html"><tt>rdivide</tt></a></td>
             <td>scalar division v ./ s</td>
@@ -362,6 +381,9 @@
             <td width="250px"><a href="Miller.Miller.html"><tt>Miller</tt></a></td>
             <td>define a crystal direction by Miller indice</td>
             <tr></tr>
+            <td width="250px"><a href="Miller.calcDensity.html"><tt>calcDensity</tt></a></td>
+            <td>calculate a density function out of (weighted) crystal directions</td>
+            <tr></tr>
             <td width="250px"><a href="Miller.cat.html"><tt>cat</tt></a></td>
             <td>concatenate lists of Miller indices to one list</td>
             <tr></tr>
@@ -425,6 +447,9 @@
             <tr></tr>
             <td width="250px"><a href="crystalShape.display.html"><tt>display</tt></a></td>
             <td>standard output</td>
+            <tr></tr>
+            <td width="250px"><a href="crystalShape.fitArea.html"><tt>fitArea</tt></a></td>
+            <td>change habitus of crystal shape to fit given faceAreas</td>
             <tr></tr>
             <td width="250px"><a href="crystalShape.length.html"><tt>length</tt></a></td>
             <td>overloads length</td>
@@ -709,7 +734,7 @@
             <td>o .\ v</td>
             <tr></tr>
             <td width="250px"><a href="orientation.log.html"><tt>log</tt></a></td>
-            <td>the inverse of the exponential map</td>
+            <td>the misorientation vector in crystal coordinates</td>
             <tr></tr>
             <td width="250px"><a href="orientation.mean.html"><tt>mean</tt></a></td>
             <td>mean of a list of orientations, principle axes and moments of inertia</td>
@@ -754,7 +779,7 @@
             <td>quantile-quantile of misorientation angle against random angular misorientation</td>
             <tr></tr>
             <td width="250px"><a href="orientation.round2Miller.html"><tt>round2Miller</tt></a></td>
-            <td>find lattice alignements for arbitrary misorientations</td>
+            <td>find lattice alignements for arbitrary orientations and misorientations</td>
             <tr></tr>
             <td width="250px"><a href="orientation.scatter.html"><tt>scatter</tt></a></td>
             <td>plots orientations in 3d</td>
@@ -821,7 +846,7 @@
             <td>generate a list of orientation out of a fibre</td>
             <tr></tr>
             <td width="250px"><a href="fibre.plot.html"><tt>plot</tt></a></td>
-            <td></td>
+            <td>plot a fibre</td>
             <tr></tr>
             <td width="250px"><a href="fibre.plotIPDF.html"><tt>plotIPDF</tt></a></td>
             <td>plot orientations into inverse pole figures</td>
@@ -848,8 +873,84 @@
             <td>overloads [v1,v2,v3..]</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Quaternions (The Class @quaternion)<a name="9"> </a></h2>
+         <h2> Slip Systems (The Class @slipSystem)<a name="9"> </a></h2>
          <table width="95%">
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.SchmidFactor.html"><tt>SchmidFactor</tt></a></td>
+            <td>compute the Schmid factor</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.cat.html"><tt>cat</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.deformationTensor.html"><tt>deformationTensor</tt></a></td>
+            <td>deformation tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.end.html"><tt>end</tt></a></td>
+            <td>overloaded end function</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.eq.html"><tt>eq</tt></a></td>
+            <td>? sS1 == sS2</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.horzcat.html"><tt>horzcat</tt></a></td>
+            <td>overloads [v1,v2,v3..]</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.isempty.html"><tt>isempty</tt></a></td>
+            <td>overloads isempty</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.length.html"><tt>length</tt></a></td>
+            <td>overloads length</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.mPrime.html"><tt>mPrime</tt></a></td>
+            <td>m' parameter from Luster and Morris in 1995</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.ne.html"><tt>ne</tt></a></td>
+            <td>? sS1 ~= sS2</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.residualBurgersVector.html"><tt>residualBurgersVector</tt></a></td>
+            <td>compute the Schmid factor</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.rotate.html"><tt>rotate</tt></a></td>
+            <td>rotate slip system</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.rotate_outer.html"><tt>rotate_outer</tt></a></td>
+            <td>rotate slip system</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.size.html"><tt>size</tt></a></td>
+            <td>overloads size</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.slipSystem.html"><tt>slipSystem</tt></a></td>
+            <td>class representing slip systems</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.subSet.html"><tt>subSet</tt></a></td>
+            <td>subindex vector3d</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.subsasgn.html"><tt>subsasgn</tt></a></td>
+            <td>overloads subsasgn</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.subsref.html"><tt>subsref</tt></a></td>
+            <td>overloads subsref</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.symmetrise.html"><tt>symmetrise</tt></a></td>
+            <td>find all symmetrically equivalent slips systems</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.trace.html"><tt>trace</tt></a></td>
+            <td>trace of the slip plane in the surface normal to n</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.transpose.html"><tt>transpose</tt></a></td>
+            <td>transpose list of slipSystem</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.uminus.html"><tt>uminus</tt></a></td>
+            <td>overloads unitary minus</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.vertcat.html"><tt>vertcat</tt></a></td>
+            <td>overloads [v1,v2,v3..]</td>
+         </table>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
+         <h2> Quaternions (The Class @quaternion)<a name="10"> </a></h2>
+         <table width="95%">
+            <tr></tr>
+            <td width="250px"><a href="quaternion.EinsteinSum.html"><tt>EinsteinSum</tt></a></td>
+            <td>tensor multiplication according to Einstein summation</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.Euler.html"><tt>Euler</tt></a></td>
             <td>quaternion to euler angle</td>
@@ -1050,7 +1151,7 @@
             <td>implements [q1;q2;q3..]</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Discretisation of 1-Sphere (The Class @S1Grid)<a name="10"> </a></h2>
+         <h2> Discretisation of 1-Sphere (The Class @S1Grid)<a name="11"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="S1Grid.GridLength.html"><tt>GridLength</tt></a></td>
@@ -1108,7 +1209,7 @@
             <td>epsilon - neighborhood of a point in the grid</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Discretisation of 2 - Sphere (The Class @S2Grid)<a name="11"> </a></h2>
+         <h2> Discretisation of 2 - Sphere (The Class @S2Grid)<a name="12"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="S2Grid.S2Grid.html"><tt>S2Grid</tt></a></td>
@@ -1150,7 +1251,7 @@
             <td>overloads subsref</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Discretisation of Orientation Space (The Class SO3Grid)<a name="12"> </a></h2>
+         <h2> Discretisation of Orientation Space (The Class SO3Grid)<a name="13"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="SO3Grid.SO3Grid.html"><tt>SO3Grid</tt></a></td>
@@ -1190,42 +1291,42 @@
             <td>overloads subsref</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">updateSectionId("1");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#1">Back to Top of Section</a></p>
-         <h2> Classes for Quantitative Texture Analysis<a name="13"> </a></h2>
+         <h2> Classes for Quantitative Texture Analysis<a name="14"> </a></h2>
          <table class="ref" width="90%">
             <tr>
-               <td valign="top" width="250px"><a href="#14"> Orientation Density Functions (The Class @ODF)
+               <td valign="top" width="250px"><a href="#15"> Orientation Density Functions (The Class @ODF)
                      <td valign="top" width="75%">This sections describes the class *ODF* and gives an overview how to work
                          with orientation density functions in MTEX.
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#15"> Standard ODFs
+               <td valign="top" width="250px"><a href="#16"> Standard ODFs
                      <td valign="top" width="75%">predefined ODFs</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#16"> ODF Shapes (The class @kernel) 
+               <td valign="top" width="250px"><a href="#17"> ODF Shapes (The class @kernel) 
                      <td valign="top" width="75%">standard distributions on SO(3)</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#17"> Pole Figure Data (The Class @PoleFigure)
+               <td valign="top" width="250px"><a href="#18"> Pole Figure Data (The Class @PoleFigure)
                      <td valign="top" width="75%">This section describes the class *PoleFigure* and gives an overview of
                          the functionality MTEX offers to analyze pole figure data.
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#18"> Electron Backscatter Diffraction Data (The Class @EBSD)
+               <td valign="top" width="250px"><a href="#19"> Electron Backscatter Diffraction Data (The Class @EBSD)
                      <td valign="top" width="75%">This section describes the class *EBSD* and gives an overview over the
                          functionality that MTEX offers to analyze EBSD data.
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#19"> Material Tensors (The Class @tensor)
+               <td valign="top" width="250px"><a href="#20"> tensors (The Class @tensor)
                      <td valign="top" width="75%"></td></a></td>
             </tr>
          </table>
          <table width="95%"></table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2> Orientation Density Functions (The Class @ODF)<a name="14"> </a></h2>
+         <h2> Orientation Density Functions (The Class @ODF)<a name="15"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="ODF.FourierODF.html"><tt>FourierODF</tt></a></td>
@@ -1330,9 +1431,6 @@
             <td width="250px"><a href="ODF.max.html"><tt>max</tt></a></td>
             <td>heuristic to find local modal orientations</td>
             <tr></tr>
-            <td width="250px"><a href="ODF.maxpdf.html"><tt>maxpdf</tt></a></td>
-            <td>returns the maximum orientation in a polefigure</td>
-            <tr></tr>
             <td width="250px"><a href="ODF.mean.html"><tt>mean</tt></a></td>
             <td>expected value of an ODF</td>
             <tr></tr>
@@ -1414,8 +1512,8 @@
             <td width="250px"><a href="ODF.volume.html"><tt>volume</tt></a></td>
             <td>ratio of orientations with a certain orientation</td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
-         <h2> Standard ODFs<a name="15"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("14");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#14">Back to Top of Section</a></p>
+         <h2> Standard ODFs<a name="16"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="BinghamODF.html"><tt>BinghamODF</tt></a></td>
@@ -1442,8 +1540,8 @@
             <td width="250px"><a href="unimodalODF.html"><tt>unimodalODF</tt></a></td>
             <td>define a unimodal ODF</td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
-         <h2> ODF Shapes (The class @kernel) <a name="16"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("14");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#14">Back to Top of Section</a></p>
+         <h2> ODF Shapes (The class @kernel) <a name="17"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="kernel.K_symmetrised.html"><tt>K_symmetrised</tt></a></td>
@@ -1467,8 +1565,8 @@
             <td width="250px"><a href="kernel.volume.html"><tt>volume</tt></a></td>
             <td></td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
-         <h2> Pole Figure Data (The Class @PoleFigure)<a name="17"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("14");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#14">Back to Top of Section</a></p>
+         <h2> Pole Figure Data (The Class @PoleFigure)<a name="18"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="PoleFigure.PoleFigure.html"><tt>PoleFigure</tt></a></td>
@@ -1555,6 +1653,9 @@
             <td width="250px"><a href="PoleFigure.rotate.html"><tt>rotate</tt></a></td>
             <td>rotates pole figures by a certain rotation</td>
             <tr></tr>
+            <td width="250px"><a href="PoleFigure.rotate_outer.html"><tt>rotate_outer</tt></a></td>
+            <td>is called by rot * pf</td>
+            <tr></tr>
             <td width="250px"><a href="PoleFigure.scale.html"><tt>scale</tt></a></td>
             <td>scale polefigure by a factor</td>
             <tr></tr>
@@ -1579,8 +1680,8 @@
             <td width="250px"><a href="PoleFigure.unique.html"><tt>unique</tt></a></td>
             <td>remove dublicated points in a polefigure</td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
-         <h2> Electron Backscatter Diffraction Data (The Class @EBSD)<a name="18"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("14");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#14">Back to Top of Section</a></p>
+         <h2> Electron Backscatter Diffraction Data (The Class @EBSD)<a name="19"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="EBSD.EBSD.html"><tt>EBSD</tt></a></td>
@@ -1685,29 +1786,189 @@
             <td width="250px"><a href="EBSD.updateUnitCell.html"><tt>updateUnitCell</tt></a></td>
             <td>this function should be called after the spatial coordinates of an EBSD data set have been modified</td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
-         <h2> Material Tensors (The Class @tensor)<a name="19"> </a></h2>
-         <table width="95%"></table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("13");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#13">Back to Top of Section</a></p>
-         <h2> Auxiliary Functions<a name="20"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("14");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#14">Back to Top of Section</a></p>
+         <h2> tensors (The Class @tensor)<a name="20"> </a></h2>
+         <table width="95%">
+            <tr></tr>
+            <td width="250px"><a href="tensor.Fourier.html"><tt>Fourier</tt></a></td>
+            <td>compute the Fourier coefficients of the tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.Voigt.html"><tt>Voigt</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.antiSym.html"><tt>antiSym</tt></a></td>
+            <td>the antisymmetric part A = 0.5(T - T.') of a tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.char.html"><tt>char</tt></a></td>
+            <td>tensor to char</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.checkSymmetry.html"><tt>checkSymmetry</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.conj.html"><tt>conj</tt></a></td>
+            <td>conjugate of a tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.ctranspose.html"><tt>ctranspose</tt></a></td>
+            <td>conjugate of a tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.det.html"><tt>det</tt></a></td>
+            <td>compute the trace of a rank 2 tensors</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.diag.html"><tt>diag</tt></a></td>
+            <td>convert rank 1 or rank 0 tensor into diagonal rank 2 tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.directionalMagnitude.html"><tt>directionalMagnitude</tt></a></td>
+            <td>magnitude of a tensor in direction v</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.display.html"><tt>display</tt></a></td>
+            <td>standard output</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.double.html"><tt>double</tt></a></td>
+            <td>convert tensor values to matrix</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.dyad.html"><tt>dyad</tt></a></td>
+            <td>dyadic tensor product</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.eig.html"><tt>eig</tt></a></td>
+            <td>compute the eigenvalues and eigenvectors of a tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.end.html"><tt>end</tt></a></td>
+            <td>overloaded end function</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.eq.html"><tt>eq</tt></a></td>
+            <td>checks whether two tensors are equal</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.expm.html"><tt>expm</tt></a></td>
+            <td>matrix exponential of a tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.horzcat.html"><tt>horzcat</tt></a></td>
+            <td>overloads [T1,T2,T3..]</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.inv.html"><tt>inv</tt></a></td>
+            <td>inverse of a tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.length.html"><tt>length</tt></a></td>
+            <td>returns the number of tensors</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.logm.html"><tt>logm</tt></a></td>
+            <td>matrix logarithm of a tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.matrix.html"><tt>matrix</tt></a></td>
+            <td>return tensor as a matrix</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.max.html"><tt>max</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.mean.html"><tt>mean</tt></a></td>
+            <td>mean of a list of tensors</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.min.html"><tt>min</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.minus.html"><tt>minus</tt></a></td>
+            <td>T1 - T2;</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.mrdivide.html"><tt>mrdivide</tt></a></td>
+            <td>implements T / S</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.mtimes.html"><tt>mtimes</tt></a></td>
+            <td>implements T1 * T2</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.ne.html"><tt>ne</tt></a></td>
+            <td>checks whether two tensors are not equal</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.numel.html"><tt>numel</tt></a></td>
+            <td>returns the number of tensors</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.plot.html"><tt>plot</tt></a></td>
+            <td>plot a tensor T</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.plus.html"><tt>plus</tt></a></td>
+            <td>add two tensors</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.quadric.html"><tt>quadric</tt></a></td>
+            <td>quadric</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.rdivide.html"><tt>rdivide</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.real.html"><tt>real</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.reshape.html"><tt>reshape</tt></a></td>
+            <td>reshape for tensors</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.rotate.html"><tt>rotate</tt></a></td>
+            <td>rotate a tensor by a list of rotations</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.rotate_outer.html"><tt>rotate_outer</tt></a></td>
+            <td>rotate a tensor by a list of rotations</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.size.html"><tt>size</tt></a></td>
+            <td>overloads size</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.subsasgn.html"><tt>subsasgn</tt></a></td>
+            <td>overloads subsasgn</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.subsref.html"><tt>subsref</tt></a></td>
+            <td>overloads subsref</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.sum.html"><tt>sum</tt></a></td>
+            <td>sum of a list of tensors</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.sym.html"><tt>sym</tt></a></td>
+            <td>the symmetric part S = 0.5(T + T.') of a tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.symmetrise.html"><tt>symmetrise</tt></a></td>
+            <td>symmetrise a tensor according to its crystal symmetry</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.tensor.html"><tt>tensor</tt></a></td>
+            <td></td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.tensorSize.html"><tt>tensorSize</tt></a></td>
+            <td>overloads size</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.times.html"><tt>times</tt></a></td>
+            <td>multiply a tensor by a scalar</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.trace.html"><tt>trace</tt></a></td>
+            <td>compute the trace of a rank 2 tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.transformReferenceFrame.html"><tt>transformReferenceFrame</tt></a></td>
+            <td>set properties of a tensor variable</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.transpose.html"><tt>transpose</tt></a></td>
+            <td>transpose a list of a tensors</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.uminus.html"><tt>uminus</tt></a></td>
+            <td>unary minus</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.vector3d.html"><tt>vector3d</tt></a></td>
+            <td>convert rank one tensors to vector3d</td>
+            <tr></tr>
+            <td width="250px"><a href="tensor.vertcat.html"><tt>vertcat</tt></a></td>
+            <td>overloads [T1,T2,T3..]</td>
+         </table>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("14");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#14">Back to Top of Section</a></p>
+         <h2> Auxiliary Functions<a name="21"> </a></h2>
          <table class="ref" width="90%">
             <tr>
-               <td valign="top" width="250px"><a href="#21"> Plotting Tools 
+               <td valign="top" width="250px"><a href="#22"> Plotting Tools 
                      <td valign="top" width="75%">Below you find a list of tools to work with data given in the Dubna format</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#22"> Geometry Tools
+               <td valign="top" width="250px"><a href="#23"> Geometry Tools
                      <td valign="top" width="75%">This section of geometry tools especially contains methods to convert
                          directions and rotations from one parametrization into another.
                          Additionally, some basic geometrical objects are predefined.
                      </td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#23"> Statistics
+               <td valign="top" width="250px"><a href="#24"> Statistics
                      <td valign="top" width="75%">Below you find a list of statistical tools included in the MTEX toolbox.</td></a></td>
             </tr>
             <tr>
-               <td valign="top" width="250px"><a href="#24"> Plotting
+               <td valign="top" width="250px"><a href="#25"> Plotting
                      <td valign="top" width="75%">Below you find a list of plotting tools included in the MTEX toolbox. Of
                          special importance is the command [[savefigure.html,savefigure]] which
                          allows saving plots in any kinds of image files.
@@ -1743,6 +2004,9 @@
             <td width="250px"><a href="getHoldState.html"><tt>getHoldState</tt></a></td>
             <td></td>
             <tr></tr>
+            <td width="250px"><a href="getUnitScale.html"><tt>getUnitScale</tt></a></td>
+            <td>Syntax factor = getUnitScale(unit)</td>
+            <tr></tr>
             <td width="250px"><a href="hsl2hsv.html"><tt>hsl2hsv</tt></a></td>
             <td></td>
             <tr></tr>
@@ -1759,7 +2023,7 @@
             <td></td>
             <tr></tr>
             <td width="250px"><a href="newMtexFigure.html"><tt>newMtexFigure</tt></a></td>
-            <td></td>
+            <td>set uo a new plotting figure</td>
             <tr></tr>
             <td width="250px"><a href="newODFSectionPlot.html"><tt>newODFSectionPlot</tt></a></td>
             <td>generate a new ODF section plot</td>
@@ -1887,7 +2151,7 @@
             <td>returns the degree character</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2> Plotting Tools <a name="21"> </a></h2>
+         <h2> Plotting Tools <a name="22"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="DubnaGrid.html"><tt>DubnaGrid</tt></a></td>
@@ -1914,8 +2178,8 @@
             <td width="250px"><a href="work.html"><tt>work</tt></a></td>
             <td>import spectra</td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("20");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#20">Back to Top of Section</a></p>
-         <h2> Geometry Tools<a name="22"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("21");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#21">Back to Top of Section</a></p>
+         <h2> Geometry Tools<a name="23"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="CSL.html"><tt>CSL</tt></a></td>
@@ -1933,14 +2197,8 @@
             <td width="250px"><a href="axis2quat_outer.html"><tt>axis2quat_outer</tt></a></td>
             <td>rotational axis, roational angle to Quaternion</td>
             <tr></tr>
-            <td width="250px"><a href="brassOrientation.html"><tt>brassOrientation</tt></a></td>
-            <td>returns the cube orientation</td>
-            <tr></tr>
             <td width="250px"><a href="checkEulerAngleConvention.html"><tt>checkEulerAngleConvention</tt></a></td>
             <td></td>
-            <tr></tr>
-            <td width="250px"><a href="cubeOrientation.html"><tt>cubeOrientation</tt></a></td>
-            <td>returns the cube orientation</td>
             <tr></tr>
             <td width="250px"><a href="equispacedS2Grid.html"><tt>equispacedS2Grid</tt></a></td>
             <td>defines an equispaced spherical grid</td>
@@ -1960,26 +2218,8 @@
             <td width="250px"><a href="fibre2quat.html"><tt>fibre2quat</tt></a></td>
             <td>arbitrary quaternion q with q * h = r</td>
             <tr></tr>
-            <td width="250px"><a href="fit_ellipse.html"><tt>fit_ellipse</tt></a></td>
-            <td>fit_ellipse - finds the best fit to an ellipse for the given set of points.</td>
-            <tr></tr>
-            <td width="250px"><a href="gossOrientation.html"><tt>gossOrientation</tt></a></td>
-            <td>returns the cube orientation</td>
-            <tr></tr>
-            <td width="250px"><a href="guessfibre.html"><tt>guessfibre</tt></a></td>
-            <td>try to find the fibre of to given rotations by finding the eigenvector of g_1*h = g_2*h -&gt; (g_2^-1)*g_1* h = h -&gt; R*h = (lambda)*h</td>
-            <tr></tr>
             <td width="250px"><a href="hr2quat.html"><tt>hr2quat</tt></a></td>
             <td>arbitrary quaternion q with q * h = r</td>
-            <tr></tr>
-            <td width="250px"><a href="idRotation.html"><tt>idRotation</tt></a></td>
-            <td>the identical rotation</td>
-            <tr></tr>
-            <td width="250px"><a href="idquaternion.html"><tt>idquaternion</tt></a></td>
-            <td>the identical rotation - quaternion(1,0,0,0)</td>
-            <tr></tr>
-            <td width="250px"><a href="inversion.html"><tt>inversion</tt></a></td>
-            <td>the inversion - reflection at the origin</td>
             <tr></tr>
             <td width="250px"><a href="loadCIF.html"><tt>loadCIF</tt></a></td>
             <td>import crystal symmetry from cif file</td>
@@ -1993,9 +2233,6 @@
             <td width="250px"><a href="mat2quat.html"><tt>mat2quat</tt></a></td>
             <td>converts direction cosine matrix to quaternion</td>
             <tr></tr>
-            <td width="250px"><a href="nanquaternion.html"><tt>nanquaternion</tt></a></td>
-            <td>the identical rotation - quaternion(1,0,0,0)</td>
-            <tr></tr>
             <td width="250px"><a href="plotS2Grid.html"><tt>plotS2Grid</tt></a></td>
             <td>create a regular S2Grid for plotting</td>
             <tr></tr>
@@ -2006,12 +2243,6 @@
             <td>Syntax [S2G, W, M2] = quadratureS2Grid(M) quadrature grid of type gauss [S2G, W, M2] = quadratureS2Grid(M, 'chebyshev') quadrature
                grid of type chebyshev
             </td>
-            <tr></tr>
-            <td width="250px"><a href="randq.html"><tt>randq</tt></a></td>
-            <td>returns random quaternions</td>
-            <tr></tr>
-            <td width="250px"><a href="randv.html"><tt>randv</tt></a></td>
-            <td></td>
             <tr></tr>
             <td width="250px"><a href="reflection.html"><tt>reflection</tt></a></td>
             <td>defines a reflection at plane with normal n</td>
@@ -2037,15 +2268,21 @@
             <td width="250px"><a href="zvector.html"><tt>zvector</tt></a></td>
             <td>vector (0,0,1)</td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("20");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#20">Back to Top of Section</a></p>
-         <h2> Statistics<a name="23"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("21");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#21">Back to Top of Section</a></p>
+         <h2> Statistics<a name="24"> </a></h2>
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="c_hat.html"><tt>c_hat</tt></a></td>
             <td>return the second moments for bingham test</td>
             <tr></tr>
+            <td width="250px"><a href="cmeans.html"><tt>cmeans</tt></a></td>
+            <td></td>
+            <tr></tr>
             <td width="250px"><a href="discretesample.html"><tt>discretesample</tt></a></td>
             <td>Samples from a discrete distribution</td>
+            <tr></tr>
+            <td width="250px"><a href="kmeans.html"><tt>kmeans</tt></a></td>
+            <td>k-means++: The Advantages of Careful Seeding", by David Arthur and  Sergei Vassilvitskii, SODA 2007.</td>
             <tr></tr>
             <td width="250px"><a href="quantile.html"><tt>quantile</tt></a></td>
             <td>n percent quantile of x</td>
@@ -2059,14 +2296,14 @@
                operates along the first non-singleton dimension.
             </td>
          </table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("20");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#20">Back to Top of Section</a></p>
-         <h2> Plotting<a name="24"> </a></h2>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("21");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#21">Back to Top of Section</a></p>
+         <h2> Plotting<a name="25"> </a></h2>
          <table width="95%"></table>
-         <p class="pagenavlink"><script language="Javascript">updateSectionId("20");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#20">Back to Top of Section</a></p>
+         <p class="pagenavlink"><script language="Javascript">updateSectionId("21");</script><script language="Javascript">addTopOfSectionButtons();</script><a href="#21">Back to Top of Section</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right"> MTEX 5.0.0</td>
+               <td valign="baseline" align="right">MTEX 5.1.0</td>
             </tr>
          </table>
       </div>

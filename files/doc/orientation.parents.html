@@ -100,7 +100,6 @@ ori_bcc = orientation
   phi1  Phi phi2 Inv.
      0   45    0    0
  
- 
 </pre><pre class="codeinput"><span class="comment">% define Nishiyama Wassermann fcc to bcc orientation relation ship</span>
 NW = orientation.NishiyamaWassermann (cs_fcc,cs_bcc)</pre><pre class="codeoutput"> 
 NW = misorientation  
@@ -112,7 +111,6 @@ NW = misorientation
   phi1     Phi    phi2    Inv.
    180 99.7356      45       0
  
- 
 </pre><pre class="codeinput"><span class="comment">% compute a fcc parent orientation related to the bcc child orientation</span>
 ori_fcc = ori_bcc * NW</pre><pre class="codeoutput"> 
 ori_fcc = orientation  
@@ -123,7 +121,6 @@ ori_fcc = orientation
   Bunge Euler angles in degree
   phi1     Phi    phi2    Inv.
    180 54.7356      45       0
- 
  
 </pre><pre class="codeinput"><span class="comment">% compute all symmetrically possible parent orientations</span>
 ori_fcc = unique(ori_bcc.symmetrise * NW)</pre><pre class="codeoutput"> 
@@ -147,7 +144,6 @@ ori_fcc = orientation
         0 144.736      45       0
       360 35.2644     225       0
  
- 
 </pre><pre class="codeinput"><span class="comment">% same using the function parents</span>
 ori_fcc2 = ori_bcc * NW.parents</pre><pre class="codeoutput"> 
 ori_fcc2 = orientation  
@@ -169,7 +165,6 @@ ori_fcc2 = orientation
   13.6387 134.181 144.598       0
   193.639 134.181 144.598       0
   346.361 45.8193 324.598       0
- 
  
 </pre><h3 class="seealso">See also</h3>
          <p><a href="orientation.variants.html">orientation/variants</a></p>

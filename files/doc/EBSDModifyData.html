@@ -87,24 +87,15 @@ ans = EBSD
 </pre><p>As an example, let us plot the Forsterite data.</p><pre class="codeinput">close <span class="string">all</span>
 plot(ebsd(<span class="string">'Forsterite'</span>),ebsd(<span class="string">'Forsterite'</span>).orientations)</pre><img src="EBSDModifyData_02.png"> <p>The data is colorized according to its orientation. By default color of an orientation is determined by its position in the
             001 inverse pole figure which itself is colored as
-         </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'Forsterite'</span>))
-plot(oM)</pre><pre class="codeoutput">oM = 
-  ipdfHSVOrientationMapping with properties:
+         </p><pre class="codeinput">ipfKey = ipfColorKey(ebsd(<span class="string">'Forsterite'</span>))
+plot(ipfKey)</pre><pre class="codeoutput">ipfKey = 
+  ipfColorKey with properties:
 
     inversePoleFigureDirection: [1&times;1 vector3d]
+                        dirMap: [1&times;1 HSVDirectionKey]
                            CS1: [4&times;2 crystalSymmetry]
                            CS2: [1&times;1 specimenSymmetry]
                      antipodal: 0
-             colorPostRotation: [1&times;1 rotation]
-               colorStretching: 1
-                   whiteCenter: [1&times;1 vector3d]
-                     grayValue: [0.2000 0.5000]
-                  grayGradient: 0.5000
-                      maxAngle: Inf
-                            sR: [1&times;1 sphericalRegion]
-                          refl: []
-                           rot: [1&times;1 rotation]
-                         alpha: 0
 </pre><img src="EBSDModifyData_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Restricting to a region of interest<a name="9"> </a></h2>
          <p>If one is not interested in the whole data set but only in those measurements inside a certain polygon, the restriction can

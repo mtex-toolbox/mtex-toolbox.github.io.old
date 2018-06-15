@@ -86,14 +86,14 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5.7&deg;
-    center: 7127 orientations, resolution: 2.9&deg;
+    center: 7151 orientations, resolution: 2.9&deg;
     weight: 1
  
 </pre><p>which can be plotted,</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><pre class="codeoutput">progress: 100%
 </pre><img src="EBSDSimulation_demo_03.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,fibre_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.0959
-</pre><img src="EBSDSimulation_demo_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+    0.0916
+</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Exploration of the relationship between estimation error and number of single orientations<a name="11"> </a></h2>
          <p>For a more systematic analysis of the estimation error, we simulate 10, 100, ..., 1000000 single orientations of the model
             ODF and calculate the approximation error for the ODFs estimated from these data.
@@ -119,10 +119,10 @@ ans =
     <span class="string">' magicRule: '</span> int2str(psi3.halfwidth/degree) mtexdegchar <span class="keyword">...</span>
     ]);
 
-<span class="keyword">end</span></pre><pre class="codeoutput">RuleOfThumb: 83&deg; KLCV: 24&deg; magicRule: 31&deg;
+<span class="keyword">end</span></pre><pre class="codeoutput">RuleOfThumb: 59&deg; KLCV: 24&deg; magicRule: 31&deg;
 progress: 100%
 progress: 100%
-RuleOfThumb: 37&deg; KLCV: 15&deg; magicRule: 22&deg;
+RuleOfThumb: 40&deg; KLCV: 15&deg; magicRule: 22&deg;
 RuleOfThumb: 18&deg; KLCV: 9&deg; magicRule: 16&deg;
 progress: 100%
 RuleOfThumb: 10&deg; KLCV: 6&deg; magicRule: 11&deg;
@@ -132,11 +132,11 @@ progress: 100%
 progress: 100%
 RuleOfThumb: 7&deg; KLCV: 4&deg; magicRule: 6&deg;
 </pre><p>Plot the error in dependency of the number of single orientations.</p><pre class="codeinput">close <span class="string">all</span>;
-semilogx(10.^(1:length(e)),e)
+loglog(10.^(1:length(e)),e)
 legend(<span class="string">'Default'</span>,<span class="string">'RuleOfThumb'</span>,<span class="string">'magicRule'</span>)
 xlabel(<span class="string">'Number of orientations'</span>)
 ylabel(<span class="string">'Estimation Error'</span>)
-title(<span class="string">'Error between original fibre ODF model and simulated ebsd'</span>,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>)</pre><img src="EBSDSimulation_demo_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+title(<span class="string">'Error between original fibre ODF model and simulated ebsd'</span>,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>)</pre><img src="EBSDSimulation_demo_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

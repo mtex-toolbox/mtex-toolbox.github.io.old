@@ -93,7 +93,6 @@ o = rotation
   phi1  Phi phi2 Inv.
     30   50   10    0
  
- 
 </pre><p><b>Defining a Rotation by Other Euler Angle Conventions</b></p>
          <p>In order to define a rotation by a Euler angle convention different to the default Euler angle convention you to specify the
             convention as an additional parameter, e.g.
@@ -104,7 +103,6 @@ o = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
    120   50  280    0
- 
  
 </pre><p><b>Changing the Default Euler Angle Convention</b></p>
          <p>The default Euler angle convention can be changed by the command <b>setpref</b>, for a permanent change the <a href="matlab:edit('mtex_settings.m')">mtex_settings</a> should be edited. Compare
@@ -117,7 +115,6 @@ o = rotation
   Psi Theta   Phi  Inv.
    30    50    10     0
  
- 
 </pre><pre class="codeinput">setMTEXpref(<span class="string">'EulerAngleConvention'</span>,<span class="string">'Bunge'</span>)
 o</pre><pre class="codeoutput"> 
 o = rotation  
@@ -126,7 +123,6 @@ o = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
    120   50  280    0
- 
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Other Ways of Defining a Rotation<a name="8"> </a></h2>
@@ -139,7 +135,6 @@ o = rotation
   phi1  Phi phi2 Inv.
      0   30    0    0
  
- 
 </pre><p><b>Four vectors defining a rotation</b></p>
          <p>Given four vectors u1, v1, u2, v2 there is a unique rotation q such that q u1 = v1 and q u2 = v2.</p><pre class="codeinput">o = rotation(<span class="string">'map'</span>,xvector,yvector,zvector,zvector)</pre><pre class="codeoutput"> 
 o = rotation  
@@ -148,7 +143,6 @@ o = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     90    0    0    0
- 
  
 </pre><p>If only two vectors are specified, then the rotation with the smallest angle is returned and gives the rotation from first
             vector onto the second one.
@@ -159,7 +153,6 @@ o = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     90    0    0    0
- 
  
 </pre><p><b>A fibre of rotations</b></p>
          <p>The set of all rotations that rotate a certain vector u onto a certain vector v define a fibre in the rotation space. A discretisation
@@ -178,7 +171,6 @@ o = rotation
   phi1  Phi phi2 Inv.
      0    0    0    0
  
- 
 </pre><p><b>Defining an rotation by a quaternion</b></p>
          <p>A last possibility is to define a rotation by a quaternion, i.e., by its components a,b,c,d.</p><pre class="codeinput">o = rotation(<span class="string">'quaternion'</span>,1,0,0,0)</pre><pre class="codeoutput"> 
 o = rotation  
@@ -187,7 +179,6 @@ o = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
      0    0    0    0
- 
  
 </pre><p>Actually, MTEX represents internally every rotation as a quaternion. Hence, one can write</p><pre class="codeinput">q = quaternion(1,0,0,0)
 o = rotation(q)</pre><pre class="codeoutput"> 
@@ -203,7 +194,6 @@ o = rotation
   phi1  Phi phi2 Inv.
      0    0    0    0
  
- 
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Calculating with Rotations<a name="15"> </a></h2>
          <p><b>Rotating Vectors</b></p>
@@ -214,7 +204,6 @@ o = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     90   90    0    0
- 
  
 </pre><p>a certain rotation. Then the rotation of the xvector is computed via</p><pre class="codeinput">v = o * xvector</pre><pre class="codeoutput"> 
 v = vector3d  
@@ -235,7 +224,6 @@ rot = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
      0   60   90    0
- 
  
 </pre><p><b>Computing the rotation angle and the rotational axis</b></p>
          <p>Then rotational angle and the axis of rotation can be computed via then commands <a href="quaternion.angle.html">angle(rot)</a> and <a href="quaternion.axis.html">axis(rot)</a></p><pre class="codeinput">rot.angle / degree
@@ -259,7 +247,6 @@ ans = rotation
   phi1  Phi phi2 Inv.
     90   60  180    0
  
- 
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Improper Rotations<a name="23"> </a></h2>
          <p>Improper rotations are coordinate transformations from a left hand into a right handed coordinate system as, e.g. mirroring
@@ -271,7 +258,6 @@ I = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
      0    0    0    1
- 
  
 </pre><p>Note that this is convenient as both groupings of the operations "-" and "*" should give the same result</p><pre class="codeinput">- (rotation(<span class="string">'Euler'</span>,0,0,0) * xvector)
 (- rotation(<span class="string">'Euler'</span>,0,0,0)) * xvector</pre><pre class="codeoutput"> 
@@ -295,7 +281,6 @@ mir = rotation
   phi1     Phi    phi2    Inv.
    135 109.471      45       1
  
- 
 </pre><p>A convenient shortcut is the command</p><pre class="codeinput">mir = reflection(vector3d(1,1,1))</pre><pre class="codeoutput"> 
 mir = rotation  
   size: 1 x 1
@@ -303,7 +288,6 @@ mir = rotation
   Bunge Euler angles in degree
   phi1     Phi    phi2    Inv.
    135 109.471      45       1
- 
  
 </pre><p>To check whether a rotation is improper or not you can do</p><pre class="codeinput">mir.isImproper</pre><pre class="codeoutput">ans =
   logical
@@ -328,12 +312,13 @@ gamma =
          <h2>Plotting Rotations<a name="29"> </a></h2>
          <p>The <a href="quaternion.scatter.html">scatter</a> function allows you to visualize a rotation in Rodriguez space.
          </p><pre class="codeinput"><span class="comment">% define 100 random rotations</span>
-rot = randq(100)
+rot = rotation.rand(100)
 
 <span class="comment">% and plot the Rodriguez space</span>
 scatter(rot)</pre><pre class="codeoutput"> 
-rot = Quaternion  
+rot = rotation  
   size: 100 x 1
+ 
 </pre><img src="Rotations_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

@@ -80,7 +80,7 @@
 q = <a href="axis2quat.html">axis2quat</a>(axis,angle);       % by rotational axis and rotational angle
 q = <a href="euler2quat.html">euler2quat</a>(alpha,beta,gamma) % by Euler angles
 q = <a href="Miller2quat.html">Miller2quat</a>([h k l],[u v w],symmetry); % by Miller indece
-q = <a href="idquaternion.html">idquaternion</a>;                % identical quaternion
+q = <a href="quaternion.id.html">quaternion.id</a>;                % identical quaternion
 q = <a href="vec42quat.html">vec42quat</a>(u1,v1,u2,v2);      % by four vectors</pre><p>Additional methods to define a rotation are <a href="hr2quat.html">hr2quat</a> and <a href="vec42quat.html">vec42quat</a>. Using the brackets <tt>q = [q1,q2]</tt> two quaternions can be concatened. Now each single quaternion is accesable via <tt>q(1)</tt> and <tt>q(2)</tt>.
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -95,10 +95,11 @@ q = <a href="vec42quat.html">vec42quat</a>(u1,v1,u2,v2);      % by four vectors<
          <p>The <a href="quaternion.plot.html">plot</a> function allows you to visualize an quaternion by plotting how the standard basis x,y,z transforms under the rotation.
          </p><pre class="codeinput">plot(Miller2quat([-1 -1 -1],[1 -2 1]))</pre><img src="quaternion_index_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Complete Function list<a name="7"> </a></h2>
-         <p><table width="90%"><tr><td width="200px"><a href="quaternion.Euler.html"><tt>Euler</tt></a></td><td>quaternion to euler angle</td></tr><tr><td
-            width="200px"><a href="quaternion.Rodrigues.html"><tt>Rodrigues</tt></a></td><td>quaternion to rodrigues representation</td></tr><tr><td
-            width="200px"><a href="quaternion.angle.html"><tt>angle</tt></a></td><td>calcualtes the rotational angle between rotations
-            q1 and q2</td></tr><tr><td width="200px"><a href="quaternion.angle_outer.html"><tt>angle_outer</tt></a></td><td>calcualtes
+         <p><table width="90%"><tr><td width="200px"><a href="quaternion.EinsteinSum.html"><tt>EinsteinSum</tt></a></td><td>tensor multiplication
+            according to Einstein summation</td></tr><tr><td width="200px"><a href="quaternion.Euler.html"><tt>Euler</tt></a></td><td>quaternion
+            to euler angle</td></tr><tr><td width="200px"><a href="quaternion.Rodrigues.html"><tt>Rodrigues</tt></a></td><td>quaternion
+            to rodrigues representation</td></tr><tr><td width="200px"><a href="quaternion.angle.html"><tt>angle</tt></a></td><td>calcualtes
+            the rotational angle between rotations q1 and q2</td></tr><tr><td width="200px"><a href="quaternion.angle_outer.html"><tt>angle_outer</tt></a></td><td>calcualtes
             the rotational angle between all rotations q1 and q2</td></tr><tr><td width="200px"><a href="quaternion.axis.html"><tt>axis</tt></a></td><td>rotational
             axis of the quaternion</td></tr><tr><td width="200px"><a href="quaternion.calcVoronoi.html"><tt>calcVoronoi</tt></a></td><td>compute
             the the Voronoi decomposition for unit quaternions</td></tr><tr><td width="200px"><a href="quaternion.char.html"><tt>char</tt></a></td><td>quaternion

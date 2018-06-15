@@ -54,7 +54,6 @@ sFs1 = symmetrise(sF, cs);
 <span class="comment">% * this symmetrises the function and gives back the result with the symmetry attached</span></pre><pre class="codeoutput"> 
 sF = S2FunHarmonic  
  bandwidth: 128
- antipodal: true
 </pre><p><b>Definition via function handle</b></p>
          <p>If you have a function handle for the function you could create a <tt>S2FunHarmonicSym</tt> via quadrature. At first lets define a symmetry and a function handle which takes <a href="vector3d_index.html"><tt>vector3d</tt></a> as an argument and returns double:
          </p><pre class="codeinput">f = @(v) 0.1*(v.theta+sin(8*v.x).*sin(8*v.y));

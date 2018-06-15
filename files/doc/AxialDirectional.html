@@ -116,17 +116,17 @@ plotPDF(odf,[Miller(1,2,2,CS),-Miller(1,2,2,CS)])</pre><img src="AxialDirectiona
             is present.
          </p><pre class="codeinput">plotIPDF(odf,yvector)</pre><img src="AxialDirectional_08.png"> <pre class="codeinput">plotIPDF(odf,yvector,<span class="string">'antipodal'</span>)</pre><img src="AxialDirectional_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>EBSD Colocoding<a name="16"> </a></h2>
-         <p>Antipodal symmetry effects also the colocoding of ebsd plots. Let's first import some data.</p><pre class="codeinput">mtexdata <span class="string">forsterite</span></pre><p>Now we plot these data with a colorcoding according to the inverse (1,0,0) pole figure. If we use the Laue group for inverse
+         <p>Antipodal symmetry effects also the colocoding of ebsd plots. Let's first import some data.</p><pre class="codeinput">mtexdata <span class="string">forsterite</span></pre><p>Now we plot these data with a colorcoding according to the inverse (100) pole figure. If we use the Laue group for inverse
             pole figure color coding we add antipodal symmetry to the inverse pole figure
-         </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'fo'</span>).CS.Laue);
+         </p><pre class="codeinput">ipfKey = ipfColorKey(ebsd(<span class="string">'fo'</span>).CS.Laue);
 
-<span class="comment">% the colorcode</span>
-plot(oM)</pre><img src="AxialDirectional_10.png"> <p>Here the colorized data</p><pre class="codeinput">plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><img src="AxialDirectional_11.png"> <p>If we use the point group of proper rotations this antipodal symmetry is not present and a larger region of the inverse pole
+<span class="comment">% plot the color key</span>
+plot(ipfKey)</pre><img src="AxialDirectional_10.png"> <p>Here the colorized data</p><pre class="codeinput">plot(ebsd(<span class="string">'fo'</span>),ipfKey.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><img src="AxialDirectional_11.png"> <p>If we use the point group of proper rotations this antipodal symmetry is not present and a larger region of the inverse pole
             figure is colorized
-         </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'fo'</span>).CS.properGroup);
+         </p><pre class="codeinput">ipfKey = ipfColorKey(ebsd(<span class="string">'fo'</span>).CS.properGroup);
 
 <span class="comment">% the colorcode</span>
-plot(oM)</pre><img src="AxialDirectional_12.png"> <p>Here the colorized data</p><pre class="codeinput">plot(ebsd(<span class="string">'fo'</span>),oM.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><img src="AxialDirectional_13.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+plot(ipfKey)</pre><img src="AxialDirectional_12.png"> <p>Here the colorized data</p><pre class="codeinput">plot(ebsd(<span class="string">'fo'</span>),ipfKey.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><img src="AxialDirectional_13.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

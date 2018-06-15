@@ -48,7 +48,7 @@
 plot(ebsd)</pre><pre class="codeinput"><span class="comment">% colorize according to arbitrary value - here MAD</span>
 plot(ebsd,ebsd.mad)</pre><pre class="codeinput"><span class="comment">% colorize according to orientation</span>
 plot(ebsd(<span class="string">'phaseName'</span>),ebsd(<span class="string">'phaseName'</span>).orientation)</pre><pre class="codeinput"><span class="comment">% colorize according to custom color</span>
-oM = ipdfHSVOrientationMapping(ebsd(<span class="string">'phaseName'</span>))
+oM = ipfColorKey(ebsd(<span class="string">'phaseName'</span>))
 color = oM.orientation2color(ebsd(<span class="string">'phaseName'</span>).orientations);
 plot(ebsd(<span class="string">'phaseName'</span>),color)</pre><pre class="codeinput"><span class="comment">% specify the color directly and show in Legend</span>
 badMAD = ebsd.mad > 1;

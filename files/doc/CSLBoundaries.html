@@ -81,10 +81,12 @@ plotx2east
 grains = smooth(grains,2);
 
 <span class="comment">% plot the result</span>
-plot(grains,grains.meanOrientation)</pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
+plot(grains,grains.meanOrientation)</pre><pre class="codeoutput"> loading data ...
+ saving data to /home/hielscher/mtex/master/data/csl.mat
+  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
+  oM = ipfColorKey(ori_variable_name)
   plot(oM)
 </pre><img src="CSLBoundaries_01.png"> <p>Next we plot image quality as it makes the grain boundaries visible. and overlay it with the orientation map</p><pre class="codeinput">plot(ebsd,log(ebsd.prop.iq),<span class="string">'figSize'</span>,<span class="string">'large'</span>)
 mtexColorMap <span class="string">black2white</span>
@@ -96,7 +98,7 @@ plot(grains,grains.meanOrientation,<span class="string">'FaceAlpha'</span>,0.4)
 hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
+  oM = ipfColorKey(ori_variable_name)
   plot(oM)
 </pre><img src="CSLBoundaries_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Detecting CSL Boundaries<a name="5"> </a></h2>
@@ -156,8 +158,8 @@ hold <span class="string">off</span></pre><img src="CSLBoundaries_06.png"> <p cl
             In order to analyze the distribution of misorientations we may colorize the grain boundaries according to their misorientation.
             See S. Patala, J. K. Mason, and C. A. Schuh, 2012, for details. The coresponding orientation to color mapping is implemented
             into MTEX as
-         </p><pre class="codeinput">oM = patalaOrientationMapping(gB)</pre><pre class="codeoutput">oM = 
-  patalaOrientationMapping with properties:
+         </p><pre class="codeinput">moriKey = PatalaColorKey(gB)</pre><pre class="codeoutput">moriKey = 
+  PatalaColorKey with properties:
 
           CS1: [24&times;2 crystalSymmetry]
           CS2: [24&times;2 crystalSymmetry]
@@ -171,22 +173,22 @@ hold <span class="string">on</span>
 plot(grains,grains.meanOrientation,<span class="string">'FaceAlpha'</span>,0.4)
 
 hold <span class="string">on</span>
-plot(gB,oM.orientation2color(gB.misorientation),<span class="string">'linewidth'</span>,2)
+plot(gB,moriKey.orientation2color(gB.misorientation),<span class="string">'linewidth'</span>,2)
 hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipdfHSVOrientationMapping(ori_variable_name)
+  oM = ipfColorKey(ori_variable_name)
   plot(oM)
 </pre><img src="CSLBoundaries_07.png"> <p>Lets examine the colormap. We plot it as axis angle sections and add 300 random boundary misorientations on top of it. Note
             that in this plot misorientations <tt>mori</tt> and <tt>inv(mori)</tt> are associated.
-         </p><pre class="codeinput">plot(oM,<span class="string">'axisAngle'</span>,(5:5:60)*degree)
+         </p><pre class="codeinput">plot(moriKey,<span class="string">'axisAngle'</span>,(5:5:60)*degree)
 
 plot(gB.misorientation,<span class="string">'points'</span>,300,<span class="string">'add2all'</span>,<span class="keyword">...</span>
   <span class="string">'MarkerFaceColor'</span>,<span class="string">'none'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'w'</span>)</pre><pre class="codeoutput">  plotting 300 random orientations out of 20356 given orientations
 </pre><img src="CSLBoundaries_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Misorientations in the 3d fundamental zone<a name="12"> </a></h2>
          <p>We can also look at the boundary misorienations in the 3 dimensional fundamental orientation zone.</p><pre class="codeinput"><span class="comment">% compute the boundary of the fundamental zone</span>
-oR = fundamentalRegion(oM.CS1,oM.CS2,<span class="string">'antipodal'</span>);
+oR = fundamentalRegion(moriKey.CS1,moriKey.CS2,<span class="string">'antipodal'</span>);
 close <span class="string">all</span>
 plot(oR)
 
@@ -212,7 +214,7 @@ mdf = MDF
   antipodal:         true
  
   Harmonic portion:
-    degree: 33
+    degree: 32
     weight: 1
  
 </pre><p>Next we can visualize the misorientation distribution function in axis angle sections.</p><pre class="codeinput">plot(mdf,<span class="string">'axisAngle'</span>,(25:5:60)*degree,<span class="string">'colorRange'</span>,[0 15])
@@ -232,7 +234,6 @@ mori = misorientation
      phi1     Phi    phi2    Inv.
    243.71 48.3206 152.606       0
   98.0317 38.0679 227.755       0
- 
  
 </pre><p>and their volumes in percent</p><pre class="codeinput">100 * volume(gB.misorientation,CSL(3,ebsd.CS),2*degree)
 
@@ -280,7 +281,6 @@ mori = misorientation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     15   28   14    0
- 
  
 ans =
     5.6826

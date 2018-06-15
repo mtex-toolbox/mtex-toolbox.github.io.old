@@ -100,7 +100,6 @@ o = rotation
   phi1  Phi phi2 Inv.
     30   50   10    0
  
- 
 </pre><p><b>Defining a Rotation by Other Euler Angle Conventions</b></p>
          <p>In order to define a rotation by a Euler angle convention different to the default Euler angle convention you to specify the
             convention as an additional parameter, e.g.
@@ -111,7 +110,6 @@ o = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
    120   50  280    0
- 
  
 </pre><p><b>Changing the Default Euler Angle Convention</b></p>
          <p>The default euler angle convention can be changed by the command <b>setpref</b>, for a permanent change the <a href="matlab:edit('mtex_settings.m')">mtex_settings</a> should be edited. Compare
@@ -124,7 +122,6 @@ o = rotation
   Psi Theta   Phi  Inv.
    30    50    10     0
  
- 
 </pre><pre class="codeinput">setMTEXpref(<span class="string">'EulerAngleConvention'</span>,<span class="string">'Bunge'</span>)
 o</pre><pre class="codeoutput"> 
 o = rotation  
@@ -133,7 +130,6 @@ o = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
    120   50  280    0
- 
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Other Ways of Defining a Rotation<a name="8"> </a></h3>
@@ -146,7 +142,6 @@ o = rotation
   phi1  Phi phi2 Inv.
      0   30    0    0
  
- 
 </pre><p><b>Four vectors defining a rotation</b></p>
          <p>Given four vectors u1, v1, u2, v2 there is a unique rotations q such that q u1 = v1 and q u2 = v2.</p><pre class="codeinput">o = rotation(<span class="string">'map'</span>,xvector,yvector,zvector,zvector)</pre><pre class="codeoutput"> 
 o = rotation  
@@ -155,7 +150,6 @@ o = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     90    0    0    0
- 
  
 </pre><p>If only two vectors are specified the rotation with the smallest angle is returned that maps the first vector onto the second
             one.
@@ -166,7 +160,6 @@ o = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     90    0    0    0
- 
  
 </pre><p><b>A fibre of rotations</b></p>
          <p>The set of all rotations that rotate a certain vector u onto a certain vector v define a fibre in the rotation space. A discretisation
@@ -185,7 +178,6 @@ o = rotation
   phi1  Phi phi2 Inv.
      0    0    0    0
  
- 
 </pre><p><b>Defining a rotation by a quaternion</b></p>
          <p>A last possibility is to define a rotation by a quaternion, i.e., by its components a,b,c,d.</p><pre class="codeinput">o = rotation(<span class="string">'quaternion'</span>,1,0,0,0)</pre><pre class="codeoutput"> 
 o = rotation  
@@ -194,7 +186,6 @@ o = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
      0    0    0    0
- 
  
 </pre><p>Actually, MTEX represents internally every rotation as a quaternion. Hence, one can write</p><pre class="codeinput">q = quaternion(1,0,0,0)
 o = rotation(q)</pre><pre class="codeoutput"> 
@@ -210,7 +201,6 @@ o = rotation
   phi1  Phi phi2 Inv.
      0    0    0    0
  
- 
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Calculating with Rotations<a name="15"> </a></h3>
          <p><b>Rotating Vectors</b></p>
@@ -221,7 +211,6 @@ o = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     90   90    0    0
- 
  
 </pre><p>a certain rotation. Then the rotation of the xvector is computed via</p><pre class="codeinput">v = o * xvector</pre><pre class="codeoutput"> 
 v = vector3d  
@@ -242,7 +231,6 @@ rot = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
      0   60   90    0
- 
  
 </pre><p><b>Computing the rotation angle and the rotational axis</b></p>
          <p>Then rotational angle and the axis of rotation can be computed via then commands <a href="quaternion.angle.html">angle(rot)</a> and <a href="quaternion.axis.html">axis(rot)</a></p><pre class="codeinput">angle(rot)/degree
@@ -265,7 +253,6 @@ ans = rotation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     90   60  180    0
- 
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Conversion into Euler Angles and Rodrigues Parametrisation<a name="23"> </a></h3>

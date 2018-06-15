@@ -43,9 +43,12 @@
             <p>(method of <a href="orientation_index.html">orientation</a>)
             </p>
          </div>
-         <p>the inverse of the exponential map</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">v = log(ori)
-v = log(ori,ori_ref)</pre><h2>Input<a name="4"> </a></h2>
+         <p>the misorientation vector in crystal coordinates</p>
+         <h2>Description<a name="3"> </a></h2>
+         <p>Mathematically, misorientation vector is the the inverse of the exponential map, hence the name log.</p>
+         <h2>Syntax<a name="4"> </a></h2><pre class="codeinput">v = log(ori)</pre><pre class="codeinput"><span class="comment">% the misorientation vector in crystal coordinats</span>
+v = log(ori,ori_ref)</pre><pre class="codeinput"><span class="comment">% the misorientation vector in specimen coordinats</span>
+r = ori_ref .* v</pre><h2>Input<a name="5"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -67,7 +70,7 @@ v = log(ori,ori_ref)</pre><h2>Input<a name="4"> </a></h2>
             </table>
             
          </p>
-         <h2>Output<a name="5"> </a></h2>
+         <h2>Output<a name="6"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>

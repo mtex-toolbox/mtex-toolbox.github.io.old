@@ -127,7 +127,6 @@ cs = crystalSymmetry
   symmetry: 222    
   a, b, c : 1, 1, 1
  
-Warning: Possible symmetry mismach! 
 </pre><img src="MorawiecCell_04.png"> <p>As an example consider the following EBSD data set</p><pre class="codeinput">mtexdata <span class="string">forsterite</span></pre><p>we can visualize the Forsterite orientations by</p><pre class="codeinput">plot(ebsd(<span class="string">'Fo'</span>).orientations,<span class="string">'axisAngle'</span>)</pre><pre class="codeoutput">plot 2000 random orientations out of 152345 given orientations
 </pre><img src="MorawiecCell_05.png"> <p>We see that all orientations are automatically projected inside the fundamental region. In order to compute explicitly the
             represent inside the fundamental region we can do

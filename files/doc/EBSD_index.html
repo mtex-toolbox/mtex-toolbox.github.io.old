@@ -106,8 +106,8 @@ ebsd = EBSD
          <h3> Plotting EBSD Data<a name="5"> </a></h3>
          <p>EBSD data are plotted using the command <a href="EBSD.plot.html,plot">EBSD.plot.html,plot</a>. It assigns a color to each orientation and plots a map of these colors. There are several options to specify the way the
             colors are assigned.
-         </p><pre class="codeinput">oM = ipdfHSVOrientationMapping(ebsd);
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><img src="EBSD_index_02.png"> <p>In order to understand the color coding, one can plot the coloring of the corresponding inverse pole figure via</p><pre class="codeinput">plot(oM)
+         </p><pre class="codeinput">ipfKey = ipfColorKey(ebsd);
+plot(ebsd,ipfKey.orientation2color(ebsd.orientations))</pre><img src="EBSD_index_02.png"> <p>In order to understand the color coding, one can plot the coloring of the corresponding inverse pole figure via</p><pre class="codeinput">plot(ipfKey)
 hold <span class="string">on</span>
 plotIPDF(ebsd(<span class="string">'Fe'</span>).orientations,xvector,<span class="string">'markerSize'</span>,3,<span class="string">'points'</span>,500,<span class="string">'marker'</span>,<span class="string">'o'</span>,<span class="string">'markerfacecolor'</span>,<span class="string">'none'</span>,<span class="string">'markeredgecolor'</span>,<span class="string">'k'</span>)
 hold <span class="string">off</span></pre><pre class="codeoutput">  I'm plotting 500 random orientations out of 48184 given orientations
@@ -136,14 +136,14 @@ odf = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 29
+    degree: 28
     weight: 1
  
 </pre><img src="EBSD_index_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Simulate EBSD Data<a name="9"> </a></h3>
          <p>Simulating EBSD data from a given ODF is useful to analyze the stability of the ODF estimation process. There is an <a href="EBSDSimulation_demo.html">example</a> demonstrating how to determine the number of individual orientation measurements to estimate the ODF up to a given error.
             The MTEX command to simulate EBSD data is <a href="ODF.calcEBSD.html">calcEBSD</a>, e.g.
-         </p><pre class="codeinput">ori = calcOrientations(unimodalODF(orientation(idquaternion,cs)),500)
+         </p><pre class="codeinput">ori = calcOrientations(unimodalODF(orientation.id(cs)),500)
 plotPDF(ori,Miller(1,0,0,cs),<span class="string">'antipodal'</span>,<span class="string">'MarkerSize'</span>,3)</pre><pre class="codeoutput"> 
 ori = orientation  
   size: 500 x 1

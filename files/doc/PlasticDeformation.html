@@ -59,6 +59,9 @@
                <tr>
                   <td><a href="#20">The Schmid factor for EBSD data</a></td>
                </tr>
+               <tr>
+                  <td><a href="#28">Strain based analysis on the same data set</a></td>
+               </tr>
             </table>
          </div>
          <h2>Geometric Definition<a name="3"> </a></h2>
@@ -117,12 +120,12 @@ SFMax =
 pos = vector3d  
  size: 2 x 1
           x         y         z
-  -0.404659 -0.908993 0.0999143
-   0.404239 -0.101265   0.90903
+  -0.405975 -0.908383  0.100121
+   0.404776 -0.100176  0.908912
 </pre><img src="PlasticDeformation_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Stress Tensor<a name="11"> </a></h2>
-         <p>Instead by the tension direction the stress might be specified by a stress tensor</p><pre class="codeinput">sigma = tensor([0 0 0; 0 0 0; 0 0 1],<span class="string">'name'</span>,<span class="string">'stress'</span>)</pre><pre class="codeoutput"> 
-sigma = stress tensor  
+         <p>Instead by the tension direction the stress might be specified by a stress tensor</p><pre class="codeinput">sigma = stressTensor.uniaxial(vector3d.Z)</pre><pre class="codeoutput"> 
+sigma = stressTensor  
   rank: 2 (3 x 3)
  
  0 0 0
@@ -205,11 +208,11 @@ tau = sSAll.SchmidFactor(r);
 
 <span class="comment">% plot active slip plane in red</span>
 hold <span class="string">on</span>
-quiver(r,sSAll(id).n,<span class="string">'ArrowSize'</span>,0.2,<span class="string">'LineWidth'</span>,2,<span class="string">'Color'</span>,<span class="string">'r'</span>);
+quiver(r,sSAll(id).n,<span class="string">'ArrowSize'</span>,0.25,<span class="string">'LineWidth'</span>,2,<span class="string">'Color'</span>,<span class="string">'r'</span>);
 
 <span class="comment">% plot active slip direction in green</span>
 hold <span class="string">on</span>
-quiver(r,sSAll(id).b.normalize,<span class="string">'ArrowSize'</span>,0.1,<span class="string">'LineWidth'</span>,2,<span class="string">'Color'</span>,<span class="string">'g'</span>);
+quiver(r,sSAll(id).b.normalize,<span class="string">'ArrowSize'</span>,0.12,<span class="string">'LineWidth'</span>,2,<span class="string">'Color'</span>,<span class="string">'g'</span>);
 hold <span class="string">off</span></pre><pre class="codeoutput"> 
 sSAll = slipSystem  
  mineral: Nickel (m-3m)
@@ -244,7 +247,7 @@ sSAll = slipSystem
 tau = sSAll.SchmidFactor
 
 <span class="comment">% now we take the max of the absolute value over all these functions</span>
-contourf(max(abs(tau),[],1))
+contourf(max(abs(tau),[],1),<span class="string">'upper'</span>)
 mtexColorbar</pre><pre class="codeoutput"> 
 tau = S2FunHarmonic  
  size: 24 x 1
@@ -256,12 +259,25 @@ tau = S2FunHarmonic
             import some EBSD data and computet the grains
          </p><pre class="codeinput">mtexdata <span class="string">csl</span>
 
-grains = calcGrains(ebsd);
+<span class="comment">% take some subset</span>
+ebsd = ebsd(ebsd.inpolygon([0,0,200,50]))
 
-plot(ebsd,ebsd.orientations)
+grains = calcGrains(ebsd);
+grains = smooth(grains,5);
+
+plot(ebsd,ebsd.orientations,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
 hold <span class="string">on</span>
-plot(grains.boundary)
-hold <span class="string">off</span></pre><img src="PlasticDeformation_06.png"> <p>We want to consider the following slip systems</p><pre class="codeinput">sS = slipSystem.fcc(ebsd.CS)
+plot(grains.boundary,<span class="string">'linewidth'</span>,2)
+hold <span class="string">off</span></pre><pre class="codeoutput"> 
+ebsd = EBSD  
+ 
+ Phase  Orientations  Mineral       Color  Symmetry  Crystal reference frame
+    -1  10251 (100%)     iron  light blue      m-3m                         
+ 
+ Properties: ci, error, iq, x, y
+ Scan unit : um
+ 
+</pre><img src="PlasticDeformation_06.png"> <p>We want to consider the following slip systems</p><pre class="codeinput">sS = slipSystem.fcc(ebsd.CS)
 sS = sS.symmetrise;</pre><pre class="codeoutput"> 
 sS = slipSystem  
  mineral: iron (m-3m)
@@ -276,19 +292,27 @@ sS = slipSystem
 sSLocal = grains.meanOrientation * sS</pre><pre class="codeoutput"> 
 sSLocal = slipSystem  
  CRSS: 1
- size: 885 x 24
+ size: 71 x 24
 </pre><p>These slip systems are now arranged in matrix form where the rows corrspond to the crystal reference frames of the different
             grains and the rows are the symmetrically equivalent slip systems. Computing the Schmid faktor we end up with a matrix of
             the same size
          </p><pre class="codeinput"><span class="comment">% compute Schmid factor</span>
+sigma = stressTensor.uniaxial(vector3d.Z)
 SF = sSLocal.SchmidFactor(sigma);
 
 <span class="comment">% take the maxium allong the rows</span>
 [SFMax,active] = max(SF,[],2);
 
 <span class="comment">% plot the maximum Schmid factor</span>
-plot(grains,SFMax)
-mtexColorbar</pre><img src="PlasticDeformation_07.png"> <p>Next we want to visualize the active slip systems.</p><pre class="codeinput"><span class="comment">% take the active slip system and rotate it in specimen coordinates</span>
+plot(grains,SFMax,<span class="string">'micronbar'</span>,<span class="string">'off'</span>,<span class="string">'linewidth'</span>,2)
+mtexColorbar <span class="string">location</span> <span class="string">southoutside</span></pre><pre class="codeoutput"> 
+sigma = stressTensor  
+  rank: 2 (3 x 3)
+ 
+ 0 0 0
+ 0 0 0
+ 0 0 1
+</pre><img src="PlasticDeformation_07.png"> <p>Next we want to visualize the active slip systems.</p><pre class="codeinput"><span class="comment">% take the active slip system and rotate it in specimen coordinates</span>
 sSactive = grains.meanOrientation .* sS(active);
 
 hold <span class="string">on</span>
@@ -301,9 +325,9 @@ hold <span class="string">off</span></pre><img src="PlasticDeformation_08.png"> 
             not aligned the slip plane is not perpendicular to the surface and the Burgers vector sticks out of the surface.
          </p>
          <p>Next we want to demonstrate the alternative route</p><pre class="codeinput"><span class="comment">% rotate the stress tensor into crystal coordinates</span>
-sigmaLocal = rotate(sigma,inv(grains.meanOrientation))</pre><pre class="codeoutput"> 
-sigmaLocal = stress tensor  
-  size   : 885 x 1    
+sigmaLocal = inv(grains.meanOrientation) * sigma</pre><pre class="codeoutput"> 
+sigmaLocal = stressTensor  
+  size   : 71 x 1     
   rank   : 2 (3 x 3)  
   mineral: iron (m-3m)
 </pre><p>This becomes a list of stress tensors with respect to crystal coordinates - one for each grain. Now we have both the slip
@@ -330,6 +354,32 @@ quiver(grains,sSactive.trace,<span class="string">'color'</span>,<span class="st
 quiver(grains,sSactive.b,<span class="string">'color'</span>,<span class="string">'r'</span>)
 
 hold <span class="string">off</span></pre><img src="PlasticDeformation_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Strain based analysis on the same data set<a name="28"> </a></h2><pre class="codeinput">eps = strainTensor(diag([1,0,-1]))
+
+epsCrystal = inv(grains.meanOrientation) * eps
+
+[M, b, mori] = calcTaylor(epsCrystal, sS);
+
+plot(grains,M,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
+mtexColorbar <span class="string">southoutside</span></pre><pre class="codeoutput"> 
+eps = strainTensor  
+  rank: 2 (3 x 3)
+ 
+  1  0  0
+  0  0  0
+  0  0 -1
+ 
+epsCrystal = strainTensor  
+  size   : 71 x 1     
+  rank   : 2 (3 x 3)  
+  mineral: iron (m-3m)
+ computing Taylor factor: 100%
+</pre><img src="PlasticDeformation_10.png"> <pre class="codeinput">[ bMax , bMaxId ] = max( b , [ ] , 2 ) ;
+sSGrains = grains.meanOrientation .* sS(bMaxId) ;
+hold <span class="string">on</span>
+quiver ( grains , sSGrains.b)
+quiver ( grains , sSGrains.trace)
+hold <span class="string">off</span></pre><img src="PlasticDeformation_11.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

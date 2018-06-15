@@ -89,8 +89,8 @@ plot(ebsd_region(<span class="string">'Quartz'</span>))
 plot(grains.boundary,<span class="string">'color'</span>,<span class="string">'black'</span>);
 legend <span class="string">off</span>
 hold <span class="string">off</span></pre><img src="GrainAnalysisDemo_04.png"> <p>colored according to the false color map of its inverse polefigure</p><pre class="codeinput">close <span class="string">all</span>
-oM = ipdfHSVOrientationMapping(ebsd_region(<span class="string">'Quartz'</span>));
-plot(oM,<span class="string">'Position'</span>,[825 100 300 300])</pre><img src="GrainAnalysisDemo_05.png"> <p>(RoI) The reconstructed grains. The quartz grains are colored according to their mean orientation while the remaining grains
+ipfKey = ipfColorKey(ebsd_region(<span class="string">'Quartz'</span>));
+plot(ipfKey,<span class="string">'Position'</span>,[825 100 300 300])</pre><img src="GrainAnalysisDemo_05.png"> <p>(RoI) The reconstructed grains. The quartz grains are colored according to their mean orientation while the remaining grains
             are colored according to there phase.
          </p><pre class="codeinput">plot(grains({<span class="string">'Andesina'</span>,<span class="string">'Biotite'</span>,<span class="string">'Orthoclase'</span>}),<span class="string">'FaceAlpha'</span>,0.2)
 hold <span class="string">on</span>

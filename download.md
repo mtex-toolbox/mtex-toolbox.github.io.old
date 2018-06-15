@@ -17,7 +17,9 @@ In case you experience any problems have a look at our [trouble shooting page]()
 
 File Name  |||  Release Date||| Comments ||| Downloads
 :-|-|-|:-|-|-|:-|-|-|-
-[**mtex-5.0.3.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.0.3/mtex-5.0.3.zip) ||| March 2018 ||| Crystal Shapes and spherical functions, [changelog](files/doc/changelog.html) ||| 122
+[**mtex-5.1.0.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.1.0/mtex-5.1.0.zip) ||| June 2018 ||| GND calculation and birefringence, [changelog](files/doc/changelog.html) ||| 1
+[**MTEXGUI-2.2.zip**](https://www.researchgate.net/profile/Jessica_Hiscocks/publication/325513699_MTEX_GUI_for_EBSD_Maps_and_Pole_Figures_Rev_22/data/5b1185f7a6fdcc4611dbc2de/AnnotateR2p2.mlapp) ||| May 2018 ||| graphical user interface for analyzing EBSD data by J. Hiscocks |||
+[**mtex-5.0.3.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.0.3/mtex-5.0.3.zip) ||| March 2018 ||| Crystal Shapes and spherical functions, [changelog](files/doc/changelog.html) ||| 1901
 [**MTEXannotateGUI.zip**](https://groups.google.com/group/mtexmail/attach/e87c480486f4/MTEXannotateGUI.zip?part=0.1&authuser=0) ||| February 2018 ||| graphical user interface for analyzing EBSD data by J. Hiscocks |||
 [**mtex-4.5.2.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.5.2/mtex-4.5.2.zip) ||| November 2017 ||| 3d orientation and ODF plots, [changelog](files/doc/changelog.html) ||| 4420
 [**mtex-4.4.0.zip**](https://github.com/mtex-toolbox/mtex/releases/download/mtex-4.4.0/mtex-4.4.0.zip) ||| January 2017 ||| Slip Systems, Taylor calculation, [changelog](files/doc/changelog.html) ||| 678

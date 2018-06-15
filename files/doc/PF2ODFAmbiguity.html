@@ -195,7 +195,6 @@ ori1 = orientation
     30   60   10    0
  
  
- 
 ori2 = orientation  
   size: 1 x 1
   crystal symmetry : -43m
@@ -204,7 +203,6 @@ ori2 = orientation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     30   60  100    0
- 
  
 </pre><img src="PF2ODFAmbiguity_09.png"> <p>Obviously, both orientations are not symmetrically equivalent as -43m does not have a four fold axis. This can also be seen
             from the pole figure plots above which are different for, e.g., (111). However, when looking at an arbitrary pole figure with
@@ -259,7 +257,7 @@ odf1 = ODF
   antipodal:         true
  
   Harmonic portion:
-    degree: 10
+    degree: 9
     weight: 1
  
 </pre><img src="PF2ODFAmbiguity_13.png"> <p>We may look at the coefficients of this expansion and observe how the decay to zero rapidly. This justifies to cut the harmonic
@@ -282,7 +280,7 @@ odf2 = ODF
   antipodal:         true
  
   Harmonic portion:
-    degree: 10
+    degree: 9
     weight: 1
  
 </pre><img src="PF2ODFAmbiguity_15.png"> <p>The point is that all pole figures of odf1 look exactly the same as the pole figures of odf2.</p><pre class="codeinput">plotPDF(odf2,Miller({1,0,0},{0,1,0},{0,0,1},cs),<span class="string">'antipodal'</span>)</pre><img src="PF2ODFAmbiguity_16.png"> <p>and hence, it is impossible for any reconstruction algorithm to decide whether odf1 or odf2 is the correct reconstruction.

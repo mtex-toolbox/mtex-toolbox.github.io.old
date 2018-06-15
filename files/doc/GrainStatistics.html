@@ -148,7 +148,7 @@ ans = grain2d
  
  Properties: GOS, meanRotation
  
-</pre><p>Logical indexing allows also for more complex queries, e.g. selecting all grains perimeter larger than 6000 and at least 600
+</pre><img src="GrainStatistics_07.png"> <p>Logical indexing allows also for more complex queries, e.g. selecting all grains perimeter larger than 6000 and at least 600
             measurements within
          </p><pre class="codeinput">condition = grains.perimeter&gt;6000 &amp; grains.grainSize &gt;= 600;
 
@@ -170,7 +170,7 @@ selected_grains = grain2d
  1617       1     1548    0.0129383    167    81    251
  1620       1      670    0.0870135    143    78    274
  
-</pre><img src="GrainStatistics_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><img src="GrainStatistics_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Indexing by orientation or position<a name="16"> </a></h2>
          <p>One can also select a grain by its spatial coordinates using the syntax <tt>grains(x,y)</tt></p><pre class="codeinput">x = 12000; y = 4000;
 
@@ -182,7 +182,7 @@ plot(grains(x,y).boundary,<span class="string">'linewidth'</span>,2,<span class=
 
 plot(x,y,<span class="string">'marker'</span>,<span class="string">'s'</span>,<span class="string">'markerfacecolor'</span>,<span class="string">'k'</span>,<span class="keyword">...</span>
   <span class="string">'markersize'</span>,10,<span class="string">'markeredgecolor'</span>,<span class="string">'w'</span>)
-hold <span class="string">off</span></pre><img src="GrainStatistics_08.png"> <p>In order to select all grains with a certain orientation one can do</p><pre class="codeinput"><span class="comment">% restrict first to Forsterite phase</span>
+hold <span class="string">off</span></pre><img src="GrainStatistics_09.png"> <p>In order to select all grains with a certain orientation one can do</p><pre class="codeinput"><span class="comment">% restrict first to Forsterite phase</span>
 grains_fo = grains(<span class="string">'fo'</span>)
 
 <span class="comment">% the reference orientation</span>
@@ -213,7 +213,6 @@ ori = orientation
    350   50  100    0
  
  
- 
 grains_selected = grain2d  
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
@@ -236,7 +235,7 @@ grains_selected = grain2d
  1660       1      129   0.00814837      1    47    279
  1662       1        3   0.00475795      1    47    279
  
-</pre><img src="GrainStatistics_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+</pre><img src="GrainStatistics_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Grain-size Analysis<a name="18"> </a></h2>
          <p>Let's go back to the grain size and analyze its distribution. To this end, we consider the complete data set.</p><pre class="codeinput">mtexdata <span class="string">forsterite</span>
 <span class="comment">% consider only indexed data for grain segmentation</span>
@@ -266,7 +265,7 @@ ebsd = EBSD
  Properties: bands, bc, bs, error, mad, x, y, grainId
  Scan unit : um
  
-</pre><p>Then the following command gives you a nice overview over the grain size distributions of the grains</p><pre class="codeinput">hist(grains)</pre><img src="GrainStatistics_10.png"> <p>Sometimes it is desirable to remove all boundary grains as they might distort grain statistics. To do so one should remember
+</pre><p>Then the following command gives you a nice overview over the grain size distributions of the grains</p><pre class="codeinput">hist(grains)</pre><img src="GrainStatistics_11.png"> <p>Sometimes it is desirable to remove all boundary grains as they might distort grain statistics. To do so one should remember
             that each grain boundary has a property <tt>grainId</tt> which stores the ids of the neigbouring grains. In the case of an outer grain boundary, one of the neighbouring grains has
             the id zero. We can filter out all these boundary segments by
          </p><pre class="codeinput"><span class="comment">% ids of the outer boundary segment</span>
@@ -275,7 +274,7 @@ outerBoundary_id = any(grains.boundary.grainId==0,2);
 plot(grains)
 hold <span class="string">on</span>
 plot(grains.boundary(outerBoundary_id),<span class="string">'linecolor'</span>,<span class="string">'red'</span>,<span class="string">'linewidth'</span>,2)
-hold <span class="string">off</span></pre><img src="GrainStatistics_11.png"> <p>Now <tt>grains.boundary(outerBoundary_id).grainId</tt> is a list of grain ids where the first column is zero, indicating the outer boundary, and the second column contains the
+hold <span class="string">off</span></pre><img src="GrainStatistics_12.png"> <p>Now <tt>grains.boundary(outerBoundary_id).grainId</tt> is a list of grain ids where the first column is zero, indicating the outer boundary, and the second column contains the
             id of the boundary grain. Hence, it remains to remove all grains with these ids.
          </p><pre class="codeinput"><span class="comment">% next we compute the corresponding grain_id</span>
 grain_id = grains.boundary(outerBoundary_id).grainId;
@@ -284,7 +283,7 @@ grain_id = grains.boundary(outerBoundary_id).grainId;
 grain_id(grain_id==0) = [];
 
 <span class="comment">% and plot the boundary grains</span>
-plot(grains(grain_id))</pre><img src="GrainStatistics_12.png"> <p>finally, we can remove the boundary grains by</p><pre class="codeinput">grains(grain_id) = []
+plot(grains(grain_id))</pre><img src="GrainStatistics_13.png"> <p>finally, we can remove the boundary grains by</p><pre class="codeinput">grains(grain_id) = []
 
 plot(grains)</pre><pre class="codeoutput"> 
 grains = grain2d  
@@ -299,10 +298,10 @@ grains = grain2d
  
  Properties: GOS, meanRotation
  
-</pre><img src="GrainStatistics_13.png"> <p>Beside the area, there are various other geometric properties that can be computed for grains, e.g., the <a href="grain2d.perimeter.html">perimeter</a>, the <a href="grain2d.diameter.html">diameter</a>, the <a href="grain2d.equivalentRadius.html">equivalentRadius</a>, the <a href="grain2d.equivalentPerimeter.html">equivalentPerimeter</a>, the <a href="grain2d.aspectRatio.html">aspectRatio</a>, and the <a href="grain2d.shapeFactor.html">shapeFactor</a>. The following is a simple scatter plot of shape factor against aspect ratio to check for correlation.
+</pre><img src="GrainStatistics_14.png"> <p>Beside the area, there are various other geometric properties that can be computed for grains, e.g., the <a href="grain2d.perimeter.html">perimeter</a>, the <a href="grain2d.diameter.html">diameter</a>, the <a href="grain2d.equivalentRadius.html">equivalentRadius</a>, the <a href="grain2d.equivalentPerimeter.html">equivalentPerimeter</a>, the <a href="grain2d.aspectRatio.html">aspectRatio</a>, and the <a href="grain2d.shapeFactor.html">shapeFactor</a>. The following is a simple scatter plot of shape factor against aspect ratio to check for correlation.
          </p><pre class="codeinput"><span class="comment">% the size of the dots corresponds to the area of the grains</span>
 close <span class="string">all</span>
-scatter(grains.shapeFactor, grains.aspectRatio, 70*grains.area./max(grains.area))</pre><img src="GrainStatistics_14.png"> <pre class="codeinput">plot(grains,log(grains.aspectRatio))</pre><img src="GrainStatistics_15.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+scatter(grains.shapeFactor, grains.aspectRatio, 70*grains.area./max(grains.area))</pre><img src="GrainStatistics_15.png"> <pre class="codeinput">plot(grains,log(grains.aspectRatio))</pre><img src="GrainStatistics_16.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Spatial Dependencies<a name="25"> </a></h2>
          <p>One interesting question would be, whether a polyphase system has dependence in the spatial arrangement or not, therefore,
             we can count the transitions to a neighbour grain

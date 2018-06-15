@@ -63,7 +63,6 @@ o = orientation
   phi1  Phi phi2 Inv.
     30   50   10    0
  
- 
 </pre><p>In order to streamline the definition the arguments to define the rotation can be directly pass to define a orientation:</p><pre class="codeinput">o = orientation(<span class="string">'Euler'</span>,30*degree,50*degree,10*degree,cs,ss)</pre><pre class="codeoutput"> 
 o = orientation  
   size: 1 x 1
@@ -73,7 +72,6 @@ o = orientation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     30   50   10    0
- 
  
 </pre><p>Accordingly parameterisations of rotations are also available for orientations</p>
          <div>
@@ -101,16 +99,15 @@ o = orientation
   phi1  Phi phi2 Inv.
    135   90   90    0
  
- 
 </pre><p><b>Predifined Orientations</b></p>
          <p>In the MTEX there is a list of predefined orientations:</p>
          <div>
             <ul type="square">
-               <li><a href="cubeOrientation.html">cubeOrientation</a></li>
-               <li><a href="gossOrientation.html">gossOrientation</a></li>
-               <li><a href="brassOrientation.html">brassOrientation</a></li>
+               <li><a href="orientation.cube.html">cube</a></li>
+               <li><a href="orientation.goss.html">goss</a></li>
+               <li><a href="orientation.brass.html">brass</a></li>
             </ul>
-         </div><pre class="codeinput">o = orientation(<span class="string">'goss'</span>,cs,ss)</pre><pre class="codeoutput"> 
+         </div><pre class="codeinput">o = orientation.goss(cs,ss)</pre><pre class="codeoutput"> 
 o = orientation  
   size: 1 x 1
   crystal symmetry : m-3m
@@ -119,7 +116,6 @@ o = orientation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
      0   45    0    0
- 
  
 </pre><h3> Rotating Crystal Directions onto Specimen Directions<a name="9"> </a></h3>
          <p>Let</p><pre class="codeinput">h = Miller(1,0,0,cs)</pre><pre class="codeoutput"> 
@@ -138,7 +134,6 @@ o = orientation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     90   90    0    0
- 
  
 </pre><p>a crystal orientation. Then the alignment of this crystal direction with respect to the specimen coordinate system can be
             computed via
@@ -167,7 +162,6 @@ o1 = orientation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
      0   60   90    0
- 
  
 </pre><p>Then the class of rotations crystallographically equivalent to o can be computed in two ways. Either by using the command
             <a href="orientation.symmetrise.html">symmetrise</a></p><pre class="codeinput">symmetrise(o)</pre><pre class="codeoutput"> 
@@ -211,7 +205,6 @@ ans = inverse orientation
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
     90   60  180    0
- 
  
 </pre><h3> Conversion into Euler Angles and Rodrigues Parametrisation<a name="21"> </a></h3>
          <p>There are methods to transform quaternion in almost any other parameterization of rotations as they are:</p>
@@ -275,9 +268,9 @@ oR = orientationRegion
             of orientations close to a certain fibre</td></tr><tr><td width="200px"><a href="orientation.getFundamentalRegion.html"><tt>getFundamentalRegion</tt></a></td><td>projects
             orientations to a fundamental region</td></tr><tr><td width="200px"><a href="orientation.isMisorientation.html"><tt>isMisorientation</tt></a></td><td>check
             whether o is a misorientation</td></tr><tr><td width="200px"><a href="orientation.ldivide.html"><tt>ldivide</tt></a></td><td>o
-            .\ v </td></tr><tr><td width="200px"><a href="orientation.log.html"><tt>log</tt></a></td><td>the inverse of the exponential
-            map</td></tr><tr><td width="200px"><a href="orientation.mean.html"><tt>mean</tt></a></td><td>of a list of orientations, principle
-            axes and moments of inertia</td></tr><tr><td width="200px"><a href="orientation.mldivide.html"><tt>mldivide</tt></a></td><td>o
+            .\ v </td></tr><tr><td width="200px"><a href="orientation.log.html"><tt>log</tt></a></td><td>the misorientation vector in
+            crystal coordinates </td></tr><tr><td width="200px"><a href="orientation.mean.html"><tt>mean</tt></a></td><td>of a list of
+            orientations, principle axes and moments of inertia</td></tr><tr><td width="200px"><a href="orientation.mldivide.html"><tt>mldivide</tt></a></td><td>o
             \ v </td></tr><tr><td width="200px"><a href="orientation.mtimes.html"><tt>mtimes</tt></a></td><td>orientation times Miller
             and orientation times orientation</td></tr><tr><td width="200px"><a href="orientation.niceEuler.html"><tt>niceEuler</tt></a></td><td>orientation
             to euler angle</td></tr><tr><td width="200px"><a href="orientation.orientation.html"><tt>orientation</tt></a></td><td>class
@@ -291,7 +284,7 @@ oR = orientationRegion
             region</td></tr><tr><td width="200px"><a href="orientation.project2FundamentalRegion.html"><tt>project2FundamentalRegion</tt></a></td><td>projects
             orientation to a fundamental region</td></tr><tr><td width="200px"><a href="orientation.qqplot.html"><tt>qqplot</tt></a></td><td>quantilequantile
             of misorientation angle against random angular</td></tr><tr><td width="200px"><a href="orientation.round2Miller.html"><tt>round2Miller</tt></a></td><td>find
-            lattice alignements for arbitrary misorientations</td></tr><tr><td width="200px"><a href="orientation.scatter.html"><tt>scatter</tt></a></td><td>plots
+            lattice alignements for arbitrary orientations and misorientations</td></tr><tr><td width="200px"><a href="orientation.scatter.html"><tt>scatter</tt></a></td><td>plots
             orientations in 3d</td></tr><tr><td width="200px"><a href="orientation.sphereVolume.html"><tt>sphereVolume</tt></a></td><td>ratio
             of orientations with a certain orientation</td></tr><tr><td width="200px"><a href="orientation.symmetrise.html"><tt>symmetrise</tt></a></td><td>all
             crystallographically equivalent orientations</td></tr><tr><td width="200px"><a href="orientation.times.html"><tt>times</tt></a></td><td>vec

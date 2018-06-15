@@ -44,15 +44,11 @@
             </p>
          </div>
          <p>compute the average tensor for an EBSD data set</p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>[TVoigt, TReuss, THill] = calcTensor(ebsd,T_phase1,T_phase2,...) - returns    the Voigt--, Reuss-- and Hill-- <a href="tensor_index.html">tensor</a>, applies each tensor    given in order of input to each phase
-         </p>
-         <p>[TVoigt, TReuss, THill] = calcTensor(ebsd('phase2'),T_phase2) - returns the Voigt--,    Reuss-- and Hill-- <a href="tensor_index.html">tensor</a>, applies a tensor    on a given phase
-         </p>
-         <p>THill = calcTensor(ebsd,T_phase1,T_phase2,'Hill') - returns the specified    <a href="tensor_index.html">tensor</a>, i.e. 'Hill' in this case
-         </p>
-         <p>TVoigt = calcTensor(ebsd,T_phase1,T_phase2,'geometricMean') - use geometric mean instead of arithmetric one</p>
-         <h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput"><span class="comment">% applies a tensor on a given phase</span>
+[TVoigt, TReuss, THill] = calcTensor(ebsd(<span class="string">'phase2'</span>),T_phase2)</pre><pre class="codeinput"><span class="comment">% applies each tensor given in order of input to each phase</span>
+[TVoigt, TReuss, THill] = calcTensor(ebsd,T_phase1,T_phase2,<span class="keyword">...</span><span class="comment">)</span></pre><pre class="codeinput"><span class="comment">% returns the specified  tensor</span>
+THill = calcTensor(ebsd,T_phase1,T_phase2,<span class="string">'Hill'</span>)</pre><pre class="codeinput"><span class="comment">% geometric mean instead of arithmetric one</span>
+TGeom = calcTensor(ebsd,T_phase1,T_phase2,<span class="string">'geometricMean'</span>)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -85,7 +81,7 @@
             <tt>'Voigt'</tt>
             </td>
             <td>
-            <p>voigt mean</p>
+            <p>Voigt mean</p>
             </td>
             </tr>
             <tr>
@@ -93,7 +89,7 @@
             <tt>'Reuss'</tt>
             </td>
             <td>
-            <p>reuss mean</p>
+            <p>Reuss mean</p>
             </td>
             </tr>
             <tr>
@@ -101,7 +97,15 @@
             <tt>'Hill'</tt>
             </td>
             <td>
-            <p>hill mean</p>
+            <p>Hill mean</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'geometricMean'</tt>
+            </td>
+            <td>
+            <p>eometric mean</p>
             </td>
             </tr>
             </table>

@@ -126,7 +126,6 @@ center = orientation
      phi1     Phi    phi2    Inv.
   135.745 35.7265 203.567       0
  
- 
 </pre><p>Lets mark this prefered orientation in the pole figures</p><pre class="codeinput">plotPDF(odf3,h,<span class="string">'antipodal'</span>,<span class="string">'superposition'</span>,c);
 annotate(center,<span class="string">'marker'</span>,<span class="string">'s'</span>,<span class="string">'MarkerFaceColor'</span>,<span class="string">'black'</span>)</pre><img src="ODFCharacteristics_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Texture Characteristics<a name="10"> </a></h2>
@@ -158,7 +157,7 @@ fodf = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 33
+    degree: 32
     weight: 1
  
 </pre><p>The Fourier coefficients of order 2:</p><pre class="codeinput">reshape(fodf.components{1}.f_hat(11:35),5,5)</pre><pre class="codeoutput">ans =

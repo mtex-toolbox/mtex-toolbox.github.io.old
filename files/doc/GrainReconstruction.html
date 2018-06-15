@@ -68,6 +68,9 @@
                <tr>
                   <td><a href="#22">Grain reconstruction by the multiscale clustering method</a></td>
                </tr>
+               <tr>
+                  <td><a href="#26">TESTING OMLY</a></td>
+               </tr>
             </table>
          </div>
          <p>Let us first import some example EBSD data and restrict it to a subregion of interest.</p><pre class="codeinput">close <span class="string">all</span>; plotx2east
@@ -456,11 +459,10 @@ grains = grain2d
          <p>When analyzing grains with gradual and subtle boundaries the threshold based method may not lead to the desired result.</p>
          <p>Let us consider the following example</p><pre class="codeinput">mtexdata <span class="string">single</span>
 
-oM = ipdfHSVOrientationMapping(ebsd);
-oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
-oM.maxAngle = 5*degree;
+ipfKey = axisAngleColorKey(ebsd);
+ipfKey.oriRef = mean(ebsd.orientations);
 
-plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><pre class="codeoutput"> loading data ...
+plot(ebsd,ipfKey.orientation2color(ebsd.orientations))</pre><pre class="codeoutput"> loading data ...
  saving data to /home/hielscher/mtex/master/data/single.mat
 </pre><img src="GrainReconstruction_14.png"> <p>We obeserve that the are no rapid changes in the orientation which would allow for applying the threshold based algorithm.
             Setting the threshold angle to a very small value would include many irrelevant or false regions.
@@ -468,13 +470,13 @@ plot(ebsd,oM.orientation2color(ebsd.orientations))</pre><pre class="codeoutput">
 grains_low  = calcGrains(ebsd,<span class="string">'angle'</span>,0.5*degree);
 
 figure
-plot(ebsd,oM.orientation2color(ebsd.orientations))
+plot(ebsd,ipfKey.orientation2color(ebsd.orientations))
 hold <span class="string">on</span>
 plot(grains_high.boundary)
 hold <span class="string">off</span>
 
 figure
-plot(ebsd,oM.orientation2color(ebsd.orientations))
+plot(ebsd,ipfKey.orientation2color(ebsd.orientations))
 hold <span class="string">on</span>
 plot(grains_low.boundary)
 hold <span class="string">off</span></pre><img src="GrainReconstruction_15.png"> <img src="GrainReconstruction_16.png"> <p>As an alternative MTEX includes the fast multiscale clustering method (FMC method) which  constructs clusters in a hierarchical
@@ -487,8 +489,7 @@ hold <span class="string">off</span></pre><img src="GrainReconstruction_15.png">
 grains = calcGrains(ebsd(<span class="string">'indexed'</span>))
 
 <span class="comment">% smooth grains to remove staircase effect</span>
-grains_FMC = smooth(grains_FMC);
-grains = smooth(grains);</pre><pre class="codeoutput"> 
+grains_FMC = smooth(grains_FMC);</pre><pre class="codeoutput"> 
 grains_FMC = grain2d  
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
@@ -528,15 +529,119 @@ grains = grain2d
  Id   Phase   Pixels         GOS   phi1   Phi   phi2
   1       1    10201   0.0343764    237    77    320
  
-</pre><img src="GrainReconstruction_17.png"> <img src="GrainReconstruction_18.png"> <p>We observe how this method nicely splits the measurements into clusters of similar orientation</p><pre class="codeinput"><span class="comment">%plot(ebsd,oM.orientation2color(ebsd.orientations))</span>
-plot(ebsd,oM.orientation2color(ebsd.orientations))
+</pre><p>We observe how this method nicely splits the measurements into clusters of similar orientation</p><pre class="codeinput"><span class="comment">%plot(ebsd,oM.orientation2color(ebsd.orientations))</span>
+plot(ebsd,ipfKey.orientation2color(ebsd.orientations))
 
 <span class="comment">% start overide mode</span>
 hold <span class="string">on</span>
 plot(grains_FMC.boundary,<span class="string">'linewidth'</span>,1.5)
 
 <span class="comment">% stop overide mode</span>
-hold <span class="string">off</span></pre><img src="GrainReconstruction_19.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="GrainReconstruction_17.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>TESTING OMLY<a name="26"> </a></h2>
+         <p>Below this is some testing code as the FMC method does not work so satisfactory in the present example</p><pre class="codeinput">F = halfQuadraticFilter
+F.alpha = 0.01;
+F.eps = 1e-5;
+F.tol = 1e-10;
+
+ebsdS = smooth(ebsd(<span class="string">'indexed'</span>),F)</pre><pre class="codeoutput">F = 
+  halfQuadraticFilter with properties:
+
+        alpha: [0.1000 0.1000]
+       weight: @(t,eps,th)(t&lt;=th)./(t.^2+eps^2).^(1/2)
+          eps: 0.1000
+          tol: 1.0000e-05
+    threshold: 0.0873
+ denoising EBSD data: 100%
+ 
+ebsdS = EBSD  
+ 
+ Phase  Orientations  Mineral       Color  Symmetry  Crystal reference frame
+     1  10201 (100%)       Al  light blue      m-3m                         
+ 
+ Properties: x, y
+ Scan unit : um
+ 
+</pre><pre class="codeinput">[grains_FMC,ebsdS.grainId] = calcGrains(ebsdS(<span class="string">'indexed'</span>),<span class="string">'FMC'</span>,2)
+
+<span class="comment">% smooth grains to remove staircase effect</span>
+grains_FMC = smooth(grains_FMC)</pre><pre class="codeoutput"> 
+grains_FMC = grain2d  
+ 
+ Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
+     1      23   10201       Al      m-3m                         
+ 
+ boundary segments: 1467
+ triple points: 6
+ 
+ Properties: GOS, meanRotation
+ 
+ 
+ebsdS = EBSD  
+ 
+ Phase  Orientations  Mineral       Color  Symmetry  Crystal reference frame
+     1  10201 (100%)       Al  light blue      m-3m                         
+ 
+ Properties: x, y, grainId
+ Scan unit : um
+ 
+ 
+grains_FMC = grain2d  
+ 
+ Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
+     1      23   10201       Al      m-3m                         
+ 
+ boundary segments: 1467
+ triple points: 6
+ 
+ Properties: GOS, meanRotation
+ 
+</pre><pre class="codeinput">plot(ebsdS(<span class="string">'indexed'</span>),ipfKey.orientation2color(ebsdS(<span class="string">'indexed'</span>).orientations))
+
+
+hold <span class="string">on</span>
+plot(grains_FMC.boundary)
+hold <span class="string">off</span></pre><img src="GrainReconstruction_18.png"> <pre class="codeinput">[grains,ebsdS.grainId] = calcGrains(ebsdS(<span class="string">'indexed'</span>),<span class="string">'angle'</span>,0.5*degree);
+ebsdS(grains(grains.grainSize&lt;=3)) = [];
+
+[grains,ebsdS.grainId] = calcGrains(ebsdS(<span class="string">'indexed'</span>),<span class="string">'angle'</span>,0.25*degree);
+grains</pre><pre class="codeoutput"> 
+grains = grain2d  
+ 
+ Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
+     1     335   10113       Al      m-3m                         
+ 
+ boundary segments: 2079
+ triple points: 340
+ 
+ Properties: GOS, meanRotation
+ 
+</pre><pre class="codeinput">plot(ebsdS(<span class="string">'indexed'</span>),ipfKey.orientation2color(ebsdS(<span class="string">'indexed'</span>).orientations))
+
+
+hold <span class="string">on</span>
+plot(grains.boundary)
+hold <span class="string">off</span></pre><img src="GrainReconstruction_19.png"> <pre class="codeinput">ori = ebsdS(<span class="string">'indexed'</span>).orientations;
+meanOri = mean(ori)
+grainId = ebsdS(<span class="string">'indexed'</span>).grainId;
+
+v = axis(ori,meanOri) .* angle(ori,meanOri);
+
+vv = v(grainId==2);
+scatter3(v.x,v.y,v.z,10*ones(size(grainId)),grainId,<span class="string">'filled'</span>)
+fcw
+hold <span class="string">on</span>
+scatter3(vv.x,vv.y,vv.z,10,<span class="string">'MarkerFaceColor'</span>,<span class="string">'red'</span>)</pre><pre class="codeoutput"> 
+meanOri = orientation  
+  size: 1 x 1
+  crystal symmetry : Al (m-3m)
+  specimen symmetry: 1
+ 
+  Bunge Euler angles in degree
+     phi1     Phi    phi2    Inv.
+  237.339 76.6922 320.228       0
+ 
+</pre><img src="GrainReconstruction_20.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

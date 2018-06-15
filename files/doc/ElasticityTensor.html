@@ -73,7 +73,7 @@
 cs = crystalSymmetry(<span class="string">'mmm'</span>,[4.7646 10.2296 5.9942],<span class="string">'mineral'</span>,<span class="string">'Olivin'</span>);
 
 C = stiffnessTensor.load(fname,cs)</pre><pre class="codeoutput"> 
-C = stiffness stiffnessTensor  
+C = stiffnessTensor  
   unit   : GPa              
   rank   : 4 (3 x 3 x 3 x 3)
   mineral: Olivin (mmm)     
@@ -140,7 +140,7 @@ ans =
 <span class="comment">% command &lt;tensor.ChristoffelTensor.html ChristoffelTensor&gt;.</span>
 
 T = ChristoffelTensor(C,vector3d.X)</pre><pre class="codeoutput"> 
-T = Christoffel ChristoffelTensor  
+T = ChristoffelTensor  
   rank   : 2 (3 x 3)   
   mineral: Olivin (mmm)
  
@@ -151,12 +151,12 @@ T = Christoffel ChristoffelTensor
          <h2>Elastic Wave Velocity<a name="9"> </a></h2>
          <p>The Christoffel tensor is the basis for computing the direction dependent wave velocities of the p, s1, and s2 wave, as well
             as of the polarization directions. Therefore, we need also the density of the material, e.g.,
-         </p><pre class="codeinput">rho = 2.3</pre><pre class="codeoutput">rho =
-    2.3000
+         </p><pre class="codeinput">rho = 3.355</pre><pre class="codeoutput">rho =
+    3.3550
 </pre><p>which we can write directly into the ellastic stiffness tensor</p><pre class="codeinput">C = addOption(C,<span class="string">'density'</span>,rho)</pre><pre class="codeoutput"> 
-C = stiffness stiffnessTensor  
+C = stiffnessTensor  
   unit   : GPa              
-  density: 2.3              
+  density: 3.355            
   rank   : 4 (3 x 3 x 3 x 3)
   mineral: Olivin (mmm)     
  
@@ -168,33 +168,57 @@ C = stiffness stiffnessTensor
      0     0     0     0    77     0
      0     0     0     0     0  78.7
 </pre><p>Then the velocities are computed by the command <a href="tensor.velocity.html">velocity</a></p><pre class="codeinput">[vp,vs1,vs2,pp,ps1,ps2] = velocity(C)</pre><pre class="codeoutput"> 
-vp = S2FunHarmonic  
- mineral: Olivin (mmm)
- bandwidth: 48
- antipodal: true
+vp = S2FunTri  
  
-vs1 = S2FunHarmonic  
- mineral: Olivin (mmm)
- bandwidth: 48
- antipodal: true
+ vertices: 1 x 18338
+ values:   1 x 18338
  
-vs2 = S2FunHarmonic  
- mineral: Olivin (mmm)
- bandwidth: 48
- antipodal: true
+vs1 = S2FunTri  
  
-pp = S2AxisFieldHarmonic  
- bandwidth: 48
- antipodal: true
+ vertices: 1 x 18338
+ values:   1 x 18338
  
-ps1 = S2AxisFieldHarmonic  
- bandwidth: 48
+vs2 = S2FunTri  
  
-ps2 = S2AxisFieldHarmonic  
- bandwidth: 48
+ vertices: 1 x 18338
+ values:   1 x 18338
+pp = 
+  S2AxisFieldTri with properties:
+
+          tri: [1&times;1 S2Triangulation]
+       values: [1&times;18338 vector3d]
+     vertices: [1&times;18338 S2Grid]
+    antipodal: 0
+ps1 = 
+  S2AxisFieldTri with properties:
+
+          tri: [1&times;1 S2Triangulation]
+       values: [1&times;18338 vector3d]
+     vertices: [1&times;18338 S2Grid]
+    antipodal: 0
+ps2 = 
+  S2AxisFieldTri with properties:
+
+          tri: [1&times;1 S2Triangulation]
+       values: [1&times;18338 vector3d]
+     vertices: [1&times;18338 S2Grid]
+    antipodal: 0
 </pre><p>In order to visualize these quantities, there are several possibilities. Let us first plot the direction dependent wave speed
             of the p-wave
-         </p><pre class="codeinput">plot(vp,<span class="string">'complete'</span>,<span class="string">'upper'</span>)</pre><img src="ElasticityTensor_03.png"> <p>Next, we plot on the top of this plot the p-wave polarization direction.</p><pre class="codeinput">hold <span class="string">on</span>
+         </p><pre class="codeinput">plot(vp,<span class="string">'complete'</span>,<span class="string">'upper'</span>)</pre><pre class="codeoutput">ans = 
+  Contour with properties:
+
+    LineColor: [0 0 0]
+    LineStyle: '-'
+    LineWidth: 0.5000
+         Fill: 'on'
+    LevelList: [1&times;10 double]
+        XData: [91&times;361 double]
+        YData: [91&times;361 double]
+        ZData: [91&times;361 double]
+
+  Use GET to show all properties
+</pre><img src="ElasticityTensor_03.png"> <p>Next, we plot on the top of this plot the p-wave polarization direction.</p><pre class="codeinput">hold <span class="string">on</span>
 plot(pp)
 hold <span class="string">off</span></pre><img src="ElasticityTensor_04.png"> <p>We may even compute with these spherical functions as width ordinary values. E.g. to visualize the speed difference between
             the s1 and s2 waves we do.
@@ -202,7 +226,20 @@ hold <span class="string">off</span></pre><img src="ElasticityTensor_04.png"> <p
 
 hold <span class="string">on</span>
 plot(ps1)
-hold <span class="string">off</span></pre><img src="ElasticityTensor_05.png"> <p>When projected to a plane the different wave speeds</p><pre class="codeinput">planeNormal = vector3d.X;
+hold <span class="string">off</span></pre><pre class="codeoutput">ans = 
+  Contour with properties:
+
+    LineColor: [0 0 0]
+    LineStyle: '-'
+    LineWidth: 0.5000
+         Fill: 'on'
+    LevelList: [1&times;10 double]
+        XData: [91&times;361 double]
+        YData: [91&times;361 double]
+        ZData: [91&times;361 double]
+
+  Use GET to show all properties
+</pre><img src="ElasticityTensor_05.png"> <p>When projected to a plane the different wave speeds</p><pre class="codeinput">planeNormal = vector3d.X;
 
 <span class="comment">% options for sections</span>
 optSec = {<span class="string">'color'</span>,<span class="string">'interp'</span>,<span class="string">'linewidth'</span>,6,<span class="string">'doNotDraw'</span>};

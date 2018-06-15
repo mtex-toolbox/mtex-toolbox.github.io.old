@@ -113,24 +113,28 @@ gB = grainBoundary
       276    Diopside    Diopside
 </pre><img src="BoundaryPlots_01.png"> <p>Accordingly, we can access the grain boundary of a specific grain by</p><pre class="codeinput">grains(267).boundary
 
-plot(grains(267).boundary)</pre><pre class="codeoutput"> 
+plot(grains(267).boundary,<span class="string">'lineWidth'</span>,2,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)</pre><pre class="codeoutput"> 
 ans = grainBoundary  
  
  Segments   mineral 1   mineral 2
       304  Forsterite  Forsterite
       126  Forsterite   Enstatite
        97  Forsterite    Diopside
-</pre><img src="BoundaryPlots_02.png"> <p>let's combine it with the orientation measurements inside</p><pre class="codeinput"><span class="comment">% define the colorcoding such that the meanorientation becomes white</span>
-oM = ipdfHSVOrientationMapping(grains(267));
-oM.inversePoleFigureDirection = grains(267).meanOrientation * oM.whiteCenter;
-oM.maxAngle = 5*degree;
+</pre><img src="BoundaryPlots_02.png"> <p>Let's combine it with the orientation measurements inside select axisAngle color key. This colorizes the mean orientation
+            gray and deviations from the mean orientation according to the misorientation axis where saturation increases with the misorientation
+            angle
+         </p><pre class="codeinput">ipfKey = axisAngleColorKey(grains(267));
+
+<span class="comment">% set the reference orientation to be the grain mean orientation</span>
+ipfKey.oriRef = grains(267).meanOrientation;
+ipfKey.maxAngle = 4*degree;
 
 <span class="comment">% get the ebsd data of grain 267</span>
-ebsd_931 = ebsd(grains(267));
+ebsd_267 = ebsd(grains(267));
 
 <span class="comment">% plot the orientation data</span>
 hold <span class="string">on</span>
-plot(ebsd_931,oM.orientation2color(ebsd_931.orientations))
+plot(ebsd_267,ipfKey.orientation2color(ebsd_267.orientations))
 hold <span class="string">off</span></pre><img src="BoundaryPlots_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Visualizing special grain boundaries<a name="7"> </a></h2>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -150,8 +154,9 @@ plot(grains.boundary)
 hold <span class="string">on</span>
 plot(grains.innerBoundary,<span class="string">'linecolor'</span>,<span class="string">'r'</span>,<span class="string">'linewidth'</span>,2)</pre><img src="BoundaryPlots_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Misorientation<a name="10"> </a></h3>
-         <p>Basically there are two ways to visualize misorientations along the grain boundary. The simplest way is to colorize the grain
-            boundaries with respect to the misorientation angle.
+         <p>The boundary misorientation is the misorientation between the two neighboring pixels of a boundary segment. Depending of the
+            misorientation angle one distinguishes between high angle and low angle grain boundaries. In MTEX we can visualize the boundary
+            misorientation angle by the commands
          </p><pre class="codeinput">close <span class="string">all</span>
 gB_Fo = grains.boundary(<span class="string">'Fo'</span>,<span class="string">'Fo'</span>);
 plot(grains,<span class="string">'translucent'</span>,.3,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
@@ -159,7 +164,9 @@ legend <span class="string">off</span>
 hold <span class="string">on</span>
 plot(gB_Fo,gB_Fo.misorientation.angle./degree,<span class="string">'linewidth'</span>,1.5)
 hold <span class="string">off</span>
-mtexColorbar(<span class="string">'title'</span>,<span class="string">'misorientation angle'</span>)</pre><img src="BoundaryPlots_06.png"> <p>The more sophisticated way is to colorize the misorientation space and apply the color to the respective grain boundaries.</p><pre class="codeinput">close <span class="string">all</span>
+mtexColorbar(<span class="string">'title'</span>,<span class="string">'misorientation angle'</span>)</pre><img src="BoundaryPlots_06.png"> <p>In order to visuale the full misorientation, i.e., axis and angle, one has to define a corresponding color key. One option
+            is the color key described in the paper by S. Patala, J. K. Mason, and C. A. Schuh, <tt>Improved representations of misorientation information for grain boundary</tt>, Prog. Mater. Sci., vol. 57, no. 8, pp. 1383-1425, 2012.
+         </p><pre class="codeinput">close <span class="string">all</span>
 plot(grains,<span class="string">'translucent'</span>,.3,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
 legend <span class="string">off</span>
 hold <span class="string">on</span>
@@ -168,17 +175,17 @@ hold <span class="string">on</span>
 <span class="comment">% a smoother plot</span>
 gB_Fo = gB_Fo.reorder;
 
-oM = patalaOrientationMapping(gB_Fo);
+ipfKey = PatalaColorKey(gB_Fo);
 
-plot(gB_Fo,<span class="string">'linewidth'</span>,4)
+plot(gB_Fo,<span class="string">'linewidth'</span>,6)
 <span class="comment">% on my computer setting the renderer to painters gives a much more</span>
 <span class="comment">% pleasent result</span>
-set(gcf,<span class="string">'Renderer'</span>,<span class="string">'painters'</span>)
+<span class="comment">%set(gcf,'Renderer','painters')</span>
 hold <span class="string">on</span>
 
-plot(gB_Fo,oM.orientation2color(gB_Fo.misorientation),<span class="string">'linewidth'</span>,2)
+plot(gB_Fo,ipfKey.orientation2color(gB_Fo.misorientation),<span class="string">'linewidth'</span>,4)
 
-hold <span class="string">off</span></pre><img src="BoundaryPlots_07.png"> <p>Lets visualize the color key as axis angle sections through the misorientation space</p><pre class="codeinput">plot(oM)</pre><img src="BoundaryPlots_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><img src="BoundaryPlots_07.png"> <p>Lets visualize the color key as axis angle sections through the misorientation space</p><pre class="codeinput">plot(ipfKey)</pre><img src="BoundaryPlots_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Classifying special boundaries<a name="13"> </a></h3>
          <p>Actually, it might be more informative, if we classify the grain boundaries after some special property.</p>
          <p>We can mark grain boundaries after its misorientation angle is in a certain range</p><pre class="codeinput">close <span class="string">all</span>
@@ -199,9 +206,7 @@ hold <span class="string">on</span>
 
 ind = angle(gB_Fo.misorientation.axis,xvector)&lt;5*degree;
 
-plot(gB_Fo(ind),<span class="string">'linecolor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'[100]'</span>)</pre><pre class="codeoutput">Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-</pre><img src="BoundaryPlots_11.png"> <p>Or we mark a special rotation between neighboured grains. If a linecolor is not specified, then the boundary is colorcoded
+plot(gB_Fo(ind),<span class="string">'linecolor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'[100]'</span>)</pre><img src="BoundaryPlots_11.png"> <p>Or we mark a special rotation between neighboured grains. If a linecolor is not specified, then the boundary is colorcoded
             after its angular difference to the given rotation.
          </p><pre class="codeinput">rot = rotation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,60*degree);
 ind = angle(gB_Fo.misorientation,rot)&lt;10*degree;
@@ -211,8 +216,7 @@ plot(gB)
 hold <span class="string">on</span>
 plot(gB_Fo(ind),<span class="string">'lineWidth'</span>,1.5,<span class="string">'lineColor'</span>,<span class="string">'r'</span>)
 
-legend(<span class="string">'&gt;2^\circ'</span>,<span class="string">'60^\circ/[001]'</span>)</pre><pre class="codeoutput">Warning: Ignoring extra legend entries. 
-</pre><img src="BoundaryPlots_12.png"> <p>Another kind of special boundaries is tilt and twist boundaries. We can find a tilt boundary by specifying the crystal form,
+legend(<span class="string">'&gt;2^\circ'</span>,<span class="string">'60^\circ/[001]'</span>)</pre><img src="BoundaryPlots_12.png"> <p>Another kind of special boundaries is tilt and twist boundaries. We can find a tilt boundary by specifying the crystal form,
             which is tilted, i.e. the misorientation maps a lattice plane <img src="BoundaryPlots_eq08062630503172331818.png">   of on grain onto the others grain lattice plane.
          </p>
          <p><img src="BoundaryPlots_eq17903004170913562749.png"> </p>
