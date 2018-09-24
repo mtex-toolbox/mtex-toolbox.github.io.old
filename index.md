@@ -17,9 +17,9 @@ textures by means of EBSD or pole figure data.
 
 ### Requirements and Licensing
 
-* MTEX is free and runs in standard Matlab with no toolboxes required. You will
-be up and running in seconds.
+* MTEX is free and runs in standard Matlab. You will be up and running in seconds.
 * MTEX comes with binaries from the [<img src="files/pic/nfft_logo.png" alt="NFFT" style="width: 100px;"/>](https://www-user.tu-chemnitz.de/~potts/nfft/) which build up the core of MTEX. Read [here]() for more details how fast Fourier transforms on the sphere and in the orientation space speed up texture computations.
+* MATLAB Optimization toolbox is required to use the GND function (MATLAB 2018a or latest is preferred).
 
 ### Troubleshooting, Bugs, Contact and Mailing List
 
