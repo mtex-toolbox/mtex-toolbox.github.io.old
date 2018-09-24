@@ -8,12 +8,16 @@ layout: main
 If you are using MTEX for your research, please cite one of the
 following paper that best fits your application.
 
+
+#### 2018
+
+* **Denoising of Crystal Orientation Maps**, R. Hielscher, C. Silbermann, E. Schmidl: [preprint]()
+
 #### 2017
 
-* **On three-dimensional misorientation spaces**, Robert Krakow, Robbie
-J. Bennett, Duncan N. Johnstone, Zoja Vukmanovic, Wilberth Solano-Alvarez,
-Steven J. Laine, Joshua F. Einsle, Paul A. Midgley, Catherine M. F. Rae, Ralf
-Hielscher: [Proceedings of the Royal Society A, 473, 2017](https://doi.org/10.1098/rspa.2017.0274).
+* **On three-dimensional misorientation spaces**, R. Krakow, R.
+J. Bennett, D. N. Johnstone, Z. Vukmanovic, W. Solano-Alvarez,
+S. J. Laine, J. F. Einsle, Paul A. Midgley, C. M. F. Rae, R. Hielscher: [Proceedings of the Royal Society A, 473, 2017](https://doi.org/10.1098/rspa.2017.0274).
 [![PDF](./files/pic/icon_pdf_32x32.png "Download PDF
   file")](https://www-user.tu-chemnitz.de/~rahi/paper/misori.pdf)
 
