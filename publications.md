@@ -11,7 +11,7 @@ following paper that best fits your application.
 
 #### 2018
 
-* **Denoising of Crystal Orientation Maps**, R. Hielscher, C. Silbermann, E. Schmidl: [preprint]()
+* **Denoising of Crystal Orientation Maps**, R. Hielscher, C. Silbermann, E. Schmidl: [preprint](https://www.researchgate.net/publication/327838955_Denoising_of_Crystal_Orientation_Maps)
 
 #### 2017
 
