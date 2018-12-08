@@ -8,11 +8,9 @@ textures by means of EBSD or pole figure data.
 
 ### News
 * Chemnitz MTEX Workshop 2019: ・[Announcement](https://groups.google.com/forum/#!topic/mtexmail/XkXVO2wRN3M)・[Homepage](http://www-user.tu-chemnitz.de/~rahi/mtexWorkshop19)・[Registration](http://www-user.tu-chemnitz.de/~rahi/mtexWorkshop19/registration.php)・
+* MTEX GUI 2.4 by J. Hiscocks released: ・[Download](https://www.researchgate.net/profile/Jessica_Hiscocks/publication/327848702_MTEX_GUI_for_EBSD_and_Pole_Figure_Plotting_Rev_24/data/5ba97639299bf13e604a3c43/Annotate2p4.zip)・[Announcment](https://www.researchgate.net/publication/327848702_MTEX_GUI_for_EBSD_and_Pole_Figure_Plotting_Rev_24)・
 * MTEX 5.1.1 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.1.1/mtex-5.1.1.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
-* MTEX GUI 2.2 by J. Hiscocks released: ・[Download](https://www.researchgate.net/profile/Jessica_Hiscocks/publication/325513699_MTEX_GUI_for_EBSD_Maps_and_Pole_Figures_Rev_22/data/5b1185f7a6fdcc4611dbc2de/AnnotateR2p2.mlapp)・[Announcment](https://groups.google.com/forum/#!topic/mtexmail/wWPtidymgOo)・
-* MTEX 5.0.3 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.0.3/mtex-5.0.3.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
 * New paper: [On three-dimensional misorientation spaces](https://www-user.tu-chemnitz.de/~rahi/paper/misori.pdf)
-* MTEX Workshop at ICOTOM 18: ・[Announcement](http://event.registerat.com/site/icotom2017/Registration.aspx)・
 * New paper: [Orientations - perfectly colored](https://www-user.tu-chemnitz.de/~rahi/paper/so3Colors.pdf)
 
 ### Requirements and Licensing
