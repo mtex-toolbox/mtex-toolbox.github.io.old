@@ -7,6 +7,7 @@ MTEX is a free Matlab toolbox for analyzing and modeling crystallographic
 textures by means of EBSD or pole figure data.
 
 ### News
+* MTEX 5.2.beta2 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.2.beta2/mtex-5.2.beta2.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
 * Chemnitz MTEX Workshop 2019: ・[Announcement](https://groups.google.com/forum/#!topic/mtexmail/XkXVO2wRN3M)・[Homepage](http://www-user.tu-chemnitz.de/~rahi/mtexWorkshop19)・[Registration](http://www-user.tu-chemnitz.de/~rahi/mtexWorkshop19/registration.php)・
 * MTEX GUI 2.4 by J. Hiscocks released: ・[Download](https://www.researchgate.net/profile/Jessica_Hiscocks/publication/327848702_MTEX_GUI_for_EBSD_and_Pole_Figure_Plotting_Rev_24/data/5ba97639299bf13e604a3c43/Annotate2p4.zip)・[Announcment](https://www.researchgate.net/publication/327848702_MTEX_GUI_for_EBSD_and_Pole_Figure_Plotting_Rev_24)・
 * MTEX 5.1.1 released: ・[Download](https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.1.1/mtex-5.1.1.zip)・[Release Notes](files/doc/changelog.html)・[Installation](download)・
@@ -32,7 +33,7 @@ be up and running in seconds.
  * [contribute](https://github.com/mtex-toolbox/mtex) -- MTEX is open
    source and adding new features is more simple then you might think.
 
-### Toolboxes that work with MTEX###
+### Toolboxes that work with MTEX
 
 * [PolyLX](http://petrol.natur.cuni.cz/~ondro/polylx) -- a Matlab toolbox for microstructure
   analysis
@@ -41,7 +42,7 @@ software
 * [Stabix](https://github.com/stabix/stabix) -- a Matlab slip transfer analysis toolbox
 * [MSAT](https://github.com/andreww/MSAT) -- MATLAB Seismic Anisotropy Toolkit
 
-### Users Guide and Feature Overview ###
+### Users Guide and Feature Overview
 
 <table border='0' cellpadding='5' width = "940px" style="width:100%" >
   <tr>
