@@ -113,23 +113,13 @@ odf = ODF
     weight: 1
  
 </pre><pre class="codeinput"><span class="comment">% find the clusters and its centers</span>
-[cId,centerRec] = calcCluster(ori);</pre><pre class="codeoutput">progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-....................................</pre><pre class="codeinput"><span class="comment">% visualize result</span>
+[cId,centerRec] = calcCluster(ori);</pre><pre class="codeoutput">........................</pre><pre class="codeinput"><span class="comment">% visualize result</span>
 <span class="keyword">for</span> i = 1:length(centerRec)
 plot(ori(cId==i),<span class="string">'axisAngle'</span>)
 hold <span class="string">on</span>
 plot(centerRec(i),<span class="string">'MarkerFaceColor'</span>,<span class="string">'k'</span>,<span class="string">'MarkerSize'</span>,15)
 <span class="keyword">end</span>
-hold <span class="string">off</span></pre><img src="orientation.calcCluster_01.png"> <pre class="codeinput"><span class="comment">%check the accuracy of the recomputed centers</span>
-min(angle_outer(center,centerRec)./degree)</pre><pre class="codeoutput">ans =
-  Columns 1 through 7
-    1.4939    0.6946    2.0894    1.3989    2.8257    4.8202   12.8767
-  Columns 8 through 13
-   15.3331   13.6618   13.7816   16.6253   15.6965   13.4095
-</pre><p style="font-size:1px;"></p>
+hold <span class="string">off</span></pre><img src="orientation.calcCluster_01.png"> <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

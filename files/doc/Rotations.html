@@ -85,7 +85,7 @@
          <p>The default Euler angle convention in MTEX are the Bunge Euler angles. Here a rotation is determined by three consecutive
             rotations, the first about the z-axis, the second about the y-axis, and the third again about the z-axis. Hence, one needs
             three angles to define an rotation by Euler angles. The following command defines a rotation by its three Bunge Euler angles
-         </p><pre class="codeinput">o = rotation(<span class="string">'Euler'</span>,30*degree,50*degree,10*degree)</pre><pre class="codeoutput"> 
+         </p><pre class="codeinput">o = rotation.byEuler(30*degree,50*degree,10*degree)</pre><pre class="codeoutput"> 
 o = rotation  
   size: 1 x 1
  
@@ -96,7 +96,7 @@ o = rotation
 </pre><p><b>Defining a Rotation by Other Euler Angle Conventions</b></p>
          <p>In order to define a rotation by a Euler angle convention different to the default Euler angle convention you to specify the
             convention as an additional parameter, e.g.
-         </p><pre class="codeinput">o = rotation(<span class="string">'Euler'</span>,30*degree,50*degree,10*degree,<span class="string">'Roe'</span>)</pre><pre class="codeoutput"> 
+         </p><pre class="codeinput">o = rotation.byEuler(30*degree,50*degree,10*degree,<span class="string">'Roe'</span>)</pre><pre class="codeoutput"> 
 o = rotation  
   size: 1 x 1
  
@@ -127,7 +127,7 @@ o = rotation
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Other Ways of Defining a Rotation<a name="8"> </a></h2>
          <p><b>The axis angle parametrisation</b></p>
-         <p>A very simple possibility to specify a rotation is to specify the rotation axis and the rotation angle.</p><pre class="codeinput">o = rotation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,30*degree)</pre><pre class="codeoutput"> 
+         <p>A very simple possibility to specify a rotation is to specify the rotation axis and the rotation angle.</p><pre class="codeinput">o = rotation.byAxisAngle(xvector,30*degree)</pre><pre class="codeoutput"> 
 o = rotation  
   size: 1 x 1
  
@@ -136,7 +136,7 @@ o = rotation
      0   30    0    0
  
 </pre><p><b>Four vectors defining a rotation</b></p>
-         <p>Given four vectors u1, v1, u2, v2 there is a unique rotation q such that q u1 = v1 and q u2 = v2.</p><pre class="codeinput">o = rotation(<span class="string">'map'</span>,xvector,yvector,zvector,zvector)</pre><pre class="codeoutput"> 
+         <p>Given four vectors u1, v1, u2, v2 there is a unique rotation q such that q u1 = v1 and q u2 = v2.</p><pre class="codeinput">o = rotation.map(xvector,yvector,zvector,zvector)</pre><pre class="codeoutput"> 
 o = rotation  
   size: 1 x 1
  
@@ -146,7 +146,7 @@ o = rotation
  
 </pre><p>If only two vectors are specified, then the rotation with the smallest angle is returned and gives the rotation from first
             vector onto the second one.
-         </p><pre class="codeinput">o = rotation(<span class="string">'map'</span>,xvector,yvector)</pre><pre class="codeoutput"> 
+         </p><pre class="codeinput">o = rotation.map(xvector,yvector)</pre><pre class="codeoutput"> 
 o = rotation  
   size: 1 x 1
  
@@ -159,9 +159,9 @@ o = rotation
             of such a fibre is defined by
          </p><pre class="codeinput">u = xvector;
 v = yvector;
-o = rotation(<span class="string">'fibre'</span>,u,v)</pre><pre class="codeoutput"> 
+o = rotation(fibre(u,v))</pre><pre class="codeoutput"> 
 o = rotation  
-  size: 1 x 361
+  size: 1000 x 1
  
 </pre><p><b>Defining an rotation by a 3 times 3 matrix</b></p><pre class="codeinput">o = rotation(<span class="string">'matrix'</span>,eye(3))</pre><pre class="codeoutput"> 
 o = rotation  
@@ -197,7 +197,7 @@ o = rotation
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Calculating with Rotations<a name="15"> </a></h2>
          <p><b>Rotating Vectors</b></p>
-         <p>Let</p><pre class="codeinput">o = rotation(<span class="string">'Euler'</span>,90*degree,90*degree,0*degree)</pre><pre class="codeoutput"> 
+         <p>Let</p><pre class="codeinput">o = rotation.byEuler(90*degree,90*degree,0*degree)</pre><pre class="codeoutput"> 
 o = rotation  
   size: 1 x 1
  
@@ -216,8 +216,8 @@ ans = vector3d
   x y z
   1 0 0
 </pre><p><b>Concatenating Rotations</b></p>
-         <p>Let</p><pre class="codeinput">rot1 = rotation(<span class="string">'Euler'</span>,90*degree,0,0);
-rot2 = rotation(<span class="string">'Euler'</span>,0,60*degree,0);</pre><p>be two rotations. Then the rotation defined by applying first rotation one and then rotation two is computed by</p><pre class="codeinput">rot = rot2 * rot1</pre><pre class="codeoutput"> 
+         <p>Let</p><pre class="codeinput">rot1 = rotation.byEuler(90*degree,0,0);
+rot2 = rotation.byEuler(0,60*degree,0);</pre><p>be two rotations. Then the rotation defined by applying first rotation one and then rotation two is computed by</p><pre class="codeinput">rot = rot2 * rot1</pre><pre class="codeoutput"> 
 rot = rotation  
   size: 1 x 1
  
@@ -251,7 +251,7 @@ ans = rotation
          <h2>Improper Rotations<a name="23"> </a></h2>
          <p>Improper rotations are coordinate transformations from a left hand into a right handed coordinate system as, e.g. mirroring
             or inversion. In MTEX the inversion is defined as the negative identy rotation
-         </p><pre class="codeinput">I = - rotation(<span class="string">'Euler'</span>,0,0,0)</pre><pre class="codeoutput"> 
+         </p><pre class="codeinput">I = - rotation.byEuler(0,0,0)</pre><pre class="codeoutput"> 
 I = rotation  
   size: 1 x 1
  
@@ -259,8 +259,8 @@ I = rotation
   phi1  Phi phi2 Inv.
      0    0    0    1
  
-</pre><p>Note that this is convenient as both groupings of the operations "-" and "*" should give the same result</p><pre class="codeinput">- (rotation(<span class="string">'Euler'</span>,0,0,0) * xvector)
-(- rotation(<span class="string">'Euler'</span>,0,0,0)) * xvector</pre><pre class="codeoutput"> 
+</pre><p>Note that this is convenient as both groupings of the operations "-" and "*" should give the same result</p><pre class="codeinput">- (rotation.byEuler(0,0,0) * xvector)
+(- rotation.byEuler(0,0,0)) * xvector</pre><pre class="codeoutput"> 
 ans = vector3d  
  size: 1 x 1
    x  y  z
@@ -273,7 +273,7 @@ ans = vector3d
 </pre><p><b>Mirroring</b></p>
          <p>As a mirroring is nothing else then a rotation about 180 degree about the normal of the mirroring plane followed by a inversion
             we can defined a mirroring about the axis (111) by
-         </p><pre class="codeinput">mir = -rotation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,180*degree)</pre><pre class="codeoutput"> 
+         </p><pre class="codeinput">mir = -rotation.byAxisAngle(vector3d(1,1,1),180*degree)</pre><pre class="codeoutput"> 
 mir = rotation  
   size: 1 x 1
  

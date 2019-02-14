@@ -44,8 +44,8 @@
             </p>
          </div>
          <p>select EBSD data along line segments</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput"><span class="comment">% returns a sorted list of ebsd data along lineX</span>
-[ebsd_lineX,dist] = spatialProfile(ebsd,lineX)</pre><h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">ebsdLine = spatialProfile(ebsd,[xStart,xEnd],[yStart yEnd])</pre><pre class="codeinput">[ebsdLine,dist] = spatialProfile(ebsd,x,y)</pre><pre class="codeinput">xy = ginput(2)
+[ebsdLine,dist] = spatialProfile(ebsd,xy)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -58,12 +58,27 @@
             </tr>
             <tr>
             <td width="100px">
-            <tt>lineX</tt>
+            <tt>xStart, xEnd, yStart, yEnd</tt>
             </td>
             <td>
-            <p>list of spatial coordinates <tt>[x(:) y(:)]</tt> of if 3d <tt>[x(:) y(:) z(:)]</tt>, where <equation>
-            <img alt="$x_i,x_{i+1}$" class="equation" height="10px" src="EBSD.spatialProfile_tmp_eq07024604091668925592.png" width="44px"/>
-            </equation> defines a line segment</p>
+            <p>double</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>x, y</tt>
+            </td>
+            <td>
+            <p>coordinates of the line segments</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>xy</tt>
+            </td>
+            <td>
+            <p>list of spatial coordinates <tt>[x(:) y(:)]</tt>
+            </p>
             </td>
             </tr>
             </table>
@@ -74,7 +89,7 @@
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>ebsd</tt>
+            <tt>ebsdLine</tt>
             </td>
             <td>
             <p><a href="EBSD_index.html">EBSD</a> restrcited to the line of interest</p>
@@ -91,8 +106,23 @@
             </table>
             
          </p>
-         <h2>Example<a name="6"> </a></h2>
-         <p style="font-size:1px;"></p>
+         <h2>Example<a name="6"> </a></h2><pre class="codeinput"><span class="comment">% import data</span>
+mtexdata <span class="string">twins</span></pre><pre class="codeoutput"> loading data ...
+ 
+CS = crystalSymmetry  
+ 
+  mineral        : Magnesium         
+  symmetry       : 6/mmm             
+  a, b, c        : 3.2, 3.2, 5.2     
+  reference frame: X||a*, Y||b, Z||c*
+ 
+ saving data to /home/hielscher/mtex/master/data/twins.mat
+</pre><pre class="codeinput"><span class="comment">% plot data</span>
+plot(ebsd(<span class="string">'indexed'</span>),ebsd(<span class="string">'indexed'</span>).orientations)</pre><img src="EBSD.spatialProfile_01.png"> <pre class="codeinput"><span class="comment">% select line coordinates</span>
+x = [15.5 27]; y = [20.5 11];</pre><pre class="codeinput"><span class="comment">% draw line with some transluency</span>
+line(x,y,<span class="string">'color'</span>,[0.5 0.5 0.5 0.5],<span class="string">'linewidth'</span>,10)</pre><img src="EBSD.spatialProfile_02.png"> <pre class="codeinput"><span class="comment">% restrict ebsd data to this line</span>
+[ebsdLine,dist] = spatialProfile(ebsd,x,y);</pre><pre class="codeinput"><span class="comment">% extract orientations</span>
+ori = ebsdLine.orientations;</pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

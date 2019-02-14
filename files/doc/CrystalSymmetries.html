@@ -182,7 +182,7 @@ annotate(cs.aAxis,<span class="string">'MarkerFaceColor'</span>,<span class="str
 ss = specimenSymmetry(<span class="string">'mmm'</span>);
 
 <span class="comment">% all crystallographically equivalent orientations</span>
-ss * orientation(<span class="string">'euler'</span>,0,0,pi/4,cs,ss) * cs</pre><pre class="codeoutput"> 
+ss * orientation.byEuler(0,0,pi/4,cs,ss) * cs</pre><pre class="codeoutput"> 
 ans = orientation  
   size: 8 x 12
   crystal symmetry : -3m1, X||a*, Y||b, Z||c*

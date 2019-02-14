@@ -107,7 +107,7 @@ eps = strainTensor
     0    0 -2.5
 </pre><pre class="codeinput"><span class="comment">% define a crystal orientation</span>
 cs = crystalSymmetry(<span class="string">'cubic'</span>)
-ori = orientation(<span class="string">'Euler'</span>,0,30*degree,15*degree,cs)</pre><pre class="codeoutput"> 
+ori = orientation.byEuler(0,30*degree,15*degree,cs)</pre><pre class="codeoutput"> 
 cs = crystalSymmetry  
  
   symmetry: m-3m   
@@ -127,32 +127,9 @@ ori = orientation
 sS = slipSystem.fcc(cs)</pre><pre class="codeoutput"> 
 sS = slipSystem  
  symmetry: m-3m
- CRSS: 1
  size: 1 x 1
-  u   v   w | h   k   l
-  0   1  -1   1   1   1
-</pre><pre class="codeinput"><span class="comment">% compute the Taylor factor</span>
-[M,b,mori] = calcTaylor(inv(ori)*eps,sS.symmetrise)</pre><pre class="codeoutput">M =
-    0.2719
-b =
-  Columns 1 through 7
-    0.0000    0.0000    0.0142    0.0332    0.0000    0.0000    0.0198
-  Columns 8 through 14
-    0.0000    0.0000    0.0000    0.0204    0.0000    0.0000    0.0000
-  Columns 15 through 21
-    0.0000    0.0345    0.0093    0.0000    0.0000    0.0296    0.0000
-  Columns 22 through 24
-    0.0000    0.0000    0.1110
- 
-mori = misorientation  
-  size: 1 x 1
-  crystal symmetry : m-3m
-  crystal symmetry : m-3m
- 
-  Bunge Euler angles in degree
-     phi1     Phi    phi2    Inv.
-  64.4732  2.0184 296.717       0
- 
+  u    v    w  | h    k    l CRSS
+  0    1   -1    1    1    1    1
 </pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

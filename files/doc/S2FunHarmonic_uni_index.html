@@ -43,7 +43,7 @@
          <h2>Defining a <tt>S2FunHarmonic</tt><a name="1"> </a></h2>
          <p><b>Definition via function values</b></p>
          <p>At first you need some vertices</p><pre class="codeinput">nodes = equispacedS2Grid(<span class="string">'resolution'</span>,3*degree,<span class="string">'antipodal'</span>);
-nodes = nodes(:);</pre><p>Next you define function values for the vertices</p><pre class="codeinput">y = smiley(nodes);
+nodes = nodes(:);</pre><p>Next you define function values for the vertices</p><pre class="codeinput">y = S2Fun.smiley(nodes);
 
 <span class="comment">% plot the discrete data</span>
 plot(nodes,y)</pre><img src="S2FunHarmonic_uni_index_01.png"> <p>Now the actual command to get <tt>sF1</tt> of type <tt>S2FunHarmonic</tt></p><pre class="codeinput">sF1 = interp(nodes, y, <span class="string">'harmonicApproximation'</span>)
@@ -114,7 +114,7 @@ sF1./(sF2+1); 2./sF2; sF2./4;</pre><p>power</p><pre class="codeinput">sF1.^sF2; 
          </div>
          <p><b>Other operations</b></p>
          <p>calculate the <img src="S2FunHarmonic_uni_index_eq11809360406450963432.png"> -norm, which is only the <img src="S2FunHarmonic_uni_index_eq06246994178291117440.png"> -norm of the Fourier-coefficients
-         </p><pre class="codeinput">norm(sF1);</pre><p>calculate the mean value of a function</p><pre class="codeinput">mean(sF1);</pre><p>calculate the surface integral of a function</p><pre class="codeinput">sum(sF1);</pre><p>rotate a function</p><pre class="codeinput">r = rotation(<span class="string">'Euler'</span>, [pi/4 0 0]);
+         </p><pre class="codeinput">norm(sF1);</pre><p>calculate the mean value of a function</p><pre class="codeinput">mean(sF1);</pre><p>calculate the surface integral of a function</p><pre class="codeinput">sum(sF1);</pre><p>rotate a function</p><pre class="codeinput">r = rotation.byEuler( [pi/4 0 0]);
 rotate(sF1, r);</pre><p>symmetrise a given function</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'6/m'</span>);
 sFs = symmetrise(sF1, cs);</pre><div>
             <ul type="square">

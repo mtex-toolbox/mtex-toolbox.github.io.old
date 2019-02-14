@@ -122,7 +122,7 @@ plot(C,<span class="string">'complete'</span>,<span class="string">'upper'</span
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Rotating a Tensor<a name="10"> </a></h2>
          <p>Rotation a tensor is done by the command <a href="tensor.rotate.html">rotate</a>. Let's define a rotation
-         </p><pre class="codeinput">r = rotation(<span class="string">'Euler'</span>,45*degree,0*degree,0*degree)</pre><pre class="codeoutput"> 
+         </p><pre class="codeinput">r = rotation.byEuler(45*degree,0*degree,0*degree)</pre><pre class="codeoutput"> 
 r = rotation  
   size: 1 x 1
  
@@ -145,7 +145,7 @@ Trot = tensor
 
 T = tensor(P,<span class="string">'rank'</span>,3,<span class="string">'propertyname'</span>,<span class="string">'piezoelectric modulus'</span>)
 
-r = rotation(<span class="string">'axis'</span>,zvector,<span class="string">'angle'</span>,-45*degree);
+r = rotation.byAxisAngle(zvector,-45*degree);
 T = rotate(T,r)</pre><pre class="codeoutput"> 
 T = tensor  
   propertyname: piezoelectric modulus

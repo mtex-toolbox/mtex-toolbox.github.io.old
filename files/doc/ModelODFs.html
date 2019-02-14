@@ -116,7 +116,7 @@ odf = ODF
                </li>
                <li>the crystal and specimen <a href="symmetry_index.html">symmetry</a></li>
             </ul>
-         </div><pre class="codeinput">ori = orientation(<span class="string">'Miller'</span>,[1,2,2],[2,2,1],cs,ss);
+         </div><pre class="codeinput">ori = orientation.byMiller([1,2,2],[2,2,1],cs,ss);
 psi = vonMisesFisherKernel(<span class="string">'HALFWIDTH'</span>,10*degree);
 odf = unimodalODF(ori,psi)
 
@@ -200,7 +200,7 @@ odf = ODF
                <li>four values lambda</li>
             </ul>
          </div><pre class="codeinput">cs = crystalSymmetry(<span class="string">'-3m'</span>);</pre><p><b>Bingham unimodal ODF</b></p><pre class="codeinput"><span class="comment">% a modal orientation</span>
-mod = orientation(<span class="string">'Euler'</span>,45*degree,0*degree,0*degree);
+mod = orientation.byEuler(45*degree,0*degree,0*degree);
 
 <span class="comment">% the corresponding Bingham ODF</span>
 odf = BinghamODF(20,mod,cs)
@@ -242,7 +242,7 @@ odf = ODF
 ss = specimenSymmetry(<span class="string">'orthorhombic'</span>);
 
 psi = vonMisesFisherKernel(<span class="string">'halfwidth'</span>,10*degree);
-mod1 = orientation(<span class="string">'Miller'</span>,[1,2,2],[2,2,1],cs,ss);
+mod1 = orientation.byMiller([1,2,2],[2,2,1],cs,ss);
 
 odf =  0.73 * uniformODF(cs,ss) + 0.27 * unimodalODF(mod1,psi)
 

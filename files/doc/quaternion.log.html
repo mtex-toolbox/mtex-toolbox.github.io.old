@@ -43,10 +43,10 @@
             <p>(method of <a href="quaternion_index.html">quaternion</a>)
             </p>
          </div>
-         <p>project a quaternion into the tangential space</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">v = log(q)       <span class="comment">% tangential vector as vector3d</span>
-v = log(q,q_ref) <span class="comment">% tangential vector as vector3d</span>
-M = logm(q) <span class="comment">% return tangential vector as (skew symmetric) matrix</span></pre><h2>Input<a name="4"> </a></h2>
+         <p>the logarithmic map that translates a rotation into a rotation vector</p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">v = log(q) <span class="comment">% rotation vector with reference to the identical rotation</span>
+v = log(q,q_ref) <span class="comment">% rotation vector with reference q_ref</span></pre><pre class="codeinput">v = loq(q,<span class="string">'right'</span>)
+v = loq(q,<span class="string">'left'</span>)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -83,7 +83,7 @@ M = logm(q) <span class="comment">% return tangential vector as (skew symmetric)
             
          </p>
          <h3 class="seealso">See also</h3>
-         <p><a href="expquat.html">expquat</a></p>
+         <p><a href="quaternion.logm.html">quaternion/logm</a>, <a href="vector3d.exp.html">vector3d/exp</a>, <a href="spinTensor_index.html">spinTensor_index</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

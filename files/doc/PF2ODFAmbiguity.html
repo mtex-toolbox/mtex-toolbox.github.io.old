@@ -69,9 +69,9 @@
             modes at the positions
          </p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'mmm'</span>);
 
-orix = orientation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,90*degree,cs);
-oriy = orientation(<span class="string">'axis'</span>,yvector,<span class="string">'angle'</span>,90*degree,cs);
-oriz = orientation(<span class="string">'axis'</span>,zvector,<span class="string">'angle'</span>,90*degree,cs);
+orix = orientation.byAxisAngle(xvector,90*degree,cs);
+oriy = orientation.byAxisAngle(yvector,90*degree,cs);
+oriz = orientation.byAxisAngle(zvector,90*degree,cs);
 
 odf1 = unimodalODF([orix,oriy,oriz])</pre><pre class="codeoutput"> 
 odf1 = ODF  
@@ -83,7 +83,7 @@ odf1 = ODF
     center: Rotations: 1x3
     weight: 1
  
-</pre><p>The second ODF has three modes as well but this times at rotations about the axis (1,1,1) with angles 0, 120, and 240 degrees.</p><pre class="codeinput">ori = orientation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,[0,120,240]*degree,cs);
+</pre><p>The second ODF has three modes as well but this times at rotations about the axis (1,1,1) with angles 0, 120, and 240 degrees.</p><pre class="codeinput">ori = orientation.byAxisAngle(vector3d(1,1,1),[0,120,240]*degree,cs);
 odf2 = unimodalODF(ori)</pre><pre class="codeoutput"> 
 odf2 = ODF  
   crystal symmetry : mmm
@@ -121,7 +121,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29768 orientations, resolution: 5&deg;
+    center: 29767 orientations, resolution: 5&deg;
     weight: 1
  
 progress: 100%
@@ -143,7 +143,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29764 orientations, resolution: 5&deg;
+    center: 29765 orientations, resolution: 5&deg;
     weight: 1
  
 progress: 100%
@@ -162,7 +162,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29764 orientations, resolution: 5&deg;
+    center: 29765 orientations, resolution: 5&deg;
     weight: 1
  
 progress: 100%
@@ -176,9 +176,9 @@ cs = crystalSymmetry
   symmetry: -43m   
   a, b, c : 1, 1, 1
  
-</pre><p>and two rotations</p><pre class="codeinput">ori1 = orientation(<span class="string">'euler'</span>,30*degree,60*degree,10*degree,cs)
+</pre><p>and two rotations</p><pre class="codeinput">ori1 = orientation.byEuler(30*degree,60*degree,10*degree,cs)
 
-ori2 = orientation(<span class="string">'euler'</span>,30*degree,60*degree,100*degree,cs)
+ori2 = orientation.byEuler(30*degree,60*degree,100*degree,cs)
 
 h = Miller({1,0,0},{1,1,0},{1,1,1},{1,2,3},cs);
 plotPDF(ori1,h,<span class="string">'MarkerSize'</span>,12)
@@ -285,7 +285,7 @@ odf2 = ODF
  
 </pre><img src="PF2ODFAmbiguity_15.png"> <p>The point is that all pole figures of odf1 look exactly the same as the pole figures of odf2.</p><pre class="codeinput">plotPDF(odf2,Miller({1,0,0},{0,1,0},{0,0,1},cs),<span class="string">'antipodal'</span>)</pre><img src="PF2ODFAmbiguity_16.png"> <p>and hence, it is impossible for any reconstruction algorithm to decide whether odf1 or odf2 is the correct reconstruction.
             In order to compare odf1 and odf2, we visualize them along the alpha fibre
-         </p><pre class="codeinput">alphaFibre = orientation(<span class="string">'axis'</span>,zvector,<span class="string">'angle'</span>,(-180:180)*degree,cs);
+         </p><pre class="codeinput">alphaFibre = orientation.byAxisAngle(zvector,(-180:180)*degree,cs);
 
 close <span class="string">all</span>
 plot(-180:180,odf1.eval(alphaFibre),<span class="string">'linewidth'</span>,2)
@@ -322,12 +322,12 @@ odf_rec1 = ODF
   specimen symmetry: 1
  
   Uniform portion:
-    weight: 0.7967
+    weight: 0.79845
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 118720 orientations, resolution: 5&deg;
-    weight: 0.2033
+    center: 118743 orientations, resolution: 5&deg;
+    weight: 0.20155
  
 </pre><p>This method can be switched off by the following command</p><pre class="codeinput">odf_rec2 = calcODF(pf,<span class="string">'noGhostCorrection'</span>,<span class="string">'silent'</span>)</pre><pre class="codeoutput"> 
 odf_rec2 = ODF  
@@ -376,12 +376,12 @@ rec = ODF
   specimen symmetry: 222
  
   Uniform portion:
-    weight: 0.73018
+    weight: 0.73051
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 1219 orientations, resolution: 5&deg;
-    weight: 0.26982
+    center: 1221 orientations, resolution: 5&deg;
+    weight: 0.26949
  
  
 rec2 = ODF  

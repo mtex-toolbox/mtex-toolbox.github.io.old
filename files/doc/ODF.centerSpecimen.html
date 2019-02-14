@@ -164,10 +164,10 @@
          <h2>Example<a name="6"> </a></h2><pre class="codeinput"><span class="comment">%Starting with an synthetic odf with orthorhombic symmetry</span>
 CS = crystalSymmetry(<span class="string">'cubic'</span>)
 SS = specimenSymmetry(<span class="string">'orthorhombic'</span>)
-ori = [orientation(<span class="string">'euler'</span>,135*degree,45*degree,120*degree,CS,SS) <span class="keyword">...</span>
-orientation(<span class="string">'euler'</span>, 60*degree, 54.73*degree, 45*degree,CS,SS) <span class="keyword">...</span>
-orientation(<span class="string">'euler'</span>,70*degree,90*degree,45*degree,CS,SS)<span class="keyword">...</span>
-orientation(<span class="string">'euler'</span>,0*degree,0*degree,0*degree,CS,SS)];</pre><pre class="codeoutput"> 
+ori = [orientation.byEuler(135*degree,45*degree,120*degree,CS,SS) <span class="keyword">...</span>
+orientation.byEuler( 60*degree, 54.73*degree, 45*degree,CS,SS) <span class="keyword">...</span>
+orientation.byEuler(70*degree,90*degree,45*degree,CS,SS)<span class="keyword">...</span>
+orientation.byEuler(0*degree,0*degree,0*degree,CS,SS)];</pre><pre class="codeoutput"> 
 CS = crystalSymmetry  
  
   symmetry: m-3m   
@@ -177,7 +177,7 @@ CS = crystalSymmetry
 SS = orthorhombic specimenSymmetry  
  
 </pre><pre class="codeinput">odf = unimodalODF(SS*ori);</pre><pre class="codeinput"><span class="comment">%we define a rotational displacement</span>
-r2 = rotation(<span class="string">'euler'</span>, 6*degree,4*degree,0*degree)
+r2 = rotation.byEuler( 6*degree,4*degree,0*degree)
 odf = rotate(odf,r2);
 h = [Miller(0,0,1,CS),Miller(0,1,1,CS),Miller(1,1,1,CS)];
 plotPDF(odf,h,<span class="string">'antipodal'</span>,<span class="string">'complete'</span>);</pre><pre class="codeoutput"> 
@@ -188,13 +188,9 @@ r2 = rotation
   phi1  Phi phi2 Inv.
      6    4    0    0
  
-</pre><img src="ODF.centerSpecimen_01.png"> <pre class="codeinput"><span class="comment">%and now retrive the rotation back</span>
-[odr,r,v1,v2] = centerSpecimen(odf);
-plotPDF(odr,h,<span class="string">'antipodal'</span>)</pre><pre class="codeoutput">progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-</pre><img src="ODF.centerSpecimen_02.png"> <p style="font-size:1px;"></p>
+Warning: Rotating an ODF with specimen symmetry will remove the specimen
+symmetry 
+</pre><img src="ODF.centerSpecimen_01.png"> <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

@@ -43,14 +43,23 @@
             <p>(method of <a href="orientation_index.html">orientation</a>)
             </p>
          </div>
-         <p>the misorientation vector in crystal coordinates</p>
+         <p>the misorientation vector between two orientations</p>
          <h2>Description<a name="3"> </a></h2>
          <p>Mathematically, misorientation vector is the the inverse of the exponential map, hence the name log.</p>
-         <h2>Syntax<a name="4"> </a></h2><pre class="codeinput">v = log(ori)</pre><pre class="codeinput"><span class="comment">% the misorientation vector in crystal coordinats</span>
-v = log(ori,ori_ref)</pre><pre class="codeinput"><span class="comment">% the misorientation vector in specimen coordinats</span>
-r = ori_ref .* v</pre><h2>Input<a name="5"> </a></h2>
+         <h2>Syntax<a name="4"> </a></h2><pre class="codeinput">m = log(mori) <span class="comment">% the misorientation vector in crystal coordinats</span></pre><pre class="codeinput"><span class="comment">% the misorientation vector in crystal coordinats</span>
+m = log(ori,ori_ref)</pre><pre class="codeinput"><span class="comment">% the misorientation vector in specimen coordinats</span>
+v = log(ori,ori_ref,<span class="string">'left'</span>)
+v = ori_ref .* m</pre><h2>Input<a name="5"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>mori</tt>
+            </td>
+            <td>
+            <p>misorientation</p>
+            </td>
+            </tr>
             <tr>
             <td width="100px">
             <tt>ori</tt>
@@ -75,6 +84,14 @@ r = ori_ref .* v</pre><h2>Input<a name="5"> </a></h2>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
+            <tt>m</tt>
+            </td>
+            <td>
+            <p><a href="Miller_index.html">Miller</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
             <tt>v</tt>
             </td>
             <td>
@@ -85,7 +102,7 @@ r = ori_ref .* v</pre><h2>Input<a name="5"> </a></h2>
             
          </p>
          <h3 class="seealso">See also</h3>
-         <p><a href=".html"></a></p>
+         <p><a href="orientation.logm.html">orientation/logm</a>, <a href="vector3d.exp.html">vector3d/exp</a>, <a href="Miller.exp.html">Miller/exp</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

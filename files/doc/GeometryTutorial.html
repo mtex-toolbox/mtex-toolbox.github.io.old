@@ -41,8 +41,8 @@
          <h1>Specimen Directions - The MTEX Class vector3d</h1>
          <div class="subheading"></div>
          <p><b>Definition</b></p><pre class="codeinput">v = vector3d (1 ,0 ,0)                      <span class="comment">% Cart . coordinates</span>
-v = vector3d(<span class="string">'polar'</span>, 20*degree, 10*degree) <span class="comment">% polar coordinates</span>
-v = xvector                                 <span class="comment">% predefined vector</span></pre><pre class="codeoutput"> 
+v = vector3d.byPolar(20*degree, 10*degree)  <span class="comment">% polar coordinates</span>
+v = vector3d.X                              <span class="comment">% predefined vector</span></pre><pre class="codeoutput"> 
 v = vector3d  
  size: 1 x 1
   x y z
@@ -57,8 +57,8 @@ v = vector3d
  size: 1 x 1
   x y z
   1 0 0
-</pre><p><b>Calculations</b></p><pre class="codeinput">v = [xvector, yvector]; w = v(1);
-v = 2*xvector - yvector;</pre><p><b>Basic Functions</b></p><pre class="codeinput">angle(v, w)
+</pre><p><b>Calculations</b></p><pre class="codeinput">v = [vector3d.X, vector3d.Y]; w = v(1);
+v = 2*vector3d.X - vector3d.Y;</pre><p><b>Basic Functions</b></p><pre class="codeinput">angle(v, w)
 norm(v)
 dot(v ,w)
 cross(v, w)
@@ -79,10 +79,10 @@ rho =
     5.8195
 </pre><p><b>plotting</b></p><pre class="codeinput">close <span class="string">all</span>
 plot([v,w])</pre><img src="GeometryTutorial_01.png"> <h2>Rotations<a name="6"> </a></h2>
-         <p><b>Definition</b></p><pre class="codeinput">rot = rotation(<span class="string">'Euler'</span>,10*degree,20*degree,30*degree);
-rot = rotation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,30*degree);
-rot = rotation(<span class="string">'map'</span>,xvector,yvector,vector3d(0,1,1),zvector);
-rot = rotation(<span class="string">'quaternion'</span>,0.5,0.5,0.5,0.5);
+         <p><b>Definition</b></p><pre class="codeinput">rot = rotation.byEuler(10*degree,20*degree,30*degree);
+rot = rotation.byAxisAngle(xvector,30*degree);
+rot = rotation.map(xvector,yvector,vector3d(0,1,1),zvector);
+rot = rotation(quaternion(0.5,0.5,0.5,0.5));
 rot = reflection(zvector)</pre><pre class="codeoutput"> 
 rot = rotation  
   size: 1 x 1
@@ -153,7 +153,7 @@ CS = crystalSymmetry
   reference frame: X||a*, Y||b, Z||c*
  
 </pre><p><b>Basic Functions</b></p><pre class="codeinput">symmetrise(xvector,SS)
-symmetrise(rotation(<span class="string">'Euler'</span>,0,0,0),CS,SS)
+symmetrise(rotation.byEuler(0,0,0),CS,SS)
 rotation(CS)
 [alpha_max,bet_max,gamma_max] = fundamentalRegionEuler(CS,SS)</pre><pre class="codeoutput"> 
 ans = vector3d  
@@ -200,9 +200,9 @@ angle(h1,h2,<span class="string">'antipodal'</span>)
 symmetrise(h)
 plot([h1,h2],<span class="string">'all'</span>,<span class="string">'labeled'</span>,<span class="string">'backGroundColor'</span>,<span class="string">'w'</span>)</pre><pre class="codeoutput">ans =
   1&times;2 logical array
-   0   1
+   0   0
 ans =
-    1.0333         0
+    1.0333    0.0000
  
 ans = Miller  
  size: 6 x 1
@@ -213,9 +213,9 @@ ans = Miller
   l       0       0       0       0       0       0
 </pre><img src="GeometryTutorial_03.png"> <h2>Orientations<a name="18"> </a></h2>
          <p><b>Definition</b></p><pre class="codeinput">ori = orientation(rot,CS,SS)
-ori = orientation(<span class="string">'Euler'</span>,alpha,beta,gamma,CS,SS)
-ori = orientation(<span class="string">'brass'</span>,crystalSymmetry(<span class="string">'cubic'</span>))
-ori = orientation(<span class="string">'Miller'</span>,[1 0 0],[1 1 1],CS,SS)</pre><pre class="codeoutput"> 
+ori = orientation.byEuler(alpha,beta,gamma,CS,SS)
+ori = orientation.brass(crystalSymmetry(<span class="string">'cubic'</span>))
+ori = orientation.byMiller([1 0 0],[1 1 1],CS,SS)</pre><pre class="codeoutput"> 
 ori = orientation  
   size: 1 x 1
   crystal symmetry : Quartz (321, X||a*, Y||b, Z||c*)
@@ -237,9 +237,13 @@ ori = orientation
  
  
 ori = orientation  
-  size: 0 x 0
+  size: 1 x 1
   crystal symmetry : m-3m
   specimen symmetry: 1
+ 
+  Bunge Euler angles in degree
+  phi1  Phi phi2 Inv.
+    35   45    0    0
  
  
 ori = orientation  
@@ -326,7 +330,7 @@ h3 = Miller(1,0,-1,1,CS);
 
 plot([h1 h2 h3],<span class="string">'all'</span>,<span class="string">'antipodal'</span>)</pre><img src="GeometryTutorial_05.png"> <p>c) Consider the orientation given by the Euler angles 30, 90, 90 degree. Give the Euler angles of all symmetrically equivalent
             orientations!
-         </p><pre class="codeinput">ori = orientation(<span class="string">'Euler'</span>,30*degree,90*degree,90*degree,CS);
+         </p><pre class="codeinput">ori = orientation.byEuler(30*degree,90*degree,90*degree,CS);
 symmetrise(ori)</pre><pre class="codeoutput"> 
 ans = orientation  
   size: 12 x 1
@@ -372,7 +376,7 @@ h2 = Miller(2,-1,-1,0,CS);
 r1 = xvector;
 r2 = yvector;
 
-ori = orientation(<span class="string">'map'</span>,h1,r1,h2,r2,CS)
+ori = orientation.map(h1,r1,h2,r2,CS)
 
 ori * [h1,h2]</pre><pre class="codeoutput"> 
 ori = orientation  

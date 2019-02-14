@@ -102,7 +102,7 @@ h = {Miller(1,0,-1,0,cs),[Miller(0,1,-1,1,cs),Miller(1,0,-1,1,cs)],Miller(1,1,-2
 c = {1,[0.52 ,1.23],1};
 
 <span class="comment">% import pole figure data</span>
-pf = loadPoleFigure(fname,h,cs,<span class="string">'superposition'</span>,c)
+pf = PoleFigure.load(fname,h,cs,<span class="string">'superposition'</span>,c)
 
 <span class="comment">% After running the script the variable *pf* is created which contains all</span>
 <span class="comment">% information about the pole figure data.</span></pre><pre class="codeoutput"> 
@@ -166,40 +166,21 @@ pf = PoleFigure
   h = (100), r = 72 x 37 points
 </pre><img src="PoleFigure_index_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Complete Function list<a name="10"> </a></h2>
-         <p><table width="90%"><tr><td width="200px"><a href="PoleFigure.calcError.html"><tt>calcError</tt></a></td><td>RP and mean square
-            error</td></tr><tr><td width="200px"><a href="PoleFigure.calcErrorPF.html"><tt>calcErrorPF</tt></a></td><td>error polefigure
-            between meassured and recalculated pole figures</td></tr><tr><td width="200px"><a href="PoleFigure.calcFEMODF.html"><tt>calcFEMODF</tt></a></td><td>PDF
-            to ODF inversion</td></tr><tr><td width="200px"><a href="PoleFigure.calcNormalization.html"><tt>calcNormalization</tt></a></td><td>normalization
-            of a meassured pole figure with respect to a second pole figure</td></tr><tr><td width="200px"><a href="PoleFigure.calcODF.html"><tt>calcODF</tt></a></td><td>PDF
-            to ODF inversion</td></tr><tr><td width="200px"><a href="PoleFigure.calcPoleFigure.html"><tt>calcPoleFigure</tt></a></td><td>simulate
-            pole figure</td></tr><tr><td width="200px"><a href="PoleFigure.char.html"><tt>char</tt></a></td><td>standard output</td></tr><tr><td
-            width="200px"><a href="PoleFigure.correct.html"><tt>correct</tt></a></td><td>s polfigures for background and defocussing</td></tr><tr><td
-            width="200px"><a href="PoleFigure.display.html"><tt>display</tt></a></td><td>standard output</td></tr><tr><td width="200px"><a
-            href="PoleFigure.export.html"><tt>export</tt></a></td><td>pole figure in an ASCII file</td></tr><tr><td width="200px"><a href="PoleFigure.findOutlier.html"><tt>findOutlier</tt></a></td><td>find
-            outliers in pole figures</td></tr><tr><td width="200px"><a href="PoleFigure.isOutlier.html"><tt>isOutlier</tt></a></td><td>find
-            outliers in pole figures</td></tr><tr><td width="200px"><a href="PoleFigure.isempty.html"><tt>isempty</tt></a></td><td>overloads
-            length</td></tr><tr><td width="200px"><a href="PoleFigure.max.html"><tt>max</tt></a></td><td>imum of two pole figures or the
-            maximum of a single polefigure</td></tr><tr><td width="200px"><a href="PoleFigure.mean.html"><tt>mean</tt></a></td><td>of
-            pole figure intensities</td></tr><tr><td width="200px"><a href="PoleFigure.min.html"><tt>min</tt></a></td><td>imum of two
-            pole figures or the minimum of a single polefigure</td></tr><tr><td width="200px"><a href="PoleFigure.minus.html"><tt>minus</tt></a></td><td>implements
-            pf1  pf2</td></tr><tr><td width="200px"><a href="PoleFigure.mrdivide.html"><tt>mrdivide</tt></a></td><td>implements pf1 ./
-            b and a ./ pf2</td></tr><tr><td width="200px"><a href="PoleFigure.mtimes.html"><tt>mtimes</tt></a></td><td>scaling of PoleFigures,
-            implements pf1 * b and a * pf2</td></tr><tr><td width="200px"><a href="PoleFigure.noisepf.html"><tt>noisepf</tt></a></td><td>simulate
-            diffraction counts</td></tr><tr><td width="200px"><a href="PoleFigure.normalize.html"><tt>normalize</tt></a></td><td>normalization
-            of a meassured pole figure with respect to an ODF</td></tr><tr><td width="200px"><a href="PoleFigure.plot.html"><tt>plot</tt></a></td><td>pole
-            figure</td></tr><tr><td width="200px"><a href="PoleFigure.plotDiff.html"><tt>plotDiff</tt></a></td><td>difference plot between
-            two pole figures or an odf and a pole figure</td></tr><tr><td width="200px"><a href="PoleFigure.plus.html"><tt>plus</tt></a></td><td>implements
-            pf1 + pf2</td></tr><tr><td width="200px"><a href="PoleFigure.rdivide.html"><tt>rdivide</tt></a></td><td>implements pf1 ./
-            b and a ./ pf2</td></tr><tr><td width="200px"><a href="PoleFigure.rotate.html"><tt>rotate</tt></a></td><td>s pole figures
-            by a certain rotation</td></tr><tr><td width="200px"><a href="PoleFigure.rotate_outer.html"><tt>rotate_outer</tt></a></td><td>is
-            called by rot * pf</td></tr><tr><td width="200px"><a href="PoleFigure.scale.html"><tt>scale</tt></a></td><td>polefigure by
-            a factor</td></tr><tr><td width="200px"><a href="PoleFigure.select.html"><tt>select</tt></a></td><td>PoleFigures</td></tr><tr><td
-            width="200px"><a href="PoleFigure.subsasgn.html"><tt>subsasgn</tt></a></td><td>overloads subsasgn</td></tr><tr><td width="200px"><a
-            href="PoleFigure.subsref.html"><tt>subsref</tt></a></td><td>overide polefigure() and polefigure{}</td></tr><tr><td width="200px"><a
-            href="PoleFigure.times.html"><tt>times</tt></a></td><td>implements pf1 .* b and a .* pf2</td></tr><tr><td width="200px"><a
-            href="PoleFigure.uminus.html"><tt>uminus</tt></a></td><td>implements pf</td></tr><tr><td width="200px"><a href="PoleFigure.union.html"><tt>union</tt></a></td><td>crytsallographic
-            direction to one</td></tr><tr><td width="200px"><a href="PoleFigure.unique.html"><tt>unique</tt></a></td><td>remove dublicated
-            points in a polefigure</td></tr></table>
+         <p><table width="90%"><tr><td width="200px"><a href="PoleFigure..html"><tt/></a></td><td/></tr><tr><td width="200px"><a href="PoleFigure.
+            *PoleFigure* is the low level constructor. For importing real world data.html"><tt>  *PoleFigure* is the low level constructor.
+            For importing real world data</tt></a></td><td/></tr><tr><td width="200px"><a href="PoleFigure.  you might want to use the
+            predefined <a href="ImportPoleFigureData.html">interfaces</a>.html"><tt>  you might want to use the predefined <a href="ImportPoleFigureData.html">interfaces</a></tt></a></td><td/></tr><tr><td width="200px"><a href="PoleFigure..html"><tt/></a></td><td/></tr><tr><td width="200px"><a
+            href="PoleFigure.  Input.html"><tt>  Input</tt></a></td><td/></tr><tr><td width="200px"><a href="PoleFigure.   h.html"><tt>
+            h</tt></a></td><td>crystal directions (@vector3d | @Miller)</td></tr><tr><td width="200px"><a href="PoleFigure.   r.html"><tt>
+            r</tt></a></td><td>specimen directions (@S2Grid)</td></tr><tr><td width="200px"><a href="PoleFigure.   intensities.html"><tt>
+            intensities</tt></a></td><td>diffraction counts (double)</td></tr><tr><td width="200px"><a href="PoleFigure.   CS,SS.html"><tt>
+            CS,SS</tt></a></td><td>crystal, specimen @symmetry</td></tr><tr><td width="200px"><a href="PoleFigure..html"><tt/></a></td><td/></tr><tr><td
+            width="200px"><a href="PoleFigure.  Options.html"><tt>  Options</tt></a></td><td/></tr><tr><td width="200px"><a href="PoleFigure.
+            superposition.html"><tt>   superposition</tt></a></td><td>weights for superposed crystal directions</td></tr><tr><td width="200px"><a
+            href="PoleFigure.   background.html"><tt>   background</tt></a></td><td>background intensities</td></tr><tr><td width="200px"><a
+            href="PoleFigure..html"><tt/></a></td><td/></tr><tr><td width="200px"><a href="PoleFigure.  See also.html"><tt>  See also</tt></a></td><td/></tr><tr><td
+            width="200px"><a href="PoleFigure.  ImportPoleFigureData loadPoleFigure loadPoleFigure_generic.html"><tt>  ImportPoleFigureData
+            loadPoleFigure loadPoleFigure_generic</tt></a></td><td/></tr></table>
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>

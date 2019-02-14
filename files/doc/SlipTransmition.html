@@ -99,10 +99,9 @@ plot(grains,SF)
 mtexColorbar</pre><pre class="codeoutput"> 
 sSBasal = slipSystem  
  mineral: Titanium (Alpha) (622, X||a, Y||b*, Z||c)
- CRSS: 1
  size: 1 x 1
-  U   V   T   W | H   K   I   L
-  1   1  -2   0   0   0   0   1
+  U    V    T    W  | H    K    I    L CRSS
+  1    1   -2    0    0    0    0    1    1
 </pre><img src="SlipTransmition_02.png"> <p>The variable <tt>id</tt> contains now for each grain the id of the slip system with the largest Schmidt factor. In order to visualize it, we first
             rotate for each grain the slip system with largest Schmid factor in specimen coordinates
          </p><pre class="codeinput">sSGrain = grains.meanOrientation .* sSBasal(id)

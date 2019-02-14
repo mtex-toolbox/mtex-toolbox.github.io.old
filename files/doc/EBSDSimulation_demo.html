@@ -63,7 +63,9 @@
          </p>
          <p><b>Define a Model ODF</b></p>
          <p>Let us first define a simple fibre symmetric ODF.</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'32'</span>);
-fibre_odf = 0.5*uniformODF(cs) + 0.5*fibreODF(Miller(0,0,0,1,cs),zvector);</pre><pre class="codeinput">plot(fibre_odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><img src="EBSDSimulation_demo_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+fibre_odf = 0.5*uniformODF(cs) + 0.5*fibreODF(Miller(0,0,0,1,cs),zvector);</pre><pre class="codeinput">plot(fibre_odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><pre class="codeoutput">Warning: Plot properties not compatible to previous plot! I'going to create a
+new figure. 
+</pre><img src="EBSDSimulation_demo_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Simulate EBSD Data<a name="6"> </a></h2>
          <p>This ODF we use now to simulate 10000 individual orientations.</p><pre class="codeinput">ori = calcOrientations(fibre_odf,10000)</pre><pre class="codeoutput"> 
 ori = orientation  
@@ -73,26 +75,24 @@ ori = orientation
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>ODF Estimation from EBSD Data<a name="7"> </a></h2>
-         <p>From the 10000 individual orientations, we can now estimate an ODF. First, we determine the optimal kernel function</p><pre class="codeinput">psi = calcKernel(ori)</pre><pre class="codeoutput"> estimate optimal kernel halfwidth: 100%
- 
+         <p>From the 10000 individual orientations, we can now estimate an ODF. First, we determine the optimal kernel function</p><pre class="codeinput">psi = calcKernel(ori)</pre><pre class="codeoutput"> 
 psi = deLaValeePoussinKernel  
-  bandwidth: 51
+  bandwidth: 43
   halfwidth: 5.7&deg;
  
-</pre><img src="EBSDSimulation_demo_02.png"> <p>and then we use this kernel function for kernel density estimation</p><pre class="codeinput">odf = calcODF(ori,<span class="string">'kernel'</span>,psi)</pre><pre class="codeoutput"> 
+</pre><p>and then we use this kernel function for kernel density estimation</p><pre class="codeinput">odf = calcODF(ori,<span class="string">'kernel'</span>,psi)</pre><pre class="codeoutput"> 
 odf = ODF  
   crystal symmetry : 321, X||a*, Y||b, Z||c*
   specimen symmetry: 1
  
-  Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 5.7&deg;
-    center: 7151 orientations, resolution: 2.9&deg;
+  Harmonic portion:
+    degree: 43
     weight: 1
  
-</pre><p>which can be plotted,</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><pre class="codeoutput">progress: 100%
-</pre><img src="EBSDSimulation_demo_03.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,fibre_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">progress: 100%
-ans =
-    0.0916
+</pre><p>which can be plotted,</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>)</pre><pre class="codeoutput">Warning: Plot properties not compatible to previous plot! I'going to create a
+new figure. 
+</pre><img src="EBSDSimulation_demo_02.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,fibre_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">ans =
+    0.0924
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Exploration of the relationship between estimation error and number of single orientations<a name="11"> </a></h2>
          <p>For a more systematic analysis of the estimation error, we simulate 10, 100, ..., 1000000 single orientations of the model
@@ -119,24 +119,18 @@ ans =
     <span class="string">' magicRule: '</span> int2str(psi3.halfwidth/degree) mtexdegchar <span class="keyword">...</span>
     ]);
 
-<span class="keyword">end</span></pre><pre class="codeoutput">RuleOfThumb: 59&deg; KLCV: 24&deg; magicRule: 31&deg;
-progress: 100%
-progress: 100%
-RuleOfThumb: 40&deg; KLCV: 15&deg; magicRule: 22&deg;
+<span class="keyword">end</span></pre><pre class="codeoutput">RuleOfThumb: 75&deg; KLCV: 24&deg; magicRule: 31&deg;
+RuleOfThumb: 38&deg; KLCV: 15&deg; magicRule: 22&deg;
 RuleOfThumb: 18&deg; KLCV: 9&deg; magicRule: 16&deg;
-progress: 100%
 RuleOfThumb: 10&deg; KLCV: 6&deg; magicRule: 11&deg;
-progress: 100%
 RuleOfThumb: 9&deg; KLCV: 5&deg; magicRule: 8&deg;
-progress: 100%
-progress: 100%
 RuleOfThumb: 7&deg; KLCV: 4&deg; magicRule: 6&deg;
 </pre><p>Plot the error in dependency of the number of single orientations.</p><pre class="codeinput">close <span class="string">all</span>;
 loglog(10.^(1:length(e)),e)
 legend(<span class="string">'Default'</span>,<span class="string">'RuleOfThumb'</span>,<span class="string">'magicRule'</span>)
 xlabel(<span class="string">'Number of orientations'</span>)
 ylabel(<span class="string">'Estimation Error'</span>)
-title(<span class="string">'Error between original fibre ODF model and simulated ebsd'</span>,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>)</pre><img src="EBSDSimulation_demo_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+title(<span class="string">'Error between original fibre ODF model and simulated ebsd'</span>,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>)</pre><img src="EBSDSimulation_demo_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

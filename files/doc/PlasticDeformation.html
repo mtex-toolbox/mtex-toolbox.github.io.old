@@ -96,10 +96,9 @@ r = vector3d
 </pre><p>The same computation can be performed by defining the slip system as an MTEX variable</p><pre class="codeinput">sS = slipSystem(d,n)</pre><pre class="codeoutput"> 
 sS = slipSystem  
  mineral: Nickel (m-3m)
- CRSS: 1
  size: 1 x 1
-  u   v   w | h   k   l
-  0  -1   1   1   1   1
+  u    v    w  | h    k    l CRSS
+  0   -1    1    1    1    1    1
 </pre><p>and using the command <a href="slipSystem_SchmidFactor.html">SchmidFactor</a></p><pre class="codeinput">sS.SchmidFactor(r)</pre><pre class="codeoutput">ans =
     0.1750
 </pre><p>Ommiting the tension direction r the command <a href="slipSystem_SchmidFactor.html">SchmidFactor</a> returns the Schmid factor as a <a href="S2FunHarmonic_index.html">spherical function</a></p><pre class="codeinput">SF = sS.SchmidFactor
@@ -118,10 +117,11 @@ SFMax =
     0.5000
  
 pos = vector3d  
- size: 2 x 1
-          x         y         z
-  -0.405975 -0.908383  0.100121
-   0.404776 -0.100176  0.908912
+ size: 3 x 1
+         x          y          z
+  0.407716  -0.102647   0.907321
+  0.401766 -0.0985444   0.910425
+  -0.40127  -0.910829  0.0968136
 </pre><img src="PlasticDeformation_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Stress Tensor<a name="11"> </a></h2>
          <p>Instead by the tension direction the stress might be specified by a stress tensor</p><pre class="codeinput">sigma = stressTensor.uniaxial(vector3d.Z)</pre><pre class="codeoutput"> 
@@ -141,21 +141,20 @@ sigma = stressTensor
          </p><pre class="codeinput">sSAll = sS.symmetrise(<span class="string">'antipodal'</span>)</pre><pre class="codeoutput"> 
 sSAll = slipSystem  
  mineral: Nickel (m-3m)
- CRSS: 1
  size: 12 x 1
-   u   v   w | h   k   l
-   0  -1   1   1   1   1
-   1   0  -1   1   1   1
-  -1   1   0   1   1   1
-  -1   1   0   1   1  -1
-  -1   0  -1   1   1  -1
-   0  -1  -1   1   1  -1
-   0  -1   1  -1   1   1
-  -1   0  -1  -1   1   1
-  -1  -1   0  -1   1   1
-   1   0  -1   1  -1   1
-  -1  -1   0   1  -1   1
-   0  -1  -1   1  -1   1
+   u    v    w  | h    k    l CRSS
+   0   -1    1    1    1    1    1
+   1    0   -1    1    1    1    1
+  -1    1    0    1    1    1    1
+  -1    1    0    1    1   -1    1
+  -1    0   -1    1    1   -1    1
+   0   -1   -1    1    1   -1    1
+   0   -1    1   -1    1    1    1
+  -1    0   -1   -1    1    1    1
+  -1   -1    0   -1    1    1    1
+   1    0   -1    1   -1    1    1
+  -1   -1    0    1   -1    1    1
+   0   -1   -1    1   -1    1    1
 </pre><p>The option <tt>antipodal</tt> indicates that Burgers vectors in oposite direction should not be distinguished. Now
          </p><pre class="codeinput">tau = sSAll.SchmidFactor(r)</pre><pre class="codeoutput">tau =
   Columns 1 through 7
@@ -171,10 +170,9 @@ id =
  
 ans = slipSystem  
  mineral: Nickel (m-3m)
- CRSS: 1
  size: 1 x 1
-   u   v   w | h   k   l
-  -1   0  -1  -1   1   1
+   u    v    w  | h    k    l CRSS
+  -1    0   -1   -1    1    1    1
 </pre><p>The above computation can be easily extended to a list of tension directions</p><pre class="codeinput"><span class="comment">% define a grid of tension directions</span>
 r = plotS2Grid(<span class="string">'resolution'</span>,0.5*degree,<span class="string">'upper'</span>);
 
@@ -216,33 +214,32 @@ quiver(r,sSAll(id).b.normalize,<span class="string">'ArrowSize'</span>,0.12,<spa
 hold <span class="string">off</span></pre><pre class="codeoutput"> 
 sSAll = slipSystem  
  mineral: Nickel (m-3m)
- CRSS: 1
  size: 24 x 1
-   u   v   w | h   k   l
-   0  -1   1   1   1   1
-   1   0  -1   1   1   1
-  -1   1   0   1   1   1
-   0   1  -1   1   1   1
-  -1   0   1   1   1   1
-   1  -1   0   1   1   1
-  -1   1   0   1   1  -1
-  -1   0  -1   1   1  -1
-   0  -1  -1   1   1  -1
-   1   0   1   1   1  -1
-   0   1   1   1   1  -1
-   1  -1   0   1   1  -1
-   0  -1   1  -1   1   1
-  -1   0  -1  -1   1   1
-  -1  -1   0  -1   1   1
-   1   0   1  -1   1   1
-   1   1   0  -1   1   1
-   0   1  -1  -1   1   1
-   1   0  -1   1  -1   1
-  -1  -1   0   1  -1   1
-   0  -1  -1   1  -1   1
-   1   1   0   1  -1   1
-   0   1   1   1  -1   1
-  -1   0   1   1  -1   1
+   u    v    w  | h    k    l CRSS
+   0   -1    1    1    1    1    1
+   1    0   -1    1    1    1    1
+  -1    1    0    1    1    1    1
+   0    1   -1    1    1    1    1
+  -1    0    1    1    1    1    1
+   1   -1    0    1    1    1    1
+  -1    1    0    1    1   -1    1
+  -1    0   -1    1    1   -1    1
+   0   -1   -1    1    1   -1    1
+   1    0    1    1    1   -1    1
+   0    1    1    1    1   -1    1
+   1   -1    0    1    1   -1    1
+   0   -1    1   -1    1    1    1
+  -1    0   -1   -1    1    1    1
+  -1   -1    0   -1    1    1    1
+   1    0    1   -1    1    1    1
+   1    1    0   -1    1    1    1
+   0    1   -1   -1    1    1    1
+   1    0   -1    1   -1    1    1
+  -1   -1    0    1   -1    1    1
+   0   -1   -1    1   -1    1    1
+   1    1    0    1   -1    1    1
+   0    1    1    1   -1    1    1
+  -1    0    1    1   -1    1    1
 </pre><img src="PlasticDeformation_04.png"> <p>If we perform this computation in terms of spherical functions we obtain</p><pre class="codeinput"><span class="comment">% ommiting |r| gives us a list of 12 spherical functions</span>
 tau = sSAll.SchmidFactor
 
@@ -281,10 +278,9 @@ ebsd = EBSD
 sS = sS.symmetrise;</pre><pre class="codeoutput"> 
 sS = slipSystem  
  mineral: iron (m-3m)
- CRSS: 1
  size: 1 x 1
-  u   v   w | h   k   l
-  0   1  -1   1   1   1
+  u    v    w  | h    k    l CRSS
+  0    1   -1    1    1    1    1
 </pre><p>Since, those slip systems are in crystal coordinates but the stress tensor is in specimen coordinates we either have to rotate
             the slip systems into specimen coordinates or the stress tensor into crystal coordinates. In the following sections we will
             demonstrate both ways. Lets start with the first one

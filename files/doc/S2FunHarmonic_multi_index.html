@@ -62,7 +62,7 @@
          <h2>Defining a multivariate <tt>S2FunHarmonic</tt><a name="2"> </a></h2>
          <p><b>Definition via function values</b></p>
          <p>At first we need some vertices</p><pre class="codeinput">nodes = equispacedS2Grid(<span class="string">'points'</span>, 1e5);
-nodes = nodes(:);</pre><p>Next we define function values for the vertices</p><pre class="codeinput">y = [smiley(nodes), (nodes.x.*nodes.y).^(1/4)];</pre><p>Now the actual command to get a 2x1 <tt>sF1</tt> of type <tt>S2FunHarmonic</tt></p><pre class="codeinput">sF1 = S2FunHarmonic.approximation(nodes, y)</pre><pre class="codeoutput"> 
+nodes = nodes(:);</pre><p>Next we define function values for the vertices</p><pre class="codeinput">y = [S2Fun.smiley(nodes), (nodes.x.*nodes.y).^(1/4)];</pre><p>Now the actual command to get a 2x1 <tt>sF1</tt> of type <tt>S2FunHarmonic</tt></p><pre class="codeinput">sF1 = S2FunHarmonic.approximation(nodes, y)</pre><pre class="codeoutput"> 
 sF1 = S2FunHarmonic  
  size: 2 x 1
  bandwidth: 224

@@ -76,7 +76,7 @@ grains = calcGrains(ebsd(<span class="string">'indexed'</span>));
 tP = grains.triplePoints</pre><pre class="codeoutput"> 
 tP = triplePointList  
  
- points   mineral 1   mineral 2   mineral 2
+ points   mineral 1   mineral 2   mineral 3
      15  Forsterite  Forsterite  Forsterite
       7  Forsterite  Forsterite   Enstatite
       4  Forsterite   Enstatite   Enstatite
@@ -93,7 +93,7 @@ tP = triplePointList
          </p><pre class="codeinput">tP(<span class="string">'Forsterite'</span>)</pre><pre class="codeoutput"> 
 ans = triplePointList  
  
- points   mineral 1   mineral 2   mineral 2
+ points   mineral 1   mineral 2   mineral 3
      15  Forsterite  Forsterite  Forsterite
       7  Forsterite  Forsterite   Enstatite
       4  Forsterite   Enstatite   Enstatite
@@ -103,7 +103,7 @@ ans = triplePointList
 </pre><p>The following command gives you all triple points with at least two phases being Forsterite</p><pre class="codeinput">tP(<span class="string">'Forsterite'</span>,<span class="string">'Forsterite'</span>)</pre><pre class="codeoutput"> 
 ans = triplePointList  
  
- points   mineral 1   mineral 2   mineral 2
+ points   mineral 1   mineral 2   mineral 3
      15  Forsterite  Forsterite  Forsterite
       7  Forsterite  Forsterite   Enstatite
       8  Forsterite  Forsterite    Diopside

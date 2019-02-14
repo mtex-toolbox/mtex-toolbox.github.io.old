@@ -62,8 +62,8 @@
          <p>Unlike the common Matlab command <tt>colorbar</tt> the MTEX command <a href="mtexColorbar.html">mtexColorbar</a> allows you to add a colorbar to all subplot in one figure.
          </p><pre class="codeinput"><span class="comment">% this defines some model ODFs</span>
 cs = crystalSymmetry(<span class="string">'-3m'</span>);
-mod1 = orientation(<span class="string">'Euler'</span>,30*degree,40*degree,10*degree,cs);
-mod2 = orientation(<span class="string">'Euler'</span>,10*degree,80*degree,70*degree,cs);
+mod1 = orientation.byEuler(30*degree,40*degree,10*degree,cs);
+mod2 = orientation.byEuler(10*degree,80*degree,70*degree,cs);
 odf = 0.7*unimodalODF(mod1) + 0.3*unimodalODF(mod2);
 
 <span class="comment">% plot some pole figurs</span>

@@ -43,9 +43,8 @@
             <p>(method of <a href="S2FunHarmonic_index.html">S2FunHarmonic</a>)
             </p>
          </div>
-         <p>calculates the minimum of a spherical harminc or the pointwise minimum of two spherical harmonics</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">[v,pos] = min(sF) <span class="comment">% the position where the minimum is atained</span></pre><pre class="codeinput">[v,pos] = min(sF,<span class="string">'numLocal'</span>,5) <span class="comment">% the 5 largest local minima</span></pre><pre class="codeinput"><span class="comment">% with all options</span>
-[v,pos] = min(sF, <span class="string">'startingnodes'</span>, NODES, <span class="string">'lambda'</span>, LAMBDA, <span class="string">'tau'</span>, TAU, <span class="string">'mu'</span>, MU, <span class="string">'kmax'</span>, KMAX, <span class="string">'tauLS'</span>, TAULS, <span class="string">'kmaxLS'</span>, KMAXLS)</pre><pre class="codeinput">sF = min(sF, c) <span class="comment">% minimum of a spherical functions and a constant</span>
+         <p>global, local and pointwise minima of spherical functions</p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">[v,pos] = min(sF) <span class="comment">% the position where the minimum is atained</span></pre><pre class="codeinput">[v,pos] = min(sF,<span class="string">'numLocal'</span>,5) <span class="comment">% the 5 largest local minima</span></pre><pre class="codeinput">sF = min(sF, c) <span class="comment">% minimum of a spherical functions and a constant</span>
 sF = min(sF1, sF2) <span class="comment">% minimum of two spherical functions</span>
 sF = min(sF1, sF2, <span class="string">'bandwidth'</span>, bw) <span class="comment">% specify the new bandwidth</span></pre><pre class="codeinput"><span class="comment">% compute the minimum of a multivariate function along dim</span>
 sF = min(sFmulti,[],dim)</pre><h2>Input<a name="4"> </a></h2>
@@ -86,66 +85,26 @@ sF = min(sFmulti,[],dim)</pre><h2>Input<a name="4"> </a></h2>
             </tr>
             <tr>
             <td width="150px">
-            <tt>'bw'</tt>
+            <tt>'kmax'</tt>
             </td>
             <td>
-            <p>minimal degree of the spherical harmonic for pointwise minimum of two <a href="S2FunHarmonic_index.html">S2FunHarmonic</a></p>
+            <p>number of iterations</p>
             </td>
             </tr>
             <tr>
             <td width="150px">
-            <tt>'STARTINGNODES'</tt>
+            <tt>'numLocal'</tt>
             </td>
             <td>
-            <pre>starting nodes of type <a href="vector3d_index.html">vector3d</a></pre>
+            <p>number of peaks to return</p>
             </td>
             </tr>
             <tr>
             <td width="150px">
-            <tt>'LAMBDA'</tt>
+            <tt>'startingNodes'</tt>
             </td>
             <td>
-            <pre>regularization parameter</pre>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'TAU'</tt>
-            </td>
-            <td>
-            <pre>tolerance</pre>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'MU'</tt>
-            </td>
-            <td>
-            <pre>in (0, 0.5) for Armijo condition</pre>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'KMAX'</tt>
-            </td>
-            <td>
-            <pre>maximal iterations</pre>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'TAULS'</tt>
-            </td>
-            <td>
-            <pre>in (0, 1) alpha(k+1) = tauLS*alpha(k)</pre>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'KMAXLS'</tt>
-            </td>
-            <td>
-            <pre>maximal iterations for line search</pre>
+            <p><a href="vector3d_index.html">vector3d</a></p>
             </td>
             </tr>
             <tr>
@@ -153,7 +112,23 @@ sF = min(sFmulti,[],dim)</pre><h2>Input<a name="4"> </a></h2>
             <tt>'tolerance'</tt>
             </td>
             <td>
-            <pre>tolerance for nearby nodes to be ignored</pre>
+            <p>minimum distance between two peaks</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'resolution'</tt>
+            </td>
+            <td>
+            <p>minimum step size</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'maxStepSize'</tt>
+            </td>
+            <td>
+            <p>maximm step size</p>
             </td>
             </tr>
             </table>

@@ -43,10 +43,11 @@
             <p>(method of <a href="S2FunHarmonic_index.html">S2FunHarmonic</a>)
             </p>
          </div>
-         <p>symmetrises a function with respect to a symmetry</p>
+         <p>symmetrises a function with respect to a symmetry or a direction</p>
          <h2>Syntax<a name="3"> </a></h2><pre class="codeinput"><span class="comment">% symmetrise with respect to a crystal or specimen symmetry</span>
 sFs = symmetrise(sF,cs)
-sFs = symmetrise(sF,ss)</pre><pre class="codeinput"><span class="comment">% symmetrise with respect to an axis</span>
+sFs = symmetrise(sF,ss)
+[sFs,psi] = symmetrise(sF,d)</pre><pre class="codeinput"><span class="comment">% symmetrise with respect to an axis</span>
 sFs = symmetrise(sF,d)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
@@ -86,6 +87,14 @@ sFs = symmetrise(sF,d)</pre><h2>Input<a name="4"> </a></h2>
             </td>
             <td>
             <p>symmetrised <a href="S2FunHarmonic_index.html">S2FunHarmonic</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>psi</tt>
+            </td>
+            <td>
+            <p><a href="S2Kernel_index.html">S2Kernel</a></p>
             </td>
             </tr>
             </table>

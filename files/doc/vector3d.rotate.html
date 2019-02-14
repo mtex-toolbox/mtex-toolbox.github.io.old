@@ -46,7 +46,7 @@
          <p>rotate vector3d by rotation or orientation</p>
          <h2>Description<a name="3"> </a></h2><pre>Either |v| or |rot| are single elements or both have the same size. The
 ouptut |v| will have the same size as the biger of both input arrays.</pre><h2>Syntax<a name="4"> </a></h2><pre class="codeinput">v = rotate(v,20*degree) <span class="comment">% rotation about the z-axis</span>
-rot = rotation(<span class="string">'Euler'</span>,10*degree,20*degree,30*degree)
+rot = rotation.byEuler(10*degree,20*degree,30*degree)
 v = rotate(v,rot)</pre><h2>Input<a name="5"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">

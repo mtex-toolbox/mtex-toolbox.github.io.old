@@ -132,7 +132,7 @@ close <span class="string">all</span>
 plot(ebsd(<span class="string">'Forsterite'</span>),color)</pre><img src="EBSDSpatialPlots_07.png"> <p>Orientation color key usually provide several options to alter the alignment of colors. Let's give some examples</p><pre class="codeinput"><span class="comment">% we may interchange green and blue by setting</span>
 ipfKey.colorPostRotation = reflection(yvector);
 
-plot(ipfKey)</pre><img src="EBSDSpatialPlots_08.png"> <p>or cycle of colors red, green, blue by</p><pre class="codeinput">ipfKey.colorPostRotation = rotation(<span class="string">'axis'</span>,zvector,<span class="string">'angle'</span>,120*degree);
+plot(ipfKey)</pre><img src="EBSDSpatialPlots_08.png"> <p>or cycle of colors red, green, blue by</p><pre class="codeinput">ipfKey.colorPostRotation = rotation.byAxisAngle(zvector,120*degree);
 
 plot(ipfKey)</pre><img src="EBSDSpatialPlots_09.png"> <p>Furthermore, we can explicitly set the inverse pole figure directions by</p><pre class="codeinput">ipfKey.inversePoleFigureDirection = zvector;
 
@@ -182,13 +182,19 @@ plotIPDF(ebsd(<span class="string">'fo'</span>).orientations,zvector,<span class
 hold <span class="string">off</span></pre><pre class="codeoutput">vol =
     0.2480
   I'm plotting 200 random orientations out of 152345 given orientations
-</pre><img src="EBSDSpatialPlots_13.png"> <p>we can easily extend the colorcoding</p><pre class="codeinput">ipfKey.center = [Miller(0,0,1,csFo),Miller(0,1,1,csFo),Miller(1,1,1,csFo),<span class="keyword">...</span>
-  Miller(11,4,4,csFo), Miller(5,0,2,csFo) , Miller(5,5,2,csFo)];
+</pre><img src="EBSDSpatialPlots_13.png"> <p>we can easily extend the colorcoding</p><pre class="codeinput"><span class="comment">% the centers in the inverse pole figure</span>
+ipfKey.center = Miller({0 0 1},{0 1 1},{1 1 1},{11 4 4},{5 0 2},{5 5 2},csFo);
 
+<span class="comment">% the correspnding collors</span>
 ipfKey.color = [[1 0 0];[0 1 0];[0 0 1];[1 0 1];[1 1 0];[0 1 1]];
 
-close <span class="string">all</span>;
-plot(ebsd(<span class="string">'fo'</span>),ipfKey.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><img src="EBSDSpatialPlots_14.png"> <pre class="codeinput">plot(ipfKey,<span class="string">'complete'</span>)</pre><img src="EBSDSpatialPlots_15.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<span class="comment">% plot the key</span>
+plot(ipfKey)
+hold <span class="string">on</span>
+plot(ebsd(<span class="string">'fo'</span>).orientations,<span class="string">'MarkerFaceColor'</span>,<span class="string">'none'</span>,<span class="string">'MarkerEdgeColor'</span>,<span class="string">'k'</span>,<span class="string">'MarkerSize'</span>,3,<span class="string">'points'</span>,1000)
+hold <span class="string">off</span></pre><pre class="codeoutput">  I'm plotting 1000 random orientations out of 152345 given orientations
+</pre><img src="EBSDSpatialPlots_14.png"> <pre class="codeinput">close <span class="string">all</span>;
+plot(ebsd(<span class="string">'fo'</span>),ipfKey.orientation2color(ebsd(<span class="string">'fo'</span>).orientations))</pre><img src="EBSDSpatialPlots_15.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Coloring certain orientations<a name="23"> </a></h3>
          <p>We might be interested in locating some special orientation in our orientation map. The definition of colors for certain orientations
             is carried out similarly as in the case of fibres

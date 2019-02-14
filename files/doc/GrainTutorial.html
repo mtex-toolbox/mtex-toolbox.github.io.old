@@ -48,7 +48,7 @@ CS = {<span class="keyword">...</span>
   crystalSymmetry(<span class="string">'m-3m'</span>,<span class="string">'mineral'</span>,<span class="string">'Fe'</span>),<span class="keyword">...</span><span class="comment"> % crystal symmetry phase 1</span>
   crystalSymmetry(<span class="string">'m-3m'</span>,<span class="string">'mineral'</span>,<span class="string">'Mg'</span>)};   <span class="comment">% crystal symmetry phase 2</span></pre><h2>Import ebsd data<a name="3"> </a></h2><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'EBSD'</span>,<span class="string">'85_829grad_07_09_06.txt'</span>);
 
-ebsd = loadEBSD(fname,<span class="string">'CS'</span>,CS,<span class="string">'interface'</span>,<span class="string">'generic'</span>,<span class="keyword">...</span>
+ebsd = EBSD.load(fname,<span class="string">'CS'</span>,CS,<span class="keyword">...</span>
   <span class="string">'ColumnNames'</span>, { <span class="string">'Phase'</span> <span class="string">'x'</span> <span class="string">'y'</span> <span class="string">'Euler 1'</span> <span class="string">'Euler 2'</span> <span class="string">'Euler 3'</span> <span class="string">'MAD'</span> <span class="string">'BC'</span>},<span class="keyword">...</span>
   <span class="string">'Columns'</span>, [2 3 4 5 6 7 8 9],<span class="string">'Bunge'</span>,<span class="string">'IgnorePhase'</span>,0);
 
@@ -80,7 +80,9 @@ grains = grain2d
  
 </pre><p>Plot grain-boundaries</p><pre class="codeinput">plot(grains.boundary,<span class="string">'color'</span>,[0.25 0.1 0.5])
 <span class="comment">%TODO: internal grain boundaries</span>
-hold <span class="string">on</span>, plot(grains.boundary,<span class="string">'linecolor'</span>,<span class="string">'red'</span>,<span class="string">'linewidth'</span>,2)</pre><img src="GrainTutorial_02.png"> <p>on application of this would be to take a look on the grainsize distribution</p><pre class="codeinput">hist(grains)</pre><img src="GrainTutorial_03.png"> <h2>Accessing geometric properties<a name="9"> </a></h2><pre class="codeinput">area(grains); perimeter(grains);
+hold <span class="string">on</span>
+plot(grains.boundary,<span class="string">'linecolor'</span>,<span class="string">'red'</span>,<span class="string">'linewidth'</span>,2)
+hold <span class="string">off</span></pre><img src="GrainTutorial_02.png"> <p>on application of this would be to take a look on the grainsize distribution</p><pre class="codeinput">hist(grains)</pre><img src="GrainTutorial_03.png"> <h2>Accessing geometric properties<a name="9"> </a></h2><pre class="codeinput">area(grains); perimeter(grains);
 shapeFactor(grains);</pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

@@ -43,7 +43,7 @@
             <p>(method of <a href="refractiveIndexTensor_index.html">refractiveIndexTensor</a>)
             </p>
          </div>
-         <h2>Syntax<a name="2"> </a></h2><pre class="codeinput">rgb = spectralTransmission(rI,vprop,p,thickness)</pre><pre class="codeinput">rgb = spectralTransmission(rI,vprop,p,thickness,<span class="string">'polarizationDirection'</span>,p)</pre><pre class="codeinput">rgb = spectralTransmission(rI,vprop,p,thickness,<span class="string">'phi'</span>,phi)</pre><pre class="codeinput">plot(rI.spectralTransmission(thickness))</pre><h2>Input<a name="3"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">rgb = spectralTransmission(rI,vprop,p,thickness)</pre><pre class="codeinput">rgb = spectralTransmission(rI,vprop,p,thickness,<span class="string">'polarizationDirection'</span>,p)</pre><pre class="codeinput">rgb = spectralTransmission(rI,vprop,p,thickness,<span class="string">'phi'</span>,phi)</pre><pre class="codeinput">plot(rI.spectralTransmission(thickness))</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -86,17 +86,8 @@
             </table>
             
          </p>
-         <h2>Example<a name="4"> </a></h2><pre class="codeinput">thickness = 20000;
-rI = refractiveIndexTensor.calcite
-plot(rI.spectralTransmission(thickness),<span class="string">'rgb'</span>,<span class="string">'3d'</span>)</pre><pre class="codeoutput"> 
-rI = refractiveIndexTensor  
-  rank   : 2 (3 x 3)                        
-  mineral: Calcite (-3m1, X||a, Y||b*, Z||c)
- 
-  1.66     0     0
-     0  1.66     0
-     0     0 1.486
-</pre><img src="refractiveIndexTensor.spectralTransmission_01.png"> <p style="font-size:1px;"></p>
+         <h2>Example<a name="5"> </a></h2>
+         <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

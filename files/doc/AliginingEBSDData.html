@@ -86,7 +86,7 @@ plot(ebsd)</pre><img src="AliginingEBSDData_03.png"> <p>Observe, how the y-axis 
             frame from one to the other, e.g. if one wants to concatenate several ebsd data sets where the mounting was not done in perfect
             coincidence. In these cases the data has to be rotated or shifted by the commands <a href="EBSD.rotate.html">rotate</a> and <a href="EBSD.shift.html">shift</a>. The following commands rotate the reference frame of the entire data set by 5 degree about the z-axis.
          </p><pre class="codeinput"><span class="comment">% define a rotation</span>
-rot = rotation(<span class="string">'axis'</span>,zvector,<span class="string">'angle'</span>,5*degree);
+rot = rotation.byAxisAngle(zvector,5*degree);
 
 <span class="comment">% rotate the EBSD data</span>
 ebsd_rot = rotate(ebsd,rot);
@@ -109,8 +109,8 @@ plot(ebsd_rot)</pre><img src="AliginingEBSDData_07.png"> <p>The pole figure rema
          <h2>Correcting HKL and CTF files<a name="14"> </a></h2>
          <p>Both *.ctf and *.ang data files are known to use different reference frames for spatial data and Euler angles. To corrrect
             for misalignment the interface supports the options <tt>convertSpatial2EulerReferenceFrame</tt> and <tt>convertEuler2SpatialReferenceFrame</tt>, e.g.,
-         </p><pre class="codeinput">loadEBSD(<span class="string">'fname.ang'</span>,<span class="string">'convertSpatial2EulerReferenceFrame'</span>)
-loadEBSD(<span class="string">'fname.ang'</span>,<span class="string">'convertEuler2SpatialReferenceFrame'</span>)</pre><p>In the first case the spatial data are changed such that the Euler angles referene frame coincides with the spatial reference
+         </p><pre class="codeinput">EBSD.load(<span class="string">'fname.ang'</span>,<span class="string">'convertSpatial2EulerReferenceFrame'</span>)
+EBSD.load(<span class="string">'fname.ang'</span>,<span class="string">'convertEuler2SpatialReferenceFrame'</span>)</pre><p>In the first case the spatial data are changed such that the Euler angles referene frame coincides with the spatial reference
             frame and in the second case the Euler angles are altered to get coincidence.
          </p><pre class="codeinput"><span class="comment">% revert z-axis convention</span>
 plotzOutOfPlane;</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

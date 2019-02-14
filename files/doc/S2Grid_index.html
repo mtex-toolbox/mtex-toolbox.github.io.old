@@ -83,15 +83,39 @@ S2G = regularS2Grid(<span class="string">'theta'</span>,linspace(0,2*pi,72),<spa
 S2G = equispacedS2Grid(<span class="string">'points'</span>,100,<span class="string">'MAXTHETA'</span>,75*degree);  <span class="comment">% specify maximum theta angle</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Plots<a name="4"> </a></h3><pre class="codeinput">plot(equispacedS2Grid(<span class="string">'points'</span>,100,<span class="string">'antipodal'</span>))  <span class="comment">% plot the grid of nodes</span></pre><img src="S2Grid_index_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Complete Function list<a name="5"> </a></h2>
-         <p><table width="90%"><tr><td width="200px"><a href="S2Grid.S2Grid.html"><tt>S2Grid</tt></a></td><td>Syntax</td></tr><tr><td
-            width="200px"><a href="S2Grid.copy.html"><tt>copy</tt></a></td><td>certain condition from grid</td></tr><tr><td width="200px"><a
-            href="S2Grid.delete.html"><tt>delete</tt></a></td><td>elilinates points from grid</td></tr><tr><td width="200px"><a href="S2Grid.display.html"><tt>display</tt></a></td><td>standard
-            output</td></tr><tr><td width="200px"><a href="S2Grid.find.html"><tt>find</tt></a></td><td>return index of all points in a
-            epsilon neighborhood of a vector</td></tr><tr><td width="200px"><a href="S2Grid.getdata.html"><tt>getdata</tt></a></td><td>return
-            index of all points in a epsilon neighborhood of a vector</td></tr><tr><td width="200px"><a href="S2Grid.polar.html"><tt>polar</tt></a></td><td>coordinates
-            of S2Grid</td></tr><tr><td width="200px"><a href="S2Grid.refine.html"><tt>refine</tt></a></td><td>S2Grid</td></tr><tr><td
-            width="200px"><a href="S2Grid.subGrid.html"><tt>subGrid</tt></a></td><td/></tr><tr><td width="200px"><a href="S2Grid.subsasgn.html"><tt>subsasgn</tt></a></td><td>overloads
-            subsasgn</td></tr><tr><td width="200px"><a href="S2Grid.subsref.html"><tt>subsref</tt></a></td><td>overloads subsref</td></tr></table>
+         <p><table width="90%"><tr><td width="200px"><a href="S2Grid.  Syntax.html"><tt>  Syntax</tt></a></td><td/></tr><tr><td width="200px"><a
+            href="S2Grid.    S2Grid(theta,rho)      % fills a Sphere with N.html"><tt>    S2Grid(theta,rho)      % fills a Sphere with
+            N</tt></a></td><td>odes</td></tr><tr><td width="200px"><a href="S2Grid.    regularS2Grid('resolution',5*degree)     % construct
+            regular polar and azimuthal spacing.html"><tt>    regularS2Grid('resolution',5*degree)     % construct regular polar and azimuthal
+            spacing</tt></a></td><td/></tr><tr><td width="200px"><a href="S2Grid.    equispacedS2Grid('resolution',5*degree)  % construct
+            equispaced nodes.html"><tt>    equispacedS2Grid('resolution',5*degree)  % construct equispaced nodes</tt></a></td><td/></tr><tr><td
+            width="200px"><a href="S2Grid..html"><tt/></a></td><td/></tr><tr><td width="200px"><a href="S2Grid.  Input.html"><tt>  Input</tt></a></td><td/></tr><tr><td
+            width="200px"><a href="S2Grid.   nodes.html"><tt>   nodes</tt></a></td><td>@vector3d</td></tr><tr><td width="200px"><a href="S2Grid..html"><tt/></a></td><td/></tr><tr><td
+            width="200px"><a href="S2Grid.  Options.html"><tt>  Options</tt></a></td><td/></tr><tr><td width="200px"><a href="S2Grid.
+            POINTS.html"><tt>   POINTS</tt></a></td><td>[nrho,ntheta] number of points to be generated</td></tr><tr><td width="200px"><a
+            href="S2Grid.   RESOLUTION.html"><tt>   RESOLUTION</tt></a></td><td>resolution of a equispaced grid</td></tr><tr><td width="200px"><a
+            href="S2Grid.   HEMISPHERE.html"><tt>   HEMISPHERE</tt></a></td><td>'lower', 'uper', 'complete', 'sphere', 'identified'}</td></tr><tr><td
+            width="200px"><a href="S2Grid.   THETA.html"><tt>   THETA</tt></a></td><td>theta angle</td></tr><tr><td width="200px"><a href="S2Grid.
+            RHO.html"><tt>   RHO</tt></a></td><td>rho angle</td></tr><tr><td width="200px"><a href="S2Grid.   MINRHO.html"><tt>   MINRHO</tt></a></td><td>starting
+            rho angle (default 0)</td></tr><tr><td width="200px"><a href="S2Grid.   MAXRHO.html"><tt>   MAXRHO</tt></a></td><td>maximum
+            rho angle (default 2*pi)</td></tr><tr><td width="200px"><a href="S2Grid.   MINTHETA.html"><tt>   MINTHETA</tt></a></td><td>starting
+            theta angle (default 0)</td></tr><tr><td width="200px"><a href="S2Grid.   MAXTHETA.html"><tt>   MAXTHETA</tt></a></td><td>maximum
+            theta angle (default pi)</td></tr><tr><td width="200px"><a href="S2Grid..html"><tt/></a></td><td/></tr><tr><td width="200px"><a
+            href="S2Grid.  Flags.html"><tt>  Flags</tt></a></td><td/></tr><tr><td width="200px"><a href="S2Grid.   REGULAR.html"><tt>
+            REGULAR</tt></a></td><td>generate a regular grid</td></tr><tr><td width="200px"><a href="S2Grid.   EQUISPACED.html"><tt> 
+            EQUISPACED</tt></a></td><td>generate equidistribution</td></tr><tr><td width="200px"><a href="S2Grid.   ANTIPODAL.html"><tt>
+            ANTIPODAL</tt></a></td><td>include <a href="AxialDirectional.html">antipodal symmetry</a></td></tr><tr><td width="200px"><a href="S2Grid.   PLOT.html"><tt>   PLOT</tt></a></td><td>generate plotting grid</td></tr><tr><td
+            width="200px"><a href="S2Grid.   NO_CENTER.html"><tt>   NO_CENTER</tt></a></td><td>ommit point at center</td></tr><tr><td
+            width="200px"><a href="S2Grid.   RESTRICT2MINMAX.html"><tt>   RESTRICT2MINMAX</tt></a></td><td>restrict margins to min / max</td></tr><tr><td
+            width="200px"><a href="S2Grid..html"><tt/></a></td><td/></tr><tr><td width="200px"><a href="S2Grid.  Examples.html"><tt> 
+            Examples</tt></a></td><td/></tr><tr><td width="200px"><a href="S2Grid.    regularS2Grid('points',[72 19]).html"><tt>    regularS2Grid('points',[72
+            19])</tt></a></td><td/></tr><tr><td width="200px"><a href="S2Grid..html"><tt/></a></td><td/></tr><tr><td width="200px"><a
+            href="S2Grid.    regularS2Grid('resolution',[5*degree 2.5*degree]).html"><tt>    regularS2Grid('resolution',[5*degree 2.5*degree])</tt></a></td><td/></tr><tr><td
+            width="200px"><a href="S2Grid..html"><tt/></a></td><td/></tr><tr><td width="200px"><a href="S2Grid.    equispacedS2Grid('resolution',5*degree,'maxrho',pi).html"><tt>
+            equispacedS2Grid('resolution',5*degree,'maxrho',pi)</tt></a></td><td/></tr><tr><td width="200px"><a href="S2Grid.    plot(ans).html"><tt>
+            plot(ans)</tt></a></td><td/></tr><tr><td width="200px"><a href="S2Grid..html"><tt/></a></td><td/></tr><tr><td width="200px"><a
+            href="S2Grid.  See also.html"><tt>  See also</tt></a></td><td/></tr><tr><td width="200px"><a href="S2Grid.  vector3d/vector3d.html"><tt>
+            vector3d/vector3d</tt></a></td><td/></tr></table>
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>

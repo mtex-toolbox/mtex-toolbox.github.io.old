@@ -61,7 +61,8 @@
             well. Take the following example:
          </p><pre class="codeinput"><span class="comment">% import some EBSD data, while aligning the x,y coordinates to follow the</span>
 <span class="comment">% Euler angle coordinate system</span>
-ebsd = loadEBSD([mtexDataPath filesep <span class="string">'EBSD'</span> filesep <span class="string">'twins.ctf'</span>],<span class="string">'convertSpatial2EulerReferenceFrame'</span> );
+ebsd = EBSD.load([mtexDataPath filesep <span class="string">'EBSD'</span> filesep <span class="string">'twins.ctf'</span>],<span class="keyword">...</span>
+  <span class="string">'convertSpatial2EulerReferenceFrame'</span> );
 
 <span class="comment">% plot the orientations</span>
 plot(ebsd(<span class="string">'indexed'</span>),ebsd(<span class="string">'indexed'</span>).orientations)

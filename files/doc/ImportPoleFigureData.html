@@ -323,7 +323,7 @@ h = {Miller(1,0,-1,0,cs),[Miller(0,1,-1,1,cs),Miller(1,0,-1,1,cs)]};
 c = {1,[0.52 ,1.23]};
 
 <span class="comment">% load data</span>
-pf = loadPoleFigure(fnames,h,cs,<span class="string">'superposition'</span>,c)</pre><pre class="codeoutput"> 
+pf = PoleFigure.load(fnames,h,cs,<span class="string">'superposition'</span>,c)</pre><pre class="codeoutput"> 
 pf = PoleFigure  
   crystal symmetry : 321, X||a*, Y||b, Z||c*
   specimen symmetry: 1
@@ -338,8 +338,7 @@ plot(pf)</pre><img src="ImportPoleFigureData_02.png"> <p class="pagenavlink"><sc
             directly from the data files. Then you have to call the constructor <a href="PoleFigure.PoleFigure.html">PoleFigure</a> with these data to generate a PoleFigure object.
          </p>
          <p>Once you have written an interface that reads data from certain data files and generates a PoleFigure object you can integrate
-            this method into MTEX by copying it into the folder <tt>MTEX/qta/interfaces</tt>. Then it will be automatically called by the methods loadPoleFigure and import_wizard. Examples how to write such an interface
-            can be found in the directory <tt>MTEX/qta/interfaces</tt>.
+            this method into MTEX by copying it into the folder <tt>MTEX/qta/interfaces</tt>. Then it will be automatically called by the methods <a href="PoleFigure.load.html">PoleFigure.load</a> and import_wizard. Examples how to write such an interface can be found in the directory <tt>MTEX/qta/interfaces</tt>.
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>

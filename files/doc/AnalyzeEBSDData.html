@@ -58,7 +58,7 @@
          </div>
          <h2>Data import<a name="4"> </a></h2>
          <p>Let us first import some EBSD data:</p><pre class="codeinput">plotx2east
-ebsd = loadEBSD(fullfile(mtexDataPath,<span class="string">'EBSD'</span>,<span class="string">'Forsterite.ctf'</span>),<span class="keyword">...</span>
+ebsd = EBSD.load(fullfile(mtexDataPath,<span class="string">'EBSD'</span>,<span class="string">'Forsterite.ctf'</span>),<span class="keyword">...</span>
   <span class="string">'convertEuler2SpatialReferenceFrame'</span>);
 
 plot(ebsd)</pre><img src="AnalyzeEBSDData_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -101,12 +101,13 @@ r = vector3d
  
 rOrth = vector3d  
  size: 1 x 1
-          x         y         z
-  -0.944141  0.189955 -0.269287
+ antipodal: true
+         x         y         z
+  0.944141 -0.189955  0.269287
 </pre><img src="AnalyzeEBSDData_03.png"> <p>we can check how large is the number of orientations that are in the (100) polegigure within a 10-degree fibre around the
             great circle with center <tt>rOrth</tt>. The following line gives the result in percent
          </p><pre class="codeinput">100 * sum(angle(r,rOrth)&gt;80*degree) / length(ori)</pre><pre class="codeoutput">ans =
-   78.7732
+   61.7854
 </pre><p>Next, we want to answer the question which crystal direction is mapped to <tt>rOrth</tt>. To this end, we look at the corresponding inverse pole figure
          </p><pre class="codeinput">plotIPDF(ebsd(<span class="string">'Forsterite'</span>).orientations,rOrth,<span class="string">'smooth'</span>)
 mtexColorbar
@@ -133,13 +134,15 @@ odf = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 28
+    degree: 25
     weight: 1
  
 </pre><img src="AnalyzeEBSDData_05.png"> <p>We see that to ODF is far from beeing constant along the fibre. Thus, together with an observation about the small fibre volume,
             we would reject the hypothesis of a fibre texture.
          </p>
-         <p>Let's finally plot the ODF in orientation space to verify our decision</p><pre class="codeinput">plot(odf,<span class="string">'sigma'</span>)</pre><img src="AnalyzeEBSDData_06.png"> <p>Here we see the typical large individual spots that are typical for large grains. Thus the ODF estimated from the EBSD data
+         <p>Let's finally plot the ODF in orientation space to verify our decision</p><pre class="codeinput">plot(odf,<span class="string">'sigma'</span>)</pre><pre class="codeoutput">Warning: Plot properties not compatible to previous plot! I'going to create a
+new figure. 
+</pre><img src="AnalyzeEBSDData_06.png"> <p>Here we see the typical large individual spots that are typical for large grains. Thus the ODF estimated from the EBSD data
             and all our previous analysis suffer from the fact that too few grains have been measured. For texture analysis, it would
             have been favorable to measure at a lower resolution but a larger region.
          </p>

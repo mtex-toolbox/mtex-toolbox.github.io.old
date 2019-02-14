@@ -84,8 +84,8 @@
          <p>We will demonstrate the the import and export of ODFs at the following sample ODF which is defined as the superposition of
             several model ODFs.
          </p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'cubic'</span>);
-mod1 = orientation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,45*degree,cs);
-mod2 = orientation(<span class="string">'axis'</span>,yvector,<span class="string">'angle'</span>,65*degree,cs);
+mod1 = orientation.byAxisAngle(xvector,45*degree,cs);
+mod2 = orientation.byAxisAngle(yvector,65*degree,cs);
 model_odf = 0.5*uniformODF(cs) + <span class="keyword">...</span>
   0.05*fibreODF(Miller(1,0,0,cs),xvector,<span class="string">'halfwidth'</span>,10*degree) + <span class="keyword">...</span>
   0.05*fibreODF(Miller(0,1,0,cs),yvector,<span class="string">'halfwidth'</span>,10*degree) + <span class="keyword">...</span>
@@ -144,7 +144,7 @@ fname = [mtexDataPath <span class="string">'/ODF/odf.txt'</span>];
 res = 10*degree;
 
 <span class="comment">% load the data</span>
-odf = loadODF(fname,cs,<span class="string">'resolution'</span>,res,<span class="string">'Bunge'</span>,<span class="keyword">...</span>
+odf = ODF.load(fname,cs,<span class="string">'resolution'</span>,res,<span class="string">'Bunge'</span>,<span class="keyword">...</span>
   <span class="string">'ColumnNames'</span>,{<span class="string">'Euler 1'</span>,<span class="string">'Euler 2'</span>,<span class="string">'Euler 3'</span>,<span class="string">'weights'</span>});
 
 <span class="comment">% plot data</span>

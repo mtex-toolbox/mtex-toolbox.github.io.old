@@ -164,7 +164,7 @@ rho =
     0.5236
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h3> Calculations<a name="15"> </a></h3>
-         <p>Given a crystal orientation</p><pre class="codeinput">o = orientation(<span class="string">'Euler'</span>,20*degree,30*degree,40*degree,cs)</pre><pre class="codeoutput"> 
+         <p>Given a crystal orientation</p><pre class="codeinput">o = orientation.byEuler(20*degree,30*degree,40*degree,cs)</pre><pre class="codeoutput"> 
 o = orientation  
   size: 1 x 1
   crystal symmetry : -31m, X||a*, Y||b, Z||c*
@@ -174,7 +174,7 @@ o = orientation
   phi1  Phi phi2 Inv.
     20   30   40    0
  
-</pre><img src="Miller_index_03.png"> <p>one can apply it to a crystal direction to find its coordinates with respect to the specimen coordinate system</p><pre class="codeinput">o * m</pre><pre class="codeoutput"> 
+</pre><p>one can apply it to a crystal direction to find its coordinates with respect to the specimen coordinate system</p><pre class="codeinput">o * m</pre><pre class="codeoutput"> 
 ans = vector3d  
  size: 1 x 1
           x         y         z
@@ -182,28 +182,29 @@ ans = vector3d
 </pre><p>By applying a <a href="symmetry_index.html">crystal symmetry class</a> one obtains the coordinates with respect to the specimen coordinate system of all crystallographically equivalent specimen
             directions.
          </p><pre class="codeinput">p = o * symmetrise(m);
-plot(p)</pre><img src="Miller_index_04.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+plot(p)</pre><img src="Miller_index_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Complete Function list<a name="18"> </a></h2>
-         <p><table width="90%"><tr><td width="200px"><a href="Miller.Miller.html"><tt>Miller</tt></a></td><td>define a crystal direction
-            by Miller indice</td></tr><tr><td width="200px"><a href="Miller.calcDensity.html"><tt>calcDensity</tt></a></td><td>calculate
-            a density function out of (weighted) crystal directions</td></tr><tr><td width="200px"><a href="Miller.cat.html"><tt>cat</tt></a></td><td>concatenate
-            lists of Miller indices to one list</td></tr><tr><td width="200px"><a href="Miller.char.html"><tt>char</tt></a></td><td>Miller
-            indece to string</td></tr><tr><td width="200px"><a href="Miller.display.html"><tt>display</tt></a></td><td>standard output</td></tr><tr><td
-            width="200px"><a href="Miller.dot.html"><tt>dot</tt></a></td><td>inner product between two Miller indece</td></tr><tr><td
-            width="200px"><a href="Miller.dot_outer.html"><tt>dot_outer</tt></a></td><td>inner product between two Miller indece</td></tr><tr><td
-            width="200px"><a href="Miller.dspacing.html"><tt>dspacing</tt></a></td><td>space between crystal planes</td></tr><tr><td width="200px"><a
-            href="Miller.project2FundamentalRegion.html"><tt>project2FundamentalRegion</tt></a></td><td>projects vectors to the fundamental
-            sector of the inverse pole figure</td></tr><tr><td width="200px"><a href="Miller.region.html"><tt>region</tt></a></td><td>return
-            spherical region associated to a set of crystal directions</td></tr><tr><td width="200px"><a href="Miller.rotate.html"><tt>rotate</tt></a></td><td>crystal
-            directions</td></tr><tr><td width="200px"><a href="Miller.rotate_outer.html"><tt>rotate_outer</tt></a></td><td>rotate crystal
-            directions</td></tr><tr><td width="200px"><a href="Miller.round.html"><tt>round</tt></a></td><td>tries to round miller indizes
-            to greatest common divisor</td></tr><tr><td width="200px"><a href="Miller.scatter.html"><tt>scatter</tt></a></td><td>plot
-            Miller indece</td></tr><tr><td width="200px"><a href="Miller.smooth.html"><tt>smooth</tt></a></td><td>plot Miller indece</td></tr><tr><td
-            width="200px"><a href="Miller.surf.html"><tt>surf</tt></a></td><td>Syntax</td></tr><tr><td width="200px"><a href="Miller.symmetrise.html"><tt>symmetrise</tt></a></td><td>directions
-            symmetrically equivalent to m</td></tr><tr><td width="200px"><a href="Miller.text.html"><tt>text</tt></a></td><td>plot Miller
-            indece</td></tr><tr><td width="200px"><a href="Miller.transformReferenceFrame.html"><tt>transformReferenceFrame</tt></a></td><td>change
-            reference frame while keeping hkl or uvw</td></tr><tr><td width="200px"><a href="Miller.unique.html"><tt>unique</tt></a></td><td>disjoint
-            list of Miller indices</td></tr></table>
+         <p><table width="90%"><tr><td width="200px"><a href="Miller..html"><tt/></a></td><td/></tr><tr><td width="200px"><a href="Miller.
+            Syntax.html"><tt>  Syntax</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.    m = Miller(h,k,l,cs).html"><tt>
+            m = Miller(h,k,l,cs)</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.    m = Miller(h,k,l,cs,'hkl').html"><tt>
+            m = Miller(h,k,l,cs,'hkl')</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.    m = Miller(h,k,l,cs,'pole').html"><tt>
+            m = Miller(h,k,l,cs,'pole')</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.    m = Miller(h,k,i,l,cs).html"><tt>
+            m = Miller(h,k,i,l,cs)</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.    m = Miller('(hkl)',cs).html"><tt>
+            m = Miller('(hkl)',cs)</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.    m = Miller(u,v,w,cs,'uvw').html"><tt>
+            m = Miller(u,v,w,cs,'uvw')</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.    m = Miller(u,v,t,w,cs,'uvw').html"><tt>
+            m = Miller(u,v,t,w,cs,'uvw')</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.    m = Miller(u,v,w,cs,'direction').html"><tt>
+            m = Miller(u,v,w,cs,'direction')</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.    m = Miller('[uvw]',cs).html"><tt>
+            m = Miller('[uvw]',cs)</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.    m = Miller('[uvw]\[uvw],cs).html"><tt>
+            m = Miller('[uvw]\[uvw],cs)</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.    m = Miller('(hkl)\(hkl),cs).html"><tt>
+            m = Miller('(hkl)\(hkl),cs)</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.    m = Miller(x,cs) % transform
+            vector3d to Miller.html"><tt>    m = Miller(x,cs) % transform vector3d to Miller</tt></a></td><td/></tr><tr><td width="200px"><a
+            href="Miller..html"><tt/></a></td><td/></tr><tr><td width="200px"><a href="Miller.  Input.html"><tt>  Input</tt></a></td><td/></tr><tr><td
+            width="200px"><a href="Miller.   h,k,l,i(optional).html"><tt>   h,k,l,i(optional)</tt></a></td><td>Miller indice of the plane
+            normal</td></tr><tr><td width="200px"><a href="Miller.   uw,v,w,t(optional).html"><tt>   uw,v,w,t(optional)</tt></a></td><td>Miller
+            indice of a direction</td></tr><tr><td width="200px"><a href="Miller.   x.html"><tt>   x</tt></a></td><td>@vector3d</td></tr><tr><td
+            width="200px"><a href="Miller.   cs.html"><tt>   cs</tt></a></td><td>crystal @symmetry</td></tr><tr><td width="200px"><a href="Miller..html"><tt/></a></td><td/></tr><tr><td
+            width="200px"><a href="Miller.  See also.html"><tt>  See also</tt></a></td><td/></tr><tr><td width="200px"><a href="Miller.
+            vector3d_index symmetry_index.html"><tt>  vector3d_index symmetry_index</tt></a></td><td/></tr></table>
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>

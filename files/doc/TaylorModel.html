@@ -82,14 +82,14 @@ setMTEXpref(<span class="string">'pfAnnotations'</span>,pfAnnotations);</pre><p 
          <p>consider cubic crystal symmetry</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'432'</span>);
 
 <span class="comment">% define a family of slip systems</span>
-sS = slipSystem.fcc(cs);
+sS = slipSystem.bcc(cs);
 
 <span class="comment">% some plane strain</span>
 q = 0;
 epsilon = strainTensor(diag([1 -q -(1-q)]))
 
 <span class="comment">% define a crystal orientation</span>
-ori = orientation(<span class="string">'Euler'</span>,0,30*degree,15*degree,cs)
+ori = orientation.byEuler(0,30*degree,15*degree,cs)
 
 <span class="comment">% compute the Taylor factor</span>
 [M,b,mori] = calcTaylor(inv(ori)*epsilon,sS.symmetrise);</pre><pre class="codeoutput"> 
@@ -129,7 +129,7 @@ toc
 sP.plot(M,<span class="string">'smooth'</span>)
 
 mtexColorbar</pre><pre class="codeoutput"> computing Taylor factor: 100%
-Elapsed time is 27.433105 seconds.
+Elapsed time is 35.947617 seconds.
 </pre><img src="TaylorModel_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The orientation dependence of the rotation value<a name="7"> </a></h2>
          <p>Compare Fig. 8 of the above paper</p><pre class="codeinput">sP.plot(mori.angle./degree,<span class="string">'smooth'</span>)
@@ -210,10 +210,15 @@ progress(0,numIter);
   [M,~,mori] = calcTaylor(inv(ori) * epsilon ./ numIter, sS.symmetrise,<span class="string">'silent'</span>);
 
   <span class="comment">% rotate the individual orientations</span>
-  ori = ori .* mori;
+  ori = ori .* inv(mori);
   progress(sas,numIter);
 <span class="keyword">end</span></pre><pre class="codeoutput">progress: 100%
 </pre><pre class="codeinput"><span class="comment">% plot the resulting pole figures</span>
+
+<span class="comment">% set new annotation style to display RD and ND</span>
+pfAnnotations = @(varargin) text([vector3d.X,vector3d.Y,vector3d.Z],{<span class="string">'RD'</span>,<span class="string">'TD'</span>,<span class="string">'ND'</span>},<span class="keyword">...</span>
+  <span class="string">'BackgroundColor'</span>,<span class="string">'w'</span>,<span class="string">'tag'</span>,<span class="string">'axesLabels'</span>,varargin{:});
+setMTEXpref(<span class="string">'pfAnnotations'</span>,pfAnnotations);
 
 plotPDF(ori,Miller({0,0,1},{1,1,1},cs),<span class="string">'contourf'</span>)
 mtexColorbar</pre><img src="TaylorModel_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

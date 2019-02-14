@@ -64,13 +64,19 @@
                   <td><a href="#11">Defining complicated crystal shapes</a></td>
                </tr>
                <tr>
-                  <td><a href="#18">Defining complicated crystals more simple</a></td>
+                  <td><a href="#18">Marking crystal faces</a></td>
                </tr>
                <tr>
-                  <td><a href="#21">Select Faces</a></td>
+                  <td><a href="#20">Defining complicated crystals more simple</a></td>
                </tr>
                <tr>
-                  <td><a href="#22">Complete Function list</a></td>
+                  <td><a href="#23">Select Faces</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#24">Gallery of hardcoded crystal shapes</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#27">Complete Function list</a></td>
                </tr>
             </table>
          </div>
@@ -97,18 +103,18 @@ cS = crystalShape
 ans = vector3d  
  size: 12 x 1
           x         y         z
-  -0.269018         0 -0.421461
-  -0.269018         0  0.421461
-  -0.134509 -0.232976  0.421461
-  -0.134509  0.232976 -0.421461
-  -0.134509 -0.232976 -0.421461
-  -0.134509  0.232976  0.421461
-   0.134509 -0.232976  0.421461
-   0.134509  0.232976 -0.421461
-   0.134509 -0.232976 -0.421461
-   0.134509  0.232976  0.421461
-   0.269018         0 -0.421461
-   0.269018         0  0.421461
+  -0.393614         0 -0.308331
+  -0.393614         0  0.308331
+  -0.196807  -0.34088  0.308331
+  -0.196807   0.34088 -0.308331
+  -0.196807  -0.34088 -0.308331
+  -0.196807   0.34088  0.308331
+   0.196807  -0.34088  0.308331
+   0.196807   0.34088 -0.308331
+   0.196807  -0.34088 -0.308331
+   0.196807   0.34088  0.308331
+   0.393614         0 -0.308331
+   0.393614         0  0.308331
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Calculating with crystal shapes<a name="5"> </a></h2>
          <p>Crystal shapes are defined in crystal coordinates. Thus applying an orientation rotates them into specimen coordinates. This
@@ -181,7 +187,7 @@ plotSection(odf,<span class="string">'sigma'</span>,<span class="string">'contou
 plot(grains(isBig).meanOrientation,0.002*cSGrains,<span class="string">'add2all'</span>)</pre><img src="crystalShape_index_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Twinning relationships<a name="10"> </a></h2>
          <p>We may also you crystal shapes to illustrate twinning relation ships</p><pre class="codeinput"><span class="comment">% define some twinning misorientation</span>
-mori = orientation(<span class="string">'axis'</span>,Miller({1 0-1 0},ebsd.CS),<span class="string">'angle'</span>,34.9*degree)
+mori = orientation.byAxisAngle(Miller({1 0-1 0},ebsd.CS),34.9*degree)
 
 <span class="comment">% plot the crystal in ideal orientation</span>
 close <span class="string">all</span>
@@ -242,7 +248,15 @@ N = [2*m,r,0.9*z,0.7*s1,0.3*x1];
 
 cS = crystalShape(N);
 plot(cS)</pre><img src="crystalShape_index_11.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Defining complicated crystals more simple<a name="18"> </a></h2>
+         <h2>Marking crystal faces<a name="18"> </a></h2>
+         <p>We may colorize the faces according to their lattice planes using the command</p><pre class="codeinput">plot(cS,<span class="string">'colored'</span>)</pre><img src="crystalShape_index_12.png"> <p>or even label the faces directly</p><pre class="codeinput">plot(cS)
+N = unique(cS.N.symmetrise,<span class="string">'noSymmetry'</span>,<span class="string">'stable'</span>);
+fC = cS.faceCenter;
+
+<span class="keyword">for</span> i = 1:length(N)
+  text3(fC(i),char(round(N(i)),<span class="string">'latex'</span>),<span class="string">'scaling'</span>,1.1,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+<span class="keyword">end</span></pre><img src="crystalShape_index_13.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Defining complicated crystals more simple<a name="20"> </a></h2>
          <p>We see that defining a complicated crystal shape is a tedious work. To this end MTEX allows to model the shape with a habitus
             and a extension parameter. This approach has been developed by J�rg Enderlein in <tt>Enderlein, J., 1997. A package for displaying crystal morphology. Mathematica Journal, 7(1).</tt> The two paraters are used to model the distance of a phase from the origin. Setting all parameters to one we obtain
          </p><pre class="codeinput"><span class="comment">% take the face normals unscaled</span>
@@ -251,36 +265,32 @@ N = [m,r,z,s2,x2];
 habitus = 1;
 extension = [1 1 1];
 cS = crystalShape(N,habitus,extension);
-plot(cS)</pre><img src="crystalShape_index_12.png"> <p>The scale parameter models the inverse extension of the crystal in each dimension. In order to make the crystal a bit longer
+plot(cS,<span class="string">'colored'</span>)</pre><img src="crystalShape_index_14.png"> <p>The scale parameter models the inverse extension of the crystal in each dimension. In order to make the crystal a bit longer
             and the negative rhomboedrons smaller we could do
          </p><pre class="codeinput">extension = [0.9 1.1 1];
 cS = crystalShape(N,habitus,extension);
-plot(cS)</pre><img src="crystalShape_index_13.png"> <p>Next the habitus parameter describes how close faces with mixed hkl are to the origin. If we increase the habitus parameter
+plot(cS,<span class="string">'colored'</span>)</pre><img src="crystalShape_index_15.png"> <p>Next the habitus parameter describes how close faces with mixed hkl are to the origin. If we increase the habitus parameter
             the trapezohedron and the bipyramid become more and more dominant
          </p><pre class="codeinput">habitus = 1.1;
 cS = crystalShape(N,habitus,extension);
-plot(cS), snapnow
+plot(cS,<span class="string">'colored'</span>), snapnow
 
 habitus = 1.2;
 cS = crystalShape(N,habitus,extension);
-plot(cS), snapnow
+plot(cS,<span class="string">'colored'</span>), snapnow
 
 habitus = 1.3;
 cS = crystalShape(N,habitus,extension);
-plot(cS)</pre><img src="crystalShape_index_14.png"> <img src="crystalShape_index_15.png"> <img src="crystalShape_index_16.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Select Faces<a name="21"> </a></h2>
+plot(cS,<span class="string">'colored'</span>)</pre><img src="crystalShape_index_16.png"> <img src="crystalShape_index_17.png"> <img src="crystalShape_index_18.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Select Faces<a name="23"> </a></h2>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Complete Function list<a name="22"> </a></h2>
-         <p><table width="90%"><tr><td width="200px"><a href="crystalShape.crystalShape.html"><tt>crystalShape</tt></a></td><td>a class
-            representing crystal shapes.</td></tr><tr><td width="200px"><a href="crystalShape.display.html"><tt>display</tt></a></td><td>standard
-            output</td></tr><tr><td width="200px"><a href="crystalShape.fitArea.html"><tt>fitArea</tt></a></td><td>change habitus of crystal
-            shape to fit given faceAreas</td></tr><tr><td width="200px"><a href="crystalShape.length.html"><tt>length</tt></a></td><td>overloads
-            length</td></tr><tr><td width="200px"><a href="crystalShape.plot.html"><tt>plot</tt></a></td><td>colorize grains</td></tr><tr><td
-            width="200px"><a href="crystalShape.plus.html"><tt>plus</tt></a></td><td>crystal shape should be first argument</td></tr><tr><td
-            width="200px"><a href="crystalShape.rotate.html"><tt>rotate</tt></a></td><td>a crystal shape by an rotation or orientation</td></tr><tr><td
-            width="200px"><a href="crystalShape.rotate_outer.html"><tt>rotate_outer</tt></a></td><td>rotate a crystal shape by an rotation
-            or orientation</td></tr><tr><td width="200px"><a href="crystalShape.size.html"><tt>size</tt></a></td><td>overloads size</td></tr><tr><td
-            width="200px"><a href="crystalShape.subsref.html"><tt>subsref</tt></a></td><td>overloads subsref</td></tr></table>
+         <h2>Gallery of hardcoded crystal shapes<a name="24"> </a></h2><pre class="codeinput">plot(crystalShape.olivine,<span class="string">'colored'</span>)</pre><img src="crystalShape_index_19.png"> <pre class="codeinput">plot(crystalShape.garnet,<span class="string">'colored'</span>)</pre><img src="crystalShape_index_20.png"> <pre class="codeinput">plot(crystalShape.topaz,<span class="string">'colored'</span>)</pre><img src="crystalShape_index_21.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Complete Function list<a name="27"> </a></h2>
+         <p><table width="90%"><tr><td width="200px"><a href="crystalShape..html"><tt/></a></td><td/></tr><tr><td width="200px"><a href="crystalShape.
+            The code of this class is based on the paper.html"><tt>  The code of this class is based on the paper</tt></a></td><td/></tr><tr><td
+            width="200px"><a href="crystalShape..html"><tt/></a></td><td/></tr><tr><td width="200px"><a href="crystalShape.  Enderlein,
+            J., 1997. A package for displaying crystal morphology..html"><tt>  Enderlein, J., 1997. A package for displaying crystal morphology.</tt></a></td><td/></tr><tr><td
+            width="200px"><a href="crystalShape.  Mathematica Journal, 7(1)..html"><tt>  Mathematica Journal, 7(1).</tt></a></td><td/></tr></table>
          </p>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>

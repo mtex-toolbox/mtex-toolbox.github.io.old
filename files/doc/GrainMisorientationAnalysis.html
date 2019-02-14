@@ -57,13 +57,22 @@
                   <td><a href="#6">Intragranular misorientations</a></td>
                </tr>
                <tr>
-                  <td><a href="#15">Boundary misorientations</a></td>
+                  <td><a href="#15">Grain orientation spread (GOS)</a></td>
                </tr>
                <tr>
-                  <td><a href="#18">The angle distribution</a></td>
+                  <td><a href="#16">Kernel average misorientation (KAM)</a></td>
                </tr>
                <tr>
-                  <td><a href="#22">The axis distribution</a></td>
+                  <td><a href="#17">Grain average misorientation (GAM)</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#19">Boundary misorientations</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#22">The angle distribution</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#26">The axis distribution</a></td>
                </tr>
             </table>
          </div>
@@ -155,7 +164,23 @@ plot(ebsd(<span class="string">'Forsterite'</span>),color,<span class="string">'
 hold <span class="string">on</span>
 plot(grains.boundary,<span class="string">'edgecolor'</span>,<span class="string">'k'</span>,<span class="string">'linewidth'</span>,2)
 hold <span class="string">off</span></pre><img src="GrainMisorientationAnalysis_06.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>Boundary misorientations<a name="15"> </a></h2>
+         <h2>Grain orientation spread (GOS)<a name="15"> </a></h2><pre class="codeinput">plot(grains(<span class="string">'fo'</span>),grains(<span class="string">'fo'</span>).GOS./degree,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
+mtexColorbar</pre><img src="GrainMisorientationAnalysis_07.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Kernel average misorientation (KAM)<a name="16"> </a></h2><pre class="codeinput">KAM = ebsd(<span class="string">'fo'</span>).KAM;
+plot(ebsd(<span class="string">'fo'</span>),KAM);
+mtexColorbar
+hold <span class="string">on</span>
+plot(grains.boundary,<span class="string">'linewidth'</span>,2)
+hold <span class="string">off</span></pre><img src="GrainMisorientationAnalysis_08.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Grain average misorientation (GAM)<a name="17"> </a></h2>
+         <p>The grain average misorientation (GAM) is defined as the mean KAM within each grain. The following line can be taken as a
+            blueprint how to average arbitrary properties within grains. The last argument <tt>@nanmean</tt> in this command indicates that the average should be taken as the mean ignoring NaNs. In order to a assign the maximum value
+            to each grain replace this with <tt>@max</tt>.
+         </p><pre class="codeinput">GAM = accumarray(ebsd(<span class="string">'fo'</span>).grainId, KAM, size(grains), @nanmean) ./degree;</pre><pre class="codeinput"><span class="comment">% plot the GAM</span>
+plot(grains(<span class="string">'fo'</span>),GAM(grains(<span class="string">'fo'</span>).id),<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
+
+mtexColorbar</pre><img src="GrainMisorientationAnalysis_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Boundary misorientations<a name="19"> </a></h2>
          <p>The misorientation between adjacent grains can be computed by the command <a href="grainBoundary.misorientation.html">grainBoundary.misorientation.html</a></p><pre class="codeinput">plot(grains)
 
 hold <span class="string">on</span>
@@ -178,14 +203,14 @@ ans = misorientation
   crystal symmetry : Forsterite (mmm)
   antipodal:         true
  
-</pre><img src="GrainMisorientationAnalysis_07.png"> <pre class="codeinput">plot(ebsd,<span class="string">'facealpha'</span>,0.5)
+</pre><img src="GrainMisorientationAnalysis_10.png"> <pre class="codeinput">plot(ebsd,<span class="string">'facealpha'</span>,0.5)
 
 hold <span class="string">on</span>
 plot(grains.boundary)
 plot(bnd_FoFo,bnd_FoFo.misorientation.angle./degree,<span class="string">'linewidth'</span>,2)
 mtexColorMap <span class="string">blue2red</span>
 mtexColorbar(<span class="string">'title'</span>,<span class="string">'misorientation angle'</span>)
-hold <span class="string">off</span></pre><img src="GrainMisorientationAnalysis_08.png"> <p>In order to visualize the misorientation between any two adjacent grains, there are two possibilities in MTEX.</p>
+hold <span class="string">off</span></pre><img src="GrainMisorientationAnalysis_11.png"> <p>In order to visualize the misorientation between any two adjacent grains, there are two possibilities in MTEX.</p>
          <div>
             <ul type="square">
                <li>plot the angle distribution for all phase combinations</li>
@@ -193,7 +218,7 @@ hold <span class="string">off</span></pre><img src="GrainMisorientationAnalysis_
             </ul>
          </div>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>The angle distribution<a name="18"> </a></h2>
+         <h2>The angle distribution<a name="22"> </a></h2>
          <p>The following commands plot the angle distributions of all phase transitions from Forsterite to any other phase.</p><pre class="codeinput">plotAngleDistribution(grains.boundary(<span class="string">'Fo'</span>,<span class="string">'Fo'</span>).misorientation,<span class="keyword">...</span>
   <span class="string">'DisplayName'</span>,<span class="string">'Forsterite-Forsterite'</span>)
 hold <span class="string">on</span>
@@ -202,7 +227,7 @@ plotAngleDistribution(grains.boundary(<span class="string">'Fo'</span>,<span cla
 plotAngleDistribution(grains.boundary(<span class="string">'Fo'</span>,<span class="string">'Di'</span>).misorientation,<span class="keyword">...</span>
   <span class="string">'DisplayName'</span>,<span class="string">'Forsterite-Diopside'</span>)
 hold <span class="string">off</span>
-legend(<span class="string">'show'</span>,<span class="string">'Location'</span>,<span class="string">'northwest'</span>)</pre><img src="GrainMisorientationAnalysis_09.png"> <p>The above angle distributions can be compared with the uncorrelated misorientation angle distributions. This is done by</p><pre class="codeinput"><span class="comment">% compute uncorrelated misorientations</span>
+legend(<span class="string">'show'</span>,<span class="string">'Location'</span>,<span class="string">'northwest'</span>)</pre><img src="GrainMisorientationAnalysis_12.png"> <p>The above angle distributions can be compared with the uncorrelated misorientation angle distributions. This is done by</p><pre class="codeinput"><span class="comment">% compute uncorrelated misorientations</span>
 mori = calcMisorientation(ebsd(<span class="string">'Fo'</span>),ebsd(<span class="string">'Fo'</span>));
 
 <span class="comment">% plot the angle distribution</span>
@@ -217,7 +242,7 @@ mori = calcMisorientation(ebsd(<span class="string">'Fo'</span>),ebsd(<span clas
 plotAngleDistribution(mori,<span class="string">'DisplayName'</span>,<span class="string">'Forsterite-Diopside'</span>)
 
 hold <span class="string">off</span>
-legend(<span class="string">'show'</span>,<span class="string">'Location'</span>,<span class="string">'northwest'</span>)</pre><img src="GrainMisorientationAnalysis_10.png"> <p>Another possibility is to compute an uncorrelated angle distribution from EBSD data by taking only into account those pairs
+legend(<span class="string">'show'</span>,<span class="string">'Location'</span>,<span class="string">'northwest'</span>)</pre><img src="GrainMisorientationAnalysis_13.png"> <p>Another possibility is to compute an uncorrelated angle distribution from EBSD data by taking only into account those pairs
             of measurements that are sufficiently far from each other (uncorrelated points). The uncorrelated angle distribution is plotted
             by
          </p><pre class="codeinput"><span class="comment">% compute the Forsterite ODF</span>
@@ -237,7 +262,7 @@ odf_Fo = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 28
+    degree: 25
     weight: 1
  
  
@@ -250,25 +275,25 @@ mdf_Fo_Fo = MDF
     degree: 20
     weight: 1
  
-</pre><img src="GrainMisorientationAnalysis_11.png"> <p>What we have plotted above is the uncorrelated misorientation angle distribution for the Forsterite ODF. We can compare it
+</pre><img src="GrainMisorientationAnalysis_14.png"> <p>What we have plotted above is the uncorrelated misorientation angle distribution for the Forsterite ODF. We can compare it
             to the uncorrelated misorientation angle distribution of the uniform ODF by
          </p><pre class="codeinput">hold <span class="string">on</span>
 plotAngleDistribution(odf_Fo.CS,odf_Fo.CS,<span class="string">'DisplayName'</span>,<span class="string">'untextured'</span>)
 hold <span class="string">off</span>
 
-legend(<span class="string">'-dynamicLegend'</span>,<span class="string">'Location'</span>,<span class="string">'northwest'</span>) <span class="comment">% update legend</span></pre><img src="GrainMisorientationAnalysis_12.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
-         <h2>The axis distribution<a name="22"> </a></h2>
+legend(<span class="string">'-dynamicLegend'</span>,<span class="string">'Location'</span>,<span class="string">'northwest'</span>) <span class="comment">% update legend</span></pre><img src="GrainMisorientationAnalysis_15.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>The axis distribution<a name="26"> </a></h2>
          <p>Let's start with the boundary misorientation axis distribution</p><pre class="codeinput">close <span class="string">all</span>
 plotAxisDistribution(bnd_FoFo.misorientation,<span class="string">'smooth'</span>)
-mtexTitle(<span class="string">'boundary axis distribution'</span>)</pre><img src="GrainMisorientationAnalysis_13.png"> <p>Next we plot with the uncorrelated axis distribution, which depends only on the underlying ODFs.</p><pre class="codeinput">nextAxis
+mtexTitle(<span class="string">'boundary axis distribution'</span>)</pre><img src="GrainMisorientationAnalysis_16.png"> <p>Next we plot with the uncorrelated axis distribution, which depends only on the underlying ODFs.</p><pre class="codeinput">nextAxis
 mori = calcMisorientation(ebsd(<span class="string">'Fo'</span>));
 plotAxisDistribution(mori,<span class="string">'smooth'</span>)
-mtexTitle(<span class="string">'uncorrelated axis distribution'</span>)</pre><img src="GrainMisorientationAnalysis_14.png"> <p>and finally the axis misorientation distribution of a random texture</p><pre class="codeinput">nextAxis
+mtexTitle(<span class="string">'uncorrelated axis distribution'</span>)</pre><img src="GrainMisorientationAnalysis_17.png"> <p>and finally the axis misorientation distribution of a random texture</p><pre class="codeinput">nextAxis
 plotAxisDistribution(ebsd(<span class="string">'Fo'</span>).CS,ebsd(<span class="string">'Fo'</span>).CS,<span class="string">'antipodal'</span>)
 mtexTitle(<span class="string">'random texture'</span>)
 mtexColorMap <span class="string">parula</span>
 setColorRange(<span class="string">'equal'</span>)
-mtexColorbar(<span class="string">'multiples of random distribution'</span>)</pre><img src="GrainMisorientationAnalysis_15.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+mtexColorbar(<span class="string">'multiples of random distribution'</span>)</pre><img src="GrainMisorientationAnalysis_18.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

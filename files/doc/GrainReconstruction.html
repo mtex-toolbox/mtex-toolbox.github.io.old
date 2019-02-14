@@ -549,10 +549,9 @@ ebsdS = smooth(ebsd(<span class="string">'indexed'</span>),F)</pre><pre class="c
 
         alpha: [0.1000 0.1000]
        weight: @(t,eps,th)(t&lt;=th)./(t.^2+eps^2).^(1/2)
-          eps: 0.1000
+          eps: 0.0100
           tol: 1.0000e-05
     threshold: 0.0873
- denoising EBSD data: 100%
  
 ebsdS = EBSD  
  

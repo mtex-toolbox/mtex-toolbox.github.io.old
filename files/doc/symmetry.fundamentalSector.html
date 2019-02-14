@@ -44,9 +44,8 @@
             </p>
          </div>
          <p>get the fundamental sector for a symmetry in the inverse pole figure</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">sR = fundamentalSector(cs)
-sR = fundamentalSector(cs,omega) TODO: this should <span class="string">give</span> <span class="string">the</span> <span class="string">fundamental</span>
-sector <span class="string">of</span> <span class="string">rotational</span> <span class="string">axes</span> <span class="string">for</span> <span class="string">a</span> <span class="string">specific</span> <span class="string">rotation</span> <span class="string">angle</span> <span class="string">omega</span></pre><h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">sR = fundamentalSector(cs)</pre><pre class="codeinput"><span class="comment">% undamental sector for a specific misorientation angle</span>
+sR = fundamentalSector(cs,omega)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -55,6 +54,14 @@ sector <span class="string">of</span> <span class="string">rotational</span> <sp
             </td>
             <td>
             <p><a href="symmetry_index.html">symmetry</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>omega</tt>
+            </td>
+            <td>
+            <p>misorientation angle</p>
             <p>ut</p>
             </td>
             </tr>

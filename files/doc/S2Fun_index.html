@@ -48,6 +48,29 @@
             <p>The underlying mathematical approach is accomplished via spherical harmonics which form an orthonormal basis of the square-integrable
                functions on the two-dimensional sphere. Internally for a function <img src="S2Fun_index_eq04661004810784475046.png">  only the corresponding Fourier-coefficients are stored.
             </p>
+            <p><a href="S2FunHarmonic_index.html"><b><tt>S2FunHarmonic</tt></b></a></p>
+            <p><a href="S2FunHarmonic_index"><tt>S2FunHarmonic</tt></a> forms the basis of <tt>S2Fun</tt>. It can handle ordinary functions
+            </p>
+            <p><img src="S2Fun_index_eq17095550202462214049.png"> </p>
+            <p>but also multivariate functions</p>
+            <p><img src="S2Fun_index_eq02005284333143081024.png"> .
+            </p>
+            <p><a href="S2FunHarmonicSym_index.html"><b><tt>S2FunHarmonicSym</tt></b></a></p>
+            <p><a href="S2FunHarmonic_index"><tt>S2FunHarmonic</tt></a> is an extension of the <a href="S2FunHarmonic_index"><tt>S2FunHarmonic</tt></a> class for which you can store the symmetry with the function. Various commands are adapted to the symmetry in regards to
+               performance and general function handling. For instance the <tt>plot</tt> command only plots the function on the important part of the sphere.
+            </p>
+            <p><a href="S2VectorFieldHarmonic_index.html"><b><tt>S2VectorFieldHarmonic</tt></b></a></p>
+            <p><a href="S2VectorFieldHarmonic_index"><tt>S2VectorFieldHarmonic</tt></a> handles a function
+            </p>
+            <p><img src="S2Fun_index_eq02764888670548314535.png"> </p>
+            <p>which then is interpreted as a vector field. For instance the gradient of an univariate <a href="S2FunHarmonic_index"><tt>S2FunHarmonic</tt></a> can return a <a href="S2VectorFieldHarmonic_index"><tt>S2VectorFieldHarmonic</tt></a>.
+            </p>
+            <p><a href="S2AxisFieldHarmonic_index.html"><b><tt>S2AxisFieldHarmonic</tt></b></a></p>
+            <p><a href="S2AxisFieldHarmonic_index"><tt>S2AxisFieldHarmonic</tt></a> handles functions of the form
+            </p>
+            <p><img src="S2Fun_index_eq05196190540438093418.png"> </p>
+            <p>which can be understood as vectors in <img src="S2Fun_index_eq02553402412459337255.png">  without direction or length.
+            </p>
          </div>
          <h2>Syntax<a name="2"> </a></h2>
          <p>

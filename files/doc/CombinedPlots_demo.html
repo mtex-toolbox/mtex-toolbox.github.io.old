@@ -76,9 +76,9 @@ hold <span class="string">off</span></pre><img src="CombinedPlots_demo_01.png"> 
          <h2>Combine Different EBSD Data<a name="4"> </a></h2>
          <p>First, we want to show up two different EBSD data sets in one plot</p>
          <p>let's simulate some EBSD data</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'-3m'</span>);
-odf = unimodalODF(orientation(<span class="string">'euler'</span>,0,0,0,cs));
+odf = unimodalODF(orientation.byEuler(0,0,0,cs));
 ori = calcOrientations(odf,100);
-ori_rotated = calcOrientations(rotate(odf,rotation(<span class="string">'Euler'</span>,60*degree,60*degree,0*degree)),100);</pre><p>plot them as a scatter plot in axis / angle parametrized orientation space</p><pre class="codeinput">scatter(ori)
+ori_rotated = calcOrientations(rotate(odf,rotation.byEuler(60*degree,60*degree,0*degree)),100);</pre><p>plot them as a scatter plot in axis / angle parametrized orientation space</p><pre class="codeinput">scatter(ori)
 hold <span class="string">all</span>
 scatter(ori_rotated);
 hold <span class="string">off</span></pre><img src="CombinedPlots_demo_02.png"> <p>a second way would be to superpose the pole figures of both EBSD data sets.</p><pre class="codeinput">h = [Miller(0,0,0,1,cs),Miller(1,0,-1,0,cs)];

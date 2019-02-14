@@ -1,0 +1,116 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title> (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: grainsAndFilling -->
+      <!-- HEADSTUFF: grainsAndFilling -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:grainsAndFilling">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/documentation.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h2>1) no fill, no grains, all pixels<a name="1"> </a></h2><pre class="codeinput">mtexdata <span class="string">small</span>
+[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd);
+ebsd(grains(grains.grainSize&lt;=3)) = [];
+[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd);
+F = splineFilter;
+ebsd = smooth(ebsd,F);
+[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd);
+plot(ebsd)
+hold <span class="string">on</span>
+plot(grains.boundary,<span class="string">'lineColor'</span>,[1 0 0],<span class="string">'linewidth'</span>,2)
+hold <span class="string">off</span></pre><img src="grainsAndFilling_01.png"> <h2>2) no fill, no grains, indexed pixels<a name="2"> </a></h2><pre class="codeinput">mtexdata <span class="string">small</span>
+[grains,ebsd(<span class="string">'indexed'</span>).grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>));
+ebsd(grains(grains.grainSize&lt;=3)) = [];
+[grains,ebsd(<span class="string">'indexed'</span>).grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>));
+F = splineFilter;
+ebsd = smooth(ebsd(<span class="string">'indexed'</span>),F);
+[grains,ebsd(<span class="string">'indexed'</span>).grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>));
+
+nextAxis
+plot(ebsd)
+hold <span class="string">on</span>
+plot(grains.boundary,<span class="string">'lineColor'</span>,[1 0 0],<span class="string">'linewidth'</span>,2)
+hold <span class="string">off</span></pre><img src="grainsAndFilling_02.png"> <h2>3) fill, no grains, all pixels<a name="3"> </a></h2><pre class="codeinput">mtexdata <span class="string">small</span>
+[grains,ebsd.grainId] = calcGrains(ebsd);
+ebsd(grains(grains.grainSize&lt;=3)) = [];
+[grains,ebsd.grainId] = calcGrains(ebsd);
+F = splineFilter;
+ebsd = smooth(ebsd,F,<span class="string">'fill'</span>);
+[grains,ebsd.grainId] = calcGrains(ebsd);
+
+nextAxis
+plot(ebsd)
+hold <span class="string">on</span>
+plot(grains.boundary,<span class="string">'lineColor'</span>,[1 0 0],<span class="string">'linewidth'</span>,2)
+hold <span class="string">off</span></pre><img src="grainsAndFilling_03.png"> <h2>4) fill, no grains, indexed pixels<a name="4"> </a></h2><pre class="codeinput">mtexdata <span class="string">small</span>
+[grains,ebsd(<span class="string">'indexed'</span>).grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>));
+ebsd(grains(grains.grainSize&lt;=3)) = [];
+[grains,ebsd(<span class="string">'indexed'</span>).grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>));
+F = splineFilter;
+ebsd = smooth(ebsd(<span class="string">'indexed'</span>),F,<span class="string">'fill'</span>);
+[grains,ebsd(<span class="string">'indexed'</span>).grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>));
+
+nextAxis
+plot(ebsd)
+hold <span class="string">on</span>
+plot(grains.boundary,<span class="string">'lineColor'</span>,[1 0 0],<span class="string">'linewidth'</span>,2)
+hold <span class="string">off</span></pre><img src="grainsAndFilling_04.png"> <h2>5) fill, grains, indexed pixels<a name="5"> </a></h2><pre class="codeinput">mtexdata <span class="string">small</span>
+[grains,ebsd(<span class="string">'indexed'</span>).grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>));
+ebsd(grains(grains.grainSize&lt;=3)) = [];
+[grains,ebsd(<span class="string">'indexed'</span>).grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>));
+F = splineFilter;
+ebsd = smooth(ebsd(<span class="string">'indexed'</span>),F,<span class="string">'fill'</span>,grains);
+[grains,ebsd(<span class="string">'indexed'</span>).grainId] = calcGrains(ebsd(<span class="string">'indexed'</span>));
+
+nextAxis
+plot(ebsd)
+hold <span class="string">on</span>
+plot(grains.boundary,<span class="string">'lineColor'</span>,[1 0 0],<span class="string">'linewidth'</span>,2)
+hold <span class="string">off</span>
+drawNow(gcm)</pre><img src="grainsAndFilling_05.png"> <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
+   </body>
+</html>

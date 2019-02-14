@@ -45,7 +45,7 @@
          <h2>Description<a name="2"> </a></h2>
          <p><b>unimodalODF</b> defines a radially symmetric, unimodal ODF with respect to a crystal orientation <tt>mod</tt>. The shape of the ODF is defined by a <a href="kernel_index.html">kernel</a> function.
          </p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">mod = orientation(<span class="string">'Euler'</span>,phi1,Phi,phi2,CS,SS)
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">mod = orientation.byEuler(phi1,Phi,phi2,CS,SS)
 odf = unimodalODF(mod) <span class="comment">% default halfwidth 10 degree</span>
 odf = unimodalODF(mod,<span class="string">'halfwidth'</span>,15*degree) <span class="comment">% specify halfwidth</span>
 odf = unimodalODF(mod,CS,SS)  <span class="comment">% specify crystal and specimen symmetry</span>

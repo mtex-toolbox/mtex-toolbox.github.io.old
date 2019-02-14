@@ -42,16 +42,12 @@
          <div class="subheading">
             <p>overide buildin Matlab colorbar function</p>
          </div>
-         <h2>Syntax<a name="2"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>varargout = mtexColorbar('param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <p style="font-size:1px;"></p>
+         <h2>Syntax<a name="2"> </a></h2><pre class="codeinput"><span class="comment">% add a colorbar vertical colorbar</span>
+mtexColorbar(<span class="string">'location'</span>,<span class="string">'eastoutside'</span>)</pre><pre class="codeinput"><span class="comment">% add a horizontal colorbar</span>
+mtexColorbar(<span class="string">'location'</span>,<span class="string">'southoutside'</span>)</pre><pre class="codeinput"><span class="comment">% add one colorbar for all sub figures</span>
+setColorRange(<span class="string">'equal'</span>) <span class="comment">% set equal color range for all subplots</span>
+mtexColorbar <span class="comment">% add the color bar</span></pre><pre class="codeinput"><span class="comment">% add individual colorbars for all sub figures</span>
+mtexColorbar(<span class="string">'multiple'</span>)</pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

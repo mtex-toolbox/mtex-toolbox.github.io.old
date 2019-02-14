@@ -45,17 +45,19 @@
          </div>
          <p>orientation - class representing orientations</p>
          <p>This MTEX class represents orientations and misorientations.</p>
-         <p>orientation('Euler',phi1,Phi,phi2,cs)  defines an orientation in Euler angles</p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>o = orientation('param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <p style="font-size:1px;"></p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">ori = orientation.byEuler(phi1,Phi,phi2,cs,ss)
+ori = orientation.byEuler(alpha,beta,gamma,<span class="string">'ZYZ'</span>,cs,ss)
+ori = orientation.byMiller([h k l],[u v w],cs,ss)
+ori = orientation.byAxisAngle(v,omega,cs,ss)
+ori = orientation.byMatrix(A,cs)
+ori = orientation.map(u1,v1,u2,v2,cs)
+ori = orientation.goss(cs)
+ori = orientation.cube(cs)</pre><p>predefined orientations</p><pre>  * 'Cube', 'CubeND22', 'CubeND45', 'CubeRD'
+  * 'Goss', 'invGoss'
+  * 'Copper', 'Copper2'
+  * 'SR', 'SR2', 'SR3', 'SR4'
+  * 'Brass', 'Brass2'
+  * 'PLage', 'PLage2', 'QLage', 'QLage2', 'QLage3', 'QLage4'</pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td valign="baseline" align="right">DocHelp 0.1 beta</td>

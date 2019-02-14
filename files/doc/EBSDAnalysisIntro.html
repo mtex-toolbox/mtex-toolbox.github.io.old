@@ -62,10 +62,10 @@
             </table>
          </div>
          <h2>Import EBSD data<a name="2"> </a></h2>
-         <p>Importing EBSD data can be done guided by the import wizard</p><pre class="codeinput">import_wizard(<span class="string">'EBSD'</span>)</pre><img src="EBSDAnalysisIntro_01.png"> <p>or directly by the command <a href="loadEBSD.html">loadEBSD</a></p><pre class="codeinput"><span class="comment">% specify file name</span>
+         <p>Importing EBSD data can be done guided by the import wizard</p><pre class="codeinput">import_wizard(<span class="string">'EBSD'</span>)</pre><img src="EBSDAnalysisIntro_01.png"> <p>or directly by the command <a href="EBSD.load.html">EBSD.load</a></p><pre class="codeinput"><span class="comment">% specify file name</span>
 fname = fullfile(mtexDataPath,<span class="string">'EBSD'</span>,<span class="string">'Forsterite.ctf'</span>);
 
-ebsd = loadEBSD(fname,<span class="string">'convertEuler2SpatialReferenceFrame'</span>)</pre><pre class="codeoutput"> 
+ebsd = EBSD.load(fname,<span class="string">'convertEuler2SpatialReferenceFrame'</span>)</pre><pre class="codeoutput"> 
 ebsd = EBSD  
  
  Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame

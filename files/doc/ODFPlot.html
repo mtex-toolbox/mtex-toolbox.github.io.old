@@ -68,8 +68,8 @@
             </table>
          </div>
          <p>Let us first define some model ODFs to be plotted later on.</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'32'</span>);
-mod1 = orientation(<span class="string">'euler'</span>,90*degree,40*degree,110*degree,<span class="string">'ZYZ'</span>,cs);
-mod2 = orientation(<span class="string">'euler'</span>,50*degree,30*degree,-30*degree,<span class="string">'ZYZ'</span>,cs);
+mod1 = orientation.byEuler(90*degree,40*degree,110*degree,<span class="string">'ZYZ'</span>,cs);
+mod2 = orientation.byEuler(50*degree,30*degree,-30*degree,<span class="string">'ZYZ'</span>,cs);
 
 odf = 0.2*unimodalODF(mod1) <span class="keyword">...</span>
   + 0.3*unimodalODF(mod2) <span class="keyword">...</span>
@@ -152,7 +152,7 @@ fodf = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 28
+    degree: 25
     weight: 1
  
 </pre><img src="ODFPlot_13.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

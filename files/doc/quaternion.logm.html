@@ -43,9 +43,9 @@
             <p>(method of <a href="quaternion_index.html">quaternion</a>)
             </p>
          </div>
-         <p>the dislocation tensor for a rotation</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">T = logm(q) <span class="comment">% skew symmetric tensor for rotation q</span>
-T = logm(q,q_ref) <span class="comment">% tangential tensor at q_ref</span></pre><h2>Input<a name="4"> </a></h2>
+         <p>the logarithmic map that translates a rotation into a spin tensor</p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">T = logm(q) <span class="comment">% spin tensor with reference to the identical rotation</span>
+T = logm(q,q_ref) <span class="comment">% spin tensor with reference q_ref</span></pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -72,17 +72,17 @@ T = logm(q,q_ref) <span class="comment">% tangential tensor at q_ref</span></pre
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>v</tt>
+            <tt>T</tt>
             </td>
             <td>
-            <p><a href="vector3d_index.html">vector3d</a></p>
+            <p><a href="spinTensor_index.html">spinTensor</a></p>
             </td>
             </tr>
             </table>
             
          </p>
          <h3 class="seealso">See also</h3>
-         <p><a href="expquat.html">expquat</a></p>
+         <p><a href="spinTensor.exp.html">spinTensor/exp</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

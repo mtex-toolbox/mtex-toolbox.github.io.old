@@ -94,10 +94,10 @@ h = { <span class="keyword">...</span>
 <span class="comment">% *Import the Data*</span>
 
 <span class="comment">% create a Pole Figure variable containing the data</span>
-pf = loadPoleFigure(fname,h,CS,SS,<span class="string">'interface'</span>,<span class="string">'uxd'</span>);
+pf = PoleFigure.load(fname,h,CS,SS,<span class="string">'interface'</span>,<span class="string">'uxd'</span>);
 
 <span class="comment">% defocusing</span>
-pf_def = loadPoleFigure(fname_def,h,CS,SS,<span class="string">'interface'</span>,<span class="string">'uxd'</span>);
+pf_def = PoleFigure.load(fname_def,h,CS,SS,<span class="string">'interface'</span>,<span class="string">'uxd'</span>);
 
 <span class="comment">% correct data</span>
 pf = correct(pf,<span class="string">'def'</span>,pf_def);</pre><h2>Plot Raw Data<a name="3"> </a></h2>

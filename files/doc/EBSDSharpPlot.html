@@ -142,8 +142,7 @@ plot(ebsdS(<span class="string">'indexed'</span>),ipfKey.orientation2color(ebsdS
 
 <span class="comment">%hold on</span>
 <span class="comment">%plot(grains.boundary,'lineWidth',4)</span>
-<span class="comment">%hold off</span></pre><pre class="codeoutput"> denoising EBSD data: 100%
-</pre><img src="EBSDSharpPlot_09.png"> <pre class="codeinput">F = infimalConvolutionFilter;
+<span class="comment">%hold off</span></pre><img src="EBSDSharpPlot_09.png"> <pre class="codeinput">F = infimalConvolutionFilter;
 F.lambda = 0.01;
 F.mu = 0.02;
 
@@ -164,8 +163,7 @@ plot(ebsdS(<span class="string">'indexed'</span>),ipfKey.orientation2color(ebsdS
 
 hold <span class="string">on</span>
 plot(grains.boundary,<span class="string">'lineWidth'</span>,4)
-hold <span class="string">off</span></pre><pre class="codeoutput"> denoising EBSD data: 100%
-</pre><img src="EBSDSharpPlot_10.png"> <p>Another example is when analyzing the orientation distribution within grains</p><pre class="codeinput">mtexdata <span class="string">forsterite</span>
+hold <span class="string">off</span></pre><img src="EBSDSharpPlot_10.png"> <p>Another example is when analyzing the orientation distribution within grains</p><pre class="codeinput">mtexdata <span class="string">forsterite</span>
 ebsd = ebsd(<span class="string">'indexed'</span>);
 
 <span class="comment">% segment grains</span>

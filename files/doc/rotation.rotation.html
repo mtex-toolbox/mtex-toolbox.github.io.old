@@ -44,28 +44,19 @@
             </p>
          </div>
          <p>defines an rotation</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">rot = rotation(<span class="string">'Euler'</span>,phi1,Phi,phi2) -
-rot = rotation(<span class="string">'Euler'</span>,alpha,beta,gamma,<span class="string">'ZYZ'</span>) -
-rot = rotation(<span class="string">'axis,v,'</span>angle',omega) -
-rot = rotation(<span class="string">'matrix'</span>,A) -
-rot = rotation(<span class="string">'map'</span>,u1,v1) -
-rot = rotation(<span class="string">'map'</span>,u1,v1,u2,v2) -
-rot = rotation(<span class="string">'reflection'</span>,b) -
-rot = rotation(<span class="string">'inversion'</span>,b) -
-rot = rotation(<span class="string">'rodrigues'</span>,v) -
-rot = rotation(<span class="string">'fibre'</span>,u1,v1,<span class="string">'resolution'</span>,5*degree) -
-rot = rotation(<span class="string">'quaternion'</span>,a,b,c,d) -
-rot = rotation(q) -</pre><h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">rot = rotation.byEuler(phi1,Phi,phi2)
+rot = rotation.byEuler(alpha,beta,gamma,<span class="string">'ZYZ'</span>)
+rot = rotation.axisAngle(v,omega)
+rot = rotation.matrix(A)
+rot = rotation.map(u1,v1)
+rot = rotation.map(u1,v1,u2,v2)
+rot = reflection(b)
+rot = rotation.inversion
+rot = rotation.byRodrigues(v)
+rot = rotation(fibre(u1,v1),<span class="string">'resolution'</span>,5*degree)
+rot = rotation(quaternion(a,b,c,d))</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
-            <tr>
-            <td width="100px">
-            <tt>q</tt>
-            </td>
-            <td>
-            <p><a href="quaternion_index.html">quaternion</a></p>
-            </td>
-            </tr>
             <tr>
             <td width="100px">
             <tt>u1,u2</tt>

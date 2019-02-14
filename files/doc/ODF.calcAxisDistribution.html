@@ -44,16 +44,8 @@
             </p>
          </div>
          <p>compute the axis distribution of an ODF or MDF</p>
-         <h2>Syntax<a name="3"> </a></h2>
-         <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>x = calcAxisDistribution(odf,h,'param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
-            
-         </p>
-         <h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">value = calcAxisDistribution(odf)
+adf = calcAxisDistribution(odf, a)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -61,51 +53,15 @@
             <tt>odf</tt>
             </td>
             <td>
-            <p><a href="ODF_index.html">ODF</a></p>
+            <p><a href="ODF_index.html">ODF</a> orientation or misorientation distribution function</p>
             </td>
             </tr>
             <tr>
             <td width="100px">
-            <tt>h</tt>
+            <tt>a</tt>
             </td>
             <td>
-            <p><a href="vector3d_index.html">vector3d</a></p>
-            </td>
-            </tr>
-            <tr>
-            <td width="100px">
-            <tt>param,val</tt>
-            </td>
-            <td>Parameters and values that control calcAxisDistribution<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
-            <tr>
-            <td class="header" width="100px">Parameter</td>
-            <td class="header">Description</td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'smallesAngle'</tt>
-            </td>
-            <td>
-            <p>use axis corresponding to the smalles angle</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'largestAngle'</tt>
-            </td>
-            <td>
-            <p>use axis corresponding to the largest angle</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="150px">
-            <tt>'allAngles'</tt>
-            </td>
-            <td>
-            <p>use all axes</p>
-            </td>
-            </tr>
-            </table>
+            <p><a href="vector3d_index.html">vector3d</a> rotational axis</p>
             </td>
             </tr>
             </table>
@@ -116,17 +72,25 @@
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
             <td width="100px">
-            <tt>x</tt>
+            <tt>afd</tt>
             </td>
             <td>
-            <p>values of the axis distribution</p>
+            <p><a href="S2Fun_index.html">S2Fun</a> axis distribution function</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>value</tt>
+            </td>
+            <td>
+            <p>value of axis distribution function for rotational axis a</p>
             </td>
             </tr>
             </table>
             
          </p>
          <h3 class="seealso">See also</h3>
-         <p><a href=".html"></a></p>
+         <p><a href="symmetry.calcAxisDistribution.html">symmetry/calcAxisDistribution</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

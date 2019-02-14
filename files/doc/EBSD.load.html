@@ -1,0 +1,196 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>load (DocHelp Toolbox)
+         
+      </title>
+      <!-- DOCNAME: DocHelp Toolbox -->
+      <meta name="chunktype" content="refpage">
+      <!-- CHUNKNAME: EBSD.load -->
+      <!-- HEADSTUFF: EBSD.load -->
+      <!-- HEADSTUFF -->
+      <meta name="refentity" content="method:EBSD.load">
+      <meta http-equiv="Content-Script-Type" content="text/javascript">
+      <meta name="toctype" content="fcn">
+      <link rel="stylesheet" href="up.css"><script language="JavaScript" src="docscripts.js"></script></head>
+   <body><a name="top_of_page"></a><div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container"><a class="brand" href="/">MTEX Toolbox</a><ul class="nav">
+                  <li><a href="/download.html">Downloads</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/documentation.html">Documentation</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/team.html">People</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/publications.html">Publications</a></li>
+               </ul>
+               <ul class="nav">
+                  <li><a href="/support.html">Support</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <h1>load</h1>
+         <div class="subheading">
+            <p>(method of <a href="EBSD_index.html">EBSD</a>)
+            </p>
+         </div>
+         <p>load ebsd data from file</p>
+         <h2>Description<a name="3"> </a></h2>
+         <p>EBSD.load is a high level method for importing EBSD data from files. If possible it autodetects the format of the file. Supported
+            formats are listed <a href="supportedInterfaces.html">here</a>. Additionally, EBSD data can be read from column aligned text file or excel spread sheets. In those cases it is neccesary
+            to tell MTEX the column positions of the spatial coordinates, the phase information as well as Euler angles.
+         </p>
+         <h2>Syntax<a name="4"> </a></h2><pre class="codeinput">ebsd = EBSD.load(<span class="string">'filename.ang'</span>)
+ebsd = EBSD.load(<span class="string">'filename.ctf'</span>)
+ebsd = EBSD.load(<span class="string">'filename.osc'</span>)
+ebsd = EBSD.load(<span class="string">'filename.hf5'</span>)</pre><pre class="codeinput">csList = {<span class="string">'notIndexed'</span>,<span class="keyword">...</span>
+CS = {<span class="string">'notIndexed'</span>,<span class="keyword">...</span>
+       crystalSymmetry(<span class="string">'m-3m'</span>,<span class="string">'mineral'</span>,<span class="string">'Fe'</span>),<span class="keyword">...</span>
+       crystalSymmetry(<span class="string">'m-3m'</span>,<span class="string">'mineral'</span>,<span class="string">'Mg'</span>)};
+ebsd = EBSD.load(fname,<span class="string">'cs'</span>,cs,<span class="string">'ColumnNames'</span>,{<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'Euler1'</span>,<span class="string">'Euler2'</span>,<span class="string">'Euler3'</span>,<span class="string">'phase'</span>})</pre><h2>Input<a name="5"> </a></h2>
+         <p>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>fname</tt>
+            </td>
+            <td>
+            <p>filename</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>cs</tt>
+            </td>
+            <td>
+            <p><a href="crystalSymmetry_index.html">crystalSymmetry</a> or cell array of <a href="crystalSymmetry_index.html">crystalSymmetry</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>param,val</tt>
+            </td>
+            <td>Parameters and values that control load<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
+            <tr>
+            <td class="header" width="100px">Parameter</td>
+            <td class="header">Description</td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'ColumnNames'</tt>
+            </td>
+            <td>
+            <p>names of the colums to be imported, mandatory are euler 1, euler 2, euler 3</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'Columns'</tt>
+            </td>
+            <td>
+            <p>postions of the columns to be imported</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'radians'</tt>
+            </td>
+            <td>
+            <p>treat input in radiand</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'delimiter'</tt>
+            </td>
+            <td>
+            <p>delimiter between numbers</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'header'</tt>
+            </td>
+            <td>
+            <p>number of header lines</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'Bunge'</tt>
+            </td>
+            <td>
+            <p>[phi1 Phi phi2] Euler angle in Bunge convention (default)</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'passive'</tt>
+            </td>
+            </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+            
+         </p>
+         <h2>Output<a name="6"> </a></h2>
+         <p>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>ebsd</tt>
+            </td>
+            <td>
+            <p><a href="EBSD_index.html">EBSD</a></p>
+            </td>
+            </tr>
+            </table>
+            
+         </p>
+         <h2>Example<a name="7"> </a></h2><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'EBSD'</span>,<span class="string">'85_829grad_07_09_06.txt'</span>);
+CS = {<span class="string">'notIndexed'</span>,<span class="keyword">...</span>
+crystalSymmetry(<span class="string">'m-3m'</span>,<span class="string">'mineral'</span>,<span class="string">'Fe'</span>),<span class="keyword">...</span>
+crystalSymmetry(<span class="string">'m-3m'</span>,<span class="string">'mineral'</span>,<span class="string">'Mg'</span>)};
+SS = specimenSymmetry(<span class="string">'triclinic'</span>);
+ebsd = EBSD.load(fname,<span class="string">'CS'</span>,CS,<span class="string">'SS'</span>,SS, <span class="string">'ColumnNames'</span>, <span class="keyword">...</span>
+{<span class="string">'Index'</span> <span class="string">'Phase'</span> <span class="string">'x'</span> <span class="string">'y'</span> <span class="string">'Euler1'</span> <span class="string">'Euler2'</span> <span class="string">'Euler3'</span> <span class="string">'MAD'</span> <span class="string">'BC'</span> <span class="string">'BS'</span><span class="keyword">...</span>
+<span class="string">'Bands'</span> <span class="string">'Error'</span> <span class="string">'ReliabilityIndex'</span>}, <span class="string">'Bunge'</span>)</pre><pre class="codeoutput"> 
+ebsd = EBSD  
+ 
+ Phase  Orientations     Mineral        Color  Symmetry  Crystal reference frame
+     0   11411 (19%)  notIndexed                                                
+     1   48184 (79%)          Fe   light blue      m-3m                         
+     2   1180 (1.9%)          Mg  light green      m-3m                         
+ 
+ Properties: bands, bc, bs, error, index, mad, reliabilityindex, x, y
+ Scan unit : um
+ 
+</pre><h3 class="seealso">See also</h3>
+         <p><a href="ImportEBSDData.html">ImportEBSDData</a>, <a href="ebsd_demo.html">ebsd_demo</a>, <a href="EBSD_index.html">EBSD_index</a></p>
+         <p style="font-size:1px;"></p>
+         <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="baseline" align="right">DocHelp 0.1 beta</td>
+            </tr>
+         </table><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83346204-1', 'auto');
+  ga('send', 'pageview');
+
+   </script></div>
+   </body>
+</html>

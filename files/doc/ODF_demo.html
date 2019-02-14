@@ -42,7 +42,7 @@
          <div class="subheading">
             <p>This example demonstrates the most important MTEX tools for analysing ODFs.</p>
          </div>
-         <p>All described commands can be applied to model ODFs constructed via <a href="uniformODF.html">uniformODF</a>, <a href="unimodalODF.html">unimodalODF</a>, or <a href="fibreODF.html">fibreODF</a> and to all estimated ODF calculated from <a href="PoleFigure_calcODF.html">pole figures</a> or <a href="EBSD_calcODF.html">EBSD data</a>.
+         <p>All described commands can be applied to model ODFs constructed via <a href="uniformODF.html">uniformODF</a>, <a href="unimodalODF.html">unimodalODF</a>, or <a href="fibreODF.html">fibreODF</a> and to all estimated ODF calculated from <a href="PoleFigure_calcODF.html">pole figures</a> or <a href="EBSD.calcODF.html">EBSD data</a>.
          </p>
          <h2>Defining Model ODFs<a name="3"> </a></h2>
          <p><b>Unimodal ODFs</b></p><pre class="codeinput">SS  = specimenSymmetry(<span class="string">'orthorhombic'</span>);
@@ -56,7 +56,7 @@ odf1 = ODF
   specimen symmetry: mmm
  
   Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 10&deg;
+    kernel: van Mises Fisher, halfwidth 20&deg;
     center: Rotations: 0x0
     weight: 1
  
@@ -110,7 +110,7 @@ odf = ODF
  
 </pre><img src="ODF_demo_01.png"> <p><b>ODF Arithmetics</b></p><pre class="codeinput">0.3*odf2 + 0.7*odf3
 
-rot = rotation(<span class="string">'axis'</span>,yvector,<span class="string">'angle'</span>,90*degree);
+rot = rotation.byAxisAngle(yvector,90*degree);
 odf = rotate(odf,rot)
 plotPDF(odf,Miller(1,0,0,CS))</pre><pre class="codeoutput"> 
 ans = ODF  
@@ -176,7 +176,7 @@ ans =
 ans =
     0.0028
 ans =
-    0.0252
+    0.0253
 ans =
     1.9251
 ans =
@@ -189,7 +189,7 @@ plot(SantaFe,<span class="string">'alpha'</span>,<span class="string">'sections'
 mtexColorMap <span class="string">white2black</span></pre><img src="ODF_demo_04.png"> <h2>Exercises<a name="12"> </a></h2>
          <p>2)</p>
          <p>a) Construct a cubic unimodal ODF with mod at [0 0 1](3 1 0). (Miller indice). What is its modal orientation in Euler angles?</p><pre class="codeinput">CS = crystalSymmetry(<span class="string">'cubic'</span>);
-ori = orientation(<span class="string">'Miller'</span>,[0 0 1],[3 1 0],CS);
+ori = orientation.byMiller([0 0 1],[3 1 0],CS);
 odf = unimodalODF(ori);</pre><p>b) Plot some pole figures. Are there pole figures with and without antipodal symmetry? What about the inverse pole figures?</p><pre class="codeinput">plotPDF(odf,[Miller(1,0,0,CS),Miller(2,3,1,CS)])</pre><img src="ODF_demo_05.png"> <pre class="codeinput">close <span class="string">all</span>;plotPDF(odf,[Miller(1,0,0,CS),Miller(2,3,1,CS)],<span class="string">'antipodal'</span>)</pre><img src="ODF_demo_06.png"> <pre class="codeinput">close <span class="string">all</span>;plotIPDF(odf,vector3d(1,1,3))</pre><img src="ODF_demo_07.png"> <p>c) Plot the ODF in sigma and phi2 - sections. How many mods do you observe?</p><pre class="codeinput">close <span class="string">all</span>; plot(odf,<span class="string">'sections'</span>,6)</pre><img src="ODF_demo_08.png"> <p>d) Compute the volume of the ODF that is within a distance of 10 degree of the mod. Compare to an the uniform ODF.</p><pre class="codeinput">volume(odf,ori,10*degree)
 volume(uniformODF(CS,SS),ori,10*degree)</pre><pre class="codeoutput">ans =
     0.2939
@@ -222,12 +222,12 @@ mod = orientation
  
   Bunge Euler angles in degree
   phi1  Phi phi2 Inv.
-   180   90   60    0
+   180   90  180    0
  
 </pre><p>g) Plot the ODF in sigma and phi2 - sections. How many fibre do you observe?</p><pre class="codeinput">close <span class="string">all</span>;plot(odf,<span class="string">'sections'</span>,6)
 mtexColorMap <span class="string">white2black</span>
 annotate(mod,<span class="string">'MarkerColor'</span>,<span class="string">'r'</span>,<span class="string">'Marker'</span>,<span class="string">'s'</span>)</pre><img src="ODF_demo_09.png"> <pre class="codeinput">plot(odf,<span class="string">'phi2'</span>,<span class="string">'sections'</span>,6)</pre><img src="ODF_demo_10.png"> <p>h) Compute the texture index of the ODF.</p><pre class="codeinput">textureindex(odf)</pre><pre class="codeoutput">ans =
-    9.6325
+    9.6324
 </pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

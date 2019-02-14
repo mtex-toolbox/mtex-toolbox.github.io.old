@@ -46,15 +46,17 @@
          <h2>Defining a <tt>S2FunHarmonic</tt><a name="1"> </a></h2>
          <p><b>Definition via symmetrisation</b></p>
          <p>The simplest way to define a <tt>S2FunHarmonicSym</tt> is through the symmetrisation of an ordinary <a href="S2FunHarmonic_index"><tt>S2FunHarmonic</tt></a>.
-         </p><pre class="codeinput">sF = S2FunHarmonic.quadrature(@(v) smiley(v))
+         </p><pre class="codeinput">sF = S2Fun.smiley
 cs = crystalSymmetry(<span class="string">'432'</span>);
 
-sFs1 = symmetrise(sF, cs);
-
-<span class="comment">% * this symmetrises the function and gives back the result with the symmetry attached</span></pre><pre class="codeoutput"> 
+sFs1 = symmetrise(sF, cs);</pre><pre class="codeoutput"> 
 sF = S2FunHarmonic  
  bandwidth: 128
-</pre><p><b>Definition via function handle</b></p>
+</pre><div>
+            <ul type="square">
+               <li>this symmetrises the function and gives back the result with the symmetry attached</li>
+            </ul>
+         </div><pre class="codeinput">plot(sFs1)</pre><img src="S2FunHarmonicSym_index_01.png"> <p><b>Definition via function handle</b></p>
          <p>If you have a function handle for the function you could create a <tt>S2FunHarmonicSym</tt> via quadrature. At first lets define a symmetry and a function handle which takes <a href="vector3d_index.html"><tt>vector3d</tt></a> as an argument and returns double:
          </p><pre class="codeinput">f = @(v) 0.1*(v.theta+sin(8*v.x).*sin(8*v.y));
 cs = crystalSymmetry(<span class="string">'6/m'</span>);</pre><p>Now you can call the quadrature command to get <tt>sFs2</tt> of type <tt>S2FunHarmonicSym</tt></p><pre class="codeinput">sFs2 = S2FunHarmonicSym.quadrature(f, cs)</pre><pre class="codeoutput"> 
@@ -62,18 +64,10 @@ sFs2 = S2FunHarmonic
  symmetry: 6/m, X||a*, Y||b, Z||c*
  bandwidth: 128
  antipodal: true
-</pre><h2>Visualization<a name="5"> </a></h2>
+</pre><h2>Visualization<a name="6"> </a></h2>
          <p>The plot commands for a <tt>S2FunHarmonicSym</tt> by default plot the function only on the fundamenta Sector of the symmetry. E.g. the default <tt>plot</tt>-command look as follows
-         </p><pre class="codeinput">plot(sFs1);</pre><img src="S2FunHarmonicSym_index_01.png"> <p>Another Example is the contour plot</p><pre class="codeinput">contour(sFs2);</pre><img src="S2FunHarmonicSym_index_02.png"> <h2>Complete Function list<a name="7"> </a></h2>
-         <p><table width="90%"><tr><td width="200px"><a href="S2FunHarmonicSym.S2FunHarmonicSym.html"><tt>S2FunHarmonicSym</tt></a></td><td>a
-            class represeneting a symmetrised function on the sphere</td></tr><tr><td width="200px"><a href="S2FunHarmonicSym.display.html"><tt>display</tt></a></td><td>standard
-            output</td></tr><tr><td width="200px"><a href="S2FunHarmonicSym.plot.html"><tt>plot</tt></a></td><td>Syntax</td></tr><tr><td
-            width="200px"><a href="S2FunHarmonicSym.plus.html"><tt>plus</tt></a></td><td>Syntax</td></tr><tr><td width="200px"><a href="S2FunHarmonicSym.power.html"><tt>power</tt></a></td><td>Syntax</td></tr><tr><td
-            width="200px"><a href="S2FunHarmonicSym.quadrature.html"><tt>quadrature</tt></a></td><td>Syntax</td></tr><tr><td width="200px"><a
-            href="S2FunHarmonicSym.rdivide.html"><tt>rdivide</tt></a></td><td>Syntax</td></tr><tr><td width="200px"><a href="S2FunHarmonicSym.steepestDescent.html"><tt>steepestDescent</tt></a></td><td>calculates
-            the minimum of a spherical harminc</td></tr><tr><td width="200px"><a href="S2FunHarmonicSym.times.html"><tt>times</tt></a></td><td>overloads
-            sF1 .* sF2</td></tr></table>
-         </p>
+         </p><pre class="codeinput">plot(sFs1);</pre><img src="S2FunHarmonicSym_index_02.png"> <p>Another Example is the contour plot</p><pre class="codeinput">contour(sFs2);</pre><img src="S2FunHarmonicSym_index_03.png"> <h2>Complete Function list<a name="8"> </a></h2>
+         <p><table width="90%"/></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

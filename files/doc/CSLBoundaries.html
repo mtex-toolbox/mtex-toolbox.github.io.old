@@ -242,9 +242,9 @@ mori = misorientation
 ans =
     2.0338
 </pre><p>or to plot the MDF along certain fibres</p><pre class="codeinput">omega = linspace(0,55*degree);
-fibre100 = orientation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,omega,mdf.CS,mdf.SS)
-fibre111 = orientation(<span class="string">'axis'</span>,vector3d(1,1,1),<span class="string">'angle'</span>,omega,mdf.CS,mdf.SS)
-fibre101 = orientation(<span class="string">'axis'</span>,vector3d(1,0,1),<span class="string">'angle'</span>,omega,mdf.CS,mdf.SS)
+fibre100 = orientation.byAxisAngle(xvector,omega,mdf.CS,mdf.SS)
+fibre111 = orientation.byAxisAngle(vector3d(1,1,1),omega,mdf.CS,mdf.SS)
+fibre101 = orientation.byAxisAngle(vector3d(1,0,1),omega,mdf.CS,mdf.SS)
 
 close <span class="string">all</span>
 plot(omega ./ degree,mdf.eval(fibre100))
@@ -270,7 +270,7 @@ fibre101 = misorientation
   crystal symmetry : iron (m-3m)
   crystal symmetry : iron (m-3m)
  
-</pre><img src="CSLBoundaries_11.png"> <p>or to evaluate it in an misorientation directly</p><pre class="codeinput">mori = orientation(<span class="string">'Euler'</span>,15*degree,28*degree,14*degree,mdf.CS,mdf.CS)
+</pre><img src="CSLBoundaries_11.png"> <p>or to evaluate it in an misorientation directly</p><pre class="codeinput">mori = orientation.byEuler(15*degree,28*degree,14*degree,mdf.CS,mdf.CS)
 
 mdf.eval(mori)</pre><pre class="codeoutput"> 
 mori = misorientation  

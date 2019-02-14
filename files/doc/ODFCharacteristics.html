@@ -72,8 +72,8 @@
          <p><b>Some Sample ODFs</b></p>
          <p>Let us first begin with some constructed ODFs to be analyzed below</p>
          <p>A bimodal ODF:</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'mmm'</span>);
-odf1 = unimodalODF(orientation(<span class="string">'Euler'</span>,0,0,0,cs)) + <span class="keyword">...</span>
-  unimodalODF(orientation(<span class="string">'Euler'</span>,30*degree,0,0,cs))</pre><pre class="codeoutput"> 
+odf1 = unimodalODF(orientation.byEuler(0,0,0,cs)) + <span class="keyword">...</span>
+  unimodalODF(orientation.byEuler(30*degree,0,0,cs))</pre><pre class="codeoutput"> 
 odf1 = ODF  
   crystal symmetry : mmm
   specimen symmetry: 1
@@ -133,7 +133,7 @@ annotate(center,<span class="string">'marker'</span>,<span class="string">'s'</s
             are the <a href="ODF.entropy.html">entropy</a> and the <a href="ODF.textureindex.html">texture index</a>.
          </p>
          <p>Compute the texture index:</p><pre class="codeinput">textureindex(odf1)</pre><pre class="codeoutput">ans =
-  288.6806
+  288.6802
 </pre><p>Compute the entropy:</p><pre class="codeinput">entropy(odf2)</pre><pre class="codeoutput">ans =
    -2.8402
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -142,7 +142,7 @@ annotate(center,<span class="string">'marker'</span>,<span class="string">'s'</s
             a orientation close to a given orientation is computed by the command <a href="ODF.volume.html">volume</a> and the relative volume of crystals having a orientation close to a given fibre is computed by the command <a href="ODF.fibreVolume.html">fibreVolume</a></p>
          <p>The relative volume in percent of crystals with missorientation maximum 30 degree from the modal orientation:</p><pre class="codeinput">volume(odf3,calcModes(odf3),30*degree)*100</pre><pre class="codeoutput">progress: 100%
 ans =
-   52.8410
+   52.8426
 </pre><p>The relative volume of crystals with missorientation maximum 20 degree from the prefered fibre in percent: TODO</p><pre class="codeinput"><span class="comment">%fibreVolume(odf2,Miller(0,0,1),xvector,20*degree) * 100</span></pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Fourier Coefficients<a name="16"> </a></h2>
          <p>The Fourier coefficients allow for a complete characterization of the ODF. The are of particular importance for the calculation
@@ -164,7 +164,7 @@ fodf = ODF
   Columns 1 through 4
    0.0000 - 0.0000i   0.0000 - 0.0000i   0.0000 + 0.0000i   0.0000 + 0.0000i
   -0.0000 + 0.0000i  -0.0000 + 0.0000i  -0.0000 + 0.0000i  -0.0000 - 0.0000i
-   0.1490 - 0.4903i   1.6045 - 0.9786i   2.2457 + 0.0000i   1.6045 + 0.9786i
+   0.1490 - 0.4903i   1.6046 - 0.9786i   2.2458 - 0.0000i   1.6046 + 0.9786i
   -0.0000 + 0.0000i  -0.0000 + 0.0000i  -0.0000 - 0.0000i  -0.0000 - 0.0000i
    0.0000 - 0.0000i   0.0000 - 0.0000i   0.0000 - 0.0000i   0.0000 + 0.0000i
   Column 5
@@ -177,13 +177,13 @@ fodf = ODF
 plotFourier(fodf)</pre><img src="ODFCharacteristics_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Pole Figures and Values at Specific Orientations<a name="20"> </a></h2>
          <p>Using the command <a href="ODF.eval.html">eval</a> any ODF can be evaluated at any (set of) orientation(s).
-         </p><pre class="codeinput">odf1.eval(orientation(<span class="string">'Euler'</span>,0*degree,20*degree,30*degree,cs))</pre><pre class="codeoutput">ans =
+         </p><pre class="codeinput">odf1.eval(orientation.byEuler(0*degree,20*degree,30*degree,cs))</pre><pre class="codeoutput">ans =
    24.0869
-</pre><p>For a more complex example let us define a fibre and plot the ODF there.</p><pre class="codeinput">fibre = orientation(<span class="string">'fibre'</span>,Miller(1,0,0,cs),yvector);
+</pre><p>For a more complex example let us define a fibre and plot the ODF there.</p><pre class="codeinput">fibre = orientation(fibre(Miller(1,0,0,cs),yvector));
 
 plot(odf2.eval(fibre))</pre><img src="ODFCharacteristics_03.png"> <p>Evaluation of the corresponding pole figure or inverse pole figure is done using the command <a href="ODF.calcPDF.html">calcPDF</a>.
          </p><pre class="codeinput">odf2.calcPDF(Miller(1,0,0,cs),xvector)</pre><pre class="codeoutput">ans =
-   2.3345e-04
+     0
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Extract Internal Representation<a name="23"> </a></h2>
          <p>The internal representation of the ODF can be addressed by the command</p><pre class="codeinput">properties(odf3.components{1})</pre><pre class="codeoutput">Properties for class unimodalComponent:
@@ -202,7 +202,7 @@ ans = SO3Grid
   grid    : 19841 orientations, resolution: 5&deg;
  
 ans = deLaValeePoussinKernel  
-  bandwidth: 58
+  bandwidth: 48
   halfwidth: 5&deg;
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

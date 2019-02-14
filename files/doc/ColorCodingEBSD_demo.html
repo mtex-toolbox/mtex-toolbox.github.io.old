@@ -107,7 +107,7 @@ oM =
           CS1: [6&times;4 crystalSymmetry]
           CS2: [1&times;1 specimenSymmetry]
     antipodal: 0
-</pre><p>Given an arbitrary orientation</p><pre class="codeinput">ori = orientation(<span class="string">'Euler'</span>,10*degree,20*degree,0*degree)</pre><pre class="codeoutput"> 
+</pre><p>Given an arbitrary orientation</p><pre class="codeinput">ori = orientation.byEuler(10*degree,20*degree,0*degree)</pre><pre class="codeoutput"> 
 ori = orientation  
   size: 1 x 1
   crystal symmetry : 1, X||a, Y||b*, Z||c*
@@ -152,7 +152,7 @@ plot(cs)
 hold <span class="string">off</span></pre><img src="ColorCodingEBSD_demo_05.png"> <p>The orientation map provides several options to alter the alignment of the colors. Lets give some examples</p><pre class="codeinput"><span class="comment">% we may interchange green and blue by setting</span>
 oM.colorPostRotation = reflection(yvector);
 
-plot(oM)</pre><img src="ColorCodingEBSD_demo_06.png"> <p>or shift the cycle of colors red, green, blue by</p><pre class="codeinput">oM.colorPostRotation = rotation(<span class="string">'axis'</span>,zvector,<span class="string">'angle'</span>,120*degree);
+plot(oM)</pre><img src="ColorCodingEBSD_demo_06.png"> <p>or shift the cycle of colors red, green, blue by</p><pre class="codeinput">oM.colorPostRotation = rotation.byAxisAngle(zvector,120*degree);
 
 plot(oM)</pre><img src="ColorCodingEBSD_demo_07.png"> <p>Lets now consider an EBSD map</p><pre class="codeinput">mtexdata <span class="string">forsterite</span>
 

@@ -66,10 +66,10 @@
 SS = specimenSymmetry(<span class="string">'222'</span>);
 
 <span class="comment">% some component center</span>
-ori = [orientation(<span class="string">'euler'</span>,135*degree,45*degree,120*degree,CS,SS) <span class="keyword">...</span>
-  orientation(<span class="string">'euler'</span>, 60*degree, 54.73*degree, 45*degree,CS,SS) <span class="keyword">...</span>
-  orientation(<span class="string">'euler'</span>,70*degree,90*degree,45*degree,CS,SS)<span class="keyword">...</span>
-  orientation(<span class="string">'euler'</span>,0*degree,0*degree,0*degree,CS,SS)];
+ori = [orientation.byEuler(135*degree,45*degree,120*degree,CS,SS) <span class="keyword">...</span>
+  orientation.byEuler( 60*degree, 54.73*degree, 45*degree,CS,SS) <span class="keyword">...</span>
+  orientation.byEuler(70*degree,90*degree,45*degree,CS,SS)<span class="keyword">...</span>
+  orientation.byEuler(0*degree,0*degree,0*degree,CS,SS)];
 
 <span class="comment">% with corresponding weights</span>
 c = [.4,.13,.4,.07];
@@ -92,8 +92,8 @@ odf = ODF
 </pre><img src="DetectSampleSymmetry_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Reconstruct an ODF from simulated EBSD data<a name="4"> </a></h2>
          <p>Next we simulated some EBSD data, rotate them and estimate an ODF from the individual orientations.</p><pre class="codeinput"><span class="comment">% define a sample rotation</span>
-<span class="comment">%rot = rotation('euler',0*degree,0*degree,1*degree);</span>
-rot = rotation(<span class="string">'euler'</span>,15*degree,12*degree,-5*degree);
+<span class="comment">%rot = rotation.byEuler(0*degree,0*degree,1*degree);</span>
+rot = rotation.byEuler(15*degree,12*degree,-5*degree);
 
 
 <span class="comment">% Simulate individual orientations and rotate them.</span>
@@ -116,7 +116,7 @@ odf_est = ODF
   specimen symmetry: 1
  
   Harmonic portion:
-    degree: 28
+    degree: 25
     weight: 1
  
 </pre><img src="DetectSampleSymmetry_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
@@ -140,7 +140,7 @@ ans =
          <h2>Sample symmetry in an ODF computed from pole figure data<a name="6"> </a></h2>
          <p>In the next example we apply the function <tt>centerSpecimen</tt> to an ODF estimated from pole figure data. Lets start by importing them
          </p><pre class="codeinput">fname = fullfile(mtexDataPath,<span class="string">'PoleFigure'</span>,<span class="string">'aachen_exp.EXP'</span>);
-pf = loadPoleFigure(fname);
+pf = PoleFigure.load(fname);
 
 plot(pf,<span class="string">'silent'</span>)</pre><img src="DetectSampleSymmetry_04.png"> <p>In a second step we compute an ODF from the pole figure data</p><pre class="codeinput">odf = calcODF(pf,<span class="string">'silent'</span>)
 
@@ -151,7 +151,7 @@ odf = ODF
  
   Radially symmetric portion:
     kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 4926 orientations, resolution: 5&deg;
+    center: 4930 orientations, resolution: 5&deg;
     weight: 1
  
 </pre><img src="DetectSampleSymmetry_05.png"> <p>Finally, we detect the orthotropic symmetry axes a1, a2, a3 by</p><pre class="codeinput">[~,~,a1,a2] = centerSpecimen(odf,yvector)

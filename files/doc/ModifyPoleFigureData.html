@@ -155,7 +155,7 @@ plot(pf)</pre><img src="ModifyPoleFigureData_08.png"> <p class="pagenavlink"><sc
          <p>Sometimes it is necessary to rotate the pole figures. In order to do this with MTEX one has first to define a rotation, e.e.
             by
          </p><pre class="codeinput"><span class="comment">% This defines a rotation around the x-axis about 100 degree</span>
-rot = rotation(<span class="string">'axis'</span>,xvector,<span class="string">'angle'</span>,100*degree);</pre><p>Second, the command <a href="PoleFigure_rotate">rotate</a> can be used to rotate the pole figure data.
+rot = rotation.byAxisAngle(xvector,100*degree);</pre><p>Second, the command <a href="PoleFigure_rotate">rotate</a> can be used to rotate the pole figure data.
          </p><pre class="codeinput">pf_rotated = rotate(pf,rot);
 plot(pf_rotated,<span class="string">'antipodal'</span>)</pre><img src="ModifyPoleFigureData_09.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
