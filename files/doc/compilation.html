@@ -71,6 +71,34 @@
          </div>
 		 <p>Now copy the following files to your mtex/extern/nfft directory: <tt>nfft/matlab/nfsoft/nfsoftmex.mex* nfft/matlab/nfsoft/nfsftmex.mex* </tt> </p>
 		 <p>In case you want to use openMP support, install the openMP libraries for your operation system, make sure your compiler supports openMP and add <tt>--enable-openmp</tt> as a configure option. For additional configure options, have a look at <tt> ./configure --help </tt>. </p>
+         <p><b>Portable binaries for macOS</b></p>
+         <p> In case you use macOS and you want to compile statically linked, portable nfft binaries, including openMP support, install gcc and libtool i.e. via <a href="https://brew.sh/">brew</a>. In the following example gcc 8.2 and Matlab 2018b is used.  </p>
+         <p>
+         <div>
+            <ul type="square">
+				<li><tt>brew install gcc libtool</tt></li>
+				<li><tt>cd nfft_download_directory</tt></li>
+				<li><tt>./bootstrap</tt></li>
+				<li><tt>CC=/usr/local/Cellar/gcc/8.2.0/bin/gcc-8 LDFLAGS=-Wl,-L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8 ./configure --with-matlab=/Applications/MATLAB_R2018b.app --enable-nfsoft --enable-nfsft --enable-openmp --enable-portable-binary --with-apple-gcc-arch=x86_64 </tt></li>
+				<li><tt>make</tt></li>
+			</ul>
+         </div>
+         <p> Now create, make it executable and run the following shell script: </p>
+		 <p>
+         <p><tt>CC=/usr/local/Cellar/gcc/8.2.0/bin/gcc-8<br /> 
+			MATLABDIR=/Applications/MATLAB_R2018b.app<br /> 
+			for LIB in nfsft nfsoft<br /> 
+			do<br /> 
+				cd matlab/"$LIB"<br /> 
+				"$CC"  -o .libs/lib"$LIB".mexmaci64 -bundle .libs/lib"$LIB"_la-"$LIB"mex.o -Wl,-force_load,../../.libs/libnfft3_matlab.a \<br /> 
+				-Wl,-force_load,../../matlab/.libs/libmatlab.a -L"$MATLABDIR"/bin/maci64 -lm -lmwfftw3 -lmx -lmex -lmat  -fopenmp -O3 \<br />
+				-malign-double -march=core2 -arch x86_64 -fopenmp -static-libgcc<br /> 
+				cp .libs/lib"$LIB".mexmaci64 "$LIB"mex.mexmaci64<br /> 
+				cd ../..<br /> 
+			done</tt></p>
+
+		 <p> Once completed without errors, copy the <tt>.mexmaci64</tt> files from <tt>./matlab/nfsoft/</tt> and <tt>./matlab/nfsft/</tt> to your mtex installation (<tt>mtex/extern/nfft_openMP/</tt>).</p>
+		 <p>	 
          <p><b>Additional binaries</b></p>
          <p>The following steps should usually happen automatically during <tt>startup_mtex</tt>, however in case this fails for any reason, this is done by:</p>
          <div>
