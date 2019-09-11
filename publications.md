@@ -9,7 +9,20 @@ If you are using MTEX for your research, please cite one of the
 following paper that best fits your application.
 
 
-#### 2018
+#### 2019
+
+* **Gazing at crystal balls - electron backscatter diffraction indexing and cross correlation on the sphere**, R. Hielscher, F. Bartel, T. B. Britton: [Ultramicroscopy](https://doi.org/10.1016/j.ultramic.2019.112836).
+[![PDF](./files/pic/icon_pdf_32x32.png "Download PDF
+  file")](https://www-user.tu-chemnitz.de/~rahi/paper/s2xcor.pdf)
+
+  script files:		[section3_1.m](files/matlab/s2xcor/section3_1.m),					[section3_2.m](files/matlab/s2xcor/section3_2.m),
+[section4_1.m](files/matlab/s2xcor/section4_1.m),
+[section4_2.m](files/matlab/s2xcor/section4_2.m),
+[section4_3.m](files/matlab/s2xcor/section4_3.m),
+[section5.m](files/matlab/s2xcor/section5.m),
+[section6_1.m](files/matlab/s2xcor/section6_1.m),
+[section6_2.m](files/matlab/s2xcor/section6_2.m),
+[data.zip](files/matlab/s2xcor/data.zip)
 
 * **Denoising of Crystal Orientation Maps**, R. Hielscher, C. Silbermann, E. Schmidl: [preprint](https://www.researchgate.net/publication/327838955_Denoising_of_Crystal_Orientation_Maps)
 
@@ -21,7 +34,7 @@ S. J. Laine, J. F. Einsle, Paul A. Midgley, C. M. F. Rae, R. Hielscher: [Proceed
 [![PDF](./files/pic/icon_pdf_32x32.png "Download PDF
   file")](https://www-user.tu-chemnitz.de/~rahi/paper/misori.pdf)
 
-  script files: [section3.m](files/matlab/ipfColoring/section3.m), [section2.m](files/matlab/ipfColoring/section2.m), [section3_1.m](files/matlab/ipfColoring/section3_1.m), [section3_2.m](files/matlab/ipfColoring/section3_2.m),
+  script files: [section1.m](files/matlab/ipfColoring/section1.m), [section2.m](files/matlab/ipfColoring/section2.m), [section3_1.m](files/matlab/ipfColoring/section3_1.m), [section3_2.m](files/matlab/ipfColoring/section3_2.m),
   [appendix.m](files/matlab/ipfColoring/appendix.m), [data.zip](files/matlab/ipfColoring/data.zip)
 
 #### 2016
