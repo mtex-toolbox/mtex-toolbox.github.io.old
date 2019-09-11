@@ -13,7 +13,7 @@ following paper that best fits your application.
 
 * **Gazing at crystal balls - electron backscatter diffraction indexing and cross correlation on the sphere**, R. Hielscher, F. Bartel, T. B. Britton: [Ultramicroscopy](https://doi.org/10.1016/j.ultramic.2019.112836).
 [![PDF](./files/pic/icon_pdf_32x32.png "Download PDF
-  file")](https://www-user.tu-chemnitz.de/~rahi/paper/s2xcor.pdf)
+  file")](https://www-user.tu-chemnitz.de/~rahi/paper/s2pattern.pdf)
 
 [script files](https://github.com/mtex-toolbox/mtex-paper/tree/master/GazingAtCrystalBalls)
 
