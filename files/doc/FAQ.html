@@ -89,8 +89,8 @@ plot(grains(<span class="string">'indexed'</span>),grains(<span class="string">'
 set(gcf,<span class="string">'renderer'</span>,<span class="string">'zBuffer'</span>)</pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipfColorKey(ori_variable_name)
-  plot(oM)
+  colorKey = ipfColorKey(ori_variable_name)
+  plot(colorKey)
 </pre><img src="FAQ_02.png"> <h2>I have crazy characters in my plots. What can I do?<a name="5"> </a></h2>
          <p>This indicates that your MATLAB installation has problems to interpret LaTex. As a workaround switch off LaTex by uncommenting
             the following line in <a href="matlab:edit('mtex_settings.m')">mtex_settings.m</a>.

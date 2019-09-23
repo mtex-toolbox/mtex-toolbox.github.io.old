@@ -204,6 +204,9 @@
             <td width="250px"><a href="vector3d.dyad.html"><tt>dyad</tt></a></td>
             <td>dyadic tensor product</td>
             <tr></tr>
+            <td width="250px"><a href="vector3d.eig.html"><tt>eig</tt></a></td>
+            <td>eigenvalues and eigenvectors for a list of @vector3d</td>
+            <tr></tr>
             <td width="250px"><a href="vector3d.end.html"><tt>end</tt></a></td>
             <td>overloaded end function</td>
             <tr></tr>
@@ -248,6 +251,9 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.mpower.html"><tt>mpower</tt></a></td>
             <td>n-th dyadic product</td>
+            <tr></tr>
+            <td width="250px"><a href="vector3d.mrdivide.html"><tt>mrdivide</tt></a></td>
+            <td>scalar division v / s</td>
             <tr></tr>
             <td width="250px"><a href="vector3d.mtimes.html"><tt>mtimes</tt></a></td>
             <td>scalar multiplication</td>
@@ -329,7 +335,8 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.scatter.html"><tt>scatter</tt></a></td>
             <td>Syntax scatter(v)              % plot the directions v scatter(v,data)         % colorize directions according to data scatter(v,'label',text)
-               % plot text below markers scatter(v,'label',text,'textaboveMarker') % plot text above markers
+               % plot text below markers scatter(v,'label',text,'textaboveMarker') % plot text above markers scatter(v,'numbered')   % plot
+               directions with numbers
             </td>
             <tr></tr>
             <td width="250px"><a href="vector3d.scatter3d.html"><tt>scatter3d</tt></a></td>
@@ -530,6 +537,9 @@
             <tr></tr>
             <td width="250px"><a href="rotation.byMatrix.html"><tt>byMatrix</tt></a></td>
             <td>define rotations by matrices</td>
+            <tr></tr>
+            <td width="250px"><a href="rotation.byRodrigues.html"><tt>byRodrigues</tt></a></td>
+            <td>define rotations by Rodrigues vectors</td>
             <tr></tr>
             <td width="250px"><a href="rotation.cat.html"><tt>cat</tt></a></td>
             <td>implement cat for rotation</td>
@@ -753,7 +763,9 @@
             <td>computes an MDF from individuel orientations or misorientations</td>
             <tr></tr>
             <td width="250px"><a href="orientation.calcMIndex.html"><tt>calcMIndex</tt></a></td>
-            <td>TODO!!!</td>
+            <td>Computes the M-index from a discrete number of orientations (Skemer et al., 2005). The M-index is derived from the difference
+               between uncorrelated and uniform misorientation angle distributions
+            </td>
             <tr></tr>
             <td width="250px"><a href="orientation.calcODF.html"><tt>calcODF</tt></a></td>
             <td>computes an ODF from individuel orientations</td>
@@ -955,6 +967,9 @@
             <td width="250px"><a href="slipSystem.SchmidFactor.html"><tt>SchmidFactor</tt></a></td>
             <td>compute the Schmid factor</td>
             <tr></tr>
+            <td width="250px"><a href="slipSystem.SchmidTensor.html"><tt>SchmidTensor</tt></a></td>
+            <td>Schmid tensors for a list of slip systems</td>
+            <tr></tr>
             <td width="250px"><a href="slipSystem.cat.html"><tt>cat</tt></a></td>
             <td>implement cat for slipSystem</td>
             <tr></tr>
@@ -965,7 +980,7 @@
             <td>overloaded end function</td>
             <tr></tr>
             <td width="250px"><a href="slipSystem.eq.html"><tt>eq</tt></a></td>
-            <td>? sS1 == sS2</td>
+            <td>check sS1 == sS2</td>
             <tr></tr>
             <td width="250px"><a href="slipSystem.horzcat.html"><tt>horzcat</tt></a></td>
             <td>overloads [v1,v2,v3..]</td>
@@ -1207,6 +1222,9 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.size.html"><tt>size</tt></a></td>
             <td>overloads size</td>
+            <tr></tr>
+            <td width="250px"><a href="quaternion.std.html"><tt>std</tt></a></td>
+            <td>mean angular deviation</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.subSet.html"><tt>subSet</tt></a></td>
             <td>indexing of quaternions</td>
@@ -1454,7 +1472,9 @@
             <td>calculate the uncorrelated misorientation distribution function (MDF) from one or two ODF</td>
             <tr></tr>
             <td width="250px"><a href="ODF.calcMIndex.html"><tt>calcMIndex</tt></a></td>
-            <td>M-index of Skemer et al.(2005) based on the difference between uncorrelated and uniform misorientation angle distributions</td>
+            <td>Computes the M-index from an odf - in contrast to using a discrete number of orientations (Skemer et al., 2005). The M-index
+               is derived from the difference between uncorrelated and uniform misorientation angle distributions
+            </td>
             <tr></tr>
             <td width="250px"><a href="ODF.calcModes.html"><tt>calcModes</tt></a></td>
             <td>heuristic to find modal orientations</td>
@@ -1853,14 +1873,17 @@
             <td width="250px"><a href="EBSD.load.html"><tt>load</tt></a></td>
             <td>load ebsd data from file</td>
             <tr></tr>
-            <td width="250px"><a href="EBSD.mtimes.html"><tt>mtimes</tt></a></td>
-            <td>rotating the ebsd data by a certain rotation</td>
+            <td width="250px"><a href="EBSD.minus.html"><tt>minus</tt></a></td>
+            <td>shift ebsd in x/y direction</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.plot.html"><tt>plot</tt></a></td>
             <td>spatial EBSD plot</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.plotUnitCells.html"><tt>plotUnitCells</tt></a></td>
             <td>low level plotting routine for EBSD maps</td>
+            <tr></tr>
+            <td width="250px"><a href="EBSD.plus.html"><tt>plus</tt></a></td>
+            <td>shift ebsd in x/y direction</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.quiver.html"><tt>quiver</tt></a></td>
             <td>plot directions at ebsd centers</td>
@@ -1869,7 +1892,7 @@
             <td>reduce ebsd data by a factor</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.rotate.html"><tt>rotate</tt></a></td>
-            <td>rotate EBSD orientations or spatial data around point of origin</td>
+            <td>rotate EBSD</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.selectInteractive.html"><tt>selectInteractive</tt></a></td>
             <td>select interactively a rectangular region of an EBSD data set</td>
@@ -1990,6 +2013,9 @@
             <td width="250px"><a href="tensor.minus.html"><tt>minus</tt></a></td>
             <td>T1 - T2;</td>
             <tr></tr>
+            <td width="250px"><a href="tensor.mpower.html"><tt>mpower</tt></a></td>
+            <td>implements T ^ n</td>
+            <tr></tr>
             <td width="250px"><a href="tensor.mrdivide.html"><tt>mrdivide</tt></a></td>
             <td>implements T / S</td>
             <tr></tr>
@@ -2056,8 +2082,11 @@
             <td width="250px"><a href="tensor.sum.html"><tt>sum</tt></a></td>
             <td>sum of a list of tensors</td>
             <tr></tr>
+            <td width="250px"><a href="tensor.svd.html"><tt>svd</tt></a></td>
+            <td>singular value decomposition of a rank two tensor</td>
+            <tr></tr>
             <td width="250px"><a href="tensor.sym.html"><tt>sym</tt></a></td>
-            <td>the symmetric part S = 0.5(T + T.') of a tensor</td>
+            <td>the symmetric part S = 0.5(T + T') of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="tensor.symmetrise.html"><tt>symmetrise</tt></a></td>
             <td>symmetrise a tensor according to its crystal symmetry</td>
@@ -2201,6 +2230,9 @@
             <td>set the default plot direction of the x-axis</td>
             <tr></tr>
             <td width="250px"><a href="plota2west.html"><tt>plota2west</tt></a></td>
+            <td>set the default plot direction of the x-axis</td>
+            <tr></tr>
+            <td width="250px"><a href="plotaStar2east.html"><tt>plotaStar2east</tt></a></td>
             <td>set the default plot direction of the x-axis</td>
             <tr></tr>
             <td width="250px"><a href="plotb2east.html"><tt>plotb2east</tt></a></td>
@@ -2387,12 +2419,6 @@
             <td width="250px"><a href="regularSO3Grid.html"><tt>regularSO3Grid</tt></a></td>
             <td>regular grid in Euler orientation space</td>
             <tr></tr>
-            <td width="250px"><a href="rodrigues2quat.html"><tt>rodrigues2quat</tt></a></td>
-            <td>rodrigues2quat is a function. q = rodrigues2quat(R, varargin)</td>
-            <tr></tr>
-            <td width="250px"><a href="vec42quat.html"><tt>vec42quat</tt></a></td>
-            <td>returns a quaternion q with q u_1 = v1 and q u2 = v2</td>
-            <tr></tr>
             <td width="250px"><a href="xvector.html"><tt>xvector</tt></a></td>
             <td>vector (1,0,0)</td>
             <tr></tr>
@@ -2434,7 +2460,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 5.2.beta2</td>
+               <td valign="baseline" align="right">MTEX 5.2.beta3</td>
             </tr>
          </table>
       </div>

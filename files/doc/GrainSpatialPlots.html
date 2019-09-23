@@ -115,8 +115,8 @@ hold <span class="string">off</span></pre><img src="GrainSpatialPlots_03.png"> <
 plot(grains(<span class="string">'Fo'</span>),grains(<span class="string">'fo'</span>).meanOrientation)</pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipfColorKey(ori_variable_name)
-  plot(oM)
+  colorKey = ipfColorKey(ori_variable_name)
+  plot(colorKey)
 </pre><img src="GrainSpatialPlots_04.png"> <p>This implicte way gives no control about how the color is computed from the meanorientation. When using the explicite way
             by defining a orientation to color map
          </p><pre class="codeinput"><span class="comment">% this defines a ipf color key</span>
@@ -207,8 +207,8 @@ quiver(grains,len.*dir,<span class="string">'autoScale'</span>,<span class="stri
 hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipfColorKey(ori_variable_name)
-  plot(oM)
+  colorKey = ipfColorKey(ori_variable_name)
+  plot(colorKey)
 </pre><img src="GrainSpatialPlots_10.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Labeling Grains<a name="17"> </a></h2>
          <p>In the above example the vectors are centered at the centroids of the grains. Other elements</p><pre class="codeinput"><span class="comment">% only the very big grains</span>
@@ -221,8 +221,8 @@ plot(big_grains,big_grains.meanOrientation,<span class="string">'micronbar'</spa
 text(big_grains,int2str(big_grains.id))</pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipfColorKey(ori_variable_name)
-  plot(oM)
+  colorKey = ipfColorKey(ori_variable_name)
+  plot(colorKey)
 </pre><img src="GrainSpatialPlots_11.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">

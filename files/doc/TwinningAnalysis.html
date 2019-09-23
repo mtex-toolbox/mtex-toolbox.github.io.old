@@ -88,8 +88,8 @@ plot(grains,grains.meanOrientation)
 CS = grains.CS;</pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipfColorKey(ori_variable_name)
-  plot(oM)
+  colorKey = ipfColorKey(ori_variable_name)
+  plot(colorKey)
 </pre><img src="TwinningAnalysis_01.png"> <p>Now we can extract from the grains its boundary and save it to a separate variable</p><pre class="codeinput">gB = grains.boundary</pre><pre class="codeoutput"> 
 gB = grainBoundary  
  
@@ -118,17 +118,17 @@ gB_MgMg = grainBoundary
          </p><pre class="codeinput">plot(gB_MgMg,gB_MgMg.misorientation.angle./degree,<span class="string">'linewidth'</span>,2)
 mtexColorbar</pre><img src="TwinningAnalysis_02.png"> <p>We observe many grain boundaries with a large misorientation angle of about 86 degrees. Those grain boundaries are most likely
             twin boundaries. To detect them more precisely we define first the twinning as a misorientation, which is reported in literature
-            by  (1,1,-2,0) parallel to (2,-1,-1,0) and (-1,0,1,1) parallel to (1,0,-1,1). In MTEX it is defined by
+            by (1,1,-2,0) parallel to (2,-1,-1,0) and (-1,0,1,1) parallel to (1,0,-1,1). In MTEX it is defined by
          </p><pre class="codeinput">twinning = orientation.map(Miller(1,1,-2,0,CS),Miller(2,-1,-1,0,CS),<span class="keyword">...</span>
-  Miller(-1,0,1,1,CS),Miller(1,0,-1,1,CS))</pre><pre class="codeoutput"> 
+  Miller(-1,0,1,1,CS),Miller(-1,1,0,1,CS))</pre><pre class="codeoutput"> 
 twinning = misorientation  
   size: 1 x 1
   crystal symmetry : Magnesium (6/mmm, X||a*, Y||b, Z||c*)
   crystal symmetry : Magnesium (6/mmm, X||a*, Y||b, Z||c*)
  
   Bunge Euler angles in degree
-  phi1     Phi    phi2    Inv.
-   330 93.6529     330       0
+  phi1  Phi phi2 Inv.
+   300    0    0    0
  
 </pre><p>The followin lines show that the twinning is actually a rotation about axis (-2110) and angle 86.3 degree</p><pre class="codeinput"><span class="comment">% the rotational axis</span>
 round(twinning.axis)
@@ -138,12 +138,12 @@ twinning.angle / degree</pre><pre class="codeoutput">
 ans = Miller  
  size: 1 x 1
  mineral: Magnesium (622, X||a*, Y||b, Z||c*)
-  h -1
-  k  2
+  h  1
+  k  0
   i -1
   l  0
 ans =
-   86.3471
+     0
 </pre><p>Next, we check for each boundary segment whether it is a twinning boundary, i.e., whether boundary misorientation is close
             to the twinning.
          </p><pre class="codeinput"><span class="comment">% restrict to twinnings with threshold 5 degree</span>
@@ -158,14 +158,12 @@ hold <span class="string">on</span>
 plot(twinBoundary,<span class="string">'linecolor'</span>,<span class="string">'w'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'displayName'</span>,<span class="string">'twin boundary'</span>)
 hold <span class="string">off</span></pre><pre class="codeoutput"> 
 twinBoundary = grainBoundary  
- 
- Segments  mineral 1  mineral 2
-     1649  Magnesium  Magnesium
+  grain boundary is empty!
   I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipfColorKey(ori_variable_name)
-  plot(oM)
+  colorKey = ipfColorKey(ori_variable_name)
+  plot(colorKey)
 </pre><img src="TwinningAnalysis_03.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Merge twins along twin boundaries<a name="10"> </a></h2>
          <p>Grains that have a common twin boundary are assumed to inherite from one common grain. To reconstruct those initial grains
@@ -187,20 +185,13 @@ hold <span class="string">off</span></pre><img src="TwinningAnalysis_04.png"> <p
 childs = grain2d  
  
  Phase  Grains  Pixels    Mineral  Symmetry  Crystal reference frame
-     1       8    1698  Magnesium     6/mmm       X||a*, Y||b, Z||c*
+     1       1    1427  Magnesium     6/mmm       X||a*, Y||b, Z||c*
  
- boundary segments: 442
- triple points: 25
+ boundary segments: 286
+ triple points: 9
  
- Id   Phase   Pixels          GOS   phi1   Phi   phi2
-  6       1       40   0.00752395    178    90    236
- 14       1      254    0.0113434     81    25    187
- 17       1        4    0.0135723     80    26    189
- 19       1       38   0.00595743     95   145    186
- 24       1      774    0.0102947    178    90    235
- 28       1       45    0.0107243     81    26    188
- 29       1      293   0.00910428     94   146    185
- 33       1      250    0.0106861    179    89    235
+ Id   Phase   Pixels       GOS   phi1   Phi   phi2
+ 16       1     1427   0.01101      4    81    195
  
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Calculate the twinned area<a name="13"> </a></h2>
@@ -208,7 +199,7 @@ childs = grain2d
 
 <span class="comment">% compute the area fraction</span>
 sum(area(grains(twinId))) / sum(area(grains)) * 100</pre><pre class="codeoutput">ans =
-   73.5716
+     0
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Setting Up the EBSD Data for the Merged Grains<a name="14"> </a></h2>
          <p>Note that the Id's of the merged grains does not fit the grainIds stored in the initial ebsd variable. As a consequence, the

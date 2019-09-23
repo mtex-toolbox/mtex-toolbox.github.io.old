@@ -39,18 +39,46 @@
       </div>
       <div class="container">
          <h1>S2DeLaValleePoussin</h1>
-         <div class="subheading">
-            <p>extract parameter and halfwidth</p>
-         </div>
-         <h2>Syntax<a name="2"> </a></h2>
+         <div class="subheading"></div>
+         <h2>Syntax<a name="2"> </a></h2><pre class="codeinput">psi = S2DeLaValleePoussin(20)
+psi = S2DeLaValleePoussin(<span class="string">'halfwidth'</span>,10*degree)</pre><h2>Input<a name="3"> </a></h2>
          <p>
-            <div class="syntax" width="100%">
-            <div>
-            <tt>psi = S2DeLaValleePoussin('param1',val1,'param2',val2)</tt>
-            </div>
-            </div>
+            <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+            <tr>
+            <td width="100px">
+            <tt>kappa</tt>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>param,val</tt>
+            </td>
+            <td>Parameters and values that control S2DeLaValleePoussin<table cellpadding="4" cellspacing="0" class="paramval" width="100%">
+            <tr>
+            <td class="header" width="100px">Parameter</td>
+            <td class="header">Description</td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'halfwidth'</tt>
+            </td>
+            <td>
+            <p>angle at which the kernel function has reduced to half its peak value</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'bandwidth'</tt>
+            </td>
+            </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
             
          </p>
+         <h3 class="seealso">See also</h3>
+         <p><a href="S2Kernel.html">S2Kernel</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

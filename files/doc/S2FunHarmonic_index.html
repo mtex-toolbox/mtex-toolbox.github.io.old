@@ -38,16 +38,211 @@
          </div>
       </div>
       <div class="container">
-         <h1><b><tt>S2FunHarmonic</tt></b></h1>
+         <h1>S2FunHarmonic</h1>
          <div class="subheading">
-            <p><tt>S2FunHarmonic</tt> is the heart of <tt>S2Fun</tt>, therefore much effort is put into its functionality. This functionality can be best represented if we split the documentation
-               into parts.
-            </p>
-            <p><a href="S2FunHarmonic_uni_index.html">The first part</a> covers the features for univariate functions. In <a href="S2FunHarmonic_multi_index.html">the second part</a> we consider multivariate functions and generalize the functionality of the first part to higher dimensions.
-            </p>
+            <p>S2FunHarmonic is the heart of S2Fun, therefore much effort is put into its functionality.</p>
          </div>
-         <h2>Complete Function list<a name="1"> </a></h2>
+         <div>
+            <table class="content">
+               <tr>
+                  <td class="header">On this page ...</td>
+               </tr>
+               <tr>
+                  <td><a href="#3">Defining an univariate S2FunHarmonic</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#12">Operations</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#32">Visualization of univariate S2FunHarmonic</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#40">Structural conventions of the input and output of multivariate S2FunHarmonic</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#41">Defining a multivariate S2FunHarmonic</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#49">Operations which differ from an univariate S2FunHarmonic</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#56">Visualization of multivariate S2FunHarmonic</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#64">Complete Function list</a></td>
+               </tr>
+            </table>
+         </div>
+         <p>In the first part we will cover how to deal with univariate functions of the form</p>
+         <p><img src="S2FunHarmonic_index_eq12688510093716008662.png"> </p>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Defining an univariate S2FunHarmonic<a name="3"> </a></h2>
+         <p><b>Definition via function values</b></p>
+         <p>At first we need some vertices</p><pre class="codeinput">nodes = equispacedS2Grid(<span class="string">'resolution'</span>,3*degree,<span class="string">'antipodal'</span>);
+nodes = nodes(:);</pre><p>next we need to define function values for the vertices</p><pre class="codeinput">y = S2Fun.smiley(nodes);
+<span class="comment">% plot the discrete data</span>
+plot(nodes,y)</pre><img src="S2FunHarmonic_index_01.png"> <p>Finally the actual command to get <tt>sF1</tt> of type <tt>S2FunHarmonic</tt></p><pre class="codeinput">sF1 = interp(nodes, y, <span class="string">'harmonicApproximation'</span>)
+<span class="comment">% plot the spherical function</span>
+plot(sF1)</pre><pre class="codeoutput"> 
+sF1 = S2FunHarmonic  
+ bandwidth: 48
+ antipodal: true
+</pre><img src="S2FunHarmonic_index_02.png"> <div>
+            <ul type="square">
+               <li>The <tt>bandwidth</tt> property shows the maximal polynomial degree of the function.Internally for a given bandwidth there are stored <img src="S2FunHarmonic_index_eq07204186098443340480.png">  Fourier-coefficients.
+               </li>
+               <li>The <tt>antipodal</tt> flag shows that <img src="S2FunHarmonic_index_eq05142536305060616777.png">  holds for all <img src="S2FunHarmonic_index_eq03296369778268784901.png"> .
+               </li>
+            </ul>
+         </div>
+         <p>For the same result we could also run <tt>S2FunHarmonic.approximation(nodes, y)</tt> and give some additional options (<a href="S2FunHarmonic.approximation.html">see here</a>).
+         </p>
+         <p><b>Definition via function handle</b></p>
+         <p>If we have a function handle for the function we could create a <tt>S2FunHarmonic</tt> via quadrature. At first lets define a function handle which takes <a href="vector3d_index.html"><tt>vector3d</tt></a> as an argument and returns double:
+         </p><pre class="codeinput">f = @(v) 0.1*(v.theta+sin(8*v.x).*sin(8*v.y));
+<span class="comment">% plot the function at discrete points</span>
+plot(nodes,f(nodes))</pre><img src="S2FunHarmonic_index_03.png"> <p>Now we can call the quadrature command to get <tt>sF2</tt> of type <tt>S2FunHarmonic</tt></p><pre class="codeinput">sF2 = S2FunHarmonic.quadrature(f, <span class="string">'bandwidth'</span>, 150)
+
+plot(sF2)</pre><pre class="codeoutput"> 
+sF2 = S2FunHarmonic  
+ bandwidth: 150
+</pre><img src="S2FunHarmonic_index_04.png"> <div>
+            <ul type="square">
+               <li>If we would leave the <tt>'bandwidth'</tt> option empty the default bandwidth would be considered, which is 128.
+               </li>
+               <li>The quadrature is faster than the approximation, because it does not have to solve a system of equations. But the knowledge
+                  of the function handle is also a strong requirement.
+               </li>
+               <li>For more options <a href="S2FunHarmonic.quadrature.html">see here</a>.
+               </li>
+            </ul>
+         </div>
+         <p><b>Definition via Fourier-coefficients</b></p>
+         <p>If we already know the Fourier-coefficients, we can simply hand them as a column vector to the constructor of <tt>S2FunHarmonic</tt></p><pre class="codeinput">fhat = rand(25, 1);
+sF3 = S2FunHarmonic(fhat)</pre><pre class="codeoutput"> 
+sF3 = S2FunHarmonic  
+ bandwidth: 4
+</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Operations<a name="12"> </a></h2>
+         <p>The idea of <tt>S2Fun</tt> is to calculate with functions like Matlab does with vectors and matrices.
+         </p>
+         <p><b>Basic arithmetic operations</b></p>
+         <p>addition/subtraction</p><pre class="codeinput">sF1+sF2; sF1+2;
+sF1-sF2; sF2-4;</pre><p>multiplication/division</p><pre class="codeinput">sF1.*sF2; 2.*sF1;
+sF1./(sF2+1); 2./sF2; sF2./4;</pre><p>power</p><pre class="codeinput">sF1.^sF2; 2.^sF1; sF2.^4;</pre><p>absolute value of a function</p><pre class="codeinput">abs(sF1);</pre><p><b>min/max</b></p>
+         <p>calculates the local min/max of a single function</p><pre class="codeinput">[minvalue, minnodes] = min(sF1);
+[maxvalue, maxnodes] = max(sF1);</pre><div>
+            <ul type="square">
+               <li>as default <tt>min</tt> or <tt>max</tt> returns the smallest or the biggest value (global optima) with all nodes for which the value is obtained
+               </li>
+               <li>with the option <tt>min(sF1, 'numLocal', n)</tt> the <tt>n</tt> nodes with the belonging biggest or smallest values are returned
+               </li>
+               <li><tt>min(sF1)</tt> is the same as running <a href="S2Funharmonic.steepestDescent.html"><tt>steepestDescent</tt></a>|(sF1)|
+               </li>
+            </ul>
+         </div>
+         <p>min/max of two functions in the pointwise sense</p><pre class="codeinput">min(sF1, sF2);</pre><div>
+            <ul type="square">
+               <li>See all options of min/max <a href="S2FunHarmonic.min.html">here</a></li>
+            </ul>
+         </div>
+         <p><b>Other operations</b></p>
+         <p>calculate the <img src="S2FunHarmonic_index_eq11809360406450963432.png"> -norm, which is only the <img src="S2FunHarmonic_index_eq06246994178291117440.png"> -norm of the Fourier-coefficients
+         </p><pre class="codeinput">norm(sF1);</pre><p>calculate the mean value of a function</p><pre class="codeinput">mean(sF1);</pre><p>calculate the surface integral of a function</p><pre class="codeinput">sum(sF1);</pre><p>rotate a function</p><pre class="codeinput">r = rotation.byEuler( [pi/4 0 0]);
+rotate(sF1, r);</pre><p>symmetrise a given function</p><pre class="codeinput">cs = crystalSymmetry(<span class="string">'6/m'</span>);
+sFs = symmetrise(sF1, cs);</pre><div>
+            <ul type="square">
+               <li><tt>sFs</tt> is of type <a href="S2FunHarmonicSym_index.html"><tt>S2FunHarmonicSym</tt></a></li>
+            </ul>
+         </div>
+         <p><b>Gradient</b></p>
+         <p>Calculate the gradient as a function <tt>G</tt> of type <a href="S2VectorFieldHarmonic_index.html"><tt>S2VectorFieldHarmonic</tt></a></p><pre class="codeinput">G = grad(sF1);</pre><p>The direct evaluation of the gradient is faster and returns <a href="vector3d_index.html"><tt>vector3d</tt></a></p><pre class="codeinput">nodes = vector3d.rand(100);
+grad(sF1, nodes);</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Visualization of univariate S2FunHarmonic<a name="32"> </a></h2>
+         <p>There are different ways to visualize a <tt>S2FunHarmonic</tt></p>
+         <p>The default <tt>plot</tt>-command be default plots the function on the upper hemisphere
+         </p><pre class="codeinput">plot(sF1);</pre><img src="S2FunHarmonic_index_05.png"> <div>
+            <ul type="square">
+               <li><tt>plot(sF1)</tt> is the same as <tt>contourf(sF1)</tt></li>
+            </ul>
+         </div>
+         <p>nonfilled contour plot plots only the contour lines</p><pre class="codeinput">contour(sF1, <span class="string">'LineWidth'</span>, 2);</pre><img src="S2FunHarmonic_index_06.png"> <p>color plot without the contour lines</p><pre class="codeinput">pcolor(sF1);</pre><img src="S2FunHarmonic_index_07.png"> <p>3D plot of a sphere colored accordingly to the function values.</p><pre class="codeinput">plot3d(sF2);</pre><img src="S2FunHarmonic_index_08.png"> <p>3D plot where the radius of the sphere is transformed according to the function values</p><pre class="codeinput">surf(sF2);</pre><img src="S2FunHarmonic_index_09.png"> <p>Plot the intersection of the surf plot with a plane with normal vector <tt>v</tt></p><pre class="codeinput">plotSection(sF2, zvector);</pre><img src="S2FunHarmonic_index_10.png"> <p>plotting the Fourier coefficients</p><pre class="codeinput">plotSpektra(sF1);
+set(gca,<span class="string">'FontSize'</span>, 20);</pre><img src="S2FunHarmonic_index_11.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Structural conventions of the input and output of multivariate S2FunHarmonic<a name="40"> </a></h2>
+         <p>In this part we deal with multivariate functions of the form</p>
+         <p><img src="S2FunHarmonic_index_eq02005284333143081024.png"> .
+         </p>
+         <div>
+            <ul type="square">
+               <li>the structure of the nodes is always interpreted as a column vector</li>
+               <li>the node index is the first dimension</li>
+               <li>the dimensions of the <tt>S2FunHarmonic</tt> itself is counted from the second dimension
+               </li>
+            </ul>
+         </div>
+         <p>For example we got four nodes <img src="S2FunHarmonic_index_eq17926179084054814593.png">  and <img src="S2FunHarmonic_index_eq15343079787092772057.png">  and six functions <img src="S2FunHarmonic_index_eq16376045287472918887.png">  and <img src="S2FunHarmonic_index_eq15320233978921149458.png"> , which we want to store in a 3x2 array, then the following scheme applies to function evaluations:
+         </p>
+         <p><img src="S2FunHarmonic_index_eq17112665209624934517.png"> </p>
+         <p>For the intern Fourier-coefficient matrix the first dimension is reserved for for the Fourier-coefficients of a single function;
+            the dimension of the functions itself begin again with the second dimension.
+         </p>
+         <p>If <img src="S2FunHarmonic_index_eq10132426415324670699.png">  and <img src="S2FunHarmonic_index_eq05650264891671257785.png">  would be the column vectors of the Fourier-coefficients of the functions above, internally they would be stored in <img src="S2FunHarmonic_index_eq14700050704426719036.png">  as follows. <img src="S2FunHarmonic_index_eq06598518767156971297.png"> </p>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Defining a multivariate S2FunHarmonic<a name="41"> </a></h2>
+         <p><b>Definition via function values</b></p>
+         <p>At first we need some vertices</p><pre class="codeinput">nodes = equispacedS2Grid(<span class="string">'points'</span>, 1e5);
+nodes = nodes(:);</pre><p>Next we define function values for the vertices</p><pre class="codeinput">y = [S2Fun.smiley(nodes), (nodes.x.*nodes.y).^(1/4)];</pre><p>Now the actual command to get a 2x1 <tt>sF1</tt> of type <tt>S2FunHarmonic</tt></p><pre class="codeinput">sF1 = S2FunHarmonic.approximation(nodes, y)</pre><pre class="codeoutput"> 
+sF1 = S2FunHarmonic  
+ size: 2 x 1
+ bandwidth: 224
+</pre><p><b>Definition via function handle</b></p>
+         <p>If we have a function handle for the function we could create a <tt>S2FunHarmonic</tt> via quadrature. At first let us define a function handle which takes <a href="vector3d_index.html"><tt>vector3d</tt></a> as an argument and returns double:
+         </p><pre class="codeinput">f = @(v) [exp(v.x+v.y+v.z)+50*(v.y-cos(pi/3)).^3.*(v.y-cos(pi/3) &gt; 0), v.x, v.y, v.z];</pre><p>Now we call the quadrature command to get 4x1 <tt>sF2</tt> of type <tt>S2FunHarmonic</tt></p><pre class="codeinput">sF2 = S2FunHarmonic.quadrature(f, <span class="string">'bandwidth'</span>, 50)</pre><pre class="codeoutput"> 
+sF2 = S2FunHarmonic  
+ size: 4 x 1
+ bandwidth: 50
+</pre><p><b>Definition via Fourier-coefficients</b></p>
+         <p>If we already know the Fourier-coefficients, we can simply hand them in the format above to the constructor of <tt>S2FunHarmonic</tt>.
+         </p><pre class="codeinput">sF3 = S2FunHarmonic(eye(9))</pre><pre class="codeoutput"> 
+sF3 = S2FunHarmonic  
+ size: 9 x 1
+ bandwidth: 2
+</pre><div>
+            <ul type="square">
+               <li>This command stores the nine first spherical harmonics in <tt>sF3</tt></li>
+            </ul>
+         </div>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Operations which differ from an univariate S2FunHarmonic<a name="49"> </a></h2>
+         <p><b>Some default matrix and vector operations</b></p>
+         <p>You can concatenate and refer to functions as Matlab does with vectors and matrices</p><pre class="codeinput">sF4 = [sF1; sF2];
+sF4(2:3);</pre><p>You can conjugate the Fourier-coefficients and transpose/ctranspose the multivariate <tt>S2FunHarmonic</tt>.
+         </p><pre class="codeinput">conj(sF1);
+sF1.';
+sF1';</pre><p>Some other operations</p><pre class="codeinput">length(sF1);
+size(sF2);
+sF3 = reshape(sF3, 3, []);</pre><p><b><tt>sum</tt> and <tt>mean</tt></b></p>
+         <p>If we do not specify further options to <tt>sum</tt> or <tt>mean</tt> they give we the integral or the mean value back for each function. You could also calculate the conventional sum or the
+            meanvalue over a dimension of a multivariate <tt>S2FunHarmonic</tt>.
+         </p><pre class="codeinput">sum(sF1, 1);
+sum(sF3, 2);</pre><p><b>min/max</b></p>
+         <p>If the <tt>min</tt> or <tt>max</tt> command gets a multivariate <tt>S2FunHarmonic</tt> the pointwise minimum or maximum is calculated along the first non-singelton dimension if not specified otherwise.
+         </p><pre class="codeinput">min(sF3);</pre><p><b>Remark for matrix product</b></p>
+         <p>At this point the matrix product is implemented per element and not as the usual matrix product.</p>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Visualization of multivariate S2FunHarmonic<a name="56"> </a></h2>
+         <p>There are different ways to visualize a multivariate <tt>S2FunHarmonic</tt></p>
+         <p>The default <tt>plot</tt>-command be default plots the functions on the upper hemisphere
+         </p><pre class="codeinput">plot(sF1);</pre><img src="S2FunHarmonic_index_12.png"> <div>
+            <ul type="square">
+               <li><tt>plot(sF1)</tt> is the same as <tt>contourf(sF1)</tt></li>
+            </ul>
+         </div>
+         <p>nonfilled contour plot plots only the contour lines</p><pre class="codeinput">contour(sF2, <span class="string">'LineWidth'</span>, 2);</pre><img src="S2FunHarmonic_index_13.png"> <p>color plot without the contour lines</p><pre class="codeinput">pcolor(sF3);</pre><img src="S2FunHarmonic_index_14.png"> <p>3D plot of a sphere colored accordingly to the function values.</p><pre class="codeinput">plot3d(sF2);</pre><img src="S2FunHarmonic_index_15.png"> <p>3D plot where the radius of the sphere is transformed according to the function values</p><pre class="codeinput">surf(sF3);</pre><img src="S2FunHarmonic_index_16.png"> <p>Plot the intersection of the surf plot with a plane with normal vector <tt>v</tt></p><pre class="codeinput">plotSection(sF1, zvector);</pre><img src="S2FunHarmonic_index_17.png"> <p>plotting the Fourier coefficients</p><pre class="codeinput">plotSpektra(sF2);
+set(gca,<span class="string">'FontSize'</span>, 20);</pre><img src="S2FunHarmonic_index_18.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Complete Function list<a name="64"> </a></h2>
          <p><table width="90%"/></p>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

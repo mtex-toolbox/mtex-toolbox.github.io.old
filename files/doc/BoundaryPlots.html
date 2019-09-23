@@ -206,9 +206,7 @@ hold <span class="string">on</span>
 
 ind = angle(gB_Fo.misorientation.axis,xvector)&lt;5*degree;
 
-plot(gB_Fo(ind),<span class="string">'linecolor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'[100]'</span>)</pre><pre class="codeoutput">Warning: Symmetry mismatch 
-Warning: Symmetry mismatch 
-</pre><img src="BoundaryPlots_11.png"> <p>Or we mark a special rotation between neighboured grains. If a linecolor is not specified, then the boundary is colorcoded
+plot(gB_Fo(ind),<span class="string">'linecolor'</span>,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,2,<span class="string">'DisplayName'</span>,<span class="string">'[100]'</span>)</pre><img src="BoundaryPlots_11.png"> <p>Or we mark a special rotation between neighboured grains. If a linecolor is not specified, then the boundary is colorcoded
             after its angular difference to the given rotation.
          </p><pre class="codeinput">rot = rotation.byAxisAngle(vector3d(1,1,1),60*degree);
 ind = angle(gB_Fo.misorientation,rot)&lt;10*degree;

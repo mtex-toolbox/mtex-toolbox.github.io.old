@@ -222,6 +222,9 @@
             <td width="250px"><a href="bucketSearch.html"><tt>bucketSearch</tt></a></td>
             <td>n-d search of the closest vertex out of a set of vertices V</td>
             <tr></tr>
+            <td width="250px"><a href="stiffnessTensor.bulkModulus.html"><tt>bulkModulus</tt></a><span>   (stiffnessTensor)</span></td>
+            <td>Voigt-Reuss-Hill elastic bulk moduli</td>
+            <tr></tr>
             <td width="250px"><a href="bumpKernel.html"><tt>bumpKernel</tt></a></td>
             <td>the bump kernel Detailed explanation goes here</td>
             <tr></tr>
@@ -254,6 +257,9 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.byPolar.html"><tt>byPolar</tt></a><span>   (vector3d)</span></td>
             <td>define vector3d by polar angles</td>
+            <tr></tr>
+            <td width="250px"><a href="rotation.byRodrigues.html"><tt>byRodrigues</tt></a><span>   (rotation)</span></td>
+            <td>define rotations by Rodrigues vectors</td>
             <tr></tr>
             <td width="250px"><a href="sphericalRegion.byVertices.html"><tt>byVertices</tt></a><span>   (sphericalRegion)</span></td>
             <td>define a spherical region by its vertices</td>
@@ -355,9 +361,6 @@
             <td width="250px"><a href="orientation.calcFourierODF.html"><tt>calcFourierODF</tt></a><span>   (orientation)</span></td>
             <td>calculate ODF from individuel orientations via kernel density estimation</td>
             <tr></tr>
-            <td width="250px"><a href="EBSDhex.calcGND.html"><tt>calcGND</tt></a><span>   (EBSDhex)</span></td>
-            <td>compute the geometrically necessary dislocation</td>
-            <tr></tr>
             <td width="250px"><a href="EBSDsquare.calcGND.html"><tt>calcGND</tt></a><span>   (EBSDsquare)</span></td>
             <td>compute the geometrically necessary dislocation</td>
             <tr></tr>
@@ -392,10 +395,14 @@
             <td>compute a smoothed direction that ignores staircasing</td>
             <tr></tr>
             <td width="250px"><a href="ODF.calcMIndex.html"><tt>calcMIndex</tt></a><span>   (ODF)</span></td>
-            <td>M-index of Skemer et al.(2005) based on the difference between uncorrelated and uniform misorientation angle distributions</td>
+            <td>Computes the M-index from an odf - in contrast to using a discrete number of orientations (Skemer et al., 2005). The M-index
+               is derived from the difference between uncorrelated and uniform misorientation angle distributions
+            </td>
             <tr></tr>
             <td width="250px"><a href="orientation.calcMIndex.html"><tt>calcMIndex</tt></a><span>   (orientation)</span></td>
-            <td>TODO!!!</td>
+            <td>Computes the M-index from a discrete number of orientations (Skemer et al., 2005). The M-index is derived from the difference
+               between uncorrelated and uniform misorientation angle distributions
+            </td>
             <tr></tr>
             <td width="250px"><a href="EBSD.calcMisorientation.html"><tt>calcMisorientation</tt></a><span>   (EBSD)</span></td>
             <td>calculate uncorrelated misorientations between two ebsd phases</td>
@@ -504,9 +511,6 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.calcVoronoiArea.html"><tt>calcVoronoiArea</tt></a><span>   (vector3d)</span></td>
             <td>compute the spherical area of the Voronoi decomposition</td>
-            <tr></tr>
-            <td width="250px"><a href="zeroRangeMethod.calcZeroRange.html"><tt>calcZeroRange</tt></a><span>   (zeroRangeMethod)</span></td>
-            <td>calculate zero range</td>
             <tr></tr>
             <td width="250px"><a href="grain2d.calliper.html"><tt>calliper</tt></a><span>   (grain2d)</span></td>
             <td>Calliper (Feret diameter) of a grain in measurement units, the projection length normal to it and its direction/trend.</td>
@@ -670,6 +674,9 @@
             <td width="250px"><a href="ClebschGordanTensor.html"><tt>ClebschGordanTensor</tt></a></td>
             <td>A = [[1 1 -1];[1 1 1];[-1 1 1]];</td>
             <tr></tr>
+            <td width="250px"><a href="ClenshawL.html"><tt>ClenshawL</tt></a></td>
+            <td>Clenshaw algorithmus for evaluating Legendre series</td>
+            <tr></tr>
             <td width="250px"><a href="mtexFigure.CLim.html"><tt>CLim</tt></a><span>   (mtexFigure)</span></td>
             <td>set color range for figures</td>
             <tr></tr>
@@ -815,17 +822,8 @@
             <td width="250px"><a href="vector3d.ctranspose.html"><tt>ctranspose</tt></a><span>   (vector3d)</span></td>
             <td>transpose vector</td>
             <tr></tr>
-            <td width="250px"><a href="EBSDhex.cube2ind.html"><tt>cube2ind</tt></a><span>   (EBSDhex)</span></td>
-            <td>% translate ebsd indices into hexagonal cube coordinates</td>
-            <tr></tr>
-            <td width="250px"><a href="cubochoricGrid.cubochoricGrid.html"><tt>cubochoricGrid</tt></a><span>   (cubochoricGrid)</span></td>
-            <td>Syntax S3G = cubochoricGrid(ori,alphabeta,gamma)</td>
-            <tr></tr>
             <td width="250px"><a href="cunion.html"><tt>cunion</tt></a></td>
             <td>disjoint union</td>
-            <tr></tr>
-            <td width="250px"><a href="EBSDhex.curvature.html"><tt>curvature</tt></a><span>   (EBSDhex)</span></td>
-            <td>computes the incomplete curvature tensor</td>
             <tr></tr>
             <td width="250px"><a href="EBSDsquare.curvature.html"><tt>curvature</tt></a><span>   (EBSDsquare)</span></td>
             <td>computes the incomplete curvature tensor</td>
@@ -847,7 +845,7 @@
          <table width="95%">
             <tr></tr>
             <td width="250px"><a href="deformationGradientTensor.deformationGradientTensor.html"><tt>deformationGradientTensor</tt></a><span>   (deformationGradientTensor)</span></td>
-            <td>deformationGradientTensor is a class. F = deformationGradientTensor(varargin)</td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="slipSystem.deformationTensor.html"><tt>deformationTensor</tt></a><span>   (slipSystem)</span></td>
             <td>deformation tensor</td>
@@ -861,8 +859,8 @@
             <td width="250px"><a href="DelaunaySO3.DelaunaySO3.html"><tt>DelaunaySO3</tt></a><span>   (DelaunaySO3)</span></td>
             <td>Syntax</td>
             <tr></tr>
-            <td width="250px"><a href="deLaValeePoussinKernel.html"><tt>deLaValeePoussinKernel</tt></a></td>
-            <td>DELAVALEEPOUSSINKERNEL Summary of this class goes here Detailed explanation goes here</td>
+            <td width="250px"><a href="deLaValleePoussinKernel.html"><tt>deLaValleePoussinKernel</tt></a></td>
+            <td>deLaValleePousinKernel Detailed explanation goes here</td>
             <tr></tr>
             <td width="250px"><a href="S1Grid.delete.html"><tt>delete</tt></a><span>   (S1Grid)</span></td>
             <td>delte points from S1Grid</td>
@@ -1140,9 +1138,6 @@
             <td width="250px"><a href="vector3d.double.html"><tt>double</tt></a><span>   (vector3d)</span></td>
             <td>converts vector3d to double Input v - @vector3d Output x, y, z - double</td>
             <tr></tr>
-            <td width="250px"><a href="EBSDhex.doubleHex2ind.html"><tt>doubleHex2ind</tt></a><span>   (EBSDhex)</span></td>
-            <td></td>
-            <tr></tr>
             <td width="250px"><a href="MLSSolver.doZeroRange.html"><tt>doZeroRange</tt></a><span>   (MLSSolver)</span></td>
             <td>MLSSolver/doZeroRange is a function. doZeroRange(solver, varargin)</td>
             <tr></tr>
@@ -1200,6 +1195,9 @@
             <tr></tr>
             <td width="250px"><a href="tensor.eig.html"><tt>eig</tt></a><span>   (tensor)</span></td>
             <td>compute the eigenvalues and eigenvectors of a tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="vector3d.eig.html"><tt>eig</tt></a><span>   (vector3d)</span></td>
+            <td>eigenvalues and eigenvectors for a list of @vector3d</td>
             <tr></tr>
             <td width="250px"><a href="eig2.html"><tt>eig2</tt></a></td>
             <td>eigenvalue and vectors of a symmetric 2x2 matrix</td>
@@ -1297,7 +1295,7 @@
             <td>? q1 == q2</td>
             <tr></tr>
             <td width="250px"><a href="slipSystem.eq.html"><tt>eq</tt></a><span>   (slipSystem)</span></td>
-            <td>? sS1 == sS2</td>
+            <td>check sS1 == sS2</td>
             <tr></tr>
             <td width="250px"><a href="sphericalRegion.eq.html"><tt>eq</tt></a><span>   (sphericalRegion)</span></td>
             <td>==  Equal. A == B does element by element comparisons between A and B and returns an array with elements set to logical 1
@@ -1361,7 +1359,7 @@
             <td>evaluates the spherical harmonic on a given set of points Syntax f = eval(sF,v)</td>
             <tr></tr>
             <td width="250px"><a href="S2FunTri.eval.html"><tt>eval</tt></a><span>   (S2FunTri)</span></td>
-            <td>syntax f = eval(sF,v)</td>
+            <td>evaluates the spherical function at nodes v</td>
             <tr></tr>
             <td width="250px"><a href="S2VectorFieldHarmonic.eval.html"><tt>eval</tt></a><span>   (S2VectorFieldHarmonic)</span></td>
             <td>syntax f = eval(sVF,v)</td>
@@ -1481,9 +1479,6 @@
             <td width="250px"><a href="fclencurt.html"><tt>fclencurt</tt></a></td>
             <td>Fast Clenshaw Curtis Quadrature</td>
             <tr></tr>
-            <td width="250px"><a href="fdct.html"><tt>fdct</tt></a></td>
-            <td>fdct is a function. C = fdct(x)</td>
-            <tr></tr>
             <td width="250px"><a href="femComponent.femComponent.html"><tt>femComponent</tt></a><span>   (femComponent)</span></td>
             <td>defines an ODF by finite elements</td>
             <tr></tr>
@@ -1519,9 +1514,6 @@
             <tr></tr>
             <td width="250px"><a href="EBSD.fill.html"><tt>fill</tt></a><span>   (EBSD)</span></td>
             <td>extrapolate spatial EBSD data by nearest neighbour for tetragonal lattice</td>
-            <tr></tr>
-            <td width="250px"><a href="EBSDhex.fill.html"><tt>fill</tt></a><span>   (EBSDhex)</span></td>
-            <td>fill spatial EBSD data</td>
             <tr></tr>
             <td width="250px"><a href="EBSDsquare.fill.html"><tt>fill</tt></a><span>   (EBSDsquare)</span></td>
             <td>fill spatial EBSD data</td>
@@ -1561,6 +1553,9 @@
             <tr></tr>
             <td width="250px"><a href="grain2d.findByOrientation.html"><tt>findByOrientation</tt></a><span>   (grain2d)</span></td>
             <td>select grains by orientation</td>
+            <tr></tr>
+            <td width="250px"><a href="findJumps.html"><tt>findJumps</tt></a></td>
+            <td>find all jumps of a monotonsly increasing function</td>
             <tr></tr>
             <td width="250px"><a href="PoleFigure.findOutlier.html"><tt>findOutlier</tt></a><span>   (PoleFigure)</span></td>
             <td>find outliers in pole figures</td>
@@ -1758,6 +1753,12 @@
                threshold for subgrain boundaries Methods:      smooth: Applies the HQ minimization on the quaternions of the given orientations
             </td>
             <tr></tr>
+            <td width="250px"><a href="complianceTensor.HashinShtrikmanModulus.html"><tt>HashinShtrikmanModulus</tt></a><span>   (complianceTensor)</span></td>
+            <td>Hashin Shtrikman moduli</td>
+            <tr></tr>
+            <td width="250px"><a href="stiffnessTensor.HashinShtrikmanModulus.html"><tt>HashinShtrikmanModulus</tt></a><span>   (stiffnessTensor)</span></td>
+            <td>Hashin Shtrikman moduli</td>
+            <tr></tr>
             <td width="250px"><a href="grain2d.hasHole.html"><tt>hasHole</tt></a><span>   (grain2d)</span></td>
             <td>test if a grain has a hole or not</td>
             <tr></tr>
@@ -1840,12 +1841,6 @@
             <tr></tr>
             <td width="250px"><a href="ind2char.html"><tt>ind2char</tt></a></td>
             <td>calculates coordinate from one index i - index s - size of matrix</td>
-            <tr></tr>
-            <td width="250px"><a href="EBSDhex.ind2cube.html"><tt>ind2cube</tt></a><span>   (EBSDhex)</span></td>
-            <td>% translate ebsd indices into hexagonal cube coordinates</td>
-            <tr></tr>
-            <td width="250px"><a href="EBSDhex.ind2doubleHex.html"><tt>ind2doubleHex</tt></a><span>   (EBSDhex)</span></td>
-            <td></td>
             <tr></tr>
             <td width="250px"><a href="infernoColorMap.html"><tt>infernoColorMap</tt></a></td>
             <td>infernoColorMap is a function. varargout = infernoColorMap(varargin)</td>
@@ -2192,9 +2187,6 @@
             <td width="250px"><a href="loadOrientation_generic.html"><tt>loadOrientation_generic</tt></a></td>
             <td>load Orientation data from generic text files</td>
             <tr></tr>
-            <td width="250px"><a href="loadOrientation_generic2.html"><tt>loadOrientation_generic2</tt></a></td>
-            <td>load Orientation data from generic text files</td>
-            <tr></tr>
             <td width="250px"><a href="loadPHL.html"><tt>loadPHL</tt></a></td>
             <td>loadPHL is a function. cs = loadPHL(fname)</td>
             <tr></tr>
@@ -2312,6 +2304,9 @@
             <td width="250px"><a href="quaternion.log.html"><tt>log</tt></a><span>   (quaternion)</span></td>
             <td>the logarithmic map that translates a rotation into a rotation vector</td>
             <tr></tr>
+            <td width="250px"><a href="deformationGradientTensor.logm.html"><tt>logm</tt></a><span>   (deformationGradientTensor)</span></td>
+            <td>velocity gradient tensor from deformation gradient tensor</td>
+            <tr></tr>
             <td width="250px"><a href="tensor.logm.html"><tt>logm</tt></a><span>   (tensor)</span></td>
             <td>matrix logarithm of a tensor</td>
             <tr></tr>
@@ -2330,9 +2325,6 @@
             <tr></tr>
             <td width="250px"><a href="magmaColorMap.html"><tt>magmaColorMap</tt></a></td>
             <td>magmaColorMap is a function. varargout = magmaColorMap(varargin)</td>
-            <tr></tr>
-            <td width="250px"><a href="makeS2FunDoc.html"><tt>makeS2FunDoc</tt></a></td>
-            <td>makeS2FunDoc is a function.</td>
             <tr></tr>
             <td width="250px"><a href="orientation.map.html"><tt>map</tt></a><span>   (orientation)</span></td>
             <td>define orientations by pairs of vectors</td>
@@ -2465,6 +2457,18 @@
             <td width="250px"><a href="S2VectorFieldTri.minus.html"><tt>minus</tt></a><span>   (S2VectorFieldTri)</span></td>
             <td>Syntax sVF = sVF1 - sVF2 sVF = sVF - v</td>
             <tr></tr>
+            <td width="250px"><a href="EBSD.minus.html"><tt>minus</tt></a><span>   (EBSD)</span></td>
+            <td>shift ebsd in x/y direction</td>
+            <tr></tr>
+            <td width="250px"><a href="grain2d.minus.html"><tt>minus</tt></a><span>   (grain2d)</span></td>
+            <td>shift grains in x/y direction</td>
+            <tr></tr>
+            <td width="250px"><a href="grainBoundary.minus.html"><tt>minus</tt></a><span>   (grainBoundary)</span></td>
+            <td>shift grains in x/y direction</td>
+            <tr></tr>
+            <td width="250px"><a href="triplePointList.minus.html"><tt>minus</tt></a><span>   (triplePointList)</span></td>
+            <td>shift triple points in x/y direction</td>
+            <tr></tr>
             <td width="250px"><a href="ODF.minus.html"><tt>minus</tt></a><span>   (ODF)</span></td>
             <td>superposeing two ODFs</td>
             <tr></tr>
@@ -2505,6 +2509,9 @@
             <td width="250px"><a href="MLSSolver.MLSSolver.html"><tt>MLSSolver</tt></a><span>   (MLSSolver)</span></td>
             <td>modified least squares solver</td>
             <tr></tr>
+            <td width="250px"><a href="tensor.mpower.html"><tt>mpower</tt></a><span>   (tensor)</span></td>
+            <td>implements T ^ n</td>
+            <tr></tr>
             <td width="250px"><a href="quaternion.mpower.html"><tt>mpower</tt></a><span>   (quaternion)</span></td>
             <td>q^n</td>
             <tr></tr>
@@ -2525,6 +2532,9 @@
             <tr></tr>
             <td width="250px"><a href="quaternion.mrdivide.html"><tt>mrdivide</tt></a><span>   (quaternion)</span></td>
             <td>scalar division</td>
+            <tr></tr>
+            <td width="250px"><a href="vector3d.mrdivide.html"><tt>mrdivide</tt></a><span>   (vector3d)</span></td>
+            <td>scalar division v / s</td>
             <tr></tr>
             <td width="250px"><a href="mtex_assert.html"><tt>mtex_assert</tt></a></td>
             <td>mtex_assert is a function. mtex_assert(cond, varargin)</td>
@@ -2578,9 +2588,6 @@
             <tr></tr>
             <td width="250px"><a href="S2VectorFieldHarmonic.mtimes.html"><tt>mtimes</tt></a><span>   (S2VectorFieldHarmonic)</span></td>
             <td>Syntax sF = sF1*sF2 sF = a*sF1 sF = sF1*a</td>
-            <tr></tr>
-            <td width="250px"><a href="EBSD.mtimes.html"><tt>mtimes</tt></a><span>   (EBSD)</span></td>
-            <td>rotating the ebsd data by a certain rotation</td>
             <tr></tr>
             <td width="250px"><a href="ODF.mtimes.html"><tt>mtimes</tt></a><span>   (ODF)</span></td>
             <td>scaling of the ODF</td>
@@ -2781,6 +2788,9 @@
             <tr></tr>
             <td width="250px"><a href="PoleFigure.normalize.html"><tt>normalize</tt></a><span>   (PoleFigure)</span></td>
             <td>normalization of a meassured pole figure with respect to an ODF</td>
+            <tr></tr>
+            <td width="250px"><a href="stressTensor.normalize.html"><tt>normalize</tt></a><span>   (stressTensor)</span></td>
+            <td>mean stress</td>
             <tr></tr>
             <td width="250px"><a href="quaternion.normalize.html"><tt>normalize</tt></a><span>   (quaternion)</span></td>
             <td>normalize quaternion</td>
@@ -3041,6 +3051,9 @@
             <td width="250px"><a href="plotAngleDistribution.html"><tt>plotAngleDistribution</tt></a></td>
             <td>plot axis distribution</td>
             <tr></tr>
+            <td width="250px"><a href="plotaStar2east.html"><tt>plotaStar2east</tt></a></td>
+            <td>set the default plot direction of the x-axis</td>
+            <tr></tr>
             <td width="250px"><a href="plotAxisDistribution.html"><tt>plotAxisDistribution</tt></a></td>
             <td>plot axis distribution</td>
             <tr></tr>
@@ -3108,7 +3121,7 @@
             <td>create a regular S2Grid for plotting</td>
             <tr></tr>
             <td width="250px"><a href="S2Fun.plotSection.html"><tt>plotSection</tt></a><span>   (S2Fun)</span></td>
-            <td>Syntax plotSection(sF,vector3d.Z) plotSection(sF,vector3d.Z,pi/3)</td>
+            <td>plot a section through a spherical function</td>
             <tr></tr>
             <td width="250px"><a href="S2VectorField.plotSection.html"><tt>plotSection</tt></a><span>   (S2VectorField)</span></td>
             <td>Syntax plotSection(sVF,vector3d.Z) plotSection(sVF,vector3d.Z,pi/3)</td>
@@ -3172,6 +3185,18 @@
             <tr></tr>
             <td width="250px"><a href="S2VectorFieldTri.plus.html"><tt>plus</tt></a><span>   (S2VectorFieldTri)</span></td>
             <td>Syntax sVF = sVF1 + sVF2 sVF = sVF + v</td>
+            <tr></tr>
+            <td width="250px"><a href="EBSD.plus.html"><tt>plus</tt></a><span>   (EBSD)</span></td>
+            <td>shift ebsd in x/y direction</td>
+            <tr></tr>
+            <td width="250px"><a href="grain2d.plus.html"><tt>plus</tt></a><span>   (grain2d)</span></td>
+            <td>shift grains in x/y direction</td>
+            <tr></tr>
+            <td width="250px"><a href="grainBoundary.plus.html"><tt>plus</tt></a><span>   (grainBoundary)</span></td>
+            <td>shift grains in x/y direction</td>
+            <tr></tr>
+            <td width="250px"><a href="triplePointList.plus.html"><tt>plus</tt></a><span>   (triplePointList)</span></td>
+            <td>shift triple points in x/y direction</td>
             <tr></tr>
             <td width="250px"><a href="ODF.plus.html"><tt>plus</tt></a><span>   (ODF)</span></td>
             <td>superposeing two ODFs</td>
@@ -3286,6 +3311,12 @@
             <tr></tr>
             <td width="250px"><a href="symmetry.properSubGroup.html"><tt>properSubGroup</tt></a><span>   (symmetry)</span></td>
             <td>return the corresponding Laue group</td>
+            <tr></tr>
+            <td width="250px"><a href="deformationGradientTensor.pureShear.html"><tt>pureShear</tt></a><span>   (deformationGradientTensor)</span></td>
+            <td>deformationGradientTensor representing pure shear</td>
+            <tr></tr>
+            <td width="250px"><a href="velocityGradientTensor.pureShear.html"><tt>pureShear</tt></a><span>   (velocityGradientTensor)</span></td>
+            <td>defines velocityGradientTensor representing pure shear</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Q<a name="16"> </a></h2>
@@ -3553,9 +3584,6 @@
             <td width="250px"><a href="quaternion.Rodrigues.html"><tt>Rodrigues</tt></a><span>   (quaternion)</span></td>
             <td>quaternion to rodrigues representation</td>
             <tr></tr>
-            <td width="250px"><a href="rodrigues2quat.html"><tt>rodrigues2quat</tt></a></td>
-            <td>rodrigues2quat is a function. q = rodrigues2quat(R, varargin)</td>
-            <tr></tr>
             <td width="250px"><a href="RodriguesPlot.html"><tt>RodriguesPlot</tt></a></td>
             <td>create a 3d Euler angle plot</td>
             <tr></tr>
@@ -3575,7 +3603,16 @@
             <td>rotate a function by a rotation</td>
             <tr></tr>
             <td width="250px"><a href="EBSD.rotate.html"><tt>rotate</tt></a><span>   (EBSD)</span></td>
-            <td>rotate EBSD orientations or spatial data around point of origin</td>
+            <td>rotate EBSD</td>
+            <tr></tr>
+            <td width="250px"><a href="grain2d.rotate.html"><tt>rotate</tt></a><span>   (grain2d)</span></td>
+            <td>rotate grains</td>
+            <tr></tr>
+            <td width="250px"><a href="grainBoundary.rotate.html"><tt>rotate</tt></a><span>   (grainBoundary)</span></td>
+            <td>rotate grainBoundaries</td>
+            <tr></tr>
+            <td width="250px"><a href="triplePointList.rotate.html"><tt>rotate</tt></a><span>   (triplePointList)</span></td>
+            <td>rotate triple points</td>
             <tr></tr>
             <td width="250px"><a href="BinghamComponent.rotate.html"><tt>rotate</tt></a><span>   (BinghamComponent)</span></td>
             <td>rotate component</td>
@@ -3699,13 +3736,10 @@
             <td>a class represeneting a function on the sphere</td>
             <tr></tr>
             <td width="250px"><a href="S2DeLaValleePoussin.html"><tt>S2DeLaValleePoussin</tt></a></td>
-            <td>extract parameter and halfwidth</td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="S2Fun.S2Fun.html"><tt>S2Fun</tt></a><span>   (S2Fun)</span></td>
             <td>a class represeneting a function on the sphere</td>
-            <tr></tr>
-            <td width="250px"><a href="S2Fun_index.html"><tt>S2Fun_index</tt></a></td>
-            <td>*|S2Fun|*</td>
             <tr></tr>
             <td width="250px"><a href="S2FunHandle.S2FunHandle.html"><tt>S2FunHandle</tt></a><span>   (S2FunHandle)</span></td>
             <td>a class represeneting a function on the sphere</td>
@@ -3765,7 +3799,8 @@
             <tr></tr>
             <td width="250px"><a href="vector3d.scatter.html"><tt>scatter</tt></a><span>   (vector3d)</span></td>
             <td>Syntax scatter(v)              % plot the directions v scatter(v,data)         % colorize directions according to data scatter(v,'label',text)
-               % plot text below markers scatter(v,'label',text,'textaboveMarker') % plot text above markers
+               % plot text below markers scatter(v,'label',text,'textaboveMarker') % plot text above markers scatter(v,'numbered')   % plot
+               directions with numbers
             </td>
             <tr></tr>
             <td width="250px"><a href="vector3d.scatter3d.html"><tt>scatter3d</tt></a><span>   (vector3d)</span></td>
@@ -3776,6 +3811,9 @@
             <tr></tr>
             <td width="250px"><a href="SchmidTensor.html"><tt>SchmidTensor</tt></a></td>
             <td>computes the Schmidt tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="slipSystem.SchmidTensor.html"><tt>SchmidTensor</tt></a><span>   (slipSystem)</span></td>
+            <td>Schmid tensors for a list of slip systems</td>
             <tr></tr>
             <td width="250px"><a href="sectionLabels.html"><tt>sectionLabels</tt></a></td>
             <td>sectionLabels is a function. [symbol, labelx, labely] = sectionLabels(type)</td>
@@ -3803,9 +3841,6 @@
             <tr></tr>
             <td width="250px"><a href="selectMinbyRow.html"><tt>selectMinbyRow</tt></a></td>
             <td>find minimum in each row</td>
-            <tr></tr>
-            <td width="250px"><a href="grain2d.selector_old.html"><tt>selector_old</tt></a><span>   (grain2d)</span></td>
-            <td>Grain Selector</td>
             <tr></tr>
             <td width="250px"><a href="selectPolygon.html"><tt>selectPolygon</tt></a></td>
             <td>select a polygon by mouse</td>
@@ -3855,6 +3890,9 @@
             <td width="250px"><a href="stiffnessTensor.shearModulus.html"><tt>shearModulus</tt></a><span>   (stiffnessTensor)</span></td>
             <td>shear modulus for an elasticity tensor</td>
             <tr></tr>
+            <td width="250px"><a href="shearSymbol.html"><tt>shearSymbol</tt></a></td>
+            <td>coordinates of a shear symbold</td>
+            <tr></tr>
             <td width="250px"><a href="EBSD.shift.html"><tt>shift</tt></a><span>   (EBSD)</span></td>
             <td>shift spatial ebsd-data about (x,y)</td>
             <tr></tr>
@@ -3863,6 +3901,12 @@
             <tr></tr>
             <td width="250px"><a href="sigmaSections.html"><tt>sigmaSections</tt></a></td>
             <td>sigmaSections is a class. oS = sigmaSections(varargin)</td>
+            <tr></tr>
+            <td width="250px"><a href="deformationGradientTensor.simpleShear.html"><tt>simpleShear</tt></a><span>   (deformationGradientTensor)</span></td>
+            <td>simple shear deformation tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="velocityGradientTensor.simpleShear.html"><tt>simpleShear</tt></a><span>   (velocityGradientTensor)</span></td>
+            <td>defines velocity gradient tensors representing simple shear</td>
             <tr></tr>
             <td width="250px"><a href="S2FunHarmonic.simultaniousCG.html"><tt>simultaniousCG</tt></a><span>   (S2FunHarmonic)</span></td>
             <td>calculates the minimum of a spherical harminc Syntax [v,pos] = simultaniousCG(sF) % the position where the minimum is atained</td>
@@ -4015,6 +4059,9 @@
             <td width="250px"><a href="SquareSingularityKernel.html"><tt>SquareSingularityKernel</tt></a></td>
             <td>extract parameter and halfwidth</td>
             <tr></tr>
+            <td width="250px"><a href="quaternion.std.html"><tt>std</tt></a><span>   (quaternion)</span></td>
+            <td>mean angular deviation</td>
+            <tr></tr>
             <td width="250px"><a href="S2FunHarmonic.steepestDescent.html"><tt>steepestDescent</tt></a><span>   (S2FunHarmonic)</span></td>
             <td>calculates the minimum of a spherical harminc Syntax [v,pos] = steepestDescent(sF) % the position where the minimum is atained</td>
             <tr></tr>
@@ -4044,6 +4091,9 @@
             <tr></tr>
             <td width="250px"><a href="string2Miller.html"><tt>string2Miller</tt></a></td>
             <td>converts string to Miller indece</td>
+            <tr></tr>
+            <td width="250px"><a href="crystalSymmetry.structureFactor.html"><tt>structureFactor</tt></a><span>   (crystalSymmetry)</span></td>
+            <td>crystalSymmetry/structureFactor is a function. structureFactor(cs)</td>
             <tr></tr>
             <td width="250px"><a href="S1Grid.subGrid.html"><tt>subGrid</tt></a><span>   (S1Grid)</span></td>
             <td>epsilon - neighborhood of a point in the grid</td>
@@ -4223,11 +4273,14 @@
             <td width="250px"><a href="vector3d.surf.html"><tt>surf</tt></a><span>   (vector3d)</span></td>
             <td>Syntax</td>
             <tr></tr>
+            <td width="250px"><a href="tensor.svd.html"><tt>svd</tt></a><span>   (tensor)</span></td>
+            <td>singular value decomposition of a rank two tensor</td>
+            <tr></tr>
             <td width="250px"><a href="switchUnit.html"><tt>switchUnit</tt></a></td>
             <td>returns the closest length to a known unit. For example, 10e3m will give 10km.</td>
             <tr></tr>
             <td width="250px"><a href="tensor.sym.html"><tt>sym</tt></a><span>   (tensor)</span></td>
-            <td>the symmetric part S = 0.5(T + T.') of a tensor</td>
+            <td>the symmetric part S = 0.5(T + T') of a tensor</td>
             <tr></tr>
             <td width="250px"><a href="S2FunHarmonic.symmetrise.html"><tt>symmetrise</tt></a><span>   (S2FunHarmonic)</span></td>
             <td>symmetrises a function with respect to a symmetry or a direction</td>
@@ -4435,6 +4488,12 @@
             <td width="250px"><a href="vector3d.uminus.html"><tt>uminus</tt></a><span>   (vector3d)</span></td>
             <td>overloads unitary minus</td>
             <tr></tr>
+            <td width="250px"><a href="deformationGradientTensor.uniaxial.html"><tt>uniaxial</tt></a><span>   (deformationGradientTensor)</span></td>
+            <td>deformationGradientTensor representing uniaxial compression / tension</td>
+            <tr></tr>
+            <td width="250px"><a href="velocityGradientTensor.uniaxial.html"><tt>uniaxial</tt></a><span>   (velocityGradientTensor)</span></td>
+            <td>defines uniaxial tension/compression tensors</td>
+            <tr></tr>
             <td width="250px"><a href="uniformComponent.uniformComponent.html"><tt>uniformComponent</tt></a><span>   (uniformComponent)</span></td>
             <td>uniformComponent is a class. odf = uniformComponent(cs, ss, varargin)</td>
             <tr></tr>
@@ -4493,9 +4552,6 @@
             <td width="250px"><a href="vec2cell.html"><tt>vec2cell</tt></a></td>
             <td>vec2cell is a function. c = vec2cell(v)</td>
             <tr></tr>
-            <td width="250px"><a href="vec42quat.html"><tt>vec42quat</tt></a></td>
-            <td>returns a quaternion q with q u_1 = v1 and q u2 = v2</td>
-            <tr></tr>
             <td width="250px"><a href="tensor.vector3d.html"><tt>vector3d</tt></a><span>   (tensor)</span></td>
             <td>convert rank one tensors to vector3d</td>
             <tr></tr>
@@ -4509,7 +4565,7 @@
             <td>computes the elastic wave velocity(km/s) from the elastic stiffness Cijkl tensor and density (g/cm3)</td>
             <tr></tr>
             <td width="250px"><a href="velocityGradientTensor.velocityGradientTensor.html"><tt>velocityGradientTensor</tt></a><span>   (velocityGradientTensor)</span></td>
-            <td>velocityGradientTensor is a class. L = velocityGradientTensor(varargin)</td>
+            <td></td>
             <tr></tr>
             <td width="250px"><a href="S2FunHarmonic.vertcat.html"><tt>vertcat</tt></a><span>   (S2FunHarmonic)</span></td>
             <td>overloads vertcat</td>
@@ -4579,6 +4635,15 @@
             <tr></tr>
             <td width="250px"><a href="velocityGradientTensor.vorticity.html"><tt>vorticity</tt></a><span>   (velocityGradientTensor)</span></td>
             <td>vorticity Gamma</td>
+            <tr></tr>
+            <td width="250px"><a href="stiffnessTensor.VRH.html"><tt>VRH</tt></a><span>   (stiffnessTensor)</span></td>
+            <td>Voigt-Reuss-Hill elastic moduli of stifness tensor</td>
+            <tr></tr>
+            <td width="250px"><a href="complianceTensor.VRHBulkModulus.html"><tt>VRHBulkModulus</tt></a><span>   (complianceTensor)</span></td>
+            <td>Voigt-Reuss-Hill elastic bulk moduli</td>
+            <tr></tr>
+            <td width="250px"><a href="complianceTensor.VRHShearModulus.html"><tt>VRHShearModulus</tt></a><span>   (complianceTensor)</span></td>
+            <td>Voigt-Reuss-Hill elastic shear moduli</td>
          </table>
          <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>W<a name="22"> </a></h2>
@@ -4651,7 +4716,7 @@
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td valign="baseline" align="right">MTEX 5.2.beta2</td>
+               <td valign="baseline" align="right">MTEX 5.2.beta3</td>
             </tr>
          </table>
       </div>

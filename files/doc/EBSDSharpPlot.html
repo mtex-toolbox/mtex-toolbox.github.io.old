@@ -101,7 +101,8 @@ colormap(cmap)</pre><img src="EBSDSharpPlot_04.png"> <p class="pagenavlink"><scr
 ipfKey.inversePoleFigureDirection = mean(ebsd.orientations,<span class="string">'robust'</span>) * ipfKey.whiteCenter;
 
 close <span class="string">all</span>;
-plot(ebsd,ipfKey.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_05.png"> <p>We observe that the orientation map is almost completely gray, except for the  outliers which appears black. Next, we use
+plot(ebsd,ipfKey.orientation2color(ebsd.orientations))</pre><pre class="codeoutput">Warning: Possibly applying an orientation to an object in specimen coordinates! 
+</pre><img src="EBSDSharpPlot_05.png"> <p>We observe that the orientation map is almost completely gray, except for the  outliers which appears black. Next, we use
             the option <tt>maxAngle</tt> to increase contrast in the grayish part
          </p><pre class="codeinput">ipfKey.maxAngle = 7.5*degree;
 plot(ebsd,ipfKey.orientation2color(ebsd.orientations))</pre><img src="EBSDSharpPlot_06.png"> <p>You may play around with the option <tt>maxAngle</tt> to obtain better results. As for interpretation keep in mind that white color represents the mean orientation and the color
@@ -207,7 +208,8 @@ ipfKey = ipfHSVKey(ebsd);
 ipfKey.inversePoleFigureDirection = mean(ebsd.orientations) * ipfKey.whiteCenter;
 ipfKey.maxAngle = 2*degree;
 plot(ebsd,ipfKey.orientation2color(ebsd.orientations))
-hold <span class="string">off</span></pre><img src="EBSDSharpPlot_12.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+hold <span class="string">off</span></pre><pre class="codeoutput">Warning: Possibly applying an orientation to an object in specimen coordinates! 
+</pre><img src="EBSDSharpPlot_12.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

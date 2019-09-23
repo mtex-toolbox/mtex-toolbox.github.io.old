@@ -46,9 +46,9 @@
          <p>quaternion to euler angle</p>
          <h2>Description<a name="3"> </a></h2>
          <p>calculates the Euler angle for a rotation <tt>q</tt></p>
-         <h2>Syntax<a name="4"> </a></h2><pre class="codeinput">[alpha,beta,gamma] = Euler(quat) -
-[phi1,Phi,phi2] = Euler(quat,<span class="string">'Bunge'</span>) -
-euler = Euler(quat,<span class="string">'Bunge'</span>) -</pre><h2>Input<a name="5"> </a></h2>
+         <h2>Syntax<a name="4"> </a></h2><pre class="codeinput">[alpha,beta,gamma] = Euler(quat,<span class="string">'ABG'</span>) -
+[phi1,Phi,phi2] = Euler(quat) -
+euler = Euler(quat) -</pre><h2>Input<a name="5"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -73,7 +73,7 @@ euler = Euler(quat,<span class="string">'Bunge'</span>) -</pre><h2>Input<a name=
             <tt>'ABG, ZYZ'</tt>
             </td>
             <td>
-            <p>Matthies (alpha,beta,gamma) convention (default)</p>
+            <p>Matthies (alpha,beta,gamma) convention</p>
             </td>
             </tr>
             <tr>
@@ -81,7 +81,7 @@ euler = Euler(quat,<span class="string">'Bunge'</span>) -</pre><h2>Input<a name=
             <tt>'BUNGE, ZXZ'</tt>
             </td>
             <td>
-            <p>Bunge (phi, Phi, phi2) convention</p>
+            <p>Bunge (phi, Phi, phi2) convention (default)</p>
             </td>
             </tr>
             </table>

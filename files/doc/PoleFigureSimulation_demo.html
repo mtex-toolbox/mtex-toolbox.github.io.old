@@ -107,17 +107,17 @@ odf = ODF
   specimen symmetry: 1
  
   Uniform portion:
-    weight: 0.41848
+    weight: 0.45625
  
   Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29755 orientations, resolution: 5&deg;
-    weight: 0.58152
+    kernel: de la Vallee Poussin, halfwidth 10&deg;
+    center: 29750 orientations, resolution: 5&deg;
+    weight: 0.54375
  
 </pre><p>which can be plotted,</p><pre class="codeinput">plot(odf,<span class="string">'sections'</span>,6,<span class="string">'silent'</span>,<span class="string">'sigma'</span>)</pre><pre class="codeoutput">progress: 100%
 </pre><img src="PoleFigureSimulation_demo_03.png"> <p>and compared to the original model ODF.</p><pre class="codeinput">calcError(odf,model_odf,<span class="string">'resolution'</span>,5*degree)</pre><pre class="codeoutput">progress: 100%
 ans =
-    0.1228
+    0.0954
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Exploration of the relationship between estimation error and number of single orientations<a name="14"> </a></h2>
          <p>For a more systematic analysis of the estimation error, we vary the number of pole figures used for ODF estimation from 1
@@ -131,20 +131,20 @@ ans =
   odf = calcODF(pf({1:i}),<span class="string">'silent'</span>);
   e(i,2) = calcError(odf,model_odf,<span class="string">'resolution'</span>,2.5*degree);
 
-<span class="keyword">end</span></pre><pre class="codeoutput">progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
-progress: 100%
+<span class="keyword">end</span></pre><pre class="codeoutput">progress: 99%
+progress: 99%
+progress: 99%
+progress: 99%
+progress: 99%
+progress: 99%
+progress: 99%
+progress: 99%
+progress: 99%
+progress: 99%
+progress: 99%
+progress: 99%
+progress: 99%
+progress: 99%
 </pre><p>Plot the error in dependency of the number of single orientations.</p><pre class="codeinput">close <span class="string">all</span>;
 plot(1:pf.numPF,e)
 ylim([0.07 0.32])

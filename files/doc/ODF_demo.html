@@ -47,7 +47,7 @@
          <h2>Defining Model ODFs<a name="3"> </a></h2>
          <p><b>Unimodal ODFs</b></p><pre class="codeinput">SS  = specimenSymmetry(<span class="string">'orthorhombic'</span>);
 CS  = crystalSymmetry(<span class="string">'cubic'</span>);
-o   = orientation(<span class="string">'brass'</span>,CS,SS);
+o   = orientation.brass(CS,SS);
 psi = vonMisesFisherKernel(<span class="string">'halfwidth'</span>,20*degree);
 
 odf1 = unimodalODF(o,CS,SS,psi)</pre><pre class="codeoutput"> 
@@ -57,7 +57,7 @@ odf1 = ODF
  
   Radially symmetric portion:
     kernel: van Mises Fisher, halfwidth 20&deg;
-    center: Rotations: 0x0
+    center: (35&deg;,45&deg;,0&deg;)
     weight: 1
  
 </pre><p><b>Fibre ODFs</b></p><pre class="codeinput">CS = crystalSymmetry(<span class="string">'hexagonal'</span>);
@@ -168,8 +168,8 @@ ans = orientation
   specimen symmetry: 1
  
   Bunge Euler angles in degree
-     phi1     Phi    phi2    Inv.
-  150.008 4.33442 180.003       0
+     phi1         Phi        phi2        Inv.
+  106.893 0.000738512     251.926           0
  
 ans =
     3.3783

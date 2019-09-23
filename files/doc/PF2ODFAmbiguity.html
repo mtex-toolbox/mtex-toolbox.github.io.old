@@ -120,8 +120,8 @@ odf = ODF
   specimen symmetry: 1
  
   Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29767 orientations, resolution: 5&deg;
+    kernel: de la Vallee Poussin, halfwidth 10&deg;
+    center: 29765 orientations, resolution: 5&deg;
     weight: 1
  
 progress: 100%
@@ -142,8 +142,8 @@ odf = ODF
   specimen symmetry: 1
  
   Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29765 orientations, resolution: 5&deg;
+    kernel: de la Vallee Poussin, halfwidth 10&deg;
+    center: 29763 orientations, resolution: 5&deg;
     weight: 1
  
 progress: 100%
@@ -161,8 +161,8 @@ odf = ODF
   specimen symmetry: 1
  
   Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 29765 orientations, resolution: 5&deg;
+    kernel: de la Vallee Poussin, halfwidth 10&deg;
+    center: 29763 orientations, resolution: 5&deg;
     weight: 1
  
 progress: 100%
@@ -325,8 +325,8 @@ odf_rec1 = ODF
     weight: 0.79845
  
   Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 118743 orientations, resolution: 5&deg;
+    kernel: de la Vallee Poussin, halfwidth 10&deg;
+    center: 118599 orientations, resolution: 5&deg;
     weight: 0.20155
  
 </pre><p>This method can be switched off by the following command</p><pre class="codeinput">odf_rec2 = calcODF(pf,<span class="string">'noGhostCorrection'</span>,<span class="string">'silent'</span>)</pre><pre class="codeoutput"> 
@@ -335,7 +335,7 @@ odf_rec2 = ODF
   specimen symmetry: 1
  
   Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 5&deg;
+    kernel: de la Vallee Poussin, halfwidth 10&deg;
     center: 119087 orientations, resolution: 5&deg;
     weight: 1
  
@@ -347,7 +347,9 @@ hold <span class="string">on</span>
 plot(-180:180,odf_rec2.eval(alphaFibre),<span class="string">'linewidth'</span>,2)
 hold <span class="string">off</span>
 legend(<span class="string">'odf rec1'</span>,<span class="string">'odf rec2'</span>)
-xlim([-180,180])</pre><img src="PF2ODFAmbiguity_20.png"> <p>This become clearer when looking at the harmonic coefficients of the reconstructed ODFs. We observe that without ghost correction
+xlim([-180,180])</pre><pre class="codeoutput">progress: 100%
+progress: 100%
+</pre><img src="PF2ODFAmbiguity_20.png"> <p>This become clearer when looking at the harmonic coefficients of the reconstructed ODFs. We observe that without ghost correction
             the recovered odd order harmonic coefficients are much smaller than the original ones.
          </p><pre class="codeinput">close <span class="string">all</span>
 plotFourier(odf1,<span class="string">'linewidth'</span>,2,<span class="string">'bandwidth'</span>,10)
@@ -379,8 +381,8 @@ rec = ODF
     weight: 0.73051
  
   Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 5&deg;
-    center: 1221 orientations, resolution: 5&deg;
+    kernel: de la Vallee Poussin, halfwidth 10&deg;
+    center: 1219 orientations, resolution: 5&deg;
     weight: 0.26949
  
  
@@ -389,7 +391,7 @@ rec2 = ODF
   specimen symmetry: 222
  
   Radially symmetric portion:
-    kernel: de la Vallee Poussin, halfwidth 5&deg;
+    kernel: de la Vallee Poussin, halfwidth 10&deg;
     center: 1231 orientations, resolution: 5&deg;
     weight: 1
  
@@ -399,9 +401,11 @@ mtexColorMap <span class="string">LaboTeX</span></pre><img src="PF2ODFAmbiguity_
 plotPDF(rec2,pf.h,<span class="string">'antipodal'</span>)
 mtexColorMap <span class="string">LaboTeX</span></pre><img src="PF2ODFAmbiguity_25.png"> <p>However if we look at the ODF we see big differences. The so-called ghosts.</p><pre class="codeinput">figure(1)
 plot(rec,<span class="string">'gray'</span>,<span class="string">'contourf'</span>)
-mtexColorMap <span class="string">white2black</span></pre><img src="PF2ODFAmbiguity_26.png"> <pre class="codeinput">figure(2)
+mtexColorMap <span class="string">white2black</span></pre><pre class="codeoutput">progress: 100%
+</pre><img src="PF2ODFAmbiguity_26.png"> <pre class="codeinput">figure(2)
 plot(rec2,<span class="string">'gray'</span>,<span class="string">'contourf'</span>)
-mtexColorMap <span class="string">white2black</span></pre><img src="PF2ODFAmbiguity_27.png"> <p>Again we can see the source of the problem in the harmonic coefficients.</p><pre class="codeinput">close <span class="string">all</span>;
+mtexColorMap <span class="string">white2black</span></pre><pre class="codeoutput">progress: 100%
+</pre><img src="PF2ODFAmbiguity_27.png"> <p>Again we can see the source of the problem in the harmonic coefficients.</p><pre class="codeinput">close <span class="string">all</span>;
 <span class="comment">% the harmonic coefficients of the sample ODF</span>
 plotFourier(SantaFe,<span class="string">'bandwidth'</span>,32,<span class="string">'linewidth'</span>,2,<span class="string">'MarkerSize'</span>,10)
 

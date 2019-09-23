@@ -436,8 +436,8 @@ mtexColorbar</pre><img src="GrainReconstructionDemo_06.png"> <p>Note that some p
 plot(grains(<span class="string">'Fo'</span>),grains(<span class="string">'Fo'</span>).meanOrientation)</pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipfColorKey(ori_variable_name)
-  plot(oM)
+  colorKey = ipfColorKey(ori_variable_name)
+  plot(colorKey)
 </pre><img src="GrainReconstructionDemo_07.png"> <h2>Changing lists of grains<a name="12"> </a></h2>
          <p>As with any list in MTEX, one can single out specific grains by conditions using the syntax</p><pre class="codeinput"><span class="comment">% this gives all grains with more the 1000 pixels</span>
 largeGrains = grains(grains.grainSize &gt; 1000)

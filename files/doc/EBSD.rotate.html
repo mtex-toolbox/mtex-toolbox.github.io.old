@@ -43,7 +43,7 @@
             <p>(method of <a href="EBSD_index.html">EBSD</a>)
             </p>
          </div>
-         <p>rotate EBSD orientations or spatial data around point of origin</p>
+         <p>rotate EBSD</p>
          <h2>Syntax<a name="3"> </a></h2><pre class="codeinput"><span class="comment">% roate the whoole data set about the z-axis by 90*degree</span>
 ebsd = rotate(ebsd,10*degree)</pre><pre class="codeinput"><span class="comment">% rotate about the x-axis</span>
 ebsd = rotate(ebsd,rotation.byAxisAngle(xvector,180*degree))</pre><pre class="codeinput"><span class="comment">% rotate only the spatial data</span>
@@ -72,7 +72,7 @@ ebsd = rotate(ebsd,180*degree,<span class="string">'center'</span>,[0,0])</pre><
             <tt>q</tt>
             </td>
             <td>
-            <p><a href="quaternion_index.html">quaternion</a></p>
+            <p><a href="rotation_index.html">rotation</a></p>
             </td>
             </tr>
             <tr>
@@ -89,7 +89,7 @@ ebsd = rotate(ebsd,180*degree,<span class="string">'center'</span>,[0,0])</pre><
             <tt>'center'</tt>
             </td>
             <td>
-            <p>[x,y] center of rotation, default is center of the map</p>
+            <p>[x,y] center of rotation, default is (0,0)</p>
             </td>
             </tr>
             </table>

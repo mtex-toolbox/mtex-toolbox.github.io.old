@@ -86,8 +86,8 @@ plot(grains,grains.meanOrientation)</pre><pre class="codeoutput"> loading data .
   I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipfColorKey(ori_variable_name)
-  plot(oM)
+  colorKey = ipfColorKey(ori_variable_name)
+  plot(colorKey)
 </pre><img src="CSLBoundaries_01.png"> <p>Next we plot image quality as it makes the grain boundaries visible. and overlay it with the orientation map</p><pre class="codeinput">plot(ebsd,log(ebsd.prop.iq),<span class="string">'figSize'</span>,<span class="string">'large'</span>)
 mtexColorMap <span class="string">black2white</span>
 CLim(gcm,[.5,5])
@@ -98,8 +98,8 @@ plot(grains,grains.meanOrientation,<span class="string">'FaceAlpha'</span>,0.4)
 hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipfColorKey(ori_variable_name)
-  plot(oM)
+  colorKey = ipfColorKey(ori_variable_name)
+  plot(colorKey)
 </pre><img src="CSLBoundaries_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Detecting CSL Boundaries<a name="5"> </a></h2>
          <p>In order to detect CSL boundaries within the data set we first restrict the grain boundaries to iron to iron phase transitions
@@ -177,8 +177,8 @@ plot(gB,moriKey.orientation2color(gB.misorientation),<span class="string">'linew
 hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipfColorKey(ori_variable_name)
-  plot(oM)
+  colorKey = ipfColorKey(ori_variable_name)
+  plot(colorKey)
 </pre><img src="CSLBoundaries_07.png"> <p>Lets examine the colormap. We plot it as axis angle sections and add 300 random boundary misorientations on top of it. Note
             that in this plot misorientations <tt>mori</tt> and <tt>inv(mori)</tt> are associated.
          </p><pre class="codeinput">plot(moriKey,<span class="string">'axisAngle'</span>,(5:5:60)*degree)

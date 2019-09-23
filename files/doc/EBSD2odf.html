@@ -81,7 +81,7 @@ odf = ODF
             measurements (only one measurement per grain).
          </p><pre class="codeinput"><span class="comment">% try to compute an optimal kernel</span>
 psi = calcKernel(ebsd(<span class="string">'fo'</span>).orientations)</pre><pre class="codeoutput"> 
-psi = deLaValeePoussinKernel  
+psi = deLaValleePoussinKernel  
   bandwidth: 98
   halfwidth: 2.3&deg;
  
@@ -98,7 +98,7 @@ psi = calcKernel(grains(<span class="string">'fo'</span>).meanOrientation)
 
 <span class="comment">% compute the ODF with the kernel psi</span>
 odf = calcODF(ebsd(<span class="string">'fo'</span>).orientations,<span class="string">'kernel'</span>,psi)</pre><pre class="codeoutput"> 
-psi = deLaValeePoussinKernel  
+psi = deLaValleePoussinKernel  
   bandwidth: 41
   halfwidth: 6&deg;
  

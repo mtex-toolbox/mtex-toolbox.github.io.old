@@ -84,7 +84,7 @@ q = 0.5;
 eps = strainTensor(diag([-q 1 -(1-q)]));
 
 <span class="comment">% and compute Taylor factor as well as the active slip systems</span>
-[M,b,ori] = calcTaylor(inv(grains.meanOrientation).*eps,sS);</pre><pre class="codeoutput"> 
+[M,b,W] = calcTaylor(inv(grains.meanOrientation).*eps,sS);</pre><pre class="codeoutput"> 
 sS = slipSystem  
  mineral: iron (m-3m)
  size: 1 x 1

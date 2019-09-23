@@ -47,8 +47,8 @@
          <h2>Syntax<a name="3"> </a></h2><pre class="codeinput"><span class="comment">% define a cubic and hexagonal symmetries</span>
 csCube = crystalSymmetry(<span class="string">'cubic'</span>)
 csHex = crystalSymmetry(<span class="string">'hexagonal'</span>)</pre><pre class="codeinput"><span class="comment">% define two orientations</span>
-o1 = orientation.byEuler(csCube)
-o2 = orientation.byEuler(csHex)</pre><pre class="codeinput"><span class="comment">% the misorientation axis with respect to the specimen coordinate</span>
+o1 = orientation.byEuler(0,0,0,csCube)
+o2 = orientation.byEuler(10*degree,20*degree,30*degree,csHex)</pre><pre class="codeinput"><span class="comment">% the misorientation axis with respect to the specimen coordinate</span>
 <span class="comment">% system is computed by</span>
 a = axis(o1,o2)</pre><pre class="codeinput"><span class="comment">% the misorientation axis with respect to csCube is computed by</span>
 a = axis(inv(o1)*o2,csCube)</pre><pre class="codeinput"><span class="comment">% the misorientation axis with respect to csHex is computed by</span>

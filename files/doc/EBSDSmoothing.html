@@ -107,7 +107,8 @@ ipfKey.inversePoleFigureDirection = grains(id).meanOrientation * ipfKey.whiteCen
 ipfKey.maxAngle = 1.5*degree;
 
 <span class="comment">% plot the colormap</span>
-plot(ipfKey,<span class="string">'resolution'</span>,0.25*degree)</pre><img src="EBSDSmoothing_02.png"> <p>With the new colormap, we can clearly see the noise overlapping the texture gradient within the grain.</p><pre class="codeinput"><span class="comment">% plot the grain</span>
+plot(ipfKey,<span class="string">'resolution'</span>,0.25*degree)</pre><pre class="codeoutput">Warning: Possibly applying an orientation to an object in specimen coordinates! 
+</pre><img src="EBSDSmoothing_02.png"> <p>With the new colormap, we can clearly see the noise overlapping the texture gradient within the grain.</p><pre class="codeinput"><span class="comment">% plot the grain</span>
 plot(ebsd,ipfKey.orientation2color(ebsd.orientations),<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
 
 hold <span class="string">on</span>

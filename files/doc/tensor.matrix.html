@@ -45,7 +45,8 @@
          </div>
          <p>return tensor as a matrix</p>
          <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">m = matrix(T)
-m = matrix(T,<span class="string">'voigt'</span>)</pre><h2>Input<a name="4"> </a></h2>
+m = matrix(T,<span class="string">'Voigt'</span>)
+m = matrix(T,<span class="string">'Kelvin'</span>)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -67,10 +68,18 @@ m = matrix(T,<span class="string">'voigt'</span>)</pre><h2>Input<a name="4"> </a
             </tr>
             <tr>
             <td width="150px">
-            <tt>'voigt'</tt>
+            <tt>'Voigt'</tt>
             </td>
             <td>
-            <p>give a 4 rank tensor in voigt notation, i.e. as a 6 x 6 matrix</p>
+            <p>give a 4 rank tensor in Voigt notation, i.e. as a 6 x 6 matrix</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="150px">
+            <tt>'Kelvin'</tt>
+            </td>
+            <td>
+            <p>same as above but with Kelvin normalization</p>
             </td>
             </tr>
             </table>

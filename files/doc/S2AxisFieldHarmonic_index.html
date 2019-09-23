@@ -38,9 +38,32 @@
          </div>
       </div>
       <div class="container">
-         <h1><b><tt>S2AxisFieldHarmonic</tt></b></h1>
-         <div class="subheading"></div>
-         <h2>Defining a <tt>S2AxisFieldHarmonic</tt><a name="1"> </a></h2>
+         <h1>S2AxisFieldHarmonic</h1>
+         <div class="subheading">
+            <p>S2AxisFieldharmonic handles axis fields on the sphere. Axis can be understood as three-dimensional vectors without direction
+               or length.
+            </p>
+         </div>
+         <div>
+            <table class="content">
+               <tr>
+                  <td class="header">On this page ...</td>
+               </tr>
+               <tr>
+                  <td><a href="#3">Defining a S2AxisFieldHarmonic</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#9">Visualization</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#12">Complete Function list</a></td>
+               </tr>
+            </table>
+         </div>
+         <p>S2AxisFieldHarmonic handles functions of the form</p>
+         <p><img src="S2AxisFieldHarmonic_index_eq03536761402531484695.png"> </p>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Defining a S2AxisFieldHarmonic<a name="3"> </a></h2>
          <p><b>Definition via function values</b></p>
          <p>At first you need some vertices</p><pre class="codeinput">nodes = equispacedS2Grid(<span class="string">'points'</span>, 1e5);
 nodes = nodes(:);</pre><p>Next you define function values for the vertices</p><pre class="codeinput">y = vector3d(sin(5*nodes.x), 1, nodes.y, <span class="string">'antipodal'</span>);</pre><p>Now the actual command to get <tt>sAF1</tt> of type <tt>S2AxisFieldHarmonic</tt></p><pre class="codeinput">sAF1 = S2AxisFieldHarmonic.approximation(nodes, y)</pre><pre class="codeoutput"> 
@@ -51,7 +74,8 @@ sAF1 = S2AxisFieldHarmonic
          </p><pre class="codeinput">f = @(v) vector3d(v.x, v.y, 0*v.x, <span class="string">'antipodal'</span>);</pre><p>Now you can call the quadrature command to get <tt>sAF2</tt> of type <tt>S2AxisFieldHarmonic</tt></p><pre class="codeinput">sAF2 = S2AxisFieldHarmonic.quadrature(@(v) f(v))</pre><pre class="codeoutput"> 
 sAF2 = S2AxisFieldHarmonic  
  bandwidth: 128
-</pre><h2>Visualization<a name="7"> </a></h2>
+</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Visualization<a name="9"> </a></h2>
          <p>the default <tt>plot</tt>-command
          </p><pre class="codeinput">plot(sAF1);</pre><img src="S2AxisFieldHarmonic_index_01.png"> <div>
             <ul type="square">
@@ -59,8 +83,10 @@ sAF2 = S2AxisFieldHarmonic
             </ul>
          </div>
          <p>3D plot of a sphere with the axis on itself</p><pre class="codeinput">clf;
-quiver3(sAF2);</pre><img src="S2AxisFieldHarmonic_index_02.png"> <h2>Complete Function list<a name="10"> </a></h2>
+quiver3(sAF2);</pre><img src="S2AxisFieldHarmonic_index_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Complete Function list<a name="12"> </a></h2>
          <p><table width="90%"/></p>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

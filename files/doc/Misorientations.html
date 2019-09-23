@@ -96,8 +96,8 @@ grains = grain2d
   I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipfColorKey(ori_variable_name)
-  plot(oM)
+  colorKey = ipfColorKey(ori_variable_name)
+  plot(colorKey)
 </pre><img src="Misorientations_01.png"> <p>After extracting the mean orientation of grain 70 and 80</p><pre class="codeinput">ori1 = grains(74).meanOrientation
 ori2 = grains(85).meanOrientation</pre><pre class="codeoutput"> 
 ori1 = orientation  
@@ -205,7 +205,7 @@ hold <span class="string">off</span>
 
 <span class="comment">% mark the corresponding lattice planes in the twin</span>
 mm = round(unique(mori*m.symmetrise,<span class="string">'noSymmetry'</span>),<span class="string">'maxHKL'</span>,6);
-annotate(mm,<span class="string">'labeled'</span>,<span class="string">'MarkerSize'</span>,5,<span class="string">'figSize'</span>,<span class="string">'large'</span>)
+annotate(mm,<span class="string">'labeled'</span>,<span class="string">'MarkerSize'</span>,5,<span class="string">'figSize'</span>,<span class="string">'large'</span>,<span class="string">'textAboveMarker'</span>)
 
 <span class="comment">% show legend</span>
 legend({},<span class="string">'location'</span>,<span class="string">'SouthEast'</span>,<span class="string">'FontSize'</span>,13);</pre><img src="Misorientations_02.png"> <p>we observe an almost perfect match for the lattice planes {11-20} to {-2110} and {1-101} to {-1101} and good coincidences
@@ -227,7 +227,8 @@ ans =
 </pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Twinning misorientations<a name="14"> </a></h2>
          <p>Lets define a misorientation that makes a perfect fit between the {11-20} lattice planes and between the {10-11} lattice planes</p><pre class="codeinput">mori = orientation.map(Miller(1,1,-2,0,CS),Miller(2,-1,-1,0,CS),<span class="keyword">...</span>
-  Miller(-1,0,1,1,CS),Miller(1,0,-1,1,CS))
+  Miller(-1,0,1,1,CS),Miller(-1,1,0,1,CS))
+
 
 <span class="comment">% the rotational axis</span>
 round(mori.axis)
@@ -240,19 +241,19 @@ mori = misorientation
   crystal symmetry : Magnesium (622, X||a*, Y||b, Z||c*)
  
   Bunge Euler angles in degree
-  phi1     Phi    phi2    Inv.
-   330 93.6529     330       0
+  phi1  Phi phi2 Inv.
+   300    0    0    0
  
  
 ans = Miller  
  size: 1 x 1
  mineral: Magnesium (622, X||a*, Y||b, Z||c*)
-  h -1
-  k  2
+  h  1
+  k  0
   i -1
   l  0
 ans =
-   86.3471
+     0
 </pre><p>and plot the same figure as before with the exact twinning misorientation.</p><pre class="codeinput"><span class="comment">% cycle through all major lattice planes</span>
 close <span class="string">all</span>
 <span class="keyword">for</span> im = 1:length(m)
@@ -286,8 +287,8 @@ plot(gB(isTwinning),<span class="string">'edgecolor'</span>,<span class="string"
 hold <span class="string">off</span></pre><pre class="codeoutput">  I'm going to colorize the orientation data with the 
   standard MTEX colorkey. To view the colorkey do:
  
-  oM = ipfColorKey(ori_variable_name)
-  plot(oM)
+  colorKey = ipfColorKey(ori_variable_name)
+  plot(colorKey)
 </pre><img src="Misorientations_04.png"> <p>From this picture we see that large fraction of grain boudaries are twinning boundaries. To make this observation more evident
             we may plot the boundary misorientation angle distribution function. This is simply the angle distribution of all boundary
             misorientations and can be displayed with

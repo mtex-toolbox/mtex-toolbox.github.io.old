@@ -113,15 +113,15 @@ plot(SF)
 annotate(pos)</pre><pre class="codeoutput"> 
 SF = S2FunHarmonic  
  bandwidth: 64
+ antipodal: true
 SFMax =
     0.5000
  
 pos = vector3d  
- size: 3 x 1
+ size: 1 x 1
+ antipodal: true
          x          y          z
-  0.407716  -0.102647   0.907321
-  0.401766 -0.0985444   0.910425
-  -0.40127  -0.910829  0.0968136
+  0.408421 -0.0919374   0.908152
 </pre><img src="SchmidFactorDemo_01.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>Stress Tensor<a name="11"> </a></h2>
          <p>Instead by the tension direction the stress might be specified by a stress tensor</p><pre class="codeinput">sigma = stressTensor.uniaxial(vector3d.Z)</pre><pre class="codeoutput"> 
@@ -249,6 +249,7 @@ mtexColorbar</pre><pre class="codeoutput">
 tau = S2FunHarmonic  
  size: 24 x 1
  bandwidth: 64
+ antipodal: true
 </pre><img src="SchmidFactorDemo_05.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <h2>The Schmid factor for EBSD data<a name="20"> </a></h2>
          <p>So far we have always assumed that the stress tensor is already given relatively to the crystal coordinate system. Next, we
@@ -354,7 +355,7 @@ hold <span class="string">off</span></pre><img src="SchmidFactorDemo_09.png"> <p
 
 epsCrystal = inv(grains.meanOrientation) * eps
 
-[M, b, mori] = calcTaylor(epsCrystal, sS);
+[M, b] = calcTaylor(epsCrystal, sS);
 
 plot(grains,M,<span class="string">'micronbar'</span>,<span class="string">'off'</span>)
 mtexColorbar <span class="string">southoutside</span></pre><pre class="codeoutput"> 

@@ -44,7 +44,7 @@
             </p>
          </div>
          <p>compute Taylor factor and strain dependent orientation gradient</p>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">[M,b,mori] = calcTaylor(eps,sS)</pre><h2>Input<a name="4"> </a></h2>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">[M,b,W] = calcTaylor(eps,sS)</pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -82,15 +82,15 @@
             <tt>b</tt>
             </td>
             <td>
-            <p>coefficients for the acive slip systems</p>
+            <p>vector of slip rates for all slip systems</p>
             </td>
             </tr>
             <tr>
             <td width="100px">
-            <tt>mori</tt>
+            <tt>W</tt>
             </td>
             <td>
-            <p>misorientation</p>
+            <p><a href="spinTensor_index.html">spinTensor</a></p>
             </td>
             </tr>
             </table>
@@ -130,6 +130,27 @@ sS = slipSystem
  size: 1 x 1
   u    v    w  | h    k    l CRSS
   0    1   -1    1    1    1    1
+</pre><pre class="codeinput"><span class="comment">% compute the Taylor factor</span>
+[M,b,W] = calcTaylor(inv(ori)*eps,sS.symmetrise)</pre><pre class="codeoutput">M =
+    0.2719
+b =
+  Columns 1 through 7
+    0.0000    0.0000    0.0154    0.0332    0.0000    0.0000    0.0184
+  Columns 8 through 14
+    0.0000    0.0000    0.0000    0.0204    0.0000    0.0000    0.0000
+  Columns 15 through 21
+    0.0000    0.0319    0.0107    0.0000    0.0000    0.0284    0.0000
+  Columns 22 through 24
+    0.0000    0.0000    0.1135
+ 
+W = spinTensor  
+  rank   : 2 (3 x 3)
+  mineral: m-3m     
+ 
+ *10^-3
+      0 -20.91  33.73
+  20.91      0 -17.63
+ -33.73  17.63      0
 </pre><p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>

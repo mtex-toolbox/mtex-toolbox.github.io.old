@@ -43,8 +43,11 @@
             <p>(method of <a href="S2Fun_index.html">S2Fun</a>)
             </p>
          </div>
-         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">plotSection(sF,vector3d.Z)
-plotSection(sF,vector3d.Z,pi/3)</pre><h2>Input<a name="4"> </a></h2>
+         <p>plot a section through a spherical function</p>
+         <h2>Syntax<a name="3"> </a></h2><pre class="codeinput">N = vector3d.Z; <span class="comment">% normal direction</span>
+plotSection(sF,N) <span class="comment">% plot in equator plane</span></pre><pre class="codeinput">theta = pi/3;   <span class="comment">% polar angle</span>
+plotSection(sF,N,theta) <span class="comment">% plot small circle at 30 degree from the north pole</span></pre><pre class="codeinput">rho = linspace(0,pi); <span class="comment">% azimuthal angle</span>
+plotSection(sF,N,theta,rho) <span class="comment">% plot half small circle at 30 degree</span></pre><h2>Input<a name="4"> </a></h2>
          <p>
             <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
             <tr>
@@ -53,6 +56,30 @@ plotSection(sF,vector3d.Z,pi/3)</pre><h2>Input<a name="4"> </a></h2>
             </td>
             <td>
             <p><a href="S2Fun_index.html">S2Fun</a></p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>N</tt>
+            </td>
+            <td>
+            <p>normal direction of the intersection plane</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>theta</tt>
+            </td>
+            <td>
+            <p>polar angle of the intersection plane</p>
+            </td>
+            </tr>
+            <tr>
+            <td width="100px">
+            <tt>rho</tt>
+            </td>
+            <td>
+            <p>azimuthal angle of the points to be plotted</p>
             </td>
             </tr>
             </table>

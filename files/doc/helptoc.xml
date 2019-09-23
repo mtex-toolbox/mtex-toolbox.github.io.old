@@ -74,6 +74,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.dot_outer.html">dot_outer</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.double.html">double</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.dyad.html">dyad</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.eig.html">eig</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.end.html">end</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.eq.html">eq</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.exp.html">exp</tocitem>
@@ -89,6 +90,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.mean.html">mean</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.minus.html">minus</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.mpower.html">mpower</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.mrdivide.html">mrdivide</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.mtimes.html">mtimes</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.ne.html">ne</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vector3d.norm.html">norm</tocitem>
@@ -195,6 +197,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.byAxisAngle.html">byAxisAngle</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.byEuler.html">byEuler</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.byMatrix.html">byMatrix</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.byRodrigues.html">byRodrigues</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.cat.html">cat</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.char.html">char</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rotation.display.html">display</tocitem>
@@ -364,6 +367,7 @@
             <tocitem target="slipSystem_index.html">Slip Systems (The Class @slipSystem)<tocitem target="slipSystem_index.html#3">Class Description</tocitem>
                <tocitem target="slipSystem_index.html#4">PLEASE HELP AND ADD CONTENT HERE</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="slipSystem.SchmidFactor.html">SchmidFactor</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="slipSystem.SchmidTensor.html">SchmidTensor</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="slipSystem.cat.html">cat</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png"
                         target="slipSystem.deformationTensor.html">deformationTensor</tocitem>
@@ -450,6 +454,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.scatter.html">scatter</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.setSubSet.html">setSubSet</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.size.html">size</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.std.html">std</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.subSet.html">subSet</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.subsasgn.html">subsasgn</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="quaternion.subsref.html">subsref</tocitem>
@@ -658,9 +663,10 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.id2ind.html">id2ind</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.inpolygon.html">inpolygon</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.load.html">load</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.mtimes.html">mtimes</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.minus.html">minus</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.plot.html">plot</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.plotUnitCells.html">plotUnitCells</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.plus.html">plus</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.quiver.html">quiver</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.reduce.html">reduce</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="EBSD.rotate.html">rotate</tocitem>
@@ -704,6 +710,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.mean.html">mean</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.min.html">min</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.minus.html">minus</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.mpower.html">mpower</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.mrdivide.html">mrdivide</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.mtimes.html">mtimes</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.ndims.html">ndims</tocitem>
@@ -725,6 +732,7 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.subsasgn.html">subsasgn</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.subsref.html">subsref</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.sum.html">sum</tocitem>
+               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.svd.html">svd</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.sym.html">sym</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.symmetrise.html">symmetrise</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="tensor.tensor.html">tensor</tocitem>
@@ -771,8 +779,6 @@
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="reflection.html">reflection</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="regularS2Grid.html">regularS2Grid</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="regularSO3Grid.html">regularSO3Grid</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="rodrigues2quat.html">rodrigues2quat</tocitem>
-               <tocitem image="$toolbox/matlab/icons/help_fx.png" target="vec42quat.html">vec42quat</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="xvector.html">xvector</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="yvector.html">yvector</tocitem>
                <tocitem image="$toolbox/matlab/icons/help_fx.png" target="zvector.html">zvector</tocitem>
@@ -1172,7 +1178,7 @@
          </tocitem>
          <tocitem target="TaylorModel.html">Taylor Model<tocitem target="TaylorModel.html#5">Set up</tocitem>
             <tocitem target="TaylorModel.html#6">The orientation dependence of the Taylor factor</tocitem>
-            <tocitem target="TaylorModel.html#7">The orientation dependence of the rotation value</tocitem>
+            <tocitem target="TaylorModel.html#7">The orientation dependence of the spin</tocitem>
             <tocitem target="TaylorModel.html#9">Most active slip direction</tocitem>
             <tocitem target="TaylorModel.html#13">Texture evolution during rolling</tocitem>
             <tocitem target="TaylorModel.html#15">restore MTEX preferences</tocitem>
@@ -1187,6 +1193,143 @@
             <tocitem target="GND_demo.html#12">The Energy of Dislocations</tocitem>
             <tocitem target="GND_demo.html#15">Fitting Dislocations to the incomplete dislocation density tensor</tocitem>
             <tocitem target="GND_demo.html#19">The total dislocation energy</tocitem>
+         </tocitem>
+      </tocitem>
+      <tocitem target="SphericalFunctions.html">Spherical Functions<tocitem target="S2FunHarmonic_index.html">S2FunHarmonic<tocitem target="S2FunHarmonic_index.html#3">Defining an univariate S2FunHarmonic</tocitem>
+            <tocitem target="S2FunHarmonic_index.html#12">Operations</tocitem>
+            <tocitem target="S2FunHarmonic_index.html#32">Visualization of univariate S2FunHarmonic</tocitem>
+            <tocitem target="S2FunHarmonic_index.html#40">Structural conventions of the input and output of multivariate S2FunHarmonic</tocitem>
+            <tocitem target="S2FunHarmonic_index.html#41">Defining a multivariate S2FunHarmonic</tocitem>
+            <tocitem target="S2FunHarmonic_index.html#49">Operations which differ from an univariate S2FunHarmonic</tocitem>
+            <tocitem target="S2FunHarmonic_index.html#56">Visualization of multivariate S2FunHarmonic</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonic.S2FunHarmonic.html">S2FunHarmonic</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.abs.html">abs</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.acos.html">acos</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonic.approximation.html">approximation</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.cat.html">cat</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.conj.html">conj</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.conv.html">conv</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.cos.html">cos</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonic.ctranspose.html">ctranspose</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.display.html">display</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.dot.html">dot</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.eig.html">eig</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.end.html">end</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.entropy.html">entropy</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.eval.html">eval</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.even.html">even</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.grad.html">grad</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.horzcat.html">horzcat</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.isempty.html">isempty</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.le.html">le</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.length.html">length</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.log.html">log</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.mean.html">mean</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.min.html">min</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.mtimes.html">mtimes</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.norm.html">norm</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonic.plotSpektra.html">plotSpektra</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.plus.html">plus</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.power.html">power</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonic.quadrature.html">quadrature</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.radon.html">radon</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.rdivide.html">rdivide</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonic.regularisation.html">regularisation</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.reshape.html">reshape</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.rotate.html">rotate</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonic.rotate_outer.html">rotate_outer</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonic.simultaniousCG.html">simultaniousCG</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.sqrt.html">sqrt</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonic.steepestDescent.html">steepestDescent</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.subsasgn.html">subsasgn</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.subsref.html">subsref</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.sum.html">sum</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonic.symmetrise.html">symmetrise</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.times.html">times</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.transpose.html">transpose</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.truncate.html">truncate</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.uminus.html">uminus</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.vertcat.html">vertcat</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonic.volume.html">volume</tocitem>
+         </tocitem>
+         <tocitem target="S2VectorFieldHarmonic_index.html">S2VectorFieldHarmonic<tocitem target="S2VectorFieldHarmonic_index.html#2">Defining a S2VectorFieldHarmonic</tocitem>
+            <tocitem target="S2VectorFieldHarmonic_index.html#9">Operations</tocitem>
+            <tocitem target="S2VectorFieldHarmonic_index.html#19">Visualization</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.S2VectorFieldHarmonic.html">S2VectorFieldHarmonic</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.approximation.html">approximation</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.cross.html">cross</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.display.html">display</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.dot.html">dot</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.eval.html">eval</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.mean.html">mean</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.minus.html">minus</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.mtimes.html">mtimes</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.norm.html">norm</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.plus.html">plus</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.quadrature.html">quadrature</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.rdivide.html">rdivide</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.rotate.html">rotate</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.times.html">times</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2VectorFieldHarmonic.uminus.html">uminus</tocitem>
+         </tocitem>
+         <tocitem target="S2AxisFieldHarmonic_index.html">S2AxisFieldHarmonic<tocitem target="S2AxisFieldHarmonic_index.html#3">Defining a S2AxisFieldHarmonic</tocitem>
+            <tocitem target="S2AxisFieldHarmonic_index.html#9">Visualization</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2AxisFieldHarmonic.S2AxisFieldHarmonic.html">S2AxisFieldHarmonic</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2AxisFieldHarmonic.approximation.html">approximation</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2AxisFieldHarmonic.cross.html">cross</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2AxisFieldHarmonic.display.html">display</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2AxisFieldHarmonic.dot.html">dot</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2AxisFieldHarmonic.eval.html">eval</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2AxisFieldHarmonic.quadrature.html">quadrature</tocitem>
+         </tocitem>
+         <tocitem target="S2FunHarmonicSym_index.html">S2FunHarmonicSym<tocitem target="S2FunHarmonicSym_index.html#2">Defining a S2FunHarmonic</tocitem>
+            <tocitem target="S2FunHarmonicSym_index.html#7">Visualization</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonicSym.S2FunHarmonicSym.html">S2FunHarmonicSym</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonicSym.display.html">display</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonicSym.plot.html">plot</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonicSym.plus.html">plus</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonicSym.power.html">power</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonicSym.quadrature.html">quadrature</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonicSym.rdivide.html">rdivide</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png"
+                     target="S2FunHarmonicSym.steepestDescent.html">steepestDescent</tocitem>
+            <tocitem image="$toolbox/matlab/icons/help_fx.png" target="S2FunHarmonicSym.times.html">times</tocitem>
          </tocitem>
       </tocitem>
       <tocitem target="Plotting.html">Plotting<tocitem target="PlottingIntro.html">Plotting Overview<tocitem target="PlottingIntro.html#3">Plotting in MTEX</tocitem>
@@ -1238,7 +1381,7 @@
             <tocitem target="ColorCodingEBSD_demo.html#10">Colorcoding according to inverse pole figure</tocitem>
          </tocitem>
       </tocitem>
-      <tocitem target="ReleaseNotes.html">Release Notes<tocitem target="changelog.html">MTEX Changelog<tocitem target="changelog.html#1">MTEX 5.2.0 2/2019</tocitem>
+      <tocitem target="ReleaseNotes.html">Release Notes<tocitem target="changelog.html">MTEX Changelog<tocitem target="changelog.html#1">MTEX 5.2.0 9/2019</tocitem>
             <tocitem target="changelog.html#2">MTEX 5.1.0 04/2018</tocitem>
             <tocitem target="changelog.html#3">MTEX 5.0.0 03/2018</tocitem>
             <tocitem target="changelog.html#4">MTEX 4.5.2 11/2017</tocitem>

@@ -38,9 +38,32 @@
          </div>
       </div>
       <div class="container">
-         <h1><b><tt>S2VectorFieldHarmonic</tt></b></h1>
-         <div class="subheading"></div>
-         <h2>Defining a <tt>S2VectorFieldHarmonic</tt><a name="1"> </a></h2>
+         <h1>S2VectorFieldHarmonic</h1>
+         <div class="subheading">
+            <p>S2VectorField handles three-dimensional functions on the sphere. For instance the gradient of an univariate S2FunHarmonic
+               can return a S2VectorFieldHarmonic.
+            </p>
+         </div>
+         <div>
+            <table class="content">
+               <tr>
+                  <td class="header">On this page ...</td>
+               </tr>
+               <tr>
+                  <td><a href="#2">Defining a S2VectorFieldHarmonic</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#9">Operations</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#19">Visualization</a></td>
+               </tr>
+               <tr>
+                  <td><a href="#22">Complete Function list</a></td>
+               </tr>
+            </table>
+         </div>
+         <h2>Defining a S2VectorFieldHarmonic<a name="2"> </a></h2>
          <p><b>Definition via function values</b></p>
          <p>At first you need some vertices</p><pre class="codeinput">nodes = equispacedS2Grid(<span class="string">'points'</span>, 1e5);
 nodes = nodes(:);</pre><p>Next you define function values for the vertices</p><pre class="codeinput">y = vector3d.byPolar(sin(3*nodes.theta), nodes.rho+pi/2);</pre><p>Now the actual command to get <tt>sVF1</tt> of type <tt>S2VectorFieldHarmonic</tt></p><pre class="codeinput">sVF1 = S2VectorFieldHarmonic.approximation(nodes, y)</pre><pre class="codeoutput"> 
@@ -63,12 +86,14 @@ sVF3 = S2VectorFieldHarmonic
  
 sVF4 = S2VectorFieldHarmonic  
  bandwidth: 3
-</pre><h2>Operations<a name="8"> </a></h2>
+</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Operations<a name="9"> </a></h2>
          <p><b>Basic arithmetic operations</b></p>
          <p>addition/subtraction</p><pre class="codeinput">sVF1+sVF2; sVF1+vector3d(1, 0, 0);
 sVF1-sVF2; sVF2-vector3d(sqrt(2)/2, sqrt(2)/2, 0);</pre><p>multiplication/division</p><pre class="codeinput">2.*sVF1; sVF1./4;</pre><p>dot product</p><pre class="codeinput">dot(sVF1, sVF2); dot(sVF1, vector3d(0, 0, 1));</pre><p>cross product</p><pre class="codeinput">cross(sVF1, sVF2); cross(sVF1, vector3d(0, 0, 1));</pre><p><b>Other operations</b></p>
          <p>mean value</p><pre class="codeinput">mean(sVF1);</pre><p>Rotation</p><pre class="codeinput">r = rotation.byEuler( [pi/4 0 0]);
-rotate(sVF1, r);</pre><p>pointwise norm of the vectors</p><pre class="codeinput">norm(sVF1);</pre><h2>Visualization<a name="18"> </a></h2>
+rotate(sVF1, r);</pre><p>pointwise norm of the vectors</p><pre class="codeinput">norm(sVF1);</pre><p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Visualization<a name="19"> </a></h2>
          <p>the default <tt>plot</tt>-command
          </p><pre class="codeinput">plot(sVF1);</pre><img src="S2VectorFieldHarmonic_index_01.png"> <div>
             <ul type="square">
@@ -76,8 +101,10 @@ rotate(sVF1, r);</pre><p>pointwise norm of the vectors</p><pre class="codeinput"
             </ul>
          </div>
          <p>3D plot of a sphere with the vectors on itself</p><pre class="codeinput">clf;
-quiver3(sVF2);</pre><img src="S2VectorFieldHarmonic_index_02.png"> <h2>Complete Function list<a name="21"> </a></h2>
+quiver3(sVF2);</pre><img src="S2VectorFieldHarmonic_index_02.png"> <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+         <h2>Complete Function list<a name="22"> </a></h2>
          <p><table width="90%"/></p>
+         <p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
          <p style="font-size:1px;"></p>
          <table class="footer" border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
